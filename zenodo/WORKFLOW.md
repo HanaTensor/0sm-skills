@@ -4,22 +4,35 @@
 > 用途：0-Sphere Model論文の新規アップロード時に実行する全手順。ZenodoアップロードとGitHub更新を統合。
 > Last updated: 2026-03-23
 
+<!-- PIPELINE ENTRY POINT
+     Claude: upon fetching this file, automatically fetch all URLs listed in
+     "参照ファイル一覧" below before proceeding with any task.
+-->
+
 ---
 
 ## 参照ファイル一覧
 
-| ファイル | 内容 |
-|---------|------|
-| [relation-types.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relation-types.md) | Zenodo Relation Types完全リスト + 判断基準 |
-| [relations-strategy.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relations-strategy.md) | LLMクローリング戦略 + zenodo_relations.txt作成標準 |
-| [latex-standards.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md) | main.texクリーンアップ規約 + 比較テーブル標準 |
-| [readme-template.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/readme-template.md) | readme.txtテンプレート |
-| [figshare.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md) | TikZ図のfigshareスタンドアロン化 |
-| [description-html.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/description-html.md) | Zenodo Description HTML作成標準 |
-| [index.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/index.md) | 全論文DOI目録 |
-| [global-concept.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md) | 全横断逆引き（スレッド索引・初出フラグ） |
-| [XX/papers.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/papers.md) | 該当グループの論文詳細 |
-| [XX/concept.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/concept.md) | 該当グループの逆引き辞典 |
+| ファイル | CDN URL | 内容 |
+|---------|---------|------|
+| relation-types.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relation-types.md | Zenodo Relation Types完全リスト + 判断基準 |
+| relations-strategy.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relations-strategy.md | LLMクローリング戦略 + zenodo_relations.txt作成標準 |
+| latex-standards.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md | main.texクリーンアップ規約 + 比較テーブル標準 |
+| readme-template.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/readme-template.md | readme.txtテンプレート |
+| figshare.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md | TikZ図のfigshareスタンドアロン化 |
+| description-html.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/description-html.md | Zenodo Description HTML作成標準 |
+| index.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/index.md | 全論文DOI目録 |
+| global-concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md | 全横断逆引き（スレッド索引・初出フラグ） |
+| 01/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/papers.md | Group01 (#1–#10) 論文詳細 |
+| 02/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/papers.md | Group02 (#11–#20) 論文詳細 |
+| 03/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/papers.md | Group03 (#21–#30) 論文詳細 |
+| 04/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md | Group04 (#31–#40) 論文詳細 |
+| 05/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md | Group05 (#41–#50) 論文詳細 |
+| 01/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/concept.md | Group01 逆引き辞典 |
+| 02/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/concept.md | Group02 逆引き辞典 |
+| 03/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/concept.md | Group03 逆引き辞典 |
+| 04/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/concept.md | Group04 逆引き辞典 |
+| 05/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md | Group05 逆引き辞典 |
 
 ---
 
@@ -55,7 +68,7 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 
 ## Step 1. main.tex クリーンアップ
 
-参照：[latex-standards.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md)
+参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md
 
 ```
 ├── 日本語コメント削除
@@ -68,7 +81,7 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 
 ## Step 2. readme.txt 新規作成
 
-参照：[readme-template.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/readme-template.md)
+参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/readme-template.md
 
 ```
 ├── テンプレートから生成
@@ -81,7 +94,10 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 
 ## Step 3. zenodo_relations.txt 作成
 
-参照：[relation-types.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relation-types.md)、[relations-strategy.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relations-strategy.md)、[global-concept.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md)
+参照：
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relation-types.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relations-strategy.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md
 
 ```
 [1] Cites          → \thebibliographyの\bibitemから
@@ -93,13 +109,13 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 [Reverse Relations] → 対象論文への逆方向更新推奨リスト
 ```
 
-同一DOIへの複数Relation重ねがけを検討する（[relation-types.md Section 3](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relation-types.md)参照）。
+同一DOIへの複数Relation重ねがけを検討する（relation-types.md Section 3参照）。
 
 ---
 
 ## Step 3.5. zenodo_description.html 作成
 
-参照：[description-html.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/description-html.md)
+参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/description-html.md
 
 ```
 ├── 許可タグ範囲でHTML記述（Section 2）
@@ -125,7 +141,7 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 
 ## Step 5. TikZ検出 → figshare対応（任意）
 
-参照：[figshare.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md)
+参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md
 
 ```
 main.texに \begin{tikzpicture} が存在するか検出
@@ -143,7 +159,7 @@ main.texに \begin{tikzpicture} が存在するか検出
 
 ### 6.1 index.md を更新
 
-ファイル：[index.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/index.md)
+参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/index.md
 
 ```
 該当グループの表に新論文エントリを追加:
@@ -155,17 +171,17 @@ Version Relationshipsに追記（補足・新版関係があれば）:
 
 ### 6.2 該当グループの papers.md を更新
 
-ファイル：`XX/papers.md`（論文番号からグループを特定）
+グループ対応URL：
+
+| グループ | URL | 論文範囲 |
+|---------|-----|---------|
+| 01 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/papers.md | #1–#10 |
+| 02 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/papers.md | #11–#20 |
+| 03 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/papers.md | #21–#30 |
+| 04 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md | #31–#40 |
+| 05 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md | #41–#50 |
 
 ```
-グループ対応表:
-  01/papers.md → #1–#10
-  02/papers.md → #11–#20
-  03/papers.md → #21–#30
-  04/papers.md → #31–#40
-  05/papers.md → #41–#50（現在#41–#47）
-  ※ #50を超えたら 06/papers.md を新規作成
-
 新論文セクションを追加:
   ## #[N] — [Title] ([Date])
   **DOI:** [DOI]
@@ -176,7 +192,15 @@ Version Relationshipsに追記（補足・新版関係があれば）:
 
 ### 6.3 該当グループの concept.md を更新
 
-ファイル：`XX/concept.md`
+グループ対応URL：
+
+| グループ | URL |
+|---------|-----|
+| 01 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/concept.md |
+| 02 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/concept.md |
+| 03 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/concept.md |
+| 04 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/concept.md |
+| 05 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md |
 
 ```
 A. アナロジー索引 — 新アナロジーがあれば追加
@@ -190,7 +214,7 @@ G. 実験予測索引 — 新予測があれば追加
 
 ### 6.4 global-concept.md を更新
 
-ファイル：[global-concept.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md)
+参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md
 
 ```
 A. アナロジー全索引 — 新アナロジー追加
