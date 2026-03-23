@@ -1,0 +1,399 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[12pt,letterpaper]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[labelfont=bf]{caption}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+% ========================================
+% Page Layout Configuration
+% ========================================
+\geometry{
+  letterpaper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+}
+
+\onehalfspacing
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+\title{On Vacuum Energy, Integral Ontology, and the Cosmological Constant\\
+\normalsize Supplementary Note on the Logical Status of $\Lambda$ in the 0-Sphere Model}
+
+\author{Satoshi Hanamura\thanks{Email: hana.tensor@gmail.com}}
+\date{February 22, 2026}
+
+\maketitle
+
+% ========================================
+% Table of Contents
+% ========================================
+\tableofcontents
+
+
+% ========================================
+% Research Summary
+% ========================================
+
+\begin{center}
+\textbf{Research Summary}
+\end{center}
+
+\justifying
+
+This Supplement clarifies the conceptual, observational, and logical status of vacuum energy and the cosmological constant within the framework of the 0-Sphere model. The aim is not to derive the observed value of the cosmological constant $\Lambda_{\mathrm{obs}}$, nor to propose a dynamical mechanism for its smallness. Instead, this note establishes a strict separation between two frequently conflated questions:
+
+\begin{itemize}
+\item[(i)] Why the vacuum energy problem arises within local quantum field theory and whether it constitutes a physical inconsistency.
+\item[(ii)] What the empirical origin of the observed cosmological constant may be.
+\end{itemize}
+
+\textbf{The 0-Sphere model addresses only the first question.} By restricting physical observables to closed line-integral processes associated with internal circulation, the premises leading to the conventional vacuum energy divergence are shown to be invalid. The second question remains open and is explicitly not resolved in the present framework.
+
+No claim is made that the 0-Sphere model predicts or explains the numerical value of $\Lambda_{\mathrm{obs}}$.
+
+
+% ========================================
+% Section 1: Vacuum Energy as a Category Error
+% ========================================
+\section{Vacuum Energy as a Category Error}
+
+% ----------------------------------------
+% Subsection 1.1: The standard derivation
+% ----------------------------------------
+\subsection{The standard derivation}
+
+In local quantum field theory, the vacuum energy problem arises through the following sequence of steps:
+
+\begin{enumerate}
+\item \textbf{Field quantization:} A classical field $\phi(x)$ is promoted to an operator satisfying canonical commutation relations. This is standard and uncontroversial.
+
+\item \textbf{Mode expansion:} The field operator is expanded in terms of creation and annihilation operators for each momentum mode $k$:
+\[
+\phi(x) = \int \frac{d^3k}{(2\pi)^3} \left[ a_k e^{ikx} + a_k^\dagger e^{-ikx} \right]
+\]
+
+\item \textbf{Zero-point energy:} The Hamiltonian includes a contribution from each mode even in the vacuum state:
+\[
+H = \sum_k \frac{1}{2}\hbar\omega_k (a_k^\dagger a_k + a_k a_k^\dagger) = \sum_k \hbar\omega_k \left(a_k^\dagger a_k + \frac{1}{2}\right)
+\]
+The term $\frac{1}{2}\hbar\omega_k$ per mode is the zero-point energy.
+
+\item \textbf{Summation over modes:} Integrating over all momenta up to a cutoff $\Lambda$ yields:
+\[
+E_{\mathrm{vac}} \sim \int^{\Lambda} d^3k \, \omega_k \sim \Lambda^4
+\]
+
+\item \textbf{Gravitational coupling (critical step):} This energy is assumed to gravitate, contributing to the stress-energy tensor as:
+\[
+\langle T_{\mu\nu} \rangle_{\mathrm{vac}} \sim \rho_{\mathrm{vac}} \, g_{\mu\nu}
+\]
+where $\rho_{\mathrm{vac}} \sim \Lambda^4$.
+\end{enumerate}
+
+Steps 1--4 are mathematically well-defined within the framework of local QFT. The difficulty arises exclusively at step 5, where operator-ordering artifacts are reinterpreted as gravitational sources.
+
+% ----------------------------------------
+% Subsection 1.2: Where the category error enters
+% ----------------------------------------
+\subsection{Where the category error enters}
+
+The 0-Sphere model identifies step 5 as a category error. This claim does not deny that constant terms appear in the Einstein equations. Rather, it questions the physical justification for identifying operator-ordering constants---defined only within an effective local field description---with independently gravitating energy densities.
+
+The zero-point energy $\frac{1}{2}\hbar\omega_k$ is a mathematical artifact of operator ordering in the Hamiltonian. It is gauge-dependent in the sense that adding a constant to the Hamiltonian does not affect physical predictions (energy differences, transition rates, S-matrix elements).
+
+The error occurs when this gauge-dependent quantity is \emph{reified}---that is, treated as a physical energy density with independent gravitational significance. Within the integral-based ontology of the 0-Sphere model, this reification is invalid because:
+
+\begin{itemize}
+\item Physical observables are restricted to closed line integrals associated with internal circulation.
+\item Local field values $\phi(x)$ are effective variables, not fundamental entities.
+\item Zero-point energies defined at spacetime points devoid of particles do not correspond to any closed integral process.
+\end{itemize}
+
+Thus, the vacuum energy problem arises not from missing physics but from treating an effective mathematical structure as if it were ontologically fundamental. The enormous mismatch between $\Lambda^4$ and $\Lambda_{\mathrm{obs}}$ is a symptom of this category error rather than a numerical puzzle awaiting fine-tuning.
+
+% ----------------------------------------
+% Subsection 1.3: Comparison with other gauge artifacts
+% ----------------------------------------
+\subsection{Comparison with other gauge artifacts}
+
+This situation is analogous to other cases where mathematical structures in effective descriptions do not correspond to physical reality:
+
+\begin{itemize}
+\item \textbf{Gauge potentials:} In electromagnetism, the vector potential $A_\mu(x)$ is gauge-dependent. Only gauge-invariant quantities (field strengths, Wilson loops) are physical. Attempting to assign independent reality to $A_\mu$ at each point leads to conceptual difficulties (e.g., instantaneous action at a distance in certain gauges).
+
+\item \textbf{Coordinate singularities:} In general relativity, apparent singularities at the Schwarzschild radius are coordinate artifacts. Attributing physical significance to coordinate-dependent quantities leads to false conclusions.
+\end{itemize}
+
+Similarly, zero-point energies are operator-ordering artifacts. Treating them as gravitational sources constitutes a category error of the same logical type.
+
+% ========================================
+% Section 2: Localization of Energy in the 0-Sphere Model
+% ========================================
+\section{Localization of Energy in the 0-Sphere Model}
+
+In the 0-Sphere framework, energy is always associated with internal dynamical processes. It is confined to closed, effectively adiabatic systems formed by internal circulation within a minimal geometric structure. This section clarifies the distinction between localized particle energy and ubiquitous vacuum energy density.
+
+% ----------------------------------------
+% Subsection 2.1: Energy as internal circulation
+% ----------------------------------------
+\subsection{Energy as internal circulation}
+
+The 0-Sphere model attributes the rest mass of a particle, such as the electron, to energy stored in internal circulation between two dynamical kernels. The electron's mass $m_e$ therefore corresponds to a localized energy $E = m_e c^2$ confined to the particle's worldline.
+
+This energy does gravitate and contributes to the stress-energy tensor $T_{\mu\nu}^{\mathrm{matter}}$ at the location of the particle. There is no contradiction here: energy associated with a physical structure at a definite position is expected to act as a gravitational source.
+
+% ----------------------------------------
+% Subsection 2.2: Distinction from vacuum energy density
+% ----------------------------------------
+\subsection{Distinction from vacuum energy density}
+
+The crucial distinction is between two conceptually different quantities:
+
+\begin{itemize}
+\item \textbf{Particle energy:} Localized, finite, and proportional to particle number. Each electron contributes $m_e c^2$, each proton $m_p c^2$, and so forth. The total contribution scales with the number of particles present.
+
+\item \textbf{Vacuum energy density (in conventional QFT):} Assigned to every spacetime point independently of particle presence. Formally infinite in the continuum limit, even in regions devoid of matter. If taken as a gravitational source, produces a vacuum energy density of order $\rho_{\mathrm{vac}} \sim \Lambda_{\mathrm{cutoff}}^4$, corresponding to an effective cosmological constant $\Lambda \sim \Lambda_{\mathrm{cutoff}}^4/M_{\mathrm{Pl}}^2$ where $M_{\mathrm{Pl}} = \sqrt{\hbar c/G}$ is the Planck mass.
+\end{itemize}
+
+The 0-Sphere model admits the former (localized, particle-dependent) while denying the latter (ubiquitous, particle-independent).
+
+The issue is therefore not whether such a quantity can be formally written down, but whether it corresponds to a physical, independently gravitating degree of freedom.
+
+% ----------------------------------------
+% Subsection 2.3: Why internal circulation does not generate vacuum energy
+% ----------------------------------------
+\subsection{Why internal circulation does not generate vacuum energy}
+
+One might object: if electron mass arises from internal circulation energy, and if this energy gravitates, does this not constitute a form of vacuum energy?
+
+The answer is no, for the following reason. Internal circulation energy is:
+
+\begin{enumerate}
+\item \textbf{Confined to particle worldlines:} It does not extend to regions of spacetime where no particle exists.
+
+\item \textbf{Already accounted for in $T_{\mu\nu}^{\mathrm{matter}}$:} The gravitational effect of particle mass is precisely what appears in the matter stress-energy tensor. It is not an additional contribution.
+
+\item \textbf{Finite and countable:} The total energy is $\sum_i m_i c^2$, where the sum runs over particles present in a given region. This is finite and does not diverge.
+\end{enumerate}
+
+By contrast, vacuum energy in conventional QFT represents an energy density $\rho_{\mathrm{vac}}$ assigned to \emph{every} spacetime point, even those containing no particles. When integrated over cosmological volumes, this produces an unacceptably large contribution to $\Lambda$.
+
+% ----------------------------------------
+% Subsection 2.4: Phase accumulation as non-gravitating quantity
+% ----------------------------------------
+\subsection{Phase accumulation as non-gravitating quantity}
+
+What is conventionally labeled as vacuum energy is reinterpreted within the 0-Sphere model as accumulated internal phase information along closed circulation paths. Such phase accumulation encodes the internal state of the particle but does not correspond to an open energy flux capable of doing work on external systems. In particular, phase accumulation along closed paths does not define a stress-energy tensor with support in spacetime.
+
+Crucially, phase information does not define an independently gravitating energy density. The geometric phase accumulated along a closed loop (analogous to Berry phase or Aharonov-Bohm phase) does not appear as a source term in Einstein's equations. It affects interference patterns and quantum amplitudes but does not contribute to spacetime curvature.
+
+This restriction does not modify conservation laws but instead constrains what counts as physically meaningful energy in the context of gravitational coupling.
+
+
+% ========================================
+% Section 3: Decoupling from the Cosmological Constant
+% ========================================
+\section{Decoupling from the Cosmological Constant}
+
+A central point of this Supplement is the logical separation between the absence of vacuum energy as a gravitational source and the existence of an effective cosmological constant.
+
+Observations establish that the large-scale dynamics of the universe are consistent with a small positive $\Lambda_{\mathrm{obs}}$ contributing to cosmic acceleration. They do not, however, establish that this quantity originates from zero-point fluctuations of quantum fields.
+
+Within the 0-Sphere model, the elimination of vacuum energy as a gravitational source addresses only the former issue. The origin of $\Lambda_{\mathrm{obs}}$ remains unspecified and is not claimed to follow from internal circulation alone.
+
+% ----------------------------------------
+% Subsection 3.1: Possible origins of Lambda_obs
+% ----------------------------------------
+\subsection{Possible origins of $\Lambda_{\mathrm{obs}}$}
+
+While the 0-Sphere model eliminates vacuum energy as a gravitational source, it does not predict the numerical value of the observed cosmological constant. Several possibilities remain open within this framework:
+
+\paragraph{Boundary conditions.}
+The value of $\Lambda_{\mathrm{obs}}$ may reflect global boundary conditions imposed on the network of internal circulation processes at cosmological scales. Just as boundary conditions determine the allowed modes in a finite cavity, cosmological boundary conditions might select a particular value of the effective cosmological constant without appealing to local vacuum energy.
+
+\paragraph{Collective geometric effects.}
+An alternative interpretation is that $\Lambda_{\mathrm{obs}}$ arises from collective or statistical effects when a vast number of internal circulation processes are considered together. This would be analogous to how thermodynamic quantities emerge from microscopic degrees of freedom, even though the macroscopic description involves parameters (such as temperature or pressure) not present at the fundamental level.
+
+\paragraph{Topological contributions.}
+The 0-Sphere model emphasizes that spacetime emerges from accumulated phase histories. It is conceivable that $\Lambda_{\mathrm{obs}}$ encodes information about the global topology of this emergent structure, representing a large-scale geometric invariant rather than a sum of local contributions.
+
+\paragraph{Emergent parameter unrelated to vacuum structure.}
+Finally, $\Lambda_{\mathrm{obs}}$ may simply be a parameter characterizing the large-scale behavior of emergent spacetime, analogous to how viscosity characterizes fluid flow without being derivable from the microscopic theory of molecules in isolation. Such parameters require input from the macroscopic regime and cannot be predicted purely from microscopic principles.
+
+\paragraph{Phase-frozen internal configurations.}
+
+Another speculative possibility is that a subset of spinorial configurations may exist in a dynamically frozen internal state, in which internal circulation and phase evolution effectively cease. In such configurations, the radiative gradient vanishes, and no net emission or absorption of radiation occurs. The associated photon sphere, lacking both propagation and oscillatory dynamics, becomes inert with respect to local interactions.
+
+These phase-frozen configurations would not manifest as particles, radiation, or vacuum energy in the conventional sense, since they neither exchange energy nor participate in scattering processes. Nevertheless, as persistent geometric structures embedded in spacetime, they could contribute to the large-scale background dynamics, effectively acting as a uniform cosmological term.
+
+In this interpretation, the cosmological constant reflects not a fluctuating vacuum energy density, but a population of internally decoupled, non-interacting configurations whose only physical imprint is their contribution to spacetime geometry. The present framework does not specify the mechanism by which such configurations arise or persist, but it excludes their identification with zero-point fluctuations of local quantum fields.
+
+\vspace{0.5cm}
+
+The present framework neither selects nor excludes these possibilities. What is excluded is the interpretation of $\Lambda_{\mathrm{obs}}$ as arising from zero-point energies of local field modes.
+
+
+% ========================================
+% Section 4: Observational Status and Falsifiability
+% ========================================
+\section{Observational Status and Falsifiability}
+
+As of early 2026, no experimental or observational result directly contradicts the central claim articulated here: that vacuum fluctuations defined as local field modes do not constitute independent gravitational sources.
+
+% ----------------------------------------
+% Subsection 4.1: What has been observed
+% ----------------------------------------
+\subsection{What has been observed}
+
+Current observations establish:
+\begin{itemize}
+\item An effective cosmological constant $\Lambda_{\mathrm{obs}}$ contributing to cosmic acceleration, inferred from supernova luminosity distances, CMB anisotropies, and large-scale structure.
+\end{itemize}
+
+% ----------------------------------------
+% Subsection 4.2: What has not been observed
+% ----------------------------------------
+\subsection{What has not been observed}
+
+The following signatures, characteristic of field-theoretic vacuum energy, remain undetected:
+\begin{itemize}
+\item Mode-number dependence of gravitational contributions.
+\item Cutoff-dependent responses that would distinguish vacuum energy from a bare cosmological constant.
+\item Gravitational effects directly attributable to controlled changes in vacuum state (e.g., through cavity geometry modifications).
+\end{itemize}
+
+% ----------------------------------------
+% Subsection 4.3: The Casimir effect reconsidered
+% ----------------------------------------
+\subsection{The Casimir effect reconsidered}
+
+The Casimir force is often cited as empirical evidence for vacuum energy. However, this effect demonstrates boundary-dependent energy \emph{differences}, not absolute vacuum energy density. No unambiguous detection of gravitational fields sourced by Casimir energy has been achieved. Within the 0-Sphere framework, such phenomena are interpreted as modifications of effective boundary conditions on internal circulation, analogous to standing wave constraints, rather than as manifestations of energy residing in empty space.
+
+% ----------------------------------------
+% Subsection 4.4: Falsifiability
+% ----------------------------------------
+\subsection{Falsifiability}
+
+The integral-based restriction proposed here is falsifiable. Any experimental demonstration of a direct gravitational response to vacuum fluctuations---independent of material boundaries or particle content---would contradict this framework. Such evidence would include:
+\begin{itemize}
+\item Gravitational redshift or lensing attributable to Casimir energy independent of plate mass.
+\item Detectable spacetime curvature changes induced by vacuum state manipulation.
+\item Cosmological evolution incompatible with $\Lambda = \mathrm{const.}$ but consistent with field-theoretic vacuum energy dynamics.
+\end{itemize}
+
+To date, no such observations have been reported.
+
+
+% ========================================
+% Section 5: Scope and Future Directions
+% ========================================
+\section{Scope and Future Directions}
+
+This Supplement emphasizes a limitation rather than a deficiency. The present formulation of the 0-Sphere model does not predict the numerical value of the cosmological constant. It only demonstrates that the extreme discrepancy between theoretical vacuum energy estimates and observational bounds does not arise once physical observables are restricted to closed integral processes.
+
+Future work may explore whether $\Lambda_{\mathrm{obs}}$ can be derived from global or boundary-level features of the model, such as topological invariants of the accumulated phase network or statistical properties of large ensembles of internal circulation processes. Such developments would constitute an extension rather than a correction of the present analysis, and would address a question logically distinct from the vacuum energy problem as conventionally formulated.
+
+% ========================================
+% Section 6: Concluding Remark
+% ========================================
+\section{Concluding Remark}
+
+The disappearance of the vacuum energy problem within the 0-Sphere model should be understood as a reorganization of physical ontology rather than as a computational achievement. By abandoning the assumption that local field modes represent fundamental energy carriers, a long-standing inconsistency is avoided without invoking fine-tuning, symmetry arguments, or dynamical cancellation.
+
+In this sense, \textbf{the cosmological constant problem is not solved but rendered inapplicable,} while the cosmological constant itself remains an empirical input awaiting a deeper theoretical interpretation.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+This work was conducted independently by the author. During preparation, large language models were used as a pedagogical and editorial aid, primarily to verify the standard presentation of well-established results in quantum field theory and to improve the clarity and logical organization of the exposition.
+
+In particular, the models were consulted to cross-check the conventional textbook derivation of vacuum energy and its role in the cosmological constant problem, not to generate new physical content or interpretations. All physical assumptions, conceptual judgments, and the integral-based reinterpretation proposed here were formulated and assessed solely by the author.
+
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamuraVacuum2026}
+S.~Hanamura,
+``Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology: The 0-Sphere Model Perspective,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18275142}{https://doi.org/10.5281/zenodo.18275142}
+
+\bibitem{Riess1998}
+A.~G.~Riess \textit{et al.},
+``Observational Evidence from Supernovae for an Accelerating Universe and a Cosmological Constant,''
+Astron.\ J.\ \textbf{116}, 1009 (1998).
+
+\bibitem{Perlmutter1999}
+S.~Perlmutter \textit{et al.},
+``Measurements of $\Omega$ and $\Lambda$ from 42 High-Redshift Supernovae,''
+Astrophys.\ J.\ \textbf{517}, 565 (1999).
+
+\bibitem{Planck2020}
+Planck Collaboration,
+``Planck 2018 results. VI. Cosmological parameters,''
+Astron.\ Astrophys.\ \textbf{641}, A6 (2020).
+
+\bibitem{DESI2024}
+DESI Collaboration,
+``DESI 2024 VI: Cosmological Constraints from the Measurements of Baryon Acoustic Oscillations,''
+arXiv:2404.03002 (2024).
+
+\bibitem{Jaffe2005}
+R.~L.~Jaffe,
+``Casimir effect and the quantum vacuum,''
+Phys.\ Rev.\ D \textbf{72}, 021301(R) (2005).
+
+\bibitem{ForwardCasimir1984}
+R.~L.~Forward,
+``Extracting electrical energy from the vacuum by cohesion of charged foliated conductors,''
+Phys.\ Rev.\ B \textbf{30}, 1700 (1984).
+
+\bibitem{MiltonCasimir2001}
+K.~A.~Milton,
+\textit{The Casimir Effect: Physical Manifestations of Zero-Point Energy}
+(World Scientific, 2001).
+
+\bibitem{hanamura18067760}
+S.~Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.18067760}{https://doi.org/10.5281/zenodo.18067760}
+
+\bibitem{hanamura18135855}
+S.~Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18135855}{https://doi.org/10.5281/zenodo.18135855}
+
+\bibitem{hanamura18203433}
+S.~Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18203433}{https://doi.org/10.5281/zenodo.18203433}
+
+\end{thebibliography}
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}

@@ -1,0 +1,205 @@
+================================================================================
+Zenodo Relation Types List (Topical — Beyond bibitem)
+On Vacuum Energy, Integral Ontology, and the Cosmological Constant:
+Supplementary Note on the Logical Status of Lambda in the 0-Sphere Model
+================================================================================
+Date: February 22, 2026
+
+Strategy: Relations are assigned by TOPICAL RELEVANCE to each section of this
+note, not limited to formally cited references. This maximizes semantic graph
+density for LLM crawl coverage.
+================================================================================
+
+--------------------------------------------------------------------------------
+I. STRUCTURAL RELATIONS
+--------------------------------------------------------------------------------
+
+[S1] Is supplement to
+Title   : Dissolution of the Vacuum Energy Problem in an Integral-Based
+          Ontology: The 0-Sphere Model Perspective  [#32]
+DOI     : 10.5281/zenodo.18275142
+Reason  : This document is explicitly subtitled "Supplementary Note" to #32.
+          It extends the logical and observational analysis without reproducing
+          the integral-ontology derivations of the parent paper.
+
+[S2] Continues
+Title   : Line Integrals as Fundamental Observables in Physics  [#31]
+DOI     : 10.5281/zenodo.18203433
+Reason  : #31 establishes closed line integrals as the epistemological boundary
+          of physical observables. This supplement applies that principle
+          directly to the vacuum energy problem (Section 1-2): zero-point
+          energies are rejected as non-observables precisely because they do
+          not correspond to any closed line-integral process.
+
+--------------------------------------------------------------------------------
+II. CITES (from \thebibliography)
+--------------------------------------------------------------------------------
+
+[C1] Cites
+Title   : Dissolution of the Vacuum Energy Problem  [#32]
+DOI     : 10.5281/zenodo.18275142
+
+[C2] Cites
+Title   : Geometric Structure of Spinorial Phase Accumulation along
+          Thermal Geodesics  [#29]
+DOI     : 10.5281/zenodo.18067760
+
+[C3] Cites
+Title   : From Curvature to Connection: Geometric Origin of Conservation Laws
+          [#30]
+DOI     : 10.5281/zenodo.18135855
+
+[C4] Cites
+Title   : Line Integrals as Fundamental Observables  [#31]
+DOI     : 10.5281/zenodo.18203433
+
+--------------------------------------------------------------------------------
+III. REFERENCES (topical — not in bibitem)
+--------------------------------------------------------------------------------
+
+Basis: Each reference is justified by specific section-level correspondence.
+
+[R1] References
+Title   : Geometrical Confinement of Energy: Rest Mass and Zitterbewegung  [#33]
+DOI     : 10.5281/zenodo.18356895
+Topical anchor: Section 2 (Energy Localization)
+Reason  : Section 2 argues particle energy is localized, finite, and confined
+          to worldlines — not ubiquitous like vacuum energy. #33 provides the
+          explicit topological mechanism (S0 embedding into arcwise-connected
+          domain D) showing that rest mass mc^2 is confined internal circulation
+          energy. Directly instantiates the particle-vs-vacuum distinction of
+          Sections 2.1-2.3.
+
+[R2] References
+Title   : Geometrical Confinement: Emergent Gravitational Dynamics  [#34]
+DOI     : 10.5281/zenodo.18437010
+Topical anchor: Section 3 (Decoupling from Lambda_obs)
+Reason  : Section 3 proposes that Lambda_obs may arise from "phase-frozen
+          configurations" as persistent geometric structures. #34's emergent
+          gravity framework — where gravitational dynamics arise from collective
+          synchronization of internal circulation without a mediating field —
+          provides the structural basis for why such configurations could
+          contribute a uniform cosmological term without being vacuum energy.
+
+[R3] References
+Title   : Detailed Exposition of the 0-Sphere Model for Gravitational-Like
+          Phenomena  [#35]
+DOI     : 10.5281/zenodo.18511664
+Topical anchor: Sections 2, 5 (Energy Structure, Future Directions)
+Reason  : #35 is the comprehensive reference for the internal energy framework
+          underlying Sections 2.1-2.4: Thomas precession derivation, internal
+          circulation confined to worldlines, and the theoretical pathway
+          alpha -> a_e -> v_ZB -> E_ZB. Section 5 of this note (future
+          directions) points toward topological invariants of the phase network
+          — content that #35 partially develops.
+
+[R4] References
+Title   : Spin from Geometry: Emergence of Spin via Internal Berry Phase  [#26]
+DOI     : 10.5281/zenodo.17765409
+Topical anchor: Section 2.4 (Phase Accumulation as Non-Gravitating)
+Reason  : Section 2.4 explicitly invokes the Berry phase / Aharonov-Bohm
+          analogy to argue that geometric phase along a closed loop does not
+          source the Einstein equations. #26 derives spin from precisely this
+          mechanism: internal Berry phase accumulation. The non-gravitating
+          status of Berry phase in #26 underpins the claim in Section 2.4 that
+          phase accumulation encodes state without being a gravitational source.
+
+[R5] References
+Title   : From Zero-Sphere to Emergent Spacetime: Background-Independent
+          Framework  [#23]
+DOI     : 10.5281/zenodo.17765336
+Topical anchor: Section 3 (Possible origins of Lambda_obs)
+Reason  : Section 3 notes that "spacetime emerges from accumulated phase
+          histories" and proposes topological contributions as one candidate
+          origin for Lambda_obs. #23 is the foundational paper establishing
+          this emergent-spacetime mechanism. The cosmological constant as a
+          topological invariant of the phase network (Section 3, para 3) is
+          the direct forward implication of #23's background-independent
+          framework.
+
+[R6] References
+Title   : Non-Perturbative Nature and Fine-Structure Constant: Methodological
+          Scope  [#36]
+DOI     : 10.5281/zenodo.18603340
+Topical anchor: Sections 4-5 (Scope, Future Directions)
+Reason  : The KEY RESULTS structure (what the model CAN/CANNOT address) in
+          this supplement mirrors the explicit scope-delimitation method of #36.
+          Section 5 here ("emphasizes a limitation rather than a deficiency")
+          applies the same methodological honesty framework that #36 formalized.
+          #36 also establishes why the 0-Sphere framework cannot derive Lambda
+          from first principles — directly backstopping this supplement's scope
+          claims.
+
+[R7] References
+Title   : Reinterpreting Gravitational Potential Energy as Internal
+          Line-Integral Quantity  [#37]
+DOI     : 10.5281/zenodo.18637487
+Topical anchor: Section 2 (Energy Localization), Section 5 (Future Directions)
+Reason  : This supplement argues (Section 2.2) that the 0-Sphere model
+          restricts physical energy to localized, particle-associated processes
+          rather than field-pervasive densities. #37 extends this to
+          gravitational potential energy: potential is a line-integral quantity
+          along the particle's path, not a field value at each point. Together,
+          these papers form a consistent picture of energy as fundamentally
+          path-dependent rather than position-dependent.
+
+[R8] References
+Title   : A Noetherian Inversion: From Einsteinian Geometry to Emergent
+          Symmetry  [#25]
+DOI     : 10.5281/zenodo.18064535
+Topical anchor: Concluding Remark (Ontological Reorganization)
+Reason  : The concluding remark characterizes this supplement's contribution
+          as "a reorganization of physical ontology rather than a computational
+          achievement." This is the same epistemological move that #25 performs:
+          inverting the conventional Noether direction (symmetry -> conservation
+          -> geometry) to reveal that geometry is primary. Both papers share the
+          philosophical thesis that apparent problems (vacuum energy catastrophe,
+          conservation law origins) dissolve under ontological reorganization
+          rather than dynamical resolution.
+
+--------------------------------------------------------------------------------
+IV. SUMMARY TABLE (for Zenodo UI entry)
+--------------------------------------------------------------------------------
+
+  DOI                              | Relation        | Anchor
+  ---------------------------------|-----------------|---------------------
+  10.5281/zenodo.18275142          | Is supplement to| Title (explicit)
+  10.5281/zenodo.18203433          | Continues       | Sections 1-2
+  10.5281/zenodo.18275142          | Cites           | bibitem [1]
+  10.5281/zenodo.18067760          | Cites           | bibitem [2]
+  10.5281/zenodo.18135855          | Cites           | bibitem [3]
+  10.5281/zenodo.18203433          | Cites           | bibitem [4]
+  10.5281/zenodo.18356895          | References      | Section 2 (energy)
+  10.5281/zenodo.18437010          | References      | Section 3 (Lambda)
+  10.5281/zenodo.18511664          | References      | Sections 2, 5
+  10.5281/zenodo.17765409          | References      | Section 2.4 (Berry)
+  10.5281/zenodo.17765336          | References      | Section 3 (spacetime)
+  10.5281/zenodo.18603340          | References      | Sections 4-5 (scope)
+  10.5281/zenodo.18637487          | References      | Sections 2, 5 (PE)
+  10.5281/zenodo.18064535          | References      | Concluding Remark
+
+Total: 14 entries (some DOIs appear twice with different relation types)
+Zenodo DOI-to-DOI entries: 10 unique 0-Sphere Model DOIs
+
+--------------------------------------------------------------------------------
+V. ENTRY NOTES FOR ZENODO UI
+--------------------------------------------------------------------------------
+
+1. zenodo.18275142 appears twice:
+   - Enter as "Is supplement to" (structural relation)
+   - Enter as "Cites" (formal citation)
+   Both entries are valid and complementary.
+
+2. zenodo.18203433 appears twice:
+   - Enter as "Continues" (intellectual lineage)
+   - Enter as "Cites" (formal citation)
+   Rationale: "Continues" captures the topical inheritance;
+   "Cites" captures the formal bibliography entry.
+
+3. External journal DOIs (Riess, Perlmutter, Planck, DESI, Jaffe, Forward)
+   remain as "Cites" per the original bibitem list but are OMITTED here
+   since this list focuses on Hanamura/0-Sphere semantic graph coverage.
+
+================================================================================
+END OF RELATION LIST
+================================================================================
