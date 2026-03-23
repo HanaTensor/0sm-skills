@@ -1,0 +1,532 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+ prb,
+]{revtex4-2}
+% Basic packages
+\usepackage{graphicx}
+\usepackage{bm}
+% Quantum mechanics notation
+\usepackage{physics}
+% Hyperlinks
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            filecolor=blue,
+            urlcolor=blue,
+            citecolor=blue]{hyperref}
+% Caption settings
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright,
+    labelfont={bf},
+    name={Fig.},
+    labelsep=period
+}
+\captionsetup[table]{
+    labelfont={bf},
+    name={Table},
+    labelsep=period
+}
+% Equation numbering per section
+\numberwithin{equation}{section}
+% Typography adjustments
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+% Microtypography
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+% Table rules: \midrule, \addlinespace, \bottomrule
+\usepackage{booktabs}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning}
+% --- Custom Macros ---
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\Lint}{L_{\text{int}}}
+\newcommand{\Lspin}{L_{\text{int}}^{\text{spin}}}
+\newcommand{\vZB}{v_{\text{ZB}}}
+\newcommand{\omeff}{\omega(x)}
+\newcommand{\UAB}{U(A,B)}
+\newcommand{\KAB}{K(A,B)}
+\newcommand{\OmT}{\Omega_{T}}
+
+\begin{document}
+
+\title{Open-Path Spinorial Transport in the 0-Sphere Model\\
+and the Status of Torsion:\\
+Holonomy Sufficiency and the Possibility of Emergent Semigroup Geometry\\
+{\normalsize (Structural Clarification Note)}}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{March 11, 2026}
+
+\begin{abstract}
+The 0-Sphere model describes the electron as a two-kernel system in which energy is exchanged by radiation between spatially separated points, giving rise to Zitterbewegung, anomalous magnetic moment, and gravitational redshift of internal clocks. This note examines whether the geometric structure already established in the model --- in particular the $4\pi$ spinorial periodicity, the prohibition of same-point radiation, and the ordered-path constraint $A\to B\to A' \neq A\to A'\to B$ --- is sufficient to force the appearance of geometric torsion in the sense of Cartan. We argue that three distinct mechanisms are candidates for generating non-zero torsion: (i) the anti-symmetry of the connection implied by the ordered-path physical constraint, (ii) the Thomas precession contribution to the spin connection and its spatial gradient, and (iii) the directed nature of the spinorial arc-length $\Lspin(A,B)$ under the $4\pi$ periodicity of SU(2). We show, however, that none of these mechanisms yields torsion as a logical necessity from the currently established equations alone. The $4\pi$ periodicity implies non-trivial holonomy but not by itself a non-symmetric connection; the exponential kernel remains invertible and thus admits a group (rather than semigroup) structure; and the Thomas precession spin connection can in principle cancel the external derivative of the vierbein in the Cartan torsion equation. The central unresolved question is whether the internal arc-length $\Lspin$ is a true scalar distance or a directed quantity whose reversal is physically inequivalent. We formulate this question precisely, outline what additional structure would promote each candidate mechanism to a theorem, and explain how the answer determines whether the model belongs to the class of SU(2) holonomy theories or to a genuinely new class of causal torsion geometries.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+
+The 0-Sphere model was introduced to describe the electron as a physical system possessing internal structure, specifically a pair of energy kernels --- kernel A and kernel B --- between which a photon sphere circulates, exchanging thermal potential energy on each transit~\cite{paper33,paper35}. From this single geometric picture the model has derived, without the use of perturbation theory, the anomalous magnetic moment as a consequence of Lorentz contraction under Thomas precession~\cite{paper10,paper38}, the gravitational redshift of internal quantum clocks~\cite{paper22}, the $4\pi$ spinorial periodicity as a geometric necessity~\cite{paper38}, and the dissolution of the vacuum energy problem through a reinterpretation of physical observables as line integrals rather than local field strengths~\cite{paper32}. In a sequence of recent papers~\cite{paper29,paper30,paper31,paper40}, the model has moved steadily toward a formulation in which accumulated phase along open paths between discrete points, rather than curvature tensors evaluated at a point, constitutes the fundamental physical observable.
+
+This progression raises a natural and pressing question: does the model already contain geometric torsion, and if so, where does it enter the structure? Torsion in the sense of Cartan --- the antisymmetric part of the affine connection, measured by the failure of an infinitesimal parallelogram to close --- is a concept that sits outside the Levi-Civita framework of standard general relativity, yet it arises naturally in Einstein--Cartan theory when matter with intrinsic spin is coupled to geometry. The 0-Sphere model certainly deals with a system of intrinsic spin. More concretely, the model forbids radiation between a kernel and itself, requires spatial separation for any emission or absorption event, and generates an ordered asymmetry between the paths $A\to B\to A'$ and $A\to A'\to B$. At first sight these features look like the hallmarks of a connection whose coefficients are not symmetric in their lower indices, which is precisely the definition of non-zero torsion.
+
+The purpose of this note is to examine that first-sight impression with precision. The analysis is conducted in three parallel lines. The first concerns the relationship between the ordered-path physical constraint --- the prohibition of same-point radiation and the non-existence of the path $A\to A'\to B$ --- and the algebraic condition $\Gamma^\rho{}_{\mu\nu} \neq \Gamma^\rho{}_{\nu\mu}$ that defines torsion. The second concerns the Thomas precession spin connection $\omega^a{}_{b\mu}$, which is already determined by the model, and whether its contribution to the Cartan torsion two-form $T^a = de^a + \omega^a{}_b \wedge e^b$ survives or cancels. The third concerns the nature of the internal arc-length $\Lint$ that appears in the two-point kernel: whether it is a scalar distance, a signed quantity, or a fully directed quantity in the SU(2) sense, since only the last of these would make the kernel itself inherently non-symmetric.
+
+A secondary but equally important purpose is to clarify the relationship between two geometric frameworks that are easily conflated: the framework of curvature and holonomy, which is the natural home of SU(2) spin-1/2 structure and the $4\pi$ periodicity, and the framework of torsion, which requires additional structure beyond what holonomy alone provides. Standard Dirac theory, as is well known, operates in flat spacetime with trivial Levi-Civita connection, zero torsion, and yet describes spin-1/2 particles with full $4\pi$ periodicity. The mere presence of spinorial structure is therefore not sufficient to force torsion, and the same caution applies within the 0-Sphere model. The present note aims to identify precisely what additional structure would be required.
+
+The note proceeds as follows. Section~\ref{sec:kernel} introduces the two-layer kernel structure and the spinorial arc-length, and discusses the distinction between scalar and directed internal distances. Section~\ref{sec:openpath} develops the open-path parallel transport formalism, explains why it is the appropriate framework for a model that includes free electrons in addition to bound oscillators, and shows how path-ordering generates order-dependence without requiring torsion. Section~\ref{sec:ordered} examines the ordered-path constraint and the same-point radiation prohibition, and translates their physical content into geometric language. Section~\ref{sec:torsion} addresses the torsion question directly, identifying three candidate mechanisms and explaining the logical obstacles that prevent each from being a theorem at the present stage. Section~\ref{sec:gr} discusses compatibility with general relativity and the option of describing the model's spinorial structure within the curvature-holonomy framework. Section~\ref{sec:conclusion} states what is confirmed, what is open, and what would constitute a definitive answer.
+
+% ========================================
+% Section 2: The Two-Layer Kernel Structure and Internal Arc-Length
+% ========================================
+\section{The Two-Layer Kernel Structure and Internal Arc-Length}
+\label{sec:kernel}
+
+The central kinematic quantity of the 0-Sphere model is the phase $\iphase = \omega_0 t$, where $\omega_0 = mc^2/\hbar$ is the rest-mass Zitterbewegung frequency. This phase parametrizes the state of the photon sphere as it transits from kernel A to kernel B and back, and it is the phase $\iphase$ that appears in the fundamental energy conservation identity~\cite{paper38}
+\begin{align}
+E_0 &= \cos^4\!\tfrac{\iphase}{2} + \sin^4\!\tfrac{\iphase}{2} + \tfrac{1}{2}\sin^2\!\iphase,
+\label{eq:energy_identity}
+\end{align}
+in which the three terms represent the thermal potential energy of kernel A, the thermal potential energy of kernel B, and the kinetic energy of the photon sphere, respectively. The structure of Eq.~(\ref{eq:energy_identity}) gives rise to three distinct periodicities within a single $2\pi$ cycle: the half-angle structure with period $\pi$, the normal-angle structure with period $2\pi$, and the double-angle Thomas angular velocity with period $4\pi$. It is the last of these that is responsible for the spinorial character of the electron in the model.
+
+The two-point kernel describing a transit from kernel A to kernel B naturally decomposes into two layers. At the innermost level, when gravity is absent and the electron is described in its own rest frame, the relevant quantity is the fixed internal separation $\Lint$ and the rest-mass frequency $\omega_0$. The kernel in this layer takes the form
+\begin{equation}
+K_{\text{int}}(A,B) = e^{i\,\omega_0\,\Lint/\vZB},
+\label{eq:kernel_int}
+\end{equation}
+where $\vZB \approx 0.04c$ is the effective Zitterbewegung velocity~\cite{paper35}. This inner kernel is characterized entirely by $\omega_0$ and the internal length scale $\Lint$; it has no explicit time dependence and no dependence on the electron's position in spacetime. At this level the kernel is manifestly invertible: $K_{\text{int}}(A,B)^* = K_{\text{int}}(B,A)^{-1}$. The only question is whether $\Lint$ is genuinely a scalar --- symmetric under exchange of A and B --- or whether it carries directional information that makes the kernel non-symmetric.
+
+At the outer layer, the electron's position in a gravitational field modifies the Zitterbewegung frequency through the gravitational redshift mechanism established in Ref.~\cite{paper22}. In a region where the Newtonian gravitational potential is $\Phi_{\text{grav}}(x)$, the locally measured frequency becomes $\omega(x) = \omega_0\bigl(1 + \Phi_{\text{grav}}(x)/c^2 + \cdots\bigr)$, and the effective kernel is
+\begin{equation}
+K_{\text{eff}}(A,B;\,x) = e^{i\,\omeff\,\Lint/\vZB}.
+\label{eq:kernel_eff}
+\end{equation}
+This outer layer introduces spatial variation through the position-dependent frequency $\omeff$, but at this level the non-symmetry of the kernel still depends entirely on whether $\Lint$ itself is symmetric or directed. The gravitational correction $\omega(x) - \omega_0$ modulates the phase accumulated per unit of internal length; it does not by itself create a directional distinction between the transit $A\to B$ and its reverse. The spatial gradient $\partial_\mu\omeff \neq 0$ introduces position dependence into the connection one-form $A_\mu = (\Lint/\vZB)\partial_\mu\omeff$, but a connection of the gradient form $A_\mu = \partial_\mu f$ is always locally flat: its exterior derivative vanishes and it carries no independent curvature or torsion information. For torsion to emerge from the outer layer alone, one would need the connection to have a non-gradient component, and the source of such a component must lie in the physical structure of the kernel rather than in the gravitational dressing.
+
+The question of whether $\Lint$ is a scalar or a directed quantity acquires its sharpest form when the $4\pi$ periodicity of the model is taken seriously. Under a full round-trip $A\to B\to A$, the SU(2) element associated with the transit satisfies
+\begin{equation}
+U_{A\to B}\cdot U_{B\to A} = -\mathbf{1} \in \mathrm{SU}(2).
+\label{eq:su2_roundtrip}
+\end{equation}
+This is the standard spinorial result: after a $2\pi$ phase advance the spin state acquires a factor of $-1$, and only after a $4\pi$ advance does the state return to itself. For Eq.~(\ref{eq:su2_roundtrip}) to hold within the group structure of SU(2), it is necessary that the one-way transit $A\to B$ corresponds precisely to a $\pi$-rotation in internal spin space, i.e., that the half-cycle of the Zitterbewegung --- the transit of the photon sphere from one kernel to the other --- accumulates an internal rotation angle of exactly $\pi$. This is not an additional assumption but a consequence of the energy identity Eq.~(\ref{eq:energy_identity}): the half-angle structure $\cos^4(\iphase/2)$ completes one full period when $\iphase$ advances by $2\pi$, meaning that a single A$\to$B transit ($\iphase\colon 0\to\pi$) sweeps exactly half that period, corresponding to a $\pi$-rotation of the SU(2) element. The connection between the $4\pi$ spinorial periodicity and the energy conservation identity is therefore exact, not approximate. The question is how to read the content of Eq.~(\ref{eq:su2_roundtrip}). If $U_{B\to A} = U_{A\to B}^{-1}$ --- which is always true in a group --- then Eq.~(\ref{eq:su2_roundtrip}) is a statement about the specific element $U_{A\to B}$ in SU(2), namely that it is a $\pi$-rotation about some axis, so that its square is $-\mathbf{1}$. In that reading, the round-trip result $-\mathbf{1}$ follows from the group structure and carries no information about asymmetry between $A\to B$ and $B\to A$. If, however, the model insists that $B\to A$ is not the inverse of $A\to B$ but a genuinely independent physical process with its own kernel, then one must go beyond a group and introduce a semigroup or a directed graph structure in which the composition $U_{A\to B}\cdot U_{B\to A}$ is not determined by the single element $U_{A\to B}$ alone. This second reading is required if $\Lint(A,B) \neq -\Lint(B,A)$ in the directed sense; under the first reading, the $4\pi$ periodicity is fully captured by the standard SU(2) holonomy theory without any modification.
+
+The distinction can be made more concrete by asking how the internal arc-length $\Lint$ is physically defined. The photon sphere travels from A to B along a path determined by a least-action principle in the internal phase space~\cite{paper23,paper33}. If that path is a geodesic in a metric space, then the arc-length along it is by construction a positive scalar and is symmetric: $\Lint(A,B) = \Lint(B,A)$. If instead the path is defined by the spinorial connection on an SU(2) bundle --- meaning that $\Lint$ is the norm of the integral of the connection one-form along the path --- then the arc-length can depend on the direction of traversal. In SU(2), parallel transport from A to B followed by the inverse transport from B to A returns exactly to the initial state, as required by the group axioms. For a genuinely non-trivial directed arc-length, one would need a semigroup-valued arc-length in which the return journey is not the algebraic inverse of the outward journey. No equation in the currently published papers establishes this property, which is why the spinorial arc-length hypothesis, while physically motivated, remains at the level of a conjecture at the present stage.
+
+% ========================================
+% Section 3: Open-Path Parallel Transport and the Free Electron
+% ========================================
+\section{Open-Path Parallel Transport and the Free Electron}
+\label{sec:openpath}
+
+A fundamental feature of the 0-Sphere model that distinguishes it from many geometric approaches in physics is that it must describe not only the bound oscillator --- the electron in a potential well, executing periodic internal oscillations --- but also the free electron moving through flat or weakly curved spacetime with no binding potential. This requirement places an important constraint on the mathematical framework: the geometric structures that carry the model's physical content must be defined on open paths, not only on closed loops. Wilson loops and holonomy groups, which measure curvature by comparing the result of parallel transport around a closed contour, are powerful tools for the bound case but are insufficient to characterize the free case, where no natural closed contour is available. The model therefore requires a formalism based on open-path parallel transport operators.
+
+Fortunately, the theory of open-path parallel transport is well developed and places no restrictions on the type of geometry it can describe. Given a connection one-form $\omega$ on a principal bundle, the parallel transport operator from a point $A$ to a point $B$ along a path $\gamma$ is defined by the path-ordered exponential~\cite{nakahara}
+\begin{equation}
+\UAB = \mathcal{P}\exp\!\left(\int_{A}^{B} \omega_\mu\, dx^\mu\right),
+\label{eq:openpath}
+\end{equation}
+where $\mathcal{P}$ denotes path ordering from right to left as the path parameter increases. This operator is defined for any smooth path $\gamma$ from $A$ to $B$, whether or not $\gamma$ is part of a closed contour, and it is defined for free electrons in flat spacetime as readily as for bound electrons in a potential. The covariant derivative of a section $\psi$ of the associated bundle can then be recovered from $\UAB$ by the limit
+\begin{equation}
+\nabla_\mu\psi(A) = \lim_{B\to A}\frac{U(A,B)\psi(B) - \psi(A)}{|B-A|},
+\label{eq:covderiv}
+\end{equation}
+where the limit is taken along the direction $\mu$. The covariant derivative is therefore defined entirely by the two-point operator $\UAB$, and no reference to closed loops is needed.
+
+The open-path framework has another important property: path ordering already generates the non-commutativity of transport in different orders without requiring torsion. If the connection takes values in a non-Abelian Lie algebra such as $\mathfrak{su}(2)$, then the composition of transports satisfies
+\begin{equation}
+U(A,B)\, U(B,C) \neq U(A,C)
+\label{eq:noncommute}
+\end{equation}
+in general, because the group multiplication is non-Abelian. More relevantly for the ordered-path constraint of the model, it is also generally the case that transporting from A to B and then to A' produces a different result from first going directly to A' and then to B, even if A' is a point distinct from B. This non-commutativity arises from the curvature of the connection --- specifically from the holonomy of the loop formed by the two different paths from A to A' through B --- and it requires no torsion. The path $A\to B\to A'$ and the path $A\to A'\to B$ (were it to exist) would yield different final states because they enclose a non-trivial area in a curved connection space, not because the connection is non-symmetric. This observation is crucial because it shows that the physically observed ordered-path asymmetry of the model --- the fact that different sequences of kernel transits produce different physical states --- can be captured within the curvature-holonomy framework without invoking torsion as a separate ingredient.
+
+For the free electron, the relevant statement is that the internal phase $\iphase = \omega_0 t$ advances continuously as proper time elapses, with the photon sphere executing Zitterbewegung oscillations at frequency $\omega_0$. The open-path transport operator in this case is the SU(2) element
+\begin{equation}
+U(A,B) = \exp\!\left(\frac{i}{2}\,\Delta\varphi(A,B)\,\hat{n}\cdot\bm{\sigma}\right),
+\label{eq:su2transport}
+\end{equation}
+where $\Delta\varphi(A,B)$ is the change in internal rotation angle during the transit, $\hat{n}$ is the axis determined by the Thomas precession geometry, and $\bm{\sigma}$ are the Pauli matrices. This operator is defined on open paths, takes values in SU(2), and encodes both the $4\pi$ periodicity and the spin-1/2 character of the electron. For a free electron in flat spacetime, the connection from which Eq.~(\ref{eq:su2transport}) derives is the Thomas precession spin connection, which is a well-defined geometric object even in the absence of external fields or binding potentials~\cite{paper13,paper26}.
+
+The free-electron case also clarifies the role of $\Delta\varphi(A,B)$. In Eq.~(\ref{eq:su2transport}) the relevant quantity is not the physical distance between A and B in spacetime, but the angle swept by the internal rotation during the transit. For a free electron this angle is determined by the proper time elapsed during the transit and the Zitterbewegung frequency: $\Delta\varphi = \omega_0\,\Delta\tau$. Since proper time is a positive-definite scalar, $\Delta\varphi$ changes sign when the direction of traversal is reversed: $\Delta\varphi(A,B) = -\Delta\varphi(B,A)$. Under this sign flip, $U(B,A) = U(A,B)^{-1}$ exactly, which is the standard group inverse relation. The round-trip gives $U(A,B)U(B,A) = \mathbf{1}$, not $-\mathbf{1}$. The appearance of $-\mathbf{1}$ in Eq.~(\ref{eq:su2_roundtrip}) therefore requires that the round-trip accumulates a phase of $2\pi$ in total, meaning that the outward and return transits each accumulate a phase of $\pi$, i.e., $|\Delta\varphi(A,B)| = \pi$. This is consistent with the photon sphere traveling from one kernel to the other in exactly half a Zitterbewegung cycle. The $4\pi$ periodicity then states that only after two such round-trips --- i.e., after a total phase of $4\pi$ --- does the SU(2) element return to $+\mathbf{1}$. All of this is standard SU(2) structure; no asymmetry between $U(A,B)$ and $U(B,A)^{-1}$ is required.
+
+% ========================================
+% Section 4: The Ordered-Path Constraint and Its Geometric Meaning
+% ========================================
+\section{The Ordered-Path Constraint and Its Geometric Meaning}
+\label{sec:ordered}
+
+The prohibition of same-point radiation is one of the most distinctive physical principles in the 0-Sphere model. The requirement that emission and absorption can only occur between spatially separated points --- that a kernel cannot radiate to itself --- places the model in a category quite different from local quantum field theories, where point-like self-interactions are the norm and the self-energy divergences that result require renormalization to extract finite predictions. In the 0-Sphere model the self-interaction is not merely suppressed or regulated; it is structurally forbidden. The model's interaction vertex has the form of a directed segment connecting two distinct points, not a local operator at a single spacetime point. This structural prohibition has a precise mathematical translation: the interaction kernel $\KAB$ is only defined when $A \neq B$, and no well-defined limiting procedure connects the coincident limit $B\to A$ to the off-diagonal kernel values.
+
+The geometric significance of the prohibition is that the model's dynamics cannot be formulated in terms of a local differential operator acting at a single point. The conventional formulation of a connection in terms of the Christoffel symbols $\Gamma^\rho{}_{\mu\nu}(x)$ --- which are functions of a single point $x$ --- is a local description. The covariant derivative in Eq.~(\ref{eq:covderiv}) does involve the limit $B\to A$, and in that sense the prohibition of the coincident limit might appear to obstruct the definition of a covariant derivative entirely. However, the limit in Eq.~(\ref{eq:covderiv}) is a mathematical limit in the formal sense: it defines the connection coefficients as the first-order coefficient in the expansion of $\UAB$ as $B$ approaches $A$. This mathematical operation is well defined as long as the kernel $\UAB$ is smooth in the separation $|B-A|$, even if the physical process of radiation requires a finite minimum separation. The coincident-limit prohibition is a constraint on the physical domain of definition of $\KAB$, not a statement that the mathematical limit diverges. As long as $\KAB$ approaches a smooth limit as $B\to A$ (even if that limit is not itself a physical kernel), the connection coefficients and the covariant derivative are well defined.
+
+The ordered-path asymmetry $A\to B\to A' \neq A\to A'\to B$ is a stronger statement. It says that the path via B leads to a different physical state at A' than the path via A', regardless of how large or small the intermediate distances are. As observed in Sec.~\ref{sec:openpath}, this asymmetry can arise from curvature of a non-Abelian connection without any torsion. In the present model, the curvature that produces this asymmetry is the SU(2) curvature associated with the Thomas precession spin connection. The spin connection $\omega^a{}_{b\mu}$ derived from the Thomas angular velocity $\OmT(t) = -(v_0^2\omega_0/4c^2)\sin(2\omega_0 t)$ generates a non-trivial holonomy precisely when the electron traverses a path in spacetime that corresponds to a variation in the internal phase. Since different orderings of the steps $A\to B$ and $A\to A'$ correspond to different sequences of phase accumulation, they produce different SU(2) elements at the endpoint, consistent with the observed asymmetry.
+
+There is, however, a further physical observation that goes beyond what curvature alone can describe. The path $A\to A'\to B$ is stated to be physically non-existent in the model, not merely to produce a different result from $A\to B\to A'$. The distinction is important. In a curvature-based description, both paths exist as geometric objects; they produce different results because they enclose different amounts of curvature. In the model's physical description, the path $A\to A'\to B$ is forbidden because the sequence of events --- A emitting to A', then A' emitting to B --- requires the intermediate kernel A' to have just received energy (from A) and immediately emit it to B, but this is only possible if A' is in the radiation phase of its oscillation at the moment of its arrival from A. Whether this condition is satisfied depends on the relative phases of the oscillations at A, A', and B. The prohibition is thus a phase-matching condition, not an absolute topological restriction. In many configurations of the three kernels, the path $A\to A'\to B$ would in fact be physically realizable, and the asymmetry becomes a statement about the relative probability or efficacy of the two orderings rather than the existence of one and the non-existence of the other.
+
+If the ordered-path asymmetry is understood as a phase-matching condition rather than an absolute prohibition, its geometric content changes significantly. A phase-matching condition can be encoded in the amplitude of the kernel $\KAB$ --- specifically in the phase of the complex exponential --- without any modification to the connection. The two paths $A\to B\to A'$ and $A\to A'\to B$ produce different SU(2) elements because they accumulate different phases; the kernel along each segment carries a phase $e^{i\Delta\varphi}$ that depends on the direction of traversal and the oscillation state of the emitting kernel. This is exactly the structure captured by the open-path transport operator of Eq.~(\ref{eq:openpath}), with the SU(2) connection encoding the Thomas precession phase. No modification of the affine connection on the tangent bundle --- no torsion --- is needed to represent the phase-matching asymmetry.
+
+% ========================================
+% Section 5: The Torsion Question: Candidate Mechanisms and Logical Obstacles
+% ========================================
+\section{The Torsion Question: Candidate Mechanisms and Logical Obstacles}
+\label{sec:torsion}
+
+Three candidate mechanisms for the generation of torsion in the 0-Sphere model emerge from the analysis of the previous sections. The first is the antisymmetry of the affine connection implied directly by the ordered-path constraint: if the physical prohibition of $A\to A'\to B$ is interpreted as a constraint on the connection coefficients rather than on the amplitude of the kernel, it maps onto the statement $\Gamma^\rho{}_{\mu\nu} \neq \Gamma^\rho{}_{\nu\mu}$, which is precisely the definition of torsion. The second is the Thomas precession spin connection: the angular velocity $\OmT(t) = -(v_0^2\omega_0/4c^2)\sin(2\omega_0 t)$ defines an SO(3) element that varies in space when the internal phase depends on position through the gravitational modification $\omega(x)$, and the spatial gradient of this element is a candidate for the torsion two-form. The third is the directed nature of the spinorial arc-length $\Lspin(A,B)$: if the arc-length is not a scalar but a directed quantity satisfying $\Lspin(A,B) + \Lspin(B,A) \neq 0$, then the kernel $\KAB$ is non-symmetric in A and B, and the connection derived from it is non-symmetric.
+
+The first mechanism encounters the logical obstacle described at the end of Sec.~\ref{sec:ordered}: the physical constraint $A\to A'\to B$ is a phase-matching condition that restricts the dynamics, not an absolute geometric prohibition. Even in the cases where this path is suppressed, the suppression is encoded in the phase of the amplitude, which is a feature of the connection's phase (i.e., its curvature) rather than of its symmetry. To promote this mechanism to a theorem, one would need to show that the phase-matching condition cannot be represented by any curvature-based theory and necessarily requires an asymmetric connection. This would involve demonstrating that there exists no SU(2) connection whose holonomy reproduces the phase-matching amplitude for all configurations of the three kernels A, A', B, and that a torsionful connection does reproduce it. No such demonstration has been given, and it is not obvious that it would succeed.
+
+The second mechanism --- torsion from the Thomas spin connection --- faces the obstacle of potential cancellation in the Cartan equation. The torsion two-form is defined as
+\begin{equation}
+T^a = de^a + \omega^a{}_b \wedge e^b,
+\label{eq:cartan_torsion}
+\end{equation}
+where $e^a$ is the vierbein (frame field) and $\omega^a{}_b$ is the spin connection~\cite{mtw,nakahara}. The Levi-Civita condition $T^a = 0$ is equivalent to saying that the spin connection is determined entirely by the vierbein through the requirement of metric compatibility~\cite{mtw}. In the 0-Sphere model, the vierbein is defined by the frame of the photon sphere's motion along the path $A\to B$, and the spin connection is provided by the Thomas precession angular velocity~\cite{paper13,paper35}. The question is whether the exterior derivative $de^a$ and the wedge product $\omega^a{}_b \wedge e^b$ cancel exactly --- as they do in ordinary general relativity --- or whether a residue survives. If the photon sphere's path is a geodesic of the spacetime metric, then by the equivalence principle the vierbein is smooth along the path and can be chosen so that $\omega^a{}_b = 0$ at each individual point (but not simultaneously everywhere along the path). In that case the cancellation in Eq.~(\ref{eq:cartan_torsion}) holds to the extent that the spacetime is well-approximated by a Riemannian manifold. The gravitational modification $\omeff$ introduces a spatial variation in the spin connection through $\partial_\mu\omeff \neq 0$, which could in principle produce a non-canceling contribution to $T^a$. However, demonstrating this requires an explicit computation with specific expressions for $e^a$ and $\omega^a{}_b$, neither of which has been fully determined in the present state of the model.
+
+The third mechanism --- the directed spinorial arc-length --- is the most fundamental in the sense that it operates at the level of the kernel definition rather than at the level of the derived geometric objects. As discussed in Sec.~\ref{sec:kernel}, the question is whether $\Lspin(A,B)$ should be defined as a proper-time scalar, in which case $\Lspin(A,B) = \Lspin(B,A)$ and the kernel is symmetric, or as an SU(2)-valued arc-length, in which case the forward and reverse transits are related by group inversion and $U(B,A) = U(A,B)^{-1}$, still yielding a group structure, or as a genuinely semigroup-valued quantity, in which case $U(A,B)$ has no inverse in the mathematical sense and the kernel is truly non-symmetric. The last option is the one that would force torsion, but it is also the one that requires departing from the standard framework of Lie group fiber bundles, which underlies all of gauge theory and the established description of spinors in general relativity. No mechanism currently identified in the model forces this departure; the $4\pi$ periodicity is fully consistent with the SU(2) group structure, as is the Thomas precession angular velocity. To establish the directed arc-length as a theorem rather than a hypothesis, one would need to identify a physical property of the model --- a specific interaction or constraint --- that makes the composition $U(A,B)\circ U(B,A)$ fail to equal the identity. The only candidate for such a property is the same-point radiation prohibition, but as argued above, that prohibition is most naturally encoded in the domain of definition of the kernel rather than in the algebraic structure of its composition rule.
+
+It is worth noting that the three mechanisms are not independent. If the directed arc-length mechanism were established, it would provide the underlying reason for both the Thomas spin connection mechanism (through the non-trivial SU(2) arc-length geometry) and the ordered-path mechanism (through the non-commutativity of the semigroup composition). Conversely, if one could rule out the directed arc-length by showing that $\Lspin$ must be a proper-time scalar for consistency with some other established result, then the remaining two mechanisms would need to be re-examined in the curvature framework. The logical structure of the torsion question is therefore: establish or refute the directed arc-length conjecture, and the other two mechanisms will follow or fail accordingly.
+
+Table~\ref{tab:mechanisms} summarizes the three candidate mechanisms, their physical origins, the logical obstacles that prevent each from being a theorem, and their current status.
+
+% ----------------------------------------
+% Table 1: Candidate mechanisms for torsion in the 0-Sphere model
+% ----------------------------------------
+\begin{table*}[t!]
+\label{tab:mechanisms}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{p{4.5cm}p{4.5cm}p{4.5cm}p{2.5cm}}
+\toprule
+\textbf{Mechanism} & \textbf{Physical origin} & \textbf{Logical obstacle} & \textbf{Current status} \\
+\midrule
+Antisymmetry of affine connection
+& Ordered-path constraint $A\!\to\!B\!\to\!A' \neq A\!\to\!A'\!\to\!B$; same-point radiation prohibition
+& Path asymmetry is a phase-matching condition encodable in curvature; no proof that torsion is necessary
+& Not a theorem \\
+\addlinespace[0.3cm]
+Thomas spin connection gradient
+& $\partial_\mu\OmT \neq 0$ from gravitational modification $\omeff$; spatial variation of SO(3) element
+& Cancellation in Cartan eq.\ $T^a = de^a + \omega^a{}_b \wedge e^b$ unverified; $e^a$ not yet explicitly defined
+& Not a theorem \\
+\addlinespace[0.3cm]
+Directed spinorial arc-length
+& $4\pi$ periodicity suggests $\Lspin(A,B)$ may be directed, not scalar; same-point prohibition as semigroup condition
+& $4\pi$ periodicity is fully consistent with SU(2) group (not semigroup) structure; $U(B,A) = U(A,B)^{-1}$ holds
+& Open conjecture \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Each mechanism is assessed against the logical condition required to promote it from a physical motivation to a geometric theorem; no mechanism currently satisfies that condition. The three mechanisms are not independent: if the directed arc-length conjecture (third row) were established, it would provide the underlying reason for the other two. Conversely, ruling out the directed arc-length by showing $\Lspin$ must be a proper-time scalar would require reexamining the remaining mechanisms within the curvature framework.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Section 6: Compatibility with General Relativity and the SU(2) Holonomy Option
+% ========================================
+\section{Compatibility with General Relativity and the SU(2) Holonomy Option}
+\label{sec:gr}
+
+The 0-Sphere model has from its inception been concerned with consistency with general relativity, particularly in its predictions for the gravitational redshift of the Zitterbewegung frequency~\cite{paper22} and in its interpretation of gravitational potential energy as an internal line-integral quantity~\cite{paper37}. If torsion is present in the model at the level of the electron's internal geometry, it must either be negligible at macroscopic scales --- so that classical tests of general relativity are not violated --- or it must be a feature that is integrated over in the statistical average that produces the effective macroscopic metric. Einstein-Cartan theory, in which torsion is sourced by the spin density of matter, provides one framework for this: the torsion is non-zero in the interior of matter distributions, where spin is present, but vanishes in vacuum, where the standard Schwarzschild solution of general relativity is recovered. In the 0-Sphere model the corresponding statement would be that the torsion, if present, is confined to the interior of the electron --- specifically to the region occupied by the photon sphere between kernels A and B --- and does not propagate into the external spacetime.
+
+A more conservative option, which avoids the question of torsion entirely at the current stage, is to describe the model's spinorial structure within the framework of SU(2) holonomy theory on a Levi-Civita background. In this framework the photon sphere's transport is described by the open-path operator $\UAB$ of Eq.~(\ref{eq:openpath}), with the SU(2) connection given by the Thomas precession spin connection, and the underlying spacetime geometry is the standard Riemannian geometry of general relativity with zero torsion. The ordered-path asymmetry is encoded in the non-Abelian curvature of the SU(2) connection, the $4\pi$ periodicity is captured by the SU(2) holonomy, and the gravitational modification of the Zitterbewegung frequency is accommodated by the position dependence $\omeff$ without requiring any modification of the affine connection. This description is mathematically consistent, physically complete at the level of the model's current predictions, and compatible with all established results of both quantum mechanics and general relativity.
+
+The holonomy option has the advantage of working within established mathematical frameworks --- principal SU(2) bundles, connection one-forms, path-ordered exponentials --- for which the theory is well understood and for which the relationship to the physical predictions of the model is transparent. The transport operator $\UAB$ of Eq.~(\ref{eq:su2transport}) is already a well-defined object in this framework, and its properties (the $4\pi$ periodicity, the non-commutativity of transports in different orders, the dependence on the gravitational potential) follow from standard theorems in differential geometry without any new assumptions. The model's uniqueness, in this description, lies not in the geometric structure of the connection but in the physical interpretation: the SU(2) connection is identified with the Thomas precession spin connection arising from the Zitterbewegung oscillation, the base manifold is the electron's spacetime trajectory rather than the full configuration space, and the fiber is the internal phase space of the photon sphere. This identification is the model's physical content; the mathematical structure that supports it is standard.
+
+The torsion option, by contrast, requires departing from the Levi-Civita framework and entering a more general geometric theory. The most natural such theory for a spin-1/2 particle is Einstein-Cartan gravity~\cite{hehl1976,mtw}, in which the torsion is proportional to the spin density tensor $S^{\mu\nu\rho}$. In the 0-Sphere model the spin density would be sourced by the Thomas precession angular velocity, and the torsion tensor would be
+\begin{equation}
+T^{\mu\nu\rho} \propto S^{\mu\nu\rho} = \frac{\hbar}{2}\, \bar{\psi}\,\gamma^{[\mu}\gamma^\nu\gamma^{\rho]}\psi,
+\label{eq:einstein_cartan}
+\end{equation}
+where $\psi$ is the electron's spinor field. However, the Einstein-Cartan identification $T \propto S$ describes how torsion is sourced by spin in a curved spacetime; it does not by itself establish that the 0-Sphere model's internal structure generates non-zero torsion through a mechanism distinct from ordinary Dirac spin in a curved background. To make this identification non-trivial, one would need to show that the spin density produced by the model's Thomas precession mechanism is different in kind from the Dirac spin density, not merely in numerical value. This is an open problem, and it is one of the reasons why the torsion question in the model remains unresolved.
+
+% ----------------------------------------
+% Subsection 6.1: The Spacetime vs. Internal Gauge Connection Dichotomy
+% ----------------------------------------
+\subsection{The Spacetime vs.\ Internal Gauge Connection Dichotomy for $\Delta\varphi(A,B)$}
+\label{sec:dichotomy}
+
+Underlying all of the geometric alternatives discussed so far is a more fundamental question that has not yet been addressed explicitly: does the rotation angle $\Delta\varphi(A,B)$ that appears in the two-point transport operator of Eq.~(\ref{eq:su2transport}) originate from a \emph{spacetime} connection or from an \emph{internal gauge} connection? This distinction is not a matter of notation or formalism; it determines whether torsion, if it arises, is a property of the geometry of spacetime itself or a property of an independent internal fiber, and the answer has far-reaching implications for how the model is to be situated among existing theories.
+
+In the spacetime connection interpretation, $\Delta\varphi(A,B)$ is the integral of the spin connection $\omega^a{}_b$ along the path from A to B in the electron's worldline: $\Delta\varphi(A,B) = \int_A^B \omega^a{}_{b\mu}\,dx^\mu$. Here $\omega^a{}_{b\mu}$ is the Lorentz-valued connection on the tangent bundle, related to the Levi-Civita symbols by the vierbein through $\omega^a{}_{b\mu} = e^a{}_\nu \nabla_\mu e^\nu{}_b$. In this reading, the Thomas precession angular velocity $\OmT(t) = -(v_0^2\omega_0/4c^2)\sin(2\omega_0 t)$ is identified with a component of the spacetime spin connection evaluated along the electron's worldline. If this identification holds, then the torsion question is a question about the geometry of spacetime: non-zero $T^a$ in Eq.~(\ref{eq:cartan_torsion}) would mean that the spacetime itself is a torsionful manifold of the Einstein-Cartan type. The experimental and theoretical constraints on this are stringent: current bounds on the torsion tensor from precision tests of general relativity and from the absence of non-minimal coupling effects in atomic physics place upper limits on the torsion that are many orders of magnitude below what one might naively estimate from the Zitterbewegung scale. Accommodating these constraints within the spacetime connection interpretation would require either that the torsion is confined to scales smaller than the electron's Compton wavelength, or that it averages to zero over macroscopic volumes.
+
+In the internal gauge connection interpretation, $\Delta\varphi(A,B)$ is the integral of a gauge potential $\mathcal{A}_\mu$ living on a principal SU(2) bundle over spacetime, independent of the Levi-Civita connection: $\Delta\varphi(A,B) = \int_A^B \mathcal{A}_\mu\,dx^\mu$. In this reading, the Thomas precession arises not from the geometry of the spacetime manifold but from a dynamical gauge field that is an intrinsic feature of the electron's internal structure. The spacetime remains a standard Riemannian manifold with Levi-Civita connection and zero torsion; the SU(2) holonomy and the $4\pi$ periodicity are properties of the gauge fiber, not of the base manifold. This is structurally analogous to the description of electromagnetism as a U(1) gauge theory on a fiber bundle: the electromagnetic potential $A_\mu$ is not a part of the spacetime geometry even though it is defined at every spacetime point and integrated along spacetime paths. Under the internal gauge interpretation, the model belongs to the class of spinor gauge theories on Riemannian backgrounds, and compatibility with general relativity is automatic in the same way that Maxwell's theory is compatible with general relativity.
+
+The two interpretations make predictions that can in principle be distinguished. In the spacetime connection interpretation, $\Delta\varphi(A,B)$ is sensitive to the spacetime curvature through the second Bianchi identity and through the coupling of the spin connection to the Riemann tensor; the electron's internal phase would therefore be affected by the geometry of spacetime in a way that goes beyond the simple gravitational redshift of $\omega_0$ that has already been derived~\cite{paper22}. Specifically, a curved spacetime would produce an additional precession of the internal spin state that depends on the path taken through the gravitational field, not just on the total potential difference between the endpoints. In the internal gauge interpretation, by contrast, the internal phase is sensitive to the gravitational potential only through the redshift of $\omega_0$, and there is no additional path-dependent precession from spacetime curvature. The difference between these two predictions is a non-trivial physical observable: the \emph{phase picked up by the internal state when the electron traverses a closed path in a curved spacetime}. Under the spacetime interpretation this phase includes a contribution from the integral of the Riemann tensor (the holonomy of the spacetime spin connection), while under the internal gauge interpretation it includes only the contribution from the SU(2) gauge holonomy and the position-dependent redshift.
+
+The existing papers in the 0-Sphere model series contain strong evidence in favor of the internal gauge interpretation, though this evidence is not yet conclusive. Reference~\cite{paper17} derives the U(1) gauge structure of electromagnetism from the clock synchronization of the internal oscillators, identifying the electromagnetic potential $A_\mu$ with the phase gradient of the internal oscillation. This identification is an internal gauge construction, and by analogy the SU(2) connection associated with spin should be of the same internal type. Reference~\cite{paper40} explicitly identifies the fundamental observables of the model with line integrals of connection one-forms $\int_\gamma \omega$ along finite paths, treating $\omega$ as a generic connection one-form that may be of either type, but the emphasis throughout is on the phase accumulated along the internal worldline rather than on the spacetime curvature around a loop. The dissolution of the vacuum energy problem in Ref.~\cite{paper32} is achieved precisely by treating the internal circulations as gauge-like --- closed, non-radiating, and non-gravitating --- which is natural under the internal gauge interpretation but requires additional assumptions under the spacetime interpretation. Nevertheless, a definitive identification of $\Delta\varphi(A,B)$ as an internal gauge degree of freedom would require establishing that the phase is not modified by spacetime curvature beyond the gravitational redshift, either through an explicit calculation showing the absence of path-dependent holonomy contributions or through a physical argument that the internal oscillation is dynamically decoupled from the spacetime connection.
+
+The distinction also bears directly on the torsion question. If $\Delta\varphi(A,B)$ is a spacetime spin connection, then asking whether it generates torsion is asking whether the physical electron modifies the spacetime geometry in a non-symmetric way; this is a question in semi-classical gravity and in principle testable through gravitational effects of spin-polarized matter. If $\Delta\varphi(A,B)$ is an internal gauge connection, then there is no modification of the spacetime connection, no torsion in the geometric sense, and the entire question of torsion is displaced from the geometry of spacetime into the algebra of the internal gauge group. Whether the internal gauge group has a torsion analog --- a failure of the group composition to be symmetric in some sense --- is then a question in the theory of the fiber bundle, not in differential geometry. This is a structurally different question, and its answer depends on whether the SU(2) fiber bundle that describes the electron's spin admits a ``twisted'' composition rule that cannot be captured by a standard Lie group structure. The present analysis, taken as a whole, therefore converges on a single precise open question: is $\Delta\varphi(A,B)$ a component of the spacetime spin connection or of an independent internal gauge field, and does the answer change under the influence of a gravitational potential beyond the first-order redshift?
+
+Table~\ref{tab:dichotomy} compares the two interpretations across the dimensions most relevant to the torsion question and to the model's existing predictions.
+
+% ----------------------------------------
+% Table 2: The two interpretations of Delta_varphi(A,B) and their consequences
+% ----------------------------------------
+\begin{table*}[t!]
+\label{tab:dichotomy}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{p{4.8cm}p{5.8cm}p{5.9cm}}
+\toprule
+\textbf{Dimension} & \textbf{Spacetime connection} & \textbf{Internal gauge connection} \\
+\midrule
+Mathematical home
+& Spin connection $\omega^a{}_{b\mu}$ on tangent bundle; $\Delta\varphi = \int_A^B \omega^a{}_{b\mu}\,dx^\mu$
+& Gauge potential $\mathcal{A}_\mu$ on SU(2) principal bundle; $\Delta\varphi = \int_A^B \mathcal{A}_\mu\,dx^\mu$ \\
+\addlinespace[0.3cm]
+Torsion implication
+& Spacetime torsion of Einstein-Cartan type; electron modifies geometry of spacetime non-symmetrically
+& No spacetime torsion; torsion question displaced into internal gauge algebra; Levi-Civita connection preserved \\
+\addlinespace[0.3cm]
+Compatibility with GR
+& Requires torsion confined to sub-Compton scales, or averaging to zero macroscopically
+& Automatic; Maxwell's U(1) analogy; no modification of metric geometry \\
+\addlinespace[0.3cm]
+Distinguishing observable
+& Path-dependent holonomy in curved spacetime; additional precession beyond gravitational redshift of $\omega_0$
+& Gravitational redshift of $\omega_0$ only; no additional path-dependent precession from spacetime curvature \\
+\addlinespace[0.3cm]
+Evidence from series
+& Weaker; no paper explicitly identifies $\Delta\varphi$ as a spacetime geometric quantity
+& Stronger; \#17 (U(1) from clock synchronization), \#32 (gauge-like internal circulation), \#40 (line integrals as fundamental) all support internal gauge reading \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The columns contrast the spacetime spin connection interpretation with the internal gauge connection interpretation across five dimensions. Neither interpretation is proven at the current stage. The internal gauge interpretation is the default, consistent with all existing predictions, but a definitive identification requires showing that $\Delta\varphi$ is insensitive to spacetime curvature beyond the first-order gravitational redshift.
+\end{minipage}
+\end{table*}
+
+The most intellectually honest position at the present stage is therefore to maintain both options open. The holonomy option is mathematically complete and physically sufficient for the model's current predictions; it should be the default description until a specific prediction is identified that it cannot accommodate. The torsion option is physically motivated by the ordered-path constraint and the same-point radiation prohibition, and it may become necessary if the directed arc-length conjecture is established or if the model is extended to include predictions about spin-spin interactions in curved spacetime that differ from those of Einstein-Cartan theory. The present note identifies the precise logical condition under which the holonomy option must be abandoned in favor of the torsion option: the composition $U(A,B)\circ U(B,A)$ must fail to equal the identity for physical reasons internal to the model. Whether this condition is satisfied is the central open question.
+
+% ========================================
+% Section 7: Conclusion
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+This note has examined whether the 0-Sphere model, as developed through its current publications, contains geometric torsion in the Cartan sense. The analysis has identified three candidate mechanisms --- the antisymmetry of the affine connection from the ordered-path constraint, the spatial gradient of the Thomas precession spin connection, and the directed nature of the spinorial arc-length --- and has shown that none of these constitutes a logical theorem from the currently established equations. This does not, however, imply that torsion is absent; it implies only that its presence requires the establishment of the directed arc-length conjecture --- the claim that $\Lspin(A,B)$ is a genuinely directed quantity in a sense that cannot be accommodated within a standard Lie group fiber bundle --- which remains open. The $4\pi$ spinorial periodicity is fully consistent with a torsion-free SU(2) holonomy description; the ordered-path asymmetry is most naturally encoded in the curvature of the non-Abelian connection; and the kernel's symmetric or antisymmetric character depends on an open question about whether the internal arc-length $\Lspin(A,B)$ is a proper-time scalar or a genuinely directed quantity.
+
+The analysis has also clarified the relationship between two geometric frameworks that are easily conflated. The curvature-holonomy framework, based on principal SU(2) bundles and path-ordered exponentials of the connection one-form, provides a mathematically complete and physically sufficient description of the model's spinorial structure, its $4\pi$ periodicity, its ordered-path non-commutativity, and its compatibility with the free electron. The torsion framework would be required only if the composition $U(A,B)\circ U(B,A)$ were shown to fail to equal the identity for physical reasons internal to the model, which would signal the existence of a semigroup structure at the level of the internal transport. No mechanism for this failure has been identified.
+
+The central open question can be stated precisely: is the internal arc-length $\Lspin(A,B)$ a proper-time scalar --- symmetric in A and B after accounting for the SU(2) group structure --- or is it a directed quantity for which $\Lspin(A,B) + \Lspin(B,A) \neq 0$ in a sense that cannot be accommodated within a standard Lie group fiber bundle? The answer to this question determines whether the model belongs to the well-established class of spinorial holonomy theories or to a new class of causal semigroup geometries. Establishing the answer requires either identifying a specific physical observable that distinguishes the two frameworks --- a prediction that would differ between the torsion and no-torsion versions of the model --- or constructing an explicit semigroup-valued arc-length from the model's first principles and demonstrating its consistency with all previously derived results.
+
+We regard this open question as among the most important currently facing the model's development, and the present note is intended both as a record of the reasoning that led to its precise formulation and as an invitation to further investigation. Taken as a whole, the analysis demonstrates that the torsion question in the 0-Sphere model is not an independent geometric problem but reduces entirely to the attribution problem for $\Delta\varphi(A,B)$: once it is determined whether this quantity is a component of the spacetime spin connection or of an independent internal gauge field, the question of whether the model requires torsion, holonomy, or semigroup geometry is answered as a corollary.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\begin{acknowledgments}
+The author thanks the extended series of discussions that helped clarify the questions examined in this note. These discussions were conducted with a large language model used as an interactive conversational tool. All conceptual development, physical interpretations, and final judgments remain the sole responsibility of the author. This work continues the research program recorded in Refs.~\cite{paper29,paper30,paper31,paper32,paper33,paper35,paper38,paper40}.
+\end{acknowledgments}
+
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{paper33}
+S.~Hanamura, ``Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass and Zitterbewegung,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18356895}{doi:10.5281/zenodo.18356895}
+
+\bibitem{paper35}
+S.~Hanamura, ``Detailed Exposition of the 0-Sphere Model Framework for Gravitational-Like Phenomena,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18511664}{doi:10.5281/zenodo.18511664}
+
+\bibitem{paper10}
+S.~Hanamura, ``Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction,'' Zenodo (2023). \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}
+
+\bibitem{paper38}
+S.~Hanamura, ``Electron Interference from Internal Geometry: Two-Kernel SU(2) Structure, Quartic Energy Flow, and an Intrinsic Visibility Limit,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18718174}{doi:10.5281/zenodo.18718174}
+
+\bibitem{paper22}
+S.~Hanamura, ``Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765318}{doi:10.5281/zenodo.17765318}
+
+\bibitem{paper32}
+S.~Hanamura, ``Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18275142}{doi:10.5281/zenodo.18275142}
+
+\bibitem{paper29}
+S.~Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18067760}{doi:10.5281/zenodo.18067760}
+
+\bibitem{paper30}
+S.~Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18135855}{doi:10.5281/zenodo.18135855}
+
+\bibitem{paper31}
+S.~Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{doi:10.5281/zenodo.18203433}
+
+\bibitem{paper40}
+S.~Hanamura, ``On the Derivative-Order Mismatch Between Gauge Theory and Gravity: A Supplement on Connection, Curvature, and Line-Integral Observables,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18736670}{doi:10.5281/zenodo.18736670}
+
+\bibitem{paper23}
+S.~Hanamura, ``From Zero-Sphere to Emergent Spacetime: A Minimalist Background-Independent Framework for Temporal and Spatial Genesis,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765336}{doi:10.5281/zenodo.17765336}
+
+\bibitem{nakahara}
+M.~Nakahara, \textit{Geometry, Topology and Physics}, 2nd ed.\ (Institute of Physics Publishing, Bristol, 2003).
+
+\bibitem{paper13}
+S.~Hanamura, ``Unified Spin Dynamics: From Pseudovector Nature to Relativistic Constraints,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765079}{doi:10.5281/zenodo.17765079}
+
+\bibitem{paper26}
+S.~Hanamura, ``Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765409}{doi:10.5281/zenodo.17765409}
+
+\bibitem{mtw}
+C.~W.~Misner, K.~S.~Thorne, and J.~A.~Wheeler, \textit{Gravitation} (W.~H.~Freeman, San Francisco, 1973).
+
+\bibitem{paper37}
+S.~Hanamura, ``Reinterpreting Gravitational Potential Energy as an Internal Line-Integral Quantity in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18637487}{doi:10.5281/zenodo.18637487}
+
+\bibitem{hehl1976}
+F.~W.~Hehl, P.~von~der~Heyde, G.~D.~Kerlick, and J.~M.~Nester, ``General relativity with spin and torsion: Foundations and prospects,'' Rev.\ Mod.\ Phys.\ \textbf{48}, 393 (1976). \href{https://doi.org/10.1103/RevModPhys.48.393}{doi:10.1103/RevModPhys.48.393}
+
+\bibitem{paper17}
+S.~Hanamura, ``From Clock Synchronization to Electromagnetism: A Realist Construction of U(1) Gauge Theory,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765136}{doi:10.5281/zenodo.17765136}
+
+\end{thebibliography}
+
+
+% ========================================
+% Appendices
+% ========================================
+\appendix
+
+% ========================================
+% Appendix A: SU(2), Double Covers, and the Origin of the 4pi Periodicity
+% ========================================
+\section{SU(2), Double Covers, and the Origin of the $4\pi$ Periodicity}
+\label{app:su2}
+
+To a reader accustomed to classical mechanics or to quantum mechanics in the Schrödinger formulation, the statement that an electron must be rotated by $720°$ --- not $360°$ --- before returning to its original state can seem at first like a mathematical quirk with no intuitive basis. The purpose of this appendix is to build up the geometric content of this periodicity from first principles, arriving at a picture that makes the result feel inevitable rather than surprising.
+
+We begin with the simplest possible rotation group. The group SO(3) describes all rotations of three-dimensional space: every rotation by an angle $\phi$ about some axis $\hat{n}$ is an element of SO(3). A $360°$ rotation is the identity in SO(3) --- it brings every vector back to where it started --- and this is what our ordinary geometric intuition expects. The group SO(3) is, however, not simply connected: there are closed loops of rotations that cannot be continuously deformed to a point. Concretely, consider a path through SO(3) that starts at the identity, continuously rotates by increasing angles, and at $360°$ returns to the identity. This path is a closed loop in SO(3), but it cannot be shrunk to a point without leaving the group. Topologically, SO(3) has the same connectivity structure as the three-dimensional projective space $\mathbb{RP}^3$, which has a non-contractible loop.
+
+The group SU(2) is defined as the group of $2\times 2$ unitary matrices with determinant $+1$. Geometrically, it is isomorphic to the three-sphere $S^3$, which is simply connected: every closed loop in SU(2) can be continuously deformed to a point. The relationship between SO(3) and SU(2) is that SU(2) is the \emph{universal cover} of SO(3) --- specifically, it is a two-to-one cover. This means that every rotation in SO(3) corresponds to \emph{two} elements of SU(2), namely $+U$ and $-U$ for some $U \in \mathrm{SU}(2)$, and both of these project to the same physical rotation. The identity rotation in SO(3) corresponds to both $+\mathbf{1}$ and $-\mathbf{1}$ in SU(2).
+
+This two-to-one correspondence is the heart of the $4\pi$ periodicity. When a spin-1/2 particle undergoes a rotation by angle $\phi$ about axis $\hat{n}$, the SU(2) element that acts on its spinor state is
+\begin{equation}
+U(\phi, \hat{n}) = \cos\frac{\phi}{2}\,\mathbf{1} + i\sin\frac{\phi}{2}\,(\hat{n}\cdot\bm{\sigma}),
+\label{eq:su2rotation}
+\end{equation}
+where $\bm{\sigma} = (\sigma_x, \sigma_y, \sigma_z)$ are the Pauli matrices. At $\phi = 2\pi$ (one full rotation), $\cos(\pi) = -1$ and $\sin(\pi) = 0$, so $U(2\pi, \hat{n}) = -\mathbf{1}$ regardless of the axis $\hat{n}$. The spinor state $|\psi\rangle$ transforms to $-|\psi\rangle$ after a full rotation. Since physical states are represented by rays (overall phases are not observable in isolation), this sign change has no observable consequence for a single measurement after the rotation. However, in an interference experiment where one path involves a $2\pi$ rotation and the other does not, the relative sign $-1$ produces a measurable phase shift, and this has been confirmed experimentally with neutron interferometry.
+
+At $\phi = 4\pi$ (two full rotations), $\cos(2\pi) = +1$ and $\sin(2\pi) = 0$, so $U(4\pi, \hat{n}) = +\mathbf{1}$, and the spinor state returns exactly to itself. The spinor therefore has a $4\pi$ periodicity in the rotation angle, while the rotation itself (as an element of SO(3)) has a $2\pi$ periodicity. This is the double-valuedness of spinors under ordinary rotations, and it is a consequence of the topology of the rotation group, not an additional assumption about quantum mechanics.
+
+In the 0-Sphere model, the internal phase $\iphase = \omega_0 t$ plays the role of the rotation angle. A one-way transit of the photon sphere from kernel A to kernel B advances $\iphase$ from $0$ to $\pi$, which corresponds to a $\pi$-rotation in SU(2). The SU(2) element for this transit is, from Eq.~(\ref{eq:su2rotation}) with $\phi = \pi$,
+\begin{equation}
+U_{A\to B} = \cos\frac{\pi}{2}\,\mathbf{1} + i\sin\frac{\pi}{2}\,(\hat{n}\cdot\bm{\sigma}) = i\,(\hat{n}\cdot\bm{\sigma}),
+\label{eq:uab_explicit}
+\end{equation}
+which satisfies $(U_{A\to B})^2 = i^2\,(\hat{n}\cdot\bm{\sigma})^2 = -\mathbf{1}$. The round-trip $A\to B\to A$ therefore gives $U_{A\to B}\cdot U_{B\to A} = (U_{A\to B})^2 = -\mathbf{1}$, as stated in the main text. Two round-trips give $(U_{A\to B})^4 = +\mathbf{1}$, completing the $4\pi$ cycle. The entire spinorial structure of the electron --- the fact that it is a spin-1/2 particle with $4\pi$ periodicity --- is encoded in the simple statement that a one-way kernel transit corresponds to a half-period, i.e., a $\pi$-rotation in the internal SU(2) space.
+
+One may ask why the transit angle is $\pi$ rather than some other value. The answer lies in the energy identity Eq.~(\ref{eq:energy_identity}) of the main text: the thermal potential energies of kernels A and B are exchanged by exactly one half-cycle during a one-way transit, which means the transit occupies exactly half the internal period $2\pi/\omega_0$. The angle $\pi$ is not a free parameter; it is forced by the structure of the energy exchange. The $4\pi$ spinorial periodicity is therefore not an independent assumption of the model but a consequence of the periodic structure of the energy conservation identity.
+
+% ========================================
+% Appendix B: Connections, Curvature, and Torsion: A Geometric Primer
+% ========================================
+\section{Connections, Curvature, and Torsion: A Geometric Primer}
+\label{app:geometry}
+
+The concepts of connection, curvature, and torsion arise whenever one tries to compare vectors (or more generally, tensors) at different points of a curved space. On a flat surface like a sheet of paper, this comparison is straightforward: one simply slides a vector from one point to another while keeping it parallel to itself, and the result is unambiguous. On a curved surface, the same procedure depends on which path one takes, and this path-dependence is precisely what curvature measures. Torsion is a related but distinct concept, measuring a different kind of failure: not the failure of vectors to return to their original orientation after a closed loop, but the failure of infinitesimal parallelograms to close. To understand why the distinction matters for the 0-Sphere model, it is worth building up both concepts carefully.
+
+Begin with the idea of parallel transport. Imagine a tangent vector $V$ at a point $P$ on a curved surface, and ask how to move $V$ to a nearby point $Q$ while keeping it ``as parallel as possible'' to itself. On a curved surface there is no canonical answer to this question, and different choices of ``as parallel as possible'' correspond to different choices of \emph{connection}. A connection is precisely the rule that specifies, for any path from $P$ to $Q$ and any tangent vector at $P$, the corresponding ``parallel'' vector at $Q$. Given a connection, one can define the covariant derivative of a vector field $V$ in the direction of a vector $u$ as the rate at which $V$ changes compared to what parallel transport would predict. Symbolically, if $\nabla_u V = 0$ along a path $\gamma$, then $V$ is parallel-transported along $\gamma$ by the given connection. The covariant derivative $\nabla_u V$ measures the failure of $V$ to be parallel along the direction $u$.
+
+A connection is specified, in a coordinate chart with coordinates $\{x^\mu\}$, by its Christoffel symbols $\Gamma^\rho{}_{\mu\nu}$: three-index objects with one upper and two lower indices that encode how the basis vectors change as one moves through the manifold. The covariant derivative of a vector field $V^\rho$ in the direction $\mu$ is $\nabla_\mu V^\rho = \partial_\mu V^\rho + \Gamma^\rho{}_{\mu\nu} V^\nu$. The Christoffel symbols are not tensors (they transform inhomogeneously under coordinate changes), and this is precisely why a connection is a richer structure than a tensor field: it is the extra ingredient needed to define a notion of ``sameness'' for vectors at different points.
+
+Given a connection, curvature is the measurement of path-dependence of parallel transport. Take a small loop in the manifold, transport a vector around the loop using the connection, and compare the result to the original vector. If the two differ, the connection is curved. Quantitatively, the Riemann curvature tensor $R^\rho{}_{\sigma\mu\nu}$ measures this discrepancy: it is the commutator of covariant derivatives, $[\nabla_\mu, \nabla_\nu] V^\rho = R^\rho{}_{\sigma\mu\nu} V^\sigma$, which captures exactly how much the order of differentiation matters. On a flat manifold, covariant derivatives commute and $R^\rho{}_{\sigma\mu\nu} = 0$ everywhere. On a sphere, the curvature is non-zero, and a vector transported around a closed loop on the sphere returns rotated by an angle proportional to the area enclosed by the loop.
+
+Torsion is a different and independent quantity. It measures the failure of infinitesimal parallelograms to close. To see what this means, take two small vectors $u$ and $v$ at a point $P$. Parallel-transport $u$ a small distance along $v$, and parallel-transport $v$ a small distance along $u$. In flat space with a symmetric connection, the two translated vectors meet at the same point $Q$, forming a closed parallelogram $P \to Q \to P' \to P$ (where the last step returns along $v$, then $u$). If the connection has non-zero torsion, the parallelogram does not close: one arrives at a point $Q'$ that is shifted from $Q$ by a vector proportional to the torsion. The torsion tensor $T^\rho{}_{\mu\nu}$ is defined as the antisymmetric part of the connection coefficients,
+\begin{equation}
+T^\rho{}_{\mu\nu} = \Gamma^\rho{}_{\mu\nu} - \Gamma^\rho{}_{\nu\mu},
+\label{eq:torsion_def}
+\end{equation}
+and it vanishes if and only if the connection is symmetric in its lower two indices. The standard Levi-Civita connection of Riemannian geometry is always chosen to be symmetric ($T^\rho{}_{\mu\nu} = 0$), which is why in standard general relativity, infinitesimal parallelograms always close.
+
+An equivalent and sometimes more illuminating way to express torsion uses the language of differential forms and the \emph{vierbein} (also called the frame field or tetrad). The vierbein $e^a{}_\mu$ is a set of four one-forms that provide an orthonormal basis for the tangent space at each point, converting between coordinate indices $\mu$ and local Lorentz indices $a$. In terms of the vierbein and the spin connection $\omega^a{}_b$ (the connection on the local Lorentz frame bundle), the Cartan \emph{torsion two-form} is defined as
+\begin{equation}
+T^a = de^a + \omega^a{}_b \wedge e^b.
+\label{eq:cartan_app}
+\end{equation}
+The first term $de^a$ is the exterior derivative of the vierbein one-form, measuring how the frame field changes as one moves through the manifold. The second term $\omega^a{}_b \wedge e^b$ is the contribution from the spin connection, measuring the rotation of the frame as one parallel-transports it. Torsion vanishes when these two contributions cancel exactly: the spin connection compensates for the variation of the frame field. In standard general relativity, the Levi-Civita condition requires this exact cancellation, which is the content of $T^a = 0$. In Einstein-Cartan theory, the cancellation is not imposed, and the residual $T^a \neq 0$ is sourced by the spin density of matter.
+
+It is worth pausing on what the Cartan equation~(\ref{eq:cartan_app}) says geometrically, because it encapsulates the distinction between curvature and torsion very clearly. The spin connection $\omega^a{}_b$ encodes \emph{how vectors rotate} as one moves from point to point. The vierbein $e^a$ encodes \emph{how distances and angles are measured} at each point. Curvature arises from the spin connection alone: it is the failure of the spin connection to be a pure gauge, measured by the curvature two-form $\Omega^a{}_b = d\omega^a{}_b + \omega^a{}_c \wedge \omega^c{}_b$. Torsion arises from the interplay between the spin connection and the vierbein: it measures whether the rotation encoded in $\omega^a{}_b$ is consistent with the frame structure encoded in $e^a$. A manifold can have curvature without torsion (standard Riemannian geometry), torsion without curvature (teleparallel geometry, used in some alternative formulations of gravity), or both simultaneously (Einstein-Cartan geometry). The 0-Sphere model question is which of these categories the electron's internal geometry belongs to, and the answer depends on whether the spin connection arising from Thomas precession is or is not consistent with the frame field defined by the photon sphere's trajectory.
+
+Table~\ref{tab:geometry} summarizes the four logically possible combinations of curvature and torsion, with a representative example of each and the corresponding relevance to the 0-Sphere model.
+
+% ----------------------------------------
+% Table 3: Classification of geometric structures by curvature and torsion
+% ----------------------------------------
+\begin{table*}[t!]
+\label{tab:geometry}
+\renewcommand{\arraystretch}{1.5}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{p{3.5cm}p{2.5cm}p{2.5cm}p{3.5cm}p{3.5cm}}
+\toprule
+\textbf{Geometry} & \textbf{Curvature} & \textbf{Torsion} & \textbf{Example} & \textbf{0-Sphere relevance} \\
+\midrule
+Riemannian (GR)
+& $\neq 0$ & $= 0$
+& Schwarzschild, FLRW spacetimes
+& Default option; $\Delta\varphi$ as internal gauge; Levi-Civita preserved \\
+\addlinespace[0.3cm]
+Flat gauge theory
+& $= 0$ & $= 0$
+& Free electron in Minkowski; Maxwell U(1)
+& Internal gauge interpretation in absence of gravity \\
+\addlinespace[0.3cm]
+Einstein-Cartan
+& $\neq 0$ & $\neq 0$
+& Spin-matter coupling in curved background~\cite{hehl1976}
+& Spacetime connection interpretation; torsion sourced by Thomas precession spin density \\
+\addlinespace[0.3cm]
+Teleparallel
+& $= 0$ & $\neq 0$
+& TEGR (equivalent reformulation of GR)
+& Not directly applicable; listed for logical completeness \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The four logically possible combinations of curvature and torsion correspond to distinct physical theories. The 0-Sphere model is consistent with the first two rows under the internal gauge interpretation of $\Delta\varphi(A,B)$. It would belong to the Einstein-Cartan class under the spacetime connection interpretation, provided the directed arc-length conjecture is established. The teleparallel case is included for completeness but does not correspond to any currently identified structure in the model.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Appendix C: Open-Path Transport versus Wilson Loops
+% ========================================
+\section{Open-Path Transport versus Wilson Loops: Why Free Electrons Require a Different Framework}
+\label{app:openpath}
+
+Readers familiar with gauge theory will know that some of the most powerful tools for studying connections involve \emph{Wilson loops}: integrals of the gauge connection around closed contours. A Wilson loop $W(C) = \mathrm{Tr}\,\mathcal{P}\exp\!\left(\oint_C A_\mu dx^\mu\right)$ is gauge-invariant (the trace removes the dependence on the choice of base point), and it encodes the holonomy of the connection --- the net rotation experienced by a charged particle transported around the loop $C$. In non-Abelian gauge theories such as QCD, Wilson loops are central objects: they provide an order parameter for confinement, they appear in lattice calculations, and they characterize the phase structure of the theory. For curvature in the context of quantum mechanics, the Aharonov-Bohm effect is the classic example: a charged particle transported around a loop that encloses a magnetic flux acquires a phase proportional to the enclosed flux, even if the magnetic field is zero everywhere along the loop. This is the holonomy of the U(1) connection associated with electromagnetism.
+
+The reason Wilson loops are so useful is that they are gauge-invariant and provide direct access to the physical content of a connection without requiring a choice of gauge. However, they are fundamentally objects defined on \emph{closed} paths, and this is the reason they are insufficient for the purposes of the 0-Sphere model.
+
+The 0-Sphere model must describe two qualitatively different physical situations. The first is the bound electron: a particle confined to a potential well, executing periodic internal oscillations between kernels A and B, with the photon sphere repeatedly traversing the same closed internal trajectory. For this situation, closed-path quantities like Wilson loops are in principle applicable, because the internal trajectory is periodic and one can in principle integrate around a complete cycle. However, even here the Wilson loop is not the most natural object, because the physical quantity of interest is not the holonomy around the full cycle but the amplitude associated with a single transit $A\to B$. The Wilson loop averages over a complete cycle and discards the information about individual transits that the model's predictions depend on.
+
+The second situation is the free electron: a particle moving through flat or weakly curved spacetime with no binding potential, executing internal Zitterbewegung oscillations but not confined to a fixed spatial region. For this situation, there is no natural closed path to integrate around. The electron's worldline is an open curve stretching from the past to the future, and the relevant geometric objects are defined along this open curve. Asking for the Wilson loop of a free electron's motion is like asking for the holonomy of a path with no endpoint: the question is not well-formed.
+
+The appropriate mathematical object for open paths is the \emph{parallel transport operator} $U(A,B)$ defined in Eq.~(\ref{eq:openpath}) of the main text. Unlike a Wilson loop, which requires a closed contour and produces a gauge-invariant scalar (the trace), the parallel transport operator is defined on an open path and produces a group element $U(A,B) \in G$ (for whatever gauge group $G$ is relevant). It is not gauge-invariant by itself: under a gauge transformation $g(x)$, the operator transforms as $U(A,B) \to g(A)^{-1}\,U(A,B)\,g(B)$. However, the physical quantity that the model computes --- the amplitude for the photon sphere to transit from A to B and transfer energy to kernel B --- depends on $U(A,B)$ in a way that is gauge-invariant once the states at the endpoints are also transformed. The gauge non-invariance of $U(A,B)$ alone is not a problem; it is a feature of the mathematical formalism that correctly reflects the fact that a physical process with specific initial and final states is not required to be invariant under gauge transformations that act differently at the initial and final points.
+
+From the parallel transport operator, the covariant derivative at a point $A$ in the direction $\mu$ is recovered by the limit in Eq.~(\ref{eq:covderiv}) of the main text. This is the fundamental relationship between the two-point object $U(A,B)$ and the one-point object $\nabla_\mu$: the covariant derivative is the leading coefficient in the expansion of $U(A,B)$ as $B$ approaches $A$. For this limit to be well-defined, $U(A,B)$ must be smooth as $B\to A$, and the physical prohibition of same-point radiation in the 0-Sphere model --- which says that the kernel $K(A,B)$ is only defined for $A\neq B$ --- does not obstruct this mathematical limit as long as $K(A,B)$ approaches a smooth function as $|B-A|\to 0$.
+
+The contrast between Wilson loops and open-path transport operators clarifies why the ordered-path asymmetry of the 0-Sphere model --- the fact that $A\to B\to A' \neq A\to A'\to B$ --- does not by itself require torsion. In a non-Abelian gauge theory, the composition of two open-path operators depends on the order of composition: $U(B,A')\cdot U(A,B) \neq U(A',B)\cdot U(A,A')$ in general, because the group multiplication is non-Abelian. This order-dependence is a property of the \emph{curvature} of the connection, captured by the commutator $[\nabla_\mu, \nabla_\nu]$, and it does not require any asymmetry of the connection. Torsion, by contrast, is the antisymmetric part of the connection coefficients themselves, not of their compositions. A theory can have large curvature and zero torsion (standard general relativity), or zero curvature and non-zero torsion (teleparallel theories), or both, or neither. The model's ordered-path asymmetry is consistent with a curvature-based explanation (non-Abelian SU(2) holonomy) and does not force a torsion-based explanation. Identifying which mechanism is operative requires asking a more refined question: not ``does the model have path-order dependence?'' (it does, through curvature) but ``does the model have a non-symmetric connection?'' (this depends on the directed arc-length conjecture, as discussed in the main text).
+
+\end{document}

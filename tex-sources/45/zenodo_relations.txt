@@ -1,0 +1,249 @@
+================================================================================
+zenodo_relations.txt
+Paper #45: Open-Path Spinorial Transport in the 0-Sphere Model and the
+           Status of Torsion: Holonomy Sufficiency and the Possibility of
+           Emergent Semigroup Geometry (Structural Clarification Note)
+Date: March 11, 2026
+================================================================================
+
+[Summary]
+  Cites           : 15 entries  (15 unique Zenodo DOIs)
+  Is supplement to:  4 entries  ( 4 unique DOIs)
+  Continues       :  3 entries  ( 3 unique DOIs)
+  References      :  3 entries  ( 3 unique DOIs)
+  Requires        :  6 entries  ( 6 unique DOIs)
+  Is part of      :  1 entry   ( 1 unique DOI)
+  ─────────────────────────────────────────────
+  Total relations : 32 entries  (unique DOIs: 16)
+
+Note: nakahara (Nakahara, "Geometry, Topology and Physics", IOP 2003),
+      mtw (Misner, Thorne, Wheeler, "Gravitation", Freeman 1973), and
+      hehl1976 (Hehl et al., Rev. Mod. Phys. 48, 393, 1976) are formal
+      citations in the bibliography but are not Zenodo records; they are
+      not listed under Cites below. They may be entered as References
+      with their respective DOIs/ISBNs if supported by the Zenodo UI.
+
+================================================================================
+[1] Cites    (formal citation via bibitem — Zenodo records only)
+================================================================================
+
+1.  DOI: 10.5281/zenodo.18356895
+    Paper #33 — Geometrical Confinement of Energy in the 0-Sphere Model:
+    A Topological Mechanism Underlying Rest Mass and Zitterbewegung
+
+2.  DOI: 10.5281/zenodo.18511664
+    Paper #35 — Detailed Exposition of the 0-Sphere Model Framework for
+    Gravitational-Like Phenomena
+
+3.  DOI: 10.5281/zenodo.17764997
+    Paper #10 — Redefining Electron Spin and Anomalous Magnetic Moment
+    Through Harmonic Oscillation and Lorentz Contraction
+
+4.  DOI: 10.5281/zenodo.18718174
+    Paper #38 — Electron Interference from Internal Geometry: Two-Kernel
+    SU(2) Structure, Quartic Energy Flow, and an Intrinsic Visibility Limit
+
+5.  DOI: 10.5281/zenodo.17765318
+    Paper #22 — Gravitational Redshift of Internal Quantum Clocks:
+    A Zitterbewegung-Based Model
+
+6.  DOI: 10.5281/zenodo.18275142
+    Paper #32 — Dissolution of the Vacuum Energy Problem in an
+    Integral-Based Ontology
+
+7.  DOI: 10.5281/zenodo.18067760
+    Paper #29 — Geometric Structure of Spinorial Phase Accumulation along
+    Thermal Geodesics
+
+8.  DOI: 10.5281/zenodo.18135855
+    Paper #30 — From Curvature to Connection: Revisiting the Geometric
+    Origin of Conservation Laws
+
+9.  DOI: 10.5281/zenodo.18203433
+    Paper #31 — Line Integrals as Fundamental Observables in Physics:
+    A Unified Principle Behind the Aharonov-Bohm Effect, Berry Phase,
+    and Wilson Loops
+
+10. DOI: 10.5281/zenodo.18736670
+    Paper #40 — On the Derivative-Order Mismatch Between Gauge Theory and
+    Gravity: A Supplement on Connection, Curvature, and Line-Integral
+    Observables
+
+11. DOI: 10.5281/zenodo.17765336
+    Paper #23 — From Zero-Sphere to Emergent Spacetime: A Minimalist
+    Background-Independent Framework for Temporal and Spatial Genesis
+
+12. DOI: 10.5281/zenodo.17765079
+    Paper #13 — Unified Spin Dynamics: From Pseudovector Nature to
+    Relativistic Constraints
+
+13. DOI: 10.5281/zenodo.17765409
+    Paper #26 — Spin from Geometry: Emergence of Spin via Internal Berry
+    Phase in the 0-Sphere Electron Model
+
+14. DOI: 10.5281/zenodo.18637487
+    Paper #37 — Reinterpreting Gravitational Potential Energy as an
+    Internal Line-Integral Quantity in the 0-Sphere Model
+
+15. DOI: 10.5281/zenodo.17765136
+    Paper #17 — From Clock Synchronization to Electromagnetism:
+    A Realist Construction of U(1) Gauge Theory
+
+================================================================================
+[2] Is supplement to
+================================================================================
+
+This paper's subtitle "(Structural Clarification Note)" signals that it
+supplements established results in the 0-Sphere Model series by examining
+the torsion question that arises from their geometric structures.
+
+1.  DOI: 10.5281/zenodo.18718174
+    Paper #38 — Electron Interference from Internal Geometry
+    Reason: #38 established the 4pi spinorial periodicity and SU(2)
+    two-kernel structure; this note examines whether that structure implies
+    Cartan torsion.
+
+2.  DOI: 10.5281/zenodo.18736670
+    Paper #40 — On the Derivative-Order Mismatch Between Gauge Theory
+    and Gravity
+    Reason: #40 analyzed the connection/curvature distinction in the
+    gauge-gravity context; this note directly extends that analysis to
+    the torsion question and the semigroup geometry possibility.
+
+3.  DOI: 10.5281/zenodo.18356895
+    Paper #33 — Geometrical Confinement: Rest Mass and Zitterbewegung
+    Reason: #33 established the two-kernel structure and photon-sphere
+    circulation; this note clarifies whether those structural properties
+    force a non-symmetric connection.
+
+4.  DOI: 10.5281/zenodo.18511664
+    Paper #35 — Detailed Exposition of the 0-Sphere Model Framework
+    Reason: #35 is the comprehensive framework document; this note
+    addresses the geometric question left open in its connection geometry.
+
+================================================================================
+[3] Continues
+================================================================================
+
+1.  DOI: 10.5281/zenodo.18736670
+    Paper #40 — On the Derivative-Order Mismatch Between Gauge Theory
+    and Gravity
+    Reason: #40 identified the derivative-order gap between gauge theory
+    (F_mu_nu = curvature) and GR (force = connection); this note continues
+    by asking whether the model's internal connection is symmetric or not,
+    i.e., whether torsion completes the mismatch resolution.
+
+2.  DOI: 10.5281/zenodo.18067760
+    Paper #29 — Geometric Structure of Spinorial Phase Accumulation along
+    Thermal Geodesics
+    Reason: #29 introduced the open-path spinorial transport on thermal
+    geodesics; this note develops the open-path parallel transport formalism
+    into a full analysis of torsion vs. holonomy in that framework.
+
+3.  DOI: 10.5281/zenodo.18203433
+    Paper #31 — Line Integrals as Fundamental Observables
+    Reason: #31 established line integrals as the primary observables;
+    this note continues by asking whether the directionality implicit in
+    open-path line integrals forces a non-symmetric connection.
+
+================================================================================
+[4] References    (thematic and conceptual reference beyond bibitem)
+================================================================================
+
+1.  DOI: 10.5281/zenodo.18437010
+    Paper #34 — Geometrical Confinement: Gravitational-Like Phenomena
+    Reason: #34 develops the gravitational sector of the confinement
+    framework; Section 6 of this note discusses GR compatibility and
+    torsion confinement to sub-electron scales, which are topics directly
+    addressed in #34.
+
+2.  DOI: 10.5281/zenodo.18603340
+    Paper #36 — Non-Perturbative Nature and Fine-Structure Constant:
+    Methodological Scope
+    Reason: #36 delineates the methodological scope of the model,
+    distinguishing what the model can and cannot derive; this note follows
+    the same scope-analysis methodology for the torsion question.
+
+3.  DOI: 10.5281/zenodo.18809117
+    Paper #41 — A Note on Derivative Hierarchy in Gauge Theory and Gravity:
+    A Historical Supplement on Connection, Curvature, and Line-Integral
+    Observables
+    Reason: #41 is thematically adjacent as a supplement on connection and
+    curvature; this note addresses the next-order question (torsion) in the
+    same geometric context.
+
+================================================================================
+[5] Requires    (prerequisite papers for understanding this work)
+================================================================================
+
+1.  DOI: 10.5281/zenodo.18356895
+    Paper #33 — Geometrical Confinement: Rest Mass and Zitterbewegung
+    Reason: Establishes the two-kernel photon-sphere structure that this
+    note analyzes for torsion.
+
+2.  DOI: 10.5281/zenodo.18511664
+    Paper #35 — Detailed Exposition of the 0-Sphere Model Framework
+    Reason: Provides the full framework equations (Omega_T, v_ZB, kernel
+    structure) that are used without re-derivation in this note.
+
+3.  DOI: 10.5281/zenodo.18718174
+    Paper #38 — Electron Interference from Internal Geometry
+    Reason: Established the 4pi periodicity and SU(2) round-trip relation
+    U_{A->B} . U_{B->A} = -1 that are central to Sections 2 and 5.
+
+4.  DOI: 10.5281/zenodo.18067760
+    Paper #29 — Spinorial Phase Accumulation along Thermal Geodesics
+    Reason: Introduced the open-path spinorial transport framework that
+    this note develops further.
+
+5.  DOI: 10.5281/zenodo.18203433
+    Paper #31 — Line Integrals as Fundamental Observables
+    Reason: Established the line-integral ontology whose connection to
+    torsion this note examines.
+
+6.  DOI: 10.5281/zenodo.18736670
+    Paper #40 — On the Derivative-Order Mismatch
+    Reason: Developed the connection one-form notation and derivative-order
+    analysis that this note directly extends to the torsion question.
+
+================================================================================
+[6] Is part of    (series membership)
+================================================================================
+
+1.  DOI: 10.5281/zenodo.16759284
+    Paper #1 — A Model of an Electron Including Two Perfect Black Bodies
+    Reason: Founding paper of the 0-Sphere Model series. This note is
+    part of the same continuous research program.
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+================================================================================
+
+The following updates are recommended to the Zenodo records of the papers
+listed below, to establish bidirectional edges in the citation graph.
+
+---- Paper #38 (DOI: 10.5281/zenodo.18718174) ----
+  Add: Is supplemented by  10.5281/zenodo.18950974
+
+---- Paper #40 (DOI: 10.5281/zenodo.18736670) ----
+  Add: Is supplemented by  10.5281/zenodo.18950974
+  Add: Is continued by     10.5281/zenodo.18950974
+
+---- Paper #33 (DOI: 10.5281/zenodo.18356895) ----
+  Add: Is supplemented by  10.5281/zenodo.18950974
+
+---- Paper #35 (DOI: 10.5281/zenodo.18511664) ----
+  Add: Is supplemented by  10.5281/zenodo.18950974
+
+---- Paper #29 (DOI: 10.5281/zenodo.18067760) ----
+  Add: Is continued by     10.5281/zenodo.18950974
+
+---- Paper #31 (DOI: 10.5281/zenodo.18203433) ----
+  Add: Is continued by     10.5281/zenodo.18950974
+
+---- Paper #1 (DOI: 10.5281/zenodo.16759284) ----
+  Add: Has part            10.5281/zenodo.18950974
+
+================================================================================
+END OF RELATIONS FILE
+================================================================================
