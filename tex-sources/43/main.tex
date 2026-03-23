@@ -1,0 +1,642 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[labelfont=bf]{caption}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+% ========================================
+% Page Layout Configuration
+% ========================================
+\geometry{
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+}
+
+\onehalfspacing
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+\title{On Observer-Dependent Torsion,\\ Zitterbewegung, and Phase Accumulation\\
+\normalsize A Supplement on SU(2) Teleparallel Geometry and Conceptual Implications}
+
+\author{Satoshi Hanamura\thanks{Email: hana.tensor@gmail.com}}
+\date{March 7, 2026}
+
+\maketitle
+
+% ========================================
+% Table of Contents
+% ========================================
+\tableofcontents
+
+\clearpage
+
+% ========================================
+% Research Summary
+% ========================================
+\begin{center}
+\textbf{Research Summary}
+\end{center}
+
+\justifying
+This supplementary note records interpretive considerations concerning the possible role of observer-dependent torsion and internal phase dynamics in the context of the 0-Sphere model~\cite{hanamura16759284}. The discussion is motivated by the line-integral-based framework developed in the companion works~\cite{hanamura18067760,hanamura18135855,hanamura18203433}, and by its potential implications for Zitterbewegung~\cite{Schrodinger1930}, phase accumulation, and the electron anomalous magnetic moment.
+
+In particular, attention is drawn to the mathematical structure of teleparallel geometry on non-Abelian Lie groups, notably $\mathrm{SU}(2)$, as a concrete example of a space exhibiting vanishing curvature but nonzero torsion~\cite{Weitzenbock1923,Aldrovandi2013}. No additional dynamical assumptions are introduced. The purpose of this note is to clarify conceptual consistency and to delineate a possible interpretive extension, without altering the quantitative results or claims of the main text.
+
+Beyond these mathematical considerations, this supplement aims to make explicit how the 0-Sphere model's treatment of internal phase dynamics, discrete kernel structures, and observer-dependent phenomena relates to established concepts in quantum mechanics and relativity, while maintaining clarity about what remains interpretation and what constitutes formal prediction. In particular, the distinction between closed-loop and open-path line integrals, central to the main trilogy~\cite{hanamura18067760,hanamura18135855,hanamura18203433}, receives detailed treatment in its relation to teleparallel structures.
+
+\clearpage
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+\justifying
+In the main trilogy, line integrals of connections were identified as fundamental observables underlying a range of experimentally established phase phenomena, including the Aharonov--Bohm effect~\cite{ABEffect}, Berry phases~\cite{Berry1984}, and Wilson loops~\cite{WilsonLoop,hanamura18067760,hanamura18135855,hanamura18203433}. Throughout that analysis, care was taken to avoid modifying established field equations or introducing speculative dynamics.
+
+The present supplementary note addresses a natural question that arises from this framework: whether internal phase dynamics associated with discrete two-point structures in the 0-Sphere model~\cite{hanamura16759284} can be meaningfully related to geometric notions such as torsion, and whether such relations depend on the observer's frame.
+
+From a historical perspective, the geometric language available at the time of Einstein's formulation of general relativity naturally emphasized curvature as the primary invariant, while concepts such as connection holonomy and global phase accumulation were not yet recognized as fundamental observables. Subsequent developments in gauge theory and topology suggest that line-integral-based quantities may play a more primary role in certain physical contexts~\cite{hanamura18135855,hanamura18203433}.
+
+A central feature distinguishing the 0-Sphere framework from conventional approaches is its treatment of \textbf{open-path line integrals} as primary physical observables~\cite{hanamura18203433}. While established phase phenomena are characterized by closed contours yielding gauge-invariant phases, the 0-Sphere model assigns fundamental significance to line integrals along open trajectories connecting distinct physical states. This distinction reflects a shift from cyclic phase accumulation on a fixed spacetime background to directional, history-dependent energy transport that constitutes spacetime relations themselves.
+
+This supplement therefore serves multiple purposes: to clarify how discrete two-kernel structure and internal phase evolution relate to observer-dependent geometric concepts; to elucidate the conceptual implications of treating open-path line integrals as ontologically primary; and to demonstrate, through the mathematical example of teleparallel geometry on $\mathrm{SU}(2)$~\cite{Weitzenbock1923,Aldrovandi2013}, how torsion can encode phase information independently of curvature.
+
+
+% ========================================
+% Section 2: From Closed Loops to Open Paths: A Foundational Distinction
+% ========================================
+\section{From Closed Loops to Open Paths: A Foundational Distinction}
+
+\justifying
+Before examining the specific structure of the 0-Sphere model and its relation to teleparallel geometry, it is essential to clarify a fundamental distinction that underlies the entire framework: the difference between closed-loop and open-path line integrals.
+
+% ----------------------------------------
+% Subsection 2.1: Conventional Phase Phenomena: Closed Contours
+% ----------------------------------------
+\subsection{Conventional Phase Phenomena: Closed Contours}
+
+Established examples of line-integral-based observables in physics share a common mathematical structure. The Aharonov--Bohm effect~\cite{ABEffect}, Berry phase~\cite{Berry1984}, and Wilson loops~\cite{WilsonLoop} are all defined as integrals around \textbf{closed contours}:
+\begin{equation}
+\Theta_{\mathrm{closed}} = \oint_{\mathcal{C}} \mathcal{A} \cdot d\bm{\ell},
+\end{equation}
+where the initial and final points coincide. Such closed-loop integrals represent \textbf{cyclic phase accumulation}, encoding gauge-invariant or geometric information that manifests as interference effects when an observer or quantum state returns to its starting configuration.
+
+These phenomena occur within a pre-existing spacetime manifold. The gauge potential $\mathcal{A}$ (whether electromagnetic, Berry connection, or gauge field) is defined at each spacetime point, and the closed loop $\mathcal{C}$ is a trajectory through this background geometry.
+
+% ----------------------------------------
+% Subsection 2.2: The 0-Sphere Framework: Open Paths as Primary
+% ----------------------------------------
+\subsection{The 0-Sphere Framework: Open Paths as Primary}
+
+The 0-Sphere model~\cite{hanamura16759284}, by contrast, assigns fundamental physical significance to line integrals along \textbf{open paths}~\cite{hanamura18203433}:
+\begin{equation}
+\Theta_{\mathrm{open}} = \int_{\gamma: A \to B} d\theta,
+\end{equation}
+where the initial point $A$ and the final point $B$ are distinct.
+
+Three key distinctions clarify this difference:
+
+\textbf{1. Cyclic vs. Directional Transport}
+\begin{itemize}
+\item \textbf{Closed loops:} Phase accumulation returns to the initial state, manifesting as relative phase shifts in interference patterns. The system explores parameter space but does not undergo net displacement.
+\item \textbf{Open paths:} Energy and phase are transported from kernel $A$ to kernel $B$ along a geodesic trajectory. This transport is directional and irreversible, reflecting thermodynamic evolution~\cite{hanamura18356895}.
+\end{itemize}
+
+\textbf{2. Parameter Space vs. Real Space}
+\begin{itemize}
+\item \textbf{Berry phase~\cite{Berry1984}:} The closed loop occurs in an abstract parameter space. Physical position may remain unchanged even as geometric phase accumulates.
+\item \textbf{0-Sphere:} The trajectory $\gamma$ represents motion through real space, where energy actually moves from one location to another along a thermally preferred path~\cite{hanamura18356895}.
+\end{itemize}
+
+\textbf{3. Background Geometry vs. Emergent Spacetime}
+\begin{itemize}
+\item \textbf{Conventional line integrals:} The connection $\mathcal{A}$ exists on a pre-defined spacetime manifold.
+\item \textbf{0-Sphere:} Spacetime structure itself emerges from accumulated interaction histories~\cite{hanamura18135855}. The ``connection'' arises from the phase network topology.
+\end{itemize}
+
+The shift from closed to open line integrals marks the transition from \textbf{gauge-theoretic phase accumulation on a background} to \textbf{ontologically primary phase histories that constitute spacetime structure}~\cite{hanamura18203433}.
+
+% ----------------------------------------
+% Subsection 2.3: Thermodynamic Irreversibility and Open Paths
+% ----------------------------------------
+\subsection{Thermodynamic Irreversibility and Open Paths}
+
+The open character of 0-Sphere line integrals reflects the \textbf{irreversible, thermodynamically driven} nature of phase network evolution.
+
+Consider the contrast:
+\begin{itemize}
+\item \textbf{Aharonov--Bohm effect~\cite{ABEffect}:} An electron traverses a closed loop and returns to its initial position. The accumulated phase manifests as an interference shift. The electron's configuration remains unchanged; only relative phase is altered.
+
+\item \textbf{0-Sphere entropic entrainment:} A subsystem with frequency $\nu_b > \nu_a$ undergoes phase synchronization. Energy is extracted from internal vibrational modes and converted to translational kinetic energy. The subsystem \textit{physically moves} toward the synchronized ensemble---an irreversible thermodynamic process~\cite{hanamura18356895}.
+\end{itemize}
+
+The thermodynamic arrow of time is built into the 0-Sphere formalism~\cite{hanamura16759284}. Open-path line integrals naturally encode entropy increase, energy redistribution, and macroscopic directionality emerging from microscopic phase dynamics.
+
+
+% ========================================
+% Section 3: Discrete Two-Point Structure and Phase Accumulation
+% ========================================
+\section{Discrete Two-Point Structure and Phase Accumulation}
+\label{sec:twokernel}
+
+\justifying
+In the 0-Sphere model~\cite{hanamura16759284}, physically relevant quantities are associated with pairs of events connected by a finite separation, rather than with infinitesimal neighborhoods of single spacetime points. This discreteness is encoded in the kernel structure, which admits an internal phase evolution along particle histories.
+
+% ----------------------------------------
+% Subsection 3.1: The Two-Kernel Configuration Space
+% ----------------------------------------
+\subsection{The Two-Kernel Configuration Space}
+
+The term ``0-Sphere'' refers to the zero-dimensional sphere $S^0$, representing a \textbf{configuration space of two discrete points}. This does not mean the electron consists of two spatially separated objects connected by a ``string.'' Rather, $S^0$ characterizes the set of \textbf{possible energy localization sites} between which the electron's total energy oscillates through radiative transport~\cite{hanamura16759284}.
+
+At any given instant, characterized by internal phase $\theta(t) = \omega t$, the electron's energy is \textbf{predominantly localized at a single kernel}~\cite{hanamura17765017}. When $\theta = 0$ (or integer multiples of $2\pi$), 100\% of energy resides at kernel $A$. When $\theta = \pi$ (or odd multiples of $\pi$), 100\% has been transported to kernel $B$. The transition occurs through continuous radiative exchange, not through persistence of a static two-body structure.
+
+This behavior resembles the locomotion of an inchworm: at each moment, only one point of contact exists with the substrate, yet forward motion arises from alternating transfer of weight. Similarly, the electron's energy undergoes \textbf{discrete, phase-driven hopping} between kernel $A$ and kernel $B$, with the ``photon sphere'' serving as the radiative pathway~\cite{hanamura18511664}.
+
+% ----------------------------------------
+% Subsection 3.2: Phase-Dependent Energy Localization
+% ----------------------------------------
+\subsection{Phase-Dependent Energy Localization}
+
+For an idealized two-kernel system with internal phase $\theta = \omega t$, the energy localized at each kernel can be expressed as~\cite{hanamura16759284,hanamura18356895}:
+\begin{align}
+E_A(\theta) &= E_0 \cos^4(\theta/2), \\
+E_B(\theta) &= E_0 \sin^4(\theta/2),
+\end{align}
+where $E_0$ is total rest energy and the fourth-power dependence arises from the Stefan--Boltzmann radiation law applied to thermal emission and absorption.
+
+At $\theta = 0$:
+\[
+E_A = E_0, \quad E_B = 0 \quad \Rightarrow \quad \text{Energy fully localized at } A
+\]
+
+At $\theta = \pi$:
+\[
+E_A = 0, \quad E_B = E_0 \quad \Rightarrow \quad \text{Energy fully localized at } B
+\]
+
+At intermediate phases, energy is distributed across both kernels, but this reflects the \textbf{transition state} during radiative transport, not simultaneous spatial occupancy~\cite{hanamura18356895}.
+
+% ----------------------------------------
+% Subsection 3.3: The Photon Sphere as Radiative Pathway
+% ----------------------------------------
+\subsection{The Photon Sphere as Radiative Pathway}
+
+The photon sphere provides arcwise connectivity between kernels $A$ and $B$. Crucially, this photon sphere is not modeled as a collection of discrete, countable photons. Rather, it represents a dynamically sustained radiative embedding in which photons are continuously emitted, absorbed, and regenerated~\cite{hanamura16759284}.
+
+The constituent photons carry zero chemical potential ($\mu = 0$), so maintenance of this structure requires only persistence of the underlying radiative exchange, not conservation of photon number. These are \textbf{real, on-shell photons}, individually satisfying $E = h\nu$; however, the photon sphere as a \emph{collective} radiative structure undergoes sub-luminal translation at the Zitterbewegung velocity~\cite{hanamura18356895}. The distinction between the on-shell character of individual constituent photons and the sub-luminal group motion of their collective envelope is essential to understanding how the 0-Sphere model remains consistent with both quantum optics and special relativity~\cite{hanamura18511664}.
+
+The two kernels represent \textbf{phase-dependent energy configurations} rather than independent degrees of freedom. The photon sphere enables definition of line integrals~\cite{hanamura18203433}
+\begin{equation}
+\Theta = \int_{\gamma: A \to B} d\theta
+\end{equation}
+along the \textbf{actual trajectory of energy transport}, not a closed loop in parameter space.
+
+% ----------------------------------------
+% Subsection 3.4: Line Integrals Over Discrete Segments
+% ----------------------------------------
+\subsection{Line Integrals Over Discrete Segments}
+
+Phase accumulation is naturally described by line integrals taken along trajectories composed of infinitesimal segments $\Delta \mathbf{l}_i$~\cite{hanamura18203433}. Even when local curvature or field strength vanishes along the path, accumulated phase differences between neighboring trajectories may arise due to differences in path history and internal phase structure.
+
+This interpretation remains compatible with the discrete nature of the kernel, as the line integral is understood as a sum over finite contributions rather than as a purely local differential object. The physically relevant quantity is not instantaneous field value at a point, but cumulative phase history integrated along the realized interaction pathway~\cite{hanamura18067760}.
+
+
+% ========================================
+% Section 4: Zitterbewegung and Observer Dependence
+% ========================================
+\section{Zitterbewegung and Observer Dependence}
+
+\justifying
+Within the model, electrons exhibit Zitterbewegung~\cite{Schrodinger1930} characterized by rapid internal oscillations with a characteristic velocity scale $v_{\mathrm{ZB}}$. A central purpose of this supplement is to make explicit how the 0-Sphere model's prediction for this velocity differs from the standard Dirac result, and why the distinction is physically significant.
+
+% ----------------------------------------
+% Subsection 4.1: The Dirac Equation and Conventional Interpretation
+% ----------------------------------------
+\subsection{The Dirac Equation and Conventional Interpretation}
+
+When Dirac derived his relativistic equation for the electron~\cite{Dirac1928}, he identified an unexpected oscillatory feature with characteristic frequency
+\begin{equation}
+\nu_{\mathrm{ZB}} = \frac{2 m_e c^2}{h} \approx 1.6 \times 10^{20} \, \mathrm{Hz}.
+\end{equation}
+In the standard treatment, this oscillation arises from the interference between positive- and negative-energy components of the Dirac spinor~\cite{Schrodinger1930}. A further consequence of the Dirac algebra is that the eigenvalues of the velocity operator $\hat{v}_i = c\alpha_i$ are $\pm c$, implying that in any energy eigenstate the instantaneous velocity of the Zitterbewegung amplitude is the speed of light. This feature is conventionally regarded as rendering Zitterbewegung unobservable: any physical measurement necessarily averages over many oscillation periods, and since the oscillation frequency is $\sim 10^{20}\,\mathrm{Hz}$, no net luminal displacement survives the time-averaging.
+
+The 0-Sphere model challenges this picture at two levels~\cite{hanamura17760132}. First, it reinterprets the positive- and negative-energy solutions not as a particle--antiparticle superposition but as the radiation and absorption phases of the two-kernel internal structure (see Section~\ref{sec:twokernel}). Second, and more concretely, it reassigns the physical velocity of the oscillation: the entity that oscillates is the \emph{photon sphere}---the collective radiative carrier between kernels $A$ and $B$---whose translational speed is \emph{sub-luminal}. Specifically, the 0-Sphere model predicts~\cite{hanamura18356895}
+\begin{equation}
+v_{\mathrm{ZB}} \approx 0.04047c,
+\end{equation}
+derived from the experimentally measured anomalous magnetic moment via the identity $\gamma(v_{\mathrm{ZB}}) = 1 + a$~\cite{hanamura17765409}, without adjustable parameters. This subluminal prediction sharply distinguishes the 0-Sphere framework from the Dirac-equation result and provides a concrete, falsifiable criterion for experimental discrimination.
+
+% ----------------------------------------
+% Subsection 4.2: Reinterpretation: Radiation and Absorption as Energy States
+% ----------------------------------------
+\subsection{Reinterpretation: Radiation and Absorption as Energy States}
+
+Within the 0-Sphere framework, an alternative correspondence is proposed~\cite{hanamura17760132}:
+\begin{itemize}
+\item \textbf{Positive energy} $E > 0$: \textbf{Absorption phase} --- the system receives radiative energy, increasing thermal potential energy localized at a kernel
+\item \textbf{Negative energy} $E < 0$: \textbf{Emission phase} --- the system radiates energy, decreasing thermal potential energy localized at a kernel
+\end{itemize}
+
+This reinterpretation~\cite{hanamura17760132} provides a \textbf{single-particle, thermodynamic reframing} of energy eigenstates that restores physical meaning to Zitterbewegung~\cite{Schrodinger1930} without invoking antiparticle creation. The Dirac equation's~\cite{Dirac1928} oscillatory structure reflects the \textbf{alternating dominance} of emission and absorption phases, not coexistence of particles and antiparticles.
+
+% ----------------------------------------
+% Subsection 4.3: The Anomalous Magnetic Moment as Relativistic Circulation Effect
+% ----------------------------------------
+\subsection{The Anomalous Magnetic Moment as Relativistic Circulation Effect}
+
+One of the most distinctive features of the 0-Sphere framework is its reinterpretation of the electron's anomalous magnetic moment through the identity~\cite{hanamura17765409}:
+\begin{equation}
+\gamma(v_{\mathrm{ZB}}) = 1 + a,
+\end{equation}
+where $\gamma = 1/\sqrt{1 - v^2/c^2}$ is the Lorentz factor and $a \approx 0.00116$ is the electron's anomalous magnetic moment.
+
+The physical origin can be understood through a classical analogy. Consider a bicycle wheel rotating at velocity $v$ approaching light speed. Due to Lorentz contraction, the effective circumference experienced in the rotating frame is:
+\begin{equation}
+C_{\mathrm{rotating}} = \frac{2\pi r}{\gamma}.
+\end{equation}
+
+The \textbf{circumference deficit}:
+\begin{equation}
+\Delta C = C_{\mathrm{lab}} - C_{\mathrm{rotating}} = 2\pi r \left(1 - \frac{1}{\gamma}\right) \approx 2\pi r (\gamma - 1)
+\end{equation}
+corresponds directly to the anomalous magnetic moment in the 0-Sphere model~\cite{hanamura17765409}.
+
+In terms of accumulated proper time, this circumference deficit admits a natural line-integral formulation~\cite{hanamura18203433}. The anomalous magnetic moment emerges as the mismatch between two proper-time integrals evaluated along the same internal trajectory but from distinct observer frames:
+\begin{equation}
+\Delta \mu \;\propto\; \oint d\tau_{\text{external}} \;-\; \oint d\tau_{\text{comoving}}.
+\end{equation}
+This difference is not localized at any point but is distributed along the full internal trajectory, consistent with the open-path, history-dependent character of the 0-Sphere framework~\cite{hanamura18203433}.
+
+% ----------------------------------------
+% Subsection 4.4: From Known a to Predicted v_ZB
+% ----------------------------------------
+\subsection{From Known $a$ to Predicted $v_{\mathrm{ZB}}$}
+
+The 0-Sphere model treats the experimentally measured value
+\begin{equation}
+a_{\mathrm{exp}} = 0.00115965218073(28)
+\end{equation}
+as an input parameter and predicts the Zitterbewegung velocity~\cite{hanamura18356895}:
+\begin{equation}
+v_{\mathrm{ZB}} \approx 0.04047c,
+\end{equation}
+corresponding to $\beta_e = 0.040472$ (approximately 12,100 km/s).
+
+\textbf{This prediction has not yet been experimentally verified.} It represents a concrete, falsifiable claim distinguishing the 0-Sphere model from conventional quantum mechanics.
+
+% ----------------------------------------
+% Subsection 4.5: Observer Dependence and Frame Dependence
+% ----------------------------------------
+\subsection{Observer Dependence and Frame Dependence}
+
+From a co-moving frame that follows the internal photon-like motion, no anomalous magnetic moment is observed, and the effective gyromagnetic factor remains $g = 2$, consistent with the Dirac equation~\cite{Dirac1928,hanamura17765409}.
+
+From an external observer's frame, however, the internal motion appears as a relativistically contracted oscillation~\cite{hanamura17765409}. This mismatch between internal and external descriptions suggests that the anomalous magnetic moment emerges from observer-dependent phase accumulation rather than from additional intrinsic degrees of freedom.
+
+Importantly, this observation does not require modifying the Dirac framework~\cite{Dirac1928}; it arises from geometric interpretation of internal phase evolution combined with relativistic kinematics~\cite{hanamura17765409}.
+
+
+% ========================================
+% Section 5: Teleparallel Geometry on SU(2)
+% ========================================
+\section{Teleparallel Geometry on $\mathrm{SU}(2)$}
+
+\justifying
+A mathematically precise example of a space with vanishing curvature but nonvanishing torsion is provided by teleparallel (Weitzenb\"{o}ck) geometry~\cite{Weitzenbock1923,Aldrovandi2013} defined on a Lie group. In particular, the compact non-Abelian group $\mathrm{SU}(2)$, viewed as a three-dimensional manifold topologically equivalent to $S^{3}$, admits a globally defined left-invariant frame.
+
+% ----------------------------------------
+% Subsection 5.1: Mathematical Structure
+% ----------------------------------------
+\subsection{Mathematical Structure}
+
+Let $\{e_{a}\}$ denote a basis of left-invariant vector fields satisfying
+\begin{equation}
+[e_{a}, e_{b}] = \epsilon_{ab}{}^{c} e_{c},
+\end{equation}
+where $\epsilon_{ab}{}^{c}$ are the structure constants of $\mathfrak{su}(2)$.
+
+Defining a Weitzenb\"{o}ck connection $\nabla^{(W)}$~\cite{Weitzenbock1923} by the condition
+\begin{equation}
+\nabla^{(W)} e_{a} = 0,
+\end{equation}
+one finds that the associated curvature tensor vanishes identically~\cite{Aldrovandi2013},
+\begin{equation}
+R^{(W)} = 0,
+\end{equation}
+while the torsion tensor is given by
+\begin{equation}
+T(e_{a}, e_{b}) = -[e_{a}, e_{b}] = -\epsilon_{ab}{}^{c} e_{c} \neq 0.
+\end{equation}
+
+In this construction, torsion directly reflects the noncommutative structure of the underlying Lie algebra, while curvature is absent by definition~\cite{Weitzenbock1923,Aldrovandi2013}.
+
+% ----------------------------------------
+% Subsection 5.2: Interpretive Role in the 0-Sphere Framework
+% ----------------------------------------
+\subsection{Interpretive Role in the 0-Sphere Framework}
+
+It should be emphasized that the teleparallel construction presented here serves solely as a mathematically precise reference example. In the present work, no claim is made that physical spacetime itself is endowed with a Weitzenb\"{o}ck connection~\cite{Weitzenbock1923}; rather, the analogy is invoked to clarify how nonvanishing torsion can encode relative phase shifts through line-integral observables~\cite{hanamura18203433} even in the absence of curvature.
+
+The relevance to the 0-Sphere model lies in the observation that the internal $\mathrm{SU}(2)$ structure associated with spinorial phase evolution~\cite{hanamura18067760} (manifest in the quartic terms $\cos^4(\theta/2)$ and $\sin^4(\theta/2)$) may admit an effective description in terms of torsion rather than curvature when viewed from an appropriate internal frame.
+
+This does not constitute a physical claim that electrons ``live on'' an $\mathrm{SU}(2)$ manifold, but rather suggests that the mathematical machinery of teleparallel geometry~\cite{Aldrovandi2013} provides a natural language for describing phase accumulation along non-closed trajectories in systems with internal spinorial structure.
+
+
+% ========================================
+% Section 6: Radiation Gradient and an Interpretive Role of Torsion
+% ========================================
+\section{Radiation Gradient and an Interpretive Role of Torsion}
+
+\justifying
+The Hamiltonian constraint of the 0-Sphere model~\cite{hanamura16759284,hanamura17765017},
+\begin{equation}
+\cos^{4} \frac{\theta}{2} + \sin^{4} \frac{\theta}{2} + \frac{1}{2}\sin^{2} \theta = 1,
+\end{equation}
+contains quartic terms that depend explicitly on $\theta/2$, suggesting a natural relation to spinorial $\mathrm{SU}(2)$ structure~\cite{hanamura18067760}.
+
+% ----------------------------------------
+% Subsection 6.1: The Radiation Gradient as Force
+% ----------------------------------------
+\subsection{The Radiation Gradient as Force}
+
+The thermal potential energy distribution between the two kernels is~\cite{hanamura16759284,hanamura18356895}:
+\begin{align}
+U_A(\theta) &= E_0 \cos^4(\theta/2), \\
+U_B(\theta) &= E_0 \sin^4(\theta/2).
+\end{align}
+
+Taking the gradient of $U_A$ with respect to phase yields~\cite{hanamura18356895}:
+\begin{equation}
+\frac{dU_A}{d\theta} \propto \sin\theta,
+\end{equation}
+representing the \textbf{instantaneous radiation gradient} driving energy flow from $A$ to $B$.
+
+Following classical mechanics,
+\begin{equation}
+F = -\nabla U,
+\end{equation}
+this radiation gradient \textbf{drives the photon sphere into motion}. The photon sphere, carrying in-transit radiative energy, undergoes translational displacement in the direction of the energy gradient.
+
+This is the physical origin of Zitterbewegung~\cite{Schrodinger1930} velocity: the photon sphere oscillates spatially as energy alternately flows from $A$ to $B$ and back~\cite{hanamura18356895}.
+
+% ----------------------------------------
+% Subsection 6.2: Energy Conservation and Kinetic Conversion
+% ----------------------------------------
+\subsection{Energy Conservation and Kinetic Conversion}
+
+As thermal potential energy $U_A$ decreases due to emission, the released energy is partitioned~\cite{hanamura17765017}:
+\begin{equation}
+\Delta U_A = \Delta U_B + \Delta E_{\mathrm{kin}},
+\end{equation}
+where $\Delta E_{\mathrm{kin}} = \frac{1}{2} m_{\mathrm{eff}} v_{\mathrm{ZB}}^2$ is the kinetic energy acquired by the photon sphere.
+
+This adheres to classical mechanics:
+\begin{itemize}
+\item Force from potential gradient: $F = -\nabla U$
+\item Work-energy theorem: $W = \int F \, dx = \Delta E_{\mathrm{kin}}$
+\item Energy conservation: $U_A + U_B + E_{\mathrm{kin}} = \text{constant}$
+\end{itemize}
+
+% ----------------------------------------
+% Subsection 6.3: Torsion as Phase-Shift Generator
+% ----------------------------------------
+\subsection{Torsion as Phase-Shift Generator}
+
+Within the present interpretive framework, this radiation gradient may be viewed as an effective manifestation of torsion in the sense of Weitzenb\"{o}ck~\cite{Weitzenbock1923,Aldrovandi2013}: not as a geometric defect of spacetime, but as a generator of relative phase shifts between neighboring trajectories~\cite{hanamura18135855}.
+
+Such gradients are physically realized in radiation-pressure-driven systems, including photon-propelled spacecraft, providing concrete analogy for the mechanism proposed here.
+
+In this sense, torsion acquires an observer-dependent meaning, linked to phase accumulation rather than to curvature. The teleparallel example on $\mathrm{SU}(2)$~\cite{Aldrovandi2013} demonstrates mathematically how torsion can encode non-commutativity and phase structure independently of curvature, providing conceptual support for this interpretation without requiring modification of physical spacetime geometry.
+
+
+% ========================================
+% Section 7: Relation to Line-Integral Observables
+% ========================================
+\section{Relation to Line-Integral Observables}
+
+\justifying
+The above considerations remain fully compatible with the line-integral formalism emphasized in the main trilogy~\cite{hanamura18067760,hanamura18135855,hanamura18203433}. Phase differences arise from cumulative contributions along particle histories, expressed as sums over segments $\Delta \mathbf{l}_i$, and do not require local field interactions along the path.
+
+From this viewpoint, torsion does not compete with connection-based descriptions~\cite{hanamura18135855}, but rather supplements them as an interpretive layer when internal phase structure and observer dependence are taken into account. All observable effects remain encoded in holonomy and accumulated phase~\cite{hanamura18067760,hanamura18135855,hanamura18203433}.
+
+The key difference from conventional treatments is that these line integrals are taken along \textbf{open paths representing actual energy transport}~\cite{hanamura18203433}, rather than closed loops representing cyclic parameter evolution. This distinction preserves compatibility with established phase phenomena~\cite{ABEffect,Berry1984,WilsonLoop} while enabling a thermodynamically grounded interpretation of Zitterbewegung~\cite{Schrodinger1930} and related internal dynamics.
+
+The teleparallel construction on $\mathrm{SU}(2)$~\cite{Aldrovandi2013} further illustrates that phase accumulation can be encoded through torsion in a mathematically controlled setting, suggesting that similar structures may arise naturally when describing internal degrees of freedom with spinorial character~\cite{hanamura18067760}.
+
+
+% ========================================
+% Section 8: Scope and Cautionary Remarks
+% ========================================
+\section{Scope and Cautionary Remarks}
+
+\justifying
+The interpretations recorded here are intentionally conservative. No claim is made that torsion, as discussed above, constitutes a new fundamental field or that it modifies general relativity~\cite{Aldrovandi2013}. Nor is it asserted that the origin of the electron anomalous magnetic moment has been definitively identified~\cite{hanamura17765409}.
+
+The teleparallel geometry on $\mathrm{SU}(2)$~\cite{Weitzenbock1923,Aldrovandi2013} serves purely as a mathematical illustration of how torsion can encode phase structure independently of curvature. It is not proposed that physical spacetime is endowed with a Weitzenb\"{o}ck connection or that electrons ``live on'' an $\mathrm{SU}(2)$ manifold.
+
+Instead, this note serves to document a coherent interpretive possibility that emerges naturally once discrete two-point structures~\cite{hanamura16759284}, internal phase evolution, and observer dependence are considered together within a line-integral-based framework~\cite{hanamura18067760,hanamura18135855,hanamura18203433}.
+
+The prediction $v_{\mathrm{ZB}} \approx 0.04047c$~\cite{hanamura18356895} is derived from the experimental value of the anomalous magnetic moment combined with special relativity~\cite{hanamura17765409}, without adjustable parameters. This testability distinguishes the 0-Sphere model and provides a concrete pathway for experimental validation or falsification.
+
+
+% ========================================
+% Section 9: Discussion: Significance of This Supplement
+% ========================================
+\section{Discussion: Significance of This Supplement}
+
+\justifying
+This supplement occupies a specific position in the 0-Sphere model paper series, and it is worth making that position explicit so that a reader---particularly one approaching the series for the first time---can understand what is added here that is not already present in the main trilogy~\cite{hanamura18067760,hanamura18135855,hanamura18203433}.
+
+% ----------------------------------------
+% Subsection 9.1: What the Trilogy Does and Does Not Address
+% ----------------------------------------
+\subsection{What the Trilogy Does and Does Not Address}
+
+The main trilogy establishes line integrals as fundamental observables and demonstrates their role in phase accumulation, conservation laws, and connections to gauge theory. It does not, however, address two questions that naturally arise from its results:
+\begin{itemize}
+\item \textbf{Question 1:} What is the geometric structure that underlies the spinorial ($\theta/2$) character of the quartic energy terms? In the standard approach, spinorial behaviour is associated with curvature in an internal space; but the 0-Sphere model's emphasis on connection rather than curvature invites a different answer.
+\item \textbf{Question 2:} How does the model's prediction for the Zitterbewegung velocity relate to the standard Dirac result? The trilogy uses line integrals to derive phase effects but never explicitly compares the 0-Sphere velocity prediction $v_{\mathrm{ZB}} \approx 0.04c$ with the Dirac velocity-operator eigenvalue of $c$.
+\end{itemize}
+This supplement answers both questions in a controlled, mathematically grounded way.
+
+% ----------------------------------------
+% Subsection 9.2: Three Conceptual Contributions
+% ----------------------------------------
+\subsection{Three Conceptual Contributions}
+
+\textbf{First: Physical velocity distinction.} The 0-Sphere model's central quantitative prediction---$v_{\mathrm{ZB}} \approx 0.04047c$ from the identity $\gamma(v_{\mathrm{ZB}}) = 1 + a$~\cite{hanamura17765409}---stands in direct contrast to the standard Dirac-equation result, where the velocity operator $\hat{v}_i = c\alpha_i$ has eigenvalues $\pm c$. This supplement makes the contrast explicit for the first time in the series, establishing that the model predicts a subluminal, physically realizable oscillation of the photon sphere, not a formal mathematical artefact of the spinor algebra~\cite{hanamura17760132,hanamura18356895}. This distinction is experimentally decisive: any future measurement capable of resolving the Zitterbewegung velocity will simultaneously discriminate between the two frameworks.
+
+\textbf{Second: Torsion as geometric language for spinorial phase.} The quartic terms $\cos^4(\theta/2)$ and $\sin^4(\theta/2)$ carry a natural $\mathrm{SU}(2)$ structure. The teleparallel (Weitzenb\"{o}ck) construction~\cite{Weitzenbock1923,Aldrovandi2013} on $\mathrm{SU}(2)$ provides a mathematically precise setting in which torsion encodes non-Abelian phase information while curvature vanishes identically. This is not a physical claim about spacetime geometry; it is a proof of concept demonstrating that torsion, rather than curvature, is the appropriate geometric language for systems whose phase structure is non-Abelian but whose dynamics do not curve the background manifold. This is precisely the situation in the 0-Sphere model.
+
+\textbf{Third: Open-path vs closed-loop---a systematic comparison.} By placing the 0-Sphere open-path integrals side by side with the Aharonov--Bohm effect~\cite{ABEffect}, Berry phase~\cite{Berry1984}, and Wilson loops~\cite{WilsonLoop}, this supplement provides the clearest available statement of what kind of observable the model generates. Open-path integrals are history-dependent and thermodynamically irreversible; closed-loop integrals are gauge-invariant and cyclic. This distinction is essential for any reader assessing experimental proposals, theoretical extensions, or comparisons with established formalism.
+
+% ----------------------------------------
+% Subsection 9.3: Who Should Read This Supplement
+% ----------------------------------------
+\subsection{Who Should Read This Supplement}
+
+This note is intended as a self-contained conceptual bridge for readers who have absorbed the quantitative results of the main trilogy and wish to understand the geometric and interpretive scaffolding that supports them. No prior familiarity with teleparallel gravity~\cite{Aldrovandi2013} or non-Abelian gauge theory is assumed beyond graduate-level differential geometry. The mathematical content (Section~5) is presented as a finite, worked example rather than as a general theory, and the physical interpretations (Sections~4, 6, 7) are explicitly labelled as interpretive rather than derivational.
+
+A doctoral student who works through this supplement should emerge with a clear understanding of: (i) why the 0-Sphere model predicts $v_{\mathrm{ZB}} \approx 0.04c$ rather than $c$; (ii) how the model's spinorial phase structure relates to torsion in a precise mathematical sense; and (iii) what experimental signature---a subluminal Zitterbewegung oscillation---would constitute a decisive test of the framework~\cite{hanamura18356895}.
+
+
+% ========================================
+% Section 10: Conclusion
+% ========================================
+\section{Conclusion}
+
+\justifying
+This supplementary note has outlined how observer-dependent phase accumulation in the 0-Sphere model may admit an interpretation in terms of effective torsion, with teleparallel geometry on $\mathrm{SU}(2)$~\cite{Weitzenbock1923,Aldrovandi2013} providing a mathematically controlled example of curvature-free but torsion-rich structures.
+
+The discussion is intended as a conceptual clarification rather than as a foundational claim. It delineates a region of interpretive space that may become relevant should future experimental results, such as direct measurements of Zitterbewegung velocity~\cite{hanamura18356895}, become available.
+
+Key points established:
+\begin{enumerate}
+\item Open-path line integrals~\cite{hanamura18203433} distinguish the 0-Sphere framework from closed-loop phase phenomena~\cite{ABEffect,Berry1984,WilsonLoop}
+\item Discrete two-kernel structure with phase-dependent energy localization~\cite{hanamura16759284,hanamura18356895}
+\item The standard Dirac treatment yields a velocity-operator eigenvalue of $c$~\cite{Dirac1928}, while the 0-Sphere model reinterprets this and predicts a subluminal photon-sphere oscillation at $v_{\mathrm{ZB}} \approx 0.04047c$~\cite{hanamura17760132,hanamura18356895}
+\item Anomalous magnetic moment arising from Lorentz contraction of the circulating photon sphere, with $\gamma(v_{\mathrm{ZB}}) = 1 + a$~\cite{hanamura17765409}
+\item Radiation gradient as classical force $F = -\nabla U$ driving internal photon-sphere motion~\cite{hanamura18356895}
+\item Teleparallel geometry on $\mathrm{SU}(2)$~\cite{Weitzenbock1923,Aldrovandi2013} as mathematical illustration of torsion without curvature
+\item Observer-dependent torsion as interpretive framework for spinorial phase accumulation~\cite{hanamura18067760,hanamura18135855,hanamura18203433}
+\end{enumerate}
+
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+The author notes that the considerations presented here arose during attempts to clarify the conceptual scope of the main line-integral-based manuscripts~\cite{hanamura18067760,hanamura18135855,hanamura18203433}. While not essential to the primary arguments, recording these remarks proved useful for delineating interpretation from formal derivation.
+
+During preparation, large language models were used in a limited supportive role for textual organization. All physical interpretations and judgments remain the responsibility of the author.
+
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamura16759284}
+S.~Hanamura,
+``A Model of an Electron Including Two Perfect Black Bodies,''
+Zenodo (2018).
+\href{https://doi.org/10.5281/zenodo.16759284}{https://doi.org/10.5281/zenodo.16759284}
+
+\bibitem{hanamura18067760}
+S.~Hanamura,
+``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.18067760}{https://doi.org/10.5281/zenodo.18067760}
+
+\bibitem{hanamura18135855}
+S.~Hanamura,
+``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18135855}{https://doi.org/10.5281/zenodo.18135855}
+
+\bibitem{hanamura18203433}
+S.~Hanamura,
+``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18203433}{https://doi.org/10.5281/zenodo.18203433}
+
+\bibitem{Schrodinger1930}
+E.~Schr\"{o}dinger,
+``\"{U}ber die kr\"{a}ftefreie Bewegung in der relativistischen Quantenmechanik,''
+Sitzungsber.\ Preuss.\ Akad.\ Wiss.\ Phys.-Math.\ Kl.\ \textbf{24}, 418--428 (1930).
+
+\bibitem{Weitzenbock1923}
+R.~Weitzenb\"{o}ck,
+\textit{Invariantentheorie}
+(Noordhoff, Groningen, 1923).
+
+\bibitem{Aldrovandi2013}
+R.~Aldrovandi and J.~G.~Pereira,
+\textit{Teleparallel Gravity: An Introduction}
+(Springer, Dordrecht, 2013).
+\href{https://doi.org/10.1007/978-94-007-5143-9}{https://doi.org/10.1007/978-94-007-5143-9}
+
+\bibitem{ABEffect}
+Y.~Aharonov and D.~Bohm,
+``Significance of electromagnetic potentials in quantum theory,''
+Phys.\ Rev.\ \textbf{115}, 485--491 (1959).
+\href{https://doi.org/10.1103/PhysRev.115.485}{https://doi.org/10.1103/PhysRev.115.485}
+
+\bibitem{Berry1984}
+M.~V.~Berry,
+``Quantal phase factors accompanying adiabatic changes,''
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{392}, 45--57 (1984).
+\href{https://doi.org/10.1098/rspa.1984.0023}{https://doi.org/10.1098/rspa.1984.0023}
+
+\bibitem{WilsonLoop}
+K.~G.~Wilson,
+``Confinement of quarks,''
+Phys.\ Rev.\ D \textbf{10}, 2445--2459 (1974).
+\href{https://doi.org/10.1103/PhysRevD.10.2445}{https://doi.org/10.1103/PhysRevD.10.2445}
+
+\bibitem{hanamura18356895}
+S.~Hanamura,
+``Geometrical Confinement: Rest Mass and Zitterbewegung as Topological Consequences of the 0-Sphere Geometry,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18356895}{https://doi.org/10.5281/zenodo.18356895}
+
+\bibitem{hanamura17765017}
+S.~Hanamura,
+``Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer,''
+Zenodo (2024).
+\href{https://doi.org/10.5281/zenodo.17765017}{https://doi.org/10.5281/zenodo.17765017}
+
+\bibitem{hanamura18511664}
+S.~Hanamura,
+``Detailed Exposition of the 0-Sphere Model Framework for Gravitational-Like Phenomena,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18511664}{https://doi.org/10.5281/zenodo.18511664}
+
+\bibitem{Dirac1928}
+P.~A.~M.~Dirac,
+``The quantum theory of the electron,''
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{117}, 610--624 (1928).
+\href{https://doi.org/10.1098/rspa.1928.0023}{https://doi.org/10.1098/rspa.1928.0023}
+
+\bibitem{hanamura17760132}
+S.~Hanamura,
+``Coexistence of Positive and Negative-Energy States in the Dirac Equation,''
+Zenodo (2020).
+\href{https://doi.org/10.5281/zenodo.17760132}{https://doi.org/10.5281/zenodo.17760132}
+
+\bibitem{hanamura17765409}
+S.~Hanamura,
+``Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765409}{https://doi.org/10.5281/zenodo.17765409}
+
+\end{thebibliography}
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}

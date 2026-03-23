@@ -1,0 +1,215 @@
+================================================================================
+Zenodo Relations — Paper #43
+On Observer-Dependent Torsion, Zitterbewegung, and Phase Accumulation:
+A Supplement on SU(2) Teleparallel Geometry and Conceptual Implications
+DOI: 10.5281/zenodo.18896784
+Date: March 7, 2026
+================================================================================
+
+[Summary]
+  Relation type          Count   Unique DOIs
+  Cites                    9        9
+  Is supplement to         3        3
+  Continues                2        2
+  References               4        4
+  Requires                 3        3
+  Is part of               1        1
+  ─────────────────────────────────────
+  Total forward entries   22       16 (some DOIs appear in multiple sections)
+  Reverse relations        9       (see Reverse Relations section)
+
+================================================================================
+[1] Cites  (formal citation via \bibitem)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies
+  Role: Foundational paper; defines 0-Sphere model, two-kernel structure,
+        quartic energy identity
+
+DOI: 10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation along Thermal
+         Geodesics
+  Role: Trilogy paper 1; spinorial phase accumulation and thermal geodesics;
+        open-path line integral origin
+
+DOI: 10.5281/zenodo.18135855
+  Title: From Curvature to Connection: Revisiting the Geometric Origin of
+         Conservation Laws
+  Role: Trilogy paper 2; connection vs. curvature distinction; torsion as
+        interpretive layer complement
+
+DOI: 10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics
+  Role: Trilogy paper 3; open-path line integrals as ontologically primary
+        observables; central reference throughout
+
+DOI: 10.5281/zenodo.18356895
+  Title: Geometrical Confinement: Rest Mass and Zitterbewegung as
+         Topological Consequences of the 0-Sphere Geometry
+  Role: Source of v_ZB ~ 0.04047c prediction; photon sphere dynamics;
+        radiation gradient as force
+
+DOI: 10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung,
+         Geodesic Paths, and Proper Time Through Radiative Energy Transfer
+  Role: Hamiltonian constraint; energy partitioning delta U_A = delta U_B
+        + delta E_kin
+
+DOI: 10.5281/zenodo.18511664
+  Title: Detailed Exposition of the 0-Sphere Model Framework for
+         Gravitational-Like Phenomena
+  Role: Photon-sphere consistency with quantum optics and special relativity;
+        inchworm locomotion analogy
+
+DOI: 10.5281/zenodo.17760132
+  Title: Coexistence of Positive and Negative-Energy States in the Dirac
+         Equation
+  Role: Reinterpretation of Dirac positive/negative energy as
+        absorption/emission phases; subluminal v_ZB argument
+
+DOI: 10.5281/zenodo.17765409
+  Title: Spin from Geometry: Emergence of Spin via Internal Berry Phase in
+         the 0-Sphere Electron Model
+  Role: Identity gamma(v_ZB) = 1 + a; anomalous magnetic moment as
+        observer-dependent Lorentz contraction
+
+================================================================================
+[2] Is supplement to
+================================================================================
+
+DOI: 10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation along Thermal
+         Geodesics (Trilogy paper 1)
+  Reason: Title and abstract explicitly declare this note a supplement to the
+          main trilogy; answers open questions not addressed in trilogy paper 1
+
+DOI: 10.5281/zenodo.18135855
+  Title: From Curvature to Connection (Trilogy paper 2)
+  Reason: Torsion discussion supplements the connection-vs-curvature framework;
+          Section 6.3 directly extends the torsion-as-interpretive-layer idea
+          introduced here
+
+DOI: 10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables (Trilogy paper 3)
+  Reason: Provides the geometric and interpretive scaffolding for the
+          open-path formalism established in trilogy paper 3; Section 9.1
+          identifies specific gaps this supplement fills
+
+================================================================================
+[3] Continues
+================================================================================
+
+DOI: 10.5281/zenodo.18736670
+  Title: On the Derivative-Order Mismatch Between Gauge Theory and Gravity
+         (#40)
+  Reason: Paper #40 introduced the derivative-order mismatch and pre-divergence
+          layer; this supplement extends the conceptual discussion to torsion
+          and SU(2) teleparallel geometry as the natural geometric setting
+
+DOI: 10.5281/zenodo.18809117
+  Title: A Note on Derivative Hierarchy in Gauge Theory and Gravity:
+         A Historical Supplement (#41)
+  Reason: Paper #41 raised the torsion question and holonomy vs. semigroup
+          geometry issue; this supplement provides the mathematical answer
+          through explicit SU(2) Weitzenbock construction
+
+================================================================================
+[4] References  (thematic and conceptual reference, not formal bibitem)
+================================================================================
+
+DOI: 10.5281/zenodo.17765238
+  Title: Spin as a Real Vector: Geometric Origin of U(1) Gauge and SU(2)
+         Periodicity (#19)
+  Reason: SU(2) periodicity and spinorial structure of spin as real vector;
+          directly relevant to the SU(2) teleparallel construction in Section 5
+
+DOI: 10.5281/zenodo.16980206
+  Title: Anomalous Magnetic Moments Without Fields: Observer-Dependent
+         Interpretation (#21)
+  Reason: Observer-dependent AMM framing; comoving vs. external observer
+          distinction developed in that paper underpins Section 4.5
+
+DOI: 10.5281/zenodo.18718174
+  Title: Electron Interference from Internal Geometry: Two-Kernel SU(2)
+         Structure, Quartic Energy Flow, and an Intrinsic Visibility Limit
+         (#38)
+  Reason: Two-kernel SU(2) structure and realist Bloch sphere; quartic energy
+          flow directly corresponds to the cos^4/sin^4 terms discussed in
+          Sections 3 and 6
+
+DOI: 10.5281/zenodo.18437010
+  Title: Geometrical Confinement: Gravitational-Like Phenomena (#34)
+  Reason: Geometrical confinement framework; photon-sphere dynamics and
+          force F = -grad(U) introduced there; conceptual predecessor to
+          Section 6 treatment
+
+================================================================================
+[5] Requires  (prerequisite papers for understanding this work)
+================================================================================
+
+DOI: 10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables (Trilogy paper 3)
+  Reason: The open-path vs. closed-loop distinction in Section 2 assumes
+          familiarity with the line-integral formalism established here;
+          prerequisite for Sections 2, 3, 7
+
+DOI: 10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation (Trilogy paper 1)
+  Reason: Spinorial SU(2) phase structure and thermal geodesic context
+          assumed in Sections 5 and 6; prerequisite for geometric discussion
+
+DOI: 10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Reason: Two-kernel model, quartic energy identity, and photon sphere
+          concept required for all sections; foundational prerequisite
+
+================================================================================
+[6] Is part of  (series membership)
+================================================================================
+
+DOI: 10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables (Trilogy paper 3)
+  Reason: This supplement is explicitly positioned as part of the line-integral
+          trilogy framework; it constitutes a supplementary member of that
+          sub-series within the broader 0-Sphere Model series
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+================================================================================
+
+The following records should be updated on Zenodo to add reverse-direction
+relations pointing back to DOI: 10.5281/zenodo.18896784 (this paper, #43).
+
+1. DOI: 10.5281/zenodo.18067760  (Trilogy paper 1, #29)
+   Add: Is supplemented by → 10.5281/zenodo.18896784
+
+2. DOI: 10.5281/zenodo.18135855  (Trilogy paper 2, #30)
+   Add: Is supplemented by → 10.5281/zenodo.18896784
+
+3. DOI: 10.5281/zenodo.18203433  (Trilogy paper 3, #31)
+   Add: Is supplemented by → 10.5281/zenodo.18896784
+   Add: Is required by     → 10.5281/zenodo.18896784
+
+4. DOI: 10.5281/zenodo.18736670  (#40)
+   Add: Is continued by    → 10.5281/zenodo.18896784
+
+5. DOI: 10.5281/zenodo.18809117  (#41)
+   Add: Is continued by    → 10.5281/zenodo.18896784
+
+6. DOI: 10.5281/zenodo.16759284  (#1, foundational)
+   Add: Is cited by        → 10.5281/zenodo.18896784
+   Add: Is required by     → 10.5281/zenodo.18896784
+
+7. DOI: 10.5281/zenodo.18356895  (#33)
+   Add: Is cited by        → 10.5281/zenodo.18896784
+
+8. DOI: 10.5281/zenodo.17765409  (#26)
+   Add: Is cited by        → 10.5281/zenodo.18896784
+
+9. DOI: 10.5281/zenodo.17760132  (#7)
+   Add: Is cited by        → 10.5281/zenodo.18896784
+
+================================================================================
+END OF ZENODO RELATIONS
+================================================================================
