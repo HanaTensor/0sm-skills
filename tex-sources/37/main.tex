@@ -1,0 +1,571 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+ prb,
+]{revtex4-2}
+
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            filecolor=blue,
+            urlcolor=blue,
+            citecolor=blue]{hyperref}
+
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright,
+    labelfont={bf},
+    name={Fig.},
+    labelsep=period
+}
+\captionsetup[table]{
+    labelfont={bf},
+    name={Table},
+    labelsep=period
+}
+
+\numberwithin{equation}{section}
+
+% ========================================
+% Typography Configuration
+% ========================================
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{deepgreen}\itshape,
+    keywordstyle=\color{deepblue}\bfseries,
+    numberstyle=\tiny\color{deepgray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Python,
+    frame=single,
+    rulecolor=\color{deepgray}
+}
+\lstset{style=pythonstyle}
+
+% Internal phase notation
+\newcommand{\iphase}{\theta}
+
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+\title{Reinterpreting Gravitational Potential Energy \\as an Internal Line-Integral Quantity in the 0-Sphere Model}
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{February 14, 2026}
+
+\begin{abstract}
+Gravitational potential energy is conventionally treated as a scalar function assigned to spatial positions in classical mechanics and general relativity. While operationally successful, this representation leaves unresolved the ontological question of where such energy physically resides. In this paper, we propose a reinterpretation within the 0-Sphere model framework in which gravitational potential energy is not attributed to space itself, but instead emerges from internal degrees of freedom of matter. These internal degrees are geometrically described by a connection and accumulated through a line integral along the particle's worldline.
+
+Within this integral-based formulation, free fall is reinterpreted as the geodesic evolution of internal phase history. A characteristic internal oscillation velocity,
+\[
+v_{\rm ZB} \approx 0.04047c,
+\]
+is uniquely determined from the experimental value of the electron's anomalous magnetic moment without adjustable parameters. This value reflects only special-relativistic contributions and remains experimentally unverified.
+
+The predicted gravitational redshift of the internal oscillation frequency is numerically identical to the standard general-relativistic result. The novelty of the present framework lies not in modifying empirical predictions, but in relocating gravitational potential energy from an abstract spatial scalar field to accumulated internal phase evolution, thereby providing an internal dynamical ontology underlying the familiar expression $E = mgh$.
+\end{abstract}
+
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+The notion of gravitational potential energy occupies a peculiar position in physics. It is indispensable for calculations, yet conceptually elusive. Students are told that an object ``at a higher position'' possesses more energy, but the physical meaning of ``higher'' is defined only by the potential itself. This circularity has long been recognized but is often accepted as unavoidable.
+
+When pressed to explain what ``higher position'' means in a fundamental sense, conventional physics encounters a closed logical loop. An object accelerates downward because it has gravitational potential energy. Gravitational potential energy is defined as energy associated with position in a gravitational field. The gravitational field is defined by the tendency of objects to accelerate downward. This circularity is not a defect in pedagogical presentation but reflects a deeper limitation. In conventional formulations, potential energy is treated as a scalar field over space $\Phi(\mathbf{x})$ such that the force is given by $\mathbf{F} = - m \nabla \Phi$. Energy is said to be stored ``in the gravitational field'' or ``in space,'' even though no local, directly observable carrier of this energy is identified. This situation contrasts sharply with kinetic energy, which is unambiguously associated with motion, or with internal energy in thermodynamics, which is tied to microscopic degrees of freedom.
+
+Crucially, the absolute value of $\Phi$ is unobservable. Only differences in potential energy matter, which already suggests that $\Phi$ itself is not a fundamental physical quantity but an auxiliary construct. This mirrors the role of gauge potentials in electromagnetism, where observable effects arise not from local values but from integrals.
+
+The 0-Sphere model resolves this tautology not by denying the utility of potential energy but by relocating its physical origin from abstract spatial position to concrete internal dynamical states. The key insight is that what classical mechanics calls ``gravitational potential energy'' actually corresponds to the energy stored in internal oscillatory motion, specifically the Zitterbewegung dynamics of fundamental particles. Within this framework, higher position corresponds to internal oscillation at higher frequency with less synchronization to surrounding matter, while lower position corresponds to lower frequency with greater synchronization. Free fall then emerges as an entropic synchronization process that releases internal oscillatory energy as translational motion.
+
+This reinterpretation establishes a direct correspondence with general relativity, where clocks at higher gravitational potential run faster. In the 0-Sphere framework, this is not merely an analogy but a physical identity: the internal Zitterbewegung frequency \emph{is} the clock, and gravitational potential differences reflect variations in this internal temporal evolution. General relativity predicts that clocks at different gravitational potentials tick at different rates, an effect confirmed to extraordinary precision in experiments such as the Pound-Rebka experiment \cite{Pound1960} and GPS satellite clock corrections \cite{Ashby2003}. The gravitational redshift factor in a Schwarzschild geometry is $d\tau/dt = \sqrt{1 - 2GM/(rc^2)}$, where $\tau$ is proper time and $t$ is coordinate time. In the 0-Sphere model, this effect is reinterpreted as a modulation of the internal Zitterbewegung frequency. Recent work has shown that the characteristic frequency $\nu_{\rm ZB} \approx 5.0 \times 10^{18}$ Hz experiences gravitational redshift, with a predicted frequency difference of approximately $\Delta \nu \approx 2.64 \times 10^9$ Hz between Earth's surface and GPS satellite altitude \cite{Hanamura2025GravRedshift}. This provides a concrete, testable prediction linking internal quantum dynamics to gravitational phenomena.
+
+This work develops the reinterpretation of gravitational potential energy through a systematic progression. Section~\ref{sec:conceptual_problem} articulates the conceptual limitations of position-assigned potentials. Section~\ref{sec:0sphere_foundation} introduces the foundational equations of the 0-Sphere model, including the energy conservation identity and the derivation of the characteristic Zitterbewegung velocity from the anomalous magnetic moment. Section~\ref{sec:integral_ontology} establishes the integral-based ontology in which observables are defined as line integrals along worldlines. Section~\ref{sec:grav_redshift} analyzes gravitational redshift as internal energy modulation and provides quantitative predictions. Section~\ref{sec:mgh_reinterpret} offers a detailed quantitative reinterpretation of the classical expression $mgh$. Section~\ref{sec:thermal_geodesic} discusses free fall as thermal geodesic motion. Section~\ref{sec:experimental} outlines experimental predictions and verification strategies. Section~\ref{sec:discussion} evaluates broader implications, and Section~\ref{sec:conclusion} summarizes the main results.
+
+% ========================================
+% Section 2: Conceptual Problem of Position-Assigned Potentials
+% ========================================
+\section{Conceptual Problem of Position-Assigned Potentials}
+\label{sec:conceptual_problem}
+
+The standard gravitational potential $\Phi(\mathbf{x})$ is defined such that the force is given by
+\begin{equation}
+\mathbf{F} = - m \nabla \Phi.
+\label{eq:force_potential}
+\end{equation}
+From this definition, potential energy is introduced as $U = m \Phi$. However, this procedure does not explain what $\Phi$ physically is; it merely defines it as a mathematical convenience whose gradient reproduces the observed acceleration.
+
+This observation motivates a fundamental shift in perspective. If only differences and integrals of potential are observable, then potential itself should not be assigned ontological primacy. The arbitrariness of the reference point for potential energy reveals that $\Phi$ is not a property of spacetime itself but rather a bookkeeping device encoding how systems would evolve under gravitational influence. This suggests that the true physical content lies not in $\Phi$ but in the dynamical processes it describes.
+
+Table~\ref{tab:comparison} summarizes the fundamental differences between the classical position-based formulation and the 0-Sphere internal-dynamics interpretation. The classical approach treats potential energy as an abstract scalar field defined over space, with ``height'' serving as a coordinate label whose physical meaning is defined only by the potential itself. The resulting circularity leads to a conceptually incomplete description. In contrast, the 0-Sphere model grounds potential energy in measurable internal oscillation frequencies, with height differences corresponding to variations in synchronization state. This transforms gravitational phenomena from externally imposed forces into emergent consequences of internal phase dynamics.
+
+% ----------------------------------------
+% Table 1: Comparison of classical and 0-Sphere interpretations
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{Comparison of classical and 0-Sphere interpretations of gravitational potential energy.}
+\label{tab:comparison}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.0cm}p{5.5cm}p{6.0cm}}
+\toprule
+\textbf{Aspect} & \textbf{Classical Mechanics} & \textbf{0-Sphere Model} \\
+\midrule
+Potential energy
+& Scalar field $\Phi(\mathbf{x})$ assigned to spacetime
+& Internal oscillation frequency arising from Zitterbewegung dynamics \\
+\addlinespace[0.25cm]
+Physical location
+& Assigned to space itself as an abstract property
+& Localized within internal degrees of freedom of matter \\
+\addlinespace[0.25cm]
+``Higher position''
+& Coordinate with larger $\Phi$ value; meaning is circular
+& Faster internal oscillation with reduced synchronization to surroundings \\
+\addlinespace[0.25cm]
+Physical carrier
+& Abstract field; no local observable entity
+& Real photon circulation within photon sphere at Compton scale \\
+\addlinespace[0.25cm]
+Free fall mechanism
+& External force $\mathbf{F} = -m\nabla\Phi$ acting on particle
+& Entropic synchronization releasing internal oscillatory energy \\
+\addlinespace[0.25cm]
+Energy conversion
+& $U \to K$ by definition; no microscopic process specified
+& $E_{\rm osc} \to E_{\rm trans}$ via thermodynamic phase alignment \\
+\addlinespace[0.25cm]
+Conceptual circularity
+& ``High'' means large $\Phi$; $\Phi$ defined by tendency to fall
+& Resolved: ``high'' corresponds to measurable internal frequency \\
+\addlinespace[0.25cm]
+GR correspondence
+& Time dilation modifies clock rates
+& Internal Zitterbewegung frequency \emph{is} the clock being modulated \\
+\addlinespace[0.25cm]
+Testability
+& Indirect verification through observed motion
+& Direct prediction: frequency shift $\Delta\nu \approx 2.64 \times 10^9$ Hz \\
+\bottomrule
+\end{tabular}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+This table contrasts the classical position-based formulation of gravitational potential energy with the 0-Sphere internal-dynamics interpretation. The classical approach treats potential as an abstract scalar field defined over space, leading to conceptual circularity when one asks what ``higher position'' fundamentally means. The 0-Sphere model grounds potential energy in measurable internal oscillation frequencies, with height differences corresponding to variations in synchronization state. This reinterpretation transforms gravitational phenomena from externally imposed forces into emergent consequences of internal phase dynamics, providing both a resolution of the conceptual circularity and concrete experimental predictions.
+\end{minipage}
+\end{table*}
+
+
+% ========================================
+% Section 3: The 0-Sphere Model: Foundational Framework
+% ========================================
+\section{The 0-Sphere Model: Foundational Framework}
+\label{sec:0sphere_foundation}
+
+The 0-Sphere model posits that the electron's rest energy is distributed between two thermal kernels ($A$ and $B$) and a photon sphere mediating energy exchange. The total energy is conserved through the identity \cite{Hanamura2024Spin,Hanamura2026Geometrical}:
+\begin{equation}
+E_0 = \cos^4\theta + \sin^4\theta + \frac{1}{2}\sin^2(2\theta), \quad \theta = \frac{\omega t}{2},
+\label{eq:energy_identity}
+\end{equation}
+where $\cos^4\theta$ represents the thermal potential energy of kernel $A$, $\sin^4\theta$ represents that of kernel $B$, and $(1/2)\sin^2(2\theta)$ represents the transition kinetic energy in the photon sphere. The fourth-power dependence arises from Stefan-Boltzmann radiation law applied to thermal emission. The identity can be verified algebraically using $\sin^2(2\theta) = 4\sin^2\theta\cos^2\theta$:
+\[
+\cos^4\theta + \sin^4\theta + 2\sin^2\theta\cos^2\theta = (\cos^2\theta + \sin^2\theta)^2 = 1.
+\]
+
+The characteristic separation between kernels is of order the Compton wavelength $\lambda_C = \hbar/(m_e c) \approx 2.4 \times 10^{-12}$ m. Energy transport between kernels occurs via real, on-shell photons satisfying $E = pc$, propagating along thermal geodesics within the photon sphere. This is not a virtual oscillation but a thermodynamically sustained process involving actual photon emission, propagation, and absorption.
+
+The 0-Sphere model predicts a characteristic internal oscillation velocity derived from the electron's anomalous magnetic moment $a_e = 0.00115965218073(28)$ through the relation \cite{Hanamura2024Spin}:
+\begin{equation}
+\sqrt{1 - \beta^2} = \frac{1}{1 + \frac{1}{\sqrt{2}}a_e}, \quad \beta = \frac{v_{\rm ZB}}{c}.
+\label{eq:anomalous_relation}
+\end{equation}
+This yields the prediction $v_{\rm ZB}^{\rm (RMS)} = 0.04047c \approx 12{,}100$ km/s for the RMS-averaged internal velocity. The instantaneous peak velocity $v_{\rm ZB}^{\rm (max)} \approx 0.048c$ is related through $v_{\rm ZB}^{\rm (max)} = 2^{1/4} v_{\rm ZB}^{\rm (RMS)}$; see Ref.~\cite{Hanamura2026NonPert} for a detailed treatment of peak versus time-averaged velocities. Throughout this paper, $v_{\rm ZB}$ refers to the RMS-averaged value unless otherwise noted (see Appendix~\ref{app:status} for the history of general-relativistic correction attempts and their current status).
+
+The factor $1/\sqrt{2}$ arises from root-mean-square averaging of the phase-dependent circulation velocity over one complete oscillation cycle. This relation is not a post-hoc fit but follows from the Lorentz contraction of the circulating photon sphere, reinterpreting the anomalous magnetic moment as a geometric effect rather than arising solely from virtual particle loops \cite{Hanamura2026Geometrical}. This prediction is derived within the internal dynamical assumptions of the 0-Sphere model, specifically the two-kernel structure with photon-sphere mediated energy exchange. Alternative internal geometries would yield different numerical coefficients while preserving the general form of the anomalous-moment-to-velocity relation.
+
+The characteristic frequency of internal oscillation is $\nu_{\rm ZB} = v_{\rm ZB}/\lambda_C \approx 5.0 \times 10^{18}$ Hz, corresponding to X-ray wavelengths. This is significantly lower than the conventional Dirac prediction $\nu \sim 10^{20}$ Hz (gamma-ray regime), placing it within reach of modern ultrafast spectroscopy techniques.
+
+
+% ========================================
+% Section 4: Integral-Based Ontology and Internal Connections
+% ========================================
+\section{Integral-Based Ontology and Internal Connections}
+\label{sec:integral_ontology}
+
+% ----------------------------------------
+% Subsection 4.1: Integral-Based Ontology: Observables as Histories
+% ----------------------------------------
+\subsection{Integral-Based Ontology: Observables as Histories}
+
+In the 0-Sphere model, physical observables are not identified with local field values defined at points in spacetime. Instead, they are accumulated quantities defined along histories. The fundamental object is a worldline $\gamma$, parametrized by proper time $\tau$, along which internal degrees of freedom evolve. Observable physical effects arise not from instantaneous configurations but from the cumulative internal evolution experienced along such trajectories.
+
+This shift reflects a broader ontological principle: if only differences and integrals of quantities are observable, then these integrals, rather than the underlying local potentials, should be regarded as physically primary. In this sense, the role traditionally played by scalar potentials is replaced by history-dependent quantities that encode how internal states evolve over time. Gravitational potential energy, within this ontology, is not a property assigned to spatial position but an emergent quantity reflecting differences in accumulated internal evolution.
+
+This perspective mirrors the situation in gauge theories, where local potentials are gauge-dependent and unobservable, while integrated quantities such as phase shifts or holonomies carry physical meaning. The 0-Sphere model elevates this principle from a mathematical convenience to an ontological statement: histories, not positions, are the fundamental carriers of physical information \cite{Hanamura2026LineIntegrals}.
+
+% ----------------------------------------
+% Subsection 4.2: Internal Connection and Phase Accumulation
+% ----------------------------------------
+\subsection{Internal Connection and Phase Accumulation}
+
+To formalize this idea, we introduce an internal connection one-form $\omega$, encoding infinitesimal changes of the internal phase associated with Zitterbewegung dynamics. The accumulated internal phase $\Theta$ along a worldline segment is defined as
+\begin{equation}
+\Theta = \int_{\gamma} \omega
+       = \int_{\tau_i}^{\tau_f} \omega_\mu(x(\tau)) 
+         \frac{dx^\mu}{d\tau} \, d\tau .
+\label{eq:phase_integral}
+\end{equation}
+
+Here $\omega_\mu$ is not interpreted as a force field acting in spacetime, but as a geometric connection acting on internal degrees of freedom. The spacetime trajectory $x^\mu(\tau)$ specifies how the particle moves, while the integral accumulates the internal phase evolution along that motion. No local ``potential energy density'' appears in this formulation; energy differences arise only through comparison of accumulated internal histories between different worldlines.
+
+In the present work, $\omega_\mu$ is treated as an effective U(1)-like connection defined over an internal phase bundle associated with Zitterbewegung dynamics. More precisely, it may be viewed as the projection of an underlying SU(2) spinorial connection onto thermodynamically allowed trajectories. The appearance of half-angle structures, such as $\theta = \omega t/2$, and the double-frequency terms in Eq.~(\ref{eq:energy_identity}) reflect this spinorial origin \cite{Hanamura2025ThermalGeod}. A full non-Abelian treatment of the internal connection will be developed elsewhere.
+
+% ----------------------------------------
+% Subsection 4.3: Relation to Berry Phase, Wilson Loops, and Thermal Geodesics
+% ----------------------------------------
+\subsection{Relation to Berry Phase, Wilson Loops, and Thermal Geodesics}
+
+The structure introduced above is formally analogous to several well-established integral-based quantities in physics \cite{Hanamura2026LineIntegrals}. In the Aharonov--Bohm effect, observable phase shifts arise from line integrals of the vector potential, $\Delta\phi = (e/\hbar)\oint \mathbf{A}\cdot d\mathbf{l}$, even in regions where the local field strength vanishes. In adiabatic quantum evolution, the Berry phase $\gamma = \oint \mathbf{A}_{\rm Berry}\cdot d\mathbf{R}$ captures geometric information accumulated along a path in parameter space. In non-Abelian gauge theories, Wilson loops encode the holonomy of gauge connections through path-ordered exponentials.
+
+The 0-Sphere framework extends this principle to gravitational and inertial phenomena by treating internal phase accumulation along open worldlines as the primary physical quantity. Unlike Berry phase or Wilson loops, which are typically defined on closed paths, the integrals considered here correspond to actual energy transport processes occurring along open trajectories in spacetime. Observable effects emerge from comparing the accumulated internal phases of systems following different histories.
+
+The photon sphere connecting thermal kernels $A$ and $B$ provides arcwise connectivity that defines a thermodynamically preferred trajectory for internal energy transport. This trajectory is identified as a \emph{thermal geodesic}: a path that extremizes not only geometric length but also entropy-weighted proper time. The variational principle governing such paths is discussed in Section~\ref{sec:thermal_geodesic}. In contrast to geodesics in general relativity, which are determined solely by spacetime curvature, thermal geodesics incorporate constraints arising from internal energy redistribution and entropy production.
+
+Within this integral-based ontology, gravitational effects are reinterpreted as manifestations of internal phase geometry rather than as forces arising from external fields. The accumulated phase $\Theta = \int_\gamma \omega$ becomes the fundamental quantity from which gravitational redshift, free fall, and potential energy differences emerge in subsequent sections.
+
+
+% ========================================
+% Section 5: Gravitational Redshift as Internal Energy Modulation
+% ========================================
+\section{Gravitational Redshift as Internal Energy Modulation}
+\label{sec:grav_redshift}
+
+Gravitational redshift is usually described as a slowing of clocks in lower gravitational potential. In the present framework, this is interpreted as a modulation of the internal oscillation rate. Let $\omega_0$ denote the internal oscillation frequency in a reference region. In a gravitational environment, the effective frequency becomes $\omega(\Phi) = \omega_0 (1 + \Phi/c^2)$ to first order in $\Phi/c^2$. This frequency shift implies that internal energy $E_{\text{int}} = \hbar \omega$ depends on the gravitational environment. Importantly, this dependence is not spatial in origin but dynamical: it reflects how the internal phase evolves along the worldline.
+
+Recent work has computed the gravitational redshift of Zitterbewegung frequencies between Earth's surface and GPS satellite altitude ($h \approx 20{,}200$ km) \cite{Hanamura2025GravRedshift}. The gravitational time dilation factors are $(d\tau/dt)_{\rm Earth} \approx 1 - 6.96 \times 10^{-10}$ and $(d\tau/dt)_{\rm sat} \approx 1 - 1.67 \times 10^{-10}$. The observed Zitterbewegung frequencies in coordinate time are $\nu_{\rm ZB,Earth} \approx 4.98720 \times 10^{18} \times (1 - 6.96 \times 10^{-10})$ Hz and $\nu_{\rm ZB,sat} \approx 4.98720 \times 10^{18} \times (1 - 1.67 \times 10^{-10})$ Hz. The frequency difference is
+\begin{equation}
+\Delta\nu = \nu_{\rm ZB,sat} - \nu_{\rm ZB,Earth} \approx 2.64 \times 10^9 \text{ Hz},
+\label{eq:frequency_difference}
+\end{equation}
+representing a fractional change of approximately $5.29 \times 10^{-10}$. This provides a concrete, testable prediction: satellite-based electrons exhibit slightly higher observed Zitterbewegung frequencies when measured from a distant coordinate frame, consistent with gravitational redshift effects where clocks run faster at higher gravitational potentials.
+
+The Zitterbewegung velocity can be expressed as a function of proper time: $v_{\rm ZB} = \lambda_C \cdot d\phi/d\tau$, where $d\phi/d\tau$ is the internal angular frequency in proper time. When observed from coordinate time $t$, gravitational time dilation modifies the apparent velocity: $v_{\rm obs} = \lambda_C \cdot d\phi/dt = v_{\rm ZB} \cdot d\tau/dt$. Thus, even the internal velocity appears reduced when measured at lower altitudes in a gravitational field. While the numerical difference ($\sim 10^{-10}$) is below current model precision, future experiments with improved measurement techniques may detect this effect, establishing Zitterbewegung as an ultra-fine internal probe of spacetime curvature.
+
+% ========================================
+% Section 6: Reinterpreting mgh: Quantitative Analysis
+% ========================================
+\section{Reinterpreting $mgh$: Quantitative Analysis}
+\label{sec:mgh_reinterpret}
+
+Consider a particle moving slowly in a weak gravitational field. The classical potential energy difference between heights $h_1$ and $h_2$ is $\Delta U = mg(h_2 - h_1)$. In the present framework, this quantity is reinterpreted as the difference in internal energy accumulated along two histories. The internal energy difference is $\Delta E_{\text{int}} = \hbar \Delta \omega \approx m g \Delta h$, where the last relation follows from identifying gravitational redshift with internal frequency modulation.
+
+To establish this correspondence quantitatively, we use the gravitational potential difference $\Delta \Phi = g \Delta h$ and the frequency shift $\Delta \omega = \omega_0 \Delta \Phi/c^2 = \omega_0 g \Delta h/c^2$. For a particle with rest mass $m$, the internal frequency is $\omega_0 = mc^2/\hbar$. Substituting, we obtain $\hbar \Delta \omega = \hbar \cdot (mc^2/\hbar) \cdot (g \Delta h/c^2) = mg\Delta h$. Thus, $mgh$ is not energy stored in space, but energy stored in the internal phase structure of the particle.
+
+For an electron ($m_e = 9.109 \times 10^{-31}$ kg) at height difference $\Delta h = 1$ m, we find $\Delta U_{\rm classical} = m_e g \Delta h \approx 8.9 \times 10^{-30}$ J and $\Delta E_{\rm int} = \hbar \Delta \omega \approx 8.9 \times 10^{-30}$ J. The correspondence is exact within the weak-field approximation, confirming that the 0-Sphere reinterpretation reproduces classical predictions while providing a concrete microscopic mechanism.
+
+Within the broader 0-Sphere framework, free fall is driven by entropic entrainment: systems with higher internal oscillation frequencies synchronize with lower-frequency surroundings by releasing vibrational energy as translational motion \cite{Hanamura2026Geometrical}. The energy released during synchronization is $\Delta E_{\rm sync} = h(\nu_b - \nu_a)$, which converts to kinetic energy: $\Delta E_{\rm sync} \to E_{\rm kin} = (1/2)mv^2$. This mechanism provides a thermodynamic foundation for the conversion traditionally described as gravitational potential energy becoming kinetic energy, as illustrated in the comparison presented in Table~\ref{tab:comparison}.
+
+The detailed mechanism by which internal vibrational energy converts to translational motion through entropic synchronization has been established in prior work \cite{Hanamura2026Geometrical}. In that framework, effective 0-Sphere subsystems representing atoms or molecules with internal phase dynamics undergo photon-mediated phase communication. A subsystem with higher internal frequency (denoted unit B) experiences entropic drift toward a synchronized ensemble (unit A) as its internal oscillation frequency adjusts to match the ambient phase network, with the frequency mismatch energy $\Delta E_{\rm sync} = \hbar(\nu_b - \nu_a)$ converting directly to translational kinetic energy. This conversion process, visualized schematically in Figure 1 of Reference~\cite{Hanamura2026Geometrical}, provides the microscopic foundation for the gravitational potential energy reinterpretation presented here: what classical mechanics attributes to position in space corresponds physically to differences in internal oscillation state, quantified by the accumulated phase integral $\Theta = \int_\gamma \omega$. The present work extends this perspective by identifying such phase integrals as the proper ontological basis for potential energy, thereby resolving the conceptual circularity inherent in field-based formulations.
+
+
+% ========================================
+% Section 7: Free Fall as a Thermal Geodesic
+% ========================================
+\section{Free Fall as a Thermal Geodesic}
+\label{sec:thermal_geodesic}
+
+Free fall is conventionally described as motion along spacetime geodesics. Here we refine this picture: free fall corresponds to a geodesic in the space of internal phase histories. The worldline followed by a freely falling particle extremizes the accumulated internal action governed by the variational principle
+\begin{equation}
+\delta \int_{\gamma} \left(\omega + \frac{1}{T}dS\right) = 0,
+\label{eq:thermal_geodesic_full}
+\end{equation}
+where the entropy differential $dS$ encodes thermodynamic constraints arising from internal energy redistribution. In the adiabatic limit where entropy production vanishes along the worldline, this reduces to
+\begin{equation}
+\delta \int_{\gamma} \omega = 0,
+\label{eq:thermal_geodesic}
+\end{equation}
+recovering the purely geometric formulation \cite{Hanamura2025ThermalGeod}. This variational principle parallels that of thermal geodesics, where paths extremize entropy-weighted proper time. The ``force of gravity'' does not pull the particle; rather, trajectories align themselves so as to maintain coherent internal phase evolution.
+
+In general relativity, free-fall geodesics satisfy $d^2 x^\mu/d\tau^2 + \Gamma^\mu_{\alpha\beta}(dx^\alpha/d\tau)(dx^\beta/d\tau) = 0$, where $\Gamma^\mu_{\alpha\beta}$ are Christoffel symbols encoding spacetime curvature. In the 0-Sphere framework, the connection $\omega_\mu$ plays an analogous role, but arises from internal phase dynamics rather than being imposed by external spacetime geometry. The relationship between $\omega_\mu$ and $\Gamma^\mu_{\alpha\beta}$ remains to be fully elucidated, but preliminary work suggests that curvature may emerge as a consistency condition on accumulated phase histories \cite{Hanamura2026Curvature}.
+
+The resistance to acceleration, or inertial mass, arises from the internal energy required to maintain coherent phase evolution during changes in velocity. When a particle accelerates, its internal Zitterbewegung dynamics must adjust to preserve the energy conservation identity given in Eq.~(\ref{eq:energy_identity}). This adjustment requires energy input, manifesting as inertial resistance. This perspective unifies inertial and gravitational mass at a conceptual level: both reflect the internal oscillatory energy content of matter, observed under different kinematic conditions.
+
+% ========================================
+% Section 8: Experimental Predictions and Verification
+% ========================================
+\section{Experimental Predictions and Verification}
+\label{sec:experimental}
+
+The predicted frequency difference $\Delta\nu \approx 2.64 \times 10^9$ Hz between Earth's surface and satellite altitude provides a concrete experimental target. While direct measurement of Zitterbewegung frequencies remains challenging, several indirect approaches are feasible. Hyperfine structure splittings and atomic transition frequencies depend on internal electronic structure. If Zitterbewegung contributes to this structure, altitude-dependent shifts may be detectable with state-of-the-art optical atomic clocks, which achieve fractional uncertainties below $10^{-18}$ \cite{Ludlow2015}. Trapped ion systems and optical lattices can simulate oscillatory dynamics at controlled frequencies. By engineering effective Zitterbewegung-like motion and measuring its response to synthetic gravitational fields (via optical potentials), key aspects of the model may be tested in laboratory settings \cite{Gerritsma2010}.
+
+The predicted Zitterbewegung velocity $v_{\rm ZB} \approx 0.04047c$ distinguishes the 0-Sphere model from conventional quantum mechanics, which treats Zitterbewegung as unobservable. Attosecond time-resolved measurements may resolve internal oscillatory motion if it manifests in scattering patterns or interference effects at the Compton wavelength scale. High-precision measurements of electron cyclotron motion in Penning traps could reveal anomalous contributions from internal oscillation, particularly in the context of $g-2$ experiments \cite{Gabrielse2023}.
+
+If gravitational free fall arises from entropic synchronization of internal oscillations, composite systems with different internal structures (e.g., atoms vs. molecules, different nuclear spins) might exhibit subtle composition-dependent effects beyond standard equivalence principle tests. While current tests constrain violations to below $10^{-13}$ \cite{Touboul2017}, the 0-Sphere prediction is that any such effects would emerge only at higher precision and would reflect the collective averaging of internal frequencies rather than fundamental violations of equivalence.
+
+% ========================================
+% Section 9: Discussion
+% ========================================
+\section{Discussion}
+\label{sec:discussion}
+
+By relocating gravitational potential energy from space to internal degrees of freedom, several conceptual issues dissolve. The circularity of ``high position means high potential'' disappears, as ``higher'' is redefined as a state of faster internal oscillation, less synchronized with surroundings---an operationally measurable property. Energy conservation acquires a concrete microscopic interpretation: the conversion of potential to kinetic energy in free fall corresponds to the conversion of internal oscillatory energy to translational motion via entropic synchronization. The equivalence principle emerges naturally, as both inertial and gravitational mass reflect the same internal energy content, observed under different kinematic conditions.
+
+The 0-Sphere reinterpretation aligns with broader emergent gravity programs \cite{Verlinde2011,Jacobson1995}, which seek to derive gravitational phenomena from thermodynamic or information-theoretic principles. However, it differs in key respects. Unlike holographic approaches that invoke entropy gradients at spatial boundaries, gravity here emerges from internal phase dynamics without requiring boundary screens. The model provides concrete equations (Eqs.~\ref{eq:energy_identity} and \ref{eq:anomalous_relation}) linking internal dynamics to gravitational effects, rather than relying on general thermodynamic arguments. Most importantly, it makes testable predictions: the predicted Zitterbewegung velocity and frequency shifts are falsifiable.
+
+While the 0-Sphere model does not constitute a complete quantum theory of gravity, it suggests a possible pathway: rather than quantizing spacetime geometry, one might treat spacetime as emergent from quantum phase networks. In this view, the discrete structure of quantum phase accumulation provides a natural ultraviolet cutoff, potentially resolving renormalization issues in quantum gravity. The integral-based ontology resonates with loop quantum gravity's emphasis on holonomies and spin networks \cite{Rovelli2004}, though the physical interpretation differs: 0-Sphere holonomies encode actual energy transport along worldlines, not abstract spatial connectivity.
+
+Several fundamental questions remain open. In particular, the role of internal structure in gravitational response warrants clarification. Since protons are electrically charged and experimentally known to emit photons under acceleration, scattering, and internal transitions, they necessarily possess electromagnetic phase-carrying degrees of freedom. Within the 0-Sphere framework, this implies that protons, like electrons, can contribute to gravitational response through internal phase accumulation, albeit via a more complex, composite structure dominated by QCD dynamics. The apparent universality of free fall may then be understood not as evidence that gravity couples to an abstract scalar mass alone, but rather that all stable matter contains internal phase structures capable of supporting long-range coherence when coarse-grained at macroscopic scales.
+
+The 0-Sphere model describes near-neighbor interactions via photon exchange, but how this produces the long-range $1/r^2$ scaling characteristic of gravity is not yet fully derived, though hierarchical phase synchronization networks may provide a mechanism \cite{Hanamura2026Geometrical}. At a minimal level, any interaction mediated by freely propagating photons necessarily exhibits an inverse-square dilution of flux due to geometric spreading. If the effective gravitational response in the 0-Sphere model is proportional to the accumulated phase perturbation induced by incident photons, then the observed $1/r^2$ scaling may be viewed as a consistency condition of the model's internal kinematics, rather than as an independent explanation of gravitational attraction. A complete microscopic derivation would require specifying how local phase synchronization networks assemble into a coherent long-range interaction.
+
+The reinterpretation of gravitational energy also has implications for cosmology, particularly regarding the cosmological constant problem. If vacuum energy does not gravitate because it lacks internal phase structure, this may alleviate the $10^{120}$ discrepancy \cite{Hanamura2026Vacuum}.
+
+
+% ========================================
+% Section 10: Conclusion
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+Gravitational potential energy need not be fundamentally assigned to spatial position. When physical observables are restricted to line-integral quantities along worldlines, potential energy emerges as an internal, history-dependent quantity encoded by a geometric connection. Free fall becomes a manifestation of internal phase geometry rather than an external force. This reinterpretation resolves the long-standing conceptual circularity in the definition of gravitational potential by grounding it in measurable internal dynamics. Potential energy differences correspond to differences in internal Zitterbewegung frequency. Free fall represents entropic synchronization releasing internal oscillatory energy. Gravitational redshift manifests as modulation of internal clock rate.
+
+The characteristic internal velocity $v_{\rm ZB} \approx 0.04047c$ derived from the electron's anomalous magnetic moment establishes a quantitative bridge between quantum-scale internal dynamics and macroscopic gravitational phenomena. The predicted frequency difference $\Delta\nu \approx 2.64 \times 10^9$ Hz between Earth's surface and satellite altitude provides a concrete experimental target. This perspective aligns naturally with the 0-Sphere model and provides a coherent foundation for understanding gravitational energy without conceptual redundancy. It suggests that gravity is not a fundamental interaction requiring a distinct mediator (graviton) but an emergent phenomenon arising from the collective phase dynamics of matter's internal structure.
+
+Whether this reinterpretation will ultimately prove correct depends on experimental verification of its key predictions, particularly the direct or indirect measurement of Zitterbewegung velocity and gravitational modulation of internal oscillation frequencies. If confirmed, it would establish that spacetime geometry emerges from, rather than governs, the internal dynamics of quantum matter.
+
+While the predicted frequency shift is numerically identical to standard general-relativistic redshift, the novelty of this work lies in providing a concrete internal dynamical ontology that replaces abstract spatial potentials with measurable internal phase evolution.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\begin{acknowledgments}
+The author acknowledges the use of large language models as assistive tools for improving the structure and clarity of the manuscript and for checking mathematical expressions. All physical interpretations and theoretical claims remain the sole responsibility of the author.
+\end{acknowledgments}
+
+\appendix
+
+% ========================================
+% Appendix A: Current Status of the Zitterbewegung Velocity Prediction
+% ========================================
+\section{Current Status of the Zitterbewegung Velocity Prediction}
+\label{app:status}
+
+The characteristic Zitterbewegung velocity reported in this work,
+\[
+v_{\rm ZB}^{\rm (RMS)} \approx 0.04047c,
+\]
+is derived solely from the experimental anomalous magnetic moment $a_e^{\rm exp}$ and special-relativistic Lorentz contraction, with no adjustable parameters (Eq.~\ref{eq:anomalous_relation}). The instantaneous peak velocity $v_{\rm ZB}^{\rm (max)} \approx 0.048c$ is related by $v_{\rm ZB}^{\rm (max)} = 2^{1/4} v_{\rm ZB}^{\rm (RMS)}$, as detailed in Ref.~\cite{Hanamura2026NonPert}.
+
+An earlier publication~\cite{Hanamura2025SRGR} attempted to incorporate general-relativistic corrections through geodetic precession of the Schwarzschild metric, yielding a refined prediction $v_{e,\rm SR+GR} = 0.040374c$ and proposing critical radii for the muon ($3.43 \times 10^{-25}$~m) and tau ($5.71 \times 10^{-24}$~m) leptons at which Zitterbewegung would cease. However, a subsequent dimensional analysis~\cite{Hanamura2025DimCorr} revealed that the geodetic precession formula had been applied with the Schwarzschild mass parameter $M$ in kilograms rather than in geometrized units ($GM/c^2$), resulting in an overestimation of the general-relativistic correction by approximately 52 orders of magnitude. When the correct factors of $G$ and $c^2$ are restored, the geodetic precession at quantum scales reduces to $\Delta\phi_{\rm geodetic} \sim 10^{-52}$~rad per orbit, rendering the effect entirely negligible. The critical radii reported in Ref.~\cite{Hanamura2025SRGR} are accordingly withdrawn.
+
+The corrective analysis further examined Thomas precession as an alternative radius-dependent mechanism, but demonstrated that its accumulated phase $\Delta\phi_T = \pi\beta^2$ depends only on velocity and not on orbital radius, precluding the definition of a critical radius~\cite{Hanamura2025DimCorr}.
+
+Consequently, the present work reports the special-relativistic prediction $v_{\rm ZB} \approx 0.04047c$ as the current best estimate within the 0-Sphere framework. The status of each reported value is summarized in Table~\ref{tab:velocity_status}.
+
+% ----------------------------------------
+% Table 2: Status of Zitterbewegung velocity predictions
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{Status of Zitterbewegung velocity predictions in the 0-Sphere model (Revised February 2026).}
+\label{tab:velocity_status}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{3.0cm}p{5.0cm}p{3.5cm}}
+\toprule
+\textbf{Quantity} & \textbf{Value} & \textbf{Derivation basis} & \textbf{Current status} \\
+\midrule
+$v_{\rm ZB}^{\rm (RMS)}$ (RMS-averaged velocity)
+& $0.04047c$
+& SR Lorentz contraction via $\gamma = 1 + a_e^{\rm exp}/\sqrt{2}$; no adjustable parameters
+& Current prediction \\
+\addlinespace[0.3cm]
+$v_{\rm ZB}^{\rm (max)}$ (peak instantaneous velocity)
+& $0.048c$
+& $2^{1/4} \times v_{\rm ZB}^{\rm (RMS)}$ from oscillatory kinematics
+& Current prediction \\
+\addlinespace[0.3cm]
+$v_{e,\rm SR+GR}$ (SR + GR corrected velocity)
+& Not physically supported
+& Geodetic precession re-evaluated with correct $3GM/(c^2R)$ scaling; correction negligible
+& Withdrawn\textsuperscript{a} \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+\textsuperscript{a}Dimensional inconsistency identified in Ref.~\cite{Hanamura2025DimCorr}: 
+the geodetic precession formula was previously applied using the mass parameter in kilograms 
+instead of the geometrized combination $GM/c^2$. 
+The omission of the required $G/c^2$ factors led to an overestimation by a factor 
+$c^2/G \approx 1.35 \times 10^{27}$ (approximately 27 orders of magnitude). 
+With correct dimensional factors restored, the general-relativistic contribution to the 
+Zitterbewegung phase becomes negligibly small 
+($\Delta\phi_{\rm geodetic} \sim 10^{-29}$ rad at quantum scales), 
+and therefore does not produce a meaningful correction to the predicted velocity. 
+Thomas precession was also examined but remains radius-independent 
+($\Delta\phi_T = \pi\beta^2$), preventing the definition of a finite critical scale.
+
+A fully consistent incorporation of general-relativistic effects into the 0-Sphere Zitterbewegung framework remains an open technical problem. The present revision establishes that geodetic corrections are negligible at quantum scales; however, a systematic treatment (e.g., including gravitomagnetic or semiclassical stress-energy contributions) has not yet been completed and is reserved for future work.
+\end{minipage}
+
+\end{table*}
+
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{Pound1960}
+R.~V.~Pound and G.~A.~Rebka Jr.,
+``Apparent Weight of Photons,''
+Phys.\ Rev.\ Lett.\ \textbf{4}, 337 (1960).
+
+\bibitem{Ashby2003}
+N.~Ashby,
+``Relativity in the Global Positioning System,''
+Living Rev.\ Relativity \textbf{6}, 1 (2003).
+
+\bibitem{Hanamura2025GravRedshift}
+S.~Hanamura,
+``Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model,''
+Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765318}{doi:10.5281/zenodo.17765318}.
+
+\bibitem{Hanamura2024Spin}
+S.~Hanamura,
+``Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction,''
+Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}.
+
+\bibitem{Hanamura2026Geometrical}
+S.~Hanamura,
+``Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass, Zitterbewegung, and Gravitational-Like Phenomena,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18437010}{doi:10.5281/zenodo.18437010}.
+
+\bibitem{Hanamura2026NonPert}
+S.~Hanamura,
+``On the Non-Perturbative Nature of the 0-Sphere Model and the Fine-Structure Constant: A Supplement on Methodological Scope and Realist Foundations,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18603340}{doi:10.5281/zenodo.18603340}.
+
+\bibitem{Hanamura2026LineIntegrals}
+S.~Hanamura,
+``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18203433}{doi:10.5281/zenodo.18203433}.
+
+\bibitem{Hanamura2025ThermalGeod}
+S.~Hanamura,
+``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,''
+Zenodo (2025), \href{https://doi.org/10.5281/zenodo.18067760}{doi:10.5281/zenodo.18067760}.
+
+\bibitem{Hanamura2026Curvature}
+S.~Hanamura,
+``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18135855}{doi:10.5281/zenodo.18135855}.
+
+\bibitem{Ludlow2015}
+A.~D.~Ludlow, M.~M.~Boyd, J.~Ye, E.~Peik, and P.~O.~Schmidt,
+``Optical Atomic Clocks,''
+Rev.\ Mod.\ Phys.\ \textbf{87}, 637 (2015).
+
+\bibitem{Gerritsma2010}
+R.~Gerritsma \emph{et al.},
+``Quantum Simulation of the Dirac Equation,''
+Nature \textbf{463}, 68 (2010).
+
+\bibitem{Gabrielse2023}
+X.~Fan, T.~G.~Myers, B.~A.~D.~Sukra, and G.~Gabrielse,
+``Measurement of the Electron Magnetic Moment,''
+Phys.\ Rev.\ Lett.\ \textbf{130}, 071801 (2023).
+
+\bibitem{Touboul2017}
+P.~Touboul \emph{et al.},
+``MICROSCOPE Mission: First Results of a Space Test of the Equivalence Principle,''
+Phys.\ Rev.\ Lett.\ \textbf{119}, 231101 (2017).
+
+\bibitem{Verlinde2011}
+E.~Verlinde,
+``On the Origin of Gravity and the Laws of Newton,''
+JHEP \textbf{04}, 029 (2011).
+
+\bibitem{Jacobson1995}
+T.~Jacobson,
+``Thermodynamics of Spacetime: The Einstein Equation of State,''
+Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+
+\bibitem{Rovelli2004}
+C.~Rovelli,
+\emph{Quantum Gravity} (Cambridge University Press, 2004).
+
+\bibitem{Hanamura2026Vacuum}
+S.~Hanamura,
+``Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology: The 0-Sphere Model Perspective,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18275142}{doi:10.5281/zenodo.18275142}.
+
+\bibitem{Hanamura2025SRGR}
+S.~Hanamura,
+``Bridging Quantum Mechanics and General Relativity: A First-Principles Approach to Anomalous Magnetic Moments and Geodetic Precession,''
+Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765097}{doi:10.5281/zenodo.17765097}.
+
+\bibitem{Hanamura2025DimCorr}
+S.~Hanamura,
+``A Supplementary Correction to the 0-Sphere Model: Dimensional Consistency of $G$ and $c^2$,''
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18636509}{doi:10.5281/zenodo.18636509}.
+
+\end{thebibliography}
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}
