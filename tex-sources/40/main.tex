@@ -1,0 +1,480 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[labelfont=bf]{caption}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tabularx}
+
+% ========================================
+% Page Layout Configuration
+% ========================================
+\geometry{
+  letterpaper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+}
+
+% ========================================
+% Line Spacing and Additional Packages
+% ========================================
+\onehalfspacing
+
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+\title{On the Derivative-Order Mismatch\\ Between Gauge Theory and Gravity\\
+\normalsize A Supplement on Connection, Curvature, and Line-Integral Observables}
+
+
+\author{Satoshi Hanamura\thanks{Email: hana.tensor@gmail.com}}
+\date{February 23, 2026}
+
+\maketitle
+
+\tableofcontents
+
+\clearpage
+
+% ========================================
+% Research Summary
+% ========================================
+\begin{center}
+\textbf{Research Summary}
+\end{center}
+
+\justifying
+This supplementary note clarifies a structural distinction between gauge theories and general relativity: the correspondence between mathematical objects and physical quantities differs by one derivative order.
+
+In gauge theories, curvature two-forms represent physical forces (electric and magnetic fields), while observable phase effects arise through line integrals of the connection. In general relativity, the connection itself governs gravitational motion, whereas curvature relates to mass--energy distributions through the Einstein equations.
+
+This derivative-order mismatch does not signal an inconsistency but reflects differing choices of which geometric objects are assigned direct physical significance. The present note systematically unpacks this frequently compressed observation and shows how line integrals of connections provide a common observational layer across both frameworks.
+
+The discussion emphasizes that the 0-Sphere model naturally accommodates this mismatch by treating line integrals between discrete points as fundamental observables, thereby harmonizing gauge-theoretic and gravitational descriptions at the level of accumulated phase, as realized concretely in the 0-Sphere model.
+
+\clearpage
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+\justifying
+Comparisons between gauge theories and general relativity~\cite{EinsteinGR} often emphasize formal similarities, such as the use of connections and curvature in both frameworks. From a purely mathematical standpoint, both theories are naturally expressed in the language of differential geometry, and this common structure has motivated numerous unification attempts and pedagogical treatments~\cite{YangMills,Frankel,Nakahara}.
+
+However, despite these shared ingredients, the physical interpretation assigned to geometric objects differs in an essential way. In gauge theories, curvature is directly associated with observable forces, while the connection serves primarily as a mathematical device whose physical relevance emerges through holonomy and phase accumulation. In general relativity, by contrast, the connection itself governs gravitational motion, and curvature plays the role of a source-related quantity tied to mass--energy distributions.
+
+In the present Supplement, we focus on a specific but frequently underemphasized point: \textbf{the fact that the correspondence between physical quantities and geometric objects differs by one derivative order between gauge theories and gravity.} Although often mentioned in passing, this distinction is rarely unpacked in a systematic manner.
+
+Clarifying this derivative-order mismatch proves useful for understanding why line integrals and holonomy occupy different conceptual roles in the two frameworks. It also provides a natural motivation for line-integral-based interpretations, in which accumulated phase along finite paths is treated as a primary observable rather than as a secondary construct derived from local field strengths.
+
+This perspective plays a central role in the line-integral-based ontology developed in the main trilogy~\cite{hanamura18067760,hanamura18135855,hanamura18203433} and in the 0-Sphere model. The present note therefore serves as a conceptual bridge: it does not introduce new physics, but it clarifies the geometric and interpretive context in which such models operate.
+
+% ========================================
+% Section 2: Forces and Potentials in Classical Field Theory
+% ========================================
+\section{Forces and Potentials in Classical Field Theory}
+
+\justifying
+In classical physics, forces are commonly described as derivatives of potentials. This structure appears already in Newtonian mechanics, where conservative forces are obtained as gradients of scalar potentials.
+
+In electrostatics, the electric field $\mathbf{E}$ is given by the gradient of a scalar potential $\phi$,
+\begin{equation}
+\mathbf{E} = -\nabla \phi,
+\end{equation}
+while in electromagnetism more generally, electric and magnetic fields are derived from the four-potential $A_\mu$.
+
+This formulation establishes a clear hierarchy between physical quantities. Potentials encode more primitive information, while forces emerge through differentiation. Although potentials were historically regarded as auxiliary quantities, later developments—most notably the Aharonov--Bohm effect—demonstrated that potentials can possess direct physical significance through phase accumulation.
+
+Gauge theories provide a geometric framework in which this hierarchy is naturally formalized. The distinction between potentials and forces becomes a distinction between connections and curvature, preparing the ground for the discussion that follows.
+
+
+% ========================================
+% Section 3: Gauge Theory: Connection and Curvature
+% ========================================
+\section{Gauge Theory: Connection and Curvature}
+
+\justifying
+In gauge theory, the vector potential $A_\mu$ is identified mathematically as a connection on a principal bundle. This identification elevates the potential from a mere calculational tool to a geometric object with well-defined transformation properties.
+
+The associated curvature,
+\begin{equation}
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu,
+\end{equation}
+represents the field strength and is invariant under gauge transformations.
+
+Crucially, the curvature $F_{\mu\nu}$ corresponds directly to observable physical quantities, namely electric and magnetic fields.  
+Local measurements of force, energy density, and radiation are all expressed in terms of $F_{\mu\nu}$.
+
+Thus, in gauge theories, physical forces are identified with curvature itself. The connection influences observables primarily through its derivatives, and physical effects are localized at the level of curvature. Nevertheless, it has long been recognized that globally observable effects, such as nonintegrable phase factors, are naturally encoded at the level of line integrals of the connection~\cite{WuYang}.
+
+This identification implies that, within gauge theory, physical observables appear at the level of first derivatives of the connection, establishing a clear correspondence between curvature and force.
+
+% ========================================
+% Section 4: Einstein's Reformulation of Gravity
+% ========================================
+\section{Einstein's Reformulation of Gravity}
+
+\justifying
+Einstein's formulation of general relativity departs fundamentally from the force-based description of gravity familiar from Newtonian physics. Rather than treating gravity as a force acting within spacetime, Einstein reinterpreted gravitational phenomena as manifestations of spacetime geometry itself.
+
+A key step in this reformulation was the identification of the gravitational potential with components of the metric tensor. In the weak-field and low-velocity limit, the Newtonian gravitational potential $\Phi$ is related to the temporal component of the metric,
+\begin{equation}
+g_{00} \approx 1 + \frac{2\Phi}{c^2}.
+\end{equation}
+
+This correspondence reflects Einstein's insight that gravitational effects are encoded directly in the metric, which determines intervals of time and distance. Unlike gauge theory, where forces arise from curvature, the metric itself carries physical meaning in general relativity.
+
+As a consequence, the geometric objects that directly influence motion in gravity differ in status from those in gauge theory, even though similar mathematical language is employed.
+
+
+% ========================================
+% Section 5: Connection and Motion in General Relativity
+% ========================================
+\section{Connection and Motion in General Relativity}
+
+\justifying
+In general relativity, the motion of freely falling particles is governed by the geodesic equation,
+\begin{equation}
+\frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\rho} \frac{dx^\nu}{d\tau} \frac{dx^\rho}{d\tau} = 0,
+\end{equation}
+where $\Gamma^\mu_{\nu\rho}$ are the Christoffel symbols associated with the Levi--Civita connection.
+
+This equation shows explicitly that particle acceleration is determined by the connection coefficients rather than by curvature.
+The idea that gravitational effects are most naturally associated with an affine connection, rather than curvature alone, can already be traced back to Cartan's reformulation of general relativity~\cite{Cartan}. The Christoffel symbols depend on first derivatives of the metric and act as force-like terms in the equations of motion.
+
+Curvature enters the theory at a different level. It governs the relative acceleration of nearby geodesics and encodes tidal effects, but it does not directly appear in the equation of motion for a single particle.
+
+Thus, in gravity, force-like effects emerge at the level of the connection, while curvature plays a secondary role related to the distribution of mass--energy. This stands in clear contrast to gauge theory, where curvature itself represents physical force.
+
+
+% ========================================
+% Section 6: Curvature and Source in Gravitational Theory
+% ========================================
+\section{Curvature and Source in Gravitational Theory}
+
+\justifying
+The curvature of spacetime enters gravitational physics through the Einstein field equations,
+\begin{equation}
+G_{\mu\nu} = 8\pi G T_{\mu\nu},
+\end{equation}
+which relate curvature to the energy--momentum tensor.
+
+In this framework, curvature corresponds to the distribution of mass and energy rather than to gravitational force. Operationally observable tidal effects are encoded in curvature, but the immediate experience of acceleration arises from the connection.
+
+As a result, physical quantities associated with gravity appear one derivative order lower than curvature.
+
+
+
+% ----------------------------------------
+% Table 1: Observational Roles of Connection and Curvature
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+
+{\centering
+\textbf{Observational Roles of Connection and Curvature\\ in Gauge Theory and Gravity}\par
+\vspace{0.4em}
+}
+
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{5.0cm}p{4.8cm}}
+\toprule
+\textbf{Aspect} & \textbf{Gauge Theory} & \textbf{General Relativity} \\
+\midrule
+Primary geometric object
+& Connection $A$ (gauge potential)
+& Connection $\Gamma$ (Levi--Civita connection) \\
+
+\addlinespace[0.25cm]
+Derived geometric object
+& Curvature two-form $F$
+& Riemann curvature tensor $R$ \\
+
+\addlinespace[0.25cm]
+Physical role of curvature
+& Physical force (electric and magnetic fields)
+& Source-related quantity (mass--energy distribution) \\
+
+\addlinespace[0.25cm]
+Physical role of connection
+& Auxiliary; affects observables via holonomy
+& Force-like object governing particle motion \\
+
+\addlinespace[0.25cm]
+Derivative order at which force appears
+& First derivative of connection
+& Zeroth order in connection (geodesic equation) \\
+
+\addlinespace[0.25cm]
+Fundamental observable
+& Phase accumulation
+& Clock difference / phase difference \\
+
+\addlinespace[0.25cm]
+Observable expressed as
+& $\displaystyle \int_\gamma A$
+& $\displaystyle \int_\gamma \Gamma$ \\
+
+\addlinespace[0.25cm]
+Observational hierarchy
+& Curvature primary locally; line integrals primary globally
+& Connection / line integrals primary; curvature secondary \\
+
+\addlinespace[0.25cm]
+0-Sphere model viewpoint
+& Phase difference between discrete points
+& Phase difference between discrete points \\
+\bottomrule
+\end{tabular}
+
+\caption{Derivative-order mismatch and observational alignment between gauge theory and general relativity. 
+While the physical roles assigned to connection and curvature differ by one differential order, 
+the 0-Sphere model identifies line integrals of connections as a common observational layer, 
+thereby aligning gauge and gravitational descriptions at the level of phase accumulation.}
+\label{tab:derivative-order-summary}
+
+\end{table*}
+
+
+
+% ========================================
+% Section 7: Derivative-Order Mismatch
+% ========================================
+\section{Derivative-Order Mismatch}
+
+\justifying
+Having clarified the distinct roles of connection and curvature in gauge theory (Sections 3--4) and general relativity (Sections 5--6), we are now in a position to state the central observation explicitly.
+
+We may now summarize the structural distinction between gauge theory and general relativity as follows:
+\begin{itemize}
+\item In gauge theories, curvature corresponds directly to physical forces.
+\item In general relativity, curvature corresponds to sources, while force-like effects are encoded in the connection.
+\end{itemize}
+
+This difference may be described as a mismatch by one derivative order in the correspondence between mathematical objects and physical quantities. In gauge theory, the connection is a more primitive object, but observable forces appear only after taking its exterior derivative to form the curvature. In gravity, by contrast, the connection itself governs particle motion, while curvature arises at the next derivative level and enters primarily through source equations.
+
+Importantly, this mismatch does not signal an inconsistency or a conceptual flaw in either framework.  
+Rather, it reflects a difference in where each theory places the boundary between geometry and observable physics. \textbf{Gauge theory assigns direct physical meaning to curvature, whereas general relativity assigns it to the connection.}
+
+This structural distinction is often obscured because both theories employ similar mathematical language.  
+Connections and curvature appear in both settings, but the physical interpretation attached to each object is not the same. As a result, naive one-to-one identifications between gauge fields and gravitational fields can be misleading if the derivative order is not carefully tracked.
+
+Recognizing this derivative-order mismatch provides a clearer conceptual map. It explains why curvature-based intuition works naturally in gauge theory but becomes indirect in gravity, and why connection-based descriptions play a more prominent role in gravitational dynamics.
+
+\textbf{The mismatch is therefore not a problem to be resolved, but a structural feature to be accounted for.} Any framework that seeks to place gauge theory and gravity on a common conceptual footing must accommodate this difference explicitly rather than attempting to eliminate it.
+
+It is important to note that the observational hierarchy differs not only between gauge theory and gravity, but also between local and global descriptions within gauge theory itself. Locally, gauge theories assign primary physical significance to curvature, which directly represents force and energy density.
+
+However, globally observable effects, such as phase shifts and holonomy, are naturally associated with line integrals of the connection and can remain nontrivial even in regions where curvature vanishes.
+In this sense, line integrals play a secondary but indispensable role in standard gauge theory.
+
+By contrast, in general relativity the connection governs particle motion already at the local level, and line integrals of the connection are directly associated with physically observable effects such as clock differences and accumulated phase along worldlines. These structural differences are summarized schematically in Table~\ref{tab:derivative-order-summary}, which contrasts the roles of connection, curvature, and observables in gauge theory and general relativity. The table highlights that, despite the derivative-order mismatch, both frameworks ultimately admit a common observational description in terms of line integrals and accumulated phase.
+
+Here, "local" refers to descriptions based on infinitesimal neighborhoods and differential field quantities, whereas "global" refers to observables defined through finite paths and their associated holonomy or phase accumulation, as used throughout this section.
+
+
+% ========================================
+% Section 8: Harmonization via Line Integrals in the 0-Sphere Model
+% ========================================
+\section{Harmonization via Line Integrals in the 0-Sphere Model}
+
+\justifying
+The conceptual tension between gauge theory and general relativity may be summarized as follows. In gauge theories, physical forces are associated with curvature two-forms derived from a connection, while observable effects such as phase shifts are obtained by integrating the connection along a path. In contrast, in general relativity the connection itself governs gravitational motion, whereas curvature is related to matter distributions through the Einstein equations and does not directly represent a force.
+
+This difference corresponds to a shift by one derivative order in the identification between mathematical objects and physical quantities. Gauge theory promotes curvature to the level of physical field strength, while general relativity assigns direct physical significance to the connection. As a result, the two frameworks appear to privilege different geometric objects as carriers of physical meaning.
+
+The 0-Sphere model reconciles these viewpoints by adopting line integrals of connections as the primary physically meaningful observables, independent of whether the underlying interaction is gauge-theoretic or gravitational in origin. Rather than elevating either curvature or local force to a fundamental status, the model focuses on accumulated phase differences along finite trajectories connecting two discrete points.
+
+In this framework, observable effects arise from line integrals of a connection one-form,
+\begin{equation}
+\Phi = \int_{\gamma} \omega ,
+\end{equation}
+where $\omega$ denotes a generic connection one-form and $\gamma$ is a path composed of finite segments.  
+In gauge theory, $\omega$ reduces to the gauge potential $A_\mu dx^\mu$, while in gravity it corresponds to the gravitational connection $\Gamma$. The emphasis is thus placed on the integrated effect along a path rather than on local differential quantities.
+
+From this perspective, gauge theory and general relativity are placed on equal footing at the observational level. In gauge theory, the line integral reproduces familiar holonomy effects such as the Aharonov--Bohm phase, even in regions where curvature vanishes locally. In gravity, the same line-integral structure naturally encodes gravitational redshift, time dilation, and relative phase accumulation along worldlines, without requiring curvature to be interpreted as a local force.
+
+The discrete two-point structure of the 0-Sphere model plays a crucial role in this harmonization. Because physical quantities are defined between pairs of points rather than within infinitesimal neighborhoods, line integrals replace local differential operators as the primary descriptors of physical effects. This shift removes the apparent hierarchy between curvature-based and connection-based formulations by situating both within a common phase-based observational framework.
+
+In this sense, the 0-Sphere model does not modify either gauge theory or general relativity. Instead, it identifies a shared observational layer—phase accumulation along finite paths—where predictions from both theories can be directly compared, despite their differing geometric interpretations.
+
+\textbf{The harmonization achieved here is therefore conceptual and interpretive rather than dynamical, clarifying how theories differing by one derivative order can describe the same physical reality.}
+
+
+
+% ========================================
+% Section 9: Implications for Line-Integral-Based Interpretations
+% ========================================
+\section{Implications for Line-Integral-Based Interpretations}
+
+\justifying
+Recognizing the derivative-order mismatch clarifies why line integrals and holonomy play different conceptual roles in gauge theory and general relativity. In gauge theories, line integrals of the connection encode phase accumulation that ultimately reflects underlying curvature, even when the curvature vanishes locally along the path. In gravity, by contrast, line integrals of the connection directly capture force-like effects along particle trajectories.
+
+This observation motivates interpretations in which accumulated phase, rather than local curvature, is treated as the primary observable. From this viewpoint, holonomy is not a secondary construct derived from field strength, but a fundamental quantity encoding the physically relevant information accessible to observers.
+
+Line-integral-based interpretations naturally accommodate both frameworks without privileging either curvature or connection a priori. They provide a common observational language in which gauge-theoretic and gravitational effects are described in terms of path-dependent phase accumulation, despite originating from different geometric structures.
+
+Within this perspective, curvature retains its established role as a derived or organizing concept, but it is no longer required to serve as the primary carrier of physical meaning. Instead, physical observables are associated with finite histories and relative phases accumulated along them.
+
+This shift in emphasis does not alter any established predictions of gauge theory or general relativity.  
+Rather, it reorganizes the interpretation of those predictions in a way that is insensitive to the derivative-order mismatch identified above.
+
+As such, line-integral-based interpretations offer a coherent framework in which theories that differ in their geometric hierarchy can nonetheless be compared and understood within a single conceptual scheme.
+
+% ========================================
+% Section 10: Line Integrals and the Pre-Divergence Layer of Gravitational Theory
+% ========================================
+\section{Line Integrals and the Pre-Divergence Layer of Gravitational Theory}
+
+\justifying
+The line-integral perspective outlined in the preceding sections naturally raises a question concerning the historical development of general relativity itself. Einstein's final formulation of the gravitational field equations required the identification of a divergence-free combination of curvature terms—namely, the Einstein tensor constructed by augmenting the Ricci tensor with a scalar-curvature term. The requirement $\nabla^\mu G_{\mu\nu} = 0$ plays a central role in general relativity, as it guarantees compatibility with local energy--momentum conservation.
+
+However, line integrals of a connection can be defined prior to any such requirement. This observation motivates a closer examination of what may be termed the \emph{pre-divergence layer} of gravitational theory.
+
+Einstein's construction ensures the internal consistency of a local field theory of gravity, imposing divergence constraints at the level of local tensor fields and presupposing a differential structure in which divergence is already a meaningful operation.
+
+By contrast, the line-integral-based viewpoint explored here operates at a more primitive structural layer.  
+Rather than starting from local tensorial quantities and enforcing divergence constraints, it treats finite histories—encoded as line integrals of a connection—as the primary carriers of physical information.  
+At this level, no notion of local divergence is required.
+
+In this sense, \textbf{line integrals may be regarded as belonging to a pre-divergence layer of gravitational theory.} Physical observables arise as accumulated phase differences along finite paths, reflecting the global history of motion rather than local balance conditions imposed point by point.
+
+From this perspective, conservation laws and divergence-free conditions are not abandoned, but are understood as secondary or emergent requirements. They appear as consistency conditions that any acceptable local field description must satisfy when reconstructed from globally well-defined line integrals.
+
+This structural ordering differs from Einstein's route, but it is not in conflict with it. Einstein's construction ensures the internal consistency of a local field theory of gravity, whereas the line-integral-based approach identifies a level at which physical observables can be defined without prior reference to local field equations or divergence constraints.
+
+Accordingly, the present framework should not be interpreted as an alternative to the Einstein equations, nor as an incomplete precursor awaiting completion by additional curvature terms. Rather, it isolates a distinct conceptual layer in which gravitational effects are encoded through history-dependent phase accumulation, with local tensorial structures entering only at a subsequent stage.
+
+This separation clarifies how line integrals can play a foundational role in unifying gauge-theoretic and gravitational phenomena. Both theories admit a description in which physically accessible quantities are associated with finite paths and their accumulated phases, while divergence conditions and source equations arise only when one insists on a fully local field-theoretic representation.
+
+
+% ========================================
+% Section 11: Remark on Connection Notation and Line Integrals
+% ========================================
+\section{Remark on Connection Notation and Line Integrals}
+
+\justifying
+Before concluding, it is useful to clarify a notational point that is central to the line-integral-based perspective adopted in this Supplement.
+
+Throughout differential geometry and field theory, the symbol $\Gamma$ is commonly used to denote connection coefficients, such as the Christoffel symbols $\Gamma^\mu_{\nu\rho}$. These quantities are defined pointwise on spacetime, depend on the choice of coordinates, and do not transform as tensors.  
+As such, they are naturally interpreted as local, field-like objects.
+
+When written without further qualification, an expression such as
+\begin{equation}
+\Phi = \int_\gamma \Gamma
+\end{equation}
+may therefore invite a misleading interpretation: namely, that a local field is being integrated along a curve.  
+This interpretation runs counter to the conceptual emphasis of the present work, in which the line itself—and the history encoded by it—plays the primary physical role.
+
+From a geometric standpoint, the correct object to be integrated along a curve is a one-form. Accordingly, the accumulated phase is more properly written in the generic form
+\begin{equation}
+\Phi = \int_\gamma \omega ,
+\end{equation}
+where $\omega$ denotes a connection one-form acting on the tangent vectors of the path $\gamma$.
+
+In gauge theory, $\omega$ may be identified with the gauge potential $A = A_\mu dx^\mu$, which is a Lie-algebra-valued one-form. In gravitational theory, the connection can likewise be expressed in one-form notation as
+\begin{equation}
+\Gamma^\mu_{\ \nu} = \Gamma^\mu_{\nu\rho}\, dx^\rho ,
+\end{equation}
+at which point it becomes a matrix-valued one-form suitable for line integration. The symbol $\Gamma$ is used here solely in this restricted sense, and not as a tensor field defined pointwise on spacetime.
+
+This distinction is not merely notational. By emphasizing the one-form $\omega$ rather than the local coefficients $\Gamma^\mu_{\nu\rho}$, the line integral is understood as a geometric operation associated with a finite path, rather than as an accumulation of local field values. The physical observable is thus tied to the curve and its history, not to an infinitesimal neighborhood of a spacetime point.
+
+This viewpoint aligns naturally with the discrete two-point structure of the 0-Sphere model, in which physically meaningful quantities are defined between pairs of points, making line integrals of connections the natural carriers of physical information.
+
+% ========================================
+% Section 12: Conclusion
+% ========================================
+\section{Conclusion}
+
+\justifying
+This Supplement has provided a detailed clarification of a frequently compressed statement concerning the difference between gauge theories and general relativity. By unpacking the role of connections and curvature in each framework, we have shown that the correspondence between mathematical objects and physical quantities differs by one derivative order.
+
+This clarification supports the conceptual consistency of line-integral-based approaches and provides a natural bridge between gauge-theoretic and gravitational descriptions, without modifying established physical theories.
+
+In particular, the analysis highlights how the 0-Sphere model achieves a reconciliation between these frameworks by identifying line integrals of connections as the primary observational layer. By formulating physical quantities in terms of accumulated phase between discrete pairs of points, the model bypasses the apparent hierarchy between curvature-based and connection-based formulations.
+
+From this viewpoint, gauge theory and general relativity are not competing descriptions but complementary limits of a common line-integral-based structure. The derivative-order mismatch does not signal an inconsistency, but rather reflects differing choices of which geometric objects are promoted to direct physical observables.
+
+The role of the 0-Sphere model in this context is therefore not to revise existing field equations, but to clarify how physically measurable quantities can be organized in a manner that is insensitive to this mismatch. In particular, line integrals are interpreted as encoding a pre-divergence layer of physical history, prior to the imposition of local conservation or source equations. This perspective reinforces the interpretive coherence of the line-integral-based ontology developed in the main trilogy and motivates its further application to phase-based phenomena across different interactions.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+This work was conducted independently by the author. No external collaborations or community discussions contributed directly to the development of the ideas presented here. During preparation, large language models were used solely for assistance in textual organization and clarity. All physical interpretations, judgments, and conclusions remain entirely the responsibility of the author.
+
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{EinsteinGR}
+A.~Einstein,
+``The Foundation of the General Theory of Relativity,''
+Annalen der Physik \textbf{49}, 769 (1916).
+
+\bibitem{YangMills}
+C.~N.~Yang and R.~L.~Mills,
+``Conservation of Isotopic Spin and Isotopic Gauge Invariance,''
+Phys.\ Rev.\ \textbf{96}, 191 (1954).
+
+\bibitem{Frankel}
+T.~Frankel,
+\textit{The Geometry of Physics: An Introduction},
+Cambridge University Press (2011).
+
+\bibitem{Nakahara}
+M.~Nakahara,
+\textit{Geometry, Topology and Physics},
+Taylor \& Francis (2003).
+
+% ----------------------------------------
+% Line Integral Trilogy
+% ----------------------------------------
+\bibitem{hanamura18067760}
+S.~Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18067760}{https://doi.org/10.5281/zenodo.18067760}
+
+\bibitem{hanamura18135855}
+S.~Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18135855}{https://doi.org/10.5281/zenodo.18135855}
+
+\bibitem{hanamura18203433}
+S.~Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{https://doi.org/10.5281/zenodo.18203433}
+
+
+\bibitem{WuYang}
+T.~T.~Wu and C.~N.~Yang,
+``Concept of Nonintegrable Phase Factors and Global Formulation of Gauge Fields,''
+Phys.\ Rev.\ D \textbf{12}, 3845 (1975).
+
+\bibitem{Cartan}
+E.~Cartan,
+``On Manifolds with an Affine Connection and the Theory of General Relativity,''
+English translation, Bibliopolis (1986).
+
+\end{thebibliography}
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}

@@ -1,0 +1,94 @@
+================================================================================
+Zenodo Relations List
+Paper: On the Derivative-Order Mismatch Between Gauge Theory and Gravity:
+       A Supplement on Connection, Curvature, and Line-Integral Observables
+Date: February 23, 2026
+================================================================================
+
+------------------------------------------------------------------------
+CITES  (present in \thebibliography as \bibitem)
+------------------------------------------------------------------------
+
+1. DOI: 10.5281/zenodo.18067760
+   Title: "Geometric Structure of Spinorial Phase Accumulation along
+           Thermal Geodesics"
+   Author: Satoshi Hanamura, Zenodo (2025)
+   Relation: Cites
+   Reason: \bibitem{hanamura18067760} — cited in Section 1 (Introduction)
+            and Section 8 as part of the main trilogy
+
+2. DOI: 10.5281/zenodo.18135855
+   Title: "From Curvature to Connection: Revisiting the Geometric Origin
+           of Conservation Laws"
+   Author: Satoshi Hanamura, Zenodo (2026)
+   Relation: Cites
+   Reason: \bibitem{hanamura18135855} — cited in Section 1 (Introduction)
+            and Section 8 as part of the main trilogy
+
+3. DOI: 10.5281/zenodo.18203433
+   Title: "Line Integrals as Fundamental Observables in Physics: A Unified
+           Principle Behind the Aharonov-Bohm Effect, Berry Phase, and
+           Wilson Loops"
+   Author: Satoshi Hanamura, Zenodo (2026)
+   Relation: Cites
+   Reason: \bibitem{hanamura18203433} — cited in Section 1 (Introduction)
+            and Section 8 as part of the main trilogy
+
+------------------------------------------------------------------------
+IS SUPPLEMENT TO  (structural relationship to trilogy)
+------------------------------------------------------------------------
+
+4. DOI: 10.5281/zenodo.18067760
+   Title: "Geometric Structure of Spinorial Phase Accumulation along
+           Thermal Geodesics" (Zenodo, 2025)
+   Relation: Is supplement to
+   Reason: Title states "A Supplement on Connection, Curvature, and
+            Line-Integral Observables"; Section 1 explicitly states:
+            "The present note therefore serves as a conceptual bridge"
+            to the trilogy. This supplement clarifies the geometric
+            context in which the trilogy operates.
+
+5. DOI: 10.5281/zenodo.18135855
+   Title: "From Curvature to Connection: Revisiting the Geometric Origin
+           of Conservation Laws" (Zenodo, 2026)
+   Relation: Is supplement to
+   Reason: Same as above — supplement to the full trilogy.
+
+6. DOI: 10.5281/zenodo.18203433
+   Title: "Line Integrals as Fundamental Observables in Physics"
+           (Zenodo, 2026)
+   Relation: Is supplement to
+   Reason: Same as above — supplement to the full trilogy.
+
+------------------------------------------------------------------------
+NON-ZENODO REFERENCES  (no DOI to link; standard bibliography only)
+------------------------------------------------------------------------
+
+These are cited (\bibitem) but have no Zenodo DOI:
+  - Einstein (1916), Annalen der Physik
+  - Yang & Mills (1954), Phys. Rev.
+  - Frankel, "The Geometry of Physics" (book)
+  - Nakahara, "Geometry, Topology and Physics" (book)
+  - Wu & Yang (1975), Phys. Rev. D
+  - Cartan (1986 translation)
+
+  → No Zenodo Relation entries needed for these.
+
+------------------------------------------------------------------------
+SUMMARY TABLE FOR ZENODO UPLOAD FORM
+------------------------------------------------------------------------
+
+| Relation          | DOI                           | Title (short)              |
+|-------------------|-------------------------------|----------------------------|
+| Cites             | 10.5281/zenodo.18067760       | Spinorial Phase / Thermal  |
+| Cites             | 10.5281/zenodo.18135855       | Curvature to Connection    |
+| Cites             | 10.5281/zenodo.18203433       | Line Integrals Fundamental |
+| Is supplement to  | 10.5281/zenodo.18067760       | Spinorial Phase / Thermal  |
+| Is supplement to  | 10.5281/zenodo.18135855       | Curvature to Connection    |
+| Is supplement to  | 10.5281/zenodo.18203433       | Line Integrals Fundamental |
+
+Total entries: 6
+
+================================================================================
+END OF RELATIONS LIST
+================================================================================
