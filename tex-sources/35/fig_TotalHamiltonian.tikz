@@ -1,0 +1,53 @@
+\begin{tikzpicture}[
+    % 横幅はそのまま、yの単位長さを 2.5cm -> 3.0cm に伸ばして縦長に調整
+    x=2.4cm, 
+    y=4.0cm, 
+    >=Stealth
+]
+    % --- グリッド ---
+    \draw[gray!15, xstep=0.3927, ystep=0.25, dashed, very thin] (0,0) grid (6.28, 1.1);
+    
+    % --- 座標軸 ---
+    \draw[thick, ->] (0,0) -- (6.7,0); % 横軸
+    \draw[thick, ->] (0,0) -- (0,1.2) node[above, font=\footnotesize] {Energy / $H(\phi)$};
+
+    % --- 軸ラベル (位置を自由に変えられるよう独立指定) ---
+    % 17行目: at (x, y) の数値をいじることで「上方」「左」へ自由に移動できます
+    % 現在は、軸の先端付近から少し左上 (6.5, 0.1) に配置
+    \node[font=\small, anchor=east] at (6.5, 0.1) {Phase $\phi = \omega t$};
+
+    % \small, \footnotesize, \scriptsize, \tinyの順で小さいフォントに
+    % --- 目盛りとラベル ---
+    % 縦軸
+    \foreach \y in {0, 0.25, 0.5, 0.75, 1.0} {
+        \draw (0.03, \y) -- (-0.03, \y);
+        \node[left, font=\footnotesize] at (-0.05, \y) {\y};
+    }
+    % 横軸
+    \node[below, font=\footnotesize, yshift=-3pt] at (0, 0) {0};
+    \node[below, font=\footnotesize, yshift=-3pt] at (1.57, 0) {$\pi/2$};
+    \node[below, font=\footnotesize, yshift=-3pt] at (3.14, 0) {$\pi$};
+    \node[below, font=\footnotesize, yshift=-3pt] at (4.71, 0) {$3\pi/2$};
+    \node[below, font=\footnotesize, yshift=-3pt] at (6.28, 0) {$2\pi$};
+
+    % --- 関数のプロット ---
+    \draw[olive!70, dashed, semithick, domain=0:6.28, samples=150] 
+        plot (\x, {(cos(\x * 180 / 3.14 / 2)^4)});
+
+    \draw[blue!80, densely dashed, semithick, domain=0:6.28, samples=150] 
+        plot (\x, {(sin(\x * 180 / 3.14 / 2)^4)});
+
+    \draw[orange!80, dotted, thick, domain=0:6.28, samples=150] 
+        plot (\x, {0.5 * (sin(\x * 180 / 3.14)^2)});
+
+    \draw[red!80, thick] (0, 1.0) -- (6.28, 1.0);
+
+    % --- 凡例 ---
+    \begin{scope}[shift={(1.2, 1.15)}]
+        \draw[olive!70, dashed, semithick] (0,0) -- (0.4,0) node[right, font=\small, black] {$\cos^4(\phi/2)$};
+        \draw[blue!80, densely dashed, semithick] (1.3,0) -- (1.7,0) node[right, font=\small, black] {$\sin^4(\phi/2)$};
+        \draw[orange!80, dotted, thick] (2.6,0) -- (3.0,0) node[right, font=\small, black] {$\frac{1}{2}\sin^2(\phi)$};
+        \draw[red!80, thick] (4.0,0) -- (4.4,0) node[right, font=\small, black] {$H(\phi)$};
+    \end{scope}
+
+\end{tikzpicture}
