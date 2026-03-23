@@ -1,0 +1,230 @@
+================================================================================
+Zenodo Relations — Paper #42
+"On the Non-Perturbative Nature of the 0-Sphere Model and Magnetic Monopole
+Absence: A Supplement on Structural Analysis and Physical Interpretation"
+Author: Satoshi Hanamura | Date: March 4, 2026
+================================================================================
+
+[Summary]
+  Relation type        Count   Unique DOIs
+  ----------------------------------------
+  Cites                11      11
+  Is supplement to      2       2
+  Continues             3       3
+  References            3       3
+  Requires              5       5
+  Is part of            1       1
+  ----------------------------------------
+  Total relations      25      (some DOIs appear under multiple types)
+
+================================================================================
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies
+Note: Foundational paper; source of the energy identity E_0 and quartic
+      Stefan-Boltzmann term origin.
+
+DOI: 10.5281/zenodo.18603340
+Title: On the Non-Perturbative Nature of the 0-Sphere Model and the
+       Methodological Scope of the Fine-Structure Constant
+Note: Companion supplement on non-perturbative character; electric charge
+      interpretation and photon sphere coherence.
+
+DOI: 10.5281/zenodo.18203433
+Title: Line Integrals as Fundamental Observables in Physics
+Note: Line-integral trilogy Part 3; open-path primacy and Gauss/Ampere
+      distinction.
+
+DOI: 10.5281/zenodo.18356895
+Title: Geometrical Confinement: Rest Mass and Zitterbewegung as Topological
+       Consequences of the 0-Sphere Geometry
+Note: Companion supplement; kernel A/B energy localization and v_ZB.
+
+DOI: 10.5281/zenodo.18511664
+Title: Detailed Exposition of the 0-Sphere Model Framework for
+       Gravitational-Like Phenomena
+Note: Companion supplement; inchworm analogy and AMM derivation.
+
+DOI: 10.5281/zenodo.17760132
+Title: Coexistence of Positive and Negative-Energy States in the Dirac
+       Equation
+Note: Dirac equation reinterpretation as absorption/emission phases.
+
+DOI: 10.5281/zenodo.18067760
+Title: Geometric Structure of Spinorial Phase Accumulation along Thermal
+       Geodesics
+Note: Line-integral trilogy Part 1; spinorial phase and thermal geodesics.
+
+DOI: 10.5281/zenodo.18135855
+Title: From Curvature to Connection: Revisiting the Geometric Origin of
+       Conservation Laws
+Note: Line-integral trilogy Part 2; curvature-to-connection transition.
+
+DOI: 10.5281/zenodo.17765017
+Title: Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung,
+       Geodesic Paths, and Proper Time Through Radiative Energy Transfer
+Note: Radiative spring mechanism and phase coherence of photon sphere.
+
+DOI: 10.5281/zenodo.17765409
+Title: Spin from Geometry: Emergence of Spin via Internal Berry Phase in
+       the 0-Sphere Electron Model
+Note: gamma = 1 + a relation; v_ZB prediction from AMM.
+
+DOI: 10.5281/zenodo.18275142
+Title: Dissolution of the Vacuum Energy Problem in an Integral-Based
+       Ontology: The 0-Sphere Model Perspective
+Note: Integral-based ontology; Gauss's law monopole charge context.
+
+================================================================================
+[2] Is supplement to
+================================================================================
+
+DOI: 10.5281/zenodo.18603340
+Title: On the Non-Perturbative Nature of the 0-Sphere Model and the
+       Methodological Scope of the Fine-Structure Constant
+Note: This paper explicitly continues the methodological stance of #36 and
+      extends its scope to include the magnetic monopole question. The title
+      of the present paper directly mirrors the title of #36, marking it as
+      a companion supplement in the same methodological series.
+
+DOI: 10.5281/zenodo.18356895
+Title: Geometrical Confinement: Rest Mass and Zitterbewegung as Topological
+       Consequences of the 0-Sphere Geometry
+Note: The present document is described in its abstract as "conceptual
+      clarification complementary to earlier supplements on Zitterbewegung"
+      (#33). The magnetic dipole inseparability hypothesis is grounded in the
+      detailed kernel A/B picture developed there.
+
+================================================================================
+[3] Continues
+================================================================================
+
+DOI: 10.5281/zenodo.18603340
+Title: On the Non-Perturbative Nature of the 0-Sphere Model and the
+       Methodological Scope of the Fine-Structure Constant
+Note: Paper #36 established the methodological framework of delineating model
+      scope; the present paper continues this program by applying the same
+      discipline to the magnetic monopole question.
+
+DOI: 10.5281/zenodo.18203433
+Title: Line Integrals as Fundamental Observables in Physics
+Note: The open-path vs. closed-loop distinction developed in the line-integral
+      trilogy is extended here to explain the structural prohibition of
+      magnetic monopoles within the 0-Sphere framework.
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies
+Note: The energy conservation identity introduced in the foundational paper is
+      the starting point for the structural charge/magnetization asymmetry
+      developed here, representing a direct conceptual continuation.
+
+================================================================================
+[4] References  (thematic and conceptual; not formal \bibitem citations)
+================================================================================
+
+DOI: 10.5281/zenodo.17759699
+Title: Perfect Contrast Cannot be Obtained in Electron Double-Slit
+Note: Paper #4 on visibility limits; thematically related to the structural
+      constraints on observable quantities imposed by the 0-Sphere geometry.
+
+DOI: 10.5281/zenodo.18437010
+Title: Geometrical Confinement: Gravitational-Like Phenomena
+Note: Paper #34; companion to #33 extending confinement to gravity. The
+      two-kernel structure described here is the same physical mechanism.
+
+DOI: 10.5281/zenodo.18736670
+Title: On the Derivative-Order Mismatch Between Gauge Theory and Gravity:
+       A Supplement on Connection, Curvature, and Line-Integral Observables
+Note: Paper #40; the distinction between gauge-field line integrals and
+      gravitational curvature integrals is directly relevant to the Gauss vs.
+      Ampere structural contrast developed in Section 5.
+
+================================================================================
+[5] Requires  (prerequisite papers for understanding this work)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies
+Note: The energy identity E_0, the two-kernel structure, and the Stefan-
+      Boltzmann quartic dependence are introduced here and assumed as given.
+
+DOI: 10.5281/zenodo.18603340
+Title: On the Non-Perturbative Nature of the 0-Sphere Model and the
+       Methodological Scope of the Fine-Structure Constant
+Note: The methodological stance of explicit scope delineation, central to the
+      present supplement, is developed in detail in this paper.
+
+DOI: 10.5281/zenodo.18356895
+Title: Geometrical Confinement: Rest Mass and Zitterbewegung as Topological
+       Consequences of the 0-Sphere Geometry
+Note: The kernel A/B energy localization picture, v_ZB prediction, and
+      inchworm analogy are required background for Sections 2-4.
+
+DOI: 10.5281/zenodo.18203433
+Title: Line Integrals as Fundamental Observables in Physics
+Note: The open-path line integral framework is required background for the
+      Gauss vs. Ampere structural analysis in Section 5.
+
+DOI: 10.5281/zenodo.17760132
+Title: Coexistence of Positive and Negative-Energy States in the Dirac
+       Equation
+Note: The reinterpretation of positive/negative Dirac energy as
+      absorption/emission phases, used in Section 3, is developed here.
+
+================================================================================
+[6] Is part of  (series membership)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies
+Note: This paper is part of the 0-Sphere Model series originating from the
+      foundational 2018 paper. Using the foundational paper as the series
+      anchor for the "Is part of" relation.
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+================================================================================
+
+The following updates should be added to the Zenodo records of the papers
+listed below once this paper receives its DOI.
+
+--- Target: 10.5281/zenodo.18603340 (#36) ---
+  Add relation: Is supplemented by  <DOI of this paper>
+  Add relation: Is continued by     <DOI of this paper>
+
+--- Target: 10.5281/zenodo.18356895 (#33) ---
+  Add relation: Is supplemented by  <DOI of this paper>
+
+--- Target: 10.5281/zenodo.18203433 (#31) ---
+  Add relation: Is continued by     <DOI of this paper>
+
+--- Target: 10.5281/zenodo.16759284 (#1) ---
+  Add relation: Is continued by     <DOI of this paper>
+  Add relation: Has part             <DOI of this paper>
+
+--- Target: 10.5281/zenodo.18511664 (#35) ---
+  Add relation: Is supplemented by  <DOI of this paper>
+
+--- Target: 10.5281/zenodo.17760132 (#7) ---
+  Add relation: Is cited by         <DOI of this paper>
+
+--- Target: 10.5281/zenodo.18067760 (#29) ---
+  Add relation: Is cited by         <DOI of this paper>
+
+--- Target: 10.5281/zenodo.18135855 (#30) ---
+  Add relation: Is cited by         <DOI of this paper>
+
+--- Target: 10.5281/zenodo.17765017 (#11) ---
+  Add relation: Is cited by         <DOI of this paper>
+
+--- Target: 10.5281/zenodo.17765409 (#26) ---
+  Add relation: Is cited by         <DOI of this paper>
+
+--- Target: 10.5281/zenodo.18275142 (#32) ---
+  Add relation: Is cited by         <DOI of this paper>
+
+================================================================================
+END OF ZENODO RELATIONS
+================================================================================

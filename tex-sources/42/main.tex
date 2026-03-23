@@ -1,0 +1,465 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[labelfont=bf]{caption}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+% ========================================
+% Page Layout Configuration
+% ========================================
+\geometry{
+  letterpaper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+}
+
+\onehalfspacing
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+\title{On the Non-Perturbative Nature \\of the 0-Sphere Model and Magnetic Monopole Absence:\\
+\normalsize A Supplement on Structural Analysis and Physical Interpretation}
+
+\author{Satoshi Hanamura\thanks{Email: hana.tensor@gmail.com}}
+\date{March 4, 2026}
+
+\maketitle
+
+% ========================================
+% Table of Contents
+% ========================================
+\tableofcontents
+
+% ========================================
+% Research Summary
+% ========================================
+\begin{center}
+\textbf{Research Summary}
+\end{center}
+
+\justifying
+This supplementary comment discusses why the absence of magnetic monopoles can be naturally understood within the structural framework of the 0-Sphere model~\cite{hanamura16759284,hanamura18603340}, while explicitly acknowledging that a complete geometric formulation remains under development. The emphasis is placed on clarifying the current scope of the model and connecting the structural features of the energy conservation identity to the physical mechanisms developed in the main text, including the two-kernel structure, phase-dependent energy localization, and the distinction between open-path and closed-loop line integrals~\cite{hanamura18203433}.
+
+The present note serves as a conceptual clarification complementary to earlier supplements on Zitterbewegung~\cite{hanamura18356895}, the anomalous magnetic moment~\cite{hanamura18511664}, and observer-dependent torsion (in preparation). By grounding the discussion in the detailed physical picture established in those documents, this supplement aims to demonstrate how magnetic dipole inseparability emerges naturally from the internal dynamics of the 0-Sphere model, rather than being imposed as an external constraint.
+
+\clearpage
+
+% ========================================
+% Section 1: Motivation and Context
+% ========================================
+\section{Motivation and Context}
+
+The question of why magnetic monopoles have not been observed has long occupied a distinctive position in theoretical physics. While classical electromagnetism accommodates only magnetic dipoles, quantum considerations famously allow monopoles through externally imposed quantization conditions~\cite{Dirac1931}. Independently, 't Hooft and Polyakov demonstrated that magnetic monopoles arise as topological soliton solutions in non-Abelian gauge theories~\cite{tHooft1974,Polyakov1974}, establishing that monopole existence is a robust prediction of a wide class of unified field theories, independent of Dirac's original quantization argument.
+
+The present supplement aims to clarify the status of this problem within the 0-Sphere model~\cite{hanamura16759284,hanamura18603340}. In particular, we explain why the model does not currently support an independent magnetic monopole degree of freedom, while emphasizing that this conclusion is provisional and tied to the present level of geometric development.
+
+Importantly, the discussion below builds upon the detailed physical picture developed in companion supplements: the discrete two-kernel structure with phase-dependent energy localization~\cite{hanamura18356895,hanamura18511664}, the reinterpretation of the Dirac equation in terms of radiative emission and absorption phases~\cite{hanamura17760132}, and the treatment of open-path line integrals as fundamental observables~\cite{hanamura18067760,hanamura18135855,hanamura18203433}. By connecting these elements to the mathematical structure of the energy conservation identity, we aim to show that magnetic dipole inseparability is not an ad hoc assumption but a natural consequence of the model's internal architecture.
+
+This document follows the same methodological stance adopted in earlier supplementary notes~\cite{hanamura18603340}: rather than extending the model prematurely, we explicitly delineate what is and is not addressed by the existing formalism, while indicating directions for future theoretical development.
+
+% ========================================
+% Section 2: Energy Conservation Identity and Structural Interpretation
+% ========================================
+\section{Energy Conservation Identity and Structural Interpretation}
+
+At the core of the present discussion lies the energy conservation identity of the 0-Sphere model~\cite{hanamura16759284,hanamura17765017},
+\begin{equation}
+E_0 = E_0 \left[
+\cos^4\!\left(\frac{\omega t}{2}\right)
++ \sin^4\!\left(\frac{\omega t}{2}\right)
++ \frac{1}{2}\sin^2(\omega t)
+\right].
+\label{eq:energy_identity}
+\end{equation}
+
+This identity is not introduced as a dynamical equation, but as a structural constraint reflecting the internal symmetry of the model. Its role is to organize how different forms of internal motion contribute to conserved energy, rather than to prescribe time evolution.
+
+% ----------------------------------------
+% Subsection 2.1: Physical Origin of the Quartic Terms
+% ----------------------------------------
+\subsection{Physical Origin of the Quartic Terms}
+
+The quartic terms in Eq.~\eqref{eq:energy_identity} are not arbitrary but arise from the Stefan--Boltzmann radiation law applied to thermal emission and absorption~\cite{hanamura16759284}. As detailed in the companion supplement on Zitterbewegung~\cite{hanamura18356895}, the energy localized at each kernel varies as:
+\begin{align}
+E_A(\theta) &= E_0 \cos^4(\theta/2), \\
+E_B(\theta) &= E_0 \sin^4(\theta/2),
+\end{align}
+where $\theta = \omega t$ is the internal phase.
+
+At $\theta = 0$, all energy resides at kernel $A$ ($E_A = E_0$, $E_B = 0$). At $\theta = \pi$, all energy has been transported to kernel $B$ ($E_A = 0$, $E_B = E_0$). This is not a continuous distribution but represents discrete, phase-driven hopping between localization sites, analogous to the alternating contact points of an inchworm~\cite{hanamura18511664}.
+
+The fourth-power dependence reflects the thermodynamic nature of the radiative exchange. The photon sphere, which mediates this transport, consists of real photons satisfying $E = pc$, not virtual quanta. The Stefan--Boltzmann law, governing blackbody radiation, naturally introduces quartic temperature dependence, which in the 0-Sphere framework manifests as quartic phase dependence when temperature is reinterpreted as internal phase velocity~\cite{hanamura16759284}.
+
+% ----------------------------------------
+% Subsection 2.2: The Single-Term Kinetic Contribution
+% ----------------------------------------
+\subsection{The Single-Term Kinetic Contribution}
+
+The term $\frac{1}{2}\sin^2(\omega t)$ represents the kinetic energy of the photon sphere in transit. This term reaches its maximum at $\theta = \pi/2$ and $\theta = 3\pi/2$---precisely the midpoints between full localization at kernel $A$ and full localization at kernel $B$.
+
+This is consistent with classical harmonic oscillator behavior: kinetic energy is maximized when potential energy is minimized. However, unlike a mechanical oscillator, the ``spring'' is radiative, arising from the thermodynamic tendency to redistribute energy evenly between kernels combined with the finite propagation time for photons to traverse the Compton wavelength separation~\cite{hanamura17765017}.
+
+Crucially, this single-term contribution is \textbf{phase-coherent across the entire system}. At any given instant, the photon sphere possesses a well-defined kinetic energy determined by the global phase $\theta$. This coherence is what enables the identification of this term with electric charge, as discussed below.
+
+% ----------------------------------------
+% Subsection 2.3: Structural Asymmetry: Paired vs. Single Terms
+% ----------------------------------------
+\subsection{Structural Asymmetry: Paired vs.\ Single Terms}
+
+The three terms in Eq.~\eqref{eq:energy_identity} exhibit a minimal structural asymmetry in the way conserved energy is organized: a structurally single contribution versus an irreducibly paired contribution. This distinction does not arise from numerical counting, but reflects the minimal building blocks through which different physical degrees of freedom emerge in the present formulation.
+
+\begin{itemize}
+\item \textbf{Single-term contribution:} The term $\frac{1}{2}\sin^2(\omega t)$ appears as a single, undivided entity. It describes a globally coherent degree of freedom---the photon sphere's kinetic energy---that admits no decomposition into independent sub-components.
+
+\item \textbf{Paired-term contribution:} The terms $\cos^4(\omega t/2)$ and $\sin^4(\omega t/2)$ appear as an inseparable pair. They describe localized potential energies at distinct spatial sites (kernels $A$ and $B$), and together define the radiation gradient that drives internal motion~\cite{hanamura18356895}.
+\end{itemize}
+
+This structural asymmetry provides the basis for the physical interpretation outlined below: the structurally single contribution naturally corresponds to a monopole quantity (electric charge), while the irreducibly paired contributions correspond to an intrinsically dipolar quantity (magnetization).
+
+% ========================================
+% Section 3: Reinterpretation of the Dirac Equation and Charge Structure
+% ========================================
+\section{Reinterpretation of the Dirac Equation and Charge Structure}
+
+To understand why the single-term contribution is associated with electric charge, we must recall the reinterpretation of the Dirac equation~\cite{Dirac1928} developed in the companion supplement on internal phase dynamics~\cite{hanamura17760132}.
+
+% ----------------------------------------
+% Subsection 3.1: Positive and Negative Energy as Radiative Phases
+% ----------------------------------------
+\subsection{Positive and Negative Energy as Radiative Phases}
+
+Within the 0-Sphere framework~\cite{hanamura17760132}, the positive- and negative-energy solutions of the Dirac equation are reinterpreted not as particles and antiparticles, but as \textbf{absorption and emission phases} of a single-particle thermodynamic cycle:
+\begin{itemize}
+\item \textbf{Positive energy} $E > 0$: Absorption phase---the system receives radiative energy, increasing thermal potential energy localized at a kernel.
+\item \textbf{Negative energy} $E < 0$: Emission phase---the system radiates energy, decreasing thermal potential energy localized at a kernel.
+\end{itemize}
+
+The Dirac equation's oscillatory structure reflects the alternating dominance of these phases, not the coexistence of particles and antiparticles. This reinterpretation restores physical meaning to Zitterbewegung without invoking pair creation~\cite{hanamura18356895}.
+
+% ----------------------------------------
+% Subsection 3.2: The Photon Sphere as Carrier of Charge
+% ----------------------------------------
+\subsection{The Photon Sphere as Carrier of Charge}
+
+In this picture, the photon sphere---represented by the single-term kinetic energy $\frac{1}{2}\sin^2(\omega t)$---carries the system's electric charge. This charge is not localized at a kernel but is distributed throughout the radiative structure connecting the kernels~\cite{hanamura18603340}.
+
+Importantly, the photon sphere is phase-coherent: at any instant, it possesses a well-defined energy determined by the global phase $\theta$. This global coherence is what allows electric charge to manifest as a \textbf{monopole quantity}. There is no pairing or spatial separation required; the charge is carried by the single, unified radiative structure.
+
+This contrasts sharply with magnetic properties, as discussed below.
+
+% ========================================
+% Section 4: Hypothesis on Magnetic Dipole Inseparability
+% ========================================
+\section{Hypothesis on Magnetic Dipole Inseparability}
+
+% ----------------------------------------
+% Subsection 4.1: Magnetization from the Paired Potential Structure
+% ----------------------------------------
+\subsection{Magnetization from the Paired Potential Structure}
+
+While electric charge arises from the single-term photon-sphere contribution, magnetization in the 0-Sphere model arises from the paired structure of the thermal potential energy terms~\cite{hanamura18356895}:
+\begin{equation}
+U_{\mathrm{total}} = E_0 \left[ \cos^4(\theta/2) + \sin^4(\theta/2) \right].
+\end{equation}
+
+These two terms represent energy localized at spatially distinct sites---kernels $A$ and $B$---separated by a distance of order the Compton wavelength:
+\begin{equation}
+\lambda_C = \frac{\hbar}{m_e c} \approx 2.4 \times 10^{-12} \, \mathrm{m}.
+\end{equation}
+
+Because magnetization emerges from the gradient of this paired potential structure, it is intrinsically \textbf{dipolar}. There is no mechanism within the model to isolate a single kernel and assign it an independent magnetic charge. The two kernels are dynamically coupled through the photon sphere, and their magnetic contributions cannot be separated~\cite{hanamura18356895,hanamura18511664}.
+
+% ----------------------------------------
+% Subsection 4.2: The Radiation Gradient and Magnetic Moment
+% ----------------------------------------
+\subsection{The Radiation Gradient and Magnetic Moment}
+
+The radiation gradient driving energy flow from kernel $A$ to kernel $B$ is given by~\cite{hanamura18356895}:
+\begin{equation}
+\frac{dU_A}{d\theta} \propto \sin\theta.
+\end{equation}
+
+This gradient generates a force $F = -\nabla U$, which drives the photon sphere into motion. As detailed in the companion supplement on Zitterbewegung~\cite{hanamura18356895,hanamura18511664}, this motion occurs at velocity:
+\begin{equation}
+v_{\mathrm{ZB}} \approx 0.04047c,
+\end{equation}
+corresponding to the predicted Zitterbewegung velocity derived from the electron's anomalous magnetic moment via the relation $\gamma = 1 + a$~\cite{hanamura17765409}.
+
+The circulation of the photon sphere at this velocity, combined with Lorentz contraction of its effective circumference, produces the observed anomalous magnetic moment~\cite{hanamura17765409,hanamura18511664}. Crucially, this magnetic moment arises from the \textbf{circulation around both kernels}---it cannot be attributed to a single localized source.
+
+% ----------------------------------------
+% Subsection 4.3: Why Magnetic Monopoles Do Not Appear
+% ----------------------------------------
+\subsection{Why Magnetic Monopoles Do Not Appear}
+
+Because magnetization in the 0-Sphere model emerges from the inseparable pairing of $\cos^4(\theta/2)$ and $\sin^4(\theta/2)$, no standalone magnetic monopole degree of freedom appears.
+
+The two kernels are not independent entities but phase-dependent configurations of a single, unified system. At $\theta = 0$, energy is fully localized at kernel $A$; at $\theta = \pi$, it is fully localized at kernel $B$. Between these extremes, energy is in transit through the photon sphere. There is no mechanism to ``freeze'' one kernel in isolation and assign it an independent magnetic charge.
+
+This leads to the following working hypothesis:
+
+\begin{center}
+\textit{Magnetic north and south poles are not independent entities,\\
+but are structurally linked within the energy identity itself.\\
+Consequently, no standalone magnetic monopole degree of freedom\\
+appears within the present formulation.}
+\end{center}
+
+It is essential to stress that this conclusion remains hypothetical. A rigorous geometric framework connecting this term structure to Maxwell-type equations or topological constraints~\cite{Nakahara2003} has not yet been constructed.
+
+% ========================================
+% Section 5: Connection to Open-Path Line Integrals
+% ========================================
+\section{Connection to Open-Path Line Integrals}
+
+The absence of magnetic monopoles in the 0-Sphere model can be further understood through the distinction between open-path and closed-loop line integrals, developed in detail in the line-integral trilogy~\cite{hanamura18067760,hanamura18135855,hanamura18203433}.
+
+% ----------------------------------------
+% Subsection 5.1: Electric Charge and Gauss's Law
+% ----------------------------------------
+\subsection{Electric Charge and Gauss's Law}
+
+Electric charge in the model is associated with the single-term photon-sphere contribution, which is globally coherent~\cite{hanamura18603340}. The electric field can be defined through Gauss's law:
+\begin{equation}
+\oint_S \mathbf{E} \cdot d\mathbf{A} = \frac{Q_{\mathrm{enc}}}{\epsilon_0},
+\end{equation}
+where $Q_{\mathrm{enc}}$ is the enclosed charge.
+
+Because the photon sphere is a unified structure, it can be enclosed by a surface, and the resulting flux yields a well-defined monopole charge. This is consistent with the single-term structure in the energy identity and with the integral-based ontology developed in Ref.~\cite{hanamura18275142}.
+
+% ----------------------------------------
+% Subsection 5.2: Magnetic Flux and Ampere's Law
+% ----------------------------------------
+\subsection{Magnetic Flux and Amp\`ere's Law}
+
+Magnetization, by contrast, arises from circulation around the paired kernel structure. The magnetic field is defined through Amp\`ere's law:
+\begin{equation}
+\oint_C \mathbf{B} \cdot d\mathbf{l} = \mu_0 I_{\mathrm{enc}},
+\end{equation}
+where $I_{\mathrm{enc}}$ is the enclosed current.
+
+Crucially, the relevant line integral is taken around a \textbf{closed loop} encircling the current---in the 0-Sphere case, the circulating photon sphere between kernels $A$ and $B$. There is no mechanism to define a surface enclosing a single ``magnetic charge'' because magnetization emerges from circulation, not from a localized source~\cite{hanamura18203433}.
+
+This distinction aligns with the paired vs.\ single-term structure in the energy identity:
+\begin{itemize}
+\item \textbf{Electric charge:} Single term $\to$ globally coherent $\to$ monopole $\to$ Gauss's law
+\item \textbf{Magnetization:} Paired terms $\to$ circulation between kernels $\to$ dipole $\to$ Amp\`ere's law
+\end{itemize}
+
+% ----------------------------------------
+% Subsection 5.3: Open Paths and Irreversibility
+% ----------------------------------------
+\subsection{Open Paths and Irreversibility}
+
+As emphasized in the line-integral trilogy~\cite{hanamura18067760,hanamura18135855,hanamura18203433}, the 0-Sphere model treats \textbf{open-path line integrals} as primary observables, reflecting directional, irreversible energy transport from kernel $A$ to kernel $B$.
+
+This open-path structure is incompatible with the existence of magnetic monopoles, which would require a closed-surface analogue of Gauss's law for magnetism. The paired-term structure of the energy identity ensures that magnetization always involves both kernels simultaneously, preventing the isolation of a single magnetic charge.
+
+% ========================================
+% Section 6: Comparison with Dirac's Monopole Construction
+% ========================================
+\section{Comparison with Dirac's Monopole Construction}
+
+For clarity, we summarize the conceptual distinction between Dirac's monopole framework and the present approach, as outlined in Table~\ref{tab:dirac_comparison}.
+
+% ----------------------------------------
+% Table 1: Conceptual comparison between Dirac monopole and 0-Sphere Model
+% ----------------------------------------
+\begin{table}[t!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l X X}
+\toprule
+\textbf{Feature} & \textbf{Dirac (1931)~\cite{Dirac1931}} & \textbf{0-Sphere Model (This Work)} \\
+\midrule
+Origin of monopoles & Topologically allowed via quantization condition & Not realized as an internal geometric degree of freedom (hypothesis) \\
+Theoretical role & Externally imposed consistency requirement & Emergent from internal energy identity structure \\
+Structural basis & Compatible with Maxwell equations & Incompatible with paired-term potential structure \\
+Charge-monopole relation & Independent degrees of freedom & Electric charge (single term) vs.\ magnetization (paired terms) \\
+Experimental status & Possible but unobserved & Structurally unsupported in the current formulation \\
+\bottomrule
+\end{tabularx}
+\caption{Conceptual comparison between Dirac's monopole construction~\cite{Dirac1931} and the present hypothesis within the 0-Sphere model.}
+\label{tab:dirac_comparison}
+\end{table}
+
+Dirac's construction represents the canonical theoretical baseline in which magnetic monopoles are \emph{allowed} through the imposition of a quantization condition~\cite{Dirac1931}. This approach was later generalized by 't Hooft and Polyakov~\cite{tHooft1974,Polyakov1974}, who showed that monopoles arise as stable topological solitons in non-Abelian gauge theories, entirely independently of Dirac's quantization argument. The comparison in Table~\ref{tab:dirac_comparison} is therefore intended not as a refutation of either framework, but as a reference point highlighting the fundamentally different origin of monopole absence suggested by the 0-Sphere model.
+
+In both the Dirac and 't Hooft--Polyakov frameworks, monopoles are possible (or inevitable in grand unified theories) but unobserved; in the 0-Sphere model, they are structurally precluded by the paired-term architecture of the energy identity. This distinction is not a matter of quantization conditions or topological constraints, but arises from the discrete two-kernel geometry and the requirement that magnetization emerge from circulation between spatially separated sites~\cite{hanamura18356895}.
+
+% ========================================
+% Section 7: Current Limitations and Open Directions
+% ========================================
+\section{Current Limitations and Open Directions}
+
+The interpretation presented above highlights a suggestive structural asymmetry, but several crucial elements remain undeveloped:
+
+\begin{itemize}
+\item A geometric interpretation of the term pairing in terms of fiber bundles or connection structures~\cite{Nakahara2003}.
+\item A systematic relation to topological charge quantization, including Chern classes and winding numbers~\cite{Nakahara2003,tHooft1974}.
+\item A comparison with Dirac-type and 't Hooft--Polyakov monopole constructions beyond the level of structural contrast, including analysis of Dirac string singularities~\cite{Dirac1931,tHooft1974,Polyakov1974}.
+\item Derivation of Maxwell's equations from the energy identity~\cite{hanamura18203433}, clarifying how the absence of magnetic monopoles emerges as a consistency condition.
+\item Potential observational or phenomenological consequences that could distinguish this framework from conventional theories, including precision tests of magnetic dipole moments.
+\item Connection to the predicted Zitterbewegung velocity $v_{\mathrm{ZB}} \approx 0.04047c$~\cite{hanamura18356895,hanamura17765409} and its role in determining magnetic properties.
+\item Extension of the line-integral ontology~\cite{hanamura18275142,hanamura18203433} to a full gauge-theoretic account of the electromagnetic sector, including a derivation of the monopole-free condition from the primary open-path structure.
+\end{itemize}
+
+These issues lie beyond the scope of the present supplement and represent natural directions for future work. In particular, the experimental verification of the predicted Zitterbewegung velocity would provide indirect support for the structural picture developed here, as it would confirm the physical reality of the internal circulation from which magnetization emerges~\cite{hanamura18356895}.
+
+% ========================================
+% Section 8: Conclusion
+% ========================================
+\section{Conclusion}
+
+\justifying
+This supplementary comment has outlined a structural hypothesis for the absence of magnetic monopoles based on the paired-term architecture present in the energy conservation identity of the 0-Sphere model~\cite{hanamura16759284,hanamura18603340}.
+
+Key points established:
+\begin{enumerate}
+\item The energy identity Eq.~\eqref{eq:energy_identity}~\cite{hanamura16759284} exhibits a natural asymmetry: single-term (photon sphere) vs.\ paired-term (kernels $A$ and $B$) contributions.
+\item Electric charge arises from the globally coherent, single-term photon-sphere contribution, manifesting as a monopole quantity via Gauss's law~\cite{hanamura18603340}.
+\item Magnetization arises from the paired-term potential structure~\cite{hanamura18356895}, requiring circulation between spatially separated kernels and thus manifesting as an intrinsically dipolar quantity.
+\item The discrete two-kernel geometry and open-path line integral structure~\cite{hanamura18067760,hanamura18135855,hanamura18203433} preclude the isolation of a single magnetic charge, preventing magnetic monopoles from appearing as independent degrees of freedom.
+\item This conclusion aligns with the reinterpretation of the Dirac equation~\cite{hanamura17760132} (positive/negative energy as absorption/emission phases) and the predicted Zitterbewegung velocity $v_{\mathrm{ZB}} \approx 0.04047c$~\cite{hanamura18356895,hanamura17765409}.
+\end{enumerate}
+
+By explicitly acknowledging the preliminary nature of this hypothesis and the absence of a complete geometric framework, this document maintains methodological caution and theoretical transparency. This clarification contributes to a systematic delineation of the current research program, distinguishing established results, working hypotheses, and open structural limitations~\cite{hanamura18603340}.
+
+Future work should focus on developing the geometric formalism necessary to rigorously connect the energy identity structure to Maxwell's equations, topological invariants~\cite{Nakahara2003}, and experimental observables, particularly through the predicted Zitterbewegung velocity~\cite{hanamura18356895,hanamura17765409}.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+The author notes that the considerations presented here arose during attempts to clarify the conceptual scope of the main line-integral-based manuscripts~\cite{hanamura18067760,hanamura18135855,hanamura18203433} and companion supplements on Zitterbewegung~\cite{hanamura18356895}, anomalous magnetic moment~\cite{hanamura18511664}, and observer-dependent torsion (in preparation).
+
+While not essential to the primary arguments, recording these structural observations proved useful for delineating interpretation from formal derivation and for identifying directions for future theoretical development.
+
+During preparation, large language models were used in a limited supportive role for textual organization. All physical interpretations and judgments remain the responsibility of the author.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamura16759284}
+S.~Hanamura,
+``A Model of an Electron Including Two Perfect Black Bodies,''
+Zenodo (2018).
+\href{https://doi.org/10.5281/zenodo.16759284}{https://doi.org/10.5281/zenodo.16759284}
+
+\bibitem{hanamura18603340}
+S.~Hanamura,
+``On the Non-Perturbative Nature of the 0-Sphere Model and the Methodological Scope of the Fine-Structure Constant,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18603340}{https://doi.org/10.5281/zenodo.18603340}
+
+\bibitem{hanamura18203433}
+S.~Hanamura,
+``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18203433}{https://doi.org/10.5281/zenodo.18203433}
+
+\bibitem{hanamura18356895}
+S.~Hanamura,
+``Geometrical Confinement: Rest Mass and Zitterbewegung as Topological Consequences of the 0-Sphere Geometry,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18356895}{https://doi.org/10.5281/zenodo.18356895}
+
+\bibitem{hanamura18511664}
+S.~Hanamura,
+``Detailed Exposition of the 0-Sphere Model Framework for Gravitational-Like Phenomena,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18511664}{https://doi.org/10.5281/zenodo.18511664}
+
+\bibitem{Dirac1931}
+P.~A.~M.~Dirac,
+``Quantised singularities in the electromagnetic field,''
+Proc.\ Roy.\ Soc.\ Lond.\ A \textbf{133}, 60--72 (1931).
+\href{https://doi.org/10.1098/rspa.1931.0130}{https://doi.org/10.1098/rspa.1931.0130}
+
+\bibitem{tHooft1974}
+G.~'t Hooft,
+``Magnetic monopoles in unified gauge theories,''
+Nucl.\ Phys.\ B \textbf{79}, 276--284 (1974).
+\href{https://doi.org/10.1016/0550-3213(74)90486-6}{https://doi.org/10.1016/0550-3213(74)90486-6}
+
+\bibitem{Polyakov1974}
+A.~M.~Polyakov,
+``Particle spectrum in quantum field theory,''
+JETP Lett.\ \textbf{20}, 194--195 (1974).
+
+\bibitem{hanamura17760132}
+S.~Hanamura,
+``Coexistence of Positive and Negative-Energy States in the Dirac Equation,''
+Zenodo (2020).
+\href{https://doi.org/10.5281/zenodo.17760132}{https://doi.org/10.5281/zenodo.17760132}
+
+\bibitem{hanamura18067760}
+S.~Hanamura,
+``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.18067760}{https://doi.org/10.5281/zenodo.18067760}
+
+\bibitem{hanamura18135855}
+S.~Hanamura,
+``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18135855}{https://doi.org/10.5281/zenodo.18135855}
+
+\bibitem{hanamura17765017}
+S.~Hanamura,
+``Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer,''
+Zenodo (2024).
+\href{https://doi.org/10.5281/zenodo.17765017}{https://doi.org/10.5281/zenodo.17765017}
+
+\bibitem{Dirac1928}
+P.~A.~M.~Dirac,
+``The quantum theory of the electron,''
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{117}, 610--624 (1928).
+\href{https://doi.org/10.1098/rspa.1928.0023}{https://doi.org/10.1098/rspa.1928.0023}
+
+\bibitem{hanamura17765409}
+S.~Hanamura,
+``Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765409}{https://doi.org/10.5281/zenodo.17765409}
+
+\bibitem{hanamura18275142}
+S.~Hanamura,
+``Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology: The 0-Sphere Model Perspective,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18275142}{https://doi.org/10.5281/zenodo.18275142}
+
+\bibitem{Nakahara2003}
+M.~Nakahara,
+\textit{Geometry, Topology and Physics}, 2nd ed.
+(IOP Publishing, Bristol, 2003).
+\href{https://doi.org/10.1201/9781315275826}{https://doi.org/10.1201/9781315275826}
+
+\end{thebibliography}
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}
