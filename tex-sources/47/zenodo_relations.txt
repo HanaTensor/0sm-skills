@@ -1,0 +1,195 @@
+================================================================================
+zenodo_relations.txt
+Paper #47: Rotational Lorentz Contraction as the Geometric Origin of the
+Anomalous Magnetic Moment — A Structural Correspondence with the Muon
+Lifetime Problem (Structural Clarification Note)
+================================================================================
+
+[Summary]
+  Relation types:  6
+  Total entries:   14 (forward) + 7 (reverse recommendations)
+  Unique DOIs:     7
+
+  Cites              6  (all Zenodo bibitem entries)
+  Is supplement to   1  (structural clarification of #10)
+  Continues          3  (develops #1, #10, #14 programme)
+  References         1  (thematic — g=2 topological invariant in #38)
+  Requires           2  (prerequisite reading for this paper)
+  Is part of         1  (0-Sphere Model series membership)
+
+================================================================================
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+Note: Foundational source of the 0-Sphere Model two-kernel structure
+      and the sinusoidal internal oscillation framework.
+
+DOI: 10.5281/zenodo.17764997
+Title: Redefining Electron Spin and Anomalous Magnetic Moment Through
+       Harmonic Oscillation and Lorentz Contraction (#10)
+Note: Primary precursor paper. The inverse calculation a_e -> v_ZB ~
+      0.04c and the identification gamma_L = 1 + a_e were first
+      established here. The present paper makes that structural
+      correspondence explicit and self-contained.
+
+DOI: 10.5281/zenodo.17765079
+Title: Unified Spin Dynamics: From Pseudovector Nature to Relativistic
+       Constraints (#13)
+Note: Cited in the context of g = 2 arising from the double-angle
+      Thomas precession angular velocity Omega ~ sin(2*omega*t).
+
+DOI: 10.5281/zenodo.17765238
+Title: Spin as a Real Vector: Geometric Origin of U(1) Gauge and SU(2)
+       Periodicity in the 0-Sphere Electron Model (#19)
+Note: Cited alongside #10 and #13 in support of the geometric basis
+      for g = 2 from the double-angle structure.
+
+DOI: 10.5281/zenodo.17765097
+Title: Bridging Quantum Mechanics and General Relativity: A First-
+       Principles Approach to Anomalous Magnetic Moments and Geodetic
+       Precession (#14)
+Note: Cited as source for the RMS correction in Eq. (4.3) and for
+      the structural equation gamma_L = 1 + a_e.
+
+DOI: 10.5281/zenodo.17765121
+Title: Spin-Induced Inertial Resistance in Electrons: A Gyroscopic
+       Interpretation Based on General Relativity (#15)
+Note: Cited alongside #14 to confirm gamma_L = 1 + a_e as a structural
+      consequence of SR applied to the internal orbital arc.
+
+================================================================================
+[2] Is supplement to
+================================================================================
+
+DOI: 10.5281/zenodo.17764997
+Title: Redefining Electron Spin and Anomalous Magnetic Moment Through
+       Harmonic Oscillation and Lorentz Contraction (#10)
+Note: The present paper carries the explicit subtitle "(Structural
+      Clarification Note)" and states in the Introduction that "the
+      present paper makes the structural analogy explicit and self-
+      contained." It functions as the expository supplement to the
+      inverse calculation first performed in #10, introducing the
+      unifying identity Delta[L] = |gamma_L - 1| * L_0, the two-panel
+      comparison figure, and the comparison table.
+
+================================================================================
+[3] Continues
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+Note: Continues the 0-Sphere Model programme by developing the
+      Thomas precession / sinusoidal oscillation mechanism for g = 2
+      and extending the geometric analysis of the electron's internal
+      dynamics.
+
+DOI: 10.5281/zenodo.17764997
+Title: Redefining Electron Spin and Anomalous Magnetic Moment Through
+       Harmonic Oscillation and Lorentz Contraction (#10)
+Note: Continues the structural programme of #10 by making its
+      structural correspondence with the muon lifetime problem
+      self-contained and by articulating the open forward chain
+      (Thomas precession -> v_ZB -> a_e).
+
+DOI: 10.5281/zenodo.17765097
+Title: Bridging Quantum Mechanics and General Relativity: A First-
+       Principles Approach to Anomalous Magnetic Moments and Geodetic
+       Precession (#14)
+Note: Continues the structural-SR programme of #14 in which
+      gamma_L = 1 + a_e was established as a bridge equation.
+      The present paper provides the muon-lifetime analogy that
+      contextualizes this result in standard SR pedagogy.
+
+================================================================================
+[4] References  (thematic and conceptual reference — not in bibitem)
+================================================================================
+
+DOI: 10.5281/zenodo.18718174
+Title: Berry Phase and Topological Origin of g = 2 (#38)
+Note: #38 establishes g = 2 as a topological invariant via Berry
+      phase and provides a dual-frame decomposition of the g-factor.
+      The present paper derives g = 2 geometrically from the
+      double-angle Thomas precession structure; the two papers
+      provide complementary geometric accounts of the same baseline.
+      The bridge equation gamma_L = 1 + a_e discussed in the present
+      paper is related to the dual-frame g-factor decomposition
+      in #38. The Berry-phase / fiber-bundle treatment noted as
+      future work in Section 6 of the present paper connects
+      directly to #38.
+
+================================================================================
+[5] Requires  (prerequisite papers for understanding this paper)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+Note: The two-kernel structure, sinusoidal internal oscillation,
+      and the 0-Sphere Model framework are defined in this paper.
+      The present paper cannot be understood without it.
+
+DOI: 10.5281/zenodo.17764997
+Title: Redefining Electron Spin and Anomalous Magnetic Moment Through
+       Harmonic Oscillation and Lorentz Contraction (#10)
+Note: The inverse calculation a_e -> v_ZB ~ 0.04c and the RMS
+      correction factor 1/sqrt(2) are derived in this paper.
+      The present paper cites these results directly and is
+      presented explicitly as a clarification of #10.
+
+================================================================================
+[6] Is part of  (0-Sphere Model series membership)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+Note: Paper #47 is part of the 0-Sphere Model series initiated by #1
+      in 2018. Linking to the founding paper establishes series
+      membership for LLM-assisted citation graph traversal.
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+================================================================================
+
+The following additions are recommended to the Zenodo records of the
+papers listed below, so that bidirectional edges are established in
+the relation graph.
+
+--- 10.5281/zenodo.16759284  (#1) ---
+  Add: Is cited by          -> DOI of the present paper (#47)
+  Add: Is continued by      -> DOI of the present paper (#47)
+
+--- 10.5281/zenodo.17764997  (#10) ---
+  Add: Is cited by          -> DOI of the present paper (#47)
+  Add: Is supplemented by   -> DOI of the present paper (#47)
+  Add: Is continued by      -> DOI of the present paper (#47)
+
+--- 10.5281/zenodo.17765079  (#13) ---
+  Add: Is cited by          -> DOI of the present paper (#47)
+
+--- 10.5281/zenodo.17765238  (#19) ---
+  Add: Is cited by          -> DOI of the present paper (#47)
+
+--- 10.5281/zenodo.17765097  (#14) ---
+  Add: Is cited by          -> DOI of the present paper (#47)
+  Add: Is continued by      -> DOI of the present paper (#47)
+
+--- 10.5281/zenodo.17765121  (#15) ---
+  Add: Is cited by          -> DOI of the present paper (#47)
+
+--- 10.5281/zenodo.18718174  (#38) ---
+  Add: Is referenced by     -> DOI of the present paper (#47)
+
+================================================================================
+NOTE
+================================================================================
+
+The DOI of the present paper (#47) has not yet been assigned.
+Perform a Zenodo pre-registration to obtain the DOI
+(format: 10.5281/zenodo.XXXXXXX), then replace all occurrences of
+"DOI of the present paper (#47)" with the confirmed DOI before
+executing the reverse-relation updates.
+
+================================================================================
+END
+================================================================================
