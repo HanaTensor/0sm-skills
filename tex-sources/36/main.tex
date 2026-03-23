@@ -1,0 +1,1049 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[labelfont=bf]{caption}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+% ========================================
+% Page Layout Configuration
+% ========================================
+\geometry{
+  letterpaper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+}
+
+\onehalfspacing
+
+% ========================================
+% Section Title Formatting
+% ========================================
+\usepackage{titlesec}
+\titleformat{\section}
+  {\normalfont\large\bfseries}
+  {\thesection}{1em}{}
+
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+\title{On the Non-Perturbative Nature of the 0-Sphere Model and the Fine-Structure Constant:\\
+\normalsize A Supplement on Methodological Scope and Realist Foundations}
+
+\author{Satoshi Hanamura\thanks{Email: hana.tensor@gmail.com}}
+\date{February 11, 2026}
+%\date{\today}
+
+\maketitle
+
+% ========================================
+% Table of Contents
+% ========================================
+\tableofcontents
+
+\clearpage
+
+% ========================================
+% Research Summary
+% ========================================
+\begin{center}
+\textbf{Research Summary}
+\end{center}
+
+\justifying
+This supplementary comment discusses why the anomalous magnetic moment can be understood geometrically within the 0-Sphere model through first-principles, non-perturbative reasoning, and why the connection to the fine-structure constant remains outside the current scope of the framework. The distinction arises from a fundamental methodological difference: conventional quantum electrodynamics treats $\alpha$ as a perturbative expansion parameter tied to loop integrals and virtual particle creation, whereas the 0-Sphere model adopts a deterministic, background-independent approach grounded in geometric realism.
+
+By clarifying this boundary, the present supplement serves as a methodological manifesto, delineating what the model can and cannot currently address, and establishing the philosophical foundations that guide its development. In particular, the supplement connects the geometric interpretation of the anomalous magnetic moment—developed in detail in companion documents—to broader questions of perturbative versus non-perturbative formulations, instrumentalism versus realism, and the role of first-principles derivation in theoretical physics.
+
+\clearpage
+
+% ========================================
+% Section 1: Motivation and Context
+% ========================================
+\section{Motivation and Context}
+
+The present supplement aims to clarify why the reinterpretation of the electron anomalous magnetic moment through line integrals along internal motion does not immediately lead to a derivation of the fine-structure constant $\alpha$. 
+In conventional quantum electrodynamics (QED), $\alpha$ appears inherently as a \textbf{perturbative expansion parameter}, intimately tied to loop corrections and radiative processes. 
+Consequently, the standard $g-2$ computation is conceptually and numerically dependent on perturbation theory.
+
+By contrast, the 0-Sphere model is formulated as a \textbf{non-perturbative, background-independent} framework. 
+Physical observables arise from internal geometric structures and accumulated proper-time integrals, rather than from perturbative diagrams. 
+As a result, any immediate mapping from the line-integral evaluation of $g-2$ to $\alpha$ is not defined within the current formalism. 
+This distinction justifies a deliberate pause in attempting to link $g-2$ with the fine-structure constant prematurely.
+
+More fundamentally, this distinction reflects a philosophical divergence in how physical theories are constructed and validated. QED adopts what may be characterized as an instrumentalist stance: it provides a highly successful calculational framework without necessarily committing to a specific ontological picture of virtual particles, off-shell propagators, or the physical meaning of perturbative expansions. The 0-Sphere model, by contrast, adopts a realist stance: it seeks to identify concrete, deterministic geometric structures whose evolution can be computed from first principles, with observable quantities emerging as natural consequences rather than as fitted parameters.
+
+This supplement therefore serves not only to clarify technical boundaries but also to articulate the methodological commitments underlying the 0-Sphere research program.
+
+
+% ========================================
+% Section 2: Non-Perturbative Derivation of v_ZB
+% ========================================
+\section{The Non-Perturbative Derivation of $v_{\mathrm{ZB}}$: A Concrete Example}
+
+To understand the distinction between the 0-Sphere approach and conventional QED, it is instructive to examine the derivation of the Zitterbewegung velocity $v_{\mathrm{ZB}}$ in detail.
+
+% ----------------------------------------
+% Subsection 2.1: Input and Output
+% ----------------------------------------
+\subsection{Input and Output: No Dependence on $\alpha$}
+
+The 0-Sphere model treats the experimentally measured anomalous magnetic moment as an \textbf{input parameter}:
+\begin{equation}
+a_{\mathrm{exp}} = 0.00115965218073(28).
+\end{equation}
+
+This value is determined through precision measurements of electron spin precession in Penning traps and represents one of the most accurately known physical constants.
+
+We define the RMS-averaged internal parameter:
+\begin{equation}
+a \equiv \frac{a_{\mathrm{exp}}}{\sqrt{2}} \approx 0.00082008,
+\end{equation}
+where the factor $1/\sqrt{2}$ arises from root-mean-square averaging of the phase-dependent circulation velocity over one complete oscillation cycle (see Section 2.1.1 for detailed justification).
+
+Given this definition, the model predicts the Zitterbewegung RMS velocity through the relation:
+\begin{equation}
+\gamma(v_{\mathrm{ZB}}^{(\mathrm{RMS})}) = 1 + a = 1 + \frac{a_{\mathrm{exp}}}{\sqrt{2}},
+\end{equation}
+which yields:
+\begin{equation}
+v_{\mathrm{ZB}}^{(\mathrm{RMS})} = c \sqrt{1 - \frac{1}{(1 + a)^2}} \approx 0.04047c.
+\end{equation}
+
+Crucially, \textbf{the fine-structure constant $\alpha$ does not appear anywhere in this derivation}. The prediction $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c$ (corresponding to $\beta_e = 0.040472$, approximately 12,100 km/s) is obtained purely from:
+\begin{enumerate}
+\item The experimental value of $a_{\mathrm{exp}}$
+\item The Lorentz factor formula from special relativity
+\item The geometric interpretation of circumference deficit
+\end{enumerate}
+
+No perturbative expansion, no loop integrals, no virtual particles. This is a \textbf{closed, geometric calculation} that yields a concrete, falsifiable prediction.
+
+% ----------------------------------------
+% Subsection 2.2: Origin of sqrt(2) Factor
+% ----------------------------------------
+\subsection{The Origin of the $\sqrt{2}$ Factor and Velocity Relationships}
+
+To understand the relationship between the RMS-averaged and peak velocities, it is instructive to examine the mathematical steps connecting Lorentz factors to velocities. This derivation clarifies why the $\sqrt{2}$ factor appears in the $\gamma$ ratio but leads to a different numerical factor in the velocity ratio.
+
+% ----------------------------------------
+% Subsubsection 2.2.1: Experimental input to Lorentz factors
+% ----------------------------------------
+\subsubsection{From experimental input to Lorentz factors}
+
+Starting from the experimental anomalous magnetic moment $a_{\mathrm{exp}} = 0.00115965218073$, we define:
+\begin{equation}
+a \equiv \frac{a_{\mathrm{exp}}}{\sqrt{2}} \approx 0.00082008.
+\end{equation}
+
+This gives us two Lorentz factors:
+\begin{align}
+\gamma_{\mathrm{RMS}} &= 1 + a = 1 + \frac{a_{\mathrm{exp}}}{\sqrt{2}} \approx 1.00082008, \\
+\gamma_{\max} &= 1 + a_{\mathrm{exp}} \approx 1.00115965.
+\end{align}
+
+The ratio of these Lorentz factors is:
+\begin{equation}
+\frac{\gamma_{\max} - 1}{\gamma_{\mathrm{RMS}} - 1} = \frac{a_{\mathrm{exp}}}{a_{\mathrm{exp}}/\sqrt{2}} = \sqrt{2}.
+\end{equation}
+
+% ----------------------------------------
+% Subsubsection 2.2.2: Lorentz factors to velocities
+% ----------------------------------------
+\subsubsection{From Lorentz factors to velocities}
+
+The exact relationship between velocity and Lorentz factor is:
+\begin{equation}
+\gamma = \frac{1}{\sqrt{1 - v^2/c^2}}.
+\end{equation}
+
+Solving for velocity:
+\begin{equation}
+\frac{v^2}{c^2} = 1 - \frac{1}{\gamma^2}, \quad \text{hence} \quad v = c\sqrt{1 - \frac{1}{\gamma^2}}.
+\end{equation}
+
+For the RMS velocity:
+\begin{equation}
+v_{\mathrm{RMS}} = c\sqrt{1 - \frac{1}{\gamma_{\mathrm{RMS}}^2}} = c\sqrt{1 - \frac{1}{(1.00082008)^2}} = c\sqrt{0.00163926} \approx 0.04047c.
+\end{equation}
+
+For the peak velocity:
+\begin{equation}
+v_{\max} = c\sqrt{1 - \frac{1}{\gamma_{\max}^2}} = c\sqrt{1 - \frac{1}{(1.00115965)^2}} = c\sqrt{0.00231702} \approx 0.04813c.
+\end{equation}
+
+% ----------------------------------------
+% Subsubsection 2.2.3: Velocity ratio
+% ----------------------------------------
+\subsubsection{The velocity ratio}
+
+The ratio of velocities is:
+\begin{equation}
+\frac{v_{\max}}{v_{\mathrm{RMS}}} = \sqrt{\frac{1 - 1/\gamma_{\max}^2}{1 - 1/\gamma_{\mathrm{RMS}}^2}} = \sqrt{\frac{0.00231702}{0.00163926}} = \sqrt{1.4137} \approx 1.189.
+\end{equation}
+
+This can be expressed exactly as:
+\begin{equation}
+\frac{v_{\max}}{v_{\mathrm{RMS}}} = 2^{1/4} = \sqrt[4]{2} \approx 1.18921.
+\end{equation}
+
+\textbf{Numerical verification:}
+\begin{equation}
+\frac{0.04813}{0.04047} = 1.189 \approx 2^{1/4}. \quad \checkmark
+\end{equation}
+
+% ----------------------------------------
+% Subsubsection 2.2.4: Physical interpretation
+% ----------------------------------------
+\subsubsection{Physical interpretation}
+
+The key insight is that although the Lorentz factors differ by a factor of $\sqrt{2}$, the velocities differ by $2^{1/4}$ rather than $\sqrt{2}$. This arises from the quadratic relationship embedded in the special relativistic formula $v^2/c^2 = 1 - 1/\gamma^2$.
+
+Specifically:
+\begin{equation}
+\frac{v_{\max}^2}{v_{\mathrm{RMS}}^2} = \frac{1 - 1/\gamma_{\max}^2}{1 - 1/\gamma_{\mathrm{RMS}}^2}.
+\end{equation}
+
+In the low-velocity limit where $\gamma \approx 1 + v^2/(2c^2)$, we have:
+\begin{equation}
+\gamma - 1 \approx \frac{v^2}{2c^2}, \quad \text{hence} \quad v^2 \approx 2c^2(\gamma - 1).
+\end{equation}
+
+Therefore:
+\begin{equation}
+\frac{v_{\max}^2}{v_{\mathrm{RMS}}^2} \approx \frac{2c^2(\gamma_{\max} - 1)}{2c^2(\gamma_{\mathrm{RMS}} - 1)} = \frac{\gamma_{\max} - 1}{\gamma_{\mathrm{RMS}} - 1} = \sqrt{2}.
+\end{equation}
+
+Taking square roots:
+\begin{equation}
+\frac{v_{\max}}{v_{\mathrm{RMS}}} \approx \sqrt{\sqrt{2}} = 2^{1/4}.
+\end{equation}
+
+This relationship provides an internal consistency check: the velocity predictions from the 0-Sphere model follow precisely from the relativistic kinematics of the Lorentz transformation, with no adjustable parameters.
+
+% ----------------------------------------
+% Subsubsection 2.2.5: First-order approximation validity
+% ----------------------------------------
+\subsubsection{Validity of the first-order approximation}
+
+The low-velocity approximation $\gamma \approx 1 + v^2/(2c^2)$ used in the preceding derivation is accurate to first order in $\beta^2$. For completeness, we examine the second-order correction.
+
+The Lorentz factor expanded to second order in $\beta^2$ is:
+\begin{equation}
+\gamma \approx 1 + \frac{\beta^2}{2} + \frac{3\beta^4}{8}.
+\end{equation}
+
+For $\gamma_{\mathrm{RMS}} = 1 + a_{\mathrm{exp}}/\sqrt{2} = 1.000820078$, we solve:
+\begin{equation}
+\frac{\beta^2}{2} + \frac{3\beta^4}{8} = 0.000820078.
+\end{equation}
+
+Let $x = \beta^2$. This yields the quadratic equation:
+\begin{equation}
+\frac{x}{2} + \frac{3x^2}{8} = 0.000820078 \quad \Rightarrow \quad 3x^2 + 4x - 0.006561 = 0.
+\end{equation}
+
+Solving:
+\begin{equation}
+x = \frac{-4 + \sqrt{16 + 4(3)(0.006561)}}{6} = \frac{-4 + \sqrt{16.078732}}{6} = 0.0016385.
+\end{equation}
+
+Therefore:
+\begin{align}
+v_{\mathrm{RMS}}^{(\mathrm{second\ order})} &= c\sqrt{0.0016385} \approx 0.04048c, \\
+v_{\mathrm{RMS}}^{(\mathrm{first\ order})} &\approx 0.04047c.
+\end{align}
+
+The numerical difference is approximately $0.025\%$. The second-order term contributes $3\beta^4/8 \approx 1.0 \times 10^{-6}$, which is $0.12\%$ of the first-order term $\beta^2/2 \approx 8.2 \times 10^{-4}$.
+
+This comparison makes explicit the quantitative difference between the first-order approximation and the exact relativistic relation. Incorporating the second-order term modifies the predicted Zitterbewegung velocity at the level of $10^{-4}$, while leaving its overall scale unchanged.
+
+Historically, Zitterbewegung has been interpreted either as a purely formal artifact of the Dirac equation or as an internal motion occurring at the speed of light. The purpose of the present analysis is therefore not to exhaustively eliminate all higher-order relativistic corrections. Rather, it is to establish that, within the 0-Sphere framework, Zitterbewegung is treated as a physically real internal motion whose characteristic velocity is predicted to be subluminal.
+
+
+% ----------------------------------------
+% Subsection 2.3: Peak vs Time-Averaged Velocities
+% ----------------------------------------
+\subsection{Distinction Between Peak and Time-Averaged Velocities}
+
+It is crucial to recognize that the 0-Sphere model predicts both the RMS-averaged velocity and the instantaneous peak velocity of the Zitterbewegung oscillation.
+
+As the photon sphere oscillates between kernels $A$ and $B$, its velocity varies continuously:
+\begin{equation}
+v_{\mathrm{ZB}}(t) = v_{\mathrm{ZB}}^{(\max)} |\sin(\omega t)|, 
+\quad 0 \le v_{\mathrm{ZB}}(t) \le v_{\mathrm{ZB}}^{(\max)}.
+\end{equation}
+
+The instantaneous velocity ranges from zero (at the turning points where energy is fully localized at one kernel) to the maximum $v_{\mathrm{ZB}}^{(\max)}$ (at the midpoint where kinetic energy is maximized).
+
+The relation $\gamma = 1 + a$ corresponds to the RMS velocity:
+\begin{equation}
+\gamma_{\mathrm{RMS}} = \frac{1}{\sqrt{1 - (v_{\mathrm{ZB}}^{(\mathrm{RMS})}/c)^2}} = 1 + a,
+\end{equation}
+where $a = a_{\mathrm{exp}}/\sqrt{2} \approx 0.00082008$.
+
+The peak velocity corresponds to:
+\begin{equation}
+\gamma_{\max} = \frac{1}{\sqrt{1 - (v_{\mathrm{ZB}}^{(\max)}/c)^2}} = 1 + a_{\mathrm{exp}}.
+\end{equation}
+
+The peak and RMS velocities are related through their Lorentz factors:
+\begin{equation}
+\frac{v_{\max}}{v_{\mathrm{RMS}}} = 2^{1/4} \approx 1.189.
+\end{equation}
+
+Therefore:
+\begin{equation}
+v_{\mathrm{ZB}}^{(\max)} = 2^{1/4} \cdot v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 1.189 \times 0.04047c \approx 0.048c.
+\end{equation}
+
+This RMS-averaged velocity corresponds to the effective velocity that would produce the same time-averaged Lorentz contraction effect as the oscillating instantaneous velocity. The experimentally observed anomalous magnetic moment $a_{\mathrm{exp}}$ reflects this time-averaged geometric effect, related to the peak velocity through:
+\begin{equation}
+a_{\mathrm{exp}} = \sqrt{2} \cdot a = \sqrt{2}(\gamma_{\mathrm{RMS}} - 1).
+\end{equation}
+
+Numerically:
+\begin{itemize}
+\item RMS-averaged velocity: $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c \approx 12{,}100$ km/s
+\item Peak instantaneous velocity: $v_{\mathrm{ZB}}^{(\max)} \approx 0.048c \approx 14{,}400$ km/s
+\end{itemize}
+
+The distinction between peak and RMS-averaged velocities is essential for understanding how the internal oscillatory dynamics manifest in observable magnetic moments.
+
+% ----------------------------------------
+% Subsection 2.4: Geometric Origin of gamma = 1 + a
+% ----------------------------------------
+\subsection{The Geometric Origin of $\gamma = 1 + a$}
+
+The relation $\gamma = 1 + a$ is not imposed ad hoc but emerges from the physical picture of a circulating photon sphere undergoing Lorentz contraction.
+
+Consider a bicycle wheel rotating at velocity $v$ approaching light speed. An observer in the laboratory frame measures the wheel's circumference as:
+\begin{equation}
+C_{\mathrm{lab}} = 2\pi r.
+\end{equation}
+
+However, due to Lorentz contraction, the effective circumference experienced in the rotating frame is:
+\begin{equation}
+C_{\mathrm{rotating}} = \frac{2\pi r}{\gamma}.
+\end{equation}
+
+The circumference deficit is:
+\begin{equation}
+\Delta C = C_{\mathrm{lab}} - C_{\mathrm{rotating}} = 2\pi r \left(1 - \frac{1}{\gamma}\right) \approx 2\pi r (\gamma - 1).
+\end{equation}
+
+In the 0-Sphere model, this deficit corresponds directly to the anomalous magnetic moment. The photon sphere, oscillating at velocity $v_{\mathrm{ZB}}$, traces out a closed trajectory with an effective radius of order the Compton wavelength:
+\begin{equation}
+\lambda_C = \frac{\hbar}{m_e c} \approx 2.4 \times 10^{-12} \, \mathrm{m}.
+\end{equation}
+
+The Lorentz-contracted circumference produces an apparent ``excess'' angular momentum when viewed from the laboratory frame, manifesting as the anomalous contribution to the electron's magnetic moment.
+
+The fractional circumference deficit at RMS velocity is:
+\begin{equation}
+\frac{\Delta C}{C_0}\bigg|_{\mathrm{RMS}} = \gamma_{\mathrm{RMS}} - 1 = a = \frac{a_{\mathrm{exp}}}{\sqrt{2}}.
+\end{equation}
+
+Since the internal velocity oscillates as $v(t) = v_{\max}|\sin(\omega t)|$, the time-averaged circumference deficit corresponds to the RMS-averaged effect:
+\begin{equation}
+\left\langle \frac{\Delta C}{C_0} \right\rangle_{\mathrm{RMS}} 
+= \gamma_{\mathrm{RMS}} - 1
+= a 
+= \frac{a_{\mathrm{exp}}}{\sqrt{2}}.
+\end{equation}
+
+The experimentally measured anomalous magnetic moment $a_{\mathrm{exp}}$ corresponds to the full time-averaged effect, which includes both the velocity-squared dependence in the Lorentz factor and the oscillatory averaging. The relation $\gamma_{\mathrm{RMS}} = 1 + a_{\mathrm{exp}}/\sqrt{2}$ correctly captures the RMS velocity that produces the observed time-averaged magnetic moment.
+
+This is a \textbf{first-principles geometric derivation} based solely on special relativity and the oscillatory structure of the 0-Sphere model. The prediction $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c$ represents the RMS-averaged velocity of the internal circulation.
+
+% ----------------------------------------
+% Subsection 2.5: Contrast with QED
+% ----------------------------------------
+\subsection{Contrast with QED Calculation}
+
+In conventional QED, the anomalous magnetic moment is computed as:
+\begin{equation}
+a = \frac{\alpha}{2\pi} - 0.328 \left(\frac{\alpha}{\pi}\right)^2 + \cdots,
+\end{equation}
+where each term corresponds to a specific class of Feynman diagrams (one-loop, two-loop, etc.). The leading term $\alpha/(2\pi)$ arises from the vertex correction involving a single virtual photon loop.
+
+This calculation is perturbative: it expresses $a$ as a power series in $\alpha$, and the convergence of this series is what enables precise predictions. However, the physical meaning of each term—particularly the interpretation of virtual photons as off-shell quanta violating $E^2 = p^2c^2$—remains a subject of ongoing philosophical debate.
+
+The 0-Sphere model, by contrast, treats the photon sphere as consisting of \textbf{real, on-shell photons} satisfying $E = pc$. These photons are continuously emitted, absorbed, and regenerated, forming a dynamically sustained radiative structure. The anomalous magnetic moment arises not from virtual particle loops but from the relativistic kinematics of this real circulation.
+
+% ----------------------------------------
+% Table 1: Velocity Hierarchy
+% ----------------------------------------
+\begin{table}[t!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{lcc}
+\toprule
+\textbf{Quantity} & \textbf{Value} & \textbf{Physical Meaning} \\
+\midrule
+$a_{\mathrm{exp}}$ 
+& $0.001159652$ 
+& Experimentally measured anomalous magnetic moment \\
+\addlinespace[0.1cm]
+$a = a_{\mathrm{exp}}/\sqrt{2}$ 
+& $0.000820078$ 
+& RMS-averaged internal parameter \\
+\addlinespace[0.1cm]
+$\gamma_{\mathrm{RMS}} = 1 + a$ 
+& $1.000820078$ 
+& Lorentz factor for RMS velocity \\
+\addlinespace[0.1cm]
+$\gamma_{\max} = 1 + a_{\mathrm{exp}}$ 
+& $1.001159652$ 
+& Lorentz factor at peak velocity \\
+\addlinespace[0.1cm]
+$v_{\mathrm{ZB}}^{(\mathrm{RMS})}$ 
+& $0.04047c$ 
+& RMS-averaged velocity ($\approx 12{,}100$ km/s) \\
+\addlinespace[0.1cm]
+$v_{\mathrm{ZB}}^{(\max)}$ 
+& $0.048c$ 
+& Peak instantaneous velocity ($\approx 14{,}400$ km/s) \\
+\addlinespace[0.1cm]
+$\nu_{\mathrm{ZB}} = v_{\mathrm{ZB}}^{(\mathrm{RMS})}/\lambda_C$ 
+& $5.0 \times 10^{18}$ Hz 
+& Characteristic oscillation frequency \\
+\bottomrule
+\end{tabular}
+\caption{Relationship between experimental anomalous magnetic moment, internal parameters, and predicted velocities. The RMS-averaged velocity $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c$ is derived from $\gamma = 1 + a_{\mathrm{exp}}/\sqrt{2}$, while the peak velocity $v_{\mathrm{ZB}}^{(\max)} \approx 0.048c$ corresponds to $\gamma_{\max} = 1 + a_{\mathrm{exp}}$.}
+\label{tab:velocity_hierarchy}
+\end{table}
+
+% ----------------------------------------
+% Table 2: Spin-Thomas Precession Comparison
+% ----------------------------------------
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l X X}
+\toprule
+\textbf{Aspect} 
+& \textbf{Conventional Interpretation} 
+& \textbf{0-Sphere Model Reinterpretation} \\
+\midrule
+Physical origin of spin 
+& Associated with circular or orbital motion; spin treated as intrinsic and fixed 
+& Spin emerges from relativistic kinematics of internal motion; not restricted to circular trajectories \\
+
+Role of Thomas precession 
+& Secondary correction, typically discussed for curved or circular motion 
+& Fundamental relativistic effect: even one-dimensional oscillatory motion generates angular momentum at relativistic speeds \\
+
+Dependence on velocity 
+& Effects negligible except in specific orbital configurations 
+& Vanishes in the non-relativistic limit; becomes significant for subluminal oscillatory motion \\
+
+Spin quantization 
+& Spin assumed to take fixed values ($\pm \hbar/2$) prior to measurement 
+& Spin value varies with internal time phase; can assume $+1$ or $-1$ dynamically \\
+
+Ontological status of spin 
+& Pre-existing intrinsic property of the particle 
+& Emergent, time-dependent geometric quantity \\
+
+Relation to Bell-type results 
+& Nonlocality or indeterminism often invoked to explain correlations 
+& Absence of pre-assigned spin values aligns naturally with Bell inequality violations \\
+
+Conceptual implication 
+& Spin treated as a primitive quantum number 
+& Spin reinterpreted as a relativistic consequence of internal oscillatory geometry \\
+\bottomrule
+\end{tabularx}
+\caption{Comparison between the conventional interpretation of spin and the reinterpretation arising from Thomas precession within the 0-Sphere model.}
+\label{tab:spin_thomas_comparison}
+\end{table}
+
+% ========================================
+% Section 3: Thomas Precession and Spin Ontology
+% ========================================
+\section{Reinterpreting Thomas Precession and the Ontology of Spin}
+
+Before proceeding to closed geometric equations, it is useful to clarify the conceptual departure of the 0-Sphere model from conventional interpretations of spin. 
+In standard treatments, spin is commonly regarded as an intrinsic and pre-assigned quantum number, often heuristically associated with circular motion or internal rotation. 
+In contrast, the 0-Sphere model reinterprets spin as an emergent, relativistic consequence of internal motion governed by Lorentz kinematics, with Thomas precession playing a central and previously underemphasized role. 
+Table~\ref{tab:spin_thomas_comparison} summarizes these conceptual differences and situates the present framework relative to both classical intuition and quantum-mechanical orthodoxy.
+
+A key mathematical justification underlying this reinterpretation concerns the structure of Thomas precession itself. 
+In the relativistic composition of non-collinear velocities, the Thomas precession angular velocity arises from a vector cross product of velocity increments, leading naturally to trigonometric expressions whose amplitudes vary continuously between $+1$ and $-1$. 
+As a consequence, even for one-dimensional oscillatory motion, the induced angular momentum is not fixed in sign but depends explicitly on the internal time phase of the motion. 
+This trigonometric and geometric structure provides a concrete kinematic basis for treating spin as a time-dependent, non-preassigned quantity, rather than as an intrinsic label fixed prior to measurement.
+
+A detailed derivation of the Thomas precession angular velocity in terms of trigonometric functions and their cross-product structure is presented in the supplementary exposition
+\emph{``Detailed Exposition of the 0-Sphere Model Framework for Gravitational-Like Phenomena''}, particularly on p.~19
+(\href{https://doi.org/10.5281/zenodo.18511664}{Zenodo DOI: 10.5281/zenodo.18511664}). 
+The present work relies on this result as a foundational kinematic input, while focusing on its conceptual and geometric implications for the ontology of spin.
+
+
+% ========================================
+% Section 4: Closed Geometric Equations
+% ========================================
+\section{Closed Geometric Equations and First-Principles Derivation}
+
+A central methodological commitment of the 0-Sphere model is its reliance on \textbf{closed geometric equations} that can be solved from first principles without introducing free parameters or perturbative expansions.
+
+% ----------------------------------------
+% Subsection 4.1: Energy Conservation Identity
+% ----------------------------------------
+\subsection{The Energy Conservation Identity}
+
+The foundational equation of the 0-Sphere model is the energy conservation identity~\cite{hanamura17765017}:
+\begin{equation}
+E_0 = E_0 \left[
+\cos^4\!\left(\frac{\omega t}{2}\right)
++ \sin^4\!\left(\frac{\omega t}{2}\right)
++ \frac{1}{2}\sin^2(\omega t)
+\right].
+\label{eq:energy_identity}
+\end{equation}
+
+This identity is not a dynamical equation but a structural constraint reflecting internal symmetry. It organizes how different forms of internal motion—thermal potential energy at kernels $A$ and $B$, and kinetic energy of the photon sphere—contribute to conserved energy.
+
+The quartic terms arise from the Stefan--Boltzmann radiation law applied to thermal emission and absorption:
+\begin{align}
+E_A(\theta) &= E_0 \cos^4(\theta/2), \\
+E_B(\theta) &= E_0 \sin^4(\theta/2).
+\end{align}
+
+The fourth-power dependence is not arbitrary but reflects the thermodynamic nature of blackbody radiation. When temperature is reinterpreted as internal phase velocity in the 0-Sphere framework, the Stefan--Boltzmann law naturally introduces quartic phase dependence.
+
+The single-term contribution $\frac{1}{2}\sin^2(\omega t)$ represents the kinetic energy of the photon sphere in transit, reaching maximum at $\theta = \pi/2$ and $\theta = 3\pi/2$—the midpoints between full localization at kernel $A$ and full localization at kernel $B$.
+
+% ----------------------------------------
+% Subsection 4.2: Radiation Gradient as Classical Force
+% ----------------------------------------
+\subsection{The Radiation Gradient as Classical Force}
+
+The radiation gradient driving energy flow from kernel $A$ to kernel $B$ is given by:
+\begin{equation}
+\frac{dU_A}{d\theta} \propto \sin\theta.
+\end{equation}
+
+Following classical mechanics:
+\begin{equation}
+F = -\nabla U,
+\end{equation}
+this gradient drives the photon sphere into motion. The photon sphere, carrying in-transit radiative energy, undergoes translational displacement in the direction of the energy gradient.
+
+This is the physical origin of Zitterbewegung velocity: the photon sphere oscillates spatially as energy alternately flows from $A$ to $B$ and back. The characteristic velocity amplitude $v_{\mathrm{ZB}} \sim 0.04c$ reflects the speed at which the photon sphere itself moves under the influence of the radiation gradient.
+
+Energy conservation then requires
+\begin{equation}
+\Delta U_A = \Delta U_B + \Delta E_{\mathrm{kin}},
+\end{equation}
+where the kinetic contribution of the photon sphere could be defined as
+\begin{equation}
+\Delta E_{\mathrm{kin}} = \frac{1}{2} m_{\mathrm{eff}} v_{\mathrm{ZB}}^2 .
+\end{equation}
+
+These equations form a \textbf{closed system}: given the internal phase $\theta(t)$ and the constraint Eq.~\eqref{eq:energy_identity}, all other quantities follow deterministically. No external parameters, no perturbative expansions, no virtual processes.
+
+
+% ========================================
+% Section 5: Philosophical Foundations
+% ========================================
+\section{Philosophical Foundations: Realism vs. Instrumentalism}
+\label{sec:philosophical}
+
+The distinction between the 0-Sphere model and conventional QED is not merely technical but reflects deeper philosophical commitments about the nature and goals of physical theory.
+
+% ----------------------------------------
+% Subsection 5.1: QED as Instrumentalist Framework
+% ----------------------------------------
+\subsection{QED as Instrumentalist Framework}
+
+Quantum electrodynamics is extraordinarily successful as a calculational tool. Its predictions for the anomalous magnetic moment, Lamb shift, and other observables match experimental measurements to extraordinary precision—in some cases, beyond ten decimal places.
+
+However, QED adopts what may be characterized as an \textbf{instrumentalist stance}: it provides effective rules for computing observable quantities without necessarily committing to a specific ontological picture. Questions such as:
+\begin{itemize}
+\item Are virtual particles real?
+\item Do off-shell propagators represent physical processes?
+\item What is the physical meaning of summing over all possible intermediate states?
+\end{itemize}
+are often left unanswered or are treated as matters of interpretation rather than empirical fact.
+
+From an instrumentalist perspective, these questions are irrelevant: the theory works, and that is sufficient. The formalism is a tool for organizing calculations, not a description of underlying reality.
+
+% ----------------------------------------
+% Subsection 5.2: 0-Sphere Model as Realist Framework
+% ----------------------------------------
+\subsection{The 0-Sphere Model as Realist Framework}
+
+The 0-Sphere model, by contrast, adopts a \textbf{realist stance}: it seeks to identify concrete, deterministic geometric structures that evolve according to well-defined dynamical principles. Physical observables are not fitted parameters or perturbative corrections but emerge as natural consequences of the underlying geometry.
+
+In this framework:
+\begin{itemize}
+\item Photons are real, on-shell quanta satisfying $E = pc$
+\item Energy transport occurs along actual trajectories connecting kernels $A$ and $B$
+\item Phase accumulation reflects cumulative history, not instantaneous field values
+\item Zitterbewegung is a physical oscillation, not a mathematical artifact
+\end{itemize}
+
+This realist commitment has methodological consequences. The model aspires to derive observable quantities from first principles, without introducing free parameters or relying on perturbative expansions. Where such derivations are not yet possible—as in the case of the fine-structure constant $\alpha$ or the electron rest mass $m_e$—the model explicitly acknowledges these limitations rather than incorporating them through fitted parameters.
+
+
+% ========================================
+% Section 6: Scope - What Can/Cannot Be Addressed
+% ========================================
+\section{What the Model Can and Cannot Currently Address}
+\label{sec:scope}
+
+To maintain transparency about the model's scope, it is essential to delineate what can and cannot currently be addressed within the non-perturbative geometric framework.
+
+% ----------------------------------------
+% Subsection 6.1: Derivable Quantities
+% ----------------------------------------
+\subsection{Quantities Derivable from First Principles}
+The following quantities can be derived from first principles within the 0-Sphere model:
+
+\begin{enumerate}
+\item \textbf{Zitterbewegung RMS velocity $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c$ and peak velocity $v_{\mathrm{ZB}}^{(\max)} \approx 0.048c$}
+
+Input: $a_{\mathrm{exp}}$ (experimental)
+
+Derivation: $\gamma_{\mathrm{RMS}} = 1 + a_{\mathrm{exp}}/\sqrt{2}$ and $\gamma_{\max} = 1 + a_{\mathrm{exp}}$ combined with special relativity
+
+Physical interpretation: The RMS-averaged velocity represents the effective velocity over a complete oscillation cycle, while the peak velocity represents the \textbf{instantaneous maximum velocity} of the photon sphere as it oscillates between kernels $A$ and $B$. The internal velocity varies continuously as $v(t) = v_{\mathrm{ZB}}^{(\max)}|\sin(\omega t)|$, ranging from zero at the turning points to $v_{\mathrm{ZB}}^{(\max)}$ at the midpoint.
+
+The velocities are related through $v_{\mathrm{ZB}}^{(\max)} = 2^{1/4} \cdot v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 1.189 \times 0.04047c \approx 0.048c$. This distinction is crucial: the RMS velocity determines the time-averaged Lorentz contraction and thus the geometric origin of the anomalous magnetic moment, while the peak velocity characterizes the maximum instantaneous oscillatory dynamics.
+
+Status: \textbf{Concrete falsifiable predictions}
+
+\item \textbf{Geometric origin of $g - 2$}
+
+Mechanism: Lorentz contraction of circulating photon sphere
+
+Quantitative prediction: Circumference deficit $\approx (\gamma - 1) \times 2\pi r$
+
+Status: \textbf{Qualitative explanation with quantitative consistency}
+
+\item \textbf{Spin-$1/2$ quantization}
+
+Mechanism: Doubled frequency of angular velocity ($2\omega$) vs. displacement ($\omega$)
+
+Quantitative prediction: 720° rotation for state return
+
+Status: \textbf{Geometric explanation consistent with observation}
+
+\item \textbf{Energy conservation structure}
+
+Equation: $\cos^4(\theta/2) + \sin^4(\theta/2) + \frac{1}{2}\sin^2\theta = 1$
+
+Origin: Stefan--Boltzmann law + internal phase evolution
+
+Status: \textbf{Closed structural constraint}
+
+\end{enumerate}
+
+% ----------------------------------------
+% Subsection 6.2: Non-Derivable Quantities
+% ----------------------------------------
+\subsection{Quantities Not Currently Derivable}
+The following quantities cannot currently be derived from first principles within the 0-Sphere model:
+
+\begin{enumerate}
+\item \textbf{Fine-structure constant $\alpha \approx 1/137$}
+
+Reason: In QED, $\alpha$ is a perturbative expansion parameter. The 0-Sphere model is non-perturbative and does not currently incorporate the machinery necessary to define effective coupling constants.
+
+Status: \textbf{Outside current scope}
+
+\item \textbf{Electron rest mass $m_e$}
+
+Reason: While the model identifies inertial mass with internal oscillatory energy ($E_{\mathrm{ZB}} = h\nu_{\mathrm{ZB}} \approx m_e c^2$), it does not yet explain why $m_e$ has its specific numerical value.
+
+Status: \textbf{Open problem}
+
+\item \textbf{Lepton mass hierarchy}
+
+Reason: Earlier claims regarding critical radii for muon and tau leptons relied on incorrect dimensional analysis (missing $G/c^2$ factors). The geometric mechanism for lepton decay remains speculative.
+
+Status: \textbf{Hypothesis requiring further development}
+
+\item \textbf{Strong and weak interactions}
+
+Reason: The model currently addresses electromagnetic and gravitational-like phenomena. Extension to non-Abelian gauge structures requires substantial theoretical development.
+
+Status: \textbf{Future research direction}
+
+\end{enumerate}
+
+% ========================================
+% Section 7: Why Alpha Remains Outside the Framework
+% ========================================
+\section{Why $\alpha$ Remains Outside the Current Framework}
+
+Given the above clarifications, we can now articulate precisely why the fine-structure constant $\alpha$ remains outside the scope of the 0-Sphere model.
+
+% ----------------------------------------
+% Subsection 7.1: Scope Delimitation
+% ----------------------------------------
+\subsection{Scope Delimitation: Why the Fine-Structure Constant Is Not Addressed}
+
+The fine-structure constant $\alpha$, with its enigmatic approximate value $1/137$, has long attracted attempts at non-perturbative and geometric interpretation. Such efforts reflect the widely recognized fact that $\alpha$ occupies a conceptually special position in fundamental physics, extending beyond its operational role in perturbative quantum electrodynamics.
+
+In the present series of works on the 0-Sphere model, references to $\alpha$ have been deliberately avoided. This omission is not accidental, but reflects a clearly defined methodological boundary. The fine-structure constant explicitly depends on the electric charge $e$, and the 0-Sphere model, in its current formulation, does not yet provide a quantitative theory of electric charge.
+
+The 0-Sphere framework instead builds on a reinterpretation of relativistic kinematics, most notably Thomas precession. Contrary to the conventional view that associates spin exclusively with circular motion, the model demonstrates that even one-dimensional oscillatory motion gives rise to angular momentum when the motion occurs at subluminal but relativistic velocities. In the non-relativistic limit, this contribution vanishes, recovering the conclusions of classical mechanics.
+
+Within this framework, spin is not treated as a pre-existing intrinsic rotation with a fixed orientation. Rather, the sign of the spin emerges dynamically from the temporal phase of the underlying oscillatory motion, allowing transitions between $+1$ and $-1$ without presupposing a predetermined value. This interpretation is consistent with the implications of Bell-type inequalities, which indicate that spin values are not fixed prior to measurement.
+
+While this deductive chain successfully links Lorentz contraction, Thomas precession, and internal electron dynamics, it does not presently extend to quantities that depend explicitly on the electric charge $e$. As a consequence, neither the fine-structure constant $\alpha$ nor the electron anomalous magnetic moment is derived within the current scope of the 0-Sphere model. This limitation is stated explicitly as a present boundary of the framework, rather than a deferred or implicit assumption.
+
+
+
+% ----------------------------------------
+% Subsection 7.2: Perturbative Definition of Alpha
+% ----------------------------------------
+\subsection{Perturbative Definition of $\alpha$}
+
+In quantum electrodynamics, the fine-structure constant $\alpha$ can be formally introduced as a fundamental dimensionless parameter, $\alpha = e^2/(4\pi\hbar c)$. However, its physical role within QED is operationally defined through perturbative expansions of observable quantities such as scattering amplitudes and radiative corrections.
+
+At the level of amplitudes, the leading-order electron--photon vertex is proportional to the electric charge $e \sim \sqrt{4\pi\alpha}$, while higher-order contributions involve successive powers of $\alpha$ associated with additional virtual photon loops. In this sense, $\alpha$ functions as the perturbative expansion parameter organizing the QED series.
+
+While $\alpha$ may be formally specified independently of perturbation theory, its standard interpretation and practical usage within QED are inseparable from the perturbative framework in which it appears. Consequently, the notion of $\alpha$ as a coupling constant is tightly linked to the perturbative structure of the theory, rather than arising as an intrinsic geometric or non-perturbative quantity.
+
+
+% ----------------------------------------
+% Subsection 7.3: Non-Perturbative Character
+% ----------------------------------------
+\subsection{Non-Perturbative Character of the 0-Sphere Model}
+
+The 0-Sphere model does not employ perturbative expansions. Observable quantities are computed through:
+\begin{itemize}
+\item Line integrals along actual trajectories
+\item Energy conservation constraints
+\item Geometric relations (Lorentz contraction, phase accumulation)
+\end{itemize}
+
+There is no natural place within this structure to introduce a perturbative coupling constant. The photon sphere is not treated as a weak perturbation on a point particle but as an integral component of the electron's internal structure.
+
+% ----------------------------------------
+% Subsection 7.4: Effective Theory Bridge
+% ----------------------------------------
+\subsection{Effective Theory Bridge: Future Work}
+
+It is conceivable that future work could establish a bridge between the non-perturbative 0-Sphere framework and perturbative QED through effective field theory methods. Such a bridge would necessarily involve:
+\begin{enumerate}
+\item Coarse-graining the internal phase dynamics over measurement timescales
+\item Identifying emergent degrees of freedom that behave as effective fields
+\item Deriving effective coupling constants through averaging procedures
+\end{enumerate}
+
+This program remains speculative and represents a substantial research direction. Until such a bridge is constructed, any claim to "derive $\alpha$" from the 0-Sphere model would be premature.
+
+
+% ========================================
+% Section 8: Comparison with Conventional QED
+% ========================================
+\section{Comparison with Conventional QED}
+
+To situate the 0-Sphere model within the broader landscape of theoretical physics, it is instructive to contrast its methodological commitments and explanatory strategies with those of conventional quantum electrodynamics (QED). 
+Although both frameworks successfully engage with precision observables such as the electron anomalous magnetic moment, they do so from fundamentally different starting points and with distinct ontological assumptions. 
+QED is constructed as a perturbative quantum field theory organized around the fine-structure constant $\alpha$, employing virtual particles and loop expansions as calculational devices. 
+By contrast, the 0-Sphere model is formulated as a non-perturbative, background-independent framework in which physical effects arise from deterministic geometric and kinematic structures.
+
+Table~\ref{tab:qed_comparison} summarizes these differences across several dimensions, including the origin of the anomalous magnetic moment, the role (or absence) of $\alpha$, the ontological status of photons, computational methodology, and underlying philosophical stance. 
+The comparison highlights that the agreement of the two approaches with experimental data does not imply conceptual equivalence: rather, it reflects distinct explanatory logics—perturbative versus geometric, instrumentalist versus realist—that lead to qualitatively different interpretations of the same physical phenomena.
+
+% ----------------------------------------
+% Table 3: QED vs 0-Sphere Comparison
+% ----------------------------------------
+\begin{table}[h!]
+\centering
+\renewcommand{\arraystretch}{1.3}
+\begin{tabularx}{\textwidth}{l X X}
+\toprule
+\textbf{Feature} & \textbf{Conventional QED} & \textbf{0-Sphere Model (This Work)} \\
+\midrule
+Origin of $g-2$ 
+& Radiative corrections expressed as a perturbative series in $\alpha$ 
+& Geometric surplus via Lorentz contraction; experimental $a$ used as input to predict $v_{\mathrm{ZB}}$ \\
+
+Role of $\alpha$ 
+& Fundamental perturbative expansion parameter defined through electric charge $e$ 
+& No physical interpretation derived; Coulomb interaction and charge quantization not yet incorporated \\
+
+Photon nature 
+& Virtual photons, off-shell ($E^2 \neq p^2c^2$) 
+& Real photons, on-shell ($E = pc$) \\
+
+Computational method 
+& Feynman diagrams, loop expansions 
+& Closed algebraic relations and line integrals along actual trajectories \\
+
+Background dependence 
+& Background dependent (flat spacetime assumed) 
+& \textbf{Background independent (geometry is prior)} \\
+
+Philosophical stance 
+& Instrumentalist (effective calculational theory) 
+& \textbf{Realist (deterministic geometric ontology)} \\
+
+Falsifiable predictions 
+& Agreement with experiments via fitted series coefficients 
+& $v_{\mathrm{ZB}} \approx 0.04047c$ predicted uniquely from $a_{\mathrm{exp}}$ (a priori) \\
+\bottomrule
+\end{tabularx}
+\caption{Comparison between conventional QED and the 0-Sphere model highlighting methodological, conceptual, and philosophical distinctions.}
+\label{tab:qed_comparison}
+\end{table}
+
+
+
+% ========================================
+% Section 9: Conclusion
+% ========================================
+\section{Conclusion}
+
+\justifying
+This supplementary comment has articulated the methodological and philosophical foundations underlying the 0-Sphere model and has clarified the precise scope within which the model currently operates. In particular, it has addressed the treatment of the electron anomalous magnetic moment and explained why the fine-structure constant $\alpha$ remains outside the present framework.
+
+The central points established in this supplement may be summarized as follows:
+
+\begin{enumerate}
+\item The prediction $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c$ is derived deductively from first principles using only the experimentally measured anomalous magnetic moment $a_{\mathrm{exp}}$ and special relativity, without invoking the fine-structure constant $\alpha$ or perturbative quantum electrodynamics.
+
+\item The relation $\gamma = 1 + a$ emerges from a geometric interpretation of Lorentz contraction in a circulating photon sphere, yielding a closed and parameter-free calculation grounded in relativistic kinematics.
+
+\item Through a reinterpretation of Thomas precession, the 0-Sphere model demonstrates that angular momentum can arise even in one-dimensional oscillatory motion when the dynamics occur at subluminal but relativistic velocities. In the non-relativistic limit, this effect vanishes, ensuring consistency with classical mechanics.
+
+\item Within this framework, spin is not treated as a pre-existing intrinsic rotation with a fixed orientation. Instead, spin emerges dynamically as a phase-dependent quantity, with its sign determined by the temporal phase of the underlying motion rather than by predetermined values. This interpretation is consistent with the implications of Bell-type inequalities, which indicate that spin values are not fixed prior to measurement.
+
+\item The model adopts a realist stance, treating photons as real on-shell quanta and Zitterbewegung as a physical oscillation, in contrast to the instrumentalist interpretation of virtual particles and off-shell propagators commonly employed in conventional QED.
+
+\item The relation $\gamma = 1 + a$ constitutes a closed algebraic equation within the 0-Sphere model: when the experimentally measured electron anomalous magnetic moment is taken as input, the Zitterbewegung velocity scale is predicted deductively and uniquely. By contrast, the physical meaning and origin of the fine-structure constant $\alpha$ are not derived within the present framework. This is because the current formulation of the 0-Sphere model does not yet incorporate Coulomb interaction or a quantitative description of electric charge.
+
+\item The energy conservation identity Eq.~\eqref{eq:energy_identity}, grounded in the Stefan--Boltzmann radiation law and classical mechanics ($F = -\nabla U$), provides a closed geometric system from which the internal dynamics of the model follow deterministically.
+
+\item Accordingly, while the model can currently address the Zitterbewegung velocity scale, the geometric origin of the $g-2$ structure, and spin-$1/2$ quantization, it does not yet extend to a derivation of the fine-structure constant $\alpha$, the electron rest mass $m_e$, or the lepton mass hierarchy.
+\end{enumerate}
+
+By explicitly delineating these results and limitations, this supplement preserves \textbf{methodological rigor and theoretical transparency}. The boundaries of the model are not obscured but clearly stated, ensuring that its deductive successes are distinguished from quantities that lie beyond its present scope.
+
+In this sense, the present work should be understood not as a claim of completeness, but as a precise statement of what has been established and what remains to be addressed. Any future connection to perturbative constants such as $\alpha$ necessarily requires a quantitative treatment of electric charge and the construction of an appropriate effective-theory bridge. Until such developments are achieved, maintaining this conceptual separation is essential for the internal consistency and scientific integrity of the 0-Sphere framework.
+
+
+% ========================================
+% Glossary: Key Terms
+% ========================================
+\section*{Key Terms Glossary}
+\addcontentsline{toc}{section}{Key Terms Glossary}
+
+% ----------------------------------------
+% Glossary: Methodological Terms
+% ----------------------------------------
+\subsection*{Methodological Terms}
+\addcontentsline{toc}{subsection}{Methodological Terms}
+
+\begin{description}
+\item[Non-perturbative derivation] A theoretical calculation that does not rely on power series expansions in a small coupling constant. In the 0-Sphere framework, physical observables are computed through closed geometric relations and line integrals along actual trajectories, without invoking weak-field approximations or perturbative corrections.
+
+\item[Perturbative expansion] A calculational technique expressing physical quantities as power series in a small parameter (e.g., $\alpha$ in QED). Each term corresponds to increasingly complex Feynman diagrams involving virtual particle loops. The convergence and physical interpretation of such series remain subjects of ongoing debate.
+
+\item[First-principles derivation] Computation of observable quantities from fundamental geometric structures and conservation laws without introducing free parameters or empirical fits. The 0-Sphere model aspires to this standard, explicitly acknowledging where such derivations are not yet possible.
+
+\item[Closed geometric equations] Self-contained mathematical relations involving only geometric quantities (phase angles, proper time, Lorentz factors) that can be solved without external input parameters. Example: the energy conservation identity $\cos^4(\theta/2) + \sin^4(\theta/2) + \frac{1}{2}\sin^2\theta = 1$.
+
+\item[Background independence] A theoretical property where geometric structure emerges from internal dynamics rather than being imposed a priori. The 0-Sphere model treats spacetime relations as derivative from photon-mediated phase networks, not as a pre-existing arena.
+
+\item[Effective field theory] A framework for systematically incorporating low-energy dynamics while marginalizing high-energy degrees of freedom through coarse-graining. A potential future bridge between the non-perturbative 0-Sphere model and perturbative QED remains speculative.
+
+\item[Coarse-graining] Averaging over microscopic degrees of freedom to obtain effective descriptions at larger scales. In the context of bridging to QED, this would involve averaging internal phase dynamics over measurement timescales to identify emergent effective coupling constants.
+
+\end{description}
+
+% ----------------------------------------
+% Glossary: Physical Concepts
+% ----------------------------------------
+\subsection*{Physical Concepts}
+\addcontentsline{toc}{subsection}{Physical Concepts}
+
+\begin{description}
+\item[Fine-structure constant] The dimensionless coupling constant $\alpha \approx 1/137$ governing electromagnetic interactions in QED. Defined through perturbative expansion of scattering amplitudes; the 0-Sphere model does not currently incorporate the machinery necessary to define effective coupling constants.
+
+\item[Anomalous magnetic moment] Experimentally measured quantity $a_e = (g-2)/2 = 0.00115965218073(28)$, where $g$ is the electron gyromagnetic ratio. In QED, computed as $a = \alpha/(2\pi) + \cdots$ through loop corrections. In the 0-Sphere model, interpreted as arising from Lorentz contraction of the circulating photon sphere.
+
+\item[Zitterbewegung velocity] The characteristic speed at which the photon sphere circulates internally. The RMS-averaged velocity $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c$ is predicted from $\gamma(v_{\mathrm{ZB}}) = 1 + a$ using only the experimental value of $a$ and special relativity. The peak velocity $v_{\mathrm{ZB}}^{(\max)} \approx 0.048c$ represents the maximum instantaneous speed. Corresponds to oscillation frequency $\nu_{\mathrm{ZB}} \approx 5 \times 10^{18}$ Hz.
+
+\item[Peak vs. RMS velocity] In oscillatory motion, the peak velocity $v_{\max}$ is the maximum instantaneous speed, while the root-mean-square (RMS) velocity represents the effective time-averaged speed. For the photon sphere oscillating as $v(t) = v_{\max}|\sin(\omega t)|$, these velocities are related by $v_{\max} = 2^{1/4} \cdot v_{\mathrm{RMS}}$. The RMS velocity $v_{\mathrm{ZB}}^{(\mathrm{RMS})} \approx 0.04047c$ determines the time-averaged Lorentz contraction, while the peak velocity $v_{\mathrm{ZB}}^{(\max)} \approx 0.048c$ characterizes maximum instantaneous dynamics.
+
+\item[Virtual photons] In perturbative QED, off-shell intermediate states appearing in Feynman diagrams that violate $E^2 = p^2c^2$. Their ontological status remains debated. The 0-Sphere model treats photons as real, on-shell quanta satisfying $E = pc$.
+
+\item[Real photons] On-shell quanta satisfying the relativistic energy-momentum relation $E = pc$, observable in principle through their electromagnetic interactions. In the 0-Sphere framework, the photon sphere consists exclusively of real photons continuously emitted, absorbed, and regenerated.
+
+\item[Lorentz contraction] Special relativistic effect where lengths contract in the direction of motion by factor $1/\gamma$. Applied to the circulating photon sphere, produces a circumference deficit $\Delta C/C_0 \approx \gamma - 1 = a$, providing geometric origin of the anomalous magnetic moment.
+
+\item[Stefan-Boltzmann law] Thermodynamic relation expressing radiated power as $P \propto T^4$. When temperature is reinterpreted as internal phase velocity in the 0-Sphere framework, this introduces quartic phase dependence $E_A \propto \cos^4(\theta/2)$ for thermal potential energy at kernel $A$.
+
+\item[Radiation gradient] The spatial derivative $dU/d\theta$ of thermal potential energy, which through classical mechanics $F = -\nabla U$ drives the photon sphere into motion. This gradient mechanism underlies Zitterbewegung oscillations and energy transport between kernels.
+
+\end{description}
+
+% ----------------------------------------
+% Glossary: Philosophical Terms
+% ----------------------------------------
+\subsection*{Philosophical Terms}
+\addcontentsline{toc}{subsection}{Philosophical Terms}
+
+\begin{description}
+\item[Realism] A philosophical stance holding that physical theories should describe underlying reality, not merely provide calculational tools. The 0-Sphere model adopts this commitment: photons are real, trajectories are actual, and phase accumulation reflects physical history.
+
+\item[Instrumentalism] A philosophical stance treating scientific theories as effective calculational frameworks without necessarily committing to ontological claims about underlying reality. Conventional QED can be interpreted instrumentally: virtual particles are mathematical devices, not necessarily real entities.
+
+\item[Methodological manifesto] An explicit statement of theoretical scope, philosophical commitments, and boundaries between established results and speculative extensions. This supplement serves as such a manifesto for the 0-Sphere research program.
+
+\item[Falsifiable prediction] A concrete quantitative prediction that can be tested experimentally and potentially refuted. Example: $v_{\mathrm{ZB}} \approx 0.04047c$ is a falsifiable prediction of the 0-Sphere model, derivable a priori from geometric principles.
+
+\item[Ontological commitment] A philosophical term denoting what entities or structures a theory claims to exist. The 0-Sphere model commits to: deterministic geometric structures, real on-shell photons, actual oscillatory motion, and accumulated phase as physically meaningful.
+
+\item[Theoretical transparency] The practice of explicitly acknowledging the scope and limitations of a theoretical framework, distinguishing between established derivations and speculative extensions, and identifying open problems without obscuring them through fitted parameters.
+
+\end{description}
+
+
+% ========================================
+% Acknowledgments
+% ========================================
+
+\section*{Acknowledgments}
+
+The author notes that the considerations presented here arose during attempts to clarify the methodological scope and philosophical foundations of the 0-Sphere research program, particularly in response to questions about the relationship between geometric interpretations of $g-2$ and the fine-structure constant $\alpha$.
+
+While not essential to the primary physical arguments, articulating these boundaries proved essential for maintaining intellectual honesty and for distinguishing established results from speculative extensions.
+
+During preparation, large language models were used in a limited supportive role for textual organization. All physical interpretations, methodological judgments, and philosophical commitments remain the responsibility of the author.
+
+
+% ========================================
+% Bibliography
+% ========================================
+
+\begin{thebibliography}{9}
+
+\bibitem{hanamura17764997}
+S.~Hanamura,
+``Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction,''
+Zenodo (2024).
+\href{https://doi.org/10.5281/zenodo.17764997}{DOI: 10.5281/zenodo.17764997}
+
+\bibitem{hanamura17765017}
+S. Hanamura, ``Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer,'' Zenodo (2024). \href{https://doi.org/10.5281/zenodo.17765017}{DOI: 10.5281/zenodo.17765017}
+
+\bibitem{hanamura18067760}
+S. Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025), \href{https://doi.org/10.5281/zenodo.18067760}{DOI: 10.5281/zenodo.18067760}.
+
+\bibitem{hanamura18135855}
+S. Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18135855}{DOI: 10.5281/zenodo.18135855}.
+
+\bibitem{hanamura18203433}
+S. Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18203433}{DOI: 10.5281/zenodo.18203433}.
+
+\end{thebibliography}
+
+
+% ========================================
+% Related Publications by the Author
+% ========================================
+\section*{Related Publications by the Author}
+\addcontentsline{toc}{section}{Related Publications by the Author}
+
+This methodological supplement builds upon the theoretical and philosophical foundations developed across the author's research program. The following publications provide essential context for understanding the non-perturbative, realist approach adopted in the 0-Sphere model and its relationship to conventional quantum field theory.
+
+% ----------------------------------------
+% Primary References
+% ----------------------------------------
+\subsection*{Primary References}
+\addcontentsline{toc}{subsection}{Primary References}
+
+\begin{description}
+\item[Spin and Anomalous Magnetic Moment] S. Hanamura, ``Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction,'' Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{DOI: 10.5281/zenodo.17764997}. \\
+\textit{Derives the prediction $v_{\mathrm{ZB}} \approx 0.04047c$ from $\gamma = 1 + a$ using only the experimental anomalous magnetic moment and special relativity. Establishes geometric interpretation of $g-2$ through rotational Lorentz contraction.}
+
+\item[Quantum Oscillations and Proper Time] S. Hanamura, ``Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer,'' Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17765017}{DOI: 10.5281/zenodo.17765017}. \\
+\textit{Introduces the energy conservation identity $\cos^4(\theta/2) + \sin^4(\theta/2) + \frac{1}{2}\sin^2\theta = 1$ and establishes the connection between Stefan-Boltzmann radiation law and internal phase dynamics.}
+\end{description}
+
+% ----------------------------------------
+% Foundational Papers (Connection-Based Framework)
+% ----------------------------------------
+\subsection*{Foundational Papers (Connection-Based Framework)}
+\addcontentsline{toc}{subsection}{Foundational Papers}
+
+\begin{description}
+\item[Spinorial Phase Accumulation] S. Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025), \href{https://doi.org/10.5281/zenodo.18067760}{DOI: 10.5281/zenodo.18067760}. \\
+\textit{Establishes line integrals of connections along proper-time parametrized worldlines as physically appropriate geometric objects. Clarifies separation between external bosonic motion and internal spinorial phase evolution.}
+
+\item[Conservation Law Origins] S. Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18135855}{DOI: 10.5281/zenodo.18135855}. \\
+\textit{Reinterprets Einstein field equations as posterior consistency conditions (geometric checksum) rather than fundamental dynamical laws. Stress-energy tensor demoted to derived descriptor. Provides philosophical foundation for prioritizing connection-based formulations.}
+
+\item[Unified Observable Framework] S. Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18203433}{DOI: 10.5281/zenodo.18203433}. \\
+\textit{Demonstrates universality of line-integral observables across quantum, gauge, and gravitational domains through canonical examples. Establishes realist ontology where accumulated histories are primary.}
+\end{description}
+
+% ----------------------------------------
+% Supporting Theoretical Framework
+% ----------------------------------------
+\subsection*{Supporting Theoretical Framework}
+\addcontentsline{toc}{subsection}{Supporting Theoretical Framework}
+
+\begin{description}
+\item[Emergent Spacetime] S. Hanamura, ``From Zero-Sphere to Emergent Spacetime: A Minimalist Background-Independent Framework for Temporal and Spatial Genesis,'' Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765336}{DOI: 10.5281/zenodo.17765336}. \\
+\textit{Background-independent spacetime emergence from $S^0$ topology. Demonstrates how metric relations and causal structure arise from photon-mediated phase networks without pre-existing manifold.}
+
+\item[Gauge Theory Foundations] S. Hanamura, ``From Clock Synchronization to Electromagnetism: A Realist Construction of U(1) Gauge Theory,'' Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765136}{DOI: 10.5281/zenodo.17765136}. \\
+\textit{U(1) gauge symmetry emerges from synchronization of internal clocks. Provides realist interpretation of gauge potentials as geometric synchronization mechanisms rather than mathematical redundancies.}
+
+\item[Noetherian Inversion Paradigm] S. Hanamura, ``Inverting the Noetherian Paradigm: Conservation Laws as Emergent Geometric Consequences of Internal Oscillatory Structure,'' Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17764953}{DOI: 10.5281/zenodo.17764953}. \\
+\textit{Challenges conventional Noether theorem interpretation by proposing conservation laws emerge from internal geometric structure rather than external symmetries. Reverses explanatory priority.}
+
+\item[Deterministic Quantum Mechanics] S. Hanamura, ``Challenging the Heisenberg Uncertainty Principle: Deterministic Oscillations and Observable Quantum Trajectories in the 0-Sphere Model,'' Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765251}{DOI: 10.5281/zenodo.17765251}. \\
+\textit{Proposes uncertainty relations emerge from geometric oscillations between discrete kernels rather than fundamental probabilistic nature. Advances deterministic alternative to Copenhagen interpretation.}
+\end{description}
+
+% ----------------------------------------
+% Philosophical Context
+% ----------------------------------------
+\subsection*{Philosophical Context}
+\addcontentsline{toc}{subsection}{Philosophical Context}
+
+\begin{description}
+\item[Academic Transparency] S. Hanamura, ``On the Critical Role of Self-Correction in Theoretical Physics: Dimensional Consistency, AI-Assisted Error Detection, and the Future of Scientific Rigor,'' Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765261}{DOI: 10.5281/zenodo.17765261}. \\
+\textit{Discusses methodological transparency, dimensional analysis, and the role of AI-assisted error detection in maintaining theoretical rigor. Exemplifies commitment to intellectual honesty underlying the present methodological manifesto.}
+\end{description}
+
+% ----------------------------------------
+% Citation Note
+% ----------------------------------------
+\subsection*{Citation Note}
+\addcontentsline{toc}{subsection}{Citation Note}
+
+This supplement directly cites only the two primary references on spin/anomalous magnetic moment and quantum oscillations, plus the three foundational papers establishing the connection-based framework. The remaining publications provide broader philosophical and theoretical context for understanding the realist, non-perturbative methodology adopted throughout the 0-Sphere research program. They are particularly relevant for readers interested in the philosophical commitments (realism vs instrumentalism) and methodological principles (first-principles derivation, theoretical transparency) discussed in Sections~\ref{sec:philosophical} and~\ref{sec:scope}.
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}
