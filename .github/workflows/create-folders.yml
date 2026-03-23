@@ -1,0 +1,24 @@
+name: Create tex-sources folders
+on:
+  workflow_dispatch:
+
+jobs:
+  create:
+    runs-on: ubuntu-latest
+    steps:
+      - uses: actions/checkout@v4
+
+      - name: Create folders
+        run: |
+          for i in $(seq 1 47); do
+            mkdir -p tex-sources/$i
+            touch tex-sources/$i/.gitkeep
+          done
+
+      - name: Commit and push
+        run: |
+          git config user.name "github-actions"
+          git config user.email "actions@github.com"
+          git add tex-sources/
+          git commit -m "chore: create tex-sources folders #1-#47"
+          git push
