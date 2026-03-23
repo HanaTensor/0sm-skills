@@ -1,0 +1,341 @@
+\documentclass[12pt,a4paper]{article}
+
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[labelfont=bf]{caption}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tabularx}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+\geometry{
+  a4paper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+}
+
+\onehalfspacing
+
+\begin{document}
+
+\title{On Internal Energy Stabilization, Charge Localization, and Superradiant Rephasing\\
+\normalsize Supplementary Note on Geometric Stability Mechanisms in the 0-Sphere Model}
+
+\author{Satoshi Hanamura
+\thanks{Email: hana.tensor@gmail.com}}
+\date{March 8, 2026}
+
+\maketitle
+
+\tableofcontents
+\clearpage
+
+% ========================================
+% Research Summary
+% ========================================
+
+\begin{center}
+\textbf{Research Summary}
+\end{center}
+
+\justifying
+
+Three conceptual difficulties have persisted in classical and semiclassical descriptions of charged particles since the early twentieth century. First, accelerated charges are expected to radiate continuously, yet internal oscillations such as Zitterbewegung appear to persist indefinitely without energy loss. Second, an extended charge distribution should disperse under Coulomb self-repulsion, yet the electron remains spatially localized; the auxiliary stress introduced by Poincar\'e to prevent this dispersion lacks an independent physical justification. Third, radiation reaction and charge stabilization have been treated as separate problems, each requiring its own remedial hypothesis, without a common explanatory principle.
+
+This Supplement demonstrates that all three difficulties are dissolved simultaneously by a single ontological revision: the reclassification of physically admissible observables from local field densities to closed line-integral processes constrained to thermal geodesics. No modification of Maxwell's equations, no new interaction terms, and no additional dynamical hypotheses are required.
+
+The mechanism is as follows. Within the 0-Sphere model~\cite{hanamura16759284}, energy is not a locally stored quantity but a history-dependent transport process. When such a process forms a closed loop in proper time, external energy transfer becomes topologically forbidden by the confinement condition $\mathrm{supp}(E) \subset \mathcal{D}$, where $\mathcal{D}$ denotes the admissible transport domain~\cite{hanamura18356895}. The boundary $\partial\mathcal{D}$ functions as a causal boundary in the geometric sense: it delimits the conditions under which continuous transport paths exist, independently of any local equation of motion. Oscillatory persistence is therefore a topological consequence, not a dynamical one.
+
+Within this closed structure, a phase-coherence mechanism analogous to superradiance operates internally. Unlike Dicke-type superradiance, which involves enhanced emission into external modes, the present mechanism redistributes energy within the closed trajectory to maintain phase lock. Processes that would conventionally be classified as radiative losses are reabsorbed into internal circulation~\cite{hanamura18437010}. Poincar\'e stress is correspondingly reinterpreted as the geometric consequence of phase-coherence constraints on admissible energy histories, rather than as a compensating force.
+
+The three phenomena thus share a common logical origin: they all arise from imposing physical observables at the level of line integrals of connections along thermal geodesics, and deriving all further structure from that foundation~\cite{hanamura18203433}. This Supplement makes that logical structure explicit, organizes it into a four-level conceptual hierarchy, and delineates the principled methodological boundary beyond which quantitative predictions---such as radiation spectra or superradiant amplification factors---cannot be obtained without an effective-theory bridge to perturbative QED~\cite{hanamura18603340}.
+
+\clearpage
+
+% ========================================
+% Section: Structure and Logical Plan of This Supplement
+% ========================================
+\section{Structure and Logical Plan of This Supplement}
+
+\justifying
+
+Three long-standing conceptual difficulties in classical and semiclassical physics motivate the present Supplement. First, persistent internal oscillations such as Zitterbewegung appear incompatible with energy conservation, since accelerated charges are expected to radiate continuously. Second, an extended charge distribution is expected to disperse under Coulomb self-repulsion unless stabilized by an auxiliary stress whose physical origin remains obscure. Third, the mechanisms that prevent radiative decay and enforce charge localization have historically been treated as separate problems requiring separate solutions. The central claim of this Supplement is that all three difficulties admit a unified resolution, without modifying Maxwell's equations or the equations of quantum mechanics, once the ontological status of physical observables is correctly identified.
+
+The resolution rests on a single conceptual move: the reclassification of physically admissible processes from local density descriptions to closed line-integral processes constrained to thermal geodesics. When energy histories form closed loops in proper time, external energy transfer becomes topologically forbidden rather than dynamically suppressed. This shift dissolves the three difficulties simultaneously, because all three arise from the same category error---treating energy and charge as locally stored quantities rather than as manifestations of history-dependent transport.
+
+The logical structure of the Supplement proceeds as follows.
+
+Section~\ref{sec:stabilization} establishes the mechanism of internal energy stabilization. The key result is that oscillatory persistence is a topological consequence of the confinement condition $\mathrm{supp}(E) \subset \mathcal{D}$, where $\mathcal{D}$ denotes the admissible transport domain (photon sphere). The boundary $\partial\mathcal{D}$ functions as a causal boundary in the geometric sense: it delimits the conditions under which continuous transport paths exist, independently of any local equations of motion. Singular limits correspond not to the divergence of physical quantities but to the loss of topological degrees of freedom within $\mathcal{D}$. The self-sustaining thermodynamic structure of the photon sphere ($\mu = 0$, continuous photon regeneration) ensures that this arcwise connectivity is maintained indefinitely.
+
+Section~\ref{sec:superradiance} introduces a phase-coherence mechanism analogous to superradiance, but structurally distinct from the Dicke-type collective emission into external modes. Within a single closed proper-time trajectory, phase coherence enforces a self-consistency condition that stabilizes circulating energy internally. This is the single-trajectory counterpart of the entropic entrainment mechanism derived for composite subsystems in earlier work~\cite{hanamura18437010}: the synchronization energy $\hbar(\nu_b - \nu_a)$ is redistributed internally to maintain phase lock rather than converted to translational motion. Processes ordinarily classified as radiative losses are reabsorbed into internal circulation, contributing to phase synchronization rather than dissipation.
+
+Section~\ref{sec:poincare} addresses charge localization and reinterprets the Poincar\'e stress. The classical difficulty arises from treating charge as a spatially distributed substance. Within the 0-Sphere framework, charge localization reflects the topological confinement of energy circulation in proper time. The effective inward pressure historically attributed to Poincar\'e stress is reinterpreted as a geometric consequence of phase-coherence constraints acting on admissible energy histories---an emergent, effective description rather than a fundamental force.
+
+Section~\ref{sec:unified} draws these threads together into a unified perspective. The three phenomena---Zitterbewegung persistence, charge localization, and the absence of radiative decay---all follow from a single principle: the restriction of physically meaningful observables to closed line-integral processes. This restriction is organized by a four-level conceptual hierarchy~\cite{hanamura18203433}: (i) the connection and proper time as central geometric variables; (ii) line integrals of the connection along thermal geodesics as the primary physical observables; (iii) emergent energy--momentum densities and the Einstein field equation as derived consistency conditions; and (iv) curvature as a secondary descriptor of loop-level noncommutativity. The present Supplement addresses phenomena at level (ii), and the stability results of Sections~\ref{sec:stabilization}--\ref{sec:poincare} are its natural consequences. The relationship to the vacuum energy dissolution developed in~\cite{hanamura18727981} is complementary: that supplement operates at the level of the cosmological constant, while the present note concerns the internal stability of a single closed trajectory.
+
+Section~\ref{sec:limitations} delineates the principled limits of the analysis. The absence of quantitative predictions for radiation spectra or superradiant amplification factors is not a practical shortcoming but a methodological boundary: computing emission amplitudes requires an effective coupling constant and perturbative loop integrals that lie outside the non-perturbative, background-independent framework~\cite{hanamura18603340}. The section also articulates the differential--integral correspondence underlying the entire analysis: local differential descriptions of phase gradients and temperature differences are necessary but insufficient; the physically observable consequences emerge only from their accumulation over complete internal cycles, in structural analogy to the equivalence between the differential and integral forms of Maxwell's equations.
+
+% ========================================
+% Section: Internal Energy Stabilization and the Persistence of Oscillation
+% ========================================
+\section{Internal Energy Stabilization and the Persistence of Oscillation}
+\label{sec:stabilization}
+
+\justifying
+
+A long-standing conceptual difficulty in classical and semiclassical descriptions of charged particles is the apparent incompatibility between persistent internal motion and energy conservation. In standard electrodynamics, any accelerated charge is expected to radiate, leading to energy loss and eventual decay of internal oscillatory motion~\cite{dirac1938,jackson1999}. This tension becomes particularly acute in the context of Zitterbewegung-like dynamics, where rapid internal motion appears to persist indefinitely~\cite{schrodinger1930,hestenes1990,hanamura17765017,hanamura17765318,hanamura18356895}.
+
+Within the 0-Sphere model~\cite{hanamura16759284}, this difficulty is resolved by a fundamental reclassification of what constitutes a physically admissible energy process. Energy is not treated as a locally stored quantity attached to a point particle, but as a history-dependent transport process constrained to thermal geodesics~\cite{hanamura17765349} connecting localized kernels~\cite{hanamura18067760,hanamura18135855,hanamura18203433}. When such transport forms a closed loop in proper time, energy exchange with the external environment becomes topologically forbidden~\cite{hanamura18275142}.
+
+In this framework, the persistence of internal oscillation does not require a dynamical suppression of radiation. Instead, it follows from the geometric closure of admissible energy histories~\cite{hanamura18275142}. Oscillation persists because there exists no open channel through which energy may be irreversibly transferred outward.
+
+This stability is more precisely characterized as a topological constraint rather than a dynamical equilibrium. The boundary $\partial\mathcal{D}$ of the admissible transport domain $\mathcal{D}$ functions as a causal boundary in the geometric sense~\cite{hanamura18356895}: it delimits the conditions under which continuous transport paths exist, independently of any local equations of motion. Singular limits correspond not to the divergence of physical quantities, but to the loss of topological degrees of freedom within $\mathcal{D}$---a transition in the space of admissible processes rather than a failure of dynamical laws.
+
+The confinement condition is expressed concisely as
+\begin{equation}
+\mathrm{supp}(E) \subset \mathcal{D},
+\label{eq:confinement}
+\end{equation}
+which states that all non-vanishing internal energy of the system is confined to the photon-sphere domain $\mathcal{D}$~\cite{hanamura18356895}. This geometric inclusion directly implies that no continuous radiative path can extend beyond $\partial\mathcal{D}$, ensuring energy conservation as a topological consequence rather than a dynamically imposed law.
+
+The physical implementation of this closure is reinforced by the thermodynamic structure of the photon sphere. Since photons carry no conserved chemical potential ($\mu = 0$), the photon number within $\mathcal{D}$ is not fixed: photons emitted during inter-subsystem phase communication are continuously regenerated through internal oscillatory dynamics~\cite{hanamura18437010}. The photon sphere is therefore not a finite reservoir subject to depletion, but a dynamically self-sustaining structure whose arcwise connectivity---and hence the topological prohibition on irreversible external energy transfer---is maintained indefinitely.
+
+% ========================================
+% Section: A Phase-Coherence Mechanism Analogous to Superradiance
+% ========================================
+\section{A Phase-Coherence Mechanism Analogous to Superradiance}
+\label{sec:superradiance}
+
+\justifying
+
+Superradiance is conventionally understood as a collective amplification phenomenon occurring in open systems, typically involving enhanced emission into external modes~\cite{dicke1954,gross1982}. The notion invoked here is analogous but structurally distinct: rather than enhanced external emission, it refers to an internal phase-coherence mechanism operative within a closed proper-time trajectory. Such a definition implicitly presupposes an environment capable of absorbing energy. This presupposition fails for closed energy loops in the 0-Sphere model~\cite{hanamura18275142,hanamura18203433}.
+
+Here, a distinct notion of superradiance emerges: not as external emission, but as an internal rephasing and redistribution of energy within a closed proper-time trajectory. Phase coherence along the loop enforces a self-consistency condition that dynamically stabilizes the circulating energy~\cite{hanamura18356895}. This is the single-trajectory counterpart of the entropic entrainment mechanism derived for composite subsystems in~\cite{hanamura18437010}, where a frequency mismatch $\hbar(\nu_b - \nu_a)$ is converted to translational motion rather than radiated outward; within a single closed trajectory, the analogous synchronization energy is instead redistributed internally to maintain phase lock.
+
+Under this interpretation, processes that would ordinarily be classified as radiative losses are reabsorbed into the internal circulation, contributing to phase synchronization rather than dissipation. Superradiance thus functions as an internal regulatory mechanism, ensuring that oscillatory motion remains phase-locked and energetically bounded~\cite{hanamura18511664}.
+
+This reinterpretation dissolves the classical paradox of perpetual internal motion without radiation loss, without modifying Maxwell's equations or introducing additional interaction terms.
+
+% ========================================
+% Section: Charge Localization and the Geometric Interpretation of Poincaré Stress
+% ========================================
+\section{Charge Localization and the Geometric Interpretation of Poincar\'e Stress}
+\label{sec:poincare}
+
+\justifying
+
+Another classical difficulty closely related to energy stability is the problem of charge localization. In classical electrodynamics, an extended charged object is expected to undergo Coulomb-driven self-repulsion, leading to spatial dispersion unless stabilized by an ad hoc internal stress, historically referred to as Poincar\'e stress~\cite{poincare1906,lorentz1952,rohrlich2007}.
+
+Such stresses lack a clear physical origin and are introduced solely to maintain consistency. From the perspective of the 0-Sphere model~\cite{hanamura16759284}, this difficulty arises from a category error: treating charge as a spatially distributed substance rather than as a manifestation of constrained energy transport~\cite{hanamura18203433}.
+
+Charge localization does not require a compensating inward force. Instead, it reflects the topological confinement of energy circulation in proper time~\cite{hanamura18275142,hanamura18356895}. The effective inward pressure attributed to Poincar\'e stress is reinterpreted as a geometric consequence of phase coherence constraints acting on admissible energy histories~\cite{hanamura18511664,hanamura18437010}.
+
+In this sense, Poincar\'e stress is not a fundamental interaction but an emergent, effective description of a restriction on the internal degrees of freedom of the system.
+
+% ========================================
+% Section: Unified Perspective on Stability, Charge, and Zitterbewegung
+% ========================================
+\section{Unified Perspective on Stability, Charge, and Zitterbewegung}
+\label{sec:unified}
+
+\justifying
+
+The persistence of Zitterbewegung~\cite{schrodinger1930,hanamura18356895}, the localization of charge, and the absence of radiative decay are often treated as distinct conceptual problems. Within the 0-Sphere framework~\cite{hanamura16759284}, they admit a unified explanation.
+
+All three phenomena arise from the same underlying principle: the restriction of physically meaningful observables to closed line-integral processes~\cite{aharonov1959,berry1984,hanamura17765409,hanamura18275142,hanamura18203433}. Stability is not enforced dynamically but geometrically. Energy does not remain localized because it is bound by forces, but because its history is topologically closed~\cite{hanamura18275142}.
+
+This perspective reframes several century-old problems of classical and quantum theory as consequences of an inappropriate ontology. Once observables are correctly identified as integral quantities rather than local densities~\cite{hanamura18067760,hanamura18135855,hanamura18203433}, the apparent need for auxiliary stabilizing mechanisms disappears.
+
+This perspective entails a specific ordering of conceptual priorities that may be stated explicitly~\cite{hanamura18203433}: (i) the connection and proper time constitute the central geometric variables; (ii) line integrals of the connection along thermal geodesics are the primary physical observables; (iii) emergent energy--momentum densities and the Einstein field equation arise as consistency conditions derived from accumulated connections; and (iv) curvature is a secondary descriptor encoding the noncommutativity of parallel transport around loops. Within this hierarchy, the stability, charge localization, and oscillatory persistence discussed in the preceding sections are not additional postulates but natural consequences of imposing physical observables at level (ii) and deriving all other structure from it.
+
+The logical relation between the present analysis and the vacuum energy dissolution discussed in~\cite{hanamura18727981} is complementary: whereas that supplement addresses the ontological status of vacuum contributions to the cosmological constant, the present note focuses on the stability and charge-localization mechanisms operative within a single closed trajectory.
+
+% ========================================
+% Section: Limitations and Outlook
+% ========================================
+\section{Limitations and Outlook}
+\label{sec:limitations}
+
+\justifying
+
+The arguments presented here are conceptual and structural in nature~\cite{hanamura18603340}. No attempt is made to compute detailed radiation spectra or to derive quantitative predictions for superradiant amplification factors. These remain topics for future investigation.
+
+The inaccessibility of such quantitative computations is not a practical limitation but a principled boundary. Computing emission amplitudes and spectral line shapes requires an effective coupling constant and perturbative loop integrals, which lie outside the non-perturbative, background-independent framework deliberately adopted here~\cite{hanamura18603340}. As established in that supplement, any future connection to perturbative constants such as $\alpha$ necessarily requires constructing an effective-theory bridge between the geometric integral formalism and perturbative QED---a step not yet achieved and not claimed here.
+
+A related structural observation concerns the passage from local to global description. The internal dynamics of the 0-Sphere model admit a differential description at the level of instantaneous phase gradients and temperature differences between kernels, but the physically observable effects---energy conservation, oscillatory persistence, charge localization---emerge only from their accumulation over complete internal cycles~\cite{hanamura18356895}. This differential--integral correspondence mirrors the familiar equivalence between the differential and integral forms of Maxwell's equations: local differential laws are necessary but insufficient; the integral form captures global, topologically constrained consequences that are invisible to any pointwise description.
+
+The present analysis nonetheless clarifies the logical role of internal energy stabilization within the 0-Sphere model~\cite{hanamura16759284} and demonstrates how classical inconsistencies associated with charge stability and radiation reaction~\cite{dirac1938,jackson1999} can be resolved without modifying established field equations.
+
+Future work will explore potential observational signatures distinguishing internal rephasing processes from conventional radiative dynamics, as well as extensions to composite and many-body systems.
+
+\section*{Acknowledgments}
+
+This work was conducted independently by the author. During preparation, large language models were used as a pedagogical and editorial aid, primarily to verify the standard presentation of well-established results in quantum field theory and to improve the clarity and logical organization of the exposition.
+
+All physical assumptions, conceptual judgments, and the integral-based reinterpretation proposed here were formulated and assessed solely by the author.
+
+\clearpage
+
+\begin{thebibliography}{99}
+
+% ========================================
+% Bibliography
+% ========================================
+
+\bibitem{hanamura16759284}
+S.~Hanamura,
+``A Model of an Electron Including Two Perfect Black Bodies,''
+Zenodo (2018).
+\href{https://doi.org/10.5281/zenodo.16759284}{https://doi.org/10.5281/zenodo.16759284}
+
+\bibitem{hanamura17765349}
+S.~Hanamura,
+``Thermal Geodesics: Extending General Relativity Through Internal Thermodynamic Structure,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765349}{https://doi.org/10.5281/zenodo.17765349}
+
+\bibitem{hanamura18275142}
+S.~Hanamura,
+``Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology: The 0-Sphere Model Perspective,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18275142}{https://doi.org/10.5281/zenodo.18275142}
+
+\bibitem{hanamura18203433}
+S.~Hanamura,
+``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18203433}{https://doi.org/10.5281/zenodo.18203433}
+
+\bibitem{dirac1938}
+P.~A.~M.~Dirac,
+``Classical theory of radiating electrons,''
+Proc.\ R.\ Soc.\ London A \textbf{167}, 148--169 (1938).
+\href{https://doi.org/10.1098/rspa.1938.0124}{https://doi.org/10.1098/rspa.1938.0124}
+
+\bibitem{jackson1999}
+J.~D.~Jackson,
+\textit{Classical Electrodynamics}, 3rd ed.
+(Wiley, New York, 1999).
+
+\bibitem{schrodinger1930}
+E.~Schr\"odinger,
+``\"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik,''
+Sitzungsber.\ Preuss.\ Akad.\ Wiss.\ Phys.-Math.\ Kl.\ \textbf{24}, 418--428 (1930).
+
+\bibitem{hestenes1990}
+D.~Hestenes,
+``The Zitterbewegung interpretation of quantum mechanics,''
+Found.\ Phys.\ \textbf{20}, 1213--1232 (1990).
+\href{https://doi.org/10.1007/BF01889466}{https://doi.org/10.1007/BF01889466}
+
+\bibitem{hanamura17765017}
+S.~Hanamura,
+``Quantum Oscillations: Bridging Zitterbewegung, Geodesic Paths, and Proper Time,''
+Zenodo (2024).
+\href{https://doi.org/10.5281/zenodo.17765017}{https://doi.org/10.5281/zenodo.17765017}
+
+\bibitem{hanamura17765318}
+S.~Hanamura,
+``Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765318}{https://doi.org/10.5281/zenodo.17765318}
+
+\bibitem{hanamura18356895}
+S.~Hanamura,
+``Geometrical Confinement: Rest Mass and Zitterbewegung as Topological Consequences of the 0-Sphere Geometry,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18356895}{https://doi.org/10.5281/zenodo.18356895}
+
+\bibitem{hanamura18067760}
+S.~Hanamura,
+``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.18067760}{https://doi.org/10.5281/zenodo.18067760}
+
+\bibitem{hanamura18135855}
+S.~Hanamura,
+``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18135855}{https://doi.org/10.5281/zenodo.18135855}
+
+\bibitem{dicke1954}
+R.~H.~Dicke,
+``Coherence in Spontaneous Radiation Processes,''
+Phys.\ Rev.\ \textbf{93}, 99--110 (1954).
+\href{https://doi.org/10.1103/PhysRev.93.99}{https://doi.org/10.1103/PhysRev.93.99}
+
+\bibitem{gross1982}
+M.~Gross and S.~Haroche,
+``Superradiance: An essay on the theory of collective spontaneous emission,''
+Phys.\ Rep.\ \textbf{93}, 301--396 (1982).
+\href{https://doi.org/10.1016/0370-1573(82)90102-8}{https://doi.org/10.1016/0370-1573(82)90102-8}
+
+\bibitem{hanamura18511664}
+S.~Hanamura,
+``Detailed Exposition of the 0-Sphere Model Framework for Gravitational-Like Phenomena,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18511664}{https://doi.org/10.5281/zenodo.18511664}
+
+\bibitem{hanamura18437010}
+S.~Hanamura,
+``Geometrical Confinement: Emergent Gravitational-Like Phenomena from 0-Sphere Topology,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18437010}{https://doi.org/10.5281/zenodo.18437010}
+
+\bibitem{poincare1906}
+H.~Poincar\'e,
+``Sur la dynamique de l'\'electron,''
+Rend.\ Circ.\ Mat.\ Palermo \textbf{21}, 129--175 (1906).
+\href{https://doi.org/10.1007/BF03013466}{https://doi.org/10.1007/BF03013466}
+
+\bibitem{lorentz1952}
+H.~A.~Lorentz,
+\textit{The Theory of Electrons and Its Applications to the Phenomena of Light and Radiant Heat},
+2nd ed.\ (Dover, New York, 1952).
+
+\bibitem{rohrlich2007}
+F.~Rohrlich,
+\textit{Classical Charged Particles}, 3rd ed.
+(World Scientific, Singapore, 2007).
+\href{https://doi.org/10.1142/6228}{https://doi.org/10.1142/6228}
+
+\bibitem{aharonov1959}
+Y.~Aharonov and D.~Bohm,
+``Significance of Electromagnetic Potentials in the Quantum Theory,''
+Phys.\ Rev.\ \textbf{115}, 485--491 (1959).
+\href{https://doi.org/10.1103/PhysRev.115.485}{https://doi.org/10.1103/PhysRev.115.485}
+
+\bibitem{berry1984}
+M.~V.~Berry,
+``Quantal phase factors accompanying adiabatic changes,''
+Proc.\ R.\ Soc.\ London A \textbf{392}, 45--57 (1984).
+\href{https://doi.org/10.1098/rspa.1984.0023}{https://doi.org/10.1098/rspa.1984.0023}
+
+\bibitem{hanamura17765409}
+S.~Hanamura,
+``Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Model,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765409}{https://doi.org/10.5281/zenodo.17765409}
+
+\bibitem{hanamura18603340}
+S.~Hanamura,
+``Non-Perturbative Nature and Fine-Structure Constant: Methodological Scope of the 0-Sphere Model,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18603340}{https://doi.org/10.5281/zenodo.18603340}
+
+\bibitem{hanamura18727981}
+S.~Hanamura,
+``On Vacuum Energy, Integral Ontology, and the Cosmological Constant: Supplementary Note on the Logical Status of $\Lambda$ in the 0-Sphere Model,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.18727981}{https://doi.org/10.5281/zenodo.18727981}
+
+\end{thebibliography}
+
+\end{document}

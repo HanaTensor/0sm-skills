@@ -1,0 +1,181 @@
+================================================================================
+Zenodo Relations — #44
+On Internal Energy Stabilization, Charge Localization, and Superradiant Rephasing
+DOI: 10.5281/zenodo.18905344
+Date: March 8, 2026
+================================================================================
+
+[Summary]
+  Cites:             11 Hanamura entries + 7 standard references (18 total bibitem)
+  Is supplement to:   3
+  Continues:          2
+  References:         3
+  Requires:           3
+  Is part of:         1
+  Unique Hanamura DOIs targeted: 13
+
+================================================================================
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+================================================================================
+
+  DOI: 10.5281/zenodo.16759284   — #1  A Model of an Electron Including Two
+                                        Perfect Black Bodies (2018)
+  DOI: 10.5281/zenodo.17765349   — #24 Thermal Geodesics (2025)
+  DOI: 10.5281/zenodo.18275142   — #32 Dissolution of the Vacuum Energy Problem (2026)
+  DOI: 10.5281/zenodo.18203433   — #31 Line Integrals as Fundamental Observables (2026)
+  DOI: 10.5281/zenodo.17765017   — #11 Quantum Oscillations: Bridging ZB,
+                                        Geodesic Paths, and Proper Time (2024)
+  DOI: 10.5281/zenodo.17765318   — #22 Gravitational Redshift of Internal
+                                        Quantum Clocks (2025)
+  DOI: 10.5281/zenodo.18356895   — #33 Geometrical Confinement: Rest Mass
+                                        and Zitterbewegung (2026)
+  DOI: 10.5281/zenodo.18067760   — #29 Geometric Structure of Spinorial Phase
+                                        Accumulation (2025)
+  DOI: 10.5281/zenodo.18135855   — #30 From Curvature to Connection (2026)
+  DOI: 10.5281/zenodo.18511664   — #35 Detailed Exposition of the 0-Sphere
+                                        Model for Gravitational-Like Phenomena (2026)
+  DOI: 10.5281/zenodo.18437010   — #34 Geometrical Confinement: Emergent
+                                        Gravitational-Like Phenomena (2026)
+  DOI: 10.5281/zenodo.17765409   — #26 Spin from Geometry: Internal Berry Phase (2025)
+  DOI: 10.5281/zenodo.18603340   — #36 Non-Perturbative Nature and Fine-Structure
+                                        Constant: Methodological Scope (2026)
+  DOI: 10.5281/zenodo.18727981   — #39 On Vacuum Energy, Integral Ontology, and
+                                        the Cosmological Constant (2026)
+
+  Standard references (non-Zenodo):
+  DOI: 10.1098/rspa.1938.0124    — Dirac (1938), radiation reaction
+  DOI: 10.1103/PhysRev.93.99     — Dicke (1954), superradiance
+  DOI: 10.1016/0370-1573(82)90102-8 — Gross & Haroche (1982), superradiance review
+  DOI: 10.1007/BF01889466        — Hestenes (1990), Zitterbewegung interpretation
+  DOI: 10.1098/rspa.1984.0023    — Berry (1984), geometric phase
+  DOI: 10.1103/PhysRev.115.485   — Aharonov & Bohm (1959), AB effect
+  DOI: 10.1007/BF03013466        — Poincare (1906), electron dynamics
+
+================================================================================
+[2] Is supplement to
+================================================================================
+
+  This document is explicitly titled as a Supplementary Note and consolidates
+  the stability mechanisms implicit in the geometrical confinement sub-series.
+
+  DOI: 10.5281/zenodo.18356895   — #33 Geometrical Confinement: Rest Mass
+                                        and Zitterbewegung
+        Rationale: supp(E) subset D and partial-D as causal boundary originate
+                   in #33; this Supplement makes those mechanisms explicit.
+
+  DOI: 10.5281/zenodo.18437010   — #34 Geometrical Confinement: Emergent
+                                        Gravitational-Like Phenomena
+        Rationale: Entropic entrainment and photon-sphere thermodynamics (mu=0)
+                   introduced in #34 are synthesized here.
+
+  DOI: 10.5281/zenodo.18203433   — #31 Line Integrals as Fundamental Observables
+        Rationale: The four-level conceptual hierarchy articulated in #31 is
+                   made the explicit organizing principle of this Supplement.
+
+================================================================================
+[3] Continues
+================================================================================
+
+  DOI: 10.5281/zenodo.18275142   — #32 Dissolution of the Vacuum Energy Problem
+        Rationale: #32 established topologically closed processes as the basis
+                   for dissolving the vacuum energy problem; this Supplement
+                   continues that argument into the domain of single-trajectory
+                   stability and charge localization.
+
+  DOI: 10.5281/zenodo.18603340   — #36 Non-Perturbative Nature and Fine-Structure
+                                        Constant: Methodological Scope
+        Rationale: Section 6 of this Supplement directly continues the scope
+                   delineation of #36, applying the principled boundary to the
+                   specific case of superradiant amplification and radiation spectra.
+
+================================================================================
+[4] References  (thematic and conceptual reference)
+================================================================================
+
+  DOI: 10.5281/zenodo.18636509   — #28 Supplementary Correction: Dimensional
+                                        Consistency of G and c^2
+        Rationale: Background reference for the geometric treatment of
+                   gravitational-like phenomena; thematically related to the
+                   confinement sub-series.
+
+  DOI: 10.5281/zenodo.18727981   — #39 On Vacuum Energy, Integral Ontology,
+                                        and the Cosmological Constant
+        Rationale: Explicitly noted in Section 5 as a complementary Supplement
+                   addressing the cosmological constant level; formally cited
+                   in bibitem but also a thematic peer of this document.
+
+  DOI: 10.5281/zenodo.18737981   — #40 On the Derivative-Order Mismatch Between
+                                        Gauge Theory and Gravity
+        Rationale: Part of the same supplement generation addressing the
+                   line-integral ontology from a different angle (gauge/gravity
+                   derivative-order distinction).
+
+================================================================================
+[5] Requires  (prerequisite papers for full understanding)
+================================================================================
+
+  DOI: 10.5281/zenodo.18356895   — #33 Geometrical Confinement: Rest Mass
+                                        and Zitterbewegung
+        Rationale: The confinement condition supp(E) subset D and the role of
+                   partial-D as causal boundary are derived in #33; reading
+                   required to evaluate the topological stability arguments here.
+
+  DOI: 10.5281/zenodo.18203433   — #31 Line Integrals as Fundamental Observables
+        Rationale: The four-level hierarchy (connection -> integrals -> E-momentum
+                   -> curvature) is defined in #31; required to evaluate how
+                   Sections 4-5 of this Supplement are derived from that structure.
+
+  DOI: 10.5281/zenodo.16759284   — #1  A Model of an Electron Including Two
+                                        Perfect Black Bodies
+        Rationale: Foundational paper defining the 0-Sphere Model (two-kernel
+                   structure, thermal geodesics, photon sphere); required as
+                   entry point to the entire series.
+
+================================================================================
+[6] Is part of
+================================================================================
+
+  DOI: 10.5281/zenodo.16759284   — #1  A Model of an Electron Including Two
+                                        Perfect Black Bodies
+        Rationale: Founding paper of the 0-Sphere Model series; this Supplement
+                   is part of the same ongoing series (2018-2026).
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+================================================================================
+
+The following Zenodo records should have relations added to include #44
+(DOI: 10.5281/zenodo.18905344) in their metadata.
+
+  Target: #33  DOI: 10.5281/zenodo.18356895
+    Add: Is supplemented by  10.5281/zenodo.18905344
+    Add: Is cited by         10.5281/zenodo.18905344
+
+  Target: #34  DOI: 10.5281/zenodo.18437010
+    Add: Is supplemented by  10.5281/zenodo.18905344
+    Add: Is cited by         10.5281/zenodo.18905344
+
+  Target: #31  DOI: 10.5281/zenodo.18203433
+    Add: Is supplemented by  10.5281/zenodo.18905344
+    Add: Is cited by         10.5281/zenodo.18905344
+
+  Target: #36  DOI: 10.5281/zenodo.18603340
+    Add: Is continued by     10.5281/zenodo.18905344
+    Add: Is cited by         10.5281/zenodo.18905344
+
+  Target: #32  DOI: 10.5281/zenodo.18275142
+    Add: Is continued by     10.5281/zenodo.18905344
+    Add: Is cited by         10.5281/zenodo.18905344
+
+  Target: #39  DOI: 10.5281/zenodo.18727981
+    Add: Is cited by         10.5281/zenodo.18905344
+
+  Target: #35  DOI: 10.5281/zenodo.18511664
+    Add: Is cited by         10.5281/zenodo.18905344
+
+  Target: #1   DOI: 10.5281/zenodo.16759284
+    Add: Is cited by         10.5281/zenodo.18905344
+
+================================================================================
+END OF RELATIONS FILE
+================================================================================
