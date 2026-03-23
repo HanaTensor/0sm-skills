@@ -95,3 +95,11 @@ Full fetch（全セクション）を指示：
 ```
 
 `05/` を Archive Group Files へ移動し、Active を `06/` に差し替える。
+
+---
+## このファイルの永続URL
+
+https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/pipeline-manifest.md
+
+Claude への指示例：
+「このURLをfetchしてパイプラインを展開して」
