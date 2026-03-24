@@ -1,0 +1,732 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % for captionsetup[figure]
+\usepackage{threeparttable} % for table caption modification
+\usepackage{breqn} % dmath: automatic equation line breaking
+\numberwithin{equation}{section}% (p.37)
+
+% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
+% not recommended for academic papers requiring strict typesetting.
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+\usepackage{booktabs}
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} % raggedright for left-aligned figure captions
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+
+\title{Emergent Conservation Laws from Internal Geometry:\\ A Noetherian Reinterpretation in the 0-Sphere Model}
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{June 22, 2025}
+
+
+
+\begin{abstract}
+This paper introduces the 0-Sphere model—a geometric and deterministic reinterpretation of quantum mechanics—based on internal oscillatory motion constrained by closed time-phase dynamics. In this framework, core quantum phenomena such as superposition, spin quantization, and Zitterbewegung emerge from rapid alternation between two internal energy kernels ($A$ and $B$), without invoking intrinsic randomness or wavefunction collapse.
+
+By linking special relativity and quantum electrodynamics through the relation $\gamma = 1 + a$, the model interprets the anomalous magnetic moment as a direct consequence of relativistic internal motion, providing an alternative to perturbative loop calculations. Incorporating general relativistic effects via geodetic precession, it predicts critical coherence-breaking radii, providing a geometric explanation for particle decay thresholds and mass hierarchy.
+
+A key conceptual shift is the inversion of the traditional Noetherian view: instead of deriving conservation laws from imposed symmetries, the 0-Sphere model shows how energy, spin, and charge conservation naturally emerge from the internal geometric constraints of the system. This approach reframes conserved quantities as consequences of intrinsic structure rather than externally imposed symmetry.
+
+Concrete numerical predictions—such as a Zitterbewegung velocity of $v_{\mathrm{ZB}} \approx 0.04047c$ and electron-scale radii in the range of $10^{-25}$ to $10^{-26}$ meters—provide experimentally relevant benchmarks. Overall, the 0-Sphere framework offers a unified and realist route toward reconciling quantum mechanics with geometric and relativistic principles.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+This work aims to shift the foundation of quantum theory by proposing that conservation laws are not consequences of imposed symmetries, but emergent features of internal deterministic geometry—an inversion of the Noetherian view.
+
+The standard formulation of quantum mechanics has achieved remarkable empirical success, accurately predicting a wide range of phenomena including superposition, entanglement, and spin quantization. However, despite its predictive power, the theory offers limited ontological insight into the physical mechanisms underlying these behaviors. The notion that a particle can exist in multiple spatial locations or spin states simultaneously, or that measurement outcomes are fundamentally probabilistic, remains conceptually unsettling. Interpretations invoking wavefunction collapse or purely formal evolution in Hilbert space often lack a clear physical picture, especially when applied to individual quantum events.
+
+This work proposes an alternative geometric framework—the \emph{0-Sphere model}—which seeks to complement, rather than replace, the established theoretical landscape. The model introduces an internal deterministic structure for quantum particles, wherein two dynamically alternating components, Kernel $A$ and Kernel $B$, evolve in a phase-locked manner within a compact, time-parametrized 0-sphere. These kernels are not independent subsystems, but expressions of a unified internal motion governed by closed time-phase geometry.
+
+In this framework, quantum phenomena such as spin superposition, delocalization, and Zitterbewegung emerge not from intrinsic randomness, but as macroscopic projections of fast internal oscillations. For instance, spin states conventionally interpreted as simultaneous opposites are here understood as rapid temporal alternations synchronized by a global phase. This interpretation allows for a coherent account of spin measurement outcomes without appealing to stochastic collapse, and suggests a natural, Lorentz-consistent basis for entanglement through phase-coherent internal dynamics in multi-particle systems~\cite{einstein1905}.
+
+Since Noether's foundational work~\cite{noether1918}, the principle that continuous symmetries give rise to conservation laws has become, in Anderson's words, virtually equivalent to saying that physics is the study of symmetry~\cite{anderson1972}. This paradigm, supported by the remarkable success of gauge theories~\cite{weinberg1996} and the Standard Model~\cite{gross1996}, positions symmetry as the fundamental organizing principle of modern physics.
+
+Crucially, this model invites a reinterpretation of how conservation laws arise. While \textbf{Noether’s theorem remains valid and foundational—relating continuous symmetries to conserved quantities—our approach suggests that such conservation laws may also emerge from internal geometric constraints,} without requiring externally imposed symmetries. In this sense, the 0-Sphere model does not challenge Noether’s principle, but instead explores a complementary pathway where symmetry arises as a consequence of internal coherence.
+
+Building on previous work related to relativistic spin motion, internal Zitterbewegung, and reinterpretations of the Dirac equation, the present study develops the 0-Sphere model into a predictive framework~\cite{barut1981}. It demonstrates how quantum fluctuation, rest energy, and spin quantization can be derived from deterministic internal dynamics. Moreover, the model yields concrete predictions—including velocity bounds, critical radii, and phase-modulated spin signatures—that point toward experimentally testable consequences of internal time-structure.
+
+
+% ========================================
+% Section 2: Motivation
+% ========================================
+\section{Motivation}
+
+One of the enduring mysteries in modern quantum theory is the nonlocal nature of quantum fluctuations—most famously exemplified by the fact that a particle can appear to exist in two spatially separated points simultaneously. While quantum electrodynamics has achieved remarkable predictive accuracy, with calculations of the electron anomalous magnetic moment reaching unprecedented precision~\cite{aoyama2015}, the underlying physical mechanism remains conceptually obscure~\cite{ballentine1998}.
+
+In conventional quantum mechanics, such behavior is described as a statistical outcome of wavefunction collapse or as a feature of path integral summation over all possible trajectories. However, these interpretations leave open the question of whether the particle's behavior reflects an ontological reality or merely our epistemic limitations.
+
+In this work, we propose a new geometric interpretation of quantum fluctuations grounded in a deterministic internal motion model—namely, the 0-Sphere Zitterbewegung model \cite{schrodinger1930}. In this framework, the particle is not statically spread out over space but instead undergoes rapid internal oscillation between two complementary geometric states, Kernel $A$ and Kernel $B$. These kernels are not probabilistic alternatives, but rather coexisting elements of a closed, phase-governed algebraic structure.
+
+This reinterpretation provides a concrete physical basis for phenomena typically regarded as purely quantum, such as superposition and vacuum fluctuations. The model suggests that quantum fluctuations may emerge as statistical shadows of relativistic internal motion, constrained by a closed geometric system with internal time-phase dynamics. This perspective enables a reevaluation of the foundations of quantum theory, in particular the nature of 'fluctuation,' locality, and the role of the observer, extending recent geometric algebra approaches~\cite{hestenes2010}.
+
+
+% ========================================
+% Section 3: Noetherian Inversion
+% ========================================
+\section{Noetherian Inversion: From Imposed Symmetries to Emergent Conservation}
+
+Building on the ontological reinterpretation proposed in the preceding sections, we now turn to the question of how conservation laws arise within the 0-Sphere model and how this perspective interfaces with the Noetherian framework.
+
+Conventional field theory asserts that conservation laws follow from continuous symmetries, as formalized by Noether's theorem. In this standard view, quantities such as charge, spin, and energy are preserved because the Lagrangian is invariant under global or local transformations—such as U(1) for electromagnetic interactions or SU(2) for weak isospin~\cite{tinkham1964}. These symmetries are imposed externally as fundamental inputs to the theory, with conservation laws emerging as mathematical consequences through the variational principle~\cite{hill1951}.
+
+The 0-Sphere model offers a fundamentally reversed perspective: \textbf{conservation laws arise not from imposed symmetries, but from internal geometric constraints inherent to the particle's own structure.} Within the closed time-phase dynamics of the 0-sphere, deterministic alternation between internal components (kernels $A$ and $B$) ensures that quantities such as energy and spin remain invariant over each oscillation cycle. These conservation properties emerge as geometric necessities of the system's topology and phase continuity, not as consequences of externally defined invariances.
+
+Crucially, this approach does not contradict Noether's theorem; rather, it suggests that \textbf{symmetry and conservation may represent complementary descriptions of the same underlying reality.} While Noether's theorem demonstrates that continuous symmetries \emph{can} generate conservation laws, the 0-Sphere model reveals that conservation laws can also \emph{generate} effective symmetries through internal structural constraints. This bidirectional relationship suggests a deeper unity between geometric structure and symmetry principles.
+
+To illustrate this conceptual inversion, consider the energy conservation relation central to our model:
+\begin{equation}
+E_0 = E_0 \left( \cos^4\left(\frac{\omega t}{2}\right) + \sin^4\left(\frac{\omega t}{2}\right) + \frac{1}{2}\sin^2(\omega t) \right)
+\end{equation}
+This conservation emerges not from an imposed time-translation symmetry, but from the geometric constraint that the total phase evolution must complete a closed cycle, ensuring invariance through symmetric sinusoidal redistribution of energy between the kernels.
+
+
+This inversion carries profound implications for our understanding of fundamental physics. Rather than viewing conservation laws as mathematical abstractions derived from imposed symmetries, the 0-Sphere framework suggests that they reflect \textbf{deep structural features of matter itself.} Future extensions of this model will examine whether global U(1) charge conservation and non-Abelian gauge symmetries can be similarly recast as emergent features arising from phase-synchronized internal geometry, potentially offering a more unified foundation for the Standard Model's symmetry structure.
+
+While Noether’s theorem establishes that symmetries are sufficient to produce conservation laws, the 0-Sphere model challenges their necessity by demonstrating that conservation can arise from geometric constraints, prompting a reevaluation of whether symmetries are fundamental or emergent.
+
+
+% ========================================
+% Section 4: Discussion
+% ========================================
+\section{Discussion}
+
+% ----------------------------------------
+% Subsection 4.1: Geometric Origin of TPE and the Two-Point Structure
+% ----------------------------------------
+\subsection{Geometric Origin of Thermal Potential Energy and the Two-Point Structure}
+
+In conventional quantum theory, the notion that a particle can simultaneously exist at two spatially separated points is typically explained by invoking the principle of superposition. This perspective, while powerful in predictive capacity, leaves the underlying mechanism ambiguous—particularly regarding how a particle chooses one position upon measurement. In the present 0-Sphere model, we propose an alternative: the apparent two-point presence of an electron at rest arises not from a probabilistic wavefunction but from a deterministic internal structure characterized by geometric duality.
+
+Specifically, we interpret the electron's rest energy as an internal \emph{thermal potential energy} (TPE), dynamically sustained by two internal geometric kernels, $A$ and $B$. These kernels are not probabilistic states but coexistent components of a closed oscillatory process. Each kernel is localized at a different point on a notional 0-sphere and is responsible for either emission or absorption in an internal energy-exchange cycle. Their synchronized behavior, governed by a common time phase, leads to a physical situation where TPE is simultaneously distributed across both positions. This scenario mimics the “two-location” property of superposition, but emerges here from deterministic internal dynamics.
+
+Furthermore, this model allows for a reinterpretation of the Dirac equation's positive and negative energy solutions~\cite{bjorken1964}. Traditionally, these are taken to represent particles and antiparticles, or treated using second quantization in the context of quantum field theory~\cite{greiner2000}. In our framework, however, these two energy signs are mapped onto the coexisting internal kernels $A$ and $B$ of a single electron. That is, the rest energy is not static but oscillatory in nature, composed of opposing phases linked to the Dirac spinor components~\cite{bjorken1964}. The electron’s mass-energy thus becomes an emergent result of internal dynamics rather than a fixed scalar property.
+
+This dual-kernel picture has significant implications. It suggests that the structure of matter is inherently geometric and that quantum fluctuation phenomena—such as apparent spatial delocalization—can be reinterpreted as macroscopic projections of an internal, relativistic oscillation process. It bridges the gap between probabilistic descriptions and ontological realism, providing a physically intuitive explanation of coexistence without resorting to abstract superpositions. By embedding this structure in a closed 0-sphere topology, the model preserves relativistic symmetry while offering a novel deterministic account of quantum localization phenomena.
+
+
+% ----------------------------------------
+% Subsection 4.2: Time-Phase Interpretation of Spin and the Measurement Problem
+% ----------------------------------------
+\subsection{Time-Phase Interpretation of Spin and the Measurement Problem}
+
+A central feature of quantum mechanics is the description of spin states as superpositions. For example, an electron may be in a state composed of both spin-up and spin-down components until measured~\cite{uhlenbeck1925}. This gives rise to foundational ambiguities such as the measurement problem, where the act of measurement appears to force the system into a definite state without any clear physical mechanism. Within the 0-Sphere model, we propose a fundamentally different view: the spin state is not simultaneously up and down but is time-phase dependent, alternating periodically between the two.
+
+In this view, the spin vector is a real internal quantity, undergoing a sinusoidal rotation about the \( z \)-axis with angular frequency \( 2\omega \). At any given time, the spin projection on the \( z \)-axis is either up or down, but not both. The key mechanism lies in the internal time phase that governs the kernel dynamics on the 0-sphere. This results in a deterministic alternation of spin direction, so that the spin state observed upon measurement is determined by the internal phase at the moment of measurement.
+
+This reinterpretation addresses several long-standing issues. First, it removes the need to invoke simultaneous superposition of spin eigenstates. This reinterpretation addresses several long-standing issues. First, it removes the need to invoke simultaneous superposition of spin eigenstates. Table~\ref{tab:comparison_extended} summarizes the major conceptual differences between this internal geometric interpretation and the standard quantum field framework.
+
+Instead, the apparent randomness in spin measurements arises from our ignorance of the internal phase at measurement time. Second, the measurement itself becomes a sampling of an ongoing internal oscillation, restoring a form of realism to quantum outcomes. In this framework, spin is not an indeterminate property, but a dynamically evolving internal vector.
+
+Crucially, this deterministic picture of spin evolution does not contradict the statistical violation of Bell inequalities. Rather, it reframes the violation as a consequence of phase-dependent sampling from an internally complete—but unobservable—dynamic system. This offers a middle ground between hidden-variable theories and conventional quantum mechanics: the model preserves locality in external space but introduces a nontrivial internal phase space. It implies that spin correlations observed in entangled particles may arise from synchronized internal phases rather than nonlocal collapse, thereby reinforcing the case for a realist interpretation of quantum mechanics.
+
+Table~\ref{tab:noether_comparison} summarizes the key distinctions between these complementary approaches.
+
+% ----------------------------------------
+% Table 1: Noetherian Framework vs 0-Sphere Model
+% ----------------------------------------
+\begin{table*}[t!]
+\caption{Comparison between Standard Noetherian Framework and the 0-Sphere Model}
+\label{tab:noether_comparison}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{4.8cm}p{6.2cm}p{6.2cm}}
+\toprule
+\textbf{Aspect} & \textbf{Standard Field Theory /} & \textbf{0-Sphere Model Interpretation} \\
+& \textbf{Noetherian Paradigm} & \\
+\midrule
+Starting Point & Imposed external symmetry as fundamental input (U(1), SU(2), spacetime translations) & Internal geometric constraint from closed 0-sphere topology and phase continuity \\
+\addlinespace[0.3cm]
+Conservation Laws Origin & Derived from continuous symmetries via Noether's theorem as mathematical consequences & Emergent from structural necessity of closed time-phase evolution and geometric constraints \\
+\addlinespace[0.3cm]
+Causal Direction & Symmetry $\rightarrow$ Conservation Laws (invariance principle generates conservation) & Internal Structure $\rightarrow$ Conservation $\rightarrow$ Effective Symmetry (geometry generates both) \\
+\addlinespace[0.3cm]
+Mathematical Basis & Lagrangian invariance under continuous transformations; variational principle & Phase-closed time evolution; geometric necessity of complete oscillation cycles \\
+\addlinespace[0.3cm]
+Energy Conservation & Time-translation symmetry $\partial L/\partial t = 0$ implies energy conservation & Closed oscillation cycle between kernels $A$ and $B$ ensures $E_0 = \text{constant}$ \\
+\addlinespace[0.3cm]
+Charge Conservation & Global U(1) gauge invariance of electromagnetic Lagrangian & Perfect black-body radiation balance between kernels prevents charge violation \\
+\addlinespace[0.3cm]
+Spin Conservation & Rotational symmetry in spin space (SU(2) invariance) & Internal angular momentum from alternating kernel dynamics with zero net torque \\
+\addlinespace[0.3cm]
+Momentum Conservation & Spatial translation symmetry $\partial L/\partial x = 0$ & Center-of-mass stability through balanced energy exchange in photon sphere \\
+\addlinespace[0.3cm]
+Symmetry Status & Fundamental principle imposed externally; defines physical law structure & Emergent geometric property arising from internal structural requirements \\
+\addlinespace[0.3cm]
+Physical Interpretation & Mathematical abstraction governing field behavior & Structural feature of matter reflecting deep geometric constraints \\
+\addlinespace[0.3cm]
+Gauge Field Role & Gauge bosons introduced to preserve local symmetry invariance & Internal photon sphere mediates energy exchange; symmetry emerges from confinement \\
+\addlinespace[0.3cm]
+Standard Model Connection & Symmetry groups (SU(3)$\times$SU(2)$\times$U(1)) as foundational input & Unified U(1) structure potentially generating observed symmetry patterns \\
+\addlinespace[0.3cm]
+Experimental Validation & Conservation laws confirm imposed symmetry principles & Conservation emerges naturally; symmetry becomes testable prediction \\
+\addlinespace[0.3cm]
+Theoretical Implications & Symmetry breaking explains mass generation and phase transitions & Internal structure evolution explains particle hierarchy and decay patterns \\
+\addlinespace[0.3cm]
+Relationship to Noether & Noether's theorem as derivation tool: symmetry implies conservation & Noether's theorem as consistency check: conservation should generate symmetry \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{flushleft}
+\footnotesize
+\textbf{Note:} This comparison illustrates the fundamental conceptual inversion between standard field theory and the 0-Sphere model. While Noether's theorem remains mathematically valid in both frameworks, the 0-Sphere model suggests that conservation laws can arise from geometric structural necessity rather than imposed symmetry, potentially offering a more fundamental understanding of why certain symmetries appear in nature.
+\end{flushleft}
+\end{table*}
+
+% After table, before next section
+%\vfill  % fill remaining space
+%\clearpage  % start new page
+
+
+% ----------------------------------------
+% Table 2: Standard QFT vs 0-Sphere Model
+% ----------------------------------------
+\begin{table*}[t!]
+\caption{Comparison between Standard Quantum Field Framework and the 0-Sphere Model}
+\label{tab:comparison_extended}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{4.8cm}p{6.2cm}p{6.2cm}}
+\toprule
+\textbf{Aspect} & \textbf{Standard Quantum Theory /} & \textbf{0-Sphere Model Interpretation} \\
+& \textbf{Gauge Field Paradigm} & \\
+\midrule
+Nature of Spin & Treated as an abstract SU(2) operator (spinor), quantized and frame-invariant & Described as a real, time-evolving vector generated by internal oscillation \\
+\addlinespace[0.3cm]
+Origin of Spin & Internal SU(2) symmetry of the field; independent of spatial geometry & Emerges from reciprocal oscillation between internal $A/B$ kernels in photon-sphere \\
+\addlinespace[0.3cm]
+Superposition & Coexistence of eigenstates in Hilbert space & Rapid alternation between internal kernels, modulated by time phase \\
+\addlinespace[0.3cm]
+Spin Measurement & Collapse to probabilistic eigenstates via projection operators & Phase-dependent projection of internal oscillating vector at measurement instant \\
+\addlinespace[0.3cm]
+Dirac Equation Solutions & Interpreted as particle/antiparticle or hole states & Mapped to real internal components ($A$ and $B$) of a single real electron \\
+\addlinespace[0.3cm]
+Quantum Fluctuation & Intrinsic indeterminacy from measurement process & Emergent from deterministic internal geometric motion (Zitterbewegung) \\
+\addlinespace[0.3cm]
+Entanglement & Nonlocal correlations requiring wavefunction collapse or many-worlds & Phase-locked oscillations between internal systems; no need for nonlocal causality \\
+\addlinespace[0.3cm]
+Measurement Problem & Requires external postulate (collapse, decoherence) & Determined by internal time-phase alignment with external field interaction \\
+\addlinespace[0.3cm]
+Gauge Symmetry & Fundamental principle: local SU(2)$\times$U(1) symmetry generates fields & Viewed as emergent from U(1) internal structure; SU(2) is derivative or projected \\
+\addlinespace[0.3cm]
+Noether’s Theorem & Links continuous symmetries to conserved quantities (e.g., charge) & Conservation arises from internal oscillatory structure; symmetry is not fundamental but emergent \\
+\addlinespace[0.3cm]
+Anomalous $g$-factor & Derived from loop corrections in QED perturbation theory & Attributed to relativistic contraction in internal oscillation cycle \\
+\addlinespace[0.3cm]
+Zeeman Effect & Caused by external magnetic field acting on spinor basis & Induced by intrinsic magnetic field from circulating internal motion \\
+\addlinespace[0.3cm]
+Zitterbewegung & Regarded as interference effect from Dirac theory; not observable classically & Treated as real internal vibrational motion of structured electron \\
+\addlinespace[0.3cm]
+ZB (electron) Velocity & Approaches speed of light ($\sim c$) via interference envelope & Approximately $0.04c$, predicted by internal oscillatory period \\
+\addlinespace[0.3cm]
+SU(2)$\times$U(1) Structure & Treated as fundamental gauge input to the Standard Model & Interpreted as projection from unified U(1) structure in confined geometry \\
+\addlinespace[0.3cm]
+Parity Violation & Intrinsic asymmetry in SU(2) weak interaction & Potentially resolved if SU(2) emerges from symmetric U(1) base \\
+\addlinespace[0.3cm]
+Field–Matter Relationship & Gauge fields shape matter interactions via imposed symmetry & Internal structure of matter gives rise to effective field symmetry \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{flushleft}
+\footnotesize
+\textbf{Note:} This table unifies conventional quantum-gauge theory views with reinterpretations suggested by the 0-Sphere model, particularly in relation to spin, measurement, internal structure, and gauge symmetry. Emphasis is placed on physical realization of mathematical constructs via internal oscillations.
+\end{flushleft}
+\end{table*}
+
+% After table, before next section
+\vfill  % fill remaining space
+\clearpage  % start new page
+
+
+
+% ----------------------------------------
+% Subsection 4.3: Emergent Conservation Laws and the Noetherian Framework
+% ----------------------------------------
+\subsection{Emergent Conservation Laws and the Noetherian Framework}
+
+The standard Noether theorem asserts that continuous symmetries in the action of a physical system lead to corresponding conserved quantities. In gauge field theory, this principle underlies conservation laws such as charge conservation (from global U(1) symmetry) and weak isospin conservation (from SU(2) symmetry). These symmetries are traditionally imposed as external structures on matter fields, and gauge bosons are introduced to preserve invariance under local transformations.
+
+In contrast, the 0-Sphere model reverses this direction. Conservation laws—such as charge, spin, and energy—emerge from the closed, phase-governed dynamics of the internal structure itself. The dual-kernel oscillatory motion constrained by the 0-sphere geometry ensures energy conservation through deterministic phase rotation. This conservation is not the result of a symmetry imposed externally, but rather a geometric necessity of the internal time-phase evolution.
+
+For example, the internal sinusoidal energy exchange
+\begin{equation}
+E_0 = E_0 \left( \cos^4\left(\frac{\omega t}{2}\right) + \sin^4\left(\frac{\omega t}{2}\right) + \frac{1}{2}\sin^2(\omega t) \right)
+\label{eq:energy_conservation_sinusoidal}
+\end{equation}
+guarantees that the total rest energy remains invariant under time evolution.
+
+The angular velocity of the internal spin vector in the 0-Sphere model is defined as:
+\begin{equation}
+\boldsymbol{\Omega}(t) = -\frac{1}{4c^2} \sin(2\omega t) \cdot \boldsymbol{e}_z
+\label{eq:angular_velocity_internal}
+\end{equation}
+This function describes a time-symmetric oscillation around the $z$-axis with zero mean. The corresponding instantaneous torque is given by the time derivative:
+\begin{equation}
+\boldsymbol{\tau}(t) = \frac{d\boldsymbol{\Omega}}{dt} = -\frac{\omega}{2c^2} \cos(2\omega t) \cdot \boldsymbol{e}_z
+\label{eq:instantaneous_torque}
+\end{equation}
+Note that $\boldsymbol{\Omega}(t)$ represents angular velocity, not a time-independent angular momentum as in conventional quantum mechanics for uniform circular motion. This angular velocity originates from internal phase oscillations within the constrained geometry of the photon sphere and differs from standard orbital rotation. It arises from Thomas precession in harmonically oscillating systems~\cite{thomas1926}, where linear acceleration induces rotational effects without circular motion. To analyze the system's dynamic stability, we evaluate the net torque over one oscillation period $T = \pi/\omega$:
+
+\begin{align}
+\int_0^T \boldsymbol{\tau}(t) dt &= -\frac{\omega}{2c^2} \int_0^{\pi/\omega} \cos(2\omega t) dt \\
+&= -\frac{\omega}{2c^2} \left[ \frac{\sin(2\omega t)}{2\omega} \right]_0^{\pi/\omega} \nonumber \\
+&= -\frac{\omega}{2c^2} \cdot \frac{1}{2\omega} \left[ \sin(2\omega t) \right]_0^{\pi/\omega} \nonumber \\
+&= -\frac{1}{4c^2} \left[ \sin\left(2\omega \cdot \frac{\pi}{\omega}\right) - \sin(2\omega \cdot 0) \right] \nonumber \\
+&= -\frac{1}{4c^2} \left[ \sin(2\pi) - \sin(0) \right] \nonumber \\
+&= -\frac{1}{4c^2} \left[ 0 - 0 \right] = 0 \nonumber
+\label{eq:torque_integration_zero}
+\end{align}
+This demonstrates that although the internal angular velocity oscillates and the system experiences instantaneous torque, the net torque over one full cycle is exactly zero. The system therefore sustains a stable oscillatory angular motion without requiring external forces or continuous torque input, following principles of symplectic geometry~\cite{arnold1989}. Unlike conventional circular motion models for spin, this approach accounts for the two-valued spin outcome as a natural result of bidirectional phase-coherent oscillation, incorporating Thomas precession effects~\cite{thomas1926}.
+
+A mechanical analogy may help clarify this cyclic behavior. Consider the motion of a fire-starting stick twisted by pulling a string back and ~\cite{goldstein2001}, or a two-hole button twisted by a looped thread. In both cases, the object undergoes alternating clockwise and counterclockwise rotations. Although the instantaneous angular velocity changes continuously—reaching zero and maximum in each direction—the net angular momentum over a complete cycle sums to zero. This mirrors the behavior of the internal angular velocity $\boldsymbol{\Omega}(t)$, which oscillates sinusoidally and yields no net torque when integrated over one period. Such examples illustrate how spin may emerge from phase-symmetric linear reciprocation, rather than from circular motion.
+
+
+% ========================================
+% Section 5: Conclusion
+% ========================================
+\section{Conclusion}
+
+In this work, we have introduced the 0-Sphere model as a geometric reinterpretation of quantum fluctuation and spin dynamics. Rather than treating quantum behavior as inherently probabilistic, this framework proposes that phenomena such as delocalization, spin superposition, and entanglement can emerge from deterministic internal motion governed by a closed, time-phase geometry.
+
+A central insight of this approach is its reversal of the conventional Noetherian perspective. Traditionally, conservation laws such as charge or spin are derived from externally imposed symmetries via Noether’s theorem. In contrast, the 0-Sphere model suggests that conservation laws naturally arise from the geometric and oscillatory constraints of the internal system itself. This internal determinism leads to emergent conservation of energy, spin, and momentum—not as consequences of external symmetry, but as necessities of the closed phase structure.
+
+By demonstrating that symmetries can emerge from internal geometry, the 0-Sphere model challenges the traditional view of symmetries as fundamental, opening a new philosophical inquiry into the origins of physical law."
+
+Unlike standard quantum theory, which interprets superposition as the coexistence of incompatible states, our model describes two internal components (Kernels $A$ and $B$) oscillating in anti-phase along a constrained trajectory. This reinterpretation offers a deterministic explanation of spin behavior, resolves paradoxes related to spin measurement and Dirac’s positive-negative energy solutions, and grounds them in an internal time-structured geometry.
+
+We also showed that the electron’s rest energy can be interpreted as an internal thermal potential energy (TPE), continuously exchanged between radiation-like and absorption-like phases within the same particle. This dynamic is consistent with Lorentz invariance and avoids invoking nonlocal collapse or ad hoc probabilistic assumptions.
+
+To aid conceptual clarity, Table~\ref{tab:comparison_extended} contrasts the standard quantum interpretation with the 0-Sphere model, emphasizing how several puzzling features of quantum mechanics may be understood more intuitively through internal geometrical dynamics.
+
+Future work will extend this framework to multi-component systems and explore experimentally testable predictions, such as phase-resolved spin detection and Zitterbewegung modulation, building on advances in precision measurement techniques~\cite{gabrielse2013, fan2023}. Overall, the 0-Sphere model provides a novel pathway for understanding quantum phenomena as emergent from intrinsic structure—suggesting that internal symmetries may be the origin, rather than the consequence, of conserved quantities.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+% Part 1: Main text citations (in order of appearance)
+
+\bibitem{einstein1905} 
+A. Einstein, ``Zur Elektrodynamik bewegter Körper,'' \textit{Annalen der Physik}, \textbf{17}(10), 891--921 (1905). \href{https://doi.org/10.1002/andp.19053221004}{https://doi.org/10.1002/andp.19053221004}.
+
+\bibitem{noether1918} 
+E. Noether, ``Invariante Variationsprobleme,'' \textit{Nachrichten von der Gesellschaft der Wissenschaften zu Göttingen, Mathematisch-Physikalische Klasse}, 235--257 (1918).
+
+\bibitem{anderson1972} 
+P. W. Anderson, ``More is different,'' \textit{Science}, \textbf{177}(4047), 393--396 (1972). \href{https://doi.org/10.1126/science.177.4047.393}{https://doi.org/10.1126/science.177.4047.393}.
+
+\bibitem{weinberg1996} 
+S. Weinberg, \textit{The Quantum Theory of Fields, Volume 1: Foundations}, Cambridge University Press (1996). ISBN: 978-0521670531.
+
+\bibitem{gross1996} 
+D. J. Gross, ``The role of symmetry in fundamental physics,'' \textit{Proceedings of the National Academy of Sciences}, \textbf{93}(25), 14256--14259 (1996). \href{https://doi.org/10.1073/pnas.93.25.14256}{https://doi.org/10.1073/pnas.93.25.14256}.
+
+\bibitem{barut1981} 
+A. O. Barut and A. J. Bracken, ``Zitterbewegung and the internal geometry of the electron,'' \textit{Physical Review D}, \textbf{23}(10), 2454--2463 (1981). \href{https://doi.org/10.1103/PhysRevD.23.2454}{https://doi.org/10.1103/PhysRevD.23.2454}.
+
+\bibitem{aoyama2015} 
+T. Aoyama, M. Hayakawa, T. Kinoshita, and M. Nio, ``Tenth-Order Electron Anomalous Magnetic Moment,'' \textit{Physical Review D}, \textbf{91}, 033006 (2015). \href{https://doi.org/10.1103/PhysRevD.91.033006}{https://doi.org/10.1103/PhysRevD.91.033006}.
+
+\bibitem{ballentine1998} 
+L. E. Ballentine, \textit{Quantum Mechanics: A Modern Development}, World Scientific (1998). ISBN: 978-9810241056.
+
+\bibitem{schrodinger1930} 
+E. Schrödinger, ``Über die kräftefreie Bewegung in der relativistischen Quantenmechanik,'' \textit{Sitzungsberichte der Preussischen Akademie der Wissenschaften, Physikalisch-Mathematische Klasse}, \textbf{24}, 418--428 (1930).
+
+\bibitem{hestenes2010} 
+D. Hestenes, ``Zitterbewegung in Quantum Mechanics,'' \textit{Foundations of Physics}, \textbf{40}(1), 1--54 (2010). \href{https://doi.org/10.1007/s10701-009-9380-8}{https://doi.org/10.1007/s10701-009-9380-8}.
+
+\bibitem{tinkham1964} 
+M. Tinkham, \textit{Group Theory and Quantum Mechanics}, McGraw-Hill (1964). ISBN: 978-0486432472.
+
+\bibitem{hill1951} 
+E. L. Hill, ``Hamilton's principle and the conservation theorems of mathematical physics,'' \textit{Reviews of Modern Physics}, \textbf{23}(3), 253--260 (1951).
+
+\bibitem{bjorken1964} 
+J. D. Bjorken and S. D. Drell, \textit{Relativistic Quantum Mechanics}, McGraw-Hill (1964). ISBN: 978-0070054936.
+
+\bibitem{greiner2000} 
+W. Greiner, \textit{Relativistic Quantum Mechanics: Wave Equations}, Springer (2000). ISBN: 978-3540674573.
+
+\bibitem{uhlenbeck1925} 
+G. E. Uhlenbeck and S. A. Goudsmit, ``Spinning Electrons and the Structure of Spectra,'' \textit{Naturwissenschaften}, \textbf{13}, 953 (1925); \textit{Nature}, \textbf{117}, 264--265 (1926). \href{https://www.ffn.ub.es/luisnavarro/nuevo_maletin/Uhlenbeck_Goudsmit_1926.pdf}{https://doi.org/10.1038/117264a0}.
+
+\bibitem{thomas1926} 
+L. H. Thomas, ``The Motion of the Spinning Electron,'' \textit{Nature}, \textbf{117}, 514 (1926); \textit{Philosophical Magazine}, \textbf{3}, 1--22 (1927). \href{https://www.nature.com/articles/117514a0}{https://doi.org/10.1038/117514a0}.
+
+\bibitem{arnold1989} 
+V. I. Arnold, \textit{Mathematical Methods of Classical Mechanics}, Springer (1989). ISBN: 978-0387968902.
+
+\bibitem{goldstein2001} 
+H. Goldstein, C. Poole, and J. Safko, \textit{Classical Mechanics (3rd Edition)}, Addison Wesley (2001). ISBN: 978-0201657029.
+
+\bibitem{gabrielse2013} 
+G. Gabrielse, ``The standard model's greatest triumph,'' \textit{Physics Today}, \textbf{66}(12), 64--65 (2013). \href{https://doi.org/10.1063/PT.3.2221}{https://doi.org/10.1063/PT.3.2221}.
+
+\bibitem{fan2023} 
+X. Fan, T. G. Myers, B. A. D. Sukra, and G. Gabrielse, ``Measurement of the Electron Magnetic Moment,'' \textit{Physical Review Letters}, \textbf{130}, 071801 (2023). \href{https://doi.org/10.1103/PhysRevLett.130.071801}{https://doi.org/10.1103/PhysRevLett.130.071801}.
+
+% Part 2: Appendix citations (in order of appearance)
+
+\bibitem{hanamura1811.0312} 
+S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{https://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+
+\bibitem{hanamura2018} 
+S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{https://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+
+\bibitem{hanamura2006.0104} 
+S. Hanamura, Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17760132}{doi:10.5281/zenodo.17760132}. [Originally: \href{https://vixra.org/abs/2006.0104}{viXra:2006.0104}]
+
+\bibitem{zhang2013} 
+L. J. LeBlanc, M. C. Beeler, K. Jiménez-García, A. R. Perry, S. Sugawa, R. A. Williams, and I. B. Spielman, ``Direct observation of zitterbewegung in a Bose–Einstein condensate,'' \textit{New Journal of Physics}, \textbf{15}, 073011 (2013). \href{https://doi.org/10.1088/1367-2630/15/7/073011}{https://doi.org/10.1088/1367-2630/15/7/073011}.
+
+\bibitem{hanamura2309.0047} 
+S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction, Zenodo (2023), \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}. [Originally: \href{https://vixra.org/abs/2309.0047}{viXra:2309.0047}]
+
+\bibitem{dehmelt1988} 
+H. Dehmelt, ``A single atomic particle forever floating at rest in free space: New value for electron radius,'' \textit{Physica Scripta}, \textbf{T22}, 102--110 (1988). \href{https://doi.org/10.1088/0031-8949/1988/T22/016}{https://doi.org/10.1088/0031-8949/1988/T22/016}.
+
+\bibitem{hanamura2411.0117} 
+S. Hanamura, Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer, Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17765017}{doi:10.5281/zenodo.17765017}. [Originally: \href{https://vixra.org/abs/2411.0117}{viXra:2411.0117}]
+
+\bibitem{walker2013} 
+J. Walker, Z. Q. Zhang, Y. V. Kartashov, F. Ye, Y. Y. Lin, A. Szameit, and Z. Chen, ``Observation of Zitterbewegung in photonic microcavities,'' \textit{Light: Science \& Applications}, \textbf{12}, 289 (2023). \href{https://doi.org/10.1038/s41377-023-01304-0}{https://doi.org/10.1038/s41377-023-01304-0}.
+
+\bibitem{wigner1960} 
+E. P. Wigner, ``The unreasonable effectiveness of mathematics in the natural sciences,'' \textit{Communications on Pure and Applied Mathematics}, \textbf{13}(1), 1--14 (1960). \href{https://doi.org/10.1002/cpa.3160130102}{https://doi.org/10.1002/cpa.3160130102}.
+
+\bibitem{misner1973} 
+C. W. Misner, K. S. Thorne, and J. A. Wheeler, \textit{Gravitation}, W. H. Freeman (1973). ISBN: 978-0716703440.
+
+\bibitem{hanamura2501.0130} 
+S. Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principles Approach to Anomalous Magnetic Moments and Geodetic Precession, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765097}{doi:10.5281/zenodo.17765097}. [Originally: \href{https://vixra.org/abs/2501.0130}{viXra:2501.0130}]
+
+\bibitem{hanamura2504.0115} 
+S. Hanamura, Spin-Induced Inertial Resistance in Electrons: A Gyroscopic Interpretation Based on General Relativity, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765121}{doi:10.5281/zenodo.17765121}. [Originally: \href{https://vixra.org/abs/2504.0115}{viXra:2504.0115}]
+
+\bibitem{nash1983} 
+C. Nash and S. Sen, \textit{Topology and Geometry for Physicists}, Academic Press (1983). ISBN: 978-0125140805.
+
+\bibitem{hanamura2506.0072} 
+S. Hanamura, Spin as a Real Vector from Internal Photon-Sphere Motion: Geometric Origin of U(1) Gauge and SU(2) Periodicity, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765238}{doi:10.5281/zenodo.17765238}. [Originally: \href{https://vixra.org/abs/2506.0072}{viXra:2506.0072}]
+
+\end{thebibliography}
+
+% ========================================
+% Appendix: Chronological Development of the 0-Sphere Model
+% ========================================
+\section{appendix}
+
+% ----------------------------------------
+% Appendix Overview: Chronological Development
+% ----------------------------------------
+\subsection{Chronological Development of the 0-Sphere Model}
+
+This appendix traces the theoretical evolution of the 0-Sphere model through the author's published works, demonstrating how the fundamental concepts emerged and matured over time. Each subsection corresponds to a major publication that contributed essential elements to the current comprehensive framework.
+
+% ----------------------------------------
+% Appendix A.1: Foundational Framework (2018 paper)
+% ----------------------------------------
+\subsection{Foundational Framework: The Dual-Kernel Electron Model (2018 paper~\cite{hanamura1811.0312})}
+
+The earliest conceptual foundation of what would later become the 0-Sphere model emerged from a fundamental concern about ultraviolet divergence in quantum electrodynamics. The author recognized that traditional QED calculations involving electron self-energy lead to infinite results when the electron radius approaches zero. This mathematical pathology suggested that treating the electron as a dimensionless point particle might be fundamentally flawed. \textbf{The initial insight was revolutionary: rather than accepting renormalization as a mathematical fix, the author proposed that electrons possess an internal structure that prevents such divergences.}
+
+Rather than viewing the electron as a dimensionless point particle, the 0-Sphere model conceptualizes it as containing two energy kernels $A$ and $B$ that exchange thermal potential energy through a photon sphere\cite{hanamura2018}. This internal structure functions as a miniature clock with intricate ``gears'' --- representing the internal oscillatory motion (Zitterbewegung (\textit{trembling motion})) that gives the electron its intrinsic properties\cite{schrodinger1930}. The oscillatory energy exchange follows a simple conservation law:
+\begin{equation}
+E_0 = E_0 \left( \cos^4 \left( \frac{\omega t}{2} \right) + \sin^4 \left( \frac{\omega t}{2} \right) + \frac{1}{2} \sin^2 (\omega t) \right)
+\label{eq:energy_conservation}
+\end{equation}
+This equation describes how the electron's rest energy oscillates between thermal potential energy in the two kernels while maintaining perfect energy conservation. Here, $\gamma^*_{\mathrm{K.E.}}$ represents the photon sphere that carries all the thermal potential energy from Kernel A once it is entirely converted into kinetic energy. Although the asterisk notation is shared with that of virtual photons in conventional Feynman diagrams, the two concepts are fundamentally different in this framework.
+
+The mathematical structure reveals three distinct oscillatory components. The first two terms, $\cos^4(\omega t/2)$ and $\sin^4(\omega t/2)$, represent the thermal potential energies of kernels $A$ and $B$ respectively, each exhibiting quartic oscillation with half the fundamental frequency. The third term, $\frac{1}{2}\sin^2(\omega t)$, corresponds to the kinetic energy of the photon sphere mediating between the kernels. This formulation ensures perfect energy conservation throughout the oscillation cycle while providing a concrete physical mechanism for electron stability.
+
+The thermodynamic interpretation represents a radical departure from conventional quantum mechanics. Each kernel functions as a perfect black body, alternately emitting and absorbing electromagnetic radiation according to classical thermodynamic principles. This approach replaces abstract quantum mechanical energy levels with tangible thermal processes, providing physical intuition for phenomena that previously required purely mathematical descriptions. The requirement for perfect black body behavior emerges from charge conservation constraints, as any deviation would lead to charge violation over multiple oscillation cycles.
+
+The model's treatment of virtual photons constitutes another major conceptual advance. Traditional QED treats virtual photons as mathematical artifacts with no independent physical existence, but this work reconceptualizes them as real electromagnetic fields confined within the electron structure. These real photons become trapped by the electromagnetic fields of the kernels, creating a photon sphere that mediates energy transfer. This reinterpretation eliminates the need for virtual particles to violate energy-momentum conservation, as confined real photons follow standard electromagnetic propagation within their constrained geometry.
+
+Spinor behavior emerges from the dual-kernel geometry through the half-frequency oscillations of the kernels. The $\omega t/2$ terms in the energy expressions automatically produce the characteristic 720-degree rotation symmetry of spin-1/2 particles, requiring a full $4\pi$ rotation cycle rather than $2\pi$. This geometric origin of spin resolves the classical puzzle of how point particles can possess intrinsic angular momentum, showing that spin arises from internal rotation within the confined kernel geometry rather than abstract quantum mechanical postulates.
+
+The most significant achievement of this foundational work was demonstrating that electron self-energy interactions could be rendered finite through internal structure. By replacing point-particle self-interaction with inter-kernel interactions over finite distances, the model eliminates ultraviolet divergences without requiring renormalization procedures. The finite size of the photon sphere provides a natural cutoff scale, suggesting that geometric internal structure could provide a systematic approach to divergence-free quantum field theory. This represents a return to the pre-renormalization ideal of finite, well-defined physical calculations while maintaining full compatibility with experimental observations.
+
+% ----------------------------------------
+% Appendix A.2: Dirac Equation Reinterpretation (2020 paper)
+% ----------------------------------------
+\subsection{Dirac Equation Reinterpretation: Positive and Negative Energy States (2020 paper~\cite{hanamura2006.0104})}
+
+The next major breakthrough in the theoretical development came with the revolutionary reinterpretation of the Dirac equation's positive and negative energy solutions. Rather than following Dirac's original interpretation where negative energy states represent antiparticles, this work proposed that both positive and negative solutions correspond to different aspects of a single electron's internal dynamics. \textbf{This represented a fundamental shift from particle-antiparticle duality to internal kernel duality within a single particle.}
+
+The critical innovation lay in mapping the positive and negative energy solutions of the Dirac equation directly onto the two-kernel structure previously established. The positive energy solution $E\Psi^{(+)} = mc^2\Psi^{(+)}$ corresponds to one kernel configuration, while the negative energy solution $E\Psi^{(-)} = -mc^2\Psi^{(-)}$ represents the complementary kernel state. This mapping eliminates the need for antiparticles in the basic description of electron behavior, instead attributing both solutions to the alternating thermal states of kernels $A$ and $B$ within a single electron.
+
+The model introduces a crucial distinction between conventional momentum $p$ and internal photon momentum $p_{\gamma^*}$. While traditional treatments consider $p = 0$ for an electron at rest, the internal photon sphere continues to oscillate between kernels with momentum $p_{\gamma^*} \neq 0$. This internal momentum can take both positive and negative values depending on the direction of energy transfer between kernels. When kernel A radiates thermal potential energy to kernel B, the photon sphere moves in one direction with $p_{\gamma^*} > 0$; when the roles reverse, $p_{\gamma^*} < 0$. This bidirectional momentum explains the positive and negative momentum solutions in the Dirac equation without invoking backward time evolution.
+
+The thermal interpretation of mass provides elegant resolution to the negative energy puzzle. The kernels function as alternating thermal sources, with their effective masses changing according to their radiation and absorption cycles. When a kernel radiates energy, its effective mass decreases (corresponding to negative energy states), while the absorbing kernel's mass increases (positive energy states). The total rest mass $mc^2$ remains constant through conservation laws, but its distribution between kernels oscillates according to their thermal exchange cycle. This dynamic mass distribution provides physical meaning to the positive and negative mass terms in the Dirac equation.
+
+The spatial freedom of kernel motion introduces another crucial element absent from previous formulations. When energy transfers from kernel $A$ to kernel $B$, after kernel $B$ has received all the rest mass from kernel $A$, the kernel that subsequently receives the TPE (Thermal Potential Energy) radiated from kernel B does not necessarily need to return to the original spatial coordinates where kernel $A$ was located. Instead, this new receiving kernel can relocate anywhere on the surface of a sphere with radius on the order of the Compton wavelength. 
+
+After kernel $A$ transitions to kernel $B$, the electron oscillates through successive copying transitions from kernel $B$ to kernel $C$ and so forth. Although this process possesses a simple pendulum structure, the position of kernel $C$ does not necessarily need to return to the original position of kernel $A$. This presents a picture that differs from a macroscopic pendulum with an attached weight.
+
+This geometric freedom allows the electron to exhibit Brownian motion while maintaining its internal coherence through the constraining photon sphere. The model thus provides a classical mechanism for quantum mechanical position uncertainty while preserving deterministic internal dynamics.
+The wave function interpretation undergoes radical transformation in this framework. The traditional assignment $\Psi = [\text{particle}, \text{antiparticle}]^T$ becomes $\Psi = [\text{Kernel A}, \text{Kernel B}]^T$, where kernel $A$ and kernel $B$ represent the two thermal spots within a single electron. The four-component Dirac spinor accommodates this dual-kernel structure, with the upper two components describing one kernel's thermal state and the lower two components describing the other kernel. This reinterpretation eliminates conceptual difficulties associated with negative energy antiparticles while providing concrete physical content to abstract mathematical objects.
+
+The momentum-phase relationship reveals sophisticated mathematical structure underlying the apparently simple thermal exchange. The internal photon momentum varies sinusoidally with the kernel oscillation phase, taking specific positive and negative values during different portions of the cycle. When plotted against phase, the momentum exhibits clear harmonic behavior that directly corresponds to the positive and negative solutions of the Dirac equation. This connection demonstrates that relativistic wave equations can emerge from classical thermal dynamics when appropriate internal structure is considered.
+
+This work established several boundary conditions essential for the model's consistency. The requirement that both kernels maintain nonzero thermal energy at all times prevents charge conservation violations that would occur if all energy concentrated in a single kernel. The constraint that energy exchange occurs only within the photon sphere radius ensures electromagnetic field confinement and prevents energy loss to external radiation. The stipulation that kernel positions remain within Compton wavelength distances maintains quantum mechanical scaling while allowing classical thermal processes.
+
+The implications for quantum field theory prove far-reaching. By providing classical mechanisms for phenomena typically attributed to particle creation and annihilation, the model suggests that second quantization might emerge from collective thermal dynamics rather than fundamental field operators. The success in reinterpreting negative energy states indicates that other apparent paradoxes in relativistic quantum mechanics might similarly yield to geometric thermal models, as suggested by observations in ultracold atomic systems~\cite{zhang2013}. This opens possibilities for reformulating quantum field theory on classical thermodynamic foundations while preserving its predictive accuracy.
+
+% ----------------------------------------
+% Appendix A.3: Experimental Predictions and gamma=1+a Breakthrough (2023 paper)
+% ----------------------------------------
+\subsection{Experimental Predictions and the $\gamma = 1 + a$ Breakthrough (2023 paper~\cite{hanamura2309.0047})}
+
+This landmark publication marked the transition of the 0-Sphere model from purely theoretical framework to experimentally testable theory. For the first time, the model generated concrete quantitative predictions that could be verified through measurement, establishing its credentials as a scientific theory rather than merely a conceptual exercise. The work's central achievement was the discovery of a profound mathematical relationship connecting relativistic and quantum phenomena that had previously been considered entirely separate domains.
+
+The most revolutionary insight emerged from reinterpreting Thomas precession for harmonically oscillating systems rather than uniform circular motion. Traditional treatments assume constant acceleration in Thomas precession calculations, but this work recognized that electron motion within the dual-kernel structure exhibits sinusoidal acceleration patterns. By substituting $a = -\sin\omega t$ instead of constant acceleration into the Thomas precession formula
+\begin{equation}
+\Omega = \frac{1}{2c^2}[\mathbf{a} \times \mathbf{v}],
+\end{equation}
+the author discovered that the angular velocity acquires a doubled frequency component. This mathematical transformation provides the first classical derivation of the factor-of-two enhancement in spin magnetic efficiency compared to orbital motion.
+
+The key mathematical breakthrough occurs when calculating the cross product of sinusoidal velocity and acceleration. The substitution $v_{\gamma^*} = \cos\omega t$ and $a_{\gamma^*} = -\sin\omega t$ yields angular velocity
+\begin{equation}
+\Omega = \frac{1}{2c^2} \cdot \left( -\frac{1}{2}\sin 2\omega t \right),
+\end{equation}
+revealing the crucial doubling of frequency from $\omega t$ to $2\omega t$. This result provides classical foundation for spin quantization in units of $\hbar/2$ rather than $\hbar$, resolving the long-standing puzzle of why spin magnetic moments are twice as efficient as orbital magnetic moments.
+
+The work's most profound contribution lies in connecting the anomalous magnetic moment to Lorentz contraction through rotational geometry. Einstein's 1912 observation that rotating coordinate systems exhibit circumference-to-diameter ratios different from $\pi$ due to Lorentz contraction becomes the foundation for understanding anomalous magnetic behavior. The author proposed that when electron spin involves motion approaching relativistic speeds, the effective circumference of rotation contracts according to special relativity, creating a discrepancy from classical expectations that manifests as the anomalous magnetic moment.
+
+This insight led to the derivation of the fundamental equation
+\begin{equation}
+\gamma = 1 + a,
+\label{eq:gamma_anomaly_relation}
+\end{equation}
+directly connecting the Lorentz factor from special relativity with the electron's anomalous magnetic moment from quantum electrodynamics. \textbf{This simple yet profound relationship bridges two traditionally separate domains of physics, demonstrating that quantum corrections and relativistic effects share a common geometric origin.} The equation implies that the anomalous magnetic moment is not a purely quantum phenomenon but emerges from relativistic motion within the electron's internal structure.
+
+Here, \( \gamma \) is the Lorentz factor, commonly defined in special relativity by the expression
+\begin{equation}
+\gamma = \frac{1}{\sqrt{1 - \beta^2}} = \frac{1}{\sqrt{1 - \left( \frac{v}{c} \right)^2}},
+\label{eq:lorentz_factor_definition}
+\end{equation}
+where \( \beta = v/c \) is the normalized velocity of the particle relative to the speed of light \( c \). The parameter \( a \) denotes the anomalous magnetic moment, specifically \( a = (g - 2)/2 \), where \( g \) is the gyromagnetic ratio. In the context of this paper, we adopt the experimentally measured value of the electron's anomalous magnetic moment as input for \( a \), treating it as a physically grounded observable that encodes both quantum and geometric information.
+
+Building on this geometric reinterpretation, the model enables direct numerical predictions for observables related to internal motion. This provides a quantitative operational meaning to the geometric hypothesis.
+
+The quantitative prediction of Zitterbewegung velocity represents the model's first experimentally testable forecast. Using the measured anomalous magnetic moment value $a_e^{\exp} = 0.001159652180659(13)$ and applying Lorentz contraction principles, the author calculated that electrons undergo internal oscillatory motion at approximately 4\% of light speed: $v_{\mathrm{ZB}} \approx 0.04047c \approx 12,133$ km/s. This specific numerical prediction provides a concrete target for experimental verification and distinguishes the 0-Sphere model from purely philosophical interpretations of quantum mechanics.
+
+The incorporation of general relativistic effects through geodetic precession adds sophisticated theoretical depth while enabling predictions of electron size. By combining special relativistic Lorentz contraction with general relativistic geodetic precession in the formula
+\begin{equation}
+\frac{L}{L_0} = \frac{1}{1 + \sqrt{\frac{1}{2}}a_e - \frac{\Delta\phi_{geodetic}}{2\pi}},
+\end{equation}
+the model creates relationships between electron radius and oscillation velocity that can be tested experimentally. Current experimental bounds on electron size combine with calculated velocities to predict electron radii in the range $10^{-25}$ to $10^{-26}$ meters.
+
+The reinterpretation of spin behavior provides elegant resolution to measurement paradoxes in quantum mechanics. Rather than requiring simultaneous superposition of up and down spin states, the model describes spin as temporally alternating between these orientations according to the internal oscillation phase. The discrete observations of spin up and spin down correspond to measurement timing relative to the internal harmonic motion, similar to releasing a spring-loaded sphere at specific points in the oscillation cycle. This classical picture eliminates the need for wavefunction collapse while preserving statistical quantum mechanical predictions.
+
+The theoretical framework successfully unifies multiple previously disconnected phenomena. Thomas precession, anomalous magnetic moments, Zitterbewegung motion, Lorentz contraction, and geodetic precession all emerge as different aspects of the same underlying geometric process. This unification suggests that much of modern physics' complexity might arise from observing different projections of simpler underlying dynamics rather than from fundamentally disparate physical laws.
+
+The work establishes crucial experimental criteria for validating the theory. Measurement of either electron radius below $10^{-22}$ meters or direct detection of 4\% light-speed internal oscillations would provide definitive tests of the model's validity. Advanced interferometry, precision spectroscopy, or next-generation particle traps might achieve the required sensitivity to observe these predicted effects directly~\cite{dehmelt1988}. The theory's falsifiability through specific numerical predictions marks its maturation from speculative model to testable scientific theory.
+
+The implications extend far beyond electron physics to fundamental questions about the nature of physical reality. The success in deriving quantum magnetic behavior from classical relativistic geometry suggests that the quantum-classical distinction might be observational rather than ontological. The model indicates that apparently abstract quantum phenomena could emerge from concrete physical processes operating below currently accessible experimental scales, potentially revolutionizing our understanding of the relationship between classical and quantum physics.
+
+% ----------------------------------------
+% Appendix A.4: Geodesic Motion and QM-GR Unification (2024 paper)
+% ----------------------------------------
+\subsection{Geodesic Motion and Quantum-Relativistic Unification (2024 paper~\cite{hanamura2411.0117})}
+
+This latest theoretical development represents the culmination of the 0-Sphere model's evolution into a comprehensive framework capable of bridging quantum mechanics and general relativity. The work's revolutionary insight lies in demonstrating that thermal potential energy (TPE) transfer between kernels follows Snell's law, leading to geodesic motion and providing the first concrete mechanism for unifying quantum behavior with relativistic spacetime geometry. This achievement marks a historical milestone in theoretical physics by showing how quantum oscillations can be understood as motion along the shortest paths in spacetime.
+
+The fundamental breakthrough emerges from recognizing that when TPE converts to radiative energy during kernel transitions, this energy transfer must obey the same optical principles governing light propagation. When an electron's energy moves from kernel $A$ to kernel $B$, it becomes radiative energy that follows Snell's law:
+\begin{equation}
+\frac{\sin\theta_A}{\sin\theta_B} = \frac{v_A}{v_B},
+\end{equation}
+where $\theta_A$ and $\theta_B$ represent angles of incidence and refraction, while $v_A$ and $v_B$ denote wave velocities in the respective media. This optical behavior of energy transfer provides the crucial link between microscopic quantum processes and macroscopic geometric principles.
+
+The application of Snell's law to quantum energy transfer leads to the principle of least action through the action integral
+\begin{equation}
+S = \int_A^B ds.
+\end{equation}
+Since radiative energy follows the path of minimum optical length between kernels $A$ and $B$, this path simultaneously satisfies both Snell's principle and the variational principle underlying classical mechanics. The mathematical progression from optical refraction through least action to geodesic motion creates an elegant theoretical bridge connecting quantum behavior with the geometric foundation of general relativity.
+
+The geodesic nature of electron motion emerges from the constraint that TPE exists as fixed points at kernels $A$ and $B$, serving as boundary conditions for the action integral. These fixed spatial positions ensure that the path between them is uniquely determined by the geodesic equation: 
+\begin{equation}
+\frac{d^2x^\beta}{d\tau^2} + \Gamma^\beta_{\alpha\nu}\frac{dx^\alpha}{d\tau}\frac{dx^\nu}{d\tau} = 0.
+\end{equation}
+\textbf{This represents the first demonstration that individual quantum particles follow the geometric structure of spacetime, providing a concrete mechanism for quantum-gravitational interaction without requiring modifications to Einstein's field equations.}
+
+The work introduces a profound reinterpretation of proper time in quantum systems by demonstrating how the 0-Sphere model accommodates both rest-frame and laboratory-frame temporal perspectives. While conventional quantum mechanics relies on absolute time inherited from its Newtonian foundations, the dual-kernel structure creates an intrinsic distinction between internal system time and external observation time. The magnetic moment equals exactly 2 in the electron's rest frame (as predicted by the Dirac equation) but exhibits anomalous values in laboratory measurements due to relativistic effects, providing a quantum mechanical analog of proper time.
+
+The mathematical framework reveals elegant energy conservation through the Hamiltonian 
+\begin{equation}
+H = \cos^4(\omega t/2) + \sin^4(\omega t/2) + \frac{1}{2}\sin^2(\omega t) = 1,
+\end{equation}
+whose time derivative vanishes exactly: $\frac{dH}{dt} = 0$. This conservation emerges from precise cancellation between spinorial terms (half-angle dependence) and bosonic contributions (full-angle dependence), demonstrating that quantum mechanical behavior can be described through closed algebraic equations rather than requiring infinite perturbative expansions. The mathematical beauty of this exact cancellation suggests deep geometric principles underlying quantum evolution.
+
+The connection between TPE dynamics and the Stefan-Boltzmann law provides insight into the fourth-power terms in the energy expressions. The thermal radiation from kernels follows $I = \sigma T^4$, where the fourth-power dependence mirrors the $\cos^4$ and $\sin^4$ terms in the electron's energy distribution. This relationship suggests that the four degrees of freedom in the Dirac equation (corresponding to two spin states at two kernel positions) contribute equivalently to radiative flux, unifying quantum mechanical state structure with classical thermodynamic principles.
+
+The framework offers revolutionary resolution to the Zitterbewegung puzzle by showing that the sinusoidal radiation gradient $\text{grad}(E_B(t) - E_A(t)) = E_0\sin(t)$ derived from TPE exchange exhibits identical mathematical form to the oscillatory motion predicted by the Dirac equation. This convergence suggests that Zitterbewegung is not mysterious quantum trembling but rather the macroscopic manifestation of deterministic energy transfer along geodesic paths. The identification of this mechanism provides classical understanding of quantum oscillations while preserving their experimental predictions as demonstrated in recent photonic microcavity experiments~\cite{walker2013}.
+
+The work demonstrates how quantum entanglement might emerge from synchronized kernel dynamics through the equation
+\begin{equation}
+\text{grad}(E_{Be1}(t) - E_{Ae1}(t)) + \text{grad}(E_{Ae2}(t) - E_{Be2}(t)) = 0.
+\end{equation}
+When two electrons have opposing radiation gradients that cancel, their center-of-mass momentum becomes zero, matching the fundamental assumption of BCS superconductivity theory regarding Cooper pairs. This geometric interpretation suggests that quantum entanglement and superconductivity might share common origins in synchronized internal motions rather than requiring nonlocal quantum correlations.
+
+The theoretical framework accommodates finite electron size through the relationship between Zitterbewegung velocity and radius derived from combined special and general relativistic effects: \begin{equation}
+\frac{L}{L_0} = \frac{1}{1 + \sqrt{\frac{1}{2}}a_e^{\exp} - \frac{\Delta\phi_{\text{geodetic}}}{2\pi}}.
+\end{equation}
+This equation predicts electron radii in the range $10^{-25}$ to $10^{-26}$ meters, providing testable predictions that distinguish the model from point-particle theories. The incorporation of geodetic precession effects demonstrates how quantum mechanical properties couple to spacetime curvature.
+
+The extension to muon physics represents a significant theoretical prediction, suggesting that the observed discrepancy in muon anomalous magnetic moment might arise from similar geometric effects operating at different energy scales. The framework indicates that if muon Zitterbewegung velocity and finite size can be measured, the theoretical value of the muon $g-2$ can be calculated from first principles, potentially resolving one of the most significant anomalies in contemporary particle physics.
+
+The work's most profound implication lies in suggesting that the apparent conflict between quantum mechanics and general relativity might be resolved through proper understanding of how quantum systems embed in relativistic spacetime. Rather than requiring quantum gravity theories that modify Einstein's equations, the 0-Sphere model demonstrates that correctly understood quantum mechanics already incorporates relativistic principles through the geometric structure of particle motion. This perspective opens entirely new avenues for theoretical physics by showing that unification might emerge from deeper understanding of existing theories rather than from fundamentally new physics.
+
+The mathematical elegance of the closed algebraic description, combined with specific numerical predictions and natural accommodation of both quantum and relativistic principles, reflects the unreasonable effectiveness of mathematics in the natural sciences~\cite{wigner1960}. The demonstration that quantum behavior emerges from deterministic geometric processes operating on geodesic paths suggests that the mysterious aspects of quantum mechanics might reflect our incomplete understanding of underlying classical geometric principles~\cite{misner1973}.
+
+% ----------------------------------------
+% Appendix A.5: Mass Hierarchy and Critical Radius Theory (2025 paper)
+% ----------------------------------------
+\subsection{Mass Hierarchy and Critical Radius Theory (2025 paper~\cite{hanamura2501.0130})}
+
+This work addresses one of the most profound unsolved problems in the Standard Model: the origin of the mass hierarchy in fundamental particles. The Standard Model provides no explanation for why the electron has a mass of precisely $0.511$ MeV/$c^{2}$, representing a fundamental gap in our understanding of particle physics. This paper introduces a revolutionary approach using general relativity's geodetic precession concept to explain mass generation and particle decay through critical radius theory, marking a historic breakthrough in unifying quantum mechanics with gravitational phenomena.
+
+The central innovation lies in the discovery of critical radii where Lorentz contraction effects arising from the anomalous magnetic moment precisely cancel the geodetic precession corrections predicted by general relativity. This cancellation condition is mathematically expressed as
+\begin{equation}
+   \frac{1}{1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\mu} - \Delta\phi_g} = 1,
+\label{eq:lorentz_ratio_start_corrected}
+\end{equation}
+where \( a^{\text{exp}}_{\mu} \) represents the experimentally measured anomalous magnetic moment of the muon, and \( \Delta\phi_g \) denotes the geodetic precession term. This equation defines the critical radius at which the particle’s Zitterbewegung velocity vanishes, signifying the boundary beyond which coherent quantum oscillations collapse, leading to particle decay.
+
+For clarity and emphasis, we restate \textbf{the foundational relation introduced in the previous subsection~\cite{hanamura2504.0115}:}
+\begin{equation}
+\gamma = 1 + a,
+\label{eq:gamma_anomaly_relation}
+\end{equation}
+where the Lorentz factor \( \gamma \) accounts for the anomalous magnetic moment \( a \) in a flat-spacetime approximation. Equation~\eqref{eq:lorentz_ratio_start_corrected} extends this relation by including the geodetic correction term \( \Delta\phi_g \), thereby capturing the interplay between quantum field effects and general relativistic curvature near the critical radius.
+
+The presence of the factor \( \frac{1}{\sqrt{2}} \) in Eq.~\eqref{eq:lorentz_ratio_start_corrected} reflects the root-mean-square (RMS) nature of the oscillatory driving field within the photon sphere. Specifically, this factor corresponds to the effective value of a sinusoidal alternating current (AC), which is equal to the amplitude divided by \( \sqrt{2} \). In this context, we hypothesize that the experimentally observed anomalous magnetic moment captures the peak amplitude of the underlying oscillation, whereas the interaction with the geodetic background responds to the RMS value—leading to the inclusion of this factor. 
+
+Moreover, the use of the RMS value is justified by the fact that the relevant physical measurement concerns not the instantaneous maximum of the Zitterbewegung velocity \( v_{\mathrm{ZB}} \), but rather its average transport velocity during the oscillatory driving of the photon sphere from kernel $A$ to kernel $B$. The RMS treatment thus reflects the experimentally meaningful average dynamical contribution, rather than transient peaks.
+
+The theoretical breakthrough reveals that muons reach their critical radius at precisely $r_{\mu} = 3.43 \times 10^{-25}$ meters. At this radius, the geodetic precession effect from general relativity exactly counteracts the special relativistic contribution from the anomalous magnetic moment, resulting in zero Zitterbewegung velocity. \textbf{This critical condition explains why muons decay rather than existing stably: when external forces drive the muon's effective radius to this critical value, its internal energy exchange mechanism ceases to function}, triggering the decay process $\mu^- \rightarrow e^- + \bar{\nu}_e + \nu_{\mu}$.
+
+The analysis extends to the complete lepton family, revealing a mass-dependent hierarchy of critical radii. For tau leptons, the critical radius occurs at $r_{\tau} = 5.71 \times 10^{-24}$ meters, establishing the boundary where tau particles undergo decay through $\tau^- \rightarrow \mu^- + \bar{\nu}_{\mu} + \nu_{\tau}$. This systematic progression from tau to muon to electron represents the first geometric explanation for the observed pattern of lepton generations, where each successive generation has a smaller critical radius and consequently different stability characteristics.
+
+\textbf{The refinement of electron Zitterbewegung velocity predictions demonstrates the subtle but crucial interplay between special and general relativistic effects.} Pure special relativistic calculations yield
+\begin{equation}
+v_{e,\text{SR}} = 0.040472c,
+\label{eq:v_e_SR}
+\end{equation}
+while incorporating general relativistic geodetic precession corrections at the muon critical radius produces the refined prediction
+\begin{equation}
+v_{e,\text{SR+GR}} = 0.040374c.
+\label{eq:v_e_SR_GR}
+\end{equation}
+This small but measurable difference provides a concrete experimental test for distinguishing between purely special relativistic physics and the combined relativistic framework proposed by the theory.
+
+The critical radius concept provides elegant resolution to the electron stability paradox. Unlike muons and tau leptons, electrons maintain stable Zitterbewegung oscillations even at the critical radii where heavier leptons decay. When a muon decays at its critical radius of $3.43 \times 10^{-25}$ meters, the resulting electron maintains a well-defined velocity of $0.040374c$ at this same radius, explaining why electrons represent the stable endpoint of lepton decay chains rather than decaying further.
+
+The theoretical framework  explains the observed mass spectrum through geometric principles rather than arbitrary parameters. The electron's mass of $0.511$ MeV/$c^{2}$ emerges as the natural consequence of being the lightest charged lepton capable of maintaining stable internal oscillations at the critical radii where heavier leptons become unstable. This geometric origin of mass hierarchy suggests that fundamental particle masses reflect spacetime geometry constraints rather than unexplained coupling constants.
+
+The work establishes a profound connection between quantum field theory and general relativity by showing how particle lifetimes emerge from geodetic effects. The Standard Model prediction that muon decay time scales as $\tau \propto (M_W/m_{\mu})^5$ finds geometric interpretation through critical radius analysis, suggesting that weak interaction phenomena might reflect underlying spacetime curvature effects rather than purely quantum field theoretical processes.
+
+The critical radius theory provides quantitative predictions for experimental verification. The precise values of critical radii ($3.43 \times 10^{-25}$ m for muons, $5.71 \times 10^{-24}$ m for tau leptons) represent testable predictions that could be verified through advanced particle physics experiments capable of probing sub-femtometer scales, complementing recent observations of analogous oscillatory behavior~\cite{walker2013}. The refined electron Zitterbewegung velocity of $0.040374c$ provides an immediate experimental target for validating the combined relativistic framework, complementing recent ultra-high precision measurements~\cite{fan2023}.
+
+The implications extend far beyond lepton physics to fundamental questions about the nature of mass itself. The demonstration that mass hierarchy emerges from geometric constraints in spacetime suggests that the mysterious origin of particle masses might be resolved through deeper understanding of gravitational effects at quantum scales~\cite{nash1983}. This perspective opens revolutionary approaches to understanding why particles have the specific masses observed in nature.
+
+The theoretical framework reveals mass-dependent transitions between classical and quantum gravitational regimes, with heavier particles experiencing quantum gravitational effects at larger length scales than lighter particles. This mass-dependent hierarchy suggests that general relativity plays increasingly important roles in particle physics as particle masses increase, potentially explaining why the heaviest known particles exhibit the shortest lifetimes.
+
+The unification of special relativity, general relativity, and quantum mechanics through critical radius theory represents a paradigmatic advance in theoretical physics. Rather than requiring new physics beyond the Standard Model and general relativity, the framework demonstrates how apparent mysteries in particle physics might be resolved through proper application of existing relativistic principles to quantum mechanical systems. This approach suggests that the long-sought unification of quantum mechanics and gravity might emerge from geometric understanding of particle structure rather than from fundamentally new theoretical frameworks.
+
+% ----------------------------------------
+% Appendix A.6: SU(2) Geometric Unification and Spin Vector Theory (2025 paper)
+% ----------------------------------------
+\subsection{SU(2) Geometric Unification and Spin Vector Theory (2025 paper~\cite{hanamura2506.0072})}
+
+This latest theoretical development marks the culmination of the 0-Sphere model’s evolution into a unified framework that geometrically connects SU(2) and U(1) symmetries through the internal phase dynamics of spin. It addresses a previously overlooked dimensional inconsistency in the angular velocity formulation and demonstrates how the characteristic 720-degree periodicity of spin-1/2 particles naturally emerges from an underlying U(1) phase structure—challenging the conventional notion of SU(2) and U(1) as fundamentally independent gauge symmetries.
+
+The central innovation lies in the corrected expression for the internal angular velocity vector:
+\begin{equation}
+    \boldsymbol{\Omega}(t) = -\frac{1}{4c^2} \sin(2\omega t) \cdot \boldsymbol{e}_z,
+\label{eq:angular_velocity_corrected}
+\end{equation}
+where the $z$-axis unit vector $\boldsymbol{e}_z$ is explicitly included to ensure proper vector dimensionality. This correction reveals that spin is not a static intrinsic quantity, but rather a dynamic, time-evolving vector oscillating sinusoidally between positive and negative directions along the internal $z$-axis.
+
+The mathematical foundation of this model rests on the interplay between two governing equations for the electron’s internal dynamics. The energy conservation relation,
+\begin{equation}
+E_{0} = E_{0} \left( \cos^{4} \left( \frac{\omega t}{2} \right) + \sin^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \sin^{2} (\omega t) \right),
+\label{eq:total_hamiltonian_ref}
+\end{equation}
+describes the deterministic redistribution of rest energy among kernels $A$, $B$, and the photon-sphere. Meanwhile, Eq.~\eqref{eq:angular_velocity_corrected} governs the internal angular momentum generated via the cross product of internal velocity and acceleration vectors.
+
+A crucial insight arises from the frequency structures embedded within these equations. The thermal potential energy (TPE) exchange between kernels exhibits a 720-degree periodicity, as encoded by the half-frequency terms $(\omega t / 2)$, whereas the kinetic energy oscillations of the photon-sphere operate with 360-degree periodicity through full-frequency terms $(\omega t)$. The angular velocity vector, in turn, oscillates with doubled frequency $(2\omega t)$, naturally producing the observed 720-degree periodicity in spinor behavior. This nested frequency structure suggests that \textbf{the SU(2) double-valuedness of spin arises as a geometric unfolding of a single-valued U(1) phase through sinusoidal evolution}.
+
+Consequently, this framework implies that the conventional SU(2)$\times$U(1) symmetry structure may not consist of two independent symmetries, but instead represents two observational projections of a unified internal U(1) geometry. A full $2\pi$ internal phase rotation in U(1) corresponds one-to-one with the $4\pi$ (720-degree) periodicity observed in spinor systems—implying that SU(2) symmetry is not a separate requirement, but a macroscopic manifestation of microscopic U(1) phase dynamics.
+
+This reinterpretation gives physical meaning to the abstract mathematics of spinors by grounding the double-valued nature of spin in deterministic internal motion. The apparent randomness in spin measurement outcomes is thus attributed not to fundamental quantum indeterminacy, but to the unobservability of the internal phase at the moment of measurement. The spin vector is treated as a real, geometrically defined entity, continuously oscillating in time, with observable outcomes determined by instantaneous projections of this evolving internal state.
+
+Furthermore, this approach challenges the classification of spin as a pseudovector. It shows that internal angular momentum emerges not from classical circular motion, but from reciprocating harmonic motion within the photon-sphere. In harmonic oscillation, velocity and acceleration vectors are colinear, resulting in a vanishing classical cross product. Thus, the angular momentum must originate from the internal photon-sphere structure, reinforcing the interpretation of spin as a real vector governed by internal time-phase evolution.
+
+Most significantly, this geometric foundation offers a classical and deterministic explanation for the mysterious 720-degree symmetry of fermions. Rather than invoking abstract topological arguments, the model shows that this property emerges naturally from sinusoidal oscillations and nested frequency behavior. The framework reproduces all known experimental predictions of spin, while providing a possible bridge between quantum theory and classical geometric physics. It supports the broader hypothesis that quantum phenomena may arise from unobserved relativistic internal motion, operating just beneath the threshold of direct detection.
+
+
+% ========================================
+% Glossary
+% ========================================
+\section{Glossary}
+\begin{description}
+  
+  \item[\textbf{0-Sphere Model}] A theoretical framework that models electrons as having internal structure composed of two energy kernels ($A$ and $B$) exchanging thermal potential energy via a confined photon sphere. Unlike point-particle models, it provides finite, geometric mechanisms for quantum phenomena while eliminating mathematical divergences.
+    
+  \item[\textbf{$\gamma = 1 + a$ Relationship}] A fundamental equation discovered by the author connecting the Lorentz factor (special relativity) with the anomalous magnetic moment (quantum electrodynamics). This bridges previously separate domains of physics through geometric principles~\cite{hanamura2504.0115}.
+
+  \item[\textbf{Anomalous Magnetic Moment ($a$)}] The deviation of a particle's magnetic moment from its Dirac value ($g=2$). Explained here through relativistic geometric effects and Lorentz contraction rather than quantum loop corrections.
+  
+  \item[\textbf{Critical Radius}] The spatial scale at which Lorentz contraction from special relativity exactly cancels geodetic precession from general relativity. At this radius, Zitterbewegung motion ceases, explaining why heavier leptons (muons: $3.43 \times 10^{-25}$ m, tau: $5.71 \times 10^{-24}$ m) decay while electrons remain stable.
+  
+  \item[\textbf{First Principles}] Theoretical predictions derived from fundamental physical laws without adjustable parameters, contrasting with perturbative approaches in standard QED. The 0-Sphere model achieves this through closed algebraic equations.
+  
+  \item[\textbf{Geodetic Precession}] A general relativistic effect describing the precession of rotating systems in curved spacetime. Applied here to explain finite particle lifetimes and mass hierarchy through curvature-induced constraints on internal motion.
+  
+  \item[\textbf{Kernel (A, B)}] Internal energy reservoirs within the electron that alternately store and release thermal potential energy. Each kernel behaves like a perfect black body, responsible for radiation and absorption cycles that maintain quantum coherence.
+  
+  \item[\textbf{Least Action Principle}] The variational principle stating that physical systems evolve along paths that minimize action. In this model, it governs the energy transfer paths between kernels and underlies geodesic motion in quantum systems.
+  
+  \item[\textbf{Mass Hierarchy Problem}] The unexplained pattern of fundamental particle masses in the Standard Model (e.g., why electrons have mass $0.511$ MeV/$c^{2}$). The 0-Sphere model addresses this through critical radius theory and geometric constraints.
+  
+  \item[\textbf{Photon Sphere ($\gamma^*_{\mathrm{K.E.}}$)}] A confined electromagnetic structure mediating energy exchange between kernels. Unlike virtual photons in conventional QED, it consists of real trapped radiation with definite momentum and energy.
+  
+  \item[\textbf{Superposition vs. Temporal Alternation}] While standard quantum mechanics describes particles as existing in multiple states simultaneously, the 0-Sphere model explains apparent superposition as rapid alternation between definite kernel states.
+  
+  \item[\textbf{Thermal Potential Energy (TPE)}] The form of internal energy exchanged between kernels. Its dynamics obey classical thermodynamic and geometric laws such as Snell's law and the Stefan-Boltzmann law, providing classical foundations for quantum behavior.
+  
+  \item[\textbf{Thomas Precession}] A relativistic effect due to accelerated motion. In this model, it is reinterpreted using sinusoidal acceleration (rather than constant acceleration) to explain the factor-of-two enhancement in spin magnetic efficiency.
+  
+  \item[\textbf{Ultraviolet Divergence}] Mathematical infinities that arise in quantum field theory calculations when considering point particles. The 0-Sphere model eliminates these by introducing finite-sized internal structure with separated kernels.
+  
+  \item[\textbf{Zitterbewegung (ZB)}] Originally predicted by Schr\"{o}dinger as light-speed quantum trembling, here reinterpreted as subluminal ($\approx 4\%$ light speed) oscillatory motion of internal energy within electrons. Results from alternating energy transfer between kernels along geodesic paths.
+\end{description}
+
+\end{document}
