@@ -1,0 +1,56 @@
+% fig_thermal.tex
+\begin{tikzpicture}[
+    % Unit length for coordinate axes
+    x={(0.75cm,-0.05cm)},   % wt axis
+    y={(0cm,0.9cm)},        % TPE axis
+    z={(-0.4cm,-0.25cm)},   % x axis
+    >=Stealth
+]
+    % --- Guide lines ---
+    \draw[gray!30, dashed, thin] (0,0,1) -- (4.2,0,1);  % +a
+    \draw[gray!30, dashed, thin] (0,0,-1) -- (4.2,0,-1); % -a
+
+    % Font sizes in decreasing order: \small, \footnotesize, \scriptsize, \tiny
+    % --- Coordinate axes ---
+    \draw[semithick, ->] (0,-0.1,0) -- (0,1.4,0) node[above, font=\tiny] {TPE};
+    \node[left, font=\tiny] at (0,1,0) {$E_0$};
+    
+    \draw[semithick, ->] (0,0,0) -- (4.7,0,0) node[right, font=\tiny] {$\omega t$};
+    
+    \draw[semithick, ->] (0,0,-1.3) -- (0,0,1.5) node[below left, font=\tiny] {$x$};
+    \node[left, font=\tiny] at (0,0,1) {$p_{+}$};
+    \node[right, font=\tiny] at (0,0,-1) {$p_{-}$};
+    
+    % --- Function plots ---
+    % 1. Orange (Photon Sphere): oscillates between p_{-} and p_{+}
+    \draw[orange!80, semithick, domain=0:4.2, samples=80] 
+        plot (\x, 0, {-1 * cos(\x * 180)});
+    
+    % 2. Blue (Kernel 1): on the x = +a plane
+    \draw[blue!70, semithick, domain=0:4.2, samples=80] 
+        plot (\x, {sin(\x * 90)^4}, 1);
+    % Label placed at position (wt=0.8, TPE=-0.3, x=+a)
+    \node[blue!70, font=\tiny, anchor=south] at (0.8, -0.3, 1) {Kernel 1};
+    
+    % 3. Olive (Kernel 2): on the x = -a plane
+    \draw[olive!70, semithick, domain=0:4.2, samples=80] 
+        plot (\x, {cos(\x * 90)^4}, -1);
+    \node[olive!70, font=\tiny, anchor=south] at (2.4, 1.2, -1) {Kernel 2};
+    
+    % --- Tick labels ---
+    \foreach \x/\label in {1/\pi, 2/2\pi, 3/3\pi} {
+        \draw (\x, 0.05, 0) -- (\x, -0.05, 0);
+        \node[below, font=\tiny] at (\x, 0, 0) {$\label$};
+    }
+    
+    % --- Sphere at origin (commented out) ---
+    %\fill[yellow!40, opacity=0.5] (0,0,0) circle (0.15);
+    %\shade[ball color=yellow!40, opacity=0.4] (0,0,0) circle (0.15);
+    
+    % --- Text annotation ---
+    \node[orange!90!black, anchor=north west, align=left, font=\tiny] (text) at (0.8, -0.4, 0) {
+        $\gamma^*$ : The Photon Sphere \\
+        as kinetic energy
+    };
+    \draw[->, orange!90!black, thin] (text.west) .. controls (0.5,-0.3, 0) .. (0.3, 0, -0.2);
+\end{tikzpicture}

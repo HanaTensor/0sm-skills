@@ -1,0 +1,181 @@
+================================================================================
+zenodo_relations.txt — Paper #33
+Geometrical Confinement of Energy in the 0-Sphere Model:
+A Topological Mechanism Underlying Rest Mass and Zitterbewegung
+DOI: 10.5281/zenodo.18356895
+Date: January 24, 2026
+================================================================================
+
+[Summary]
+  Cites:            12 entries
+  Is supplement to:  0 entries
+  Continues:         3 entries
+  References:        3 entries
+  Requires:          3 entries
+  Is part of:        1 entry
+  Total unique DOIs: 15
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics
+  Note: Line Integral Trilogy paper 1; cited as hanamura18067760
+
+10.5281/zenodo.18135855
+  Title: From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws
+  Note: Line Integral Trilogy paper 2; cited as hanamura18135855
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics
+  Note: Line Integral Trilogy paper 3; cited as hanamura18203433
+
+10.5281/zenodo.17765336
+  Title: From Zero-Sphere to Emergent Spacetime
+  Note: Cited as hanamura17765336; Snell-type refraction in internal phase space
+
+10.5281/zenodo.17765136
+  Title: From Clock Synchronization to Electromagnetism: U(1) Gauge Theory
+  Note: Cited as hanamura17765136; internal phase evolution and U(1) structure
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM Through Harmonic Oscillation and Lorentz Contraction
+  Note: Cited as hanamura17764997; source of beta=0.04047c prediction
+
+10.5281/zenodo.17765349
+  Title: Thermal Geodesics: Extending GR Through Internal Thermodynamic Structure
+  Note: Cited as hanamura17765349; thermal geodesics foundational reference
+
+10.5281/zenodo.17765409
+  Title: Spin from Geometry: Emergence of Spin via Internal Berry Phase
+  Note: Cited as hanamura17765409; Berry phase and internal energy dynamics
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies
+  Note: Cited as hanamura16759284; original dual-kernel model (2018)
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession
+  Note: Cited as hanamura17765097; Stefan-Boltzmann connection
+
+10.5281/zenodo.17760132
+  Title: Coexistence of Positive and Negative-Energy States in the Dirac Equation
+  Note: Cited as hanamura17760132; Zitterbewegung reinterpretation
+
+10.5281/zenodo.18275142
+  Title: Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology
+  Note: Cited as hanamura18275142; vacuum energy dissolution context
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none — this paper is not explicitly declared a supplement to any prior work)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Reason: #33 directly continues the ontological program of #31, providing
+          the topological confinement mechanism that operationalizes the
+          line-integral-as-observable framework for internal energy transport.
+
+10.5281/zenodo.18275142
+  Title: Dissolution of the Vacuum Energy Problem (#32)
+  Reason: #33 continues the series of integral-ontology papers (#31-#33)
+          establishing confinement as the geometric counterpart to #32's
+          dissolution of vacuum energy.
+
+10.5281/zenodo.17765336
+  Title: From Zero-Sphere to Emergent Spacetime (#23)
+  Reason: #33 continues and formalizes the topological separation between
+          discrete localization and continuous transport introduced in #23.
+
+--------------------------------------------------------------------------------
+[4] References  (thematic / conceptual, not formal \bibitem)
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations: Bridging Zitterbewegung, Geodesic Paths,
+         and Proper Time (#11)
+  Reason: Thematic precursor establishing Zitterbewegung as geodesic process;
+          the photon sphere embedding in #33 provides geometric substrate for
+          the oscillation model in #11.
+
+10.5281/zenodo.17765079
+  Title: Unified Spin Dynamics: From Pseudovector Nature to Relativistic
+         Constraints (#13)
+  Reason: Spin dynamics context directly relevant to the Zitterbewegung
+          mechanism formalized in #33.
+
+10.5281/zenodo.18437010
+  Title: Geometrical Confinement: Emergent Gravitational Dynamics (#34)
+  Reason: #34 is the direct extension of #33's topological framework to
+          gravitational phenomena; referencing it creates forward linkage
+          for readers discovering #33 first.
+
+--------------------------------------------------------------------------------
+[5] Requires  (prerequisite papers for understanding this work)
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Reason: #33 is the third paper in the integral-ontology sequence; the
+          conceptual foundation of line integrals as primary observables
+          established in #31 is presupposed throughout.
+
+10.5281/zenodo.17765336
+  Title: From Zero-Sphere to Emergent Spacetime (#23)
+  Reason: The 0-sphere structure and its physical interpretation as two
+          discrete energy kernels must be understood before reading #33.
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Reason: The dual-kernel (two perfect black bodies) model is the foundational
+          physical picture that #33's topological formalism is built upon.
+
+--------------------------------------------------------------------------------
+[6] Is part of
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Note: #33 is the third entry in the integral-ontology trilogy (#31, #32, #33).
+        Using the immediately preceding paper as the series anchor per convention.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+The following Zenodo records should have relations added pointing back to #33
+(DOI: 10.5281/zenodo.18356895):
+
+10.5281/zenodo.18437010  (#34)
+  Add: Continues  → 10.5281/zenodo.18356895
+  Add: Is derived from  → 10.5281/zenodo.18356895
+  Reason: #34 explicitly extends #33's topological confinement to gravitational
+          phenomena.
+
+10.5281/zenodo.18203433  (#31)
+  Add: Is continued by  → 10.5281/zenodo.18356895
+  Reason: #33 directly continues the line-integral ontology program of #31.
+
+10.5281/zenodo.18275142  (#32)
+  Add: Is continued by  → 10.5281/zenodo.18356895
+  Reason: #33 completes the integral-ontology trilogy begun by #31 and #32.
+
+10.5281/zenodo.17765336  (#23)
+  Add: Is continued by  → 10.5281/zenodo.18356895
+  Reason: #33 formalizes the topological separation between S^0 and embedding
+          domain D first introduced in #23.
+
+10.5281/zenodo.16759284  (#1)
+  Add: Is required by  → 10.5281/zenodo.18356895
+  Reason: The dual-kernel model of #1 is an explicit prerequisite for #33.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
