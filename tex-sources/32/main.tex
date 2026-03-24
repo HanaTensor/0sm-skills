@@ -1,0 +1,249 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+ prb,
+]{revtex4-2}
+
+% Basic packages
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            filecolor=blue,
+            urlcolor=blue,
+            citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{justification=justified,labelfont={bf},name={Fig.},labelsep=period}
+\captionsetup[table]{justification=justified,labelfont={bf},name={Table},labelsep=period}
+\numberwithin{equation}{section}
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+
+\newcommand{\iphase}{\theta}
+
+\begin{document}
+
+\title{Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology:\\ The 0-Sphere Model Perspective}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{January 17, 2026}
+
+
+\begin{abstract}
+The cosmological constant problem is commonly characterized as a discrepancy of more than one hundred orders of magnitude between theoretical estimates of vacuum energy density and observational bounds. This discrepancy is conventionally formulated within a field-theoretic ontology in which quantum vacuum fluctuations are attributed physical energy density permeating spacetime. In this work we argue that, within the framework of the 0-Sphere model, this problem is not resolved by dynamical or symmetry-based mechanisms but rather dissolved at the level of principle. The key observation is that the enormous vacuum energy arises only after adopting local quantum fields as ontologically fundamental entities. By contrast, the 0-Sphere model takes proper-time parametrized worldline processes as primary, while spacetime and local fields appear only as effective descriptions. As a consequence, vacuum energy does not arise as a gravitational source, and the usual accumulation of zero-point energies never becomes a well-defined physical quantity. This perspective neither modifies quantum field theory at the operational level nor introduces additional degrees of freedom, but instead restricts the interpretation of physical observables to integral quantities. The disappearance of the vacuum energy problem thus follows from a reorganization of physical ontology rather than from fine-tuning, cancellation, or anthropic reasoning.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+\label{sec:introduction}
+
+The cosmological constant problem occupies a peculiar position in modern theoretical physics. On the one hand, observations of cosmic acceleration indicate a vacuum energy density that is extremely small when expressed in natural units. On the other hand, straightforward estimates based on quantum field theory (QFT) assign an enormous energy density to the vacuum, leading to a mismatch often quoted as being of order $10^{120}$~\cite{Zeldovich1967,Weinberg1989,Padmanabhan2003,Martin2012}. Unlike many discrepancies between theory and experiment, this one does not point toward a specific scale or missing interaction, but instead calls into question the conceptual foundations of how vacuum energy is defined.
+
+In the standard field-theoretic formulation, the vacuum is not empty but is filled with zero-point fluctuations of quantum fields defined at each spacetime point. Summing the corresponding zero-point energies over all modes yields a formally divergent quantity, which, when regulated at a high-energy cutoff, produces an energy density vastly exceeding observational bounds~\cite{BirrellDavies1982,Fulling1989}. Numerous approaches have been proposed to address this problem, including supersymmetry, dynamical adjustment mechanisms, modifications of gravity, and anthropic reasoning~\cite{Weinberg1989,Padmanabhan2003}. Despite their diversity, these approaches share a common assumption: vacuum energy is a physically meaningful quantity that must somehow be suppressed or canceled.
+
+In this paper we argue that the difficulty originates at an earlier stage. The vacuum energy problem presupposes that local quantum fields constitute the most fundamental physical entities and that their zero-point energies should be interpreted as real energy densities distributed throughout spacetime. The 0-Sphere model adopts a different starting point. Its fundamental objects are not local fields but proper-time parametrized worldline processes associated with internal temporal evolution. Spacetime itself emerges as an effective structure encoded in accumulated phase histories. Within such an ontology, the notion of vacuum energy as a sum over local modes never arises, and the cosmological constant problem is therefore absent at the level of principle.
+
+The purpose of this work is not to present a new numerical estimate of the cosmological constant, nor to propose a dynamical mechanism for its smallness. Instead, we clarify why, within the 0-Sphere model, the problem is not well-posed to begin with. By tracing the assumptions that lead to the conventional formulation of vacuum energy, we show how they are avoided once physical observables are restricted to integral quantities associated with internal temporal evolution.
+
+% ========================================
+% Section 2: Field-Theoretic Origin of the Vacuum Energy Problem
+% ========================================
+\section{Field-Theoretic Origin of the Vacuum Energy Problem}
+\label{sec:field_origin}
+
+In quantum field theory, each field mode of frequency $\omega$ contributes a zero-point energy $\tfrac{1}{2}\hbar\omega$. When fields are defined at every point in spacetime, these modes form a continuum, and the total vacuum energy density is obtained by summing over all momenta. Introducing an ultraviolet cutoff $\Lambda$ yields an estimate of the form
+\begin{equation}
+\rho_{\mathrm{vac}} \sim \int^{\Lambda} \frac{d^3k}{(2\pi)^3} \, \frac{1}{2}\hbar\omega_k,
+\end{equation}
+which scales as $\Lambda^4$ for relativistic fields~\cite{Weinberg1989}. Choosing $\Lambda$ near the Planck scale leads to an energy density exceeding the observed value by many orders of magnitude.
+
+This procedure implicitly relies on three assumptions: (i) spacetime is a pre-existing background endowed with local degrees of freedom, (ii) quantum fields defined on this background possess physical zero-point energies, and (iii) these energies gravitate in the same way as classical energy densities~\cite{Zeldovich1967}. While each assumption is well motivated within the standard framework, their combination leads directly to the cosmological constant problem.
+
+Importantly, the difficulty is not merely technical. Renormalization techniques allow one to subtract infinite constants from energy differences, but gravity couples to absolute energy density, not to energy differences alone~\cite{Weinberg1989}. As a result, vacuum energy cannot be dismissed as an unobservable offset once gravity is taken into account.
+
+% ========================================
+% Section 3: Integral-Based Ontology of the 0-Sphere Model
+% ========================================
+\section{Integral-Based Ontology of the 0-Sphere Model}
+\label{sec:integral_ontology}
+
+The 0-Sphere model proposes a different ontological hierarchy~\cite{hanamura18067760,hanamura18135855,hanamura18203433}. Its fundamental entities are not local field values but proper-time parametrized worldline processes associated with internal temporal evolution. Physical observables correspond to phase accumulation along internal histories, analogous to how holonomies rather than local gauge fields define observable quantities in gauge theory~\cite{AharonovBohm1959,Berry1984}.
+
+The accumulated phase is expressed as
+\begin{equation}
+\Phi = \int_{\gamma_{\mathrm{int}}} \omega,
+\end{equation}
+where $\gamma_{\mathrm{int}}$ denotes an internal worldline parametrized by proper time $\tau$, and $\omega$ is a connection one-form acting on internal degrees of freedom. The connection one-form $\omega$ encodes the infinitesimal transformation of internal states under parallel transport along the worldline, analogous to how gauge connections describe phase shifts in quantum mechanics. When the worldline is explicitly parametrized by proper time, this line integral takes the concrete form
+\begin{equation}
+\Phi = \int_a^b \omega_\mu(x(\tau)) \frac{dx^\mu}{d\tau} \, d\tau.
+\end{equation}
+
+% The distinction between \int and \gamma_{\mathrm{int}} reflects the difference between
+% a generic integral and an integral bound to a specific physical process. (2026-01-16)
+
+The use of a single spacetime index reflects the fact that the observable is defined as a line integral of a connection one-form along a worldline, rather than as a local tensor field. Here $\omega_\mu$ are the components of the connection one-form and $x^\mu(\tau)$ describes the trajectory through spacetime. The use of proper time as the integration parameter is essential: it ensures that the accumulated phase is invariant under reparametrizations and directly tied to measurable clock readings rather than arbitrary coordinate time. This parametrized form explicitly unfolds the differential-form expression $\Phi = \int_\gamma \omega$ used in Ref.~\cite{hanamura18135855}, making explicit the role of proper time as the physical integration parameter. The geometric structure underlying this phase accumulation along thermal geodesics has been analyzed in detail elsewhere~\cite{hanamura18067760,hanamura18135855}.
+
+This integral structure is formally reminiscent of Wilson-loop constructions in that observable quantities are defined through path integrals rather than local field values~\cite{Wilson1974}. However, the similarity is purely structural. In the present framework, the integration is performed along an open, temporal worldline associated with a physical particle's history, not along a spatially closed contour in configuration space. Moreover, the connection $\omega$ arises from kinematic effects such as Thomas precession acting on internal degrees of freedom, rather than from an externally imposed gauge field. The quantity $\Phi$ is gauge invariant in the appropriate sense and directly associated with geometric phase accumulated during internal evolution~\cite{WuYang1975,Berry1984}.
+
+Within this framework, local fields $A_\mu(x)$ are not denied but are relegated to the status of effective variables useful for describing interactions at scales much larger than the internal circulation length. They do not represent independent physical degrees of freedom at every spacetime point. Consequently, the assignment of zero-point energies to an infinite set of local modes is not part of the fundamental description.
+
+Spacetime itself appears only as an emergent construct. The effective notions of distance, duration, and curvature arise from the collective behavior of many integral processes and their accumulated phase histories. In this sense, spacetime functions as a bookkeeping device summarizing relational structure, rather than as a fundamental arena, consistent with broader perspectives on emergent spacetime~\cite{Jacobson1995,Rovelli1997,Padmanabhan2010}.
+
+% ========================================
+% Section 4: Absence of Vacuum Energy as a Gravitational Source
+% ========================================
+\section{Absence of Vacuum Energy as a Gravitational Source}
+\label{sec:absence_vacuum}
+
+Because the 0-Sphere model does not attribute physical reality to local field modes in empty space~\cite{Hanamura17765017}, the concept of vacuum energy as a pervasive energy density does not arise. Energy is confined to internal worldline processes, forming closed and effectively adiabatic systems in the thermodynamic sense. There is no external reservoir of energy associated with regions devoid of particles.
+
+From this perspective, what is commonly referred to as vacuum energy corresponds instead to phase accumulation within internal degrees of freedom. Such phase information does not generate a net energy flux and therefore does not act as a gravitational source in the conventional sense. The coupling between energy and curvature that leads to a cosmological constant term in Einstein's equations is thus never activated by vacuum contributions.
+
+This observation should not be interpreted as a modification of gravitational dynamics or a violation of energy conservation. Rather, it reflects a restriction on what counts as physically meaningful energy. Only energies associated with open processes, capable of exchange or radiation, contribute to gravitational dynamics, while closed internal circulations do not.
+
+\clearpage
+
+% ========================================
+% Section 5: Discussion and Outlook
+% ========================================
+\section{Discussion and Outlook}
+\label{sec:discussion}
+
+The disappearance of the vacuum energy problem in the 0-Sphere model is not the result of fine-tuning or cancellation. It follows directly from an integral-based ontology in which local fields are not taken as fundamental. By tracing the origin of the cosmological constant problem to specific ontological assumptions, we have shown that altering these assumptions suffices to prevent the problem from arising.
+
+This perspective leaves open several important questions. Most notably, while vacuum energy does not appear as a gravitational source, the observed small but nonzero cosmological constant remains to be understood within a broader cosmological context. Whether it reflects boundary conditions, collective effects, or genuinely new physics lies beyond the scope of the present work.
+
+Nevertheless, the analysis presented here establishes a clear conceptual benchmark. Any future development of the 0-Sphere model must remain consistent with the integral-based restriction on physical observables articulated above. Conversely, experimental or observational evidence indicating a direct gravitational effect of vacuum fluctuations would falsify this framework.
+
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+This work was conducted independently by the author. During preparation, large language models were used as a pedagogical and editorial aid, primarily to verify the standard presentation of well-established results in quantum field theory and to improve the clarity and logical organization of the exposition. 
+
+In particular, the models were consulted to cross-check the conventional textbook derivation of vacuum energy and its role in the cosmological constant problem, not 
+to generate new physical content or interpretations. All physical assumptions, conceptual judgments, and the integral-based reinterpretation proposed here were formulated and assessed solely by the author.
+
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{Zeldovich1967}
+Y.~B.~Zeldovich,
+``Cosmological Constant and Elementary Particles,''
+JETP Lett.\ \textbf{6}, 316 (1967).
+
+\bibitem{Weinberg1989}
+S.~Weinberg,
+``The Cosmological Constant Problem,''
+Rev.\ Mod.\ Phys.\ \textbf{61}, 1 (1989).
+\href{https://doi.org/10.1103/RevModPhys.61.1}{https://doi.org/10.1103/RevModPhys.61.1}
+
+\bibitem{Padmanabhan2003}
+T.~Padmanabhan,
+``Cosmological Constant---the Weight of the Vacuum,''
+Phys.\ Rep.\ \textbf{380}, 235 (2003).
+\href{https://doi.org/10.1016/S0370-1573(03)00120-0}{https://doi.org/10.1016/S0370-1573(03)00120-0}
+
+\bibitem{Martin2012}
+J.~Martin,
+``Everything You Always Wanted To Know About The Cosmological Constant Problem,''
+Comptes Rendus Physique \textbf{13}, 566 (2012).
+\href{https://doi.org/10.1016/j.crhy.2012.04.008}{https://doi.org/10.1016/j.crhy.2012.04.008}
+
+\bibitem{BirrellDavies1982}
+N.~D.~Birrell and P.~C.~W.~Davies,
+\textit{Quantum Fields in Curved Space}
+(Cambridge University Press, 1982).
+\href{https://doi.org/10.1017/CBO9780511622632}{https://doi.org/10.1017/CBO9780511622632}
+
+\bibitem{Fulling1989}
+S.~A.~Fulling,
+\textit{Aspects of Quantum Field Theory in Curved Space-Time}
+(Cambridge University Press, 1989).
+\href{https://doi.org/10.1017/CBO9781139172073}{https://doi.org/10.1017/CBO9781139172073}
+
+% ========================================
+% Line Integral Trilogy
+% ========================================
+
+\bibitem{hanamura18067760}
+S.~Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18067760}{https://doi.org/10.5281/zenodo.18067760}
+% Elucidates the geometric structure of spinorial phase accumulation via line integrals of the connection along thermal geodesics. Shows that a straight-line geodesic in real space internally accumulates a 2pi phase via the spinorial connection generated by Thomas precession, and establishes a correspondence with the Poincare upper half-plane.
+
+\bibitem{hanamura18135855}
+S.~Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18135855}{https://doi.org/10.5281/zenodo.18135855}
+% Reinterprets the Einstein field equations as a post-hoc consistency condition expressed via line integrals of the connection. Resolves the geometric derivation of conservation laws challenge shared by Weyl, Cartan, Palatini, and Ashtekar through the requirement of global consistency in phase accumulation along thermal geodesics.
+
+\bibitem{hanamura18203433}
+S.~Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{https://doi.org/10.5281/zenodo.18203433}
+% Unifies observables in quantum, gauge, and gravitational theories as line integrals of the connection. Shows that the Aharonov-Bohm effect, Berry phase, and Wilson loops all rest on the same geometric principle (path-dependence, primacy of open paths), with a concrete realization via thermal gradients in the 0-Sphere dual-kernel system.
+
+% ========================================
+
+\bibitem{AharonovBohm1959}
+Y.~Aharonov and D.~Bohm,
+``Significance of Electromagnetic Potentials in the Quantum Theory,''
+Phys.\ Rev.\ \textbf{115}, 485 (1959).
+\href{https://doi.org/10.1103/PhysRev.115.485}{https://doi.org/10.1103/PhysRev.115.485}
+
+\bibitem{Berry1984}
+M.~V.~Berry,
+``Quantal Phase Factors Accompanying Adiabatic Changes,''
+Proc.\ Roy.\ Soc.\ Lond.\ A \textbf{392}, 45 (1984).
+\href{https://doi.org/10.1098/rspa.1984.0023}{https://doi.org/10.1098/rspa.1984.0023}
+
+\bibitem{Wilson1974}
+K.~G.~Wilson,
+``Confinement of Quarks,''
+Phys.\ Rev.\ D \textbf{10}, 2445 (1974).
+\href{https://doi.org/10.1103/PhysRevD.10.2445}{https://doi.org/10.1103/PhysRevD.10.2445}
+
+\bibitem{WuYang1975}
+T.~T.~Wu and C.~N.~Yang,
+``Concept of Nonintegrable Phase Factors and Global Formulation of Gauge Fields,''
+Phys.\ Rev.\ D \textbf{12}, 3845 (1975).
+\href{https://doi.org/10.1103/PhysRevD.12.3845}{https://doi.org/10.1103/PhysRevD.12.3845}
+
+\bibitem{Jacobson1995}
+T.~Jacobson,
+``Thermodynamics of Spacetime: The Einstein Equation of State,''
+Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+\href{https://doi.org/10.1103/PhysRevLett.75.1260}{https://doi.org/10.1103/PhysRevLett.75.1260}
+
+\bibitem{Rovelli1997}
+C.~Rovelli,
+``Halfway through the woods: Contemporary research on space and time,''
+in \textit{The Cosmos of Science},
+ed.\ J.~Earman and J.~Norton
+(University of Pittsburgh Press, 1997).
+
+\bibitem{Padmanabhan2010}
+T.~Padmanabhan,
+``Thermodynamical Aspects of Gravity: New insights,''
+Rept.\ Prog.\ Phys.\ \textbf{73}, 046901 (2010).
+\href{https://doi.org/10.1088/0034-4885/73/4/046901}{https://doi.org/10.1088/0034-4885/73/4/046901}
+
+\bibitem{Hanamura17765017}
+S.~Hanamura,
+``Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer,''
+Zenodo (2024).
+\href{https://doi.org/10.5281/zenodo.17765017}{https://doi.org/10.5281/zenodo.17765017}
+
+\end{thebibliography}
+
+\end{document}

@@ -1,0 +1,183 @@
+================================================================================
+zenodo_relations.txt — Paper #32
+Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology:
+The 0-Sphere Model Perspective
+DOI: 10.5281/zenodo.18275142
+Date: January 17, 2026
+================================================================================
+
+[Summary]
+  Cites:            17 entries (4 x 0-Sphere, 13 x external)
+  Is supplement to:  0 entries
+  Continues:         2 entries
+  References:        2 entries
+  Requires:          2 entries
+  Is part of:        1 entry
+  Total unique DOIs: 20
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics (#29)
+  Note: Cited as hanamura18067760; foundational line-integral structure
+
+10.5281/zenodo.18135855
+  Title: From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws (#30)
+  Note: Cited as hanamura18135855; connection one-form and phase accumulation
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Note: Cited as hanamura18203433; integral-based ontology foundation
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung,
+         Geodesic Paths, and Proper Time (#11)
+  Note: Cited as Hanamura17765017; worldline processes and internal circulation
+
+--- External references ---
+
+Zeldovich1967
+  Title: Cosmological Constant and Elementary Particles
+  Note: JETP Lett. 6, 316 (1967); original cosmological constant problem reference
+
+Weinberg1989
+  Title: The Cosmological Constant Problem
+  Note: Rev. Mod. Phys. 61, 1 (1989); DOI: 10.1103/RevModPhys.61.1
+
+Padmanabhan2003
+  Title: Cosmological Constant — the Weight of the Vacuum
+  Note: Phys. Rep. 380, 235 (2003); DOI: 10.1016/S0370-1573(03)00120-0
+
+Martin2012
+  Title: Everything You Always Wanted To Know About The Cosmological Constant Problem
+  Note: Comptes Rendus Physique 13, 566 (2012); DOI: 10.1016/j.crhy.2012.04.008
+
+BirrellDavies1982
+  Title: Quantum Fields in Curved Space (Cambridge University Press, 1982)
+  Note: DOI: 10.1017/CBO9780511622632
+
+Fulling1989
+  Title: Aspects of Quantum Field Theory in Curved Space-Time (Cambridge, 1989)
+  Note: DOI: 10.1017/CBO9781139172073
+
+AharonovBohm1959
+  Title: Significance of Electromagnetic Potentials in the Quantum Theory
+  Note: Phys. Rev. 115, 485 (1959); DOI: 10.1103/PhysRev.115.485
+
+Berry1984
+  Title: Quantal Phase Factors Accompanying Adiabatic Changes
+  Note: Proc. Roy. Soc. Lond. A 392, 45 (1984); DOI: 10.1098/rspa.1984.0023
+
+Wilson1974
+  Title: Confinement of Quarks
+  Note: Phys. Rev. D 10, 2445 (1974); DOI: 10.1103/PhysRevD.10.2445
+
+WuYang1975
+  Title: Concept of Nonintegrable Phase Factors and Global Formulation of Gauge Fields
+  Note: Phys. Rev. D 12, 3845 (1975); DOI: 10.1103/PhysRevD.12.3845
+
+Jacobson1995
+  Title: Thermodynamics of Spacetime: The Einstein Equation of State
+  Note: Phys. Rev. Lett. 75, 1260 (1995); DOI: 10.1103/PhysRevLett.75.1260
+
+Rovelli1997
+  Title: Halfway through the woods: Contemporary research on space and time
+  Note: in The Cosmos of Science (Pittsburgh, 1997)
+
+Padmanabhan2010
+  Title: Thermodynamical Aspects of Gravity: New insights
+  Note: Rept. Prog. Phys. 73, 046901 (2010); DOI: 10.1088/0034-4885/73/4/046901
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none — this paper is not explicitly declared a supplement to any prior work)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Reason: #32 directly continues the integral-ontology program of #31, applying
+          the line-integral framework to the cosmological constant problem.
+          #32 is the second paper in the integral-ontology series (#31-#32-#33).
+
+10.5281/zenodo.18135855
+  Title: From Curvature to Connection (#30)
+  Reason: #32 continues the reconceptualization of physical ontology pursued
+          in #30, extending it to the vacuum energy context.
+
+--------------------------------------------------------------------------------
+[4] References  (thematic / conceptual)
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18275142
+  Note: Self-reference excluded per convention.
+
+10.5281/zenodo.18356895
+  Title: Geometrical Confinement of Energy: Rest Mass and Zitterbewegung (#33)
+  Reason: Companion paper in the same integral-ontology series; the confinement
+          mechanism of #33 is the structural complement to the vacuum energy
+          dissolution of #32. Forward reference for readers finding #32 first.
+
+10.5281/zenodo.18727981
+  Title: On Vacuum Energy, Integral Ontology, and the Cosmological Constant (#39)
+  Reason: #39 is a direct supplement to #32 clarifying logical separation between
+          (i) vacuum energy problem addressed in #32 and (ii) origin of Lambda_obs.
+
+--------------------------------------------------------------------------------
+[5] Requires  (prerequisite papers for understanding this work)
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Reason: The integral-based ontology framework presupposed throughout #32 is
+          established in #31. Reading #31 first is strongly recommended.
+
+10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation (#29)
+  Reason: The geometric phase accumulation mechanism and connection one-form
+          formalism underlying the worldline integral Phi = integral omega
+          is developed in detail in #29.
+
+--------------------------------------------------------------------------------
+[6] Is part of
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Note: #32 is the second entry in the integral-ontology trilogy (#31, #32, #33).
+        Using the immediately preceding series-anchor paper per convention.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+The following Zenodo records should have relations added pointing back to #32
+(DOI: 10.5281/zenodo.18275142):
+
+10.5281/zenodo.18727981  (#39)
+  Add: Is supplement to  → 10.5281/zenodo.18275142
+  Reason: #39 is explicitly a supplementary note clarifying and extending #32.
+
+10.5281/zenodo.18203433  (#31)
+  Add: Is continued by  → 10.5281/zenodo.18275142
+  Reason: #32 directly continues the integral-ontology program of #31.
+
+10.5281/zenodo.18356895  (#33)
+  Add: References  → 10.5281/zenodo.18275142
+  Reason: #33 is the companion paper in the same series; #33 cites #32 directly.
+
+10.5281/zenodo.18135855  (#30)
+  Add: Is continued by  → 10.5281/zenodo.18275142
+  Reason: #32 extends the ontological reconceptualization of #30 to vacuum energy.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
