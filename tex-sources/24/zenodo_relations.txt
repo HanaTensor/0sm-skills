@@ -1,0 +1,188 @@
+================================================================================
+zenodo_relations.txt — Paper #24
+Thermal Geodesics in the 0-Sphere Model:
+Extending General Relativity through Internal Thermodynamic Structure
+DOI: 10.5281/zenodo.17765349
+Date: July 20, 2025
+================================================================================
+
+[Summary]
+  Cites:            16 entries (6 x 0-Sphere, 10 x external)
+  Is supplement to:  0 entries
+  Continues:         2 entries
+  References:        2 entries
+  Requires:          2 entries
+  Is part of:        0 entries
+  Total unique DOIs: 16
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2501.0130; ZB velocity ~0.04c quantitative results
+
+10.5281/zenodo.17765318
+  Title: Gravitational Redshift of Internal Quantum Clocks (#22)
+  Note: Cited as hanamura2507.0033; ZB as real oscillation with gravitational
+        frequency modulation
+
+10.5281/zenodo.17765336
+  Title: From Zero-Sphere to Emergent Spacetime (#23)
+  Note: Cited as hanamura2507.0081; background-independent spacetime emergence
+        from S0 topology
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Note: Cited as hanamura2309.0047; core mathematical machinery
+
+10.5281/zenodo.17765200
+  Title: Time-Dependent Mass: A Hamiltonian Approach to Thermal Modulation (#18)
+  Note: Cited as hanamura2506.0031; Hamiltonian formulation attempt
+
+10.5281/zenodo.17765238
+  Title: Spin as a Real Vector from Internal Photon-Sphere Motion (#19)
+  Note: Cited as hanamura2506.0072; photon sphere motion and gauge symmetry
+
+--- External references ---
+
+landau1975
+  Title: The Classical Theory of Fields, 4th ed. (Butterworth-Heinemann, 1975)
+  Note: Landau & Lifshitz; DOI: 10.1016/C2013-0-07451-8
+
+wald1984
+  Title: General Relativity (University of Chicago Press, 1984)
+  Note: DOI: 10.7208/chicago/9780226870373.001.0001
+
+connes1994
+  Title: Noncommutative Geometry and Reality
+  Note: J. Math. Phys. 36, 6194 (1995); DOI: 10.1063/1.531241
+
+gerritsma2010
+  Title: Quantum Simulation of the Dirac Equation
+  Note: Nature 463, 68 (2010); DOI: 10.1038/nature08688
+
+fan2023
+  Title: Measurement of the Electron Magnetic Moment
+  Note: Phys. Rev. Lett. 130, 071801 (2023); DOI: 10.1103/PhysRevLett.130.071801
+
+misner1973
+  Title: Gravitation (W. H. Freeman, 1973)
+  Note: Misner, Thorne, Wheeler
+
+jarzynski2011
+  Title: Nonequilibrium Equality for Free Energy Differences
+  Note: Phys. Rev. Lett. 78, 2690 (1997); DOI: 10.1103/PhysRevLett.78.2690
+
+rovelli1991
+  Title: Time in Quantum Gravity: An Hypothesis
+  Note: Phys. Rev. D 43, 442 (1991); DOI: 10.1103/PhysRevD.43.442
+
+dirac1928
+  Title: The Quantum Theory of the Electron
+  Note: Proc. R. Soc. Lond. A 117, 610 (1928); DOI: 10.1098/rspa.1928.0023
+
+barut1981
+  Title: Zitterbewegung and the Internal Geometry of the Electron
+  Note: Phys. Rev. D 23, 2454 (1981); DOI: 10.1103/PhysRevD.23.2454
+
+hestenes1990
+  Title: The Zitterbewegung Interpretation of Quantum Mechanics
+  Note: Found. Phys. 20, 1213 (1990); DOI: 10.1007/BF01889466
+
+leblanc2013
+  Title: Direct Observation of Zitterbewegung in a Bose-Einstein Condensate
+  Note: New J. Phys. 15, 073011 (2013); DOI: 10.1088/1367-2630/15/7/073011
+
+weinberg1995
+  Title: The Quantum Theory of Fields, Volume I (Cambridge, 1995)
+  Note: DOI: 10.1017/CBO9781139644167
+
+wheeler1955
+  Title: Geons
+  Note: Phys. Rev. 97, 511 (1955); DOI: 10.1103/PhysRev.97.511
+
+amelino-camelia2002
+  Title: Quantum Gravity Phenomenology
+  Note: Nature 418, 34 (2002); DOI: 10.1038/418034a
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765318
+  Title: Gravitational Redshift of Internal Quantum Clocks (#22)
+  Reason: #24 provides the formal geometric framework (thermal geodesics,
+          thermal metric) underlying the gravitational frequency modulation
+          of internal clocks described in #22.
+
+10.5281/zenodo.17765336
+  Title: From Zero-Sphere to Emergent Spacetime (#23)
+  Reason: #24 continues the background-independent program of #23 by
+          explicitly constructing the thermal geodesic framework from
+          the internal S0 structure.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation (#29)
+  Reason: #29 (Line Integral Trilogy Part I) directly formalizes the
+          spinorial connection along thermal geodesics introduced in #24.
+          Forward reference for readers of #24.
+
+10.5281/zenodo.18064535
+  Title: A Noetherian Inversion (#25)
+  Reason: #25 explicitly cites #24 as providing the harmonic mode analysis
+          for quantized spin; thermal geodesic framework is the technical
+          basis for the Noetherian inversion argument.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The energy conservation identity K_A + K_B + K_photon = E0 and
+          the Thomas precession angular velocity that define the internal
+          oscillation are established in #10.
+
+10.5281/zenodo.17765200
+  Title: Time-Dependent Mass: A Hamiltonian Approach (#18)
+  Reason: The thermal Lagrangian formulation in #24 builds directly on
+          the Hamiltonian approach to thermal modulation of #18.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765318  (#22)
+  Add: Is continued by  --> 10.5281/zenodo.17765349
+  Reason: #24 provides the formal framework underlying #22's coupling mechanism.
+
+10.5281/zenodo.17765336  (#23)
+  Add: Is continued by  --> 10.5281/zenodo.17765349
+  Reason: #24 continues the background-independent program of #23.
+
+10.5281/zenodo.18067760  (#29)
+  Add: Continues  --> 10.5281/zenodo.17765349
+  Reason: #29 formally develops the spinorial connection along thermal geodesics
+          first introduced in #24.
+
+10.5281/zenodo.18064535  (#25)
+  Add: Continues  --> 10.5281/zenodo.17765349
+  Reason: #25 explicitly builds on #24's harmonic mode / thermal geodesic results.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
