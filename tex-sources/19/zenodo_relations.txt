@@ -1,0 +1,160 @@
+================================================================================
+zenodo_relations.txt — Paper #19
+Spin as a Real Vector from Internal Photon-Sphere Motion:
+Geometric Origin of U(1) Gauge and SU(2) Periodicity
+DOI: 10.5281/zenodo.17765238
+Date: June 15, 2025
+================================================================================
+
+[Summary]
+  Cites:            15 entries (3 x 0-Sphere, 12 x external)
+  Is supplement to:  0 entries
+  Continues:         1 entry
+  References:        2 entries
+  Requires:          2 entries
+  Is part of:        0 entries
+  Total unique DOIs: 15
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Note: Cited as hanamura2309.0047; source of original Omega(t) expression
+        (dimensional inconsistency corrected in this paper)
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Note: Cited as hanamura2411.0117; source of kernel A/B energy weight
+        functions and photon sphere kinetic energy term
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2501.0130; energy conservation identity;
+        v_ZB ~ 0.04c prediction
+
+--- External references ---
+
+uhlenbeck1925
+  Title: Spinning Electrons and the Structure of Spectra
+  Note: Naturwissenschaften 13, 953 (1925); Nature 117, 264 (1926);
+        DOI: 10.1038/117264a0
+
+schrodinger1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. 24, 418 (1930)
+
+barut1981
+  Title: Zitterbewegung and the internal geometry of the electron
+  Note: Phys. Rev. D 23, 2454 (1981); DOI: 10.1103/PhysRevD.23.2454
+
+hestenes1990
+  Title: The zitterbewegung interpretation of quantum mechanics
+  Note: Found. Phys. 20, 1213 (1990); DOI: 10.1007/BF01889466
+
+gerritsma2010
+  Title: Quantum simulation of the Dirac equation
+  Note: Nature 463, 68 (2010); DOI: 10.1038/nature08688
+
+zhang2023
+  Title: Observation of Zitterbewegung in photonic microcavities
+  Note: Light: Sci. Appl. 12, 289 (2023); DOI: 10.1038/s41377-023-01162-x
+
+thomas1926
+  Title: The Motion of the Spinning Electron
+  Note: Nature 117, 514 (1926); DOI: 10.1038/117514a0
+
+ohanian1986
+  Title: What is spin?
+  Note: Am. J. Phys. 54, 500 (1986); DOI: 10.1119/1.14580
+
+baylis1992
+  Title: Classical eigenspinors and the Dirac equation
+  Note: Phys. Rev. A 45, 4293 (1992); DOI: 10.1103/PhysRevA.45.4293
+
+hestenes2010
+  Title: Zitterbewegung in Quantum Mechanics
+  Note: Found. Phys. 40, 1 (2010); DOI: 10.1007/s10701-009-9360-3
+
+leblanc2013
+  Title: Direct observation of zitterbewegung in a Bose-Einstein condensate
+  Note: New J. Phys. 15, 073011 (2013); DOI: 10.1088/1367-2630/15/7/073011
+
+Jackson1999
+  Title: Classical Electrodynamics, 3rd ed. (Wiley, 1999)
+  Note: Sec. 11.5 (Thomas precession as coordinate artifact)
+
+utiyama1956
+  Title: Invariant theoretical interpretation of interaction
+  Note: Phys. Rev. 101, 1597 (1956); DOI: 10.1103/PhysRev.101.1597
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: #19 directly continues and corrects #10 by fixing the dimensional
+          inconsistency in Omega(t). The correction from scalar to vector
+          form (adding e_z) is the primary contribution of this paper.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765244
+  Title: Emergent Conservation Laws from Internal Geometry (#20)
+  Reason: #20 cites #19 as hanamura2506.0072 for the corrected angular velocity
+          and SU(2)/U(1) unification; the Appendix A.6 of #20 summarizes
+          this paper's results. Forward reference.
+
+10.5281/zenodo.17765409
+  Title: Spin from Geometry: Berry Phase (#26)
+  Reason: #26 cites #19 as hanamura2506.0072; the SU(2)/U(1) geometric
+          unification of #19 underpins the Berry phase spin emergence
+          argument of #26. Forward reference.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The original Omega(t) expression and the v_ZB ~ 0.04c derived
+          in #10 are prerequisites for understanding the correction in #19.
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Reason: The kernel A/B energy weight functions cos^4(omega*t/2),
+          sin^4(omega*t/2) and photon sphere KE term (1/2)sin^2(omega*t)
+          used in the notation section and figures are established in #11.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997  (#10)
+  Add: Is continued by  --> 10.5281/zenodo.17765238
+  Reason: #19 corrects the dimensional inconsistency of #10's Omega(t).
+
+10.5281/zenodo.17765244  (#20)
+  Add: Continues  --> 10.5281/zenodo.17765238
+  Reason: #20 directly builds on the corrected Omega(t) and SU(2)/U(1)
+          unification of #19.
+
+10.5281/zenodo.17765409  (#26)
+  Add: References  --> 10.5281/zenodo.17765238
+  Reason: #26 uses the SU(2)/U(1) geometric framework of #19.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
