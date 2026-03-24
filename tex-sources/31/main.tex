@@ -1,0 +1,556 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+ prb,
+]{revtex4-2}
+
+% Basic packages
+\usepackage{graphicx}
+\usepackage{bm}
+
+% Quantum mechanics notation
+\usepackage{physics}
+
+% Hyperlinks
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            filecolor=blue,
+            urlcolor=blue,
+            citecolor=blue]{hyperref}
+
+% Caption settings
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=justified,
+    labelfont={bf},
+    name={Fig.},
+    labelsep=period
+}
+\captionsetup[table]{
+    justification=justified,
+    labelfont={bf},
+    name={Table},
+    labelsep=period
+}
+
+% Equation numbering per section
+\numberwithin{equation}{section}
+
+% Typography adjustments
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+
+% Microtypography
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+
+% Use \midrule, \addlinespace, \bottomrule
+\usepackage{booktabs}
+
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+
+% Color definitions (light blue palette for academic papers)
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+
+% Python style definition
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour},
+    commentstyle=\color{deepgreen}\itshape,
+    keywordstyle=\color{deepblue}\bfseries,
+    numberstyle=\tiny\color{deepgray},
+    stringstyle=\color{stringcolor},
+    basicstyle=\ttfamily\footnotesize,
+    breakatwhitespace=false,
+    breaklines=true,
+    captionpos=b,
+    keepspaces=true,
+    numbers=left,
+    numbersep=5pt,
+    showspaces=false,
+    showstringspaces=false,
+    showtabs=false,
+    tabsize=2,
+    language=Python,
+    frame=single,
+    rulecolor=\color{deepgray}
+}
+\lstset{style=pythonstyle}
+
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\begin{document}
+
+\title{Line Integrals as Fundamental Observables in Physics:\\ A Unified Principle Behind the Aharonov–Bohm Effect, Berry Phase, and Wilson Loops}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{January 10, 2026}
+
+\begin{abstract}
+In conventional physics, measurable quantities are often expressed as local tensorial fields, such as electromagnetic tensors or spacetime curvature. However, a wide range of phenomena—including the Aharonov–Bohm effect, Berry phase, Wilson loops, and energy transport in the 0-Sphere model—demonstrates that physically observable effects can depend primarily on line integrals accumulated along trajectories, rather than on local values alone.
+This work identifies a unifying principle: physical observables correspond to holonomies of connections or accumulated geometric phases along histories. Local tensors and curvature emerge as secondary descriptors encoding infinitesimal properties or noncommutativity of parallel transport. In the 0-Sphere two-kernel system, energy transport is mediated by thermal gradients and captured entirely by line integrals of scalar potentials. Similarly, canonical quantum and gauge-theoretic effects are naturally interpreted through accumulated phases along paths.
+By placing line integrals and connections at the center of the description, this study emphasizes the primacy of histories in defining observables across quantum, gauge, and gravitational contexts. The proposed framework does not modify existing theories but clarifies their logical hierarchy: locality and curvature are derived notions, while path-dependent effects provide the operationally meaningful content. These insights suggest a coherent conceptual bridge linking interference phenomena, gauge invariance, and gravitational dynamics.
+\end{abstract}
+
+
+
+\maketitle
+
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+\label{sec:introduction}
+
+The formulation of physical observables in fundamental physics has long been dominated by local tensorial quantities. In gauge theories, field strengths such as the electromagnetic tensor are treated as the primary carriers of physical content, while in general relativity spacetime curvature encodes gravitational dynamics. This emphasis on locality has proven remarkably effective, yet it obscures a recurrent feature of experimentally accessible phenomena: many observables are not determined by pointwise field values, but by quantities accumulated along extended histories.
+
+A range of well-established effects illustrates this structural tension. The Aharonov--Bohm (AB) effect~\cite{AharonovBohm1959,WuYang1975} demonstrates that charged particles acquire a measurable phase shift even when propagating entirely through regions where the electromagnetic field strength vanishes. Berry phases~\cite{Berry1984} reveal that adiabatic quantum evolution carries geometric information encoded in closed paths through parameter space. Wilson loops~\cite{Wilson1974} serve as gauge-invariant observables in non-Abelian gauge theories, capturing global information inaccessible to local fields alone. In each case, the observable quantity is naturally expressed as a line integral of a connection along a path.
+
+These examples suggest that \textbf{the primacy of local tensorial objects may be conceptually inverted}. Rather than treating line integrals as secondary constructions derived from local fields, one may regard them as the minimal geometric structures capable of encoding physically meaningful information. Local quantities then summarize infinitesimal properties of these more fundamental, path-dependent observables.
+
+This viewpoint extends beyond canonical quantum and gauge-theoretic settings. In recent work on the 0-Sphere model~\cite{hanamura17765017,hanamura18064535}, energy transport between localized kernels is governed by gradients of scalar potentials and realized through accumulated effects along trajectories. Although formulated in a different physical context, this mechanism exhibits the same structural feature: physically relevant quantities depend on histories rather than on instantaneous local values.
+
+The present work develops this observation into a unifying principle. By examining the AB effect, Berry phase, Wilson loops, and the 0-Sphere two-kernel system within a common geometric framework, we argue that line integrals of connections---or equivalently, accumulated phases and potentials along paths---constitute a natural class of fundamental observables across quantum, gauge, and gravitational domains.
+
+\paragraph*{Synopsis.}
+This work examines phenomena across quantum, gauge, and gravitational domains 
+to establish that line integrals along trajectories constitute a natural class 
+of fundamental observables. 
+Section~\ref{sec:line_integrals_observables} introduces the conceptual framework, 
+emphasizing that physically measurable quantities often depend on accumulated 
+effects along histories rather than on local field values. 
+Sections~\ref{sec:ab_holonomy_without_curvature}--\ref{sec:wilson_loops_gauge_invariant} 
+present canonical examples: the Aharonov--Bohm effect as gauge holonomy without 
+local curvature, the Berry phase as geometric accumulation in parameter space, 
+and Wilson loops as explicitly gauge-invariant observables in non-Abelian theories. 
+Section~\ref{sec:gauge_to_gravity} traces the conceptual transition from internal 
+gauge symmetries to spacetime geometry, while 
+Section~\ref{sec:unifying_line_integral_principle} distills a unifying principle 
+common to these examples. 
+Section~\ref{sec:bridge_gravity}---a central component of this work---demonstrates 
+the operational realization of this principle through the explicit thermal dynamics 
+of the 0-Sphere two-kernel system. 
+Finally, Section~\ref{sec:redeclaration_line_integrals} clarifies the logical 
+hierarchy: connections and accumulated effects along paths are operationally 
+primary, while local curvature emerges as a derived descriptor of infinitesimal 
+transport properties.
+
+
+% ========================================
+% Section 2: Line Integrals and the Nature of Physical Observables
+% ========================================
+\section{Line Integrals and the Nature of Physical Observables}
+\label{sec:line_integrals_observables}
+
+Historically, the Aharonov--Bohm effect, the Berry phase, and Wilson loops have been classified as distinct phenomena, each associated with a different subfield of physics. The Aharonov--Bohm effect emerged from quantum interference experiments and was regarded as a peculiarity of quantum mechanics. The Berry phase was formulated within adiabatic quantum evolution and parameter-space geometry, often treated as a geometric refinement rather than as a central observable. Wilson loops, by contrast, arose in the context of gauge field theory as tools for defining gauge-invariant quantities, particularly in non-Abelian settings. This separation, however, reflects differences in historical context, mathematical language, and community focus rather than a genuine distinction in physical principle.
+
+At a more general level, these phenomena share a common structural feature: the physical quantity of interest is not determined by a local field value at a spacetime point, but by a line integral accumulated along a path or history. In each case, the observable arises from the comparison of phases or internal states transported along different trajectories. Such quantities cannot be reduced to local tensors without losing their physical meaning, because their definition intrinsically involves an extended process rather than an instantaneous configuration.
+
+This highlights a limitation of local curvature-based or tensor-based descriptions when physical observables are primarily associated with histories rather than points~\cite{Nakahara2003}. Local quantities characterize infinitesimal structure, but experimental observables often probe global or cumulative effects. Interference experiments, adiabatic transport, and gauge-invariant loop observables all rely on comparing histories, not evaluating fields at isolated events. The line integral therefore appears not as a mathematical convenience, but as the minimal geometric structure capable of encoding such comparisons.
+
+From this perspective, the distinction between ``quantum'' and ``gauge'' phenomena becomes secondary. The Aharonov--Bohm phase, the Berry phase, and Wilson loops are unified by the same operational principle: physical observables correspond to gauge-invariant quantities obtained by integrating a connection along a path. Whether the path lies in real space, parameter space, or an abstract internal space is a matter of representation rather than principle. The essential feature is that the observable depends on the accumulated effect of parallel transport along a history.
+
+This unified viewpoint suggests a reordering of conceptual priorities in modern physics. Rather than treating local fields or tensors as central and line integrals as derived constructions, one may regard line integrals along physically realized histories as the main observables. Local quantities then acquire meaning only insofar as they contribute to these accumulated effects. In this sense, the Aharonov--Bohm effect, the Berry phase, and Wilson loops are not exceptional phenomena, but canonical examples of a more general principle governing how physical information is encoded and observed.
+
+
+% ========================================
+% Section 3: Aharonov-Bohm Effect as Holonomy Without Curvature
+% ========================================
+\section{Aharonov--Bohm Effect as Holonomy Without Curvature}
+\label{sec:ab_holonomy_without_curvature}
+
+% ----------------------------------------
+% Subsection 3.1: Analytical Formulation
+% ----------------------------------------
+\subsection{Analytical Formulation}
+\label{sec:ab_analytical_formulation}
+
+The Aharonov--Bohm effect provides a paradigmatic example in which a physically measurable quantity arises without any local interaction with a nonvanishing field strength. Charged particles acquire a relative phase shift even though their trajectories are entirely confined to regions where the electromagnetic field tensor $F_{\mu\nu}$ vanishes.
+
+The observed phase difference is determined by the line integral of the electromagnetic potential along the particle's path,
+\begin{equation}
+\Delta \phi = \frac{q}{\hbar} \oint A_\mu \, dx^\mu,
+\label{eq:ab_phase}
+\end{equation}
+and depends only on the total magnetic flux enclosed by the loop. This demonstrates that the potential $A_\mu$, viewed as a connection, carries physical significance beyond its role as a mathematical auxiliary for defining the field strength.
+
+Importantly, even though the local magnetic field \( \mathbf{B} \) vanishes along the electron trajectories, the spatial separation between paths passing on the inside and outside of the solenoid can be consistently interpreted, within a trajectory-based formulation, as introducing a slight difference in the effective path lengths. Within this perspective, this difference translates into a temporal phase shift along each trajectory, which accumulates continuously as the particle propagates. When the electron waves recombine, this relative phase manifests as a measurable interference pattern.
+
+Mathematically, within this extended interpretive framework, for a segment of the path with infinitesimal elements \( \Delta \mathbf{l}_i \), one may express the total phase including the path-length contribution as
+\begin{equation}
+\Delta \phi_\mathrm{total} = \frac{q}{\hbar} \sum_i \mathbf{A} \cdot \Delta \mathbf{l}_i + k \sum_i \Delta L_i,
+\end{equation}
+where \( \Delta L_i \) represents the differential path-length difference between the inner and outer trajectories, and \( k \) is the electron wave number. The first term is the usual AB line-integral contribution, while the second term encodes the temporal phase arising from the geometric difference of the trajectories.
+
+% REM:
+% The continuous expressions for line integrals and path lengths used in this section
+% are intended as coarse-grained, effective-theory descriptions and do not implicitly
+% deny the discrete internal structure of the 0-Sphere model (inter-kernel distance
+% = thermal potential energy, kernel-to-kernel separation).
+%
+% In this model, phase responses based on discrete internal kernel structure are
+% observed as continuous phase integrals accumulated along particle histories.
+% Continuous path-length accumulation is therefore an effective representation in
+% the observable limit of discrete internal structure, not a claim of continuous
+% internal degrees of freedom.
+%
+% The correspondence between discrete internal structure and continuous integral
+% representation is not developed explicitly in this paper, whose primary aim is
+% to establish line integrals as fundamental observables. This is left to future
+% model-dependent analysis. (2026-01-07)
+
+In this way, the observed interference arises not from a local magnetic interaction, but from the combination of the holonomy of the connection \( \mathbf{A} \) and the relative path history of the electrons. The presence of a finite path-length difference provides a natural mechanism for the accumulation of a time-dependent phase, fully consistent with the observed Aharonov--Bohm effect, even in regions where \( \mathbf{B} = 0 \).
+
+
+The effect cannot be attributed to any local force or curvature experienced along the path. Instead, it reflects a global property of the trajectory: the holonomy of the connection around a non-contractible loop. The phase shift is therefore insensitive to local deformations of the path, provided the enclosed flux remains unchanged. From a geometric standpoint, the Aharonov--Bohm effect shows that physical observables can be associated with parallel transport and holonomy, even in regions where curvature vanishes identically. This challenges the intuition that local tensorial quantities exhaust the physically meaningful content of a theory, and emphasizes the central role of path-dependent quantities when observables are primarily associated with histories rather than points.
+
+
+% ----------------------------------------
+% Subsection 3.2: Partial-Path Phase and Trajectory-Dependent Accumulation
+% ----------------------------------------
+\subsection{Partial-Path Phase and Trajectory-Dependent Accumulation}
+\label{sec:ab_partial_path_phase}
+
+A central insight of the line-integral formulation is that phase accumulation is inherently a history-dependent process, not merely a shortcut to total flux. In the context of the 0-Sphere model, electrons possess an internal phase structure within their kernels, which naturally gives rise to phase differences along paths of differing length. Even when the local magnetic field vanishes along the trajectories, a finite spatial separation between inner and outer paths produces slight differences in the effective path lengths, generating temporal phase shifts that accumulate as the particle propagates.
+
+Denoting a segment of the path from $\theta = \theta_1$ to $\theta_2$, the accumulated phase can be expressed as
+\begin{equation}
+\Delta \phi_\mathrm{segment} = \frac{q}{\hbar} \sum_{i:\theta_1 \le \theta_i \le \theta_2} \mathbf{A}(x_i,y_i) \cdot \Delta \mathbf{l}_i + k \sum_{i:\theta_1 \le \theta_i \le \theta_2} \Delta L_i,
+\label{eq:ab_partial_phase_pathdiff}
+\end{equation}
+where $\Delta L_i$ represents the differential path-length between two nearby trajectories, and $k$ is the electron wave number associated with the kernel's internal phase structure. The first term corresponds to the conventional line integral of the vector potential, while the second explicitly encodes the temporal phase arising from both trajectory separation and the internal phase of the 0-Sphere kernel.
+
+This formulation emphasizes that the AB interference effect arises directly from the internal structure of the particle: the holonomy accumulated along paths of differing length naturally produces the observed phase shift, without requiring a local magnetic field along the trajectory.
+
+
+% ----------------------------------------
+% Subsection 3.3: Open and Arbitrary Path Segments: Continuous Holonomy
+% ----------------------------------------
+\subsection{Open and Arbitrary Path Segments: Continuous Holonomy}
+\label{sec:ab_continuous_holonomy}
+
+By treating the line integral as a cumulative process, one can evaluate the phase for any segment of the path, not limited to closed $2\pi$ loops. Parameterizing the trajectory by its path length $s$, the accumulated phase becomes
+\begin{equation}
+\Delta \phi(s) = \frac{q}{\hbar} \int_0^s \mathbf{A} \cdot d\mathbf{l} + k \int_0^s dL,
+\end{equation}
+where $dL$ represents the infinitesimal path-length difference along the segment. This expression makes clear that phase accumulation is intrinsic to the history of the trajectory, independent of whether the loop is closed or open.
+
+\textbf{The Stokes-based surface integral approach,} while elegant, applies strictly to closed loops and captures only the total flux contribution:
+\begin{equation}
+\Delta \phi_\mathrm{loop} = \frac{q}{\hbar} \oint \mathbf{A} \cdot d\mathbf{l} = \frac{q}{\hbar} \int \mathbf{B} \cdot d\mathbf{S}.
+\end{equation}
+\textbf{In contrast, the line-integral plus path-length difference formulation provides a more fundamental description,} naturally accounting for both open and closed trajectories, and emphasizing the operational meaning of holonomy as cumulative geometric phase along a history.
+
+This perspective highlights that the requirement of closed loops is an observational constraint—imposed by interference measurements—rather than a theoretical necessity. In the context of the 0-Sphere model, this approach aligns with the notion that physically meaningful quantities, including time-dependent phases, emerge from the internal structure and sequential evolution of the particle's state, rather than from pointwise local fields alone.
+
+
+
+% ========================================
+% Section 4: Berry Phase and the Primacy of Adiabatic Histories
+% ========================================
+\section{Berry Phase and the Primacy of Adiabatic Histories}
+\label{sec:berry_phase_histories}
+
+The Berry phase arises when a quantum system undergoes an adiabatic evolution along a closed path in parameter space, returning to its initial physical configuration. Despite the cyclic nature of the process, the quantum state generally acquires an additional phase factor that cannot be attributed to the dynamical evolution alone.
+
+This phase shift is geometric in origin. It depends solely on the trajectory traced in parameter space and is insensitive to the rate at which the path is traversed, provided the adiabatic condition is satisfied. In particular, the Berry phase cannot be reconstructed from instantaneous properties of the Hamiltonian at a single point along the path, even though the local dynamics are well defined at every stage of the evolution.
+
+From a geometric perspective, the Berry phase can be understood as the holonomy associated with a connection defined over a parameter-space bundle. The physical observable is given by the line integral of this connection along a closed loop,
+\begin{equation}
+\gamma = \oint \mathcal{A}_i(\lambda) \, d\lambda^i,
+\end{equation}
+where $\mathcal{A}_i$ denotes the Berry connection. As in the Aharonov--Bohm effect, the observable phase is tied to the global properties of the path rather than to any local curvature encountered along it.
+
+This structure highlights a key feature: even in systems governed by well-defined local Hamiltonians, physically meaningful quantities may be inherently history-dependent. The Berry phase therefore reinforces the idea that histories, rather than instantaneous states, can play a central role in the formulation of physical observables.
+
+As emphasized in earlier work, this path-centered viewpoint is not an incidental artifact of adiabatic quantum mechanics, but reflects a more general principle concerning the role of connections and line integrals in encoding physical information ~\cite{hanamura17765409}. The Berry phase thus serves as a canonical example in which the primacy of histories emerges naturally, without invoking nonlocal forces or modifying the underlying dynamical equations.
+
+This perspective reinforces the idea that the phase shift represents the holonomy of a connection over the closed adiabatic path, emphasizing that the geometric and physically observable content resides in the accumulated effect along the trajectory rather than in instantaneous Hamiltonian values.
+
+
+% ========================================
+% Section 5: Wilson Loops and Gauge-Invariant Line Integrals
+% ========================================
+\section{Wilson Loops and Gauge-Invariant Line Integrals}
+\label{sec:wilson_loops_gauge_invariant}
+
+In gauge field theory, Wilson loops provide a canonical example of gauge-invariant observables constructed from a connection. Given a closed loop $C$, the Wilson loop is defined as the path-ordered exponential
+\begin{equation}
+W(C) = \mathrm{Tr}\, \mathcal{P} \exp\left( i \oint_C A_\mu \, dx^\mu \right),
+\end{equation}
+where $A_\mu$ denotes the gauge connection and $\mathcal{P}$ indicates path ordering. By construction, $W(C)$ is invariant under local gauge transformations, even though the connection itself is not.
+
+Wilson loops play a central role in nonperturbative analyses of gauge theories, most notably in the study of confinement and topological phases. Their importance stems from the fact that they capture global information about the gauge field configuration that cannot be accessed through local, gauge-dependent quantities.
+
+The physical content encoded by a Wilson loop does not reside in the value of the gauge field at any single point, nor in local field strengths alone. Rather, it emerges from the accumulated effect of parallel transport around an extended path. In this sense, Wilson loops represent holonomies of the gauge connection and provide direct access to the global structure of the gauge bundle~\cite{Nakahara2003}.
+
+This construction further illustrates a recurring theme: gauge-invariant observables are associated with line integrals along closed loops rather than with pointwise tensorial objects. Even when local curvature is nonvanishing, the Wilson loop integrates this information in a manner that is intrinsically nonlocal and history-dependent.
+
+The prominence of Wilson loops therefore reinforces the primacy of extended paths in the formulation of physical observables. What appears locally as a gauge redundancy acquires physical meaning only when considered along a closed trajectory, highlighting once again that observable quantities are intrinsically tied to histories rather than to points.
+
+These examples suggest that the prominence of line integrals is not restricted to quantum or gauge-theoretic settings, but reflects a more general principle that can be extended to gravitational geometry.
+
+In this sense, Wilson loops provide a clear example of holonomy in non-Abelian gauge theories, where the line integral of the connection around a closed loop encodes gauge-invariant physical information inaccessible through local field strengths alone.
+
+
+% ========================================
+% Section 6: From Gauge Holonomy to Gravitational Geometry
+% ========================================
+\section{From Gauge Holonomy to Gravitational Geometry}
+\label{sec:gauge_to_gravity}
+
+The preceding examples---the Aharonov--Bohm effect, the Berry phase, and Wilson loops---share a common structural feature: physical observables arise from the holonomy of a connection evaluated along an extended path, rather than from local tensorial quantities defined at points. Although these phenomena are traditionally classified as quantum, adiabatic, or gauge-theoretic, their underlying logic is geometric and remarkably uniform.
+
+This observation highlights that the primacy of line integrals is not merely a feature of quantum or gauge systems, but may instead reflect a more general principle applicable to spacetime geometry itself. In conventional general relativity~\cite{Wald}, physical content is primarily encoded in local curvature tensors, and dynamics are expressed through pointwise relations such as the Einstein field equation. Observables are typically inferred indirectly, through curvature-induced effects on geodesic deviation or local measurements.
+
+However, from an operational standpoint, physical measurements are never made at isolated points. They are accumulated along worldlines traced by clocks, particles, or extended systems. Proper time, phase accumulation, and transport of internal degrees of freedom are inherently history-dependent quantities. This suggests a structural mismatch between the local tensorial language of curvature and the extended, path-based nature of physical observables.
+
+In gauge theories, this mismatch is resolved by recognizing that connections, rather than field strengths, provide the correct primitive objects, with holonomy serving as the bridge between geometry and measurement. The success of this perspective raises the possibility that a similar reordering of principles may be required in gravitational physics.
+
+From this viewpoint, curvature may be regarded as a derived quantity characterizing the noncommutativity of parallel transport around infinitesimal loops, while the connection itself encodes the physically relevant information accumulated along finite histories. The emphasis thus shifts from surface-based or pointwise descriptors to line integrals evaluated along physically realized trajectories.
+
+This reorientation does not contradict general relativity, but it challenges the assumption that local curvature tensors must occupy the central level of the theory. Instead, it suggests that a connection-based description, in which physical observables are associated with accumulated geometric effects along worldlines, may offer a more faithful representation of how spacetime geometry is operationally accessed.
+
+In this sense, the transition from curvature to connection, and from local tensors to line integrals, should not be viewed as a simplification or an approximation. Rather, it reflects a downward shift in the hierarchy of geometric structures, motivated by the requirement that theories accommodate internal structure, background independence, and the intrinsically historical character of measurement.
+
+
+% ========================================
+% Section 7: Unifying Principle: Observables as Line Integrals
+% ========================================
+\section{Unifying Principle: Observables as Line Integrals}
+\label{sec:unifying_line_integral_principle}
+
+The preceding analyses reveal a unifying structural principle underlying phenomena traditionally separated into quantum, geometric, and gauge-theoretic categories. In each case, the physically meaningful observable is \textbf{not a local tensorial quantity, but a line integral of a connection evaluated along a path or loop}.
+
+This recurrence suggests that the conventional distinction between ``quantum'' and ``classical'' effects is secondary to a more essential division between point-based and history-based descriptions. What distinguishes physically observable quantities is not the nature of the underlying theory, but whether the formalism assigns meaning to accumulated geometric effects along realized trajectories.
+
+From this perspective, the reliance on local curvature as the central carrier of physical information appears not as a necessity, but as a historically motivated restriction. The repeated emergence of line-integral observables across disparate domains indicates that connection-based, history-dependent structures occupy a more prominent position in the hierarchy of physical description.
+
+
+% ========================================
+% Section 8: Bridging Line-Integral Observables to Gravitational Dynamics
+% ========================================
+\section{Bridging Line-Integral Observables to Gravitational Dynamics}
+\label{sec:bridge_gravity}
+
+The preceding examples—from the Aharonov--Bohm effect, Berry phases, to Wilson loops—have illustrated that physical observables are most directly associated with line integrals of connections along trajectories, rather than with local tensors or field strengths. This insight motivates a reassessment of gravitational theory, in which conventional formulations prioritize curvature tensors and the Einstein field equations as local relationships between geometry and matter.
+
+
+Recent work within the 0-Sphere model \cite{hanamura17765017,hanamura18064535,hanamura17765409} provides a concrete realization of this principle. Energy transport between localized kernels is governed by a variational principle formulated in terms of particle-wise proper time, leading to the so-called \emph{thermal geodesic equation}:
+\begin{equation} \label{eq:thermal_geodesic}
+\frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\rho}(T) \, \frac{dx^\nu}{d\tau} \frac{dx^\rho}{d\tau} = 0,
+\end{equation}
+where the Christoffel symbols $\Gamma^\mu_{\nu\rho}(T)$ are derived from a temperature-dependent thermal metric $\mathcal{G}_{\mu\nu}(T)$. Along such thermal geodesics~\cite{hanamura17765017}, the accumulated connection defines a geometric phase that encodes energy transport. From this perspective, the stress--energy tensor and the Einstein field equation are secondary descriptors, emerging from consistency conditions on accumulated line integrals of the connection.
+
+In this framework, the contracted Bianchi identity~\cite{Wald},
+\begin{equation}
+\nabla^\mu G_{\mu\nu} \equiv 0,
+\end{equation}
+can be interpreted as a geometric consistency condition enforcing conservation of energy and momentum along thermal geodesics. Curvature remains a useful, but derived, descriptor, encoding the noncommutativity of parallel transport around loops rather than serving as the primary carrier of physical information.
+
+This conceptual shift suggests the following hierarchy:
+\begin{enumerate}
+\item Connection and proper time as central geometric variables,
+\item Line integrals of the connection along trajectories (thermal geodesics) as the main physical observables,
+\item Emergent energy--momentum densities and the Einstein field equation as consistency checks derived from accumulated connections,
+\item Curvature as a secondary descriptor encoding loop-level noncommutativity.
+\end{enumerate}
+
+\clearpage
+
+% ----------------------------------------
+% Subsection 8.1: Thermal Energy Gradient Caused by Two Kernels
+% ----------------------------------------
+\subsection{Thermal Energy Gradient Caused by Two Kernels}
+\label{sec:thermal_geodesic_equation}
+
+A concrete realization of line-integral observables within the 0-Sphere model arises from the interaction between two localized kernels, labeled A and B. To maintain energy conservation, each kernel is treated as possessing a thermal potential energy, alternating as emitter and absorber. Assign temperatures $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$ as follows:
+\begin{equation}
+\begin{split}
+T_{\mathrm{e1}} &= E_0 \cos^4 \left( \frac{\omega t}{2} \right), \\
+T_{\mathrm{e2}} &= E_0 \sin^4 \left( \frac{\omega t}{2} \right),
+\end{split}
+\label{eq:Te1Te2}
+\end{equation}
+where $E_0$ is the ground-state quantized energy.
+
+The temperature gradient between the two kernels is
+\begin{equation}
+\mathrm{grad} \, T_\mathrm{e} = \mathrm{grad} \left( T_{\mathrm{e2}} - T_{\mathrm{e1}} \right).
+\label{eq:grad_Te}
+\end{equation}
+
+Introducing $\theta = \omega t$, the time derivatives of each kernel are
+\begin{align}
+\mathrm{grad} \, T_{\mathrm{e1}} &= \frac{d}{d\theta} \left( E_0 \cos^4 \frac{\theta}{2} \right) = -2 E_0 \cos^3 \frac{\theta}{2} \, \sin \frac{\theta}{2}, \\
+\mathrm{grad} \, T_{\mathrm{e2}} &= \frac{d}{d\theta} \left( E_0 \sin^4 \frac{\theta}{2} \right) = 2 E_0 \cos \frac{\theta}{2} \, \sin^3 \frac{\theta}{2}.
+\end{align}
+
+Since the kernels are stationary in space, only the time derivatives contribute. Thus,
+\begin{align}
+\mathrm{grad} \left( T_{\mathrm{e2}} - T_{\mathrm{e1}} \right)
+&= 2 E_0 \cos \frac{\theta}{2} \, \sin^3 \frac{\theta}{2} + 2 E_0 \cos^3 \frac{\theta}{2} \, \sin \frac{\theta}{2} \notag \\
+&= 2 E_0 \cos \frac{\theta}{2} \, \sin \frac{\theta}{2} \notag \\
+&= E_0 \sin \theta.
+\label{eq:thermal_grad_final}
+\end{align}
+
+Equation \eqref{eq:thermal_grad_final} demonstrates that the temperature gradient between the kernels generates a force $\mathbf{F}$, driving the virtual photon along a simple harmonic motion. The interaction between the thermal potential energy of the kernels and the kinetic energy of the virtual photon produces oscillatory energy transport along the line connecting the kernels.
+
+% ----------------------------------------
+% Subsection 8.2: Scalar-Potential Interpretation and Line Integrals
+% ----------------------------------------
+\subsection{Scalar-Potential Interpretation and Line Integrals}
+\label{sec:scalar_potential_line_integral}
+
+The thermal gradient described above can equivalently be expressed as the gradient of a scalar field $\phi$, with
+\begin{equation}
+\mathbf{A} = \nabla \phi, \quad \phi = T_{\mathrm{e2}} - T_{\mathrm{e1}}.
+\end{equation}
+
+By construction, the line integral of $\mathbf{A}$ along any trajectory connecting the kernels depends only on the endpoints:
+\begin{equation}
+\int_\mathrm{path} \mathbf{A} \cdot d\mathbf{r} = \phi(\mathbf{r}_\mathrm{end}) - \phi(\mathbf{r}_\mathrm{start}),
+\end{equation}
+illustrating that the physically relevant information is encoded in the boundary values of the scalar potential. This provides a concrete manifestation of the general principle that line-integral observables capture endpoint-dependent effects, independent of the microscopic details of the trajectory.
+
+% ----------------------------------------
+% Subsection 8.3: Implications for Gravitational and Gauge Theories
+% ----------------------------------------
+\subsection{Implications for Gravitational and Gauge Theories}
+\label{sec:implications_gravity_gauge}
+
+The 0-Sphere model example reinforces the conceptual bridge between thermal geodesics and gravitational dynamics. Just as the virtual photon is driven along a trajectory by a scalar-potential-derived gradient, gravitational observables may be interpreted as line integrals of the connection along proper-time paths. Local curvature remains a derived descriptor, while physically measurable effects—whether in quantum, gauge, or gravitational contexts—are encoded in histories.
+
+Taken together, these observations substantiate a re-declaration of principles: line integrals along trajectories, and the corresponding connection or potential fields, occupy a more central position in the hierarchy of physical description. Concrete examples such as the two-kernel thermal gradient illustrate how abstract geometric principles manifest as operationally meaningful forces and phases, grounding the line-integral perspective in explicit physical mechanisms.
+
+% ========================================
+% Section 9: Re-declaration of Principles: Line Integrals as Observables
+% ========================================
+\section{Re-declaration of Principles: Line Integrals as Observables}
+\label{sec:redeclaration_line_integrals}
+
+The analysis presented in this work, grounded in the explicit realization of internal structure within the 0-Sphere model (Section~\ref{sec:bridge_gravity}) and the re-interpretation of the Aharonov--Bohm effect as a trajectory-dependent phase phenomenon, suggests that physically measurable quantities are more directly associated with line integrals along histories than with local tensorial values alone.
+
+In the Aharonov--Bohm effect, electrons propagate along spatially separated paths in regions where the magnetic field vanishes identically. The observed phase shift arises not from any local interaction, but from a difference in effective path length between the inner and outer trajectories. Within the 0-Sphere model, this phase difference acquires a concrete physical origin: the electron possesses an internal phase structure associated with its kernel, and the accumulated phase reflects the temporal evolution of this internal degree of freedom along distinct histories. The vector potential thus acts as a connection that records this history-dependent phase accumulation, while the interference pattern emerges from the comparison of two non-identical paths.
+
+A closely related mechanism appears in the 0-Sphere model’s description of energy transport between two localized kernels. There, energy flow is driven by a temperature gradient and mediated by virtual-photon oscillations along the relational path connecting the kernels. This process can be equivalently described by a line integral of a scalar potential (Eqs.~\eqref{eq:grad_Te}–\eqref{eq:thermal_grad_final}), with the physically relevant information determined by the relational endpoints rather than by local field values. In both cases, the observable effect is encoded in the accumulated contribution along a path, not in a pointwise curvature or field strength.
+
+This perspective does not deny the utility or validity of local geometric objects. Rather, it clarifies their logical status: local tensors arise as derived constructs that summarize the behavior of more primitive, path-dependent quantities. Curvature, in this view, is an emergent descriptor that becomes meaningful when comparing transport around closed loops, whereas physical observables are fundamentally associated with connections and their integrals along histories.
+
+From this standpoint, phenomena traditionally classified as belonging to distinct domains—such as the Aharonov--Bohm effect, Berry phase, Wilson loops, and the 0-Sphere thermal geodesic interaction—share a common conceptual foundation. Their apparent diversity reflects differences in physical realization rather than differences in principle. What unifies them is the central role of holonomy and accumulated phase, even in situations where local curvature vanishes or plays only a secondary role.
+
+This re-declaration of principles therefore suggests a shift in emphasis: from locality to history, from pointwise fields to path-dependent quantities, and from curvature-centered descriptions to connection-centered ones. Such a shift provides a coherent conceptual language in which quantum, gauge, and gravitational phenomena can be discussed without invoking domain-specific exceptions.
+
+Finally, by treating line integrals as primary observables, one avoids structural tensions that arise when internal structure and background independence are simultaneously required. The present work does not propose a replacement of existing theories, but rather a clarification of their logical hierarchy—one in which physical observables are intrinsically global, while locality and curvature emerge as effective notions compatible with the explicit dynamics of the 0-Sphere two-kernel model.
+
+
+% ========================================
+% Section 10: Conclusion
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+Across a wide range of physical settings, the analysis presented in this work points to a common structural lesson: physically measurable quantities are most directly associated with line integrals accumulated along histories, rather than with local tensorial values defined at points. The Aharonov--Bohm effect, Berry phase, and Wilson loops each exemplify this principle within their respective domains, while the 0-Sphere two-kernel system provides an explicit realization in the context of energy transport.
+
+In the Aharonov--Bohm effect, the observed phase shift arises even though the electron propagates entirely through regions of vanishing magnetic field. Within the framework developed here, this shift is understood as a consequence of two complementary features: a finite difference in effective path length between inner and outer trajectories, and the presence of an internal phase degree of freedom associated with the particle’s kernel. The accumulated phase therefore reflects the history-dependent evolution of this internal structure, with the vector potential functioning as a connection that tracks phase accumulation along distinct paths.
+
+This perspective does not invalidate local descriptions. Field strengths, curvature tensors, and stress--energy densities remain indispensable tools. However, their role is clarified: they summarize infinitesimal or consistency properties of more primitive, history-dependent structures. Curvature, in particular, emerges as a descriptor of the noncommutativity of parallel transport, rather than as the primary carrier of observable content.
+
+By placing line integrals and connections at the center of the description, a coherent conceptual bridge emerges between quantum interference phenomena, gauge-invariant observables, and geometric descriptions of energy transport. The distinction between ``quantum'' and ``classical'' effects becomes secondary to a deeper division between point-based and history-based observables.
+
+The re-declaration of principles proposed here therefore concerns logical hierarchy rather than theoretical replacement. It suggests that histories, holonomies, and accumulated geometric effects form a natural foundation for physical observables, with locality arising as an effective and derived notion. Within this hierarchy, diverse phenomena are unified not by formal analogy, but by a shared operational structure rooted in line integrals along physically realized trajectories.
+
+% ========================================
+% Acknowledgements
+% ========================================
+\section*{Acknowledgement}
+
+The author acknowledges the use of a large language model (LLM) as a technical aid for polishing the English expression and paragraph structure of this manuscript. The scientific content, conceptual development, and all theoretical claims remain the sole responsibility of the author.  
+
+The 0-Sphere model has been developed and presented continuously since 2018, and its conceptual originality is independent of the use of any recent computational tools. In particular, the line-integral--based formulation introduced in this work was conceived, developed, and written entirely by the author, and does not originate from automated generation. The LLM was employed strictly as an editorial assistant and did not contribute to the underlying physical ideas, mathematical structure, or interpretative framework.
+
+
+\clearpage
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{AharonovBohm1959}
+Y.~Aharonov and D.~Bohm,
+``Significance of Electromagnetic Potentials in the Quantum Theory,''
+Phys.\ Rev.\ \textbf{115}, 485 (1959).
+
+\bibitem{WuYang1975}
+T.~T.~Wu and C.~N.~Yang,
+``Concept of Nonintegrable Phase Factors and Global Formulation of Gauge Fields,''
+Phys.\ Rev.\ D \textbf{12}, 3845 (1975).
+
+\bibitem{Berry1984}
+M.~V.~Berry,
+``Quantal Phase Factors Accompanying Adiabatic Changes,''
+Proc.\ Roy.\ Soc.\ Lond.\ A \textbf{392}, 45 (1984).
+
+\bibitem{Wilson1974}
+K.~G.~Wilson,
+``Confinement of Quarks,''
+Phys.\ Rev.\ D \textbf{10}, 2445 (1974).
+
+\bibitem{hanamura17765017}
+S.~Hanamura,
+``Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer,''
+Zenodo (2024).
+\href{https://doi.org/10.5281/zenodo.17765017}{https://doi.org/10.5281/zenodo.17765017}
+
+\bibitem{hanamura18064535}
+S.~Hanamura,
+``A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.18064535}{https://doi.org/10.5281/zenodo.18064535}
+
+\bibitem{Nakahara2003}
+M.~Nakahara,
+\textit{Geometry, Topology and Physics},
+2nd ed., IOP Publishing / CRC Press (2003).
+% Standard reference for connections, parallel transport, holonomy, and gauge bundles
+% aimed at physicists. Cited as general background for geometric concepts used in this paper
+% (line integrals, holonomy, Wilson loops). Provides the "local vs global", "point vs path"
+% contrast as shared mathematical background, without requiring Kobayashi-Nomizu.
+
+\bibitem{hanamura17765409}
+S.~Hanamura,
+``Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765409}{https://doi.org/10.5281/zenodo.17765409}
+
+\bibitem{Wald}
+R.~M.~Wald,
+\textit{General Relativity},
+University of Chicago Press (1984).
+% Standard GR textbook. Cited as the reference point for "curvature-based description"
+% contrasted with the line-integral approach of this paper. Systematic treatment of the
+% Einstein equations and the contracted Bianchi identity.
+
+
+\end{thebibliography}
+
+
+
+\end{document}
