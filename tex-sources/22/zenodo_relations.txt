@@ -1,0 +1,177 @@
+================================================================================
+zenodo_relations.txt — Paper #22
+Gravitational Redshift of Internal Quantum Clocks:
+A Zitterbewegung-Based Model
+DOI: 10.5281/zenodo.17765318
+Date: July 6, 2025
+================================================================================
+
+[Summary]
+  Cites:            17 entries (5 x 0-Sphere, 12 x external)
+  Is supplement to:  0 entries
+  Continues:         2 entries
+  References:        1 entry
+  Requires:          2 entries
+  Is part of:        0 entries
+  Total unique DOIs: 17
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Note: Cited as hanamura2309.0047; source of v_{e,SR} = 0.040472c
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2501.0130; source of v_{e,SR+GR} = 0.040374c
+        and kernel radius ~3.43e-25 m
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Note: Cited as hanamura1811.0312; foundational dual-kernel model
+
+10.5281/zenodo.17760132
+  Title: Coexistence of Positive and Negative-Energy States (#7)
+  Note: Cited as hanamura2006.0104; ZB reinterpretation
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Note: Cited as hanamura2411.0117; ZB dynamics via radiative energy transfer
+
+--- External references ---
+
+dirac1928
+  Title: The Quantum Theory of the Electron
+  Note: Proc. R. Soc. Lond. A 117, 610 (1928); DOI: 10.1098/rspa.1928.0023
+
+compton1923
+  Title: A Quantum Theory of the Scattering of X-rays by Light Elements
+  Note: Phys. Rev. 21, 483 (1923); DOI: 10.1103/PhysRev.21.483
+
+ashby2003
+  Title: Relativity in the Global Positioning System
+  Note: Living Rev. Relativity 6, 1 (2003); DOI: 10.12942/lrr-2003-1
+
+schrodinger1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. 24, 418 (1930)
+
+uhlenbeck1925
+  Title: Spinning Electrons and the Structure of Spectra
+  Note: Naturwissenschaften 13, 953 (1925); DOI: 10.1038/117264a0
+
+thomas1926
+  Title: The Motion of the Spinning Electron
+  Note: Nature 117, 514 (1926); DOI: 10.1038/117514a0
+
+schwinger1948
+  Title: On Quantum-Electrodynamics and the Magnetic Moment of the Electron
+  Note: Phys. Rev. 73, 416 (1948); DOI: 10.1103/PhysRev.73.416
+
+fan2023
+  Title: Measurement of the Electron Magnetic Moment
+  Note: Phys. Rev. Lett. 130, 071801 (2023); DOI: 10.1103/PhysRevLett.130.071801
+
+einstein1916
+  Title: Die Grundlage der allgemeinen Relativitatstheorie
+  Note: Ann. Phys. 49, 769 (1916); DOI: 10.1002/andp.19163540702
+
+birrell1982
+  Title: Quantum Fields in Curved Space (Cambridge, 1982)
+  Note: DOI: 10.1017/CBO9780511622632
+
+hestenes1990
+  Title: The Zitterbewegung Interpretation of Quantum Mechanics
+  Note: Found. Phys. 20, 1213 (1990); DOI: 10.1007/BF01889466
+
+barut1981
+  Title: Zitterbewegung and the Internal Geometry of the Electron
+  Note: Phys. Rev. D 23, 2454 (1981); DOI: 10.1103/PhysRevD.23.2454
+
+everitt2011
+  Title: Gravity Probe B: Final Results of a Space Experiment to Test GR
+  Note: Phys. Rev. Lett. 106, 221101 (2011); DOI: 10.1103/PhysRevLett.106.221101
+
+pound1960
+  Title: Apparent Weight of Photons
+  Note: Phys. Rev. Lett. 4, 337 (1960); DOI: 10.1103/PhysRevLett.4.337
+
+ludlow2015
+  Title: Optical Atomic Clocks
+  Note: Rev. Mod. Phys. 87, 637 (2015); DOI: 10.1103/RevModPhys.87.637
+
+udem2002
+  Title: Optical Frequency Metrology
+  Note: Nature 416, 233 (2002); DOI: 10.1038/416233a
+
+colella1975
+  Title: Observation of Gravitationally Induced Quantum Interference
+  Note: Phys. Rev. Lett. 34, 1472 (1975); DOI: 10.1103/PhysRevLett.34.1472
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Reason: #22 directly extends the GR-corrected ZB velocity calculation of #14
+          into a new application domain (gravitational redshift of internal
+          clocks), making it a natural continuation of #14's program.
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: #22 builds on the v_{e,SR} = 0.040472c result of #10 and extends
+          it to the gravitational redshift context.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765349
+  Title: Thermal Geodesics in the 0-Sphere Model (#24)
+  Reason: #24 explicitly cites #22 as providing the gravitational time dilation
+          coupling between internal clocks and spacetime geometry. Forward ref.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The ZB frequency formula and v_{e,SR} derivation that form the
+          starting point of #22 are established in #10.
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Reason: The GR-corrected velocity v_{e,SR+GR} = 0.040374c and kernel
+          radius ~3.43e-25 m used throughout #22 are derived in #14.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765097  (#14)
+  Add: Is continued by  --> 10.5281/zenodo.17765318
+  Reason: #22 continues and extends the GR program of #14.
+
+10.5281/zenodo.17764997  (#10)
+  Add: Is continued by  --> 10.5281/zenodo.17765318
+  Reason: #22 applies #10's ZB velocity formula to gravitational redshift.
+
+10.5281/zenodo.17765349  (#24)
+  Add: Continues  --> 10.5281/zenodo.17765318
+  Reason: #24 explicitly builds on the gravitational clock coupling of #22.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
