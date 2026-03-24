@@ -1,0 +1,204 @@
+================================================================================
+zenodo_relations.txt — Paper #23
+From Zero-Sphere to Emergent Spacetime:
+A Minimalist Background-Independent Framework for Temporal and Spatial Genesis
+DOI: 10.5281/zenodo.17765336
+Date: July 13, 2025
+================================================================================
+
+[Summary]
+  Cites:            21 entries (3 x 0-Sphere, 18 x external)
+  Is supplement to:  0 entries
+  Continues:         1 entry
+  References:        3 entries
+  Requires:          1 entry
+  Is part of:        0 entries
+  Total unique DOIs: 21
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2501.0130; ZB velocity ~0.04c, lepton critical radii
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Note: Cited as hanamura2309.0047; core mathematical machinery, spin from oscillation
+
+10.5281/zenodo.17765238
+  Title: Spin as a Real Vector from Internal Photon-Sphere Motion (#19)
+  Note: Cited as hanamura2506.0072; U(1)/SU(2) symmetry, energy conservation identity
+
+--- External references ---
+
+smolin2006
+  Title: The Case for Background Independence (Oxford, 2006)
+  Note: arXiv:hep-th/0507235
+
+einstein1916
+  Title: Die Grundlage der allgemeinen Relativitatstheorie
+  Note: Ann. Phys. 49, 769 (1916); DOI: 10.1002/andp.19163540702
+
+thiemann2007
+  Title: Modern Canonical Quantum General Relativity (Cambridge, 2007)
+  Note: DOI: 10.1017/CBO9780511755682
+
+rovelli2004
+  Title: Quantum Gravity (Cambridge, 2004)
+  Note: DOI: 10.1017/CBO9780511614538
+
+surya2019
+  Title: The Causal Set Approach to Quantum Gravity
+  Note: Living Rev. Relativ. 22, 5 (2019); DOI: 10.1007/s41114-019-0023-1
+
+rideout2000
+  Title: A Classical Sequential Growth Dynamics for Causal Sets
+  Note: Phys. Rev. D 61, 024002 (2000); DOI: 10.1103/PhysRevD.61.024002
+
+rovelli1995
+  Title: Discreteness of Area and Volume in Quantum Gravity
+  Note: Nucl. Phys. B 442, 593 (1995); DOI: 10.1016/0550-3213(95)00150-Q
+
+bombelli1987
+  Title: Space-Time as a Causal Set
+  Note: Phys. Rev. Lett. 59, 521 (1987); DOI: 10.1103/PhysRevLett.59.521
+
+fan2023
+  Title: Measurement of the Electron Magnetic Moment
+  Note: Phys. Rev. Lett. 130, 071801 (2023); DOI: 10.1103/PhysRevLett.130.071801
+
+ashtekar2004
+  Title: Background Independent Quantum Gravity: A Status Report
+  Note: Class. Quantum Grav. 21, R53 (2004); DOI: 10.1088/0264-9381/21/15/R01
+
+wheeler1962
+  Title: Geometrodynamics (Academic Press, 1962)
+
+polchinski1998
+  Title: String Theory, Vol. 1 & 2 (Cambridge, 1998)
+  Note: DOI: 10.1017/CBO9780511618123
+
+sorkin2003
+  Title: Causal Sets: Discrete Gravity (Springer, 2003)
+  Note: arXiv:gr-qc/0309009
+
+dirac1928
+  Title: The Quantum Theory of the Electron
+  Note: Proc. R. Soc. Lond. A 117, 610 (1928); DOI: 10.1098/rspa.1928.0023
+
+schrodinger1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. 24, 418 (1930)
+
+hestenes1990
+  Title: The Zitterbewegung Interpretation of Quantum Mechanics
+  Note: Found. Phys. 20, 1213 (1990); DOI: 10.1007/BF01889466
+
+barut1981
+  Title: Zitterbewegung and the Internal Geometry of the Electron
+  Note: Phys. Rev. D 23, 2454 (1981); DOI: 10.1103/PhysRevD.23.2454
+
+gerritsma2010
+  Title: Quantum Simulation of the Dirac Equation
+  Note: Nature 463, 68 (2010); DOI: 10.1038/nature08688
+
+leblanc2013
+  Title: Direct Observation of Zitterbewegung in a Bose-Einstein Condensate
+  Note: New J. Phys. 15, 073011 (2013); DOI: 10.1088/1367-2630/15/7/073011
+
+oriti2009
+  Title: Approaches to Quantum Gravity (Cambridge, 2009)
+  Note: DOI: 10.1017/CBO9780511575549
+
+dowker2005
+  Title: Causal Sets and the Deep Structure of Spacetime (World Scientific, 2005)
+  Note: arXiv:gr-qc/0508109
+
+baez1994
+  Title: Gauge Fields, Knots and Gravity (World Scientific, 1994)
+  Note: DOI: 10.1142/2321
+
+freidel2005
+  Title: Ponzano-Regge Model Revisited: I. Spin Networks and Quantum Geometry
+  Note: Class. Quantum Grav. 22, 4187 (2005); DOI: 10.1088/0264-9381/22/20/008
+
+penrose2004
+  Title: The Road to Reality (Jonathan Cape, 2004)
+
+amelino-camelia2002
+  Title: Quantum Gravity Phenomenology
+  Note: Nature 418, 34 (2002); DOI: 10.1038/418034a
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: #23 generalizes and extends the background-independent geometric
+          framework underlying #10's specific results on spin and AMM,
+          placing them within a full pre-geometric S0 foundation.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765349
+  Title: Thermal Geodesics in the 0-Sphere Model (#24)
+  Reason: #24 explicitly cites #23 as the background-independence conceptual
+          basis for the thermal geodesic framework. Forward reference.
+
+10.5281/zenodo.18064535
+  Title: A Noetherian Inversion (#25)
+  Reason: #25 builds on the background-independent geometry of #23.
+
+10.5281/zenodo.18356895
+  Title: Geometrical Confinement: Rest Mass and Zitterbewegung (#33)
+  Reason: #33 cites #23 as the background-independent framework from which
+          S0 topological confinement is derived. Forward reference.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The specific predictions (v_ZB ~ 0.04c, energy conservation identity,
+          lepton critical radii) that ground the physical content of #23 are
+          established in #10.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997  (#10)
+  Add: Is continued by  --> 10.5281/zenodo.17765336
+  Reason: #23 generalizes the geometric framework of #10 to full
+          background-independence.
+
+10.5281/zenodo.17765349  (#24)
+  Add: Continues  --> 10.5281/zenodo.17765336
+  Reason: #24's thermal geodesic framework explicitly builds on #23.
+
+10.5281/zenodo.18064535  (#25)
+  Add: Continues  --> 10.5281/zenodo.17765336
+  Reason: #25's Noetherian inversion builds on #23's background-independent
+          geometric foundation.
+
+10.5281/zenodo.18356895  (#33)
+  Add: Continues  --> 10.5281/zenodo.17765336
+  Reason: #33 applies #23's S0 topological framework to confinement.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
