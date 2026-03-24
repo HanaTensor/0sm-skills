@@ -1,0 +1,42 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % for captionsetup[figure]
+\usepackage{threeparttable} % for table caption modification
+\usepackage{breqn} % dmath: automatic equation line breaking
+\numberwithin{equation}{section}% (p.37)
+
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+
+\usepackage{ragged2e}  % for \justifying command
+\usepackage{booktabs}
+
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} % raggedright for left-aligned figure captions
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+
+\title{Spin from Geometry:\\ Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model}
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{September 13, 2025}
+
+
+}
