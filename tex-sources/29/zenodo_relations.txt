@@ -1,0 +1,211 @@
+================================================================================
+zenodo_relations.txt — Paper #29
+Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics
+DOI: 10.5281/zenodo.18067760
+Date: December 27, 2025
+================================================================================
+
+[Summary]
+  Cites:            18 entries (3 x 0-Sphere, 15 x external)
+  Is supplement to:  0 entries
+  Continues:         2 entries
+  References:        2 entries
+  Requires:          1 entry
+  Is part of:        1 entry
+  Total unique DOIs: 20
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung,
+         Geodesic Paths, and Proper Time (#11)
+  Note: Cited as hanamura17765017; origin of the thermal geodesic concept
+
+10.5281/zenodo.17765238
+  Title: Spin as a Real Vector from Internal Photon-Sphere Motion (#19)
+  Note: Cited as hanamura17765238; SU(2) periodicity from internal photon-sphere
+
+10.5281/zenodo.17765336
+  Title: From Zero-Sphere to Emergent Spacetime (#23)
+  Note: Cited as hanamura17765336; background-independent framework and Table 1
+
+--- External references ---
+
+misner1973
+  Title: Gravitation (W. H. Freeman, 1973)
+  Note: Misner, Thorne, Wheeler; geodesics and variational principles
+
+wald1984
+  Title: General Relativity (University of Chicago Press, 1984)
+  Note: Geodesic equation and covariant differentiation
+
+weinberg1972
+  Title: Gravitation and Cosmology (Wiley, 1972)
+
+feynman1949
+  Title: Space-time approach to QED, Phys. Rev. 76, 769 (1949)
+  Note: Path-integral formalism and proper time
+
+peskin1995
+  Title: An Introduction to Quantum Field Theory (Westview, 1995)
+
+wigner1939
+  Title: On unitary representations of the inhomogeneous Lorentz group
+  Note: Ann. Math. 40, 149 (1939); spinor representations
+
+bargmann1954
+  Title: Group theoretical discussion of relativistic wave equations
+  Note: Proc. Natl. Acad. Sci. 34, 211 (1948)
+
+dirac1928
+  Title: The quantum theory of the electron
+  Note: Proc. R. Soc. Lond. A 117, 610 (1928)
+
+sakurai2017
+  Title: Modern Quantum Mechanics, 3rd ed. (Cambridge, 2017)
+
+shankar2016
+  Title: Principles of Quantum Mechanics, 2nd ed. (Springer, 1994)
+
+nakahara2003
+  Title: Geometry, Topology and Physics, 2nd ed. (IOP, 2003)
+  Note: Connections, holonomy, fiber bundles
+
+berry1984
+  Title: Quantal phase factors accompanying adiabatic changes
+  Note: Proc. R. Soc. Lond. A 392, 45 (1984)
+
+bjorken1964
+  Title: Relativistic Quantum Mechanics (McGraw-Hill, 1964)
+
+ryder1996
+  Title: Quantum Field Theory, 2nd ed. (Cambridge, 1996)
+
+stueckelberg1941
+  Title: La signification du temps propre en mecanique ondulatoire
+  Note: Helv. Phys. Acta 14, 322 (1941); earliest proper-time formalism
+
+schwinger1951
+  Title: On gauge invariance and vacuum polarization
+  Note: Phys. Rev. 82, 664 (1951)
+
+aharonov1959
+  Title: Significance of electromagnetic potentials in the quantum theory
+  Note: Phys. Rev. 115, 485 (1959)
+
+thomas1926
+  Title: The motion of the spinning electron
+  Note: Nature 117, 514 (1926)
+
+Jackson1999
+  Title: Classical Electrodynamics, 3rd ed. (Wiley, 1999)
+
+ballentine1998
+  Title: Quantum Mechanics: A Modern Development (World Scientific, 1998)
+
+wilczekZee1984
+  Title: Appearance of gauge structure in simple dynamical systems
+  Note: Phys. Rev. Lett. 52, 2111 (1984); non-Abelian geometric phase
+
+hawking1975
+  Title: Particle creation by black holes
+  Note: Commun. Math. Phys. 43, 199 (1975)
+
+unruh1976
+  Title: Notes on black-hole evaporation
+  Note: Phys. Rev. D 14, 870 (1976)
+
+weinberg1995
+  Title: The Quantum Theory of Fields, Vol. I (Cambridge, 1995)
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Reason: #29 directly develops the thermal geodesic concept introduced in #11,
+          providing the geometric connection structure (Thomas precession,
+          spinorial phase) that underlies the oscillation framework of #11.
+
+10.5281/zenodo.17765336
+  Title: From Zero-Sphere to Emergent Spacetime (#23)
+  Reason: #29 continues the background-independent program of #23, providing
+          the continuum geometric realization (Table 1) of the discrete
+          transition-operator structure introduced there.
+
+--------------------------------------------------------------------------------
+[4] References  (thematic / conceptual)
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18135855
+  Title: From Curvature to Connection (#30)
+  Reason: #30 is Part II of the trilogy directly continuing #29. Forward
+          reference for readers discovering #29 first.
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Reason: #31 is Part III of the trilogy; it generalizes the line-integral
+          principle established in #29 to AB effect, Berry phase, and
+          Wilson loops.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Reason: The thermal geodesic concept, kernel structure, and proper-time
+          formalism used throughout #29 are introduced in #11.
+
+--------------------------------------------------------------------------------
+[6] Is part of
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Note: #29 is Part I of the Line Integral Trilogy (#29 Part I, #30 Part II,
+        #31 Part III). Using the final trilogy paper as series anchor per
+        convention (most cited of the three in subsequent work).
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+The following Zenodo records should have relations added pointing back to #29
+(DOI: 10.5281/zenodo.18067760):
+
+10.5281/zenodo.18135855  (#30)
+  Add: Continues  → 10.5281/zenodo.18067760
+  Add: Is part of → 10.5281/zenodo.18067760
+  Reason: #30 is Part II of the trilogy; #29 is its direct predecessor.
+
+10.5281/zenodo.18203433  (#31)
+  Add: Continues  → 10.5281/zenodo.18067760
+  Add: Is part of → 10.5281/zenodo.18067760
+  Add: Requires   → 10.5281/zenodo.18067760
+  Reason: #31 (Part III) explicitly builds on #29 (Part I); trilogy structure.
+
+10.5281/zenodo.17765017  (#11)
+  Add: Is continued by  → 10.5281/zenodo.18067760
+  Reason: #29 develops the geometric foundation of the thermal geodesic
+          introduced in #11.
+
+10.5281/zenodo.17765336  (#23)
+  Add: Is continued by  → 10.5281/zenodo.18067760
+  Reason: #29 provides the continuum geometric realization of #23's discrete
+          framework.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================

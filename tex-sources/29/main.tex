@@ -1,0 +1,573 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+ prb,
+]{revtex4-2}
+
+% Basic packages
+\usepackage{graphicx}
+\usepackage{bm}
+
+% Quantum mechanics notation
+\usepackage{physics}
+
+% Hyperlinks
+\usepackage[colorlinks=true,
+            linkcolor=blue,
+            filecolor=blue,
+            urlcolor=blue,
+            citecolor=blue]{hyperref}
+
+% Caption settings
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright,
+    labelfont={bf},
+    name={Fig.},
+    labelsep=period
+}
+\captionsetup[table]{
+    labelfont={bf},
+    name={Table},
+    labelsep=period
+}
+
+% Equation numbering per section
+\numberwithin{equation}{section}
+
+% Typography adjustments
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+
+% Microtypography
+\usepackage[final]{microtype}
+
+\usepackage{ragged2e}  % for \justifying command
+
+% Use \midrule, \addlinespace, \bottomrule
+\usepackage{booktabs}
+
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+
+\begin{document}
+
+\title{Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{December 27, 2025}
+
+\begin{abstract}
+The thermal geodesic was originally introduced in the 0-Sphere model as a variational principle governing energy transfer between localized kernels, formulated in terms of particle-wise proper time rather than absolute coordinate time. 
+In homogeneous regions, this geodesic reduces to a straight trajectory in real space, raising the question of how nontrivial internal dynamics arise along such a simple path. 
+In this work, we show that relativistic kinematics naturally embed a spinorial connection along a single thermal geodesic through Thomas precession. 
+Although the external bosonic motion corresponds to a half rotation for one-way propagation, the line integral of the spinorial connection along proper time yields a full $2\pi$ accumulation of internal phase. 
+We clarify that \textbf{the relevant geometric quantity is the line integral of a connection, rather than the curvature of the spatial path} or the integration of a fiber bundle itself. 
+A geometric correspondence with semicircular geodesics in the Poincaré upper half-plane is presented, providing an intuitive language for this structure. 
+The framework preserves compatibility with established quantum and relativistic descriptions while offering a unified geometric interpretation of energy transport and spinorial phase evolution along variationally determined paths.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:introduction}
+
+Geodesic principles play a central role across physics, ranging from classical mechanics and general relativity~\cite{misner1973,wald1984,weinberg1972} to modern formulations of quantum dynamics~\cite{feynman1949,peskin1995}. In many contexts, the trajectory of a particle or the propagation of energy is determined not by naive Euclidean distance, but by the extremization of an action defined with respect to an appropriate metric or effective geometry. Such variational principles often reveal structures that are not apparent when motion is described solely in terms of coordinates and forces.
+
+In quantum theory, internal degrees of freedom introduce an additional layer of geometric complexity. Spinorial phases, relativistic kinematics, and proper-time evolution are known to exhibit features that cannot be reduced to the curvature of spatial paths alone~\cite{wigner1939,bargmann1954,dirac1928}. A particularly striking example is the double-valued nature of spinor representations~\cite{sakurai2017,shankar2016}, in which a $2\pi$ rotation does not restore the original state, while a $4\pi$ rotation does. Understanding how such internal phase structures arise along physically simple trajectories remains an open conceptual question, closely tied to the geometric role of connections and parallel transport~\cite{nakahara2003,berry1984}.
+
+The 0-Sphere model was introduced as a long-term research program aimed at describing energy localization and transfer through a minimal geometric framework. Within this model, energy propagation between localized kernels is governed by a variational principle that leads to what is termed a \textbf{thermal geodesic}~\cite{hanamura17765017}. Unlike conventional geodesics defined purely by spacetime curvature~\cite{misner1973,wald1984}, the thermal geodesic is formulated in terms of an effective metric weighted by energetic and thermal considerations, with coordinate time replaced by the proper time associated with each particle~\cite{bjorken1964,ryder1996}. This construction provides a natural departure from absolute-time descriptions and allows particle-wise dynamics to be treated consistently, in a manner conceptually analogous to the proper-time formalism introduced by Schwinger~\cite{schwinger1951}.
+
+Previous work established that, in homogeneous regions, the thermal geodesic connecting two kernels reduces to a straight trajectory in real space, while still satisfying a nontrivial geodesic equation. Despite the geometric simplicity of the external trajectory, the internal structure associated with spinorial dynamics can emerge in a nontrivial manner, highlighting the need to examine how spinorial phases develop along such trajectories.
+
+The spinorial degrees of freedom underlying the present geometric framework have been given an explicit physical realization in a complementary work, where the characteristic SU(2) periodicity of spin is shown to emerge from deterministic internal dynamics of a confined photon-sphere~\cite{hanamura17765238}. The present paper does not revisit the microscopic construction of these degrees of freedom; instead, it focuses on how such spinorial structures are geometrically transported along a single thermal geodesic through the action of a connection defined along proper time.
+
+In this work, we address this question by examining the internal geometry embedded along a single thermal geodesic. Rather than introducing additional paths or invoking topological assumptions, we focus on the role of connections governing internal degrees of freedom~\cite{nakahara2003,aharonov1959}. We show that relativistic kinematics naturally generate a spinorial connection through Thomas precession~\cite{thomas1926,Jackson1999}, and that the line integral of this connection along proper time leads to a nontrivial accumulation of internal phase, even when the real-space trajectory remains straight. We emphasize that the relevant geometric quantity is the line integral of a connection one-form, rather than the curvature of the spatial trajectory itself.
+
+A geometric correspondence with semicircular geodesics in the Poincar\'e upper half-plane is presented as an intuitive prototype for this structure. In that setting, geodesics appear curved in Euclidean coordinates, yet are straight in the sense of vanishing covariant acceleration due to the presence of a nontrivial connection. By drawing an analogy between this structure and the spinorial connection induced along the thermal geodesic, we provide a compact geometric language for understanding how straight external motion can coexist with rich internal phase evolution.
+
+The purpose of this work is not to modify established quantum or relativistic theories, but to clarify how their well-known elements~\cite{bjorken1964,weinberg1995,ballentine1998} combine within the thermal-geodesic framework. By making explicit the separation between external bosonic motion and internal spinorial phase accumulation, we aim to provide a unified geometric perspective on energy transport, relativistic precession, and spinorial dynamics along variationally determined paths.
+
+
+% ----------------------------------------
+% Table 1: Structural Correspondence between Discrete and Geometric Formulations
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{Structural Correspondence between Discrete and Geometric Formulations}
+\label{tab:correspondence_previous_current}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{5.5cm}p{5.5cm}}
+\toprule
+\textbf{Previous work} & \textbf{Present formulation\cite{hanamura17765336}} & \textbf{Mathematical interpretation} \\
+\midrule
+Transition operator $T$ & Connection $\Gamma$ & Infinitesimal generator of discrete state transitions \\
+\addlinespace[0.3cm]
+Sequence of transitions $\{T_k\}$ & Parallel transport & Phase accumulation along a connection \\
+\addlinespace[0.3cm]
+Partial order $\prec$ & Geodesic structure & Continuum limit of causal reachability \\
+\addlinespace[0.3cm]
+Transition path (history) & Geodesic & Representative trajectory realizing causal order \\
+\addlinespace[0.3cm]
+Inter-kernel separation (TPE) & Metric tensor & Geometrization of relational distance \\
+\addlinespace[0.3cm]
+Internal consistency of structure & Riemannian geometry & Continuous geometric realization in the flat-curvature limit \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{flushleft}
+\footnotesize
+\textbf{Note:} The correspondences listed above represent structural relationships in the continuum limit, rather than mathematical identities. 
+The transition operator $T$ acts on discrete relational states, whereas the connection $\Gamma$ characterizes infinitesimal parallel transport. 
+The former gives rise to the latter through a limiting procedure: repeated applications of $T$ over infinitesimal intervals are naturally represented by an exponential map involving $\Gamma$. 
+Likewise, the partial order $\prec$ does not reduce to the geodesic equation; instead, it provides the causal framework within which geodesics emerge as representative paths in the continuous description.
+\end{flushleft}
+\end{table*}
+
+% ========================================
+% Section 1: From Geodesics to Spinors: A Proper-Time Perspective
+% ========================================
+\section{From Geodesics to Spinors:\\ A Proper-Time Perspective}
+\label{sec:geodesics_spinors}
+
+The concept of a thermal geodesic was originally introduced as a variational principle governing energy transfer between localized kernels in the 0-Sphere model. In this framework, the propagation of energy from one kernel to another does not minimize the Euclidean distance, but instead extremizes an effective action weighted by thermal and energetic constraints. This leads to a geodesic equation formally analogous to that of general relativity~\cite{misner1973,wald1984}, with the coordinate time replaced by the proper time $\tau$ associated with each individual electron~\cite{bjorken1964,ryder1996}. The introduction of $\tau$
+provides a concrete mechanism for departing from the
+absolute time of the Schr\"odinger equation and establishes
+a particle-wise dynamical clock, in the spirit of the
+proper-time formalism pioneered by Stueckelberg~\cite{stueckelberg1941}
+and further developed by Feynman~\cite{feynman1949}
+and Schwinger~\cite{schwinger1951}.
+
+In homogeneous regions, the resulting thermal geodesic connecting two kernels reduces to a straight trajectory in real space. This straightness, however, should not be interpreted as triviality. The path is a geodesic not because it is uncurved in Euclidean coordinates, but because it satisfies the condition of vanishing covariant acceleration with respect to the effective connection defined by the thermal metric~\cite{wald1984,weinberg1972}. The trajectory is therefore fixed at the level of the variational principle, and will not be modified in the following discussion.
+
+Instead, we focus on the internal geometric structure embedded along this same thermal geodesic. Consider a one-dimensional configuration in which two kernels are located at positions $x=-a$ and $x=+a$, with the midpoint at $x=0$. Energy transport along the thermal geodesic corresponds to a monotonic propagation from $-a$ to $+a$. The physical carrier of this transport is a bosonic excitation, referred to here as a photon sphere, whose external motion along the geodesic is unidirectional.
+
+For a one-way propagation, the external bosonic motion corresponds naturally to a $\pi$ rotation, reflecting the fact that the real-space trajectory is not closed. Along the same path, however, the internal dynamics of the electron are governed by spinorial degrees of freedom. The time evolution of the spinor is determined by a phase factor of the form $\exp(i\omega \tau/2)$, where the factor of $1/2$ reflects the SU(2) nature of the spinorial representation~\cite{wigner1939,sakurai2017,shankar2016}. As a consequence, a one-way traversal from $-a$ to $+a$ allows for a $2\pi$ accumulation of internal spinorial phase, even though the external motion covers only a half rotation.
+
+The origin of this internal phase accumulation lies in relativistic kinematics. Successive infinitesimal Lorentz boosts experienced by an accelerated particle do not commute, giving rise to an effective rotation known as Thomas precession~\cite{thomas1926,Jackson1999,bjorken1964}. The associated angular velocity is proportional to the vector product of acceleration and velocity,
+\begin{equation}
+\boldsymbol{\Omega}_{T} \propto \mathbf{a} \times \mathbf{v}.
+\end{equation}
+This term acts as a connection governing the evolution
+of the spinorial degrees of freedom along the particle’s
+worldline, analogous to the gauge connection in the
+Aharonov-Bohm effect~\cite{aharonov1959} or the
+geometric phase in adiabatic evolution~\cite{berry1984}.
+In the present context, the non-Abelian nature of this
+connection reflects the underlying SU(2) structure of
+spinorial phase accumulation, closely paralleling the
+non-Abelian geometric phases identified by
+Wilczek and Zee~\cite{wilczekZee1984}.
+
+
+In the configuration considered here, the velocity vanishes at the fixed endpoints $x=\pm a$, while the acceleration vanishes at the midpoint $x=0$, corresponding to the center of oscillation. Consequently, the Thomas precession term $\mathbf{a}\times\mathbf{v}$ vanishes at all three points $x=-a,\,0,\,+a$. Between these points, however, it develops two smooth lobes: one on the interval $(-a,0)$ and another on $(0,+a)$. Each lobe represents a half-cycle of the effective rotational contribution generated by the connection.
+
+Each of these half-cycles gives rise to a $\pi$ contribution to the spinorial phase. Thus, while the real-space thermal geodesic consists of a single straight segment, the internal spinorial dynamics naturally decompose into two consecutive semicircular contributions. The total accumulated spinorial phase for a one-way motion is therefore $2\pi$, consistent with the double-valued nature of spinor representations under rotation~\cite{sakurai2017,ballentine1998}.
+
+This structure admits a direct geometric interpretation in terms of connections~\cite{nakahara2003}. In the Poincaré upper half-plane, geodesics appear as semicircles orthogonal to the boundary, not because the paths themselves are fundamental, but because the hyperbolic metric introduces a nontrivial connection. A semicircular path satisfies the geodesic equation precisely because the apparent curvature of the trajectory is absorbed into the connection.
+
+An analogous situation occurs along the thermal geodesic~\cite{hanamura17765017}. Although the real-space trajectory remains straight, the spinorial connection generated by Thomas precession induces a nontrivial phase evolution. In both cases, the physically relevant quantity is the line integral of a connection one-form along a geodesic~\cite{nakahara2003,aharonov1959}. Schematically, one may express this correspondence as
+\begin{equation}
+\int_{\gamma} \omega_{\mathrm{hyp}}
+\;\longleftrightarrow\;
+\frac{1}{2}\int (\mathbf{a}\times\mathbf{v})\, d\tau ,
+\label{eq:correspondence}
+\end{equation}
+where $\omega_{\mathrm{hyp}}$ denotes the effective connection associated with the hyperbolic metric, and the right-hand side represents the spinorial connection generated along the thermal geodesic.
+
+% 3. Redefining Thomas precession as a connection
+
+% Thomas precession is conventionally calculated as a correction term for accelerated motion.
+% The key insight here is establishing a one-to-one correspondence with the Poincare space
+% connection (omega_hyp) via Eq. (II.2). This redefines energy transport in the 0-Sphere model
+% not as mere particle motion, but as a process of "unraveling the twist of hyperbolic geometric
+% space." It connects the abstract 0-Sphere concept to the geometric tradition of Einstein and
+% Poincare with logical robustness. (2026-01-07)
+
+At this point, it is important to emphasize that the present discussion concerns the line integral of a connection along a geodesic, rather than the surface integral of curvature over a manifold or the integration of a fiber bundle itself~\cite{nakahara2003}. 
+The question of whether such an integral vanishes over a symmetric cycle is therefore well posed and depends on the chosen path and representation. 
+In particular, a vanishing integral at the level of SO(3) rotations does not preclude a nontrivial evolution in the spinorial SU(2) representation~\cite{wigner1939,sakurai2017}.
+% The relevant object here is the line integral of a connection, not curvature.
+% Whether the integral vanishes depends on the representation (SO(3) or SU(2)):
+% SO(3): a 2pi rotation restores the original state; the integral may vanish.
+% SU(2): a 2pi rotation does not restore; 4pi is required; the integral always remains.
+% Even if the SO(3) line integral appears to vanish, the SU(2) internal state is
+% necessarily altered. This paragraph is the logical key addressing the objection
+% "if curvature is zero, nothing should happen." (2026-01-07)
+
+The distinction between external bosonic motion and internal spinorial phase accumulation is essential. For a one-way traversal, the bosonic excitation undergoes a $\pi$ rotation associated with its real-space propagation, while the internal spinorial phase accumulates $2\pi$ and does not return to its original state~\cite{ballentine1998,shankar2016}. When a round trip is considered, the external motion completes a full $2\pi$ cycle and returns to its initial configuration, whereas the spinorial phase accumulates $4\pi$, consistent with the requirement that a spinor undergo a $720^\circ$ rotation to return to its original state~\cite{sakurai2017,dirac1928}.
+
+When the energy of the electron increases by an amount $\hbar\omega$, a photon of the same energy may be incorporated into the photon sphere. Since photon number is not conserved, the chemical potential vanishes~\cite{hawking1975,unruh1976}, and the excitation corresponds to a transition to a higher mode. In the present geometric picture, this excitation can be visualized as an increase in the phase winding along the same thermal geodesic, or equivalently, as the superposition of a higher Fourier mode. Importantly, this does not require the introduction of a new geometric path; it corresponds to an enriched internal phase structure along the same geodesic.
+
+In this way, the thermal geodesic framework preserves the simplicity of straight real-space propagation while revealing a layered internal geometry governed by spinorial connections. The correspondence with Poincaré semicircles provides a compact geometric language for describing how relativistic kinematics and internal phase evolution are unified along a single variationally determined path.
+
+
+% ========================================
+% Section 2: Dimensional Independence and Geometric Universality
+% ========================================
+\section{Dimensional Independence and Geometric Universality}
+\label{sec:dimensional_independence}
+
+The present geometric formulation builds upon the background-independent discrete framework introduced in Ref.~\cite{hanamura17765336}, where relational transition operators were shown to admit a continuous geometric description in an appropriate limit.
+
+The mapping between the thermal geodesic and the Poincaré semicircular path, as expressed in Eq.~(II.2), does not impose a restriction on the dimensionality of the background space. While the Poincaré upper half-plane is conventionally visualized as a two-dimensional manifold, its role in the 0-Sphere model is that of a universal geometric prototype for connection-driven phase accumulation. This viewpoint is consistent with the discrete-to-continuous structural correspondences summarized in Table~\ref{tab:correspondence_previous_current}, where dimensionality plays no fundamental role in defining the underlying relational dynamics.
+
+The robustness of this framework lies in the fact that the spinorial phase accumulation $\int_{\gamma} \omega$ is a line integral defined strictly along the one-dimensional trajectory $\gamma$ of the photon sphere, parameterized by its proper time $\tau$. Consequently, the internal dynamics are governed by the intrinsic properties of the connection rather than the extrinsic curvature or the specific dimension of the embedding manifold.
+
+Even in a high-dimensional background, the propagation between two localized kernels $x = \pm a$ \textit{defines a unique geodesic plane}. 
+This follows from the fact that, irrespective of the dimensionality of the ambient space, the motion between two fixed points together with the proper-time evolution is confined to the two-dimensional subspace spanned by the propagation direction and time. 
+
+% Intuitive explanation of "defines a unique geodesic plane":
+% In any-dimensional space, there is exactly one shortest path between two points.
+% The subspace spanned by that path and the time direction is 2-dimensional.
+% Thus, whether the ambient space is 3D or 10D, the effective dynamics are confined
+% to the 2D plane of (propagation direction, time direction). This is the dimensional
+% reduction principle commonly used in higher-dimensional GR brane-world effective theories.
+
+As a result, the effective dynamics relevant for spinorial phase accumulation are reduced to this geodesic plane, independently of any additional transverse dimensions. Within this plane, the Thomas precession arises as a purely kinematical effect associated with successive Lorentz boosts and is naturally described as a Lorentz connection in $\mathrm{SO}(n,1)$. 
+Importantly, this connection acts through parallel transport and does not alter the internal spin degrees of freedom, thereby preserving the underlying $\mathrm{SU}(2)$ spinorial structure irrespective of the number of ambient spatial dimensions. 
+This behavior is consistent with the discrete-to-continuous correspondence between transition operators and geometric connections summarized in Table~\ref{tab:correspondence_previous_current}.
+
+
+This dimensional independence ensures that the 0-Sphere model remains a background-independent framework. The ``straightness'' of the geodesic in real space satisfies the requirements of energy transport efficiency, while the ``hyperbolic'' nature of the connection accounts for the necessary spinorial complexity. This synthesis allows for a unified description of node-to-node interactions across varying topological scales without the need for additional dimensional constraints or topological assumptions, reinforcing the geometric universality emphasized by the structural correspondences presented earlier.
+
+\vspace{20mm}
+
+% ========================================
+% Section 3: Conclusion
+% ========================================
+\section{Conclusion}
+
+In this work, we have revisited the concept of a thermal geodesic in the 0-Sphere model and clarified its internal geometric structure. While the thermal geodesic remains a straight trajectory in real space, we have shown that nontrivial spinorial dynamics are naturally embedded along this path through a connection generated by relativistic kinematics~\cite{thomas1926,bjorken1964}.
+
+The separation between external motion and internal phase accumulation is not merely a computational convenience, but reflects a fundamental duality in the geometric structure of energy transport. The thermal geodesic remains straight in coordinate space, preserving energy efficiency, while the spinorial connection—manifested through Thomas precession—encodes the relativistic kinematics into a hyperbolic geometric framework isomorphic to Poincaré geodesics~\cite{nakahara2003}.
+
+This duality resolves a longstanding conceptual tension by distinguishing the origins of external simplicity and internal complexity. Physical ``straightness'' and geometric ``curvature'' correspond to different mathematical objects—the coordinate path and the connection one-form, respectively~\cite{nakahara2003,berry1984}. When this distinction is made explicit, the 0-Sphere framework admits a background-independent description in which energy transport, relativistic precession, and spinorial phase evolution are consistently organized by a single variational principle defined along proper time~\cite{schwinger1951,feynman1949}.
+
+
+These results establish the thermal geodesic as a robust organizing principle, offering a unified geometric interpretation that remains compatible with established quantum and relativistic descriptions~\cite{peskin1995,weinberg1995} while revealing a layered internal geometry along classically simple trajectories.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+The author acknowledges the use of large language models (LLMs) in the preparation of this manuscript. The concept of the thermal geodesic originates from the author's independently developed 0-Sphere model, and the exploration of its geometric correspondence with the Poincaré upper half-plane was conceived and pursued by the author. Relation~\eqref{eq:correspondence}, which expresses this geometric correspondence, was formulated with the assistance of GPT-5.2. The author also acknowledges the use of large language models in clarifying the scope and limitations of the geometric language employed in this work, in particular in ensuring that the use of Riemannian terminology does not imply the introduction of nontrivial curvature.
+
+The original conception and scientific content of this work remain the sole responsibility of the author. LLMs were employed for polishing and improving the English expression of the manuscript.
+
+\clearpage
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{misner1973}
+C.~W.~Misner, K.~S.~Thorne, and J.~A.~Wheeler,
+\textit{Gravitation}
+(W. H. Freeman, San Francisco, 1973).
+% Comprehensive GR textbook. Detailed treatment of geodesics, connections, covariant
+% derivatives, and their relation to variational principles.
+
+\bibitem{wald1984}
+R.~M.~Wald,
+\textit{General Relativity}
+(University of Chicago Press, Chicago, 1984).
+\href{https://doi.org/10.7208/chicago/9780226870373.001.0001}{https://doi.org/10.7208/chicago/9780226870373.001.0001}
+% Modern GR textbook. Rigorous formulation of the geodesic equation, covariant
+% differentiation, and variational principles for particle motion in curved spacetime.
+
+\bibitem{weinberg1972}
+S.~Weinberg,
+\textit{Gravitation and Cosmology: Principles and Applications of the General Theory of Relativity}
+(Wiley, New York, 1972).
+% GR and cosmology textbook. Clear discussion of the physical meaning of geodesics,
+% variational principles, and covariant differentiation.
+
+\bibitem{feynman1949}
+R.~P.~Feynman,
+``Space-time approach to quantum electrodynamics,''
+Phys. Rev. \textbf{76}, 769--789 (1949).
+\href{https://doi.org/10.1103/PhysRev.76.769}{https://doi.org/10.1103/PhysRev.76.769}
+% Path-integral formulation. Describes phase accumulation along particle worldlines
+% via path integrals; clarifies the geometric role of proper time.
+
+\bibitem{peskin1995}
+M.~E.~Peskin and D.~V.~Schroeder,
+\textit{An Introduction to Quantum Field Theory}
+(Westview Press, Boulder, 1995).
+% Standard QFT textbook. Comprehensive treatment of path integrals, proper-time
+% formalism, and the geometric structure of spinor field canonical quantization.
+
+\bibitem{wigner1939}
+E.~Wigner,
+``On unitary representations of the inhomogeneous Lorentz group,''
+Ann. Math. \textbf{40}, 149--204 (1939).
+\href{https://doi.org/10.2307/1968551}{https://doi.org/10.2307/1968551}
+% Classifies irreducible unitary representations of the Poincare group; shows mass and
+% spin are the essential quantum numbers characterizing a particle. Foundational paper
+% providing the mathematical basis for spinor representations.
+
+\bibitem{bargmann1954}
+V.~Bargmann and E.~P.~Wigner,
+``Group theoretical discussion of relativistic wave equations,''
+Proc. Natl. Acad. Sci. U.S.A. \textbf{34}, 211--223 (1948).
+\href{https://doi.org/10.1073/pnas.34.5.211}{https://doi.org/10.1073/pnas.34.5.211}
+% Clarifies the group-theoretical structure of relativistic wave equations; rigorously
+% derives the Lorentz transformation rules for spinor fields and discusses the geometric
+% origin of internal degrees of freedom.
+
+\bibitem{dirac1928}
+P.~A.~M.~Dirac,
+``The quantum theory of the electron,''
+Proc. R. Soc. Lond. A \textbf{117}, 610--624 (1928).
+\href{https://doi.org/10.1098/rspa.1928.0023}{https://doi.org/10.1098/rspa.1928.0023}
+% Original paper on the Dirac equation. Demonstrates the necessity of spinors in
+% relativistic QM and predicts electron spin and the existence of antiparticles.
+
+\bibitem{sakurai2017}
+J.~J.~Sakurai and J.~Napolitano,
+\textit{Modern Quantum Mechanics}, 3rd ed.
+(Cambridge University Press, Cambridge, 2017).
+\href{https://doi.org/10.1017/9781108587280}{https://doi.org/10.1017/9781108587280}
+% Standard modern QM textbook. Clear treatment of spinor rotation symmetry,
+% SU(2) representations, and the foundations of geometric phase.
+
+\bibitem{shankar2016}
+R.~Shankar,
+\textit{Principles of Quantum Mechanics}, 2nd ed.
+(Springer, New York, 1994).
+\href{https://doi.org/10.1007/978-1-4757-0576-8}{https://doi.org/10.1007/978-1-4757-0576-8}
+% Develops the principles of QM from a group-theoretic perspective. Detailed treatment
+% of the rotation group, spinor representations, and geometric phase structure.
+
+\bibitem{nakahara2003}
+M.~Nakahara,
+\textit{Geometry, Topology and Physics}, 2nd ed.
+(Institute of Physics Publishing, Bristol, 2003).
+\href{https://doi.org/10.1201/9781420056945}{https://doi.org/10.1201/9781420056945}
+% Differential geometry and topology textbook for physicists. Systematic treatment of
+% fiber bundles, connections, curvature, and characteristic classes; applications to
+% Berry phase and gauge theories.
+
+\bibitem{berry1984}
+M.~V.~Berry,
+``Quantal phase factors accompanying adiabatic changes,''
+Proc. R. Soc. Lond. A \textbf{392}, 45--57 (1984).
+\href{https://doi.org/10.1098/rspa.1984.0023}{https://doi.org/10.1098/rspa.1984.0023}
+% Discovery of the geometric (Berry) phase. Shows that adiabatic evolution along a
+% closed path in parameter space accumulates a geometric phase independent of the
+% dynamical phase.
+
+\bibitem{hanamura17765017}
+S.~Hanamura,
+``Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer,''
+Zenodo (2024).
+\href{https://doi.org/10.5281/zenodo.17765017}{https://doi.org/10.5281/zenodo.17765017}
+% Formulation of quantum oscillations in the 0-Sphere model. Unified description of
+% Zitterbewegung, geodesic paths, and proper time via radiative energy transfer;
+% provides the conceptual foundation for the thermal geodesic.
+
+\bibitem{bjorken1964}
+J.~D.~Bjorken and S.~D.~Drell,
+\textit{Relativistic Quantum Mechanics}
+(McGraw-Hill, New York, 1964).
+% Standard relativistic QM textbook. Comprehensive treatment of the Dirac equation,
+% covariant handling of spinors, and phase structure under Lorentz transformations.
+
+\bibitem{ryder1996}
+L.~H.~Ryder,
+\textit{Quantum Field Theory}, 2nd ed.
+(Cambridge University Press, Cambridge, 1996).
+\href{https://doi.org/10.1017/CBO9780511813900}{https://doi.org/10.1017/CBO9780511813900}
+% QFT textbook. Detailed treatment of the proper-time formalism, Lorentz covariance
+% of spinor fields, and the role of connections in gauge theories.
+
+\bibitem{stueckelberg1941}
+E.~C.~G.~Stueckelberg,
+``La signification du temps propre en m\'ecanique ondulatoire,''
+Helv.\ Phys.\ Acta {\bf 14}, 322 (1941).
+% One of the earliest papers introducing proper time as a dynamical parameter.
+% Historical origin of the proper-time formalism later developed by Feynman and Schwinger.
+
+\bibitem{schwinger1951}
+J.~Schwinger,
+``On gauge invariance and vacuum polarization,''
+Phys. Rev. \textbf{82}, 664--679 (1951).
+\href{https://doi.org/10.1103/PhysRev.82.664}{https://doi.org/10.1103/PhysRev.82.664}
+% Formulation of QED using the proper-time method. Unified description of gauge
+% invariance and vacuum polarization via proper-time integrals.
+
+\bibitem{hanamura17765238}
+S.~Hanamura,
+``Spin as a Real Vector from Internal Photon-Sphere Motion: Geometric Origin of U(1) Gauge and SU(2) Periodicity,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765238}{https://doi.org/10.5281/zenodo.17765238}
+% Derives spin as a real vector from internal photon-sphere motion. Unified geometric
+% explanation of the origin of U(1) gauge symmetry and SU(2) periodicity.
+
+\bibitem{aharonov1959}
+Y.~Aharonov and D.~Bohm,
+``Significance of electromagnetic potentials in the quantum theory,''
+Phys. Rev. \textbf{115}, 485--491 (1959).
+\href{https://doi.org/10.1103/PhysRev.115.485}{https://doi.org/10.1103/PhysRev.115.485}
+% Proposal of the Aharonov-Bohm effect. Shows that phase accumulates via the line
+% integral of the vector potential even when the electromagnetic field vanishes;
+% clarifies the role of the gauge field as a connection.
+
+\bibitem{thomas1926}
+L.~H.~Thomas,
+``The motion of the spinning electron,''
+Nature \textbf{117}, 514 (1926).
+\href{https://doi.org/10.1038/117514a0}{https://doi.org/10.1038/117514a0}
+% Original paper on Thomas precession. First formulation of the effective rotation
+% arising from the non-commutativity of successive Lorentz boosts; identifies the
+% origin of the factor of 1/2 in spin-orbit interaction.
+
+\bibitem{Jackson1999}
+J.~D.~Jackson,
+\textit{Classical Electrodynamics}, 3rd ed.
+(Wiley, New York, 1999).
+% Standard classical electrodynamics textbook. Includes relativistic kinematics,
+% electromagnetic fields of accelerating charges, and classical derivation of
+% Thomas precession.
+
+\bibitem{ballentine1998}
+L.~E.~Ballentine,
+\textit{Quantum Mechanics: A Modern Development}
+(World Scientific, Singapore, 1998).
+\href{https://doi.org/10.1142/3142}{https://doi.org/10.1142/3142}
+% Modern interpretation and mathematical foundations of QM. Discusses the double-
+% valuedness of spinors, proper-time formalism, and statistical interpretation of
+% geometric phase.
+
+\bibitem{wilczekZee1984}
+F.~Wilczek and A.~Zee,
+``Appearance of gauge structure in simple dynamical systems,''
+Phys.\ Rev.\ Lett.\ {\bf 52}, 2111 (1984).
+% Original paper on non-Abelian geometric phase. Canonical example showing that
+% the line integral (holonomy) of an SU(2) connection becomes a physically observable
+% phase.
+
+\bibitem{hanamura17765336}
+S.~Hanamura,
+``From Zero-Sphere to Emergent Spacetime: A Minimalist Background-Independent Framework for Temporal and Spatial Genesis,''
+Zenodo (2025).
+\href{https://doi.org/10.5281/zenodo.17765336}{https://doi.org/10.5281/zenodo.17765336}
+% Background-independent formulation of the 0-Sphere model. Presents a minimalist
+% framework in which proper time, causal structure, and gauge symmetry emerge from
+% a two-point topology; shows the continuum limit from discrete transition operators
+% to geodesic structure.
+
+\bibitem{hawking1975}
+S.~W.~Hawking,
+``Particle creation by black holes,''
+Commun. Math. Phys. \textbf{43}, 199--220 (1975).
+\href{https://doi.org/10.1007/BF02345020}{https://doi.org/10.1007/BF02345020}
+% Proposal of Hawking radiation. Shows that quantum effects near the black hole
+% horizon produce thermal radiation; suggests a unified understanding of geometry
+% and thermodynamics.
+
+\bibitem{unruh1976}
+W.~G.~Unruh,
+``Notes on black-hole evaporation,''
+Phys. Rev. D \textbf{14}, 870--892 (1976).
+\href{https://doi.org/10.1103/PhysRevD.14.870}{https://doi.org/10.1103/PhysRevD.14.870}
+% Discovery of the Unruh effect. Shows that the vacuum state in an accelerated frame
+% is observed as thermal excitation; reveals the deep relationship between proper
+% time and thermodynamics.
+
+\bibitem{weinberg1995}
+S.~Weinberg,
+\textit{The Quantum Theory of Fields, Vol. I: Foundations}
+(Cambridge University Press, Cambridge, 1995).
+\href{https://doi.org/10.1017/CBO9781139644167}{https://doi.org/10.1017/CBO9781139644167}
+% Reconstructs the foundations of QFT from a group-theoretic perspective. Rigorous
+% development of Poincare group representation theory and the geometric structure of
+% spinor fields.
+
+\end{thebibliography}
+
+
+% ========================================
+% Appendix B: Dynamical Illustration of Spinorial Periodicity
+% ========================================
+\appendix
+\section{Appendix B: Dynamical Illustration of Spinorial Periodicity}
+\label{app:spin_dynamics}
+
+This appendix provides a concrete dynamical illustration of how an SU(2)-type periodicity can emerge from relativistic kinematics, complementing the geometric discussion in the main text. The purpose here is not to introduce new assumptions or to modify the geometric framework developed above, but to make explicit how the internal spinorial structure referenced in the Introduction may be realized at the level of physical time evolution.
+
+In a complementary work~\cite{hanamura17765238}, the internal degree of freedom associated with spin is modeled as a real, time-evolving vector generated by confined internal motion. Within that framework, relativistic kinematics give rise to an effective angular velocity associated with Thomas precession, which can be written in the form
+\begin{equation}
+\boldsymbol{\Omega}(t) = -\frac{1}{4c^2},\sin(2\omega t),\mathbf e_z.
+\end{equation}
+Here $\omega$ denotes the characteristic internal frequency, $c$ is the speed of light, and $\mathbf e_z$ is a fixed unit vector defining the axis of internal rotation. This angular velocity arises from the noncommutativity of successive Lorentz boosts and represents a purely kinematic effect, independent of any external spatial curvature.
+
+The key point for the present discussion is that the internal state undergoes a continuous rotation generated by $\boldsymbol{\Omega}(t)$, whose time dependence leads to a characteristic periodic structure. Because the angular velocity changes sign with period $\pi/\omega$, the internal state returns to its original orientation only after a $4\pi$ accumulation of the associated phase. This behavior reproduces the familiar $4\pi$ periodicity characteristic of SU(2) spinors, without assuming spinorial transformation properties at the outset.
+
+From the perspective of the main text, this result may be viewed as a concrete realization of the abstract spinorial connection discussed there. The nontrivial holonomy associated with the line integral of the connection along proper time corresponds, at the dynamical level, to the accumulated effect of the internal angular velocity generated by relativistic kinematics. In this sense, the SU(2)-type structure referenced in the geometric formulation is not merely postulated, but can be understood as emerging from an explicit time-dependent internal motion.
+
+We emphasize that this appendix serves solely as an illustrative complement. The geometric results of the main text do not rely on the details of this internal model, and remain valid at the level of connection and holonomy independently of any specific microscopic realization.
+
+% ========================================
+% Appendix C: Glossary of Key Concepts
+% ========================================
+\section{Glossary of Key Concepts}
+\label{app:glossary}
+
+This appendix collects concise definitions of technical terms as they are used in the present work. The descriptions are intentionally limited to terminology and conventions required for reading the paper, and do not introduce additional results or interpretations beyond those developed in the main text.
+
+\subsection*{Thermal Geodesic}
+A trajectory connecting two localized energy kernels, obtained by extremizing an effective action formulated in terms of the proper time $\tau$. In homogeneous and isotropic regions, the thermal geodesic reduces to a straight path in coordinate space, while remaining a geodesic with respect to the effective thermal metric~\cite{hanamura17765017}.
+
+\subsection*{Proper Time ($\tau$)}
+The time parameter measured in the instantaneous rest frame of a particle. In the present framework, proper time replaces coordinate time as the affine parameter along the thermal geodesic, allowing relativistic kinematics to be incorporated in a covariant manner~\cite{schwinger1951,bjorken1964}.
+
+\subsection*{Connection (Connection One-Form)}
+A geometric object that specifies how vectors or internal states are parallel transported along a curve. In this work, the physically relevant quantity is the line integral of the connection along a worldline parameterized by $\tau$, rather than the curvature associated with a surface~\cite{nakahara2003}.
+
+\subsection*{Thomas Precession}
+An effective rotational motion arising from the non-commutativity of successive Lorentz boosts experienced by an accelerated particle~\cite{thomas1926,Jackson1999}. Thomas precession is a purely kinematic effect and does not rely on external spatial curvature.
+
+\subsection*{Spinorial Phase}
+An internal phase associated with the evolution of a spin-1/2 state under parallel transport with respect to a connection. Such phases are sensitive to the geometric structure of the connection and are not determined solely by the local dynamical Hamiltonian~\cite{wigner1939,sakurai2017}.
+
+\subsection*{Holonomy}
+The net effect accumulated by parallel transport of a state along a closed path with respect to a given connection. Holonomy provides a global characterization of the connection that is independent of the local parametrization of the path~\cite{nakahara2003}.
+
+\subsection*{Poincar\'e Upper Half-Plane}
+A standard model of two-dimensional hyperbolic geometry, in which geodesics are represented as semicircles orthogonal to the real axis. In the present work, this space is used as a geometric prototype to visualize properties of geodesic motion in the presence of a nontrivial connection.
+
+\subsection*{Covariant Acceleration}
+The rate of change of a tangent vector under parallel transport defined by a connection. A curve is said to be geodesic when its covariant acceleration vanishes, regardless of the appearance of the trajectory in coordinate space~\cite{wald1984}.
+
+\subsection*{Isotropic Homogeneity}
+The condition that the effective thermal metric is spatially uniform and direction-independent within a given region. Under this condition, the thermal geodesic assumes its simplest form in coordinate space, without implying the absence of internal geometric structure.
+
+
+\clearpage
+
+% Scope note (paper #29):
+% This paper aims at a reorganization of the conceptual hierarchy — specifically the logical
+% status of conservation laws and the Einstein equations — and does not enter into the
+% construction of specific equations of motion or worldlines. In particular, the thermal
+% geodesic equation introduced in the 0-Sphere model is one concrete example in which the
+% line-integral structure based on a connection is physically realized; it is not itself the
+% principle discussed here. The definition and mathematical form of the thermal geodesic are
+% therefore not treated in this paper, in order to preserve the purity of the principled
+% argument, and will be introduced explicitly in subsequent papers. The claims of this paper
+% hold independently of whichever specific geodesic equation is adopted. (2025-12-23)
+
+
+\end{document}
