@@ -1,0 +1,165 @@
+================================================================================
+zenodo_relations.txt — Paper #15
+Spin-Induced Inertial Resistance in Electrons:
+A Gyroscopic Interpretation Based on General Relativity
+DOI: 10.5281/zenodo.17765121
+Date: April 20, 2025
+================================================================================
+
+[Summary]
+  Cites:            17 entries (6 x 0-Sphere, 11 x external)
+  Is supplement to:  0 entries
+  Continues:         1 entry
+  References:        1 entry
+  Requires:          2 entries
+  Is part of:        0 entries
+  Total unique DOIs: 17
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Note: Cited as hanamura2023; gamma=1+a; ZB velocity calculation; Thomas precession
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Note: Cited as hanamura2018; foundational dual-kernel model; sin(omega*t) gradient
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Note: Cited as hanamura2024; Snell's law; geodesic energy transport
+
+10.5281/zenodo.17759908
+  Title: Correspondence Between a 0-Sphere and the Electron Model (#3)
+  Note: Cited as hanamura2020; seesaw analogy for 0-Sphere model
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2025; electron radius 10^-25 to 10^-26 m; GR corrections
+
+10.5281/zenodo.17759699
+  Title: Perfect Contrast Cannot be Obtained in the Double-Slit Experiment (#2)
+  Note: Cited as hanamura2019; double-slit deterministic control
+
+--- External references ---
+
+bohm1952
+  Title: A Suggested Interpretation of the Quantum Theory in Terms of "Hidden" Variables
+  Note: Phys. Rev. 85, 166 (1952); DOI: 10.1103/PhysRev.85.166
+
+schrodinger1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. 24, 418 (1930)
+
+thomas1926
+  Title: The Motion of the Spinning Electron
+  Note: Nature 117, 514 (1926); DOI: 10.1038/117514a0
+
+thomas1927
+  Title: The Kinematics of an Electron with an Axis
+  Note: Phil. Mag. 3, 1 (1927); DOI: 10.1080/14786440108564170
+
+weinberg1995
+  Title: The Quantum Theory of Fields (Cambridge, 1995)
+
+einstein1912
+  Title: Lichtgeschwindigkeit und Statik des Gravitationsfeldes
+  Note: Ann. Phys. 38, 355 (1912); rotating disk / circumference != pi*diameter
+
+fan2023
+  Title: Measurement of the Electron Magnetic Moment
+  Note: Phys. Rev. Lett. 130, 071801 (2023); arXiv:2209.13084
+
+hartle2021
+  Title: Gravity - An Introduction to Einstein's General Relativity (Cambridge, 2021)
+  Note: Source of geodetic precession formula, p.302
+
+penrose1971
+  Title: Angular Momentum: An Approach to Combinatorial Space-Time
+  Note: In "Quantum Theory and Beyond" (Cambridge, 1971)
+
+mach1919
+  Title: The Science of Mechanics (Open Court, 1919)
+
+barbour2001
+  Title: The Discovery of Dynamics (Oxford, 2001)
+  Note: Machian dynamics reinterpreted
+
+rabi1937
+  Title: Space Quantization in a Gyrating Magnetic Field
+  Note: Phys. Rev. 51, 652 (1937); DOI: 10.1103/PhysRev.51.652
+
+allen1975
+  Title: Optical Resonance and Two-Level Atoms (Dover, 1975)
+
+monroe1995
+  Title: Demonstration of a Fundamental Quantum Logic Gate
+  Note: Phys. Rev. Lett. 75, 4714 (1995); DOI: 10.1103/PhysRevLett.75.4714
+
+einstein1935
+  Title: Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?
+  Note: Phys. Rev. 47, 777 (1935); DOI: 10.1103/PhysRev.47.777; EPR
+
+higgs1964
+  Title: Broken Symmetries and the Masses of Gauge Bosons
+  Note: Phys. Rev. Lett. 13, 508 (1964); DOI: 10.1103/PhysRevLett.13.508
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Reason: #15 directly continues #14 by adding the gyroscopic inertial mass
+          interpretation and the lepton decay / electron-positron annihilation
+          discussion to the SR+GR framework developed in #14.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765244
+  Title: Emergent Conservation Laws / Noetherian Reinterpretation (#20)
+  Reason: #20 cites #15 as hanamura2504.0115 for the gamma=1+a glossary
+          entry. Forward reference.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The gamma=1+a relation, Thomas precession formula, and ZB velocity
+          derivation (L/L0 = 1/(1 + (1/sqrt(2))*a_e)) that are central to
+          #15 are established in #10.
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Reason: The GR-corrected ZB velocity (0.040374c) and the core SR+GR equation
+          [Eq. core_equation] that underpin #15 are derived in #14.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765097  (#14)
+  Add: Is continued by  --> 10.5281/zenodo.17765121
+  Reason: #15 continues and extends the SR+GR framework of #14.
+
+10.5281/zenodo.17765244  (#20)
+  Add: References  --> 10.5281/zenodo.17765121
+  Reason: #20 glossary cites #15 for the gamma=1+a relation.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
