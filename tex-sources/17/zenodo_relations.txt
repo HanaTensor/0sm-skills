@@ -1,0 +1,158 @@
+================================================================================
+zenodo_relations.txt — Paper #17
+From Clock Synchronization to Electromagnetism:
+A Realist Construction of U(1) Gauge Theory
+DOI: 10.5281/zenodo.17765136
+Date: June 1, 2025
+================================================================================
+
+[Summary]
+  Cites:            14 entries (4 x 0-Sphere, 10 x external)
+  Is supplement to:  0 entries
+  Continues:         1 entry
+  References:        2 entries
+  Requires:          2 entries
+  Is part of:        0 entries
+  Total unique DOIs: 14
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Note: Cited as hanamura2018; foundational dual-kernel model
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Note: Cited as hanamura2023; Thomas precession Omega equation; v_ZB
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Note: Cited as hanamura2024quantum; Snell's law for internal phase transport;
+        geodesic motion; energy conservation identity
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2025bridging; v_ZB = 0.040374c from SR + GR
+
+--- External references ---
+
+zee2010
+  Title: Quantum Field Theory in a Nutshell, 2nd ed. (Princeton, 2010)
+  Note: Source of "strange language full of redundancy" quote on gauge theory
+
+wilson1974
+  Title: Confinement of quarks
+  Note: Phys. Rev. D 10, 2445 (1974); DOI: 10.1103/PhysRevD.10.2445
+
+rovelli1995
+  Title: Spin networks and quantum gravity
+  Note: Phys. Rev. D 52, 5743 (1995); arXiv:gr-qc/9505006
+
+aharonov1959
+  Title: Significance of electromagnetic potentials in the quantum theory
+  Note: Phys. Rev. 115, 485 (1959)
+
+weyl1929
+  Title: Elektron und Gravitation. I
+  Note: Z. Phys. 56, 330 (1929)
+
+yang1954
+  Title: Conservation of isotopic spin and isotopic gauge invariance
+  Note: Phys. Rev. 96, 191 (1954)
+
+tonomura1986
+  Title: Evidence for Aharonov-Bohm effect with magnetic field completely
+         shielded from electron wave
+  Note: Phys. Rev. Lett. 56, 792 (1986)
+
+teller2000
+  Title: The gauge argument
+  Note: Philosophy of Science 67, S466 (2000); DOI: 10.1086/392824
+
+berry1984
+  Title: Quantal phase factors accompanying adiabatic changes
+  Note: Proc. R. Soc. Lond. A 392, 45 (1984); DOI: 10.1098/rspa.1984.0023
+
+zitterbewegung_schrodinger1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. 24, 418 (1930)
+
+Thomas1926
+  Title: The Motion of the Spinning Electron
+  Note: Nature 117, 514 (1926); DOI: 10.1038/117514a0
+
+thomas1927
+  Title: The Kinematics of an Electron with an Axis
+  Note: Phil. Mag. 3, 1 (1927); DOI: 10.1080/14786440108564170
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Reason: #17 directly extends #11's Snell's law / geodesic motion framework
+          by applying it to the reinterpretation of U(1) gauge symmetry.
+          The internal phase transport geometry of #11 becomes the foundation
+          for the gauge connection in #17.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765238
+  Title: Spin as a Real Vector from Internal Photon-Sphere Motion (#19)
+  Reason: #19 further develops the SU(2)/U(1) unification program started
+          in #17 (Section 4.5). Forward reference.
+
+10.5281/zenodo.17765244
+  Title: Emergent Conservation Laws / Noetherian Reinterpretation (#20)
+  Reason: #20's Noetherian inversion of conservation laws is conceptually
+          continuous with #17's reinterpretation of gauge symmetry as
+          emergent from internal phase dynamics. Forward reference.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The Thomas precession angular velocity Omega = (1/2c^2)[a x v]
+          and the v_ZB derivation used in #17 are established in #10.
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Reason: The Snell's law energy transport equation and the internal geodesic
+          motion formulation that underpin #17's gauge geometry are first
+          derived in #11.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765017  (#11)
+  Add: Is continued by  --> 10.5281/zenodo.17765136
+  Reason: #17 extends #11's geodesic/Snell framework to U(1) gauge theory.
+
+10.5281/zenodo.17765238  (#19)
+  Add: Continues  --> 10.5281/zenodo.17765136
+  Reason: #19 continues the spin/gauge unification program of #17.
+
+10.5281/zenodo.17765244  (#20)
+  Add: Continues  --> 10.5281/zenodo.17765136
+  Reason: #20's emergent conservation / Noetherian inversion continues the
+          program of deriving gauge and symmetry from internal geometry.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
