@@ -1,0 +1,130 @@
+================================================================================
+zenodo_relations.txt — Paper #18
+Time-Dependent Mass in the 0-Sphere Model:
+A Hamiltonian Approach to Thermal Modulation
+DOI: 10.5281/zenodo.17765200
+Date: June 8, 2025
+================================================================================
+
+[Summary]
+  Cites:            12 entries (3 x 0-Sphere, 9 x external)
+  Is supplement to:  0 entries
+  Continues:         1 entry
+  References:        1 entry
+  Requires:          1 entry
+  Is part of:        0 entries
+  Total unique DOIs: 12
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Note: Cited as hanamura2018electron; foundational dual-kernel model
+
+10.5281/zenodo.17760132
+  Title: Coexistence Positive and Negative-Energy States (#7)
+  Note: Cited as hanamura2020dirac; Dirac equation reinterpretation
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2025bridging; energy conservation identity
+
+--- External references ---
+
+goldstein2002
+  Title: Classical Mechanics, 3rd ed. (Addison Wesley, 2002)
+  Note: Goldstein, Poole, Safko
+
+landau1976
+  Title: Mechanics, 3rd ed. (Butterworth-Heinemann, 1976)
+  Note: Landau & Lifshitz
+
+rosen1965
+  Title: Formulations of classical and quantum dynamical theory for
+         systems with time-dependent mass
+  Note: Phys. Rev. 139, B1255 (1965)
+
+caldirola1941
+  Title: Forze non conservative nella meccanica quantistica
+  Note: Nuovo Cimento 18, 393 (1941)
+
+kanai1948
+  Title: On the quantization of the dissipative systems
+  Note: Prog. Theor. Phys. 3, 440 (1948)
+
+thermodynamics_inertia
+  Title: Relativity, Thermodynamics and Cosmology (Oxford, 1934)
+  Note: Tolman, R. C.
+
+zitterbewegung1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. 24, 418 (1930); Schrodinger
+
+lewis1969
+  Title: Classical and quantum systems with time-dependent harmonic-oscillator
+         type Hamiltonians
+  Note: Phys. Rev. Lett. 18, 510 (1967); Lewis Jr., H. R.
+
+dodonov2000
+  Title: Invariants and the evolution of nonstationary quantum systems
+  Note: Proc. Lebedev Phys. Inst. 183, 1 (1989); Dodonov & Man'ko
+
+messiah1966
+  Title: Quantum Mechanics, Vol. 1 (North-Holland, 1966)
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Reason: #18 extends the energy conservation identity established in #14
+          into a full Lagrangian/Hamiltonian formulation for thermally
+          modulated mass dynamics.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765349
+  Title: Thermal Geodesics in the 0-Sphere Model (#24)
+  Reason: #24 explicitly cites #18 as hanamura2506.0031; the thermal
+          Lagrangian of #24 is a direct extension of the Hamiltonian
+          framework developed here. Forward reference.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Reason: The energy conservation identity and the two-kernel structure
+          that define the 0-Sphere model used in this paper are
+          established in #1.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765097  (#14)
+  Add: Is continued by  --> 10.5281/zenodo.17765200
+  Reason: #18 extends the energy conservation framework of #14 into
+          Lagrangian/Hamiltonian mechanics.
+
+10.5281/zenodo.17765349  (#24)
+  Add: Continues  --> 10.5281/zenodo.17765200
+  Reason: #24's thermal Lagrangian is an explicit continuation of #18.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================

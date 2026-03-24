@@ -1,0 +1,265 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % for captionsetup[figure]
+\usepackage{threeparttable} % for table caption modification
+\usepackage{breqn} % dmath: automatic equation line breaking
+\numberwithin{equation}{section}% (p.37)
+
+% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
+% not recommended for academic papers requiring strict typesetting.
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} % raggedright for left-aligned figure captions
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+
+\title{Time-Dependent Mass in the 0-Sphere Model:\\ 
+A Hamiltonian Approach to Thermal Modulation}
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{June 8, 2025}
+
+
+
+\begin{abstract}
+We investigate the challenges of incorporating time-dependent mass in classical Lagrangian mechanics, where velocity-dependent terms break time-translation symmetry and complicate energy conservation. Using the 0-Sphere model—a point-like system with thermally modulated mass inspired by Zitterbewegung and thermal oscillations—we demonstrate that a Hamiltonian formulation simplifies the dynamics by eliminating velocity-dependent terms and preserving energy conservation through conserved momentum, despite the Hamiltonian’s explicit time dependence. The model assumes a position-independent thermal potential and oscillatory mass modulation, providing a mathematically consistent framework. We also explore a preliminary quantum extension via the time-dependent Schrödinger equation, suggesting potential applications to thermally driven systems. While the model’s reliance on simplified potentials and the naive quantum approach limit its generality, this work offers a starting point for understanding systems with dynamic inertial properties, with possible relevance to cosmology and quantum mechanics.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+Systems with time-dependent mass, such as rockets, accreting astrophysical objects, or particles in thermal environments, present notable challenges in classical mechanics~\cite{goldstein2002}. In Lagrangian mechanics, a varying mass gives rise to velocity-dependent terms that resemble dissipation, complicating the variational principle and breaking time-translation symmetry~\cite{landau1976}. These issues can be particularly pronounced in theoretical constructs like the 0-Sphere model, which describes a point-like particle confined by thermal potential barriers, with its inertial mass modulated by oscillatory thermal effects.
+
+The problem of time-dependent mass systems has been considered in various contexts since the early work of Rosen~\cite{rosen1965}, who formulated classical and quantum theories for such systems. Further developments include the Caldirola-Kanai approach~\cite{caldirola1941,kanai1948}, which introduced effective mass modulation as a way to model energy dissipation in quantum mechanics.
+
+The 0-Sphere model, motivated by an interpretation of Dirac’s Zitterbewegung as a localized oscillation at the Compton wavelength scale, envisions a particle confined within a photon-like sphere undergoing thermal oscillation between two potential wells, referred to as ``kernels.'' Rather than invoking extended objects as in string or field theories, the model postulates dynamics along a one-dimensional geodesic axis shaped by a thermally modulated geometry—an idealized framework in which temperature is assumed to influence inertial mass~\cite{thermodynamics_inertia}. This results in a time-dependent effective mass that complicates the direct application of standard Lagrangian methods.
+
+In this work, we explore the possibility that a Hamiltonian formulation may provide a more tractable approach. We examine the equations of motion for the 0-Sphere model, evaluate energy conservation, and tentatively consider extensions to quantum mechanical systems. While preliminary, this line of analysis may serve as a starting point for further theoretical development of the 0-Sphere model, particularly from a geometric and analytical mechanics perspective.
+
+
+
+% ========================================
+% Section 2: Formulation and Dynamics
+% ========================================
+\section{Formulation and Dynamics}
+
+
+% ----------------------------------------
+% Subsection 2.1: Lagrangian Framework
+% ----------------------------------------
+\subsection{Lagrangian Framework}
+
+We consider a point-like particle with time-dependent mass \( m(t) \), motivated by the 0-Sphere model's thermal modulation, potentially influenced by internal oscillatory effects such as Zitterbewegung~\cite{zitterbewegung1930}. The Lagrangian is
+\begin{equation}
+L(x, \dot{x}, t) = \frac{1}{2} m(t) \dot{x}^2 - V(t),
+\label{eq:lagrangian}
+\end{equation}
+where \( V(t) \) is a time-dependent thermal potential, assumed position-independent to focus on temporal dynamics. The action is
+\begin{equation}
+S = \int L(x, \dot{x}, t) \, dt,
+\end{equation}
+yielding the Euler-Lagrange equation~\cite{goldstein2002}
+\begin{equation}
+\frac{d}{dt} \left( m(t) \dot{x} \right) = 0,
+\end{equation}
+since \( \frac{\partial V}{\partial x} = 0 \). Expanding, we obtain
+\begin{equation}
+m(t) \ddot{x} + \dot{m}(t) \dot{x} = 0.
+\label{eq:euler_lagrange}
+\end{equation}
+The term \( \dot{m}(t) \dot{x} \) arises from mass variation, breaking time-translation symmetry and complicating geodesic interpretation, as the Lagrangian depends explicitly on time~\cite{landau1976}.
+
+In the 0-Sphere model, energy conservation is defined by~\cite{hanamura2018electron, hanamura2020dirac, hanamura2025bridging}
+\begin{equation}
+E_0 = E_0 \left( \cos^4 \left( \frac{\omega t}{2} \right) + \sin^4 \left( \frac{\omega t}{2} \right) + \frac{1}{2} \sin^2 (\omega t) \right).
+\label{eq:energy_conservation}
+\end{equation}
+Using the identity
+\begin{equation}
+\cos^4 \left( \frac{\omega t}{2} \right) + \sin^4 \left( \frac{\omega t}{2} \right) = 1 - \frac{1}{2} \sin^2 (\omega t),
+\end{equation}
+the right-hand side simplifies to 1, confirming constant total energy. The kinetic energy is
+\begin{equation}
+T = \frac{1}{2} m(t) \dot{x}^2 = \frac{E_0}{2} \sin^2 (\omega t),
+\label{eq:kinetic_energy}
+\end{equation}
+and the thermal potential is
+\begin{equation}
+V(t) = E_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right).
+\label{eq:potential_energy}
+\end{equation}
+From Eq.~\eqref{eq:kinetic_energy}, the mass satisfies
+\begin{equation}
+m(t) \dot{x}^2 = E_0 \sin^2 (\omega t).
+\label{eq:mass_velocity}
+\end{equation}
+To align with the thermal potential's time dependence, we define
+\begin{equation}
+m(t) = m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right),
+\label{eq:mass}
+\end{equation}
+reflecting the model's oscillatory mass modulation. Substituting into Eq.~\eqref{eq:mass_velocity}, we obtain
+\begin{equation}
+\dot{x}^2 = \frac{E_0 \sin^2 (\omega t)}{m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right)},
+\end{equation}
+ensuring \( m(t) \) remains positive and dynamics are well-defined. The velocity profile
+\begin{equation}
+\dot{x} = \sqrt{\frac{E_0}{m_0}} \frac{\sin (\omega t)}{\sqrt{1 - \frac{1}{2} \sin^2 (\omega t)}}
+\label{eq:velocity}
+\end{equation}
+produces non-harmonic motion consistent with the model's thermal modulation. Substituting Eq.~\eqref{eq:mass} into Eq.~\eqref{eq:euler_lagrange} yields
+\begin{equation}
+m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right) \ddot{x} - m_0 \omega \sin (\omega t) \cos (\omega t) \dot{x} = 0,
+\end{equation}
+describing the dynamics driven by mass variation.
+
+
+% ----------------------------------------
+% Subsection 2.2: Hamiltonian Framework
+% ----------------------------------------
+\subsection{Hamiltonian Framework}
+
+In the Hamiltonian framework~\cite{goldstein2002}, the canonical momentum is
+\begin{equation}
+p = m(t) \dot{x} = m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right) \dot{x}.
+\end{equation}
+The Hamiltonian is
+\begin{equation}
+H = \frac{p^2}{2 m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right)} + E_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right).
+\label{eq:hamiltonian}
+\end{equation}
+The equations of motion are
+\begin{equation}
+\begin{split}
+\dot{x} &= \frac{p}{m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right)}, \\
+\dot{p} &= -\frac{\partial V}{\partial x} = 0.
+\end{split}
+\end{equation}
+implying conserved momentum \( p \). The Hamiltonian's time evolution is
+\begin{equation}
+\begin{split}
+\frac{dH}{dt} &= \frac{\partial H}{\partial t} \\
+&=  \frac{p^2 \omega \sin (\omega t) \cos (\omega t)}{2 m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right)^2} - \frac{E_0 \omega}{2} \sin (\omega t) \cos (\omega t).
+\end{split}
+\end{equation}
+\begin{equation}
+\begin{split}
+\frac{dH}{dt} &= \frac{\partial H}{\partial t} \\
+&= \frac{p^2 \omega \sin (\omega t) \cos (\omega t)}{2 m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right)^2} - \frac{E_0 \omega}{2} \sin (\omega t) \cos (\omega t).
+\end{split}
+\end{equation}
+Using Eq.~\eqref{eq:velocity}, the kinetic term aligns with Eq.~\eqref{eq:kinetic_energy}, ensuring energy conservation. This approach follows the framework established by Lewis~\cite{lewis1969} for time-dependent harmonic systems and extends the invariant theory for nonstationary quantum systems~\cite{dodonov2000}.
+
+In the quantum regime, the time-dependent Schrödinger equation~\cite{messiah1966} is
+
+\begin{equation}
+\begin{split}
+i \hbar \frac{\partial \psi}{\partial t}
+    &= \Bigg[ - \frac{\hbar^2}{2 m_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right)} \frac{\partial^2}{\partial x^2} \\
+    &\quad \quad + E_0 \left( 1 - \frac{1}{2} \sin^2 (\omega t) \right) \Bigg] \psi
+    \ ,
+\end{split}
+\end{equation}
+where the time-varying mass modulates the kinetic operator, suggesting non-trivial wave packet evolution driven by thermal effects. This quantum extension builds upon the Caldirola-Kanai formalism~\cite{caldirola1941,kanai1948} for dissipative quantum systems.
+
+
+% ========================================
+% Section 3: Conclusion
+% ========================================
+\section{Conclusion}
+
+This work represents an initial attempt to construct a Hamiltonian-based framework for thermally modulated mass systems using the 0-Sphere model. While preliminary, the results suggest a coherent theoretical structure that warrants further development and investigation.
+
+We have shown that the Hamiltonian formulation simplifies the treatment of time-dependent mass in the 0-Sphere model by eliminating velocity-dependent terms in the equations of motion and enabling energy conservation through conserved momentum and the model’s specific structure, despite the Hamiltonian’s explicit time dependence.
+
+In the 0-Sphere model, where mass modulation arises from thermal oscillations, this approach preserves canonical structure and maintains energy conservation, providing a mathematically consistent framework for describing such systems.
+
+Several limitations and open questions remain. The model's reliance on position-independent potentials, while mathematically convenient, restricts its immediate applicability to more general systems. The physical interpretation of "thermal geometry" and its relationship to established thermodynamic principles requires deeper theoretical justification. Additionally, the connection between the 0-Sphere's discrete symmetry and observable physical phenomena remains to be established through explicit predictions and experimental validation. We must acknowledge that the direct substitution of our classical Hamiltonian into the Schrödinger equation, while formally straightforward, represents a rather naive approach to quantum extension that requires more careful theoretical consideration.
+
+Future work should focus on extending the framework to spatially varying potentials, exploring the model's predictions for measurable quantities, and investigating its relationship to established theories of dissipative quantum systems. The approach presented here, while requiring further development, offers a potentially useful starting point for understanding systems where inertial properties are dynamically modulated by environmental or internal factors.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+\bibitem{goldstein2002} Goldstein, H., Poole, C., \& Safko, J.,
+\textit{Classical Mechanics}, 3rd ed. (Addison Wesley, 2002).
+% Foundational Lagrangian/Hamiltonian mechanics for time-dependent mass systems.
+
+\bibitem{landau1976} Landau, L. D. \& Lifshitz, E. M.,
+\textit{Mechanics}, 3rd ed. (Butterworth-Heinemann, 1976).
+% Theoretical basis for the variational principle and breaking of time-translation symmetry.
+
+\bibitem{rosen1965} Rosen, G.,
+``Formulations of classical and quantum dynamical theory for systems with time-dependent mass,''
+\textit{Phys. Rev.} \textbf{139}, B1255 (1965).
+% Pioneering study of classical and quantum dynamics for time-dependent mass systems.
+
+\bibitem{caldirola1941} Caldirola, P.,
+``Forze non conservative nella meccanica quantistica,''
+\textit{Nuovo Cimento} \textbf{18}, 393 (1941).
+% Introduces time-dependent mass concepts in quantum mechanics of dissipative systems.
+
+\bibitem{kanai1948} Kanai, E.,
+``On the quantization of the dissipative systems,''
+\textit{Prog. Theor. Phys.} \textbf{3}, 440 (1948).
+% Quantization approach for velocity-dependent terms simulating dissipation.
+
+\bibitem{thermodynamics_inertia} Tolman, R. C.,
+\textit{Relativity, Thermodynamics and Cosmology} (Oxford University Press, 1934).
+% Theoretical basis for modulation of inertial mass by thermodynamic effects.
+
+\bibitem{zitterbewegung1930} Schrödinger, E.,
+``Über die kräftefreie Bewegung in der relativistischen Quantenmechanik,''
+\textit{Sitzungsber. Preuss. Akad. Wiss. Phys.-Math. Kl.} \textbf{24}, 418 (1930).
+% Theoretical background for internal oscillatory effects (Zitterbewegung) in the 0-Sphere model.
+
+\bibitem{hanamura2018electron} 
+S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{https://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+
+\bibitem{hanamura2020dirac} 
+S. Hanamura, Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17760132}{doi:10.5281/zenodo.17760132}. [Originally: \href{https://vixra.org/abs/2006.0104}{viXra:2006.0104}]
+
+\bibitem{hanamura2025bridging} 
+S. Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principles Approach to Anomalous Magnetic Moments and Geodetic Precession, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765097}{doi:10.5281/zenodo.17765097}. [Originally: \href{https://vixra.org/abs/2501.0130}{viXra:2501.0130}]
+
+\bibitem{lewis1969} Lewis Jr., H. R.,
+``Classical and quantum systems with time-dependent harmonic-oscillator-type Hamiltonians,''
+\textit{Phys. Rev. Lett.} \textbf{18}, 510 (1967).
+% Foundational invariant theory for time-dependent Hamiltonian systems.
+
+\bibitem{dodonov2000} Dodonov, V. V. \& Man'ko, V. I.,
+``Invariants and the evolution of nonstationary quantum systems,''
+\textit{Proc. Lebedev Phys. Inst.} \textbf{183}, 1 (1989).
+% Comprehensive review of evolution and invariants of nonstationary quantum systems.
+
+\bibitem{messiah1966} Messiah, A.,
+\textit{Quantum Mechanics}, Vol. 1 (North-Holland, 1966).
+% Cited for extension of time-dependent Hamiltonian to the Schrodinger equation.
+
+\end{thebibliography}
+
+\end{document}
