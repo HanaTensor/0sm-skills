@@ -1,0 +1,170 @@
+================================================================================
+zenodo_relations.txt — Paper #27
+Challenging the Uncertainty Principle:
+A Deterministic Interpretation of Measurement and Reality in Quantum Mechanics
+DOI: 10.5281/zenodo.17765439
+Date: September 20, 2025
+================================================================================
+
+[Summary]
+  Cites:            14 entries (8 x 0-Sphere, 6 x external)
+  Is supplement to:  0 entries
+  Continues:         2 entries
+  References:        1 entry
+  Requires:          1 entry
+  Is part of:        0 entries
+  Is supplemented by: 1 entry (reverse: #28 corrects Section 7)
+  Total unique DOIs: 14
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM Through Harmonic Oscillation
+         and Lorentz Contraction (#10)
+  Note: Cited as hanamura2023; central gamma = 1 + a relation
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Note: Cited as hanamura2025; Zitterbewegung velocity ~0.040374c,
+        critical radii (note: dimensional error corrected in #28)
+
+10.5281/zenodo.16759284
+  Title: A Model of an Electron Including Two Perfect Black Bodies (#1)
+  Note: Cited as hanamura2018; foundational dual-kernel model
+
+10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model (#11)
+  Note: Cited as hanamura2024; geodesic paths and energy transport
+
+10.5281/zenodo.17759908
+  Title: Correspondence Between a 0-Sphere and the Electron Model (#6)
+  Note: Cited as hanamura2020; 0-Sphere framework
+
+10.5281/zenodo.17760445
+  Title: Apply Electron-positron Pair Annihilation to the 0-Sphere
+         Electron Model (#8)
+  Note: Cited as hanamura2021; annihilation and photon sphere
+
+10.5281/zenodo.17759699
+  Title: Perfect Contrast Cannot be Obtained in the Electron Double-Slit
+         Experiment (#4)
+  Note: Cited as hanamura2019; double-slit and internal phase
+
+--- External references ---
+
+einstein1935
+  Title: Can Quantum-Mechanical Description of Physical Reality Be Complete?
+  Note: Einstein, Podolsky, Rosen; Phys. Rev. 47, 777 (1935);
+        DOI: 10.1103/PhysRev.47.777
+
+bohm1952
+  Title: A Suggested Interpretation of the Quantum Theory (Hidden Variables)
+  Note: Phys. Rev. 85, 166 (1952); DOI: 10.1103/PhysRev.85.166
+
+schrodinger1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. Wiss. 24, 418 (1930); Zitterbewegung
+
+thomas1926
+  Title: The Motion of the Spinning Electron
+  Note: Nature 117, 514 (1926); DOI: 10.1038/117514a0
+
+thomas1927
+  Title: The Kinematics of an Electron with an Axis
+  Note: Philosophical Magazine 3, 1 (1927);
+        DOI: 10.1080/14786440108564170
+
+weinberg1995
+  Title: The Quantum Theory of Fields (Cambridge, 1995)
+
+hartle2021
+  Title: Gravity -- An Introduction to Einstein's General Relativity
+  Note: Cambridge University Press (2021); geodetic precession
+
+fan2023
+  Title: Measurement of the Electron Magnetic Moment
+  Note: Phys. Rev. Lett. 130, 071801 (2023); arXiv:2209.13084
+
+einstein1912
+  Title: Lichtgeschwindigkeit und Statik des Gravitationsfeldes
+  Note: Annalen der Physik 38, 355 (1912)
+
+penrose1971
+  Title: Angular Momentum: An Approach to Combinatorial Space-Time
+  Note: in Quantum Theory and Beyond, Cambridge (1971)
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none — this paper is not a supplement to any prior work)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: #27 extends the deterministic spin and AMM framework of #10
+          into a comprehensive reinterpretation of quantum mechanics,
+          CP symmetry, and gauge theory.
+
+10.5281/zenodo.17765097
+  Title: Bridging QM and GR: AMM and Geodetic Precession (#14)
+  Reason: #27 continues the program of integrating QM with GR via the
+          0-Sphere model; incorporates the Zitterbewegung velocity and
+          critical radii results of #14 (noting the subsequent correction
+          in #28).
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18636509
+  Title: A Supplementary Correction to the 0-Sphere Model:
+         Dimensional Consistency of G and c^2 (#28)
+  Reason: #28 corrects the dimensional error in Section 7 of #27
+          (lepton critical radii). Forward reference for readers of #27.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The gamma = 1 + a relation and the Zitterbewegung velocity
+          derivation that underpin #27's argument are established in #10.
+
+--------------------------------------------------------------------------------
+[6] Is supplemented by
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18636509
+  Title: A Supplementary Correction to the 0-Sphere Model (#28)
+  Reason: #28 explicitly corrects the dimensional inconsistency in Section 7
+          of #27. This relation should be registered in Zenodo.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.18636509  (#28)
+  Add: Is supplement to  → 10.5281/zenodo.17765439
+  Note: Already declared in #28's own zenodo_relations.txt; confirm it is
+        registered in the Zenodo record for #28.
+
+10.5281/zenodo.17764997  (#10)
+  Add: Is continued by  → 10.5281/zenodo.17765439
+  Reason: #27 directly continues the AMM and spin program of #10.
+
+10.5281/zenodo.17765097  (#14)
+  Add: Is continued by  → 10.5281/zenodo.17765439
+  Reason: #27 continues the QM-GR integration program of #14.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
