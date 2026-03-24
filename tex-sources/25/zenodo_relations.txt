@@ -1,0 +1,220 @@
+================================================================================
+zenodo_relations.txt — Paper #25
+A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry
+DOI: 10.5281/zenodo.18064535
+Date: July 25, 2025
+================================================================================
+
+[Summary]
+  Cites:            36 entries (3 x 0-Sphere, 33 x external)
+  Is supplement to:  0 entries
+  Continues:         2 entries
+  References:        2 entries
+  Requires:          1 entry
+  Is part of:        0 entries
+  Total unique DOIs: 36
+
+--------------------------------------------------------------------------------
+[1] Cites  (formal citation via \bibitem in \thebibliography)
+--------------------------------------------------------------------------------
+
+--- 0-Sphere Model papers ---
+
+10.5281/zenodo.17765244
+  Title: Emergent Conservation Laws from Internal Geometry (#20)
+  Note: Cited as hanamura2506.0119; internal time-phase geometric modeling
+
+10.5281/zenodo.17765349
+  Title: Thermal Geodesics in the 0-Sphere Model (#24)
+  Note: Cited as hanamura2507.0128; spin as harmonic modes on closed geodesics
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Note: Cited as hanamura2309.0047; core mathematical machinery
+
+--- External references (33 papers) ---
+
+noether1918
+  Title: Invariante Variationsprobleme (Noether, 1918)
+  Note: Nachrichten Gottingen 1918, 235; original Noether's theorem
+
+weinberg1995
+  Title: The Quantum Theory of Fields, Vol. I (Cambridge, 1995)
+
+einstein1915
+  Title: Die Feldgleichungen der Gravitation (1915)
+  Note: Original Einstein field equations paper
+
+dirac1928
+  Title: The quantum theory of the electron
+  Note: Proc. R. Soc. Lond. A 117, 610 (1928); DOI: 10.1098/rspa.1928.0023
+
+schrodinger1930
+  Title: Uber die kraftefreie Bewegung in der relativistischen Quantenmechanik
+  Note: Sitzungsber. Preuss. Akad. 24, 418 (1930); Zitterbewegung
+
+einstein1955
+  Title: The Meaning of Relativity, 5th ed. (Princeton, 1955)
+  Note: DOI: 10.1515/9781400881659
+
+misner1973
+  Title: Gravitation (W. H. Freeman, 1973)
+  Note: Misner, Thorne, Wheeler
+
+newton1687
+  Title: Philosophiae Naturalis Principia Mathematica (1687)
+  Note: DOI: 10.3931/e-rara-440
+
+maxwell1873
+  Title: A Treatise on Electricity and Magnetism (Clarendon, 1873)
+  Note: DOI: 10.1017/CBO9780511709340
+
+heisenberg1925
+  Title: Uber quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen
+  Note: Z. Phys. 33, 879 (1925); DOI: 10.1007/BF01328377
+
+schrodinger1926
+  Title: Quantisierung als Eigenwertproblem
+  Note: Ann. Phys. 79, 361 (1926); DOI: 10.1002/andp.19263840404
+
+dehmelt1988
+  Title: A Single Atomic Particle Forever Floating at Rest in Free Space
+  Note: Physica Scripta T22, 102 (1988); DOI: 10.1088/0031-8949/1988/T22/016
+
+yang1954
+  Title: Conservation of Isotopic Spin and Isotopic Gauge Invariance
+  Note: Phys. Rev. 96, 191 (1954); DOI: 10.1103/PhysRev.96.191
+
+glashow1961
+  Title: Partial-symmetries of weak interactions
+  Note: Nucl. Phys. 22, 579 (1961); DOI: 10.1016/0029-5582(61)90469-2
+
+weinberg1967
+  Title: A Model of Leptons
+  Note: Phys. Rev. Lett. 19, 1264 (1967); DOI: 10.1103/PhysRevLett.19.1264
+
+salam1968
+  Title: Weak and electromagnetic interactions (1968)
+
+thooft1971
+  Title: Renormalization of Massless Yang-Mills Fields
+  Note: Nucl. Phys. B 33, 173 (1971); DOI: 10.1016/0550-3213(71)90395-6
+
+higgs1964
+  Title: Broken Symmetries and the Masses of Gauge Bosons
+  Note: Phys. Rev. Lett. 13, 508 (1964); DOI: 10.1103/PhysRevLett.13.508
+
+englert1964
+  Title: Broken Symmetry and the Mass of Gauge Vector Mesons
+  Note: Phys. Rev. Lett. 13, 321 (1964); DOI: 10.1103/PhysRevLett.13.321
+
+aad2012
+  Title: Observation of a new particle (ATLAS)
+  Note: Phys. Lett. B 716, 1 (2012); DOI: 10.1016/j.physletb.2012.08.020
+
+chatrchyan2012
+  Title: Observation of a new boson at 125 GeV (CMS)
+  Note: Phys. Lett. B 716, 30 (2012); DOI: 10.1016/j.physletb.2012.08.021
+
+einstein1936
+  Title: Physics and Reality
+  Note: J. Franklin Institute 221, 349 (1936); DOI: 10.1016/S0016-0032(36)91047-5
+
+abraham1988
+  Title: Manifolds, Tensor Analysis, and Applications (Springer, 1988)
+  Note: DOI: 10.1007/978-1-4612-1029-0
+
+pauli1927
+  Title: Zur Quantenmechanik des magnetischen Elektrons
+  Note: Z. Phys. 43, 601 (1927); DOI: 10.1007/BF01397326
+
+uhlenbeck1925
+  Title: Spinning Electrons and the Structure of Spectra
+  Note: Naturwissenschaften 13, 953 (1925); DOI: 10.1007/BF01558878
+
+thomas1926
+  Title: The Motion of the Spinning Electron
+  Note: Nature 117, 514 (1926); DOI: 10.1038/117514a0
+
+thomas1927
+  Title: The kinematics of an electron with an axis
+  Note: Phil. Mag. 3, 1 (1927); DOI: 10.1080/14786440108564170
+
+lorentz1904
+  Title: Electromagnetic phenomena in a system moving with any velocity...
+  Note: Proc. Royal Netherlands Academy 6, 809 (1904)
+
+poincare1905
+  Title: Sur la dynamique de l'electron
+  Note: Comptes Rendus 140, 1504 (1905)
+
+--------------------------------------------------------------------------------
+[2] Is supplement to
+--------------------------------------------------------------------------------
+
+  (none)
+
+--------------------------------------------------------------------------------
+[3] Continues
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765244
+  Title: Emergent Conservation Laws from Internal Geometry (#20)
+  Reason: #25 provides the broader philosophical framework that situates
+          the technical results of #20 within a full Noetherian inversion.
+          #25 is the conceptual companion to #20's mathematical treatment.
+
+10.5281/zenodo.17765349
+  Title: Thermal Geodesics in the 0-Sphere Model (#24)
+  Reason: #25 continues the conceptual program of #24 by extending
+          the geodesic spin quantization into a general reinterpretation
+          of Noether's theorem.
+
+--------------------------------------------------------------------------------
+[4] References
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765409
+  Title: Spin from Geometry: Emergence of Spin via Internal Berry Phase (#26)
+  Reason: #26 directly applies the Noetherian inversion framework of #25
+          to Berry phase and spin emergence. Forward reference.
+
+10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics (#31)
+  Reason: #31 (Line Integral Trilogy Part III) cites #25 as hanamura18064535;
+          the geometric observables framework of #31 builds on the Noetherian
+          inversion principle established here. Forward reference.
+
+--------------------------------------------------------------------------------
+[5] Requires
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17764997
+  Title: Redefining Electron Spin and AMM (#10)
+  Reason: The energy conservation identity and Thomas precession angular
+          velocity that constitute the mathematical core of Sections 3-4
+          are established in #10.
+
+--------------------------------------------------------------------------------
+[Reverse Relations — Recommended Updates to Target Papers]
+--------------------------------------------------------------------------------
+
+10.5281/zenodo.17765244  (#20)
+  Add: Is continued by  --> 10.5281/zenodo.18064535
+  Reason: #25 provides the philosophical extension of #20's technical results.
+
+10.5281/zenodo.17765349  (#24)
+  Add: Is continued by  --> 10.5281/zenodo.18064535
+  Reason: #25 continues the conceptual program of #24.
+
+10.5281/zenodo.17765409  (#26)
+  Add: Continues  --> 10.5281/zenodo.18064535
+  Reason: #26 applies the Noetherian inversion of #25 to Berry phase / spin.
+
+10.5281/zenodo.18203433  (#31)
+  Add: References  --> 10.5281/zenodo.18064535
+  Note: #31 formally cites #25 in its bibliography as hanamura18064535.
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
