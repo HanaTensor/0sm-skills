@@ -1,15 +1,15 @@
-# 0-Sphere Model Papers: Group 05 (#41–#47, Feb–Mar 2026)
+# 0-Sphere Model Papers: Group 05 (#41–#48, Feb–Mar 2026)
 
-**Coverage:** Papers #41–#47 (February–March 2026)
+**Coverage:** Papers #41–#48 (February–March 2026)
 **Parent Index:** index.md
 **Preceded by:** 04/papers.md (#31–#40)
-**Theme:** Structural Clarifications, Torsion, Stability, Lorentz Contraction & AMM
+**Theme:** Structural Clarifications, Torsion, Stability, Lorentz Contraction, AMM & U(1) Fiber Bundle
 
 ---
 
 ## Overview
 
-Seven supplementary and clarification papers extending the theoretical programme of Groups 03–04. All papers are explicitly self-described as supplements or structural clarification notes rather than research papers in the conventional sense.
+Eight supplementary and clarification papers extending the theoretical programme of Groups 03–04. All papers are explicitly self-described as supplements or structural clarification notes rather than research papers in the conventional sense.
 
 Development arc:
 
@@ -20,6 +20,7 @@ Development arc:
 5. Holonomy sufficiency and torsion question formulated precisely (#45)
 6. Geometric origin of the one-half factor / zero-point energy floor (#46)
 7. Rotational Lorentz contraction as AMM origin; muon lifetime structural correspondence (#47)
+8. U(1) fiber bundle proof of γ_intrinsic = π; dual-frame decomposition g_lab = 2(1+a); finite potential well figure first appearance (#48)
 
 ---
 
@@ -361,6 +362,43 @@ Is supplement to #10 · Continues #1 + #10 + #14 · References #38 (Berry phase 
 
 ---
 
+## Paper #48: Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition
+
+**Date:** 2026-03-28 · **DOI:** 10.5281/zenodo.19227518 · **Type:** Structural Clarification Note (Supplement to #26 + #38)
+
+### Core Concept
+
+Establishes the formal U(1) fiber bundle structure of the 0-Sphere internal state and proves γ_intrinsic = π as a topological invariant, geometrically necessitating g_CM = 2 in the proper-time frame. In the laboratory frame, Lorentz projection introduces γ_anomalous, yielding the dual-frame decomposition g_lab = 2(1+a).
+
+### Key Equations
+
+```
+γ_total = γ_intrinsic + γ_anomalous = π + a·2π
+g_CM = 2  (topological invariant, proper-time frame)
+g_lab = 2(1 + a_e)  where  γ_L = 1 + a_e
+ΔL = |γ_L − 1| × L₀  (AMM ↔ muon lifetime unifying identity)
+Arc-length inverse: √(1−v_ZB²/c²) = 1/(1+a_e/√2) → v_ZB ≈ 0.04047c
+γ_intrinsic = ∮ A_θ dθ + arg⟨ψ(0)|ψ(2π)⟩ = 0 + π = π
+γ = Ω/2 = 2π/2 = π  (solid angle formula, northern hemisphere)
+```
+
+### Key Results
+
+- Berry phase γ_intrinsic = π proved via connection integral + boundary term (algebraic) and solid angle Ω/2 = π (geometric); both methods agree independently
+- g_CM = 2 as topological invariant of U(1) holonomy in proper-time frame; algebraic consistency argument selects thermodynamic spin-state classification as unique compatible assignment
+- Dual-frame decomposition with Foucault pendulum analogy: CM frame = equatorial pendulum (zero precession = g = 2 exact); Lab frame = small-latitude pendulum (precession ≈ a_e)
+- Double appearance of 1/2: thermodynamic (Stefan-Boltzmann) and relativistic (Thomas precession) origins independently produce sin(2θ) structure with normalized maximum 1/2
+- Three coexisting periodicities (π, 2π, 4π) → spin-2, spin-1, spin-1/2 phenomenological gauge correspondence (conditional on resolution of spin-state classification for spin-2 candidate)
+- **Finite potential well figure (Fig. 5, TikZ inline): first appearance in series** — harmonic oscillator energy levels contrasted with 0-Sphere geometric floor E₀/2
+- Large vs small gauge transformation distinction: boundary term arg⟨ψ(0)|ψ(2π)⟩ = π is a necessary constituent of holonomy for non-single-valued gauge representatives; holonomy invariant modulo 2π under large gauge transformation
+- Forward chain (Thomas precession → v_ZB independent of a_e → γ_L = 1+a_e as output) remains open task
+
+### Relation Chain
+
+Is supplement to #26 + #38 · Continues #26 + #38 + #47 + #35 · Requires #1 + #26 + #35 + #38
+
+---
+
 ## Development Arc (Group 05)
 
 ```
@@ -386,6 +424,11 @@ Is supplement to #10 · Continues #1 + #10 + #14 · References #38 (Berry phase 
 #47: Rotational Lorentz contraction → AMM = muon lifetime
      ΔL = |γ_L−1|×L₀ as unifying identity
      (explicit supplement to #10)
+  ↓
+#48: U(1) fiber bundle — formal proof of γ_intrinsic = π
+     Dual-frame decomposition g_lab = 2(1+a); Foucault analogy
+     Thermodynamic classification selected by algebraic consistency
+     Finite potential well figure: first appearance in series
 ```
 
 ---
@@ -401,11 +444,14 @@ Is supplement to #10 · Continues #1 + #10 + #14 · References #38 (Berry phase 
 **Conceptual Synthesis Papers (#44 as hub):**
 #44 is the navigational map for the confinement-stability sub-series (#33, #34, #36). Contains the four-level hierarchy from #31. Has overlapping scope with #35 (the comprehensive gravitational exposition).
 
-**AMM Geometric Origin Thread (#10→#35→#36→#47):**
-#10 establishes inverse route a_e → v_ZB ≈ 0.04c; #35 provides the bicycle wheel analogy for AMM; #36 clarifies v_ZB^RMS vs peak; #47 makes the structural correspondence with the muon lifetime fully explicit via ΔL = |γ_L−1|×L₀.
+**AMM Geometric Origin Thread (#10→#35→#36→#47→#48):**
+#10 establishes inverse route a_e → v_ZB ≈ 0.04c; #35 provides the bicycle wheel analogy for AMM; #36 clarifies v_ZB^RMS vs peak; #47 makes the structural correspondence with the muon lifetime fully explicit via ΔL = |γ_L−1|×L₀; #48 embeds the entire arc-length argument within the U(1) fiber bundle framework and dual-frame decomposition.
 
 **Zero-Point Energy Two-Part Account (#32+#46):**
 #32 dissolves the enormous QFT vacuum energy as a category error (negative result); #46 provides the geometric origin of the residual factor 1/2 (positive result). Together they constitute a complete two-part account.
+
+**U(1) Bundle / g=2 Formal Proof Thread (#26→#38→#48):**
+#26 established Berry phase as origin of spin and introduced the spin-periodicity relation; #38 identified g_CM = 2 as a topological invariant and the dual-frame structure; #48 supplies the formal fiber bundle proof (connection integral + boundary term + solid angle), the Foucault pendulum analogy, and the algebraic consistency argument selecting the thermodynamic spin-state classification.
 
 ---
 
@@ -436,6 +482,16 @@ Is supplement to #10 · Continues #1 + #10 + #14 · References #38 (Berry phase 
 | v_ZB inverse calculation (a_e → v_ZB) | #47 | #10, #14 |
 | Forward chain (Thomas → v_ZB → a_e) open | #47 | — |
 | γ_L = 1 + a_e (SR applied to orbital arc) | #47 | #14, #15 |
+| U(1) fiber bundle structure (formal proof) | #48 | #26, #38 |
+| Berry phase γ_intrinsic = π (connection integral + boundary term) | #48 | #26 |
+| Solid angle formula γ = Ω/2 = π | #48 | #26 |
+| g_CM = 2 as topological invariant | #48 | #38 |
+| Dual-frame decomposition g_lab = 2(1+a) | #48 | #38, #35 |
+| Foucault pendulum analogy (g=2 dual frame) | #48 | — |
+| Large vs small gauge transformation distinction | #48 | — |
+| Thermodynamic classification selected by algebraic consistency | #48 | #38 |
+| Finite potential well figure (first in series, Fig. 5) | #48 | #46, #32 |
+| Three-periodicity gauge correspondence (π, 2π, 4π) | #48 | #26 |
 
 ---
 
@@ -454,10 +510,11 @@ Hanamura, S. (2026). [Title]. Zenodo. https://doi.org/10.5281/zenodo.[ID]
 | 45 | Holonomy Sufficiency / Torsion Status | 10.5281/zenodo.18950974 |
 | 46 | One-Half Factor Geometric Origin | 10.5281/zenodo.19010945 |
 | 47 | Rotational Lorentz Contraction & Muon | 10.5281/zenodo.19120057 |
+| 48 | Geometric Origin of g=2: U(1) Fiber Bundle | 10.5281/zenodo.19227518 |
 
 ---
 
-**Last Updated:** 2026-03-22
-**Papers Covered:** #41–#47 (7 papers)
+**Last Updated:** 2026-03-28
+**Papers Covered:** #41–#48 (8 papers)
 **Time Period:** February–March 2026
-**Thematic Arc:** Structural clarifications — derivative hierarchy · magnetic monopole · torsion geometry · stability synthesis · holonomy · zero-point energy · AMM-muon structural correspondence
+**Thematic Arc:** Structural clarifications — derivative hierarchy · magnetic monopole · torsion geometry · stability synthesis · holonomy · zero-point energy · AMM-muon structural correspondence · U(1) fiber bundle and dual-frame g-factor decomposition
