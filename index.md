@@ -48,7 +48,7 @@
 | 17 | 2025-05-04 | From Clock Synchronization to Electromagnetism: U(1) Gauge Theory | [10.5281/zenodo.17765136](https://doi.org/10.5281/zenodo.17765136) |
 | 18 | 2025-06-01 | Time-Dependent Mass: A Hamiltonian Approach to Thermal Modulation | [10.5281/zenodo.17765200](https://doi.org/10.5281/zenodo.17765200) |
 | 19 | 2025-06-15 | Spin as a Real Vector: Geometric Origin of U(1) Gauge and SU(2) Periodicity | [10.5281/zenodo.17765238](https://doi.org/10.5281/zenodo.17765238) |
-| 20 | 2025-06-22 | Emergent Conservation Laws: A Noetherian Reinterpretation | [10.5281/zenodo.16937727](https://doi.org/10.5281/zenodo.16937727) |
+| 20 | 2025-06-22 | Emergent Conservation Laws: A Noetherian Reinterpretation | [10.5281/zenodo.17765244](https://doi.org/10.5281/zenodo.17765244) |
 
 ### Group 03 — AMM, Spacetime Emergence, Berry Phase (Jun–Dec 2025)
 
