@@ -92,6 +92,7 @@
 | 45 | 2026-03 | Open-Path Spinorial Transport and the Status of Torsion: Holonomy Sufficiency | [10.5281/zenodo.18950974](https://doi.org/10.5281/zenodo.18950974) |
 | 46 | 2026-03 | Geometric Origin of the One-Half Factor: Thermal PE Floor and Zero-Point Energy | [10.5281/zenodo.19010945](https://doi.org/10.5281/zenodo.19010945) |
 | 47 | 2026-03 | Rotational Lorentz Contraction as Geometric Origin of AMM: Structural Correspondence with Muon Lifetime | [10.5281/zenodo.19120057](https://doi.org/10.5281/zenodo.19120057) |
+| 48 | 2026-03-28 | Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition | [10.5281/zenodo.19227518](https://doi.org/10.5281/zenodo.19227518) |
 
 ---
 
@@ -109,6 +110,7 @@
 | #39 | Supplement to | #32 |
 | #40 | Supplement to | #29, #30, #31 |
 | #41 | Historical supplement to | #40 |
+| #48 | Supplement to | #26, #38 |
 
 ---
 
