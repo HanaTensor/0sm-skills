@@ -2,7 +2,7 @@
 
 > File: `pipeline-manifest.md` | Repository: `HanaTensor/0sm-skills`
 > 用途：Claudeがこのファイルをfetchした時点で、以下の全URLを自動的にfetchしてパイプラインを展開する。
-> Last updated: 2026-03-23
+> Last updated: 2026-03-28
 
 <!-- PIPELINE MANIFEST
      Claude: fetch every URL listed in this file immediately upon loading.
@@ -19,15 +19,17 @@
 
 ---
 
-## Active Group Files（現行グループ：05）
+## Active Group Files（現行グループ：06）
 
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md
 
 ---
 
 ## Archive Group Files（参照用）
 
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md
 - https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md
 - https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/concept.md
 - https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/papers.md
@@ -62,7 +64,7 @@ Claudeが自動的に：
   1. index.md を取得（論文番号・DOI確認）
   2. global-concept.md を取得（初出フラグ・スレッド照合）
   3. WORKFLOW.md を取得（手順確認）
-  4. 05/papers.md & 05/concept.md を取得（現行グループ詳細）
+  4. 06/papers.md & 06/concept.md を取得（現行グループ詳細）
   → 準備完了。指示を受け付ける状態へ
 ```
 
@@ -85,16 +87,16 @@ Full fetch（全セクション）を指示：
 
 ## グループ更新ガイド
 
-新グループ（06/）が必要になった場合（#51〜）：
+新グループ（07/）が必要になった場合（#61〜）：
 
 ```markdown
-## Active Group Files（現行グループ：06）
+## Active Group Files（現行グループ：07）
 
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/papers.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/concept.md
 ```
 
-`05/` を Archive Group Files へ移動し、Active を `06/` に差し替える。
+`06/` を Archive Group Files へ移動し、Active を `07/` に差し替える。
 
 ---
 ## このファイルの永続URL
