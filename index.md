@@ -13,7 +13,8 @@
 | [02/papers.md](02/papers.md) + [02/concept.md](02/concept.md) | #11–#20 | 2024–Jun 2025 |
 | [03/papers.md](03/papers.md) + [03/concept.md](03/concept.md) | #21–#30 | Jun–Dec 2025 |
 | [04/papers.md](04/papers.md) + [04/concept.md](04/concept.md) | #31–#40 | Jan–Feb 2026 |
-| [05/papers.md](05/papers.md) + [05/concept.md](05/concept.md) | #41–#48 | Feb–Mar 2026 |
+| [05/papers.md](05/papers.md) + [05/concept.md](05/concept.md) | #41–#47 | Feb–Mar 2026 |
+| [06/papers.md](06/papers.md) + [06/concept.md](06/concept.md) | #48– | Mar 2026– |
 | [global-concept.md](global-concept.md) | All | Cross-series |
 
 ---
@@ -92,6 +93,11 @@
 | 45 | 2026-03 | Open-Path Spinorial Transport and the Status of Torsion: Holonomy Sufficiency | [10.5281/zenodo.18950974](https://doi.org/10.5281/zenodo.18950974) |
 | 46 | 2026-03 | Geometric Origin of the One-Half Factor: Thermal PE Floor and Zero-Point Energy | [10.5281/zenodo.19010945](https://doi.org/10.5281/zenodo.19010945) |
 | 47 | 2026-03 | Rotational Lorentz Contraction as Geometric Origin of AMM: Structural Correspondence with Muon Lifetime | [10.5281/zenodo.19120057](https://doi.org/10.5281/zenodo.19120057) |
+
+### Group 06 — Fiber Bundle, Gauge Symmetry (Mar 2026–)
+
+| # | Date | Title | DOI |
+|---|------|-------|-----|
 | 48 | 2026-03-28 | Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition | [10.5281/zenodo.19227518](https://doi.org/10.5281/zenodo.19227518) |
 
 ---
@@ -111,6 +117,8 @@
 | #40 | Supplement to | #29, #30, #31 |
 | #41 | Historical supplement to | #40 |
 | #48 | Supplement to | #26, #38 |
+| #48 | Continues | #26, #38, #47, #35 |
+| #48 | Requires | #1, #26, #35, #38 |
 
 ---
 
