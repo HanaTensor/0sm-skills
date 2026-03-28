@@ -1,7 +1,7 @@
 # 0-Sphere Model — Master Index
 
-> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-03-22
-> Total: 47 papers (#1–#47, #16 missing) | Coverage: Nov 2018 – Mar 2026
+> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-03-28
+> Total: 48 papers (#1–#48, #16 missing) | Coverage: Nov 2018 – Mar 2026
 
 ---
 
@@ -13,7 +13,7 @@
 | [02/papers.md](02/papers.md) + [02/concept.md](02/concept.md) | #11–#20 | 2024–Jun 2025 |
 | [03/papers.md](03/papers.md) + [03/concept.md](03/concept.md) | #21–#30 | Jun–Dec 2025 |
 | [04/papers.md](04/papers.md) + [04/concept.md](04/concept.md) | #31–#40 | Jan–Feb 2026 |
-| [05/papers.md](05/papers.md) + [05/concept.md](05/concept.md) | #41–#47 | Feb–Mar 2026 |
+| [05/papers.md](05/papers.md) + [05/concept.md](05/concept.md) | #41–#48 | Feb–Mar 2026 |
 | [global-concept.md](global-concept.md) | All | Cross-series |
 
 ---
