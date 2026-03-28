@@ -1,0 +1,237 @@
+================================================================================
+Zenodo Related Works — Paper #48
+"Geometric Origin of g = 2 in the 0-Sphere Model:
+ U(1) Fiber Bundle and Dual-Frame Phase Decomposition"
+Date: March 28, 2026
+================================================================================
+
+[Summary]
+  Cites              : 7 Hanamura Zenodo papers (+ 8 external non-Zenodo references)
+  Is supplement to   : 2 DOIs
+  Continues          : 4 DOIs
+  References         : 3 DOIs
+  Requires           : 4 DOIs
+  Is part of         : 1 DOI
+  Unique DOIs total  : 9 (some DOIs appear in multiple relation categories)
+
+================================================================================
+[1] Cites
+(Formal citations via \bibitem in \thebibliography)
+================================================================================
+
+DOI: 10.5281/zenodo.17765349
+Title: Thermal Geodesics in the 0-Sphere Model: Extending General
+       Relativity through Internal Thermodynamic Structure
+Paper #: 24
+Reason: Cited as basis for thermal geodesic framework and Noetherian
+        inversion principle referenced in gauge symmetry discussion.
+
+DOI: 10.5281/zenodo.17765409
+Title: Spin from Geometry: Emergence of Spin via Internal Berry Phase
+       in the 0-Sphere Electron Model
+Paper #: 26
+Reason: Cited as establishing Berry phase origin of spin and the
+        spin-periodicity formula s = 2*pi/T. This paper directly continues
+        and formally proves the U(1) bundle structure introduced there.
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies
+Paper #: 1
+Reason: Cited as foundational reference for the energy conservation
+        identity E_0 = cos^4 + sin^4 + (1/2)sin^2, Stefan-Boltzmann
+        fourth-power structure, and the original 0-Sphere framework.
+
+DOI: 10.5281/zenodo.18511664
+Title: Detailed Exposition of the 0-Sphere Model Framework for
+       Gravitational-Like Phenomena
+Paper #: 35
+Reason: Cited for the inverse arc-length calculation (a_e -> v_ZB ~ 0.04c)
+        and the rotational Lorentz contraction mechanism that is formalized
+        in the dual-frame decomposition of this paper.
+
+DOI: 10.5281/zenodo.17765439
+Title: Challenging the Uncertainty Principle: A Deterministic Interpretation
+       of Measurement and Reality in Quantum Mechanics
+Paper #: 27
+Reason: Cited in the realist interpretation section for the deterministic
+        stance on quantum measurement.
+
+DOI: 10.5281/zenodo.17760132
+Title: Coexistence of Positive and Negative-Energy States in the Dirac
+       Equation with One Electron
+Paper #: 7
+Reason: Cited for the Dirac equation reinterpretation and identification
+        of spin-up/spin-down with positive/negative energy solutions.
+
+DOI: 10.5281/zenodo.18275142
+Title: Dissolution of the Vacuum Energy Problem in an Integral-Based
+       Ontology: The 0-Sphere Model Perspective
+Paper #: 32
+Reason: Cited in the zero-point energy reinterpretation subsection as
+        the prior paper dissolving the QFT vacuum energy as a category error.
+
+================================================================================
+[2] Is supplement to
+================================================================================
+
+DOI: 10.5281/zenodo.17765409
+Title: Spin from Geometry: Emergence of Spin via Internal Berry Phase
+Paper #: 26
+Reason: Paper #26 established that spin arises as an emergent holonomy from
+        internal Berry phase accumulation. This paper (#48) provides the
+        formal U(1) fiber bundle proof of gamma_intrinsic = pi and g_CM = 2
+        as a topological invariant, constituting a structural supplement to
+        that foundational result.
+
+DOI: 10.5281/zenodo.18718174
+Title: Geometric Phase Structure: Dual DOF within 2*pi Periodicity
+Paper #: 38
+Reason: Paper #38 established g_CM = 2 as a topological invariant and the
+        dual-frame decomposition g_lab = 2(1+a). This paper (#48) supplies
+        the formal geometric proof via the U(1) bundle structure, the
+        Foucault pendulum analogy, and the large/small gauge transformation
+        framework.
+
+================================================================================
+[3] Continues
+================================================================================
+
+DOI: 10.5281/zenodo.17765409
+Title: Spin from Geometry (Berry phase -> spin)
+Paper #: 26
+Reason: Directly continues the spin theory thread (C-1): #26 established
+        Berry phase as origin of spin; #48 formally proves the fiber bundle
+        structure and topological invariant status of the holonomy.
+
+DOI: 10.5281/zenodo.18718174
+Title: Geometric Phase Structure: Dual DOF within 2*pi Periodicity
+Paper #: 38
+Reason: Continues the g=2 topological invariant thread; provides the formal
+        geometric proof and Foucault analogy for the dual-frame structure
+        that #38 introduced.
+
+DOI: 10.5281/zenodo.19120057
+Title: Rotational Lorentz Contraction as the Geometric Origin of the
+       Anomalous Magnetic Moment: A Structural Correspondence with
+       the Muon Lifetime Problem
+Paper #: 47
+Reason: Continues the AMM structural origin thread (C-8): #47 unified
+        muon lifetime and AMM via ΔL = |γ_L − 1| × L_0; this paper (#48)
+        embeds that identity within the U(1) fiber bundle and dual-frame
+        decomposition, providing the geometric context.
+
+DOI: 10.5281/zenodo.18511664
+Title: Detailed Exposition of the 0-Sphere Model Framework
+Paper #: 35
+Reason: Continues the AMM arc-length argument: #35 identified the bicycle
+        wheel / Lorentz contraction mechanism; #48 formalizes it as the
+        source of gamma_anomalous in the fiber bundle framework.
+
+================================================================================
+[4] References
+(Thematic references not in \bibitem; conceptually related Hanamura papers)
+================================================================================
+
+DOI: 10.5281/zenodo.19120057
+Title: Rotational Lorentz Contraction as Geometric Origin of AMM
+Paper #: 47
+Reason: The unifying identity ΔL = |γ_L − 1| × L_0 and the muon-electron
+        structural correspondence developed in #47 are central to the
+        arc-length argument in this paper, even though #47 is not formally
+        cited in \bibitem. Same mechanism referenced from #35.
+
+DOI: 10.5281/zenodo.17764997
+Title: Redefining Electron Spin and AMM Through Harmonic Oscillation
+       and Lorentz Contraction
+Paper #: 10
+Reason: Establishes gamma = 1 + a and v_ZB ~ 0.04047c (inverse route),
+        the Thomas precession double-angle structure, and the bridge equation
+        that underpins the dual-frame decomposition of this paper.
+
+DOI: 10.5281/zenodo.18905344
+Title: On Internal Energy Stabilization, Charge Localization, and
+       Superradiant Rephasing
+Paper #: 44
+Reason: The four-level conceptual hierarchy (connection -> line integral ->
+        emergent EM -> curvature) and the scope delineation of non-perturbative
+        limits are thematically relevant to the Discussion section of this paper.
+
+================================================================================
+[5] Requires
+(Papers whose content is prerequisite for understanding this work)
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+Title: A Model of an Electron Including Two Perfect Black Bodies
+Paper #: 1
+Reason: Foundational energy conservation identity and 0-Sphere Model
+        structure are essential prerequisites.
+
+DOI: 10.5281/zenodo.17765409
+Title: Spin from Geometry: Emergence of Spin via Internal Berry Phase
+Paper #: 26
+Reason: The Berry phase framework and spin-periodicity identification
+        must be read to understand the fiber bundle extension developed here.
+
+DOI: 10.5281/zenodo.18511664
+Title: Detailed Exposition of the 0-Sphere Model Framework
+Paper #: 35
+Reason: The arc-length calculation, v_ZB inverse derivation, and bicycle
+        wheel analogy are explained in #35 and are assumed in this paper.
+
+DOI: 10.5281/zenodo.18718174
+Title: Geometric Phase Structure: Dual DOF within 2*pi Periodicity
+Paper #: 38
+Reason: The dual-frame structure and g_CM = 2 as topological invariant
+        were introduced in #38; #48 provides formal proof and extension.
+
+================================================================================
+[6] Is part of
+================================================================================
+
+DOI: 10.5281/zenodo.19120057
+Title: Rotational Lorentz Contraction as Geometric Origin of AMM
+Paper #: 47 (immediately preceding paper in the 0-Sphere Model series)
+Reason: Standard series membership relation; #48 is the next installment
+        of the ongoing 0-Sphere Model research programme.
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+
+The following Zenodo records should be updated to add the indicated
+reverse relations pointing back to this paper (#48) once its DOI is confirmed.
+================================================================================
+
+Target: 10.5281/zenodo.17765409 (Paper #26, Spin from Geometry)
+  Add: Is supplemented by -> #48
+  Add: Is continued by    -> #48
+  Reason: #48 formally proves and extends the U(1) bundle structure of #26.
+
+Target: 10.5281/zenodo.18718174 (Paper #38, Geometric Phase Structure)
+  Add: Is supplemented by -> #48
+  Add: Is continued by    -> #48
+  Reason: #48 provides the formal geometric proof of #38's central result.
+
+Target: 10.5281/zenodo.19120057 (Paper #47, Rotational Lorentz Contraction)
+  Add: Is continued by    -> #48
+  Reason: #48 embeds the ΔL = |γ_L − 1| × L_0 identity into the U(1)
+          framework, continuing the structural arc from #47.
+
+Target: 10.5281/zenodo.18511664 (Paper #35, Detailed Exposition)
+  Add: Is cited by        -> #48
+  Add: Is continued by    -> #48
+  Reason: #48 cites #35 for the inverse arc-length calculation and
+          formalizes that result in the dual-frame framework.
+
+Target: 10.5281/zenodo.16759284 (Paper #1, Black Body Model)
+  Add: Is cited by        -> #48
+  Reason: Formal citation in #48 bibliography.
+
+Target: 10.5281/zenodo.17764997 (Paper #10, Redefining Spin/AMM)
+  Add: Is cited by        -> #48 (indirect, via #26 and #35)
+  Add: Is continued by    -> #48
+  Reason: #48 formalizes the gamma = 1 + a bridge equation introduced in #10.
+
+================================================================================
+END OF RELATIONS FILE
+================================================================================
