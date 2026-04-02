@@ -60,7 +60,7 @@ is the angular velocity of this rotation as seen from the lab frame.
 
 ## 3. Causal Chain in the 0-Sphere Model
 
-CORRECT order (as of #49 v3):
+CORRECT order (as of #49):
 
   [1] Radiation gradient F = E_0 sin(theta)
         --> photon sphere is continuously ACCELERATED
