@@ -110,12 +110,12 @@ CORRECT order (as of #49):
 
 ## 5. Reference Implementation
 
-Paper #49 main.tex v3, Section 3.2.1 (Sec. ejection_thomas),
+Paper #49 main.tex, Section 3.2.1 (Sec. ejection_thomas),
 paragraph beginning:
   "The justification is provided by Thomas precession,
    understood in the sense made precise by Tomonaga..."
 
-Key phrases established in #49 v3:
+Key phrases established in #49:
   - "naturally arises as a structural feature ... rather than
      being introduced as an additional assumption"
   - "as realized in the present construction"
