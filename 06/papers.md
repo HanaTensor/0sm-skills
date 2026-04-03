@@ -9,11 +9,12 @@
 
 ## Overview
 
-Group 06 opens with the formal fiber bundle proof of the g-factor structure, establishing the U(1) principal bundle framework that organizes the Berry phase results of Groups 02–05. Papers in this group are expected to elevate structural correspondences (gauge symmetry, gravitational mediator) from phenomenological observations to rigorous derivations.
+Group 06 opens with the formal fiber bundle proof of the g-factor structure, establishing the U(1) principal bundle framework that organizes the Berry phase results of Groups 02–05. Papers in this group elevate structural correspondences (gauge symmetry, gravitational mediator) from phenomenological observations to rigorous derivations.
 
 Development arc (so far):
 
 1. U(1) fiber bundle formalization of g = 2 and dual-frame decomposition (#48)
+2. Photon-sphere ejection mechanism as gravitational mediator; Thomas precession via Tomonaga framing; geometric UV cutoff (#49)
 
 ---
 
@@ -122,6 +123,99 @@ Is supplement to #26 + #38 · Continues #26 + #38 + #47 + #35 · References #47 
 
 ---
 
+## Paper #49: Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model
+
+**Date:** 2026-04-04 · **DOI:** 10.5281/zenodo.19393391 · **Type:** Research Paper
+
+### Core Concept
+
+This paper identifies the microscopic gravitational-mediation mechanism left open in Paper #34, and provides the physical ejection mechanism whose existence Paper #48 established as a prerequisite for a full spin-2 derivation. The physical basis is Thomas precession understood in the kinematic sense formulated by Tomonaga: whenever a body undergoes accelerated motion at relativistic speed, its proper coordinate frame rotates relative to the laboratory frame even under parallel-axis transport. In the 0-Sphere model, the photon sphere is continuously accelerated by the radiation gradient F = E₀sinθ, and Zitterbewegung sustains this oscillation at v_ZB ≈ 0.04c; Thomas precession therefore naturally arises as a structural feature of the internal dynamics, rather than being introduced as an additional assumption.
+
+### Thomas Precession: Tomonaga Framing (Revised from #19)
+
+The critical conceptual revision established in this paper:
+
+| | Old framing (#19 context) | New framing (#49) |
+|---|---|---|
+| **Cause** | Arc-connected geodesic path → v × a ≠ 0 | Relativistic accelerated motion → Tomonaga mechanism |
+| **Primary driver** | Geometric path curvature | Radiation gradient F = E₀sinθ |
+| **v × a ≠ 0** | Explanation | Concrete expression of the above |
+| **Reference** | — | Tomonaga, *The Story of Spin* (1997), pp.42–43 |
+
+See also: `tomonaga.md` (repository root) for full framing, anti-pattern, and cross-references.
+
+### Key Equations
+
+```
+Radiation gradient (Paper #1, re-applied):
+  F(θ) = d(Te₂ − Te₁)/dθ = E₀sinθ
+
+Photon-sphere KE profile (π-cycle):
+  E_ph(θ) = (E₀/2)sin²θ    [peaks at θ = π/2]
+
+Ejection threshold:
+  E_ph(π/2) = E₀/2 = E_bind
+  [n = 0: threshold exactly saturated, no emission]
+  [n ≥ 1: surplus nℏω above floor → fragment ℏω ejected per n → n−1]
+
+Thomas angular velocity (established #19, Tomonaga-framed here):
+  Ω_T(θ) = −(v₀²ω / 4c²) sin(2θ) ê_z    [period = π]
+
+UV cutoff:
+  Mode n has n+1 antinodes → n+1 ejection opportunities per A→B traversal
+  n bounded above by n_max (Compton-scale well geometry) → self-energy sum finite
+```
+
+### Key Results
+
+**Tomonaga-Thomas Ejection Mechanism.** The photon sphere is perpetually accelerated by the radiation gradient at v_ZB ≈ 0.04c. Thomas precession in Tomonaga's kinematic sense naturally arises, generating angular momentum Ω_T that peaks at θ = π/2 and constitutes the outward centrifugal-like stress driving fragment ejection.
+
+**Closure of Paper #34's Three Open Questions.**
+- (i) Mediating quantum: photon-sphere fragment ejected at θ = π/2
+- (ii) Ejection mechanism: photon-sphere KE saturates geometric binding floor E₀/2
+- (iii) Near-neighbor character: follows from Compton-scale photon-sphere size
+
+**Physical Ejection Mechanism for Paper #48's Spin-2 Candidate.** The ejected fragment carries the π-periodic phase structure of Ω_T through a kinetic-stress balance derived independently of kinematic spin-cycle counting. Rank-2 tensor proof remains an open task.
+
+**Fourth Independent Route to Zero-Point Energy.** The geometric floor E₀/2 is precisely the ejection threshold. This adds a physical ejection interpretation to the three routes of Papers #46 and #48 (uncertainty principle, AM-GM inequality, centroid geometry) → four-fold coincidence established.
+
+**Structural Ultraviolet Cutoff.** Re-absorption of an ejected fragment constitutes the 0-Sphere counterpart of a QED self-energy loop. Because n is bounded above by n_max (Compton-scale well geometry), the self-energy sum is naturally finite — a structural Debye-type cutoff requiring no regularization.
+
+**Quantum Harmonic Oscillator Reinterpretation.** E_n = (n + 1/2)ℏω is reproduced identically: n counts external photons absorbed; zero-point energy is algebraically fixed by the quartic kernel structure, not by quantum fluctuations. Empirical predictions unchanged.
+
+**ZB-Driven Cascade and Cooling.** The cascade n → n−1 → ··· → 0 provides a microscopic origin of cooling of isolated matter. Environmental re-excitation balances ZB-driven de-excitation at thermal equilibrium (detailed balance). Gravity is proposed as the macroscopic consequence of neighboring subsystems exchanging ejected fragments and drifting toward phase synchronization.
+
+### Standing-Wave Mode Structure
+
+| Mode n | Antinodes | Ejection opportunities / traversal | Status |
+|--------|-----------|-------------------------------------|--------|
+| 0 | 1 | 0 (Hamiltonian identity forbids emission) | Ground state — reference only |
+| 1 | 2 | 1 | First actual ejection |
+| 2 | 3 | 2 | Eject 2ℏω per cascade |
+| 3 | 4 | 3 | Eject 3ℏω per cascade |
+| n | n+1 | n | Cascade n → n−1 → ··· → 0 |
+
+### Open Tasks Identified (10 items)
+
+| # | Question | Status |
+|---|---|---|
+| (i) | Quantitative ejection probability | Qualitative threshold; rate model pending |
+| (ii) | Spherical harmonic mode assignments for n | Open conjecture |
+| (iii) | 1/r² long-range scaling from near-neighbor ejection | Inherited from #34 |
+| (iv) | Equivalence principle in composite systems | Scaling argument; derivation pending |
+| (v) | Relation to general relativity (metric emergence) | Deferred |
+| (vi) | Rank-2 tensor proof for ejected fragment | Physical mechanism established; tensor structure open |
+| (vii) | Re-excitation dynamics and Planck spectrum recovery | Open |
+| (viii) | Quantitative Thomas-precession outward stress from first principles | Geodesic geometry and force mapping pending |
+| (ix) | Quantitative determination of n_max | Existence proved; value requires v_ZB(n) derivation |
+| (x) | Coupling between internal ZB modes and atomic Coulomb potential | New open question |
+
+### Relation Chain
+
+Is supplement to #34 + #48 · Continues #34 + #46 + #48 · Requires #1 + #19 + #33 + #34 + #46 + #48 · References #32 (UV cutoff context), #35 (gravitational network)
+
+---
+
 ## Cross-Paper Connections (Group 06)
 
 **From Group 05 AMM arc (#10→#35→#36→#47) to #48:**
@@ -133,8 +227,14 @@ Is supplement to #26 + #38 · Continues #26 + #38 + #47 + #35 · References #47 
 **From Group 04 dual-DOF paper (#38) to #48:**
 #38 established g_CM = 2 as topological invariant and g_lab = 2(1+a); #48 provides the formal geometric proof via Foucault analogy and large/small gauge transformation framework.
 
-**Zero-point energy two-part + extension (#32→#46→#48):**
-#32 dissolved QFT vacuum energy as category error; #46 gave geometric origin of 1/2ℏω; #48 adds the centroid geometry route and identifies the triple coincidence of all three approaches.
+**Zero-point energy two-part + extension (#32→#46→#48→#49):**
+#32 dissolved QFT vacuum energy as category error; #46 gave geometric origin of 1/2ℏω; #48 adds the centroid geometry route and identifies the triple coincidence of all three approaches; #49 adds the ejection threshold as the fourth independent route, establishing a four-fold coincidence.
+
+**From #34 gravitational program to #49:**
+#34 established entropic entrainment as gravitational-like acceleration but left the mediating quantum unspecified. #49 closes all three open questions: (i) the mediating quantum is the photon-sphere fragment, (ii) ejection is driven by Tomonaga-Thomas stress at θ = π/2, (iii) near-neighbor character follows from Compton-scale size.
+
+**From #48 spin-2 candidate to #49:**
+#48 identified Ω_T ∝ ½sin(2θ) as a spin-2 candidate via s = 2π/π = 2 and explicitly requested an independent physical ejection mechanism. #49 provides that mechanism; the rank-2 tensor proof remains an open task.
 
 ---
 
@@ -147,10 +247,11 @@ Hanamura, S. (2026). [Title]. Zenodo. https://doi.org/10.5281/zenodo.[ID]
 | # | Short Title | Zenodo DOI |
 |---|---|---|
 | 48 | g=2 U(1) Fiber Bundle / Dual-Frame | 10.5281/zenodo.19227518 |
+| 49 | Photon-Sphere Fragmentation / Gravitational Mediator | 10.5281/zenodo.19393391 |
 
 ---
 
-**Last Updated:** 2026-03-28
-**Papers Covered:** #48 (1 paper)
-**Time Period:** March 2026–
-**Thematic Arc:** Fiber bundle formalization · U(1) holonomy proof · Dual-frame g-factor · Foucault analogy · Triple coincidence · Gauge symmetry correspondence (phenomenological)
+**Last Updated:** 2026-04-04
+**Papers Covered:** #48–#49 (2 papers)
+**Time Period:** March–April 2026
+**Thematic Arc:** Fiber bundle formalization · U(1) holonomy proof · Dual-frame g-factor · Foucault analogy · Triple coincidence · Gauge symmetry correspondence (phenomenological) · Tomonaga-Thomas ejection mechanism · Photon-sphere fragment as gravitational mediator · Geometric UV cutoff
