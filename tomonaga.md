@@ -6,6 +6,10 @@
 
 ## 1. Source: Tomonaga's Explanation (朝永振一郎「スピンはめぐる」)
 
+# Source: 新版 スピンはめぐる　朝永振一郎
+#         みすず書房 (2010), pp.42-43
+#         English: "The Story of Spin", Univ. of Chicago Press (1997)
+
 Nobel Laureate Sin-Itiro Tomonaga's description of Thomas precession,
 which provides the physical foundation for how the 0-Sphere model
 treats Thomas precession:
