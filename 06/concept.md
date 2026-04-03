@@ -1,154 +1,257 @@
-# 0-Sphere Model Concept Index: Group 06 (#48–, Mar 2026–)
+# 0-Sphere Model Papers: Group 06 (#48–, Mar 2026–)
 
 **Coverage:** Papers #48– (March 2026–)
-**Parent Index:** index.md · global-concept.md
-**Preceded by:** 05/concept.md (#41–#47)
+**Parent Index:** index.md
+**Preceded by:** 05/papers.md (#41–#47)
 **Theme:** Fiber Bundle Formalization, Gauge Symmetry Correspondence, Gravitational Mediation
 
 ---
 
-## New Analogies (Group 06)
+## Overview
 
-| アナロジー | 論文 | キーワード |
-|---|---|---|
-| **フーコー振り子（AMM dual-frame）** | #48 | 赤道=CMフレーム(g=2 exact)、緯度φ=Lorentzブースト(v_ZB/c)、歳差2π sin φ=γ_anomalous。ae≈0.00116の「緯度」が小さいことと整合 |
-| **調和振動子エネルギー梯子（0-Sphere再解釈）** | #48 | n=0のE₀/2=幾何学的下限（確率的真空揺らぎでない）。n→n+1=光子球量子吸収、n→n-1=光子球放出（重力媒介子候補, #49へ） |
+Group 06 opens with the formal fiber bundle proof of the g-factor structure, establishing the U(1) principal bundle framework that organizes the Berry phase results of Groups 02–05. Papers in this group elevate structural correspondences (gauge symmetry, gravitational mediator) from phenomenological observations to rigorous derivations.
 
----
+Development arc (so far):
 
-## New Equations (Group 06)
-
-### G06-1. U(1)バンドル・Berry位相
-
-| 方程式 | 初出 | 用途 |
-|---|---|---|
-| `A_θ(θ) = (1/2)cos θ` | **#48** | Berry接続1-形式。複素ゲージ|ψ⟩で計算 |
-| `γ = ∫A_θ dθ + arg⟨ψ(0)|ψ(2π)⟩` | **#48** | 一般ホロノミー公式（境界項付き） |
-| `γ_intrinsic = 0 + π = π` | **#48** | 実ゲージ：接続積分=0、境界項=arg(-1)=π |
-| `g := 2γ/π → g_CM = 2` | **#48** | g=2の幾何学的定理（Theorem IV.2） |
-
-### G06-2. 双フレーム分解
-
-| 方程式 | 初出 | 用途 |
-|---|---|---|
-| `γ_total = γ_intrinsic + γ_anomalous = π + a·2π` | **#48** | 全ベリー位相の分解 |
-| `g_lab = 2(1 + a), a := γ_anomalous/(2π)` | **#48** | 実験室系g因子（Theorem VI.3） |
-| `γ_anomalous = ∮ δA(θ; v/c) dθ` | **#48** | 異常ベリー位相（計算は未完・future work） |
-| `φ_lab(t) = ωt + (v₀²/8c²)cos(2ωt)` | **#48** | Bloch球上の摂動楕円軌跡 |
-
-### G06-3. 三重一致（1/2ℏωの三つの独立経路）
-
-| 経路 | 数学的起源 | 論文 |
-|---|---|---|
-| QM不確定性原理 | [x̂, p̂] = iℏ | 教科書 |
-| 0-Sphere Hamiltonian恒等式 | cos⁴(θ/2)+sin⁴(θ/2) ≥ 1/2 | #46（確立）→ **#48**（三重一致として初めて命名） |
-| 重心幾何学 | AM-GM: u+v≥2√(uv) → r≥1/2 | **#48**（新経路） |
-
-### G06-4. 大・小ゲージ変換の明示的計算
-
-| 操作 | 変換 | 接続積分 | 境界項 | 合計 |
-|---|---|---|---|---|
-| 実ゲージ | α=0 (small) | 0 | π | π |
-| 複素ゲージ | α=-θ/2 (large, α(2π)-α(0)=-π≠0) | -π | 0 | -π≡π(mod 2π) |
+1. U(1) fiber bundle formalization of g = 2 and dual-frame decomposition (#48)
+2. Photon-sphere ejection mechanism as gravitational mediator; Thomas precession via Tomonaga framing; geometric UV cutoff (#49)
 
 ---
 
-## New Concept Threads (Group 06)
+## Paper #48: Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition
 
-### G06-T1. U(1)バンドル正式化スレッド
+**Date:** 2026-03-28 · **DOI:** 10.5281/zenodo.19227518 · **Type:** Structural Clarification Note (Supplement to #26 + #38)
 
-```
-#26: Berry位相→スピン生成（初出）
-  ↓
-#38: g=2位相的不変量・双フレーム構造（初出）
-  ↓
-#48: U(1)主バンドルの正式構成（Theorem IV.2）
-     フーコー振り子類比
-     大/小ゲージ変換の境界項計算
-     熱力学分類の代数的選択（Sec VII.E）
-```
+### Core Concept
 
-### G06-T2. 三重一致スレッド（1/2ℏω）
+Establishes the geometric phase structure of the 0-Sphere Model via a three-step logical chain: (1) the 2π periodicity of the internal state is uniquely determined by the single-valuedness requirement; (2) this periodicity defines a principal U(1) fiber bundle P = S¹ × U(1); (3) the Berry connection on this bundle yields a non-trivial holonomy γ_intrinsic = π, geometrically necessitating g_CM = 2 as a topological invariant.
+
+### Three-Step Logical Chain (Core Argument)
 
 ```
-#32: QFT真空エネルギーを溶解（カテゴリーエラー）
-  ↓
-#46: 幾何学的下限 cos⁴θ+sin⁴θ≥1/2 （AM-GM）
-  ↓
-#48: 重心幾何学（新経路）+ 三重一致として命名・統合
+Step 1: 2π period uniquely selected
+  T(θ) = (E₀/2)sin²θ has period π (scalar)
+  |ψ(θ)⟩ = cos(θ/2)|A⟩ + sin(θ/2)|B⟩ requires 2π (spinor)
+  → Period π is physically distinct (orthogonal), 4π redundant → 2π unique
+
+Step 2: 2π → S¹ → U(1) bundle
+  Base: M = S¹ ≅ ℝ/(2πℤ)
+  Fiber: U(1) = {e^{iφ} | φ ∈ ℝ}
+  Total: P = S¹ × U(1)
+
+Step 3: Berry connection → holonomy
+  A_θ(θ) = (1/2)cos θ
+  γ_intrinsic = Ω/2 = π  (boundary term = arg(-1) = π)
+  → g_CM = 2γ/π = 2 (exact, topologically protected)
 ```
 
----
+### Dual-Frame Decomposition
 
-## Extensions of Existing Threads
+γ_total = γ_intrinsic + γ_anomalous = π + a·2π
 
-### C-1 スピン理論スレッドへの追加
+g_lab = 2(1 + a),  a := γ_anomalous/(2π)
 
-```
-…→ #47 (g=2幾何学的起源、Thomas歳差double-angle) → #48 (U(1)バンドル正式証明、Theorem IV.2)
-```
+Source: Lorentz projection (Thomas precession + Lorentz contraction) distorts the equatorial trajectory on the Bloch sphere into a perturbed ellipse. The anomalous arc a·2πr is the "hidden segment" in the CM frame, generating γ_anomalous.
 
-### C-8 AMM構造的起源スレッドへの追加
+### Foucault Pendulum as Prototype Holonomy (New Analogy)
 
-```
-…→ #47 (ΔL=|γ_L−1|×L₀ 統一恒等式) → #48 (dual-frameへの埋め込み、γ_anomalous = a·2π)
-```
-
-### C-6 真空エネルギー・宇宙定数スレッドへの追加
-
-```
-…→ #46 (1/2ℏωの幾何的起源) → #48 (重心幾何学を追加し三重一致として確立)
-```
-
-### C-2 決定論・反コペンハーゲンスレッドへの追加
-
-```
-…→ #38 (実在的Bloch球) → #48 (半球=スピン状態の幾何学的実在、EPR基準との整合、Sec VII.D)
-```
-
----
-
-## New First Occurrences (Group 06)
-
-| 概念・量 | 初出 |
+| Foucault Pendulum | 0-Sphere Model |
 |---|---|
-| フーコー振り子類比（AMM as frame-dependent Berry phase） | **#48** |
-| U(1)主バンドルの正式構成（内部周期性から導出） | **#48** |
-| g=2の幾何学的定理（Theorem IV.2、g:=2γ/π） | **#48** |
-| Berry接続 A_θ(θ)=(1/2)cosθ の明示的計算 | **#48** |
-| 大ゲージ変換vs小ゲージ変換の境界項計算（Appendix C） | **#48** |
-| 三重一致（Triple coincidence: QM・Hamiltonian恒等式・重心幾何学 → 同じ1/2ℏω） | **#48** |
-| 重心幾何学からの1/2ℏω（r=1/2lower bound via AM-GM on centroid） | **#48** |
-| 熱力学分類の代数的選択（kinematic分類はg=4→排除） | **#48** |
-| 調和振動子エネルギー梯子の0-Sphere再解釈（n=0↔幾何的下限、n→n-1↔光子球放出） | **#48** |
-| 三周期性・ゲージ対称性対応（π→spin-2、2π→spin-1、4π→spin-1/2）の命題的確立 | **#48**（現象論的対応として） |
+| Equator (φ = 0) | CM frame (proper time τ) |
+| Zero precession at equator | γ_intrinsic = π, g_CM = 2 exactly |
+| Geographic latitude φ | Lorentz boost by v_ZB/c |
+| Small latitude φ ≪ 1 | Small lab-frame correction a_e ≈ 0.00116 |
+| Precession 2π sin φ | γ_anomalous |
+
+### Key Equations
+
+```
+Berry connection:   A_θ(θ) = (1/2)cos θ
+Holonomy (real gauge): γ = ∫A_θ dθ + arg⟨ψ(0)|ψ(2π)⟩ = 0 + π = π
+g-factor definition:  g := 2γ/π → g_CM = 2
+Dual-frame:          γ_total = π + a·2π,  g_lab = 2(1+a)
+Bridge equation:     γ_L = 1 + a  (from #10, formalized here)
+```
+
+### Three-Periodicity / Gauge Symmetry Correspondence (Phenomenological)
+
+| Function | Period T | s = 2π/T | Correspondence |
+|---|---|---|---|
+| cos⁴(θ/2) | 4π | 1/2 | SU(2) fermion |
+| (1/2)sin²(θ) | 2π | 1 | U(1) EM (photon) |
+| (1/2)sin(2θ) = Ω_T | π | 2 | Spin-2 candidate |
+
+Note: spin-2 assignment conditional on spin-state classification branch point (Section VII E).
+
+### Triple Coincidence: Three Routes to 1/2ℏω
+
+1. **QM**: [x̂, p̂] = iℏ → uncertainty principle floor
+2. **0-Sphere Hamiltonian**: cos⁴(θ/2)+sin⁴(θ/2) ≥ 1/2 (trigonometric identity)
+3. **Centroid geometry**: AM–GM on (u,v)=(cos²θ/2, sin²θ/2) → r ≥ 1/2
+
+All three arrive at E₀/2 = (1/2)ℏω through independent logical paths. First identified as a "unified triple coincidence" in this paper.
+
+### Thermodynamic Classification: Algebraic Selection
+
+The kinematic classification (spin assigned by sgn(Ω_T)) is excluded by internal algebraic consistency: it implies T_spin = π, giving g = 2·2γ/π = 4, contradicting the topologically established g_CM = 2. The thermodynamic classification ([0,π) = spin-up, (π,2π] = spin-down) is the unique internally consistent assignment.
+
+### What the Model Can and Cannot Derive
+
+**Can:**
+- γ_intrinsic = π as formal topological invariant
+- g_CM = 2 as theorem (not postulate)
+- g_lab = 2(1+a) structural decomposition
+- Foucault analogy with quantitative bridge equation γ_L = 1+a
+- Three-periodicity gauge symmetry correspondence (phenomenological)
+- Thermodynamic classification selected by algebraic consistency
+- Triple coincidence for 1/2ℏω
+
+**Cannot (open tasks):**
+- First-principles calculation of γ_anomalous from internal geometry
+- δA(θ; v/c) functional form
+- Forward chain: Thomas precession → v_ZB → a_e (remains open from #47)
+- Gauge field equations from internal phase structure
+- Electric charge generation and EM coupling (internal structure)
+
+### Harmonic Oscillator Reinterpretation (Fig. 5)
+
+E_n = (n + 1/2)ℏω reinterpreted: ground state n=0 ↔ geometric minimum E₀/2. Each n→n+1: absorption of photon-sphere quantum. Each n→n-1: ejection (gravitational mediator conjecture, Paper #49).
+
+### Relation Chain
+
+Is supplement to #26 + #38 · Continues #26 + #38 + #47 + #35 · References #47 + #10 + #44 · Requires #1 + #26 + #35 + #38 · Is part of #47
 
 ---
 
-## New Experimental Predictions / Open Tasks (Group 06)
+## Paper #49: Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model
 
-| 項目 | 論文 | 状況 |
+**Date:** 2026-04-04 · **DOI:** 10.5281/zenodo.19393391 · **Type:** Research Paper
+
+### Core Concept
+
+This paper identifies the microscopic gravitational-mediation mechanism left open in Paper #34, and provides the physical ejection mechanism whose existence Paper #48 established as a prerequisite for a full spin-2 derivation. The physical basis is Thomas precession understood in the kinematic sense formulated by Tomonaga: whenever a body undergoes accelerated motion at relativistic speed, its proper coordinate frame rotates relative to the laboratory frame even under parallel-axis transport. In the 0-Sphere model, the photon sphere is continuously accelerated by the radiation gradient F = E₀sinθ, and Zitterbewegung sustains this oscillation at v_ZB ≈ 0.04c; Thomas precession therefore naturally arises as a structural feature of the internal dynamics, rather than being introduced as an additional assumption.
+
+### Thomas Precession: Tomonaga Framing (Revised from #19)
+
+The critical conceptual revision established in this paper:
+
+| | Old framing (#19 context) | New framing (#49) |
 |---|---|---|
-| δA(θ; v/c) の明示的計算 | #48 | 未解決（future work） |
-| γ_anomalous の第一原理計算 | #48 | 未解決 |
-| 順方向鎖 Thomas歳差→v_ZB→a_e（#47継続） | #48 | 未解決 |
-| 電荷発生・EM結合の内部構造 | #48 | 未解決（spin分類の決定的判定基準） |
-| spin-2候補（T=π, Ω_T）の独立幾何学的機構 | #48 | 未解決（conjectureとして記録） |
-| SU(3)への拡張（三点トポロジー{A,B,C}） | #48 | 未解決・scope外 |
+| **Cause** | Arc-connected geodesic path → v × a ≠ 0 | Relativistic accelerated motion → Tomonaga mechanism |
+| **Primary driver** | Geometric path curvature | Radiation gradient F = E₀sinθ |
+| **v × a ≠ 0** | Explanation | Concrete expression of the above |
+| **Reference** | — | Tomonaga, *The Story of Spin* (1997), pp.42–43 |
+
+See also: `tomonaga.md` (repository root) for full framing, anti-pattern, and cross-references.
+
+### Key Equations
+
+```
+Radiation gradient (Paper #1, re-applied):
+  F(θ) = d(Te₂ − Te₁)/dθ = E₀sinθ
+
+Photon-sphere KE profile (π-cycle):
+  E_ph(θ) = (E₀/2)sin²θ    [peaks at θ = π/2]
+
+Ejection threshold:
+  E_ph(π/2) = E₀/2 = E_bind
+  [n = 0: threshold exactly saturated, no emission]
+  [n ≥ 1: surplus nℏω above floor → fragment ℏω ejected per n → n−1]
+
+Thomas angular velocity (established #19, Tomonaga-framed here):
+  Ω_T(θ) = −(v₀²ω / 4c²) sin(2θ) ê_z    [period = π]
+
+UV cutoff:
+  Mode n has n+1 antinodes → n+1 ejection opportunities per A→B traversal
+  n bounded above by n_max (Compton-scale well geometry) → self-energy sum finite
+```
+
+### Key Results
+
+**Tomonaga-Thomas Ejection Mechanism.** The photon sphere is perpetually accelerated by the radiation gradient at v_ZB ≈ 0.04c. Thomas precession in Tomonaga's kinematic sense naturally arises, generating angular momentum Ω_T that peaks at θ = π/2 and constitutes the outward centrifugal-like stress driving fragment ejection.
+
+**Closure of Paper #34's Three Open Questions.**
+- (i) Mediating quantum: photon-sphere fragment ejected at θ = π/2
+- (ii) Ejection mechanism: photon-sphere KE saturates geometric binding floor E₀/2
+- (iii) Near-neighbor character: follows from Compton-scale photon-sphere size
+
+**Physical Ejection Mechanism for Paper #48's Spin-2 Candidate.** The ejected fragment carries the π-periodic phase structure of Ω_T through a kinetic-stress balance derived independently of kinematic spin-cycle counting. Rank-2 tensor proof remains an open task.
+
+**Fourth Independent Route to Zero-Point Energy.** The geometric floor E₀/2 is precisely the ejection threshold. This adds a physical ejection interpretation to the three routes of Papers #46 and #48 (uncertainty principle, AM-GM inequality, centroid geometry) → four-fold coincidence established.
+
+**Structural Ultraviolet Cutoff.** Re-absorption of an ejected fragment constitutes the 0-Sphere counterpart of a QED self-energy loop. Because n is bounded above by n_max (Compton-scale well geometry), the self-energy sum is naturally finite — a structural Debye-type cutoff requiring no regularization.
+
+**Quantum Harmonic Oscillator Reinterpretation.** E_n = (n + 1/2)ℏω is reproduced identically: n counts external photons absorbed; zero-point energy is algebraically fixed by the quartic kernel structure, not by quantum fluctuations. Empirical predictions unchanged.
+
+**ZB-Driven Cascade and Cooling.** The cascade n → n−1 → ··· → 0 provides a microscopic origin of cooling of isolated matter. Environmental re-excitation balances ZB-driven de-excitation at thermal equilibrium (detailed balance). Gravity is proposed as the macroscopic consequence of neighboring subsystems exchanging ejected fragments and drifting toward phase synchronization.
+
+### Standing-Wave Mode Structure
+
+| Mode n | Antinodes | Ejection opportunities / traversal | Status |
+|--------|-----------|-------------------------------------|--------|
+| 0 | 1 | 0 (Hamiltonian identity forbids emission) | Ground state — reference only |
+| 1 | 2 | 1 | First actual ejection |
+| 2 | 3 | 2 | Eject 2ℏω per cascade |
+| 3 | 4 | 3 | Eject 3ℏω per cascade |
+| n | n+1 | n | Cascade n → n−1 → ··· → 0 |
+
+### Open Tasks Identified (10 items)
+
+| # | Question | Status |
+|---|---|---|
+| (i) | Quantitative ejection probability | Qualitative threshold; rate model pending |
+| (ii) | Spherical harmonic mode assignments for n | Open conjecture |
+| (iii) | 1/r² long-range scaling from near-neighbor ejection | Inherited from #34 |
+| (iv) | Equivalence principle in composite systems | Scaling argument; derivation pending |
+| (v) | Relation to general relativity (metric emergence) | Deferred |
+| (vi) | Rank-2 tensor proof for ejected fragment | Physical mechanism established; tensor structure open |
+| (vii) | Re-excitation dynamics and Planck spectrum recovery | Open |
+| (viii) | Quantitative Thomas-precession outward stress from first principles | Geodesic geometry and force mapping pending |
+| (ix) | Quantitative determination of n_max | Existence proved; value requires v_ZB(n) derivation |
+| (x) | Coupling between internal ZB modes and atomic Coulomb potential | New open question |
+
+### Relation Chain
+
+Is supplement to #34 + #48 · Continues #34 + #46 + #48 · Requires #1 + #19 + #33 + #34 + #46 + #48 · References #32 (UV cutoff context), #35 (gravitational network)
 
 ---
 
-## Scope and Methodology Notes (Group 06)
+## Cross-Paper Connections (Group 06)
 
-**#48の方法論的立場:**
+**From Group 05 AMM arc (#10→#35→#36→#47) to #48:**
+#47 established ΔL=|γ_L−1|×L₀ as unifying identity; #48 embeds this into the U(1) fiber bundle, identifying the arc-length extension as the geometric source of γ_anomalous = a·2π.
 
-- 補足・構造的明確化として自己定義（Sections II–VI：rigorous; Section VII F：phenomenological correspondence）
-- Section VII F（ゲージ対称性対応）は明示的に「phenomenological correspondence、not derivation」として区別
-- 全scope限界（γ_anomalous未計算、前向き鎖未解決）をSection VII.G・Conclusionで明示
-- 「triple coincidence for 1/2ℏω」は本論文で初めて三路の統一として名付けられる
+**From Group 03 Berry phase arc (#26) to #48:**
+#26 established Berry phase as origin of spin; #48 formally proves the U(1) bundle structure and the holonomy γ_intrinsic = π via boundary term + solid angle.
+
+**From Group 04 dual-DOF paper (#38) to #48:**
+#38 established g_CM = 2 as topological invariant and g_lab = 2(1+a); #48 provides the formal geometric proof via Foucault analogy and large/small gauge transformation framework.
+
+**Zero-point energy two-part + extension (#32→#46→#48→#49):**
+#32 dissolved QFT vacuum energy as category error; #46 gave geometric origin of 1/2ℏω; #48 adds the centroid geometry route and identifies the triple coincidence of all three approaches; #49 adds the ejection threshold as the fourth independent route, establishing a four-fold coincidence.
+
+**From #34 gravitational program to #49:**
+#34 established entropic entrainment as gravitational-like acceleration but left the mediating quantum unspecified. #49 closes all three open questions: (i) the mediating quantum is the photon-sphere fragment, (ii) ejection is driven by Tomonaga-Thomas stress at θ = π/2, (iii) near-neighbor character follows from Compton-scale size.
+
+**From #48 spin-2 candidate to #49:**
+#48 identified Ω_T ∝ ½sin(2θ) as a spin-2 candidate via s = 2π/π = 2 and explicitly requested an independent physical ejection mechanism. #49 provides that mechanism; the rank-2 tensor proof remains an open task.
 
 ---
 
-**Last Updated:** 2026-03-28
-**Papers Covered:** #48 (1 paper)
-**Thematic Arc:** U(1)バンドル正式化 · フーコー振り子類比 · 三重一致 · ゲージ対称性対応（現象論的） · 熱力学分類の代数的選択
+## Citation Format
+
+```
+Hanamura, S. (2026). [Title]. Zenodo. https://doi.org/10.5281/zenodo.[ID]
+```
+
+| # | Short Title | Zenodo DOI |
+|---|---|---|
+| 48 | g=2 U(1) Fiber Bundle / Dual-Frame | 10.5281/zenodo.19227518 |
+| 49 | Photon-Sphere Fragmentation / Gravitational Mediator | 10.5281/zenodo.19393391 |
+
+---
+
+**Last Updated:** 2026-04-04
+**Papers Covered:** #48–#49 (2 papers)
+**Time Period:** March–April 2026
+**Thematic Arc:** Fiber bundle formalization · U(1) holonomy proof · Dual-frame g-factor · Foucault analogy · Triple coincidence · Gauge symmetry correspondence (phenomenological) · Tomonaga-Thomas ejection mechanism · Photon-sphere fragment as gravitational mediator · Geometric UV cutoff
