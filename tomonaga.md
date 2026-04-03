@@ -53,6 +53,117 @@ In #10, Omega_T is written as a scalar, missing the unit vector ê_z. Paper #19 
          motion as kinematic inevitability; v×a≠0 is its concrete expression.
          WHY the geodesic curves (and the magnitude of curvature):
          --> OPEN TASK (item viii)
+      ↓
+    #50: Phase-staggered oscillator picture — angular momentum is a
+         COLLECTIVE EMERGENT property; Thomas precession is the
+         relativistic WINDOW making it observable, not the generator.
+         Chirality χ = sign(da/dt) is the Lorentz-invariant seed.
+         v⊥a is confirmed to follow from arc-curvature of geodesic
+         (citing #49 as established input).
+
+---
+
+## 0.1 Paper #50: The Deeper Resolution
+
+Paper #50 ("Rotation from Scalar Oscillation," companion to #49) directly addresses the question that the development chain from #10 to #49 left as an open task: how does a system of purely SCALAR (linear) oscillators produce angular momentum, and what is the physical origin of the condition v⊥a?
+
+### The phase-staggered oscillator picture
+
+Consider n radial oscillation axes, uniformly distributed in angle, with oscillation amplitude P_k(a) = cos(a - b_k), where b_k = kπ/n. Each oscillator moves strictly along its own radial axis — no circular motion at any individual level. Nevertheless, as the global phase parameter a increases, the locus of maximum amplitude sweeps around the unit circle: an emergent rotation from purely linear constituents.
+
+The centroid of all oscillators traces a circle of radius 1/2 — not approximately, but exactly in the continuum limit. This 1/2 radius is the SAME constraint as the AM-GM energy floor E₀/2 established in #46: both follow from cos²θ + sin²θ = 1 under the AM-GM inequality.
+
+### The revised role of Thomas precession (#50 Section 5 "Remark")
+
+This is the key conceptual shift established in #50:
+
+  OLD picture (implicit in #10→#49):
+    Thomas precession GENERATES angular momentum.
+
+  NEW picture (#50):
+    Angular momentum exists as a TOPOLOGICAL INVARIANT of the S¹ phase flow,
+    independently of any relativistic correction.
+    Thomas precession is the RELATIVISTIC WINDOW through which this
+    topologically existing angular momentum becomes observable in the lab.
+
+  Specifically (#50 Section 7.1, item 4):
+    "Thomas precession provides the relativistic geometric correction through
+    which the phase-space rotation becomes observable in the laboratory frame.
+    It does not generate the circular structure — that structure exists at
+    the topological level of the S¹ phase flow independently of any
+    relativistic correction — but it quantifies the physical scale of the
+    phase stagger δb = π/n in terms of v_ZB, and it accounts for the
+    accumulation of a_e per internal cycle."
+
+  In the Newtonian limit (v_ZB/c → 0):
+    - Topological structure SURVIVES: the S¹ phase flow, chirality χ,
+      4π periodicity all remain
+    - Relativistic quantification DISAPPEARS: Ω_T → 0, a_e → 0,
+      phase stagger becomes unmeasurable externally
+
+### Why v⊥a: the chirality connection
+
+Paper #50 explicitly cites #49 for the v×a≠0 derivation and provides the clearest statement of its origin (#50 Series Context, L.41-46):
+
+  "This is why Ω_T ≠ 0 for a purely linear 1D oscillator in the 0-Sphere
+  Model: NOT because linear motion alone generates angular momentum (it does
+  not; for a pendulum v ∥ a → Ω_T = 0), but because the arc-connected
+  geodesic topology gives v ⊥ a via geometric curvature."
+
+The deeper origin is chirality: χ = sign(da/dt), the orientation of the phase flow on S¹. When the thermal geodesic is traversed forward (A→B), da/dt > 0 and the curvature of the arc enforces a transverse acceleration component. This is the SAME geometric fact as v⊥a, viewed from the level of the phase flow rather than the instantaneous velocity vectors.
+
+### Chirality χ = sign(da/dt): Lorentz-invariant seed
+
+#50 defines:
+
+    χ = sign(da/dt) = orientation of phase flow on S¹
+                    = winding number sign of the directed geodesic
+                    = classified by π₁(S¹) = ℤ
+
+  χ = +1: forward geodesic A→B, Kernel A dominant, CCW rotation in yz-plane
+          → electron, h = +1/2
+  χ = -1: backward geodesic B→A, Kernel B dominant, CW rotation in yz-plane
+          → positron, h = -1/2
+
+χ is Lorentz invariant (Lorentz boosts preserve the orientation of directed
+curves). Helicity h is the frame-dependent projection of χ onto the
+propagation axis; it flips when an observer overtakes the particle.
+
+The electron/positron distinction arises from the traversal direction, not
+from any pre-assigned quantum number or charge.
+
+### The three faces of 1/2 (#50 Section 7.4 — answering #47's open question)
+
+Paper #47 identified three independent occurrences of 1/2 in the 0-Sphere
+framework and predicted that their common geometric origin would be examined
+in a future paper. Paper #50 provides that answer:
+
+  (1) GEOMETRIC: centroid radius = 1/2
+      The centroid of the phase-staggered array traces a circle of radius
+      exactly 1/2. Same as the AM-GM energy floor:
+      cos⁴θ + sin⁴θ ≥ E₀/2.
+
+  (2) KINEMATIC: Thomas precession coefficient 1/2
+      Ω_T ≈ (1/2)(v/c²) × a. Without this factor, predicted spin-orbit
+      splitting of hydrogen would be twice the observed value.
+
+  (3) TOPOLOGICAL: spin quantum number s = 1/2 (4π holonomy)
+      A spinor returns to its original value only after 4π rotation,
+      not 2π. The π-periodicity of the oscillation axis space generates
+      this 4π spinorial holonomy.
+
+  Common root: all three reflect the constraint cos²θ + sin²θ = 1 under
+  AM-GM, which simultaneously:
+    → prevents centroid from collapsing to origin (geometric 1/2)
+    → halves effective angular velocity via Thomas mechanism (kinematic 1/2)
+    → imposes π-periodicity of axis space → 4π holonomy (topological 1/2)
+
+### 4 Dirac spinor components = χ × spin = 2 × 2
+
+The four Dirac spinor components correspond exactly to:
+  χ ∈ {+1, −1}  (chirality: geodesic direction → electron/positron)
+  × spin ∈ {+1/2, −1/2}  (internal angular momentum from arc-curvature)
+  = 4 states
 
 ---
 
@@ -189,9 +300,10 @@ The following expressions are canonical within the series from #49 onward:
 
   Paper #10: FIRST application of Thomas precession in the series. SHM substitution (v=cosωt, a=−sinωt) → double-angle sin(2ωt) → g=2 basis. Omega_T written as scalar (missing ê_z); v⊥a assumed but not explained. DOI: 10.5281/zenodo.17764997
   Paper #19: Vector correction (ê_z added to Omega_T). DOI: 10.5281/zenodo.17765238
-  Paper #47: Thomas precession → g=2 geometric basis (double-angle, ΔL identity)
+  Paper #47: Thomas precession → g=2 geometric basis (double-angle, ΔL identity); three independent 1/2 factors identified (derivation of common origin deferred)
   Paper #48: π-periodicity of Omega_T → spin-2 candidate
-  Paper #49: Ejection mechanism via Thomas-precession stress; Tomonaga's physical interpretation first introduced in series; open task (viii) records the missing quantitative derivation of v⊥a
+  Paper #49: Ejection mechanism via Thomas-precession stress; Tomonaga's physical interpretation first introduced in series; open task (viii) records the missing quantitative derivation of v⊥a. DOI: 10.5281/zenodo.19393391
+  Paper #50: Phase-staggered oscillator picture; Thomas precession as relativistic window (not generator) of angular momentum; chirality χ = sign(da/dt) as Lorentz-invariant seed; three faces of 1/2 unified (answering #47's open question); 4 Dirac components = χ × spin = 2 × 2
 
   global-concept.md Section B-3: Thomas precession equation index
   global-concept.md Section C-10: photon-sphere ejection thread (#34→#48→#49)
