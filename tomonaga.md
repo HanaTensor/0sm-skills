@@ -1,7 +1,58 @@
 # Thomas Precession in the 0-Sphere Model: Physical Framing
 # Based on Tomonaga's "The Story of Spin" (スピンはめぐる)
 # Created: 2026-04-03 | Updated: 2026-04-04
-# Applies to: #19, #47, #48, #49 and all subsequent papers
+# Applies to: #10, #19, #47, #48, #49 and all subsequent papers
+
+---
+
+## 0. Origin: Paper #10 and the Conceptual Gap It Left Open
+
+Paper #10 (DOI: 10.5281/zenodo.17764997) is the first paper in the series to apply the Thomas precession formula within the 0-Sphere model. Understanding what #10 did — and what it left unresolved — is essential for understanding why Papers #19 and #49 were necessary.
+
+### What #10 established
+
+Thomas proved that a coordinate system co-moving with an accelerating body, when observed from the lab frame, rotates with angular velocity:
+
+    Omega = (1/2c^2) [a x v]                         [Thomas_Eq1 in #10]
+
+The conventional spin picture uses this with constant acceleration (uniform circular motion), giving a constant Omega. #10 replaced this assumption: instead of constant acceleration, the photon sphere undergoes simple harmonic motion, so
+
+    v(t) = cos(omega*t)      (velocity)
+    a(t) = -sin(omega*t)     (acceleration, the time-derivative of v)
+
+Substituting into the Thomas formula:
+
+    Omega = (1/2c^2) [(-sin*omega*t) x (cos*omega*t)]
+          = -(1/4c^2) sin(2*omega*t)
+
+**Key result:** the cross product of cosine and sine produces a double-angle sin(2ωt). The angular velocity therefore has period π, half that of the displacement. This is the first derivation in the series of the doubled-periodicity structure underlying g = 2, and it explains why a single electron can take both up-spin and down-spin values over time.
+
+### What #10 left unresolved — the "straight-line" problem
+
+The photon sphere travels between Kernel A and Kernel B. This appears to be motion along a line. But if the motion were truly one-dimensional, then v and a would always be parallel or antiparallel, giving v × a = 0 and Omega_T = 0. No Thomas precession would occur.
+
+#10 avoided this problem by writing v and a as scalar SHM functions (cosine and sine) without specifying their spatial directions. The calculation is mathematically correct — cosine and sine are orthogonal functions — but the physical reason why the velocity and acceleration vectors point in perpendicular spatial directions was never given. The paper implicitly assumed v ⊥ a without justifying why the A→B path curves in three-dimensional space.
+
+This gap — why does v × a ≠ 0 for a photon sphere moving between two fixed points? — remained open from #10 through #48 and is recorded as open task (viii) in Paper #49.
+
+### Additional error corrected in #19
+
+In #10, Omega_T is written as a scalar, missing the unit vector ê_z. Paper #19 (DOI: 10.5281/zenodo.17765238) corrected this to the vector form:
+
+    Omega_T(t) = -(v_0^2 * omega / 4c^2) sin(2*omega*t) * e_z
+
+### The development chain
+
+    #10: SHM substitution → double-angle sin(2ωt) → g=2 basis
+         [PROBLEM: scalar Omega; v⊥a assumed but not explained]
+      ↓
+    #19: vector correction (e_z added)
+         [PROBLEM: v⊥a still assumed, not derived]
+      ↓
+    #49: Tomonaga framing — Thomas precession arises from accelerated
+         motion as kinematic inevitability; v×a≠0 is its concrete expression.
+         WHY the geodesic curves (and the magnitude of curvature):
+         --> OPEN TASK (item viii)
 
 ---
 
@@ -32,6 +83,8 @@ Thomas precession is NOT caused by the spatial path being curved. It is a kinema
 The formula:   Omega_T = -(1/2c^2)(a x v)
 
 is the angular velocity of this rotation as seen from the lab frame.
+
+Note on the 1D case (Tomonaga's pendulum example): for a purely rectilinear oscillator, v ∥ a at all times, so v × a = 0 and Omega_T vanishes identically. This is why a simple pendulum or a spring along a single axis produces no Thomas precession. The A→B thermal geodesic of the 0-Sphere model differs because it curves in 3D space, yielding a centripetal acceleration component perpendicular to the velocity. This is precisely the condition that #10 implicitly assumed (v = cosωt, a = -sinωt as orthogonal functions) without deriving from first principles. The quantitative justification of why this curvature exists — and what its magnitude is — remains open task (viii) of Paper #49.
 
 
 ## 3. Causal Chain in the 0-Sphere Model
@@ -134,13 +187,14 @@ The following expressions are canonical within the series from #49 onward:
 
 ## 6. Cross-References
 
-  Paper #19: Omega_T(t) vector form established (e_z correction to #10)
-  Paper #47: Thomas precession -> g=2 geometric basis (double-angle)
-  Paper #48: pi-periodicity of Omega_T -> spin-2 candidate
-  Paper #49: ejection mechanism via Thomas-precession stress; Tomonaga's physical interpretation first introduced in series
+  Paper #10: FIRST application of Thomas precession in the series. SHM substitution (v=cosωt, a=−sinωt) → double-angle sin(2ωt) → g=2 basis. Omega_T written as scalar (missing ê_z); v⊥a assumed but not explained. DOI: 10.5281/zenodo.17764997
+  Paper #19: Vector correction (ê_z added to Omega_T). DOI: 10.5281/zenodo.17765238
+  Paper #47: Thomas precession → g=2 geometric basis (double-angle, ΔL identity)
+  Paper #48: π-periodicity of Omega_T → spin-2 candidate
+  Paper #49: Ejection mechanism via Thomas-precession stress; Tomonaga's physical interpretation first introduced in series; open task (viii) records the missing quantitative derivation of v⊥a
 
   global-concept.md Section B-3: Thomas precession equation index
-  global-concept.md Section C-10: photon-sphere ejection thread (#34->#48->#49)
+  global-concept.md Section C-10: photon-sphere ejection thread (#34→#48→#49)
 
 
 ## 7. Bibliographic Reference
