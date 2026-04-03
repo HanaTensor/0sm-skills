@@ -1,7 +1,7 @@
 # 0-Sphere Model — Master Index
 
-> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-03-28
-> Total: 48 papers (#1–#48, #16 missing) | Coverage: Nov 2018 – Mar 2026
+> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-04-04
+> Total: 49 papers (#1–#49, #16 missing) | Coverage: Nov 2018 – Apr 2026
 
 ---
 
@@ -99,6 +99,7 @@
 | # | Date | Title | DOI |
 |---|------|-------|-----|
 | 48 | 2026-03-28 | Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition | [10.5281/zenodo.19227518](https://doi.org/10.5281/zenodo.19227518) |
+| 49 | 2026-04-04 | Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model | [10.5281/zenodo.19393391](https://doi.org/10.5281/zenodo.19393391) |
 
 ---
 
@@ -119,6 +120,9 @@
 | #48 | Supplement to | #26, #38 |
 | #48 | Continues | #26, #38, #47, #35 |
 | #48 | Requires | #1, #26, #35, #38 |
+| #49 | Supplement to | #34, #48 |
+| #49 | Continues | #34, #46, #48 |
+| #49 | Requires | #1, #33, #34, #46, #48 |
 
 ---
 
