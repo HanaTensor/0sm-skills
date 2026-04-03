@@ -1,0 +1,215 @@
+================================================================================
+zenodo_relations.txt — Paper #49
+Photon-Sphere Fragmentation as a Gravitational Mediator:
+Radiation-Gradient Ejection in the pi-Cycle of the 0-Sphere Model
+Generated: 2026-04-04
+================================================================================
+
+[Summary]
+  Cites:           13 entries (8 Zenodo DOIs + 5 external)
+  Is supplement to: 2 Zenodo DOIs
+  Continues:        4 Zenodo DOIs
+  References:       3 Zenodo DOIs
+  Requires:         4 Zenodo DOIs
+  Is part of:       1 Zenodo DOI
+  Total unique Zenodo DOIs addressed: 8
+  Reverse relations: 8 target papers recommended for update
+
+================================================================================
+[1] Cites
+================================================================================
+(Formal citation via \bibitem in main.tex — all 13 references)
+
+  10.5281/zenodo.18437010
+  [Paper #34: Geometrical Confinement: Emergent Gravitational Dynamics]
+  Role: Primary predecessor; entropic entrainment mechanism this paper extends.
+
+  10.5281/zenodo.19010945
+  [Paper #46: Geometric Origin of the One-Half Factor]
+  Role: Establishes the AM-GM floor cos^4+sin^4 >= E_0/2 used as ejection
+        threshold in this paper.
+
+  10.5281/zenodo.19227518
+  [Paper #48: Geometric Origin of g=2; U(1) Fiber Bundle]
+  Role: Companion paper; identifies pi-periodic Omega_T as spin-2 candidate
+        and requests the ejection mechanism this paper provides.
+
+  10.5281/zenodo.16759284
+  [Paper #1: A Model of an Electron Including Two Perfect Black Bodies]
+  Role: Source of the Hamiltonian identity E_0 = Te_1 + Te_2 + E_ph and the
+        radiation gradient F = E_0 sin(theta).
+
+  10.5281/zenodo.17765238
+  [Paper #19: Spin as a Real Vector]
+  Role: Establishes the vector form Omega_T(t) = -(v_0^2 omega/4c^2)sin(2t) e_z
+        cited as the result recovered in this paper.
+
+  10.5281/zenodo.18356895
+  [Paper #33: Geometrical Confinement: Rest Mass and Zitterbewegung]
+  Role: Establishes Compton-scale extent of Kernel A-B well used as the UV
+        cutoff scale in Section 5.
+
+  10.5281/zenodo.17764997
+  [Paper #10: Redefining Electron Spin and AMM]
+  Role: Source of gamma = 1 + a_e and v_ZB approx 0.04c; cited in Appendix.
+
+  10.5281/zenodo.19120057
+  [Paper #47: Rotational Lorentz Contraction as Geometric Origin of AMM]
+  Role: Cited in Appendix alongside Paper #10 for gamma = 1 + a_e connection.
+
+  --- External references (no Zenodo DOI) ---
+
+  S. Tomonaga, "The Story of Spin," Univ. of Chicago Press (1997), pp. 42-43.
+  Role: Physical foundation for the Tomonaga-Thomas precession interpretation
+        of ZB-driven angular momentum generation (Section 1 and 3.2.1).
+
+  E. Schrodinger, Sitzungsber. Preuss. Akad. Wiss. Berlin 24, 418 (1930).
+  Role: Original Zitterbewegung paper; cited in Section 3.2.3.
+
+  P. A. M. Dirac, Proc. R. Soc. London A 117, 610 (1928).
+  Role: Original Dirac equation; cited alongside Schrodinger 1930.
+
+  T. Jacobson, Phys. Rev. Lett. 75, 1260 (1995).
+  Role: Thermodynamic spirit comparison in Section 4.2.
+
+  E. Verlinde, JHEP 04, 029 (2011).
+  Role: Thermodynamic spirit comparison in Section 4.2.
+
+================================================================================
+[2] Is supplement to
+================================================================================
+
+  10.5281/zenodo.18437010
+  [Paper #34: Emergent Gravitational Dynamics]
+  Reason: This paper explicitly closes the three open questions of Paper #34:
+          (i) identity of the mediating quantum, (ii) ejection mechanism,
+          (iii) near-neighbor character of primary interaction. Section 6.1
+          documents this closure explicitly.
+
+  10.5281/zenodo.19227518
+  [Paper #48: Geometric Origin of g=2]
+  Reason: Paper #48 identifies the pi-periodic Omega_T as a spin-2 candidate
+          and explicitly requests an independent physical ejection mechanism.
+          This paper provides that mechanism (Section 6.2). Paper #49 is the
+          direct physical supplement Paper #48 required.
+
+================================================================================
+[3] Continues
+================================================================================
+
+  10.5281/zenodo.18437010
+  [Paper #34: Emergent Gravitational Dynamics]
+  Reason: Gravitational-mediation program — Paper #34 established macroscopic
+          entropic entrainment; Paper #49 provides the microscopic origin.
+
+  10.5281/zenodo.19010945
+  [Paper #46: Geometric Origin of the One-Half Factor]
+  Reason: Zero-point energy thread — Paper #46 establishes the AM-GM floor as
+          the geometric origin of 1/2*hbar*omega; Paper #49 identifies this
+          floor as the ejection threshold (fourth independent route).
+
+  10.5281/zenodo.19227518
+  [Paper #48: Geometric Origin of g=2]
+  Reason: Pi-periodicity / spin-2 thread — Paper #49 continues directly from
+          Paper #48's open task of providing a physical ejection mechanism.
+
+  10.5281/zenodo.16759284
+  [Paper #1: Two Perfect Black Bodies]
+  Reason: Hamiltonian identity thread — Paper #1 introduces E_0 = Te_1 + Te_2
+          + E_ph; Paper #49 applies this identity to derive the ejection
+          threshold and UV cutoff.
+
+================================================================================
+[4] References
+================================================================================
+
+  10.5281/zenodo.18511664
+  [Paper #35: Detailed Exposition of Gravitational-Like Phenomena]
+  Reason: Comprehensive gravitational exposition in the same program; thematic
+          overlap with Section 4. Not formally cited but part of the same
+          conceptual arc as Paper #34.
+
+  10.5281/zenodo.18275142
+  [Paper #32: Dissolution of the Vacuum Energy Problem]
+  Reason: The UV cutoff argument in Section 5 (n=0 emits no fragment -> no
+          zero-point radiation) directly connects to Paper #32's dissolution
+          of the vacuum energy problem. Paper #49 provides the microscopic
+          structural reason why the ground state is inert.
+
+  10.5281/zenodo.18718174
+  [Paper #38: Geometric Phase Structure: Dual DOF within 2pi Periodicity]
+  Reason: g=2 as topological invariant thread; Paper #38 establishes g_CM=2
+          as a phase-topological result. Paper #49's Thomas-precession basis
+          for g=2 is the kinematic complement of Paper #38's topological account.
+
+================================================================================
+[5] Requires
+================================================================================
+
+  10.5281/zenodo.16759284
+  [Paper #1: Two Perfect Black Bodies]
+  Reason: The Hamiltonian identity E_0 = Te_1 + Te_2 + E_ph is the foundational
+          postulate of this paper. Understanding Paper #49 requires Paper #1.
+
+  10.5281/zenodo.18437010
+  [Paper #34: Emergent Gravitational Dynamics]
+  Reason: The gravitational-mediation context, the epsilon_2 x epsilon_3
+          suppression factor, and the entropic entrainment framework are all
+          prerequisites for the arguments in Section 4.
+
+  10.5281/zenodo.19010945
+  [Paper #46: Geometric Origin of the One-Half Factor]
+  Reason: The AM-GM floor result (cos^4 + sin^4 >= E_0/2) is used directly
+          as the ejection threshold. Paper #46 must be read first.
+
+  10.5281/zenodo.19227518
+  [Paper #48: Geometric Origin of g=2]
+  Reason: Paper #49 directly addresses Paper #48's open task; the spin-2
+          candidate, pi-periodicity, and the ejection mechanism request are
+          all established in Paper #48.
+
+================================================================================
+[6] Is part of
+================================================================================
+
+  10.5281/zenodo.19227518
+  [Paper #48: immediately preceding paper in the 0-Sphere Model series]
+  Reason: Standard series membership; Paper #49 is the next paper after #48
+          in the continuous 0-Sphere Model research programme (2018-present).
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+================================================================================
+
+The following Zenodo records should be updated to add reverse-direction
+relations pointing to this paper (DOI: 10.5281/zenodo.[#49 — to be assigned]).
+
+  10.5281/zenodo.18437010  [Paper #34]
+    Add: "Is supplemented by"  -> DOI of Paper #49
+    Add: "Is continued by"     -> DOI of Paper #49
+
+  10.5281/zenodo.19227518  [Paper #48]
+    Add: "Is supplemented by"  -> DOI of Paper #49
+    Add: "Is continued by"     -> DOI of Paper #49
+
+  10.5281/zenodo.19010945  [Paper #46]
+    Add: "Is continued by"     -> DOI of Paper #49
+
+  10.5281/zenodo.16759284  [Paper #1]
+    Add: "Is cited by"         -> DOI of Paper #49
+
+  10.5281/zenodo.17765238  [Paper #19]
+    Add: "Is cited by"         -> DOI of Paper #49
+
+  10.5281/zenodo.18356895  [Paper #33]
+    Add: "Is cited by"         -> DOI of Paper #49
+
+  10.5281/zenodo.17764997  [Paper #10]
+    Add: "Is cited by"         -> DOI of Paper #49
+
+  10.5281/zenodo.19120057  [Paper #47]
+    Add: "Is cited by"         -> DOI of Paper #49
+
+================================================================================
+END OF zenodo_relations.txt
+================================================================================
