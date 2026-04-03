@@ -35,43 +35,100 @@ sub, table, caption, tbody, thead, th, td, tr, u, ul
 以下の順序で記述する：
 
 ```
-[1] 導入段落        <p> — 論文の主張を1〜2文で
-[2] Core Result     コア方程式を <blockquote><code> で表示
-[3] Key Contributions  <ul><li> で箇条書き（4〜6項目）
+[1] 導入段落          <p> — 論文の主張を1〜2文で
+[2] Core Equations    コア方程式を <p><b>ラベル</b><br>Unicode数式 で表示
+[3] Key Contributions <ul><li> で箇条書き（4〜6項目）
 [4] シリーズ内位置づけ  先行論文へのDOIリンク付き説明
 [5] 主要参照論文テーブル  <table> で通番・タイトル・DOIリンクを一覧
-[6] Series Context  シリーズ全体へのZenodo検索リンク
+[6] Series Context    シリーズ全体へのZenodo検索リンク
 ```
 
 ---
 
-## 4. 記述規則
+## 4. 数式表示ルール
 
-### 数式変換表
+### 禁止：`<blockquote><code>` による数式ブロック
+
+Zenodoのエディタでは `<blockquote><code>` はグレー反転背景・等幅フォントでレンダリングされ、視認性が著しく低下する。数式ブロックへの使用を禁止する。
+
+```html
+<!-- 禁止 -->
+<blockquote><code>E_0 = cos^4(theta/2) + sin^4(theta/2) + (1/2)sin^2(theta)</code></blockquote>
+```
+
+### 推奨：`<p>` + `<b>ラベル</b>` + `<br>` + Unicode数式
+
+各数式を独立した `<p>` ブロックとし、太字ラベルで識別する。数式本体はUnicode文字と `<sub>` / `<em>` を用いてインライン表記する。
+
+```html
+<!-- 推奨 -->
+<p>
+<b>Hamiltonian identity</b> (Paper #1):<br>
+<em>E</em><sub>0</sub> = <em>E</em><sub>0</sub> cos⁴(θ/2) + <em>E</em><sub>0</sub> sin⁴(θ/2) + (<em>E</em><sub>0</sub>/2) sin²θ
+</p>
+```
+
+`<code>` タグはファイル名等の非数式用途（例: `<code>zenodo_XXXXXXX_guide.docx</code>`）には引き続き使用可。
+
+---
+
+## 5. LaTeX → HTML 数式変換表
+
+### 5.1 記号対照表（LaTeX → HTML）
 
 | LaTeX | HTML |
 |-------|------|
 | `\gamma_L` | `γ<sub>L</sub>` |
-| `\Delta[L]` | `Δ[L]` |
+| `\Delta L` | `Δ<em>L</em>` |
 | `\approx` | `≈` |
 | `v_{\text{ZB}}` | `<em>v</em><sub>ZB</sub>` |
 | `a_e` | `<em>a</em><sub>e</sub>` |
-| `a_e^{\text{exp}}` | `<em>a</em><sub>e</sub><sub>(exp)</sub>` |
+| `a_e^{\text{exp}}` | `<em>a</em><sub>e(exp)</sub>` |
 | `2\pi r` | `2π<em>r</em>` |
 | `\times` | `×` |
 | `\sin(2\omega t)` | `sin(2ωt)` |
 | `\Omega` | `Ω` |
 | `\propto` | `∝` |
+| `\cos^4(\theta/2)` | `cos⁴(θ/2)` |
+| `\sin^2\theta` | `sin²θ` |
+| `\hbar\omega` | `ℏω` |
+| `\geq` | `≥` |
+| `\neq` | `≠` |
+| `\leq` | `≤` |
+| `\to` | `→` |
+| `\leftrightarrow` | `↔` |
+| `n \to n-1` | `<em>n</em> → <em>n</em>−1` |
 
-### コア方程式ブロック
+### 5.2 物理数式向けUnicode対照表
 
-```html
-<blockquote>
-<code>[数式をASCII/Unicode混在で記述]</code>
-</blockquote>
-```
+| 記号 | Unicode | 用途例 |
+|------|---------|--------|
+| `⁴` | U+2074 | cos⁴, sin⁴ |
+| `²` | U+00B2 | v², c² |
+| `√` | U+221A | √(1 − v²/c²) |
+| `θ` | U+03B8 | internal phase |
+| `π` | U+03C0 | periodicity |
+| `ω` | U+03C9 | angular frequency |
+| `Ω` | U+03A9 | Thomas angular velocity |
+| `γ` | U+03B3 | Lorentz factor |
+| `Δ` | U+0394 | difference |
+| `ℏ` | U+210F | reduced Planck constant |
+| `→` | U+2192 | implication / cascade |
+| `↔` | U+2194 | equivalence |
+| `≥` | U+2265 | floor inequality |
+| `≤` | U+2264 | upper bound |
+| `≈` | U+2248 | approximate equality |
+| `≠` | U+2260 | not equal |
+| `−` | U+2212 | minus (not hyphen) |
+| `×` | U+00D7 | multiplication |
+| `∝` | U+221D | proportional to |
+| `∞` | U+221E | infinity |
 
-### 主要参照テーブルの標準構造
+---
+
+## 6. 固定テンプレート
+
+### 主要参照テーブル
 
 ```html
 <table>
@@ -88,7 +145,7 @@ sub, table, caption, tbody, thead, th, td, tr, u, ul
 </table>
 ```
 
-### Series Contextの固定フォーマット（末尾）
+### Series Context（末尾固定）
 
 ```html
 <p>
@@ -104,7 +161,7 @@ All papers in the series are archived on Zenodo:
 
 ---
 
-## 5. タグ検証チェック（納品前必須）
+## 7. タグ検証チェック（納品前必須）
 
 作成後、以下のPythonスニペットで許可タグ外のタグが含まれていないか確認する：
 
@@ -133,15 +190,15 @@ else:
 
 ---
 
-## 6. ファイル納品
+## 8. ファイル納品
 
 ```
 ファイル名: zenodo_description_[paper_number].html
-           （例: zenodo_description_47.html）
+           （例: zenodo_description_49.html）
 用途: Zenodo登録画面のDescription欄に全文コピペ
 注意: ファイル自体はZenodoにアップロードしない
 ```
 
 ---
 
-*Last updated: 2026-03-22 | See also: `zenodo/WORKFLOW.md`*
+*Last updated: 2026-04-04 | See also: `zenodo/WORKFLOW.md`*
