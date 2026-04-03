@@ -137,7 +137,7 @@ The critical conceptual revision established in this paper:
 
 | | Old framing (#19 context) | New framing (#49) |
 |---|---|---|
-| **Cause** | Arc-connected geodesic path → v × a ≠ 0 | Relativistic accelerated motion → Tomonaga mechanism |
+| **Cause** | Arc-connected geodesic path → v × a ≠ 0 | Relativistic accelerated motion → Thomas precession (Tomonaga's physical interpretation) |
 | **Primary driver** | Geometric path curvature | Radiation gradient F = E₀sinθ |
 | **v × a ≠ 0** | Explanation | Concrete expression of the above |
 | **Reference** | — | Tomonaga, *The Story of Spin* (1997), pp.42–43 |
@@ -168,7 +168,7 @@ UV cutoff:
 
 ### Key Results
 
-**Tomonaga-Thomas Ejection Mechanism.** The photon sphere is perpetually accelerated by the radiation gradient at v_ZB ≈ 0.04c. Thomas precession in Tomonaga's kinematic sense naturally arises, generating angular momentum Ω_T that peaks at θ = π/2 and constitutes the outward centrifugal-like stress driving fragment ejection.
+**Thomas-Precession Ejection Mechanism.** The photon sphere is perpetually accelerated by the radiation gradient at v_ZB ≈ 0.04c. Thomas precession, as physically interpreted by Tomonaga, naturally arises, generating angular momentum Ω_T that peaks at θ = π/2 and constitutes the outward centrifugal-like stress driving fragment ejection.
 
 **Closure of Paper #34's Three Open Questions.**
 - (i) Mediating quantum: photon-sphere fragment ejected at θ = π/2
@@ -231,7 +231,7 @@ Is supplement to #34 + #48 · Continues #34 + #46 + #48 · Requires #1 + #19 + #
 #32 dissolved QFT vacuum energy as category error; #46 gave geometric origin of 1/2ℏω; #48 adds the centroid geometry route and identifies the triple coincidence of all three approaches; #49 adds the ejection threshold as the fourth independent route, establishing a four-fold coincidence.
 
 **From #34 gravitational program to #49:**
-#34 established entropic entrainment as gravitational-like acceleration but left the mediating quantum unspecified. #49 closes all three open questions: (i) the mediating quantum is the photon-sphere fragment, (ii) ejection is driven by Tomonaga-Thomas stress at θ = π/2, (iii) near-neighbor character follows from Compton-scale size.
+#34 established entropic entrainment as gravitational-like acceleration but left the mediating quantum unspecified. #49 closes all three open questions: (i) the mediating quantum is the photon-sphere fragment, (ii) ejection is driven by Thomas-precession stress at θ = π/2, (iii) near-neighbor character follows from Compton-scale size.
 
 **From #48 spin-2 candidate to #49:**
 #48 identified Ω_T ∝ ½sin(2θ) as a spin-2 candidate via s = 2π/π = 2 and explicitly requested an independent physical ejection mechanism. #49 provides that mechanism; the rank-2 tensor proof remains an open task.
@@ -254,4 +254,4 @@ Hanamura, S. (2026). [Title]. Zenodo. https://doi.org/10.5281/zenodo.[ID]
 **Last Updated:** 2026-04-04
 **Papers Covered:** #48–#49 (2 papers)
 **Time Period:** March–April 2026
-**Thematic Arc:** Fiber bundle formalization · U(1) holonomy proof · Dual-frame g-factor · Foucault analogy · Triple coincidence · Gauge symmetry correspondence (phenomenological) · Tomonaga-Thomas ejection mechanism · Photon-sphere fragment as gravitational mediator · Geometric UV cutoff
+**Thematic Arc:** Fiber bundle formalization · U(1) holonomy proof · Dual-frame g-factor · Foucault analogy · Triple coincidence · Gauge symmetry correspondence (phenomenological) · Thomas-precession ejection mechanism · Photon-sphere fragment as gravitational mediator · Geometric UV cutoff
