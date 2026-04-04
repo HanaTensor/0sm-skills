@@ -49,7 +49,7 @@ In #10, Omega_T is written as a scalar, missing the unit vector ê_z. Paper #19 
     #19: vector correction (e_z added)
          [PROBLEM: v⊥a still assumed, not derived]
       ↓
-    #49: Tomonaga framing — Thomas precession arises from accelerated
+    #49: Correct causal framing established — Thomas precession arises from accelerated
          motion as kinematic inevitability; v×a≠0 is its concrete expression.
          WHY the geodesic curves (and the magnitude of curvature):
          --> OPEN TASK (item viii)
