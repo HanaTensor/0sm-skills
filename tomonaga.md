@@ -1,7 +1,7 @@
 # Thomas Precession in the 0-Sphere Model: Physical Framing
 # Based on Tomonaga's "The Story of Spin" (スピンはめぐる)
-# Created: 2026-04-03 | Updated: 2026-04-04
-# Applies to: #10, #19, #47, #48, #49 and all subsequent papers
+# Created: 2026-04-03 | Updated: 2026-04-05
+# Applies to: #10, #19, #47, #48, #49, #50, #51, #52 and all subsequent papers
 
 ---
 
@@ -304,6 +304,8 @@ The following expressions are canonical within the series from #49 onward:
   Paper #48: π-periodicity of Omega_T → spin-2 candidate
   Paper #49: Ejection mechanism via Thomas-precession stress; Tomonaga's physical interpretation first introduced in series; open task (viii) records the missing quantitative derivation of v⊥a. DOI: 10.5281/zenodo.19393391
   Paper #50: Phase-staggered oscillator picture; Thomas precession as relativistic window (not generator) of angular momentum; chirality χ = sign(da/dt) as Lorentz-invariant seed; three faces of 1/2 unified (answering #47's open question); 4 Dirac components = χ × spin = 2 × 2
+  Paper #51: Helical trajectory with two velocity scales (v_ZB transverse, v_pitch longitudinal); Bonnet-Myers confinement theorem; Synge world function identification; g_μν emergence. Thomas precession direction (ê_z) is the cross-product of the helix's two kinematic directions (ê_x and ê_y).
+  Paper #52: Directional decomposition — ê_x (velocity) → gravity, ê_y (acceleration) → EM, ê_z = ê_x×ê_y → Thomas precession/spin. The ê_z assignment is ESTABLISHED from #19; the ê_x and ê_y assignments are structural proposals. Key results: (a) deterministic ZB axis drift Δφ=2πa_e per cycle from non-closing orbit; (b) turning-point asymmetry → F=mg without ensemble averaging; (c) λ_C cancellation is geometric (ê mediates both internal lever arm and external gradient); (d) a_e reinterpreted as the essential tolerance enabling a particle to interact with its environment ("hard stone → soft antenna"). Appendices A/B/C provide pedagogical derivations (equivalence principle, scanning mechanism, Ising contrast).
 
   global-concept.md Section B-3: Thomas precession equation index
   global-concept.md Section C-10: photon-sphere ejection thread (#34→#48→#49)
