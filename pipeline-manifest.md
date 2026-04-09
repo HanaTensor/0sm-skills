@@ -28,6 +28,8 @@
 
 ## Archive Group Files（参照用）
 
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md
+- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md
 - https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md
 - https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md
 - https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md
