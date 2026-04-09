@@ -101,6 +101,7 @@
 | 48 | 2026-03-28 | Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition | [10.5281/zenodo.19227518](https://doi.org/10.5281/zenodo.19227518) |
 | 49 | 2026-04-04 | Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model | [10.5281/zenodo.19393391](https://doi.org/10.5281/zenodo.19393391) |
 | 50 | 2026-04-09 | Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model | [10.5281/zenodo.19482145](https://doi.org/10.5281/zenodo.19482145)|
+| 51 | 2026-04-12 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | [10.5281/zenodo.19489126](https://doi.org/10.5281/zenodo.19489126)|
 
 ---
 
