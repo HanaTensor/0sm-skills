@@ -1,0 +1,1729 @@
+% ========================================
+% #50: Rotation from Scalar Oscillation
+% ========================================
+%
+% SERIES CONTEXT
+%
+% -------------------------------------------------------------
+% This paper (#50) is part of the 0-Sphere Model series (2018–).
+% It should be read in conjunction with the following papers,
+% listed in logical dependency order:
+%
+%   #1  (hanamura01) — foundational energy identity
+%              E_0 = cos^4(θ/2) + sin^4(θ/2) + (1/2)sin^2(θ)
+%   #7  (hanamura07) — Dirac ψ^(±) reinterpreted as Kernels A/B
+%   #10 (hanamura10) — v_ZB ≈ 0.04047c derived from a_e via γ=1+a
+%   #19 (hanamura19) — Thomas angular velocity vector form:
+%              Ω_T(t) = -(v₀²ω/4c²)sin(2ωt)·ê_z
+%   #26 (hanamura26) — Berry phase → spin; γ_intrinsic = π
+%   #29 (hanamura29) — spinorial phase accumulation along thermal geodesics
+%   #33 (hanamura33) — geometrical confinement; rest mass and ZB
+%   #40 (hanamura40) — derivative-order mismatch gauge vs. gravity
+%   #46 (hanamura46) — kernel energy floor cos⁴+sin⁴ ≥ E₀/2 (AM-GM)
+%   #47 (hanamura47) — rotational Lorentz contraction as geometric
+%       origin of AMM; structural correspondence with muon lifetime.
+%       DOI: 10.5281/zenodo.19120057
+%       Key result used here: ΔL = |γ_L−1|·L₀ unifies muon lifetime
+%       and electron AMM via same SR mechanism; 1 cycle of ZB
+%       accumulates a_e of Thomas precession phase shift.
+%       Open question predicted in §III.A: three independent
+%       occurrences of 1/2 (Thomas coefficient, centroid radius,
+%       spin quantum number) share a common geometric origin ---
+%       answered in §7.4 of the present paper.
+%
+%   #49 (hanamura49) — DOI: 10.5281/zenodo.19393391  COMPANION PAPER (immediately prior)
+%       "Photon-Sphere Fragmentation as a Gravitational Mediator"
+%       Key result used in this paper:
+%         The A→B thermal geodesic is arc-connected in 3D space.
+%         Its curvature makes v(t) = v₀cos(ωt)ê_x and
+%         a(t) = -v₀ω sin(ωt)ê_y non-parallel, so
+%         v × a = -(v₀²ω/2)sin(2ωt)ê_z ≠ 0.
+%         This is why Ω_T ≠ 0 for a purely linear 1D oscillator
+%         in the 0-Sphere Model: NOT because linear motion alone
+%         generates angular momentum (it does not; for a pendulum
+%         v ∥ a → Ω_T = 0), but because the arc-connected geodesic
+%         topology gives v ⊥ a via geometric curvature.
+%         The sign of Ω_T is determined by sign(da/dt), which
+%         is equivalent to the chirality χ defined in Section 6.
+%
+%   #50 (this paper) — angular momentum emergence from scalar
+%       oscillations; chirality and helicity structure.
+%       New results:
+%         (i)  χ = sign(da/dt) is Lorentz-invariant (topological).
+%         (ii) Helicity flip tied to v_ZB ≈ 0.04c.
+%         (iii) 4 Dirac spinor components = χ × spin = 2 × 2.
+%         (iv) Three 1/2 factors share common AM-GM origin (#47 open
+%              question answered).
+%
+%
+% PUBLICATION ORDER NOTE:
+%   #49 and #50 were developed concurrently. #50 relies on #49 for
+%   the physical justification of v×a≠0 (arc-curvature argument).
+%   Where #49 is cited, the DOI is marked [pending].
+%   The logical order is #49 → #50, but #50 is self-contained
+%   for readers who accept the arc-curvature result on physical grounds.
+%
+% ========================================
+
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period}
+\captionsetup[table]{labelfont={bf}, name={Table}, labelsep=period}
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing, shapes.geometric}
+\newcommand{\iphase}{\theta}
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\hodge}{\star}
+\newcommand{\OmT}{\Omega_{\mathrm{T}}}
+\newcommand{\omeff}{\omega_{\mathrm{eff}}}
+\newcommand{\Lspin}{L_{\mathrm{int}}^{\mathrm{spin}}}
+\newcommand{\UAB}{U(A,B)}
+\newcommand{\KAB}{K(A,B)}
+\newcommand{\anom}{a_{\mathrm{e}}}
+\newcommand{\anommu}{a_{\mu}}
+\newcommand{\gfac}{g}
+\newcommand{\betaZB}{\beta}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+
+% ========================================
+% TikZ macro: small frame for 4-panel figure
+% Usage: \oscframeSM{A_in_degrees}
+% ========================================
+\newcommand{\oscframeSM}[1]{%
+\begin{tikzpicture}[x=1.60cm, y=1.60cm]
+  \fill[black!92] (-1.24,-1.24) rectangle (1.24,1.24);
+  \draw[white!30, thin] (-1.14,0)--(1.14,0);
+  \draw[white!30, thin] (0,-1.14)--(0,1.14);
+  \foreach \t in {-1.0, -0.5, 0.5, 1.0}{
+    \draw[white!20, very thin] (\t,-0.05)--(\t,0.05);
+    \draw[white!20, very thin] (-0.05,\t)--(0.05,\t);
+  }
+  \foreach \k in {0,1,...,11}{
+    \pgfmathsetmacro{\bk}{\k * 15}
+    \pgfmathsetmacro{\ampval}{cos(#1 - \bk)}
+    \pgfmathsetmacro{\xstar}{cos(\bk) * \ampval}
+    \pgfmathsetmacro{\ystar}{sin(\bk) * \ampval}
+    \draw[orange!60, opacity=0.35, thin]
+      ({-cos(\bk)*1.12},{-sin(\bk)*1.12}) -- ({cos(\bk)*1.12},{sin(\bk)*1.12});
+    \fill[yellow!95!orange] (\xstar, \ystar) circle (0.054);
+  }
+  \node[white, font=\scriptsize] at (0.0, -1.15) {$a=#1^{\circ}$};
+\end{tikzpicture}%
+}
+
+% ========================================
+% TikZ macro: single animation frame (larger)
+% Usage: \oscframe{A_in_degrees}
+% ========================================
+\newcommand{\oscframe}[1]{%
+\begin{tikzpicture}[x=2.1cm, y=2.1cm]
+  \fill[black!92] (-1.18,-1.18) rectangle (1.18,1.18);
+  \draw[white!30, thin] (-1.1,0)--(1.1,0);
+  \draw[white!30, thin] (0,-1.1)--(0,1.1);
+  \foreach \t in {-1.0,-0.5,0.5,1.0}{
+    \draw[white!25, very thin] (\t,-0.04)--(\t,0.04);
+    \draw[white!25, very thin] (-0.04,\t)--(0.04,\t);
+  }
+  \foreach \k in {0,1,...,11}{
+    \pgfmathsetmacro{\bk}{\k * 15}
+    \pgfmathsetmacro{\ampval}{cos(#1 - \bk)}
+    \pgfmathsetmacro{\xstar}{cos(\bk) * \ampval}
+    \pgfmathsetmacro{\ystar}{sin(\bk) * \ampval}
+    \draw[orange!60, opacity=0.35, thin]
+      ({-cos(\bk)*1.08},{-sin(\bk)*1.08}) -- ({cos(\bk)*1.08},{sin(\bk)*1.08});
+    \fill[yellow!95!orange] (\xstar, \ystar) circle (0.045);
+  }
+  \node[white, font=\footnotesize] at (0.0, -1.08)
+    {$a = #1^{\circ}$};
+\end{tikzpicture}%
+}
+
+% ========================================
+% TikZ macro: annotated single frame
+% ========================================
+\newcommand{\oscframeanno}[1]{%
+\begin{tikzpicture}[x=2.8cm, y=2.8cm]
+  \fill[black!92] (-1.38,-1.32) rectangle (1.38,1.35);
+  \draw[white!35, thin, ->] (-1.18,0)--(1.22,0)
+    node[right, white, font=\footnotesize]{$x$};
+  \draw[white!35, thin, ->] (0,-1.18)--(0,1.22)
+    node[above, white, font=\footnotesize]{$y$};
+  \draw[white!15, dashed, thin] (0,0) circle (1.0);
+  \draw[cyan!50, dashed, thin] (0,0) circle (0.5);
+  \foreach \k in {0,1,...,11}{
+    \pgfmathsetmacro{\bk}{\k * 15}
+    \pgfmathsetmacro{\ampval}{cos(#1 - \bk)}
+    \pgfmathsetmacro{\xstar}{cos(\bk) * \ampval}
+    \pgfmathsetmacro{\ystar}{sin(\bk) * \ampval}
+    \draw[orange!60, opacity=0.40, thin]
+      ({-cos(\bk)*1.10},{-sin(\bk)*1.10}) -- ({cos(\bk)*1.10},{sin(\bk)*1.10});
+    \fill[yellow!95!orange] (\xstar, \ystar) circle (0.042);
+  }
+  \pgfmathsetmacro{\xbright}{cos(#1) * 1.0}
+  \pgfmathsetmacro{\ybright}{sin(#1) * 1.0}
+  \fill[red!80!orange] (\xbright, \ybright) circle (0.055);
+  \draw[red!70, dashed, thin] (0,0) -- (\xbright, \ybright)
+    node[right, red!80, font=\footnotesize, yshift=2pt]{bright};
+  \pgfmathsetmacro{\xcent}{cos(#1) * 0.5}
+  \pgfmathsetmacro{\ycent}{sin(#1) * 0.5}
+  \fill[cyan!80] (\xcent, \ycent) circle (0.042);
+  \node[cyan!80, font=\footnotesize, above right] at (\xcent, \ycent) {centroid};
+  \node[white, font=\small] at (0.0, -1.20)
+    {$a = #1^{\circ}$};
+\end{tikzpicture}%
+}
+
+% ========================================
+% TikZ macro: yz-plane view of photon sphere
+% \yzplane{rotdir}{hlabel}{plabel}
+% ========================================
+\newcommand{\yzplane}[3]{%
+\begin{tikzpicture}[x=2.4cm, y=2.4cm]
+  \fill[black!88] (-1.30,-1.35) rectangle (1.30,1.58);
+  \draw[white!35, thin, ->] (-1.18,0)--(1.22,0)
+    node[right, white, font=\footnotesize]{$y$};
+  \draw[white!35, thin, ->] (0,-1.18)--(0,1.30)
+    node[above, white, font=\footnotesize]{$z$};
+  \node[cyan!75, font=\small] at (0, 1.50) {$#2$};
+  \draw[cyan!55, thick] (0,0) circle (0.68);
+  \draw[orange!80, dashed, thick] (-1.08,0)--(1.08,0);
+  \draw[orange!80, dashed, thick] (0,-1.08)--(0,1.08);
+  \node[orange!80, font=\footnotesize] at (1.14, 0.14) {$A$};
+  \node[orange!80, font=\footnotesize] at (0.14, 1.14) {$B$};
+  \pgfmathsetmacro{\sgn}{#1}
+  \pgfmathsetmacro{\startA}{25*\sgn}
+  \pgfmathsetmacro{\endA}{155*\sgn}
+  \draw[yellow!85, very thick, ->]
+    ({0.68*cos(\startA)},{0.68*sin(\startA)})
+    arc (\startA:\endA:0.68);
+  \fill[yellow!92!orange] (0.68, 0) circle (0.058);
+  \draw[white!50, thin] (-1.05,-0.92) circle (0.11);
+  \draw[white!50, thin] (-1.05-0.078,-0.92-0.078)--(-1.05+0.078,-0.92+0.078);
+  \draw[white!50, thin] (-1.05+0.078,-0.92-0.078)--(-1.05-0.078,-0.92+0.078);
+  \node[white!55, font=\footnotesize] at (-1.05,-1.12) {$+x$};
+  \node[white!90, font=\footnotesize] at (0, -1.26) {#3};
+  \node[white!45, font=\footnotesize, align=center] at (0.78, -0.88)
+    {viewed\\from $-x$};
+\end{tikzpicture}%
+}
+
+\begin{document}
+
+\title{Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{April 9, 2026}
+
+% ========================================
+% Abstract
+% ========================================
+\begin{abstract}
+Spin is among the most fundamental properties of the electron, yet how purely scalar—non-rotating—dynamics can generate it remains a foundational challenge. Within the 0-Sphere model, we demonstrate that angular momentum and a Lorentz-invariant chirality emerge as collective properties of a phase-staggered oscillator array, without any rotational degree of freedom postulated at the level of any individual oscillator.
+The model's two thermodynamic kernels, A and B, are scalar thermal potentials; no rotational degree of freedom is postulated at the level of any single oscillator.
+We demonstrate that angular momentum is an \emph{emergent} collective property of a phase-staggered oscillator array: the instantaneous locus of maximum amplitude traces the unit circle, and the centroid of all oscillators traces a circle of radius $\tfrac{1}{2}$, linked to the zero-point energy floor of the energy identity.
+The angular momentum arises from a transverse force component in the mode space of the scalar potential gradient---not from any circular force law.
+
+The principal new results of this paper are three.
+First, we show that the direction of circulation of the photon sphere defines a Lorentz-invariant binary $\chi = \mathrm{sign}(da/dt)$, which we identify as \emph{chirality}: more precisely, $\chi$ is the orientation of the continuous phase flow on the circle $S^1$, a topological invariant classified by the fundamental group $\pi_1(S^1) = \mathbb{Z}$, and its discreteness is a consequence of topology, not an assumption.
+Second, the frame-dependent projection of $\chi$ onto the propagation axis defines \emph{helicity} $h$, and the helicity-flip condition is tied directly to the subluminal Zitterbewegung speed $v_\mathrm{ZB} \approx 0.04c$, yielding a testable kinematic prediction.
+Third, the four Dirac spinor components are shown to correspond exactly to $\chi \times \mathrm{spin} = 2 \times 2 = 4$ states, with the electron/positron distinction carried by $\chi$ and the internal kernel dynamics ($Te_1$, $Te_2$) playing the role of a single continuous internal variable, not an additional degree of freedom.
+
+The electron/positron distinction was first reinterpreted geometrically in the 0-Sphere framework in \cite{hanamura07}; the present paper promotes that reinterpretation to a Lorentz-invariant theorem.
+The Zitterbewegung speed $v_\mathrm{ZB} \approx 0.04c$ was derived in \cite{hanamura10}; the present paper shows how it controls the helicity structure.
+Thomas precession is identified as the \emph{relativistic geometric correction} that makes the phase-space rotation physically observable, connecting the scalar kernel dynamics to the relativistic precession mechanism established in \cite{hanamura19, hanamura26}.
+Paper~\#47~\cite{hanamura47} identified three independent occurrences of $\tfrac{1}{2}$ in the 0-Sphere framework and predicted that their common geometric origin would be examined in a future paper; Section~\ref{subsec:three_halves} of the present work provides that answer.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+The 0-Sphere model identifies the electron's internal structure with two thermodynamic kernels, A and B, that oscillate in antiphase and radiate a photon sphere of energy $E_{\text{ph}}$ \cite{hanamura01, hanamura06}.
+The energy identity
+\begin{equation}
+E_0 \;=\; \cos^4\iphase + \sin^4\iphase + \frac{1}{2}\sin^2(2\iphase)
+\label{eq:energy_identity}
+\end{equation}
+has been the central object of study since 2018.
+The kernels are described by the scalar thermal potential energies $Te_1 = \cos^4\iphase$ and $Te_2 = \sin^4\iphase$, with the cross-term $\tfrac{1}{2}\sin^2(2\iphase)$ accounting for the photon-sphere kinetic energy.
+
+A natural question arises: how does a system of \emph{scalar} oscillators produce \emph{angular} momentum in the photon sphere?
+A scalar potential has no preferred rotation direction.
+Its gradient is a radial force; by itself, it cannot drive circulation.
+Yet the photon sphere carries a spin angular momentum $\hbar$, and Thomas precession connects the internal oscillation to the relativistic precession of the electron spin \cite{hanamura19, hanamura26}.
+
+The present paper addresses this apparent paradox using a geometric construction that can be illustrated as an animation.
+Consider $n$ radial oscillation axes, uniformly distributed in angle, with oscillation amplitude
+\begin{equation}
+P_k(a) \;=\; \cos(a - b_k),
+\qquad b_k = \frac{k\pi}{n},\quad k = 0, 1, \ldots, n-1.
+\label{eq:phase_stagger}
+\end{equation}
+The Cartesian coordinates of the $k$-th oscillator are
+\begin{equation}
+\bigl(x_k(a),\, y_k(a)\bigr)
+\;=\;
+\bigl(\cos b_k \cdot \cos(a - b_k),\;\sin b_k \cdot \cos(a - b_k)\bigr).
+\label{eq:star_coords}
+\end{equation}
+Each oscillator moves strictly along its radial axis; at no point does any individual oscillator travel in a circle.
+Nevertheless, as the global phase parameter $a$ increases continuously, the locus of maximum amplitude sweeps around the unit circle---an emergent rotation from purely linear constituents.
+
+This is not merely a visual trick.
+Section~\ref{sec:geometry} shows that the centroid of all oscillators traces a circle of radius $\tfrac{1}{2}$, directly linked to the zero-point energy floor of the energy identity \eqref{eq:energy_identity} \cite{hanamura46}.
+Section~\ref{sec:gradient} demonstrates that the gradient of each kernel's scalar potential acquires a transverse (torque-generating) component in the $\iphase$-space of the energy identity, providing the dynamical origin of angular momentum without invoking a circular force law.
+Section~\ref{sec:thomas} connects the phase stagger \eqref{eq:phase_stagger} to Thomas precession.
+Section~\ref{sec:chirality} shows that the branching condition at the degenerate point $x_k = \pm 1$ maps onto the particle/antiparticle distinction.
+Section~\ref{sec:fourthpower} explains why the fourth-power structure of $E_0$ suppresses the direct intuition from the linear picture while preserving the topological content.
+
+\subsection{Relation to prior work and scope of new results}
+\label{subsec:prior_work}
+
+The 0-Sphere model has been developed across more than forty papers since 2018.
+A reader encountering this paper without that background may find it helpful to have a compact map of which results belong to the prior series and which are new here.
+The distinction matters because the present paper assembles several prior findings into a single geometric picture, and the originality lies in the assembly and in three specific new results, not in repeating claims already established.
+
+Table~\ref{tab:contributions} summarizes the key concepts, their origin, and the precise upgrade this paper provides.
+The core message is: the electron/positron distinction was first identified geometrically in \cite{hanamura07}, but its Lorentz invariance and topological protection are proved here for the first time.
+The Zitterbewegung speed $v_\mathrm{ZB} \approx 0.04c$ was derived in \cite{hanamura10}, but its role as the kinematic controller of helicity is identified here.
+The emergence of angular momentum from scalar oscillations is the subject of the geometric construction in Section~\ref{sec:geometry}--\ref{sec:gradient}, which is new to this paper.
+In particular, Paper~\#47~\cite{hanamura47} identified three independent occurrences of $\tfrac{1}{2}$ in the 0-Sphere framework---the Thomas precession coefficient, the centroid radius, and the spin quantum number---and predicted that their common geometric origin would be examined in a future paper; Section~\ref{subsec:three_halves} of the present work provides that answer.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Map of contributions: prior series versus this paper}}
+\label{tab:contributions}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{6.2cm}p{3.8cm}p{6.5cm}}
+\toprule
+\textbf{Concept} & \textbf{Prior source} & \textbf{This paper's contribution} \\
+\midrule
+Two-kernel internal structure of the electron ($Te_1$, $Te_2$, photon sphere)
+& \cite{hanamura01} (\#1, 2018)
+& Used as starting point; not re-derived \\
+\addlinespace[0.3cm]
+Reinterpretation of Dirac $\Psi^{(\pm)}$ as Kernels A/B (not particle/antiparticle)
+& \cite{hanamura07} (\#7, 2020)
+& Promoted from reinterpretation to Lorentz-invariant theorem: $\chi = \mathrm{sign}(da/dt)$ is topologically protected \\
+\addlinespace[0.3cm]
+Zitterbewegung speed $v_\mathrm{ZB} \approx 0.04047c$
+& \cite{hanamura10} (\#10)
+& Identified as the kinematic controller of helicity flip; helicity-flip threshold derived from $v_\mathrm{ZB}$; 1 cycle accumulates $a_e$ of Thomas precession phase shift \\
+\addlinespace[0.3cm]
+Thomas precession as origin of spinorial $4\pi$ periodicity
+& \cite{hanamura19, hanamura29} (\#19, \#29)
+& Connected to the phase stagger $\delta b = \pi/n$; three-step scalar-to-rotational argument formalized; reframed as relativistic geometric correction, not generating principle \\
+\addlinespace[0.3cm]
+Three independent occurrences of $\tfrac{1}{2}$ (Thomas coefficient, centroid radius, spin $s=\tfrac{1}{2}$); predicted to share common origin
+& \cite{hanamura47} (\#47, 2026)
+& Common origin identified: all three reflect the AM--GM constraint $\cos^2\iphase + \sin^2\iphase = 1$ acting at geometric, kinematic, and topological levels simultaneously \\
+\addlinespace[0.3cm]
+Physical justification for $\mathbf{v}\times\mathbf{a}\neq\mathbf{0}$ in the 0-Sphere geodesic
+& \cite{hanamura49} (\#49, companion)
+& Arc-curvature of A$\to$B thermal geodesic makes $\mathbf{v}\parallel\hat{e}_x$ and $\mathbf{a}\parallel\hat{e}_y$ non-parallel; explicit cross-product derivation in companion paper \\
+\addlinespace[0.3cm]
+Angular momentum from scalar oscillators (bright-star locus, centroid $r=\tfrac{1}{2}$, transverse force)
+& New to this paper
+& Core geometric result: emergent rotation and angular momentum without circular force law \\
+\addlinespace[0.3cm]
+Chirality $\chi = \mathrm{sign}(da/dt)$ as Lorentz-invariant binary
+& New to this paper
+& Lorentz invariance proved; topological protection established as $S^1$ orientation classified by $\pi_1(S^1)=\mathbb{Z}$; frame-independent definition of electron/positron distinction \\
+\addlinespace[0.3cm]
+Helicity $h$ as frame-dependent projection of $\chi$
+& New to this paper
+& Helicity flip tied to $v_\mathrm{ZB}$; massless limit gives $h = \chi$ (Weyl limit); testable kinematic prediction \\
+\addlinespace[0.3cm]
+DOF audit: $\chi \times \mathrm{spin} = 4$ matches Dirac
+& New to this paper
+& Kernel A/B shown to be a single internal variable, not an independent DOF; 6/8-DOF apparent problem dissolved \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Rows 6--9 (``New to this paper'') mark results that are new to the present paper. Rows 1--5 mark results imported from the prior series and used here without re-derivation. The table is intended for readers who have not followed the full series; it is not a claim of novelty over all prior literature but a precise demarcation of what this paper adds to the 0-Sphere program. References cite the specific paper in the series where each prior result was first established.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Section 2: Geometric Construction
+% ========================================
+\section{Geometric Construction: The Phase-Staggered Oscillator Array}
+\label{sec:geometry}
+
+\subsection{Phase Evolution of the Oscillator Array}
+
+Figure~\ref{fig:frames} shows four frames of the oscillator array at $n = 12$, $a = 0^{\circ}, 45^{\circ}, 90^{\circ}, 135^{\circ}$.
+Each yellow dot represents the instantaneous position of one oscillator; each orange line is the fixed radial axis along which that oscillator reciprocates.
+The apparent rotation of the ``bright cluster'' (the group of dots near the unit circle) is visible from the progression of panels.
+No individual dot moves in a circle; each traces its own radial segment back and forth as $a$ advances.
+
+\begin{figure*}[ht]
+\caption{\textbf{Circular motion emerging from a phase-staggered radial oscillator array ($n=12$)}}
+\label{fig:frames}
+\centering
+\vspace{4pt}
+\begin{tabular}{cccc}
+\oscframeSM{0} &
+\oscframeSM{45} &
+\oscframeSM{90} &
+\oscframeSM{135}
+\end{tabular}
+
+\vspace{6pt}
+
+\begin{minipage}{\linewidth}
+\justifying\footnotesize
+
+Each panel shows the oscillator configuration for a different value of the global phase $a$.
+Yellow points indicate the instantaneous oscillator positions, while the orange lines show the fixed radial oscillation axes.
+
+The $k$-th oscillator moves only along its assigned axis,
+\[
+(x_k,y_k) = (\cos b_k \cos(a-b_k),\, \sin b_k \cos(a-b_k)).
+\]
+Although each oscillator undergoes purely radial motion, the collective configuration produces a bright locus that appears to rotate around the origin as the global phase $a$ advances.
+
+From left to right the phase values are $a = 0^{\circ},\,45^{\circ},\,90^{\circ},\,135^{\circ}$.
+A full revolution of the bright locus corresponds to an advance of $a$ by $180^{\circ}$ (i.e., $\pi$ in the internal phase).
+
+\textit{Visualization note.}
+The twelve points are discrete samples used to illustrate the phase-staggered oscillator field.
+They should not be interpreted as twelve physical particles orbiting the center.
+In the 0-Sphere model the underlying dynamics is generated solely by the two scalar kernels $\cos\phi$ and $\sin\phi$; the circular motion arises as an emergent collective pattern of these kernels.
+\textit{The apparent rotation resides entirely in internal phase space---in the mode space of the phase-staggered kernel potentials---not in the three-dimensional position space of the electron; no individual oscillator, and no physical object, executes a circular orbit in real space.}
+
+\end{minipage}
+\end{figure*}
+
+\subsection{The bright-star locus}
+\label{subsec:bright}
+
+The oscillator with maximum amplitude $|P_k| = 1$ at global phase $a$ is the one satisfying $a - b_k = 0$, i.e., $b_k = a$.
+Its coordinates are
+\begin{align}
+x_{\text{bright}} &= \cos(a) \cdot 1 = \cos a, \label{eq:xbright}\\
+y_{\text{bright}} &= \sin(a) \cdot 1 = \sin a. \label{eq:ybright}
+\end{align}
+As $a$ increases from $0$ to $2\pi$, $(x_{\text{bright}}, y_{\text{bright}}) = (\cos a, \sin a)$ traces the \emph{unit circle} counterclockwise (since $x_{\text{bright}} = 1$ at $a = 0$ and the angle advances in the standard trigonometric sense).
+This is the apparent rotation observed in the animation: the ``brightest star'' performs a full circular orbit, even though it is always the \emph{different} oscillator that happens to be at maximum amplitude.
+
+\subsection{The centroid locus and the $\tfrac{1}{2}$ circle}
+\label{subsec:centroid}
+
+The centroid of all $n$ oscillators is
+\begin{align}
+\bar{x}(a) &= \frac{1}{n}\sum_{k=0}^{n-1} \cos b_k \cos(a - b_k), \label{eq:centroid_sum}\\
+\bar{y}(a) &= \frac{1}{n}\sum_{k=0}^{n-1} \sin b_k \cos(a - b_k). \notag
+\end{align}
+Using $\cos(a - b_k) = \cos a \cos b_k + \sin a \sin b_k$ and the orthogonality of the uniform angular distribution, one obtains for large $n$:
+\begin{align}
+\bar{x}(a) &\;\to\; \frac{\cos a}{2}, \label{eq:centroid_x}\\
+\bar{y}(a) &\;\to\; \frac{\sin a}{2}. \label{eq:centroid_y}
+\end{align}
+The centroid traces a circle of radius $\tfrac{1}{2}$, independently of $n$ in the continuum limit.
+This is not an approximation for finite $n$; for exactly $n = 12$ it holds with small finite-$n$ corrections of order $1/n$.
+
+This $\tfrac{1}{2}$ radius is the direct geometric manifestation of the energy floor established in the companion paper \cite{hanamura46}.
+To see why, recall the AM--GM inequality: for any two non-negative numbers $p$ and $q$,
+\begin{equation}
+\frac{p + q}{2} \;\geq\; \sqrt{pq},
+\label{eq:amgm}
+\end{equation}
+with equality if and only if $p = q$.
+Set $p = \cos^2\iphase$ and $q = \sin^2\iphase$, which satisfy $p + q = 1$ for all $\iphase$.
+Then Eq.~\eqref{eq:amgm} gives $\tfrac{1}{2} \geq \sqrt{pq} = |\cos\iphase\sin\iphase|$, and squaring both sides:
+\begin{equation}
+\cos^2\iphase\,\sin^2\iphase \;\leq\; \frac{1}{4}.
+\label{eq:amgm_applied}
+\end{equation}
+The photon-sphere energy is $E_{\text{ph}} = \tfrac{1}{2}\sin^2(2\iphase) = 2\cos^2\iphase\sin^2\iphase$, so Eq.~\eqref{eq:amgm_applied} becomes $E_{\text{ph}} \leq \tfrac{1}{2}E_0$.
+Equivalently, the combined kernel energy $Te_1 + Te_2 = \cos^4\iphase + \sin^4\iphase$ satisfies
+\begin{equation}
+Te_1 + Te_2 \;=\; 1 - 2\cos^2\iphase\sin^2\iphase \;\geq\; 1 - \tfrac{1}{2} \;=\; \tfrac{1}{2}E_0.
+\label{eq:energy_floor}
+\end{equation}
+The inequality \eqref{eq:energy_floor} is sharp: the minimum $Te_1 + Te_2 = \tfrac{1}{2}$ is achieved at $\iphase = \pi/4$ (and at $3\pi/4, 5\pi/4, 7\pi/4$), where the two kernels carry equal energy and the photon sphere carries the maximum.
+The centroid circle of radius $\tfrac{1}{2}$ and the energy floor $\tfrac{1}{2}E_0$ are therefore two faces of the same AM--GM constraint: neither the spatial support of the photon sphere nor its energy can collapse to zero.
+
+Figure~\ref{fig:annotated} shows a single annotated frame identifying the bright-star locus (red dot on the unit circle) and the centroid position (cyan dot on the half-radius circle).
+
+\begin{figure}[ht]
+\caption{\textbf{Annotated frame at $a = 30^{\circ}$, $n=12$}}
+\label{fig:annotated}
+\centering
+\vspace{4pt}
+\oscframeanno{30}
+\vspace{4pt}
+\begin{minipage}{\columnwidth}
+\justifying\footnotesize
+Yellow dots: all 12 oscillators. Red dot: the brightest oscillator (maximum amplitude), located on the unit circle at $(\cos a, \sin a)$. Cyan dot: centroid of all 12 oscillators, located on the half-radius circle (dashed cyan). The dashed white circle is the unit circle; the dashed cyan circle has radius $\tfrac{1}{2}$. Both loci reside in internal phase space, not in three-dimensional position space.
+\end{minipage}
+\end{figure}
+
+% ========================================
+% Section 3: Angular Momentum from Scalar Potential Gradient
+% ========================================
+\section{Angular Momentum from a Scalar Potential Gradient}
+\label{sec:gradient}
+
+\subsection{The apparent paradox}
+
+Within the 0-Sphere model, the kernel energies $Te_1 = \cos^4\iphase$ and $Te_2 = \sin^4\iphase$ are scalar potentials in the internal phase coordinate $\iphase$.
+The gradient of a scalar potential in a single coordinate produces a force along that coordinate---in this case, a ``restoring force'' in $\iphase$.
+How does such a force produce \emph{angular} momentum in the two-dimensional $(x, y)$ plane of the photon sphere?
+
+\subsection{Resolution: transverse force component in the mode-space}
+
+The resolution lies in recognizing that the phase coordinate $\iphase$ is \emph{not} aligned with any single spatial direction.
+The photon-sphere position is a linear superposition over modes indexed by $b_k$.
+A change $\delta\iphase$ in the global phase displaces \emph{all} oscillators simultaneously, but with mode-dependent amplitudes $\cos b_k$ and $\sin b_k$.
+The net displacement of the photon-sphere center of energy is
+\begin{equation}
+\delta \mathbf{r}_{\text{ph}} = \sum_k \delta\iphase \cdot \frac{d}{d\iphase}\bigl(\cos b_k \sin(\iphase + b_k),\, \sin b_k \sin(\iphase + b_k)\bigr).
+\label{eq:displacement}
+\end{equation}
+Each mode contributes a displacement along its own axis, but the vector sum has a non-radial component.
+Evaluating at the bright mode $b_k = \iphase$ (the axis aligned with the current phase), the dominant contribution to $\delta\mathbf{r}_{\text{ph}}$ is perpendicular to the current bright-star radius---i.e., tangential to the unit circle.
+This tangential displacement is the physical origin of the photon-sphere angular momentum.
+
+\subsection{Torque from the gradient}
+
+The physical force driving the photon sphere is not the derivative of $E_{\text{ph}}$ but the \emph{radiation gradient} of the kernel potential difference, established in Paper~\#1~\cite{hanamura01}.
+In the canonical notation of that paper, where $\theta = \omega\tau$ is the internal phase and the kernel energies are $Te_1 = E_0\cos^4(\theta/2)$ and $Te_2 = E_0\sin^4(\theta/2)$, this gradient is
+\begin{equation}
+F(\theta) \;=\; \frac{d}{d\theta}(Te_2 - Te_1) \;=\; E_0\sin\theta.
+\label{eq:radiation_gradient_50}
+\end{equation}
+This is the SHM driving force whose period-integrated value is responsible for the A$\to$B traversal.
+The differential torque on the $k$-th oscillation mode, evaluated at the phase offset $b_k - a$ relative to the current global phase $a$, is
+\begin{equation}
+\delta\tau_k \;=\; E_0\sin(b_k - a).
+\label{eq:mode_torque}
+\end{equation}
+Summing over all $n$ modes with the uniform angular distribution $b_k = k\pi/n$:
+\begin{equation}
+\sum_{k=0}^{n-1}\delta\tau_k \;=\; E_0\sum_{k=0}^{n-1}\sin(b_k - a) \;=\; 0,
+\label{eq:zero_torque}
+\end{equation}
+where the vanishing follows from the orthogonality of the uniform distribution: $b_k = k\pi/n$ samples the circle at equal intervals, so the sine sum is exactly zero for all $a$.
+This confirms that the net torque averages to zero over one full revolution---consistent with the angular momentum being a conserved quantity, not an accelerating one.
+The angular momentum of the photon sphere is therefore not generated continuously; it is a topologically protected constant of the motion, with the radiation gradient $F(\theta) = E_0\sin\theta$ providing the \emph{mechanism} by which the sequence of linear oscillations is converted into a fixed circulation.
+
+It is worth making the logical structure of this conclusion explicit.
+A torque that averages to zero over one cycle does not simply mean ``nothing happens''; it means that whatever angular impulse is delivered in one half-cycle is exactly cancelled in the other half.
+No net work is done on the angular degree of freedom per cycle, so the angular momentum $L$ cannot systematically grow or decay: it is conserved.
+The phrase ``topologically protected'' refers to a stronger statement: the conservation persists under any small deformation of the kernel potential that preserves the underlying $\pi/2$ symmetry between Kernel~A and Kernel~B.
+As long as $Te_1(\theta) = Te_2(\theta + \pi/2)$ (the two kernels are related by a quarter-period shift), the orthogonality $\sum_k\sin(b_k - a) = 0$ holds for any uniform angular distribution of modes, and the zero net torque---and thus the conservation of $L$---survives.
+
+% ========================================
+% Section 4: Connection to the Energy Identity
+% ========================================
+\section{Connection to $E_0$ and the Fourth-Power Structure}
+\label{sec:fourthpower}
+
+\subsection{The two-layer hierarchy}
+
+The linear oscillator picture of Section~\ref{sec:geometry} corresponds to a \emph{first-power} description: amplitudes $\cos(a - b_k)$ enter linearly.
+In this picture the geometry is fully visible: straight lines, a circle of radius $\tfrac{1}{2}$, a smooth rotation.
+The energy identity \eqref{eq:energy_identity}, by contrast, is a \emph{fourth-power} description: the kernel energies enter as $\cos^4\iphase$ and $\sin^4\iphase$.
+The fourth power arises from the Stefan--Boltzmann radiation law for the perfect black-body kernels \cite{hanamura01}, and it is this thermodynamic exponent that produces the zero-point energy floor $E_0/2$ \cite{hanamura46}.
+
+The two descriptions are related by squaring: if the linear amplitudes are $\cos\iphase$ and $\sin\iphase$, then the thermal potential energies are $(\cos^2\iphase)^2 = \cos^4\iphase$ and $(\sin^2\iphase)^2 = \sin^4\iphase$.
+The squaring step is the ``thermodynamic dressing'' that converts geometric amplitudes into energy densities.
+It preserves the topological content (the circle, the $\tfrac{1}{2}$ radius, the rotation) but destroys the direct visual accessibility of the linear picture.
+
+\subsection{Why the linear picture suffices for the angular momentum argument}
+
+For the purpose of demonstrating that scalar oscillations generate angular momentum, the linear layer is the appropriate one.
+The argument of Section~\ref{sec:gradient}---that the vector sum of mode displacements has a tangential component---is independent of the power of the amplitude.
+Whether the kernel energies are $\cos^2\iphase$ or $\cos^4\iphase$, the photon-sphere center of energy still traces the same circle; only the speed of traversal (the $\iphase$-dependence of the angular velocity) changes.
+The angular momentum itself, being topologically protected by the zero net torque identity, does not depend on the exponent.
+
+This hierarchical structure---linear geometry encoding angular momentum, fourth-power thermodynamics encoding the energy scale---is proposed as a general organizing principle of the 0-Sphere model.
+
+% ========================================
+% Section 5: Thomas Precession Reinterpretation
+% ========================================
+\section{Thomas Precession as the Physical Origin of the Phase Stagger}
+\label{sec:thomas}
+
+\subsection{Thomas precession: rotation from sequential boosts}
+
+Thomas precession is the relativistic kinematic effect by which a gyroscope undergoing non-collinear successive Lorentz boosts precesses at the Thomas rate $\Omega_T = (\gamma - 1)(v \times a)/v^2$, even in the absence of any torque \cite{hanamura13, hanamura26}.
+The precession is entirely a consequence of the non-commutativity of non-collinear boosts; no circular force is required.
+This is the direct relativistic analogue of the geometric construction in Section~\ref{sec:geometry}: rotation emerging from a sequence of linear (boost) operations.
+
+The key question is: why are the boosts non-collinear in the 0-Sphere model? A pure one-dimensional oscillator (such as a pendulum) has $\mathbf{v} \parallel \mathbf{a}$ at all times, so its cross product $\mathbf{v}\times\mathbf{a}$ vanishes and Thomas precession is absent. The 0-Sphere thermal geodesic is not one-dimensional in this sense: it is an arc-connected path between two discrete S$^0$ points in three-dimensional space, and its curvature enforces $\mathbf{v}\perp\mathbf{a}$. The explicit derivation of $\mathbf{v}\times\mathbf{a}\neq\mathbf{0}$ from the arc-curvature geometry is given in the companion paper~\cite{hanamura49}; the result is used here as an established input.
+
+\subsection{Mapping Thomas precession onto the phase stagger}
+
+In the 0-Sphere model, the Zitterbewegung of the photon sphere consists of a rapid oscillation along successive radial directions.
+Between each oscillation step, the kernel pair (A, B) emits and absorbs radiation, shifting the internal phase $\iphase$ by a small increment $\delta\iphase$.
+The sequence of emission-absorption cycles can be modeled as a discrete set of radial displacements along axes $b_0, b_1, b_2, \ldots$, with each axis differing from the previous by $\delta b = \pi/n$.
+In the continuum limit, this discrete sequence becomes precisely the array of Eq.~\eqref{eq:star_coords}.
+
+The step size $\delta b = \pi/n$ (rather than the seemingly more natural $2\pi/n$) reflects the fact that a radial oscillation axis at angle $b$ and an axis at $b + \pi$ are physically identical: they describe the same line in opposite directions.
+The fundamental period of an oscillation axis is therefore $\pi$, not $2\pi$, and the uniform coverage of all distinct axes requires $n$ steps of $\pi/n$.
+This $\pi$-periodicity of the axis space is the geometric seed of the $4\pi$ spinorial periodicity: since each full traversal of the $\iphase$-cycle ($0$ to $2\pi$) covers the axis space twice ($0$ to $2\pi$ in $b_k$ corresponds to $0$ to $\pi$ in distinct axes, traversed twice), two full $\iphase$-cycles are needed to return the state to its original value.
+
+The phase stagger $b_k$ in Eq.~\eqref{eq:phase_stagger} is therefore the accumulated Thomas angle: the azimuthal angle of the $k$-th oscillation axis relative to the reference axis, generated by $k$ successive boost steps of size $\delta b = \pi/n$.
+The global phase $a$ is the proper-time parameter of the Zitterbewegung cycle.
+Under this identification, the bright-star locus \eqref{eq:xbright}--\eqref{eq:ybright} traces the Thomas precession of the photon-sphere polarization vector: it rotates by $\pi$ for each full internal $\iphase$-cycle.
+To see why, note that the bright star is at $(\cos a,\sin a)$: as $a$ advances from $0$ to $2\pi$, the bright star completes one full revolution of the unit circle, returning to its starting point.
+However, the \emph{state} of the photon sphere is not fully described by the position of the bright star alone; it also carries the phase of the oscillation.
+Because the axis space has period $\pi$, the state picks up a sign change after one bright-star revolution ($a: 0\to 2\pi$), and returns to its original value only after two revolutions ($a: 0 \to 4\pi$).
+This is precisely the $4\pi$ periodicity of a spinor under spatial rotation \cite{hanamura19}, and it is here that the $s=\tfrac{1}{2}$ quantum number emerges geometrically from the $\pi$-periodicity of the oscillation axis space. The rigorous backing for this identification is provided in~\cite{hanamura29}, which shows via explicit line-integral analysis that a single one-way kernel traversal accumulates exactly $2\pi$ of internal spinorial phase through the Thomas-precession connection, with the round trip yielding the $4\pi$ periodicity; the present heuristic argument and that exact result are two descriptions of the same geometric structure.
+
+\subsection{Scalar potential yet rotational output: the Thomas mechanism}
+
+This reinterpretation resolves the apparent paradox of Section~\ref{sec:gradient} from a physical perspective, and it constitutes one of the central contributions of the 0-Sphere model framework.
+We develop the argument in three steps.
+
+\paragraph{Step 1: Why linear motion ordinarily produces no angular momentum.}
+In Newtonian mechanics, a particle oscillating back and forth along a fixed axis has zero angular momentum about any point on that axis.
+Angular momentum $\mathbf{L} = \mathbf{r} \times \mathbf{p}$ vanishes identically when $\mathbf{r}$ and $\mathbf{p}$ are always parallel (or anti-parallel), which is exactly the case for pure linear reciprocation.
+This is the classical intuition that makes the 0-Sphere model's result non-obvious: if each oscillator moves only along its own radial axis, how can the system as a whole carry angular momentum?
+The answer is not found within Newtonian mechanics; it requires special relativity.
+
+\paragraph{Step 2: How Thomas precession breaks the collinearity.}
+Thomas precession arises specifically when a system undergoes \emph{successive non-collinear boosts}.
+If all boosts are collinear (i.e., all along the same axis), then successive boosts compose to a single boost and no rotation accumulates.
+The crucial point is the word ``non-collinear'': each emission-absorption cycle in the 0-Sphere model shifts the internal phase by $\delta\iphase$, causing the next oscillation axis to be tilted by $\delta b = \pi/n$ relative to the current one.
+No single oscillation is circular; each is strictly linear.
+But the \emph{sequence} of linear oscillations along \emph{slightly different} directions is precisely the condition for Thomas precession to operate.
+The rotation that Thomas precession produces is not ``added on'' from outside---it is an unavoidable kinematic consequence of the non-commutativity of Lorentz boosts, exactly as a gyroscope carried around a curve precesses even when no torque is applied to it.
+
+The kinematic necessity of the subluminal velocity $v_\mathrm{ZB}\approx 0.04c$ now becomes precise. Consider three contrasting cases. (i)~\emph{Uniform linear motion:} $\mathbf{a}=\mathbf{0}$ identically, so $\mathbf{v}\times\mathbf{a}=\mathbf{0}$ and $\boldsymbol{\Omega}_T = \mathbf{0}$ regardless of $v$; no angular momentum is generated, consistent with the classical result $\mathbf{L}=\mathbf{r}\times\mathbf{p}=\mathbf{0}$ when $\mathbf{r}\parallel\mathbf{p}$. (ii)~\emph{Classical slow oscillator} ($v\ll c$): $\mathbf{v}\times\mathbf{a}\neq\mathbf{0}$ because acceleration is present, but $|\boldsymbol{\Omega}_T| \propto v^2/c^2 \to 0$; the phase stagger per cycle vanishes and no net angular momentum accumulates in any observable sense. (iii)~\emph{Subluminal ZB oscillator} ($v_\mathrm{ZB}\approx 0.04c$): $|\boldsymbol{\Omega}_T| \propto v_\mathrm{ZB}^2/c^2 \approx 1.6\times 10^{-3}$, which is small but non-negligible; over one internal oscillation cycle, the Thomas precession accumulates exactly $a_e$ of phase shift---the same anomalous magnetic moment quantified by the rotational Lorentz contraction identity $\Delta[L]=|\gamma_L-1|\cdot L_0$ of Paper~\#47~\cite{hanamura47}. It is this finite accumulation, absent in cases (i) and (ii), that converts the one-dimensional oscillation sequence into a physically observable angular momentum.
+
+A precise physical justification for why the successive boosts are non-collinear in the 0-Sphere model is provided in the companion paper~\cite{hanamura49}. The argument proceeds as follows. The standard Thomas precession formula is
+\begin{equation}
+\boldsymbol{\Omega}_T = -\frac{\mathbf{v} \times \mathbf{a}}{2c^2},
+\label{eq:thomas_standard}
+\end{equation}
+which vanishes identically when $\mathbf{v} \parallel \mathbf{a}$. For a \emph{purely one-dimensional} oscillator such as a pendulum, velocity and acceleration always point along the same axis, so $\mathbf{v} \times \mathbf{a} = \mathbf{0}$ and no Thomas precession occurs. This is not the situation in the 0-Sphere model. The A$\to$B thermal geodesic is an \emph{arc-connected path} in three-dimensional space between the two discrete S$^0$ points $\{A,B\}$, and it carries geometric curvature. As a consequence, the instantaneous velocity lies along the \emph{tangent} direction of the arc,
+\begin{equation}
+\mathbf{v}(t) = v_0\cos(\omega t)\,\hat{e}_x,
+\label{eq:v_geodesic}
+\end{equation}
+while the acceleration has a component along the \emph{transverse} (curvature) direction,
+\begin{equation}
+\mathbf{a}(t) = -v_0\omega\sin(\omega t)\,\hat{e}_y.
+\label{eq:a_geodesic}
+\end{equation}
+These two vectors are non-parallel; their cross product is
+\begin{align}
+\mathbf{v}(t) \times \mathbf{a}(t)
+&= v_0\cos(\omega t)\,\hat{e}_x \times \bigl(-v_0\omega\sin(\omega t)\,\hat{e}_y\bigr) \notag \\
+&= -\frac{v_0^2\omega}{2}\sin(2\omega t)\,\hat{e}_z \;\neq\; \mathbf{0}.
+\label{eq:cross_product}
+\end{align}
+Substituting into Eq.~\eqref{eq:thomas_standard} gives
+\begin{equation}
+\boldsymbol{\Omega}_T(\iphase) = -\frac{v_0^2\omega}{4c^2}\sin(2\iphase)\,\hat{e}_z,
+\label{eq:OmT_derived}
+\end{equation}
+which is precisely the Thomas angular velocity established in Paper~\#19~\cite{hanamura19}. Because $v_{\text{ZB}} \approx 0.04c$, the prefactor $v_0^2/(4c^2) \approx 4\times 10^{-4}$ is small but non-negligible---a Newtonian oscillator at the same frequency would produce $\boldsymbol{\Omega}_T = \mathbf{0}$. The non-collinearity of successive boosts is therefore a direct consequence of the arc-curvature of the thermal geodesic, not an independent postulate.
+
+To make this concrete: if the $k$-th oscillation axis makes angle $b_k$ with the reference axis, and the $(k+1)$-th axis makes angle $b_{k+1} = b_k + \delta b$, then the composition of the two boosts along these axes is equivalent to a single boost \emph{plus} a rotation by the Thomas angle $\Omega_T \cdot \delta t$.
+Summed over all $n$ steps in one Zitterbewegung cycle, the accumulated Thomas rotation is $\sum_k \Omega_T \cdot \delta t = \pi$ (one half-turn), which is precisely the $\pi$-per-cycle rotation of the bright-star locus established in Section~\ref{subsec:bright}.
+
+\paragraph{Step 3: Scalar source, rotational output---the physical picture.}
+The kernel energies $Te_1 = \cos^4\iphase$ and $Te_2 = \sin^4\iphase$ are scalar fields in the internal phase $\iphase$.
+A scalar field has no preferred direction; its gradient is purely radial in $\iphase$-space.
+In Newtonian terms, this would confine all dynamics to the $\iphase$ axis and preclude any angular momentum.
+
+The Thomas mechanism evades this restriction because it operates at the level of the \emph{sequence} of boost events, not at the level of any individual event.
+Each emission-absorption step is driven by the scalar kernel gradient---purely radial, no circular component.
+But the relativistic kinematics of stringing these steps together generates a rotation as a geometric by-product, with no additional circular force law required.
+The scalar nature of the kernels is therefore not in contradiction with the rotational output: it is the \emph{source} of it.
+
+This is a non-trivial departure from both classical mechanics and the usual intuition about spin.
+In the standard treatment, spin is either postulated as a primitive quantum number (Pauli) or derived from the structure of the Lorentz group (Dirac).
+Neither derivation provides a mechanical picture of \emph{what is actually rotating} or \emph{why scalar dynamics can produce it}.
+The 0-Sphere model fills this gap: what rotates is the polarization axis of the photon-sphere oscillation, driven by Thomas precession of the Zitterbewegung trajectory; and scalar dynamics can produce it because Thomas precession is a kinematic effect of special relativity that requires no circular force, only non-collinear sequential boosts. This is a concrete instance of the derivative-order mismatch between gauge theory and gravity analyzed in~\cite{hanamura40}: the scalar source (connection-level) generates a rotational output (curvature-level) through the sequencing of boost events---a structural relationship that holds precisely because the physically relevant quantity is the line integral of the connection along the sequence, not any local curvature at a single step.
+
+\noindent\textit{Remark on the role of Thomas precession.} It is essential to note that Thomas precession does \emph{not} generate the circular structure described in Sections~\ref{sec:geometry}--\ref{sec:gradient}; that structure is a consequence of the phase-space topology of the kernel dynamics and exists independently of any relativistic correction. What Thomas precession provides is a \emph{relativistic geometric correction} that (i) quantifies the physical scale of the phase stagger $\delta b = \pi/n$ in terms of the measurable quantity $v_\mathrm{ZB}$, (ii) accounts for the accumulation of $a_e$ per internal cycle (Section~\ref{subsec:prior_work}), and (iii) connects the abstract phase-space rotation to the measured anomalous magnetic moment via the identity $\Delta[L]=|\gamma_L-1|\cdot L_0$~\cite{hanamura47}. In the Newtonian limit $v_\mathrm{ZB}/c\to 0$, the topological structure survives---the phase-space circle, the chirality $\chi$, the $4\pi$ periodicity---but the relativistic quantification of these structures disappears: $\boldsymbol{\Omega}_T\to\mathbf{0}$, $a_e\to 0$, and the phase stagger becomes unmeasurable externally. Thomas precession is therefore best understood as the \emph{relativistic window} through which the internal topological structure becomes observable.
+
+% ========================================
+% Section 6: Chirality, Helicity, and the Electron–Positron Distinction
+% ========================================
+\section{Chirality, Helicity, and the Electron--Positron Distinction}
+\label{sec:chirality}
+
+\subsection{Spatial setup: three planes, three roles}
+
+\noindent\textit{Note on the space in which rotation resides.} The circular motion described in Sections~\ref{sec:geometry}--\ref{sec:gradient} resides entirely in \emph{internal phase space}---specifically, in the mode space of the phase-staggered kernel potentials---not in the three-dimensional position space of the electron. The photon sphere does not execute a circular orbit in real space; its center of energy traces a circle of radius $\tfrac{1}{2}$ in the abstract phase coordinate $(\bar{x}(a), \bar{y}(a))$ of Eqs.~\eqref{eq:centroid_x}--\eqref{eq:centroid_y}. The angular momentum that emerges from this construction is therefore an \emph{internal} angular momentum, associated with the topology of the phase-space trajectory. The assignment of physical spatial directions ($x$, $y$, $z$) in the following subsections specifies how this internal phase-space rotation projects onto real space---it does not imply that the photon sphere traverses a circular orbit in three-dimensional position space.
+
+So far the oscillator array has been drawn in the abstract $(x_k, y_k)$ plane of Section~\ref{sec:geometry}, with no commitment to physical spatial directions.
+We now assign those directions explicitly for a free electron propagating in the $+x$ direction.
+
+The \emph{propagation axis} is $x$: the thermal geodesic $A\to B\to A'$ advances in this direction, with the internal phase increasing at rate $da/dt$.
+The \emph{rotation plane} is $yz$: the photon sphere executes its apparent circular orbit here, perpendicular to propagation.
+The dominant kernel pair provides two orthogonal linear oscillators---Kernel A along $y$, Kernel B along $z$---whose $\pi/2$ phase offset produces circular motion:
+\begin{align}
+y_{\text{ph}}(a) &= \cos(0)\cdot\cos(a - 0) = \cos a, \label{eq:yph}\\
+z_{\text{ph}}(a) &= \sin\!\left(\tfrac{\pi}{2}\right)\cdot\cos\!\left(a - \tfrac{\pi}{2}\right) = \sin a. \label{eq:zph}
+\end{align}
+The photon-sphere trajectory $(y,z)=(\cos a, \sin a)$ is a unit circle traversed counterclockwise for $da/dt > 0$, with handedness set by $\text{sign}(da/dt)$.
+This is exactly analogous to circular polarization of an electromagnetic wave: two orthogonally polarized, $90^{\circ}$-phase-offset linear oscillations combine into a single circular motion.
+The cos oscillator (Kernel~A) and sin oscillator (Kernel~B) are the two linear polarization components.
+
+\subsection{Chirality: geodesic orientation (Lorentz invariant)}
+\label{subsec:chirality_def}
+
+Chirality $\chi$ is defined as the orientation of the thermal geodesic in internal phase space:
+\begin{equation}
+\chi \;\equiv\; \text{sign}\!\left(\frac{da}{dt}\right)
+= \begin{cases}
++1 & \text{forward } (A\to B\to A'), \\
+   & \quad \text{electron,}\\[4pt]
+-1 & \text{backward } (A'\to B\to A), \\
+   & \quad \text{positron.}
+\end{cases}
+\label{eq:chirality_def}
+\end{equation}
+This orientation is a topological property of the directed path: no Lorentz boost changes the sense of a curve's traversal.
+$\chi$ is therefore Lorentz invariant.
+In the Dirac equation, the forward geodesic corresponds to the upper Weyl spinor $\psi_R$ (Kernel~A dominant, $\cos^4\iphase$ large at $\iphase\approx 0$) and the backward geodesic to the lower Weyl spinor $\psi_L$ (Kernel~B dominant, $\sin^4\iphase$ large)~\cite{hanamura07}.
+The algebraic object $\gamma^5$ encodes this orientation internally.
+
+The companion paper~\cite{hanamura49} establishes that the sign of the Thomas angular velocity $\boldsymbol{\Omega}_T = -(v_0^2\omega/4c^2)\sin(2\iphase)\,\hat{e}_z$ is determined by $\text{sign}(da/dt)$: when the thermal geodesic is traversed forward ($da/dt > 0$, electron), $\boldsymbol{\Omega}_T$ points along $+\hat{e}_z$; when traversed backward ($da/dt < 0$, positron), it points along $-\hat{e}_z$. The chirality definition is therefore equivalent to the sign of the Thomas precession:
+\begin{equation}
+\chi \;=\; \text{sign}(da/dt) \;=\; \text{sign}(\boldsymbol{\Omega}_T \cdot \hat{e}_z).
+\label{eq:chirality_thomas}
+\end{equation}
+This equivalence provides a kinematic grounding for the topological invariant $\chi$: it is the orientation of the arc-connected geodesic, and this orientation fixes the handedness of the Thomas precession throughout the traversal.
+
+It is worth pausing on the notation $\text{sign}(da/dt)$.
+The function $\text{sign}(x)$ returns $+1$ if $x>0$, $-1$ if $x<0$, and $0$ if $x=0$; it extracts only the \emph{direction} of its argument, discarding its magnitude entirely.
+Here $da/dt$ is the rate at which the internal phase $a$ advances along the thermal geodesic.
+The magnitude $|da/dt|$ is related to the Zitterbewegung frequency and depends on the observer's frame---a Lorentz boost changes how fast an external observer perceives the internal cycle to run.
+The sign of $da/dt$, by contrast, is a topological invariant of the directed curve $A\to B\to A'$: a curve that goes ``forward'' in phase keeps going forward regardless of how the observer moves, because reversing a Lorentz boost cannot reverse the orientation of a path.
+This is why $\chi = \text{sign}(da/dt)$ is Lorentz invariant while the Zitterbewegung speed is not.
+Physically, the distinction between electron and positron is not a question of how \emph{fast} the internal cycle runs, but of which \emph{direction} it runs---and direction, unlike speed, is immune to frame changes. In the broader language of the 0-Sphere line-integral program~\cite{hanamura31}, this is an instance of the general principle that physical observables correspond to holonomies of connections along histories: the chirality $\chi = \text{sign}(da/dt)$ is precisely the holonomy of the thermal geodesic traversal, a quantity that is insensitive to local reparametrization and Lorentz boosts for the same reason that any holonomy is topologically protected.
+
+More precisely, $\chi$ is the \emph{orientation} of the continuous phase flow $a(t)$ on the circle $S^1$: the forward flow ($da/dt > 0$) traverses $S^1$ counterclockwise, corresponding to $\chi = +1$; the backward flow ($da/dt < 0$) traverses it clockwise, corresponding to $\chi = -1$. The discreteness $\chi \in \{+1, -1\}$ is not an assumption but a consequence of the topology of $S^1$: the fundamental group $\pi_1(S^1) = \mathbb{Z}$ classifies all winding numbers, and the \emph{sign} of the winding is the quantity $\chi$ captures. The two oriented circles are not continuously deformable into each other without passing through a degenerate point ($da/dt = 0$), at which the trajectory ceases to define a well-defined map to $S^1$. The electron--positron distinction is therefore encoded not as a manually assigned label but as the binary classification of directed loops on $S^1$: a classification that is topologically enforced, Lorentz invariant, and independent of any relativistic correction.
+
+\subsection{Helicity: observed rotation in the $yz$-plane (frame-dependent)}
+\label{subsec:helicity_def}
+
+Helicity $h$ is the projection of the photon-sphere angular momentum onto the propagation direction:
+\begin{equation}
+h \;=\; \frac{L_x}{|\mathbf{L}|} \;=\; \chi\cdot\text{sign}(p_x).
+\label{eq:helicity_def}
+\end{equation}
+In the laboratory frame ($p_x>0$), $h=\chi$.
+If an observer travels in the $+x$ direction faster than the electron ($v_{\text{obs}}>v_{\text{electron}}$), the observed momentum reverses ($p_x\to -p_x$) while $L_x$ is unchanged, so $h\to -h$: \emph{helicity reverses, chirality does not}.
+This is the standard statement that the helicity of a massive particle is not Lorentz invariant; the 0-Sphere model provides its geometric origin in the relative orientation of the $yz$-rotation and the observed momentum.
+
+Figure~\ref{fig:yzplane} shows both cases as seen from the $-x$ side (observer looking in $+x$, electron moving away): counterclockwise (CCW) for the electron ($h=+\tfrac{1}{2}$) and clockwise (CW) for the positron ($h=-\tfrac{1}{2}$).
+
+\begin{figure*}[ht]
+\caption{\textbf{Photon-sphere rotation in the $yz$-plane, viewed from $-x$}}
+\label{fig:yzplane}
+\centering
+\vspace{4pt}
+\begin{tabular}{cc}
+\yzplane{1}{h=+\tfrac{1}{2}}{Electron\;($\chi=+1,\;da/dt>0$)} &
+\yzplane{-1}{h=-\tfrac{1}{2}}{Positron\;($\chi=-1,\;da/dt<0$)}
+\end{tabular}
+\vspace{4pt}
+\begin{minipage}{\linewidth}
+\justifying\footnotesize
+Electron propagates in $+x$ (into page, $\otimes$). Orange dashed lines: Kernel~A ($y$-axis) and Kernel~B ($z$-axis) oscillation axes. Cyan circle: photon-sphere orbit (radius~$\tfrac{1}{2}$) in the $yz$ rotation plane (internal phase space projected onto real space). Yellow curved arrow: rotation direction. \textit{Left}: forward geodesic, CCW rotation, $h=+\tfrac{1}{2}$ (electron). \textit{Right}: backward geodesic, CW rotation, $h=-\tfrac{1}{2}$ (positron). Chirality $\chi$ is Lorentz invariant as the orientation of the $S^1$ phase flow; helicity $h$ reverses when an observer overtakes the particle.
+\end{minipage}
+\end{figure*}
+
+\subsection{Helicity flip and the $v_{\mathrm{ZB}}\approx 0.04c$ prediction}
+\label{subsec:helicity_flip}
+
+The predicted Zitterbewegung velocity $v_{\mathrm{ZB}}\approx 0.04c$ \cite{hanamura10} is the equatorial speed of the photon-sphere rotation in the $yz$-plane.
+It sets the \emph{internal rotational speed}, not the translational speed $v_x$.
+
+The helicity flip condition is simply $v_{\text{obs}}>v_x$: any observer or particle traveling parallel to the electron faster than the electron will see the reversed helicity.
+No threshold involving $v_{\mathrm{ZB}}$ is required for the flip itself.
+What $v_{\mathrm{ZB}}$ contributes is a \emph{physical picture}: the rotation in the $yz$-plane is non-relativistic ($0.04c\ll c$), so the flip is a genuine kinematic reorientation of an actual (slow) internal rotation, not a formal phase ambiguity.
+
+Specifically, when a photon traveling parallel to the electron at speed $c\gg v_x$ passes it, the photon's frame attributes a large negative $p_x$ to the electron.
+From this frame, the $yz$-rotation appears CW instead of CCW---helicity reversed.
+This is geometrically equivalent to the circular-polarization analogy: a receiver moving faster than the source along the wave's propagation axis sees the sense of circular polarization reversed.
+The QED helicity-flip cross-section is non-zero for massive electrons and vanishes in the $m_e\to 0$ limit; in the 0-Sphere framework, this mass-dependence has a direct geometric interpretation: as $m_e\to 0$ the photon-sphere rotation speed $v_{\mathrm{ZB}}\to 0$, eliminating the internal rotation entirely and with it any axis whose orientation could be flipped \cite{hanamura33}.
+
+\subsection{Summary: chirality and helicity in 0-Sphere vocabulary}
+
+The preceding subsections have introduced two closely related but distinct concepts---chirality and helicity---and have given each a concrete geometric meaning within the 0-Sphere model.
+The relationship between these concepts in the 0-Sphere vocabulary differs in important ways from the standard QFT presentation, and the distinction is easily lost if the two are conflated.
+Table~\ref{tab:chiralhelicity} provides a side-by-side comparison of the standard QFT definitions and their 0-Sphere counterparts; Fig.~\ref{fig:yzplane} provides the visual foundation.
+
+Three rows of the table deserve emphasis.
+First, \emph{chirality} (row 1) is re-expressed not as an algebraic eigenvalue of $\gamma^5$ but as the orientation of the thermal geodesic in internal phase space: a directed curve $A\to B\to A'$ carries $\chi=+1$, the reversed curve carries $\chi=-1$. More precisely, $\chi$ is the sign of the winding number of the phase flow on $S^1$, a topological invariant that is Lorentz invariant because Lorentz boosts preserve the orientation of directed curves.
+Second, \emph{helicity} (row 4) is identified with the observed rotation direction of the photon-sphere orbit in the $yz$-plane when viewed from $-x$: counterclockwise for the electron ($h=+\tfrac{1}{2}$), clockwise for the positron ($h=-\tfrac{1}{2}$).
+This is the directly observable face of chirality in the laboratory frame.
+Third, the \emph{mass--helicity link} (row 7) acquires a mechanical explanation: because the photon-sphere rotation speed is $v_{\mathrm{ZB}}\approx 0.04c$, and this speed vanishes as $m_e\to 0$, a massless particle has no internal rotation and therefore no helicity to flip.
+The Lorentz non-invariance of helicity for massive particles (row 5) is thus not a formal algebraic accident but a direct consequence of the internal rotation being a physical, non-relativistic process.
+
+The circular-polarization analogy noted in the table footnote is worth restating.
+The cos oscillator (Kernel~A, $y$-axis) and sin oscillator (Kernel~B, $z$-axis) are the two transverse degrees of freedom.
+Their $\pi/2$ phase offset is the same mathematical structure as the $\pm 90^{\circ}$ phase difference between the two linear polarization components that define left- and right-circular polarization of an electromagnetic wave.
+In that optical analogy, swapping the sign of the phase offset reverses the handedness of the circular polarization; in the 0-Sphere model, reversing the traversal direction of the geodesic (and hence the sign of $da/dt$) plays the same role.
+The electron and positron are, in this picture, the two circular polarization states of the internal photon-sphere dynamics.
+
+\begin{table*}[ht]
+\centering
+\caption{\textbf{Chirality and helicity: QFT vs.\ 0-Sphere Model}}
+\label{tab:chiralhelicity}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.0cm}p{5.5cm}p{6.0cm}}
+\toprule
+\textbf{Concept} & \textbf{QFT standard} & \textbf{0-Sphere Model} \\
+\midrule
+Chirality $\chi$
+& $\gamma^5$ eigenvalue ($\pm1$)
+& $\text{sign}(da/dt)$: orientation of phase flow on $S^1$; $\pi_1(S^1)=\mathbb{Z}$ classifies winding; sign of winding is $\chi$ \\
+\addlinespace[0.3cm]
+Right-chiral ($\psi_R$)
+& Upper Weyl spinor
+& Forward geodesic; Kernel A dominant \\
+\addlinespace[0.3cm]
+Left-chiral ($\psi_L$)
+& Lower Weyl spinor
+& Backward geodesic; Kernel B dominant \\
+\addlinespace[0.3cm]
+Helicity $h$
+& $\mathbf{S}\cdot\hat{\mathbf{p}}/|\mathbf{p}|$
+& Rotation direction in $yz$-plane seen from $-x$ \\
+\addlinespace[0.3cm]
+Lorentz invariance
+& $\chi$ yes; $h$ no
+& Geodesic orientation ($S^1$ winding sign) yes; rotation appearance no \\
+\addlinespace[0.3cm]
+Helicity flip
+& $v_{\mathrm{obs}}>v_{\mathrm{particle}}$
+& CCW $\to$ CW as seen by overtaking observer \\
+\addlinespace[0.3cm]
+Mass--helicity link
+& Flip forbidden at $m=0$
+& $v_{\mathrm{ZB}}\to 0$ as $m\to 0$; no rotation, no flip \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The cos oscillator (Kernel A, $y$-axis) and sin oscillator (Kernel B, $z$-axis) are the two transverse linear oscillations. Their $\pi/2$ phase offset produces circular motion in the $yz$-plane---exactly as two linear polarizations $90^{\circ}$ out of phase produce circular polarization. The handedness of this rotation, not any pre-assigned quantum number, is the geometric origin of the sign of the magnetic moment and the electron/positron distinction. Chirality $\chi$ is the topological invariant characterizing the direction of the phase flow on $S^1$; helicity $h$ is its frame-dependent projection onto the momentum axis.
+\end{minipage}
+\end{table*}
+
+% ========================================
+\section{Physical Interpretation}
+\label{sec:interpretation}
+% ========================================
+
+The geometric construction developed in the preceding sections can now be interpreted in physical terms. The purpose of this section is not to introduce new formal results, but rather to clarify how the phase--staggered oscillator array relates to familiar concepts in relativistic electron physics.
+
+\subsection{Emergent circular motion}
+
+The model begins with a set of phase--shifted oscillators arranged with equal angular spacing. Each oscillator contributes a displacement along a fixed direction, while the phase offset between neighboring elements produces a coherent rotational pattern when the ensemble is viewed as a whole.
+
+Two geometric loci naturally appear in this construction:
+
+\begin{itemize}
+\item the \emph{bright locus}, corresponding to the instantaneous direction of maximal constructive amplitude, and
+\item the \emph{centroid locus}, corresponding to the mean position of the oscillator ensemble.
+\end{itemize}
+
+Remarkably, these loci form circular trajectories with different radii. The centroid executes a circular motion with radius $1/2$ in normalized units, while the bright locus traces the unit circle. This emergent circular structure arises purely from the phase staggering of the oscillators. It is crucial to recall that both loci reside in internal phase space, not in three-dimensional position space; the ``circular motion'' is a property of the internal mode structure, not of any trajectory in real space.
+
+Such a configuration provides a simple geometric representation of the rapid internal motion commonly associated with relativistic electron models.
+
+\subsection{Relation to Zitterbewegung}
+
+The circular centroid motion naturally invites comparison with the phenomenon known as \emph{Zitterbewegung}, originally identified in the Dirac theory of the electron. In that context, interference between positive and negative energy components leads to a rapid oscillatory motion whose characteristic scale is set by the Compton wavelength.
+
+In the present construction, a qualitatively similar scale emerges from the geometry of the oscillator array. The circular motion of the centroid can be interpreted as an effective internal trajectory, whose angular frequency reflects the phase structure imposed on the ensemble.
+
+While the present model is purely geometric and does not rely on the full Dirac formalism, it captures the kinematic intuition that a localized electron state may exhibit an underlying rapid internal motion.
+
+\subsection{Origin of the phase staggering}
+
+Earlier sections showed that the phase offset between neighboring oscillators can be interpreted as arising from relativistic kinematics. In particular, sequential boosts generate a small residual spatial rotation, known as Thomas precession.
+
+This effect provides a natural physical interpretation of the phase staggering. The relative phase shift between oscillator directions may be viewed as the geometric imprint of successive Lorentz transformations applied to internal degrees of freedom. Crucially, however, Thomas precession does not \emph{generate} the circular structure; it is the relativistic geometric correction that quantifies the phase stagger and makes the internal rotation observable externally, as explained in Section~\ref{sec:thomas}.
+
+Within this interpretation, the oscillator array serves as a simple visual model illustrating how relativistic kinematics can generate an effective rotational structure.
+
+\subsection{Energy scale and internal dynamics}
+
+The characteristic energy scale appearing in the model was shown to possess a fourth--power structure. Such a dependence suggests that the effective dynamics arise from the coherent superposition of multiple oscillatory contributions rather than from a single degree of freedom.
+
+From this perspective, the oscillator array can be viewed as a minimal collective system whose emergent behavior reproduces several qualitative features associated with relativistic electron motion.
+
+\subsection{Chirality and particle--antiparticle structure}
+
+The geometric construction also admits two distinct rotational orientations. These correspond to opposite orientations of the phase flow on $S^1$, classified by the sign of the winding number.
+
+This feature naturally suggests an interpretation in which the two orientations represent particle and antiparticle configurations. In this view, the difference between the two states is encoded not in the individual oscillators themselves but in the global phase ordering of the ensemble---specifically, in the direction of traversal of the directed thermal geodesic $A\to B\to A'$.
+
+Such a picture provides an intuitive geometric analogy for the appearance of chirality in relativistic fermion theories.
+
+\subsection{Summary of the physical picture}
+
+The phase--staggered oscillator array therefore offers a compact geometric framework in which several familiar features of relativistic electron physics appear in a unified form:
+
+\begin{itemize}
+\item an emergent circular internal motion (in phase space) reminiscent of Zitterbewegung,
+\item a phase structure whose quantification arises from Thomas precession as a relativistic geometric correction,
+\item a collective origin for the characteristic energy scale, and
+\item a natural distinction between opposite chiral configurations as oriented loops on $S^1$.
+\end{itemize}
+
+Although the present model is intentionally minimal and geometric in character, it illustrates how a relatively simple phase organization can give rise to structures that closely parallel well--known relativistic phenomena.
+
+For this reason, the construction may serve as a useful conceptual bridge between geometric intuition and the formal descriptions of relativistic quantum theory.
+
+% ========================================
+% Section 7: Discussion
+% ========================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Summary of the mechanism}
+
+The physical mechanism developed in this paper can be summarized as the following logical chain:
+
+\begin{enumerate}
+
+\item \textbf{Scalar kernel potentials.}
+
+The kernel pair $(A,B)$ provides two scalar thermal potentials $Te_1$ and $Te_2$ defined in the internal phase $\iphase$. These potentials establish the basic energetic structure of the system.
+
+\item \textbf{Directed thermal geodesic.}
+
+The emission--absorption cycle
+\[
+A \rightarrow B \rightarrow A'
+\]
+generates a directed thermal geodesic whose traversal direction is characterized by the sign $\text{sign}(da/dt)$ (Section~\ref{sec:chirality}).
+
+\item \textbf{Emergent angular momentum.}
+
+An array of phase--staggered radial oscillations develops along this geodesic. Their collective action produces a tangential force component, which confers an angular momentum
+\[
+L_z = \hbar\,\text{sign}(da/dt)
+\]
+on the photon sphere (Section~\ref{sec:gradient}).
+
+\item \textbf{Relativistic geometric correction.}
+
+Thomas precession provides the \emph{relativistic geometric correction} through which the phase-space rotation described in items 1--3 becomes observable in the laboratory frame (Section~\ref{sec:thomas}). It does not generate the circular structure---that structure exists at the topological level of the $S^1$ phase flow independently of any relativistic correction---but it quantifies the physical scale of the phase stagger $\delta b=\pi/n$ in terms of $v_\mathrm{ZB}$, and it accounts for the accumulation of $a_e$ per internal cycle~\cite{hanamura47}. In the Newtonian limit $v_\mathrm{ZB}/c\to 0$, the topological structure survives but the relativistic quantification disappears: $\boldsymbol{\Omega}_T\to\mathbf{0}$, $a_e\to 0$, and the phase stagger becomes unmeasurable externally.
+
+\item \textbf{Electron--positron distinction.}
+
+The sign of $da/dt$---that is, the orientation of the thermal geodesic on $S^1$---determines the sign of $L_z$ and therefore the polarity of the magnetic moment:
+\[
+\text{forward} \rightarrow \text{electron},
+\qquad
+\text{backward} \rightarrow \text{positron}.
+\]
+Thus the particle/antiparticle distinction arises from the orientation of the internal traversal (Section~\ref{sec:chirality}).
+
+\end{enumerate}
+
+In this picture, the traversal direction is the \emph{cause}, whereas the visible rotation of the bright-star locus is the \emph{effect}. No circular force law and no pre-assigned charge are introduced; the electron/positron distinction emerges solely from the orientation of the geodesic.
+
+\subsection{Relation to the energy-identity companion paper}
+
+The zero-point energy companion paper \cite{hanamura46} established the floor $Te_1 + Te_2 \geq E_0/2$ as a consequence of the AM--GM inequality applied to the fourth-power kernel structure (see also Section~\ref{subsec:centroid}, Eqs.~\eqref{eq:amgm}--\eqref{eq:energy_floor} for a self-contained derivation). The inequality is elementary---for any two non-negative numbers summing to a constant, the arithmetic mean dominates the geometric mean---but its physical content is non-trivial: it places a hard lower bound on the combined thermal energy of the two kernels, preventing the system from ever concentrating all of its energy in the photon sphere. The centroid result of Section~\ref{subsec:centroid} provides the direct visual counterpart: the centroid of the oscillator array traces a circle of radius $\tfrac{1}{2}$, which cannot shrink to zero. This ``indestructible $\tfrac{1}{2}$-circle'' is the same as the zero-point energy floor, now understood geometrically as the minimum circumscribed locus of the oscillator centroid. The two papers together establish that the factor $\tfrac{1}{2}$ in $\tfrac{1}{2}\hbar\omega$ is, in the 0-Sphere framework, a genuinely geometric quantity: it appears both as an energy lower bound (companion paper) and as a spatial radius lower bound (present paper).
+
+\subsection{On the suppression of visual intuition by the fourth power}
+
+Section~\ref{sec:fourthpower} noted that the fourth-power thermodynamic structure conceals the direct visual clarity of the linear oscillator picture. This concealment is not a defect of the model; it is its thermodynamic content. The Stefan--Boltzmann law assigns energies proportional to $T^4$, converting the linear amplitude $\cos\iphase$ into the fourth-power energy $\cos^4\iphase$. The geometric rotation encoded in the linear layer is still present in the energy layer, but it is ``dressed'' by the thermal weight. Experiments that probe the internal dynamics directly (such as the predicted Zitterbewegung velocity $v_{\text{ZB}} \approx 0.04c$, which depends on the linear amplitude) would restore access to the undressed linear picture.
+
+\subsection{The three faces of $\tfrac{1}{2}$ in the 0-Sphere Model}
+\label{subsec:three_halves}
+
+Remarkably, the same numerical factor appears in three independent aspects of the model. A careful reader will have noticed that the numerical factor $\tfrac{1}{2}$ appears repeatedly in this paper and its companion works, each time in a different physical context. We collect these occurrences here and argue that they represent three projections of a single underlying geometric constraint.
+
+\medskip
+\noindent
+The three appearances of $\tfrac{1}{2}$ can be summarized as follows:
+
+\begin{enumerate}
+
+\item \textbf{Geometric: the centroid amplitude.}
+
+Section~\ref{subsec:centroid} showed that the centroid of the phase-staggered oscillator array traces a circle of radius $\tfrac{1}{2}$. This is a purely kinematic identity: regardless of the number of oscillators $n$ or the global phase $a$, the centroid amplitude cannot exceed $\tfrac{1}{2}$.
+
+The companion paper \cite{hanamura46} derived the same constraint from the energy side. The combined kernel thermal potential
+\[
+Te_1 + Te_2 = \cos^4\iphase + \sin^4\iphase
+\]
+satisfies $Te_1 + Te_2 \ge E_0/2$ for all $\iphase$, with equality at $\iphase=\pi/4$.
+
+Both results follow from the AM--GM inequality applied to $(c^2,s^2)=(\cos^2\iphase,\sin^2\iphase)$ under the constraint $c^2+s^2=1$. This first $\tfrac{1}{2}$ is therefore \emph{geometric}.
+
+\item \textbf{Kinematic: the Thomas precession coefficient.}
+
+Section~\ref{sec:thomas} identified the phase stagger $b_k$ with the accumulated Thomas angle.
+
+Thomas precession arises because two non-collinear Lorentz boosts do not compose into a pure boost but produce an additional spatial rotation. In the non-relativistic limit $v\ll c$, the Thomas angular velocity reduces to
+\[
+\Omega_T \approx \frac{1}{2}\left(\frac{\mathbf v}{c^2}\right) \times \mathbf a ,
+\]
+introducing a factor $\tfrac{1}{2}$ that is entirely kinematic in origin.
+
+This factor is experimentally essential: without it, the predicted spin--orbit splitting of hydrogen would be twice the observed value. In the 0-Sphere model, the phase stagger between successive axes inherits this Thomas factor.
+
+This second $\tfrac{1}{2}$ is therefore \emph{kinematic}.
+
+\item \textbf{Topological: the spin quantum number.}
+
+The electron has spin
+\[
+s=\tfrac{1}{2}.
+\]
+
+In geometric language this corresponds to the fact that a spinor changes sign under a $2\pi$ rotation and returns to its original value only after $4\pi$ \cite{hanamura19, hanamura26}.
+
+This $4\pi$ periodicity indicates that the internal state space is not a simple $U(1)$ phase but an $\mathrm{SU}(2)$ fiber bundle. The value $s=\tfrac{1}{2}$ is therefore a topological invariant characterizing this bundle structure.
+
+This third $\tfrac{1}{2}$ is thus \emph{topological}.
+
+\end{enumerate}
+
+\paragraph{A unified reading.}
+
+The convergence of these three $\tfrac{1}{2}$ factors suggests a common origin. We propose the following interpretation: all three reflect the single constraint that the photon-sphere orbit cannot collapse to zero.
+
+\begin{itemize}
+
+\item \textbf{Geometrically:} the centroid cannot reach the origin, so the orbit has a permanent radius $\ge \tfrac{1}{2}$.
+
+\item \textbf{Kinematically:} Thomas precession halves the effective angular velocity.
+
+\item \textbf{Topologically:} the orbit carries a non-trivial $4\pi$ holonomy encoded by the spin $\tfrac{1}{2}$.
+
+\end{itemize}
+
+These three statements may therefore be viewed as the spatial, kinematic, and topological descriptions of the same underlying structure.
+
+Paper~\#47~\cite{hanamura47} first identified these three independent occurrences of $\tfrac{1}{2}$ in the 0-Sphere framework and predicted that their common geometric origin would be examined in a future paper. The present work provides that answer: all three reflect the single AM--GM constraint $\cos^2\iphase + \sin^2\iphase = 1$ applied to the energy identity, which simultaneously prevents the centroid from collapsing to the origin (geometric $\tfrac{1}{2}$), halves the effective angular velocity through the Thomas mechanism (kinematic $\tfrac{1}{2}$), and imposes the $\pi$-periodicity of the oscillation axis space that generates the $4\pi$ spinorial holonomy (topological $\tfrac{1}{2}$). The single algebraic constraint $\cos^2\iphase + \sin^2\iphase = 1$ is thus the common root from which all three manifestations of $\tfrac{1}{2}$ grow.
+
+We emphasize that this convergence is a proposal rather than a theorem. The geometric and kinematic appearances of $\tfrac{1}{2}$ are derived within the present framework, whereas the identification of the spin quantum number as a consequence requires the full topological analysis of the internal fiber bundle developed in \cite{hanamura26}.
+
+What the present work contributes is a visual and mechanical foundation: the phase-staggered oscillator array makes it possible to \emph{see} the geometric $\tfrac{1}{2}$ and the Thomas $\tfrac{1}{2}$ in the same construction, suggesting that the topological $\tfrac{1}{2}$ may represent the third face of the same structure.
+
+\subsection{Open questions}
+
+Table~\ref{tab:assessment} provides a compact assessment of the chirality--helicity correspondence developed in Section~\ref{sec:chirality}, graded by the strength of the geometric identification achieved. The six open questions that follow correspond to the rows of this table. The first three concern internal refinements whose resolution would sharpen the stronger correspondences (rows~1--3), whereas the final three record explicit limitations that currently prevent the weaker correspondences (rows~4--6) from being promoted to the same status.
+
+\begin{table*}[ht]
+\caption{\textbf{Assessment of the chirality--helicity correspondence in the 0-Sphere Model}}
+\label{tab:assessment}
+\centering
+\vspace{4pt}
+\renewcommand{\arraystretch}{1.5}
+\begin{tabular}{p{6.0cm}p{2.4cm}p{7.2cm}}
+\toprule
+\textbf{Correspondence} & \textbf{Grade} & \textbf{Status} \\
+\midrule
+Chirality $=$ geodesic orientation ($S^1$ winding sign)
+& $\surd\surd$
+& Topologically rigorous \\
+\addlinespace[0.1cm]
+Circular polarization analogy
+& $\surd\surd$
+& Mathematical isomorphism \\
+\addlinespace[0.1cm]
+Helicity flip mechanism
+& $\surd$
+& Consistent with standard QFT \\
+\addlinespace[0.1cm]
+Spatial axis assignment
+& $\triangle$
+& Covariant formulation incomplete \\
+\addlinespace[0.1cm]
+Mass--helicity link
+& $\triangle$
+& Depends on external result \cite{hanamura10} \\
+\addlinespace[0.1cm]
+Weyl spinor $\leftrightarrow$ Kernel dominance
+& $\blacksquare$
+& Structural proposal; not a proven isomorphism \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+$\surd\surd$: established within the present framework with no gap. $\surd$: established and consistent with external standards but not independently derived here. $\triangle$: partial result; a named limitation exists. $\blacksquare$: structural analogy only; a gap between the 0-Sphere vocabulary and the standard formalism remains open.
+
+\smallskip
+\textit{Note on row~6 ($\blacksquare$).} The question of whether $\chi = \mathrm{sign}(da/dt)$ is isomorphic to the $\gamma^5$ eigenvalue may be ill-posed as stated, because $\gamma$-matrices presuppose a field-theoretic ontology---creation and annihilation operators acting on a vacuum---that the 0-Sphere line-integral program aims to replace rather than accept as a primitive. Asking ``is $\chi$ the same object as the $\gamma^5$ eigenvalue?'' implicitly imports the field-theoretic framework as a standard against which the 0-Sphere result is judged. The productive restatement is the converse: \emph{can the $\gamma$-matrix algebra be derived as a limit or approximation from the line-integral structure of the 0-Sphere?} If yes, then $\gamma^5$ would emerge as a derived concept and the correspondence would be a theorem rather than an analogy. This restatement---$\gamma$-algebra as output, not input---is the correct entry point for future work on row~6, and it is consistent with the 0-Sphere program's broader aim of replacing field-theoretic constructions with geometric ones. The same logical structure applies to the PMNS matrix (Appendix~\ref{app:reasoning_pmns}) and to second quantization more generally: in each case the 0-Sphere position is that these are constructions to be derived, not primitives to be borrowed.
+\end{minipage}
+\end{table*}
+
+The present treatment leaves six questions for subsequent work, ranging from internal refinements to conceptual limitations that bound the scope of the results.
+
+\paragraph{Internal refinements.}
+First, the continuum limit used in the centroid calculation assumes $n \to \infty$. The finite-$n$ corrections for $n = 12$ (or for the physically appropriate value) therefore merit a separate analysis. Second, the Thomas precession identification in Section~\ref{sec:thomas} was originally heuristic; a rigorous backing has since been provided in~\cite{hanamura29}, which derives via explicit line-integral analysis that a single one-way kernel traversal accumulates exactly $2\pi$ of spinorial phase through the Thomas-precession connection $\tfrac{1}{2}\int(\mathbf{a}\times\mathbf{v})\,d\tau$, with the Poincar\'{e} upper half-plane as the geometric prototype. The remaining open item is a direct derivation of the \emph{continuum-limit phase stagger} $\delta b = \pi/n$ from the Thomas rate formula $\Omega_T = (\gamma-1)(v\times a)/v^2$ via an explicit spacetime model of the emission--absorption cycle. Third, the relation between the chirality branching described in Section~\ref{sec:chirality} and the gauge structure of pair production in external electromagnetic fields are deferred to our companion paper on Maxwell equations.
+
+\paragraph{Conceptual scope and limitations.}
+Three additional issues delimit the reach of the present results and are recorded here as explicit limitations.
+
+\textit{(i) Covariant definition of the rotation plane.} In Section~\ref{sec:chirality} the rotation plane was taken to be the $yz$-plane, with Kernel~A assigned to the $y$-axis and Kernel~B to the $z$-axis, for an electron propagating in the $+x$ direction. This assignment is a frame-specific convention rather than a covariant statement. For an electron propagating in an arbitrary direction $\hat{\mathbf{p}}$, the rotation plane should instead be defined as the plane perpendicular to $\hat{\mathbf{p}}$, with the two kernel axes embedded in that plane. A fully covariant formulation—in which the thermal geodesic direction $\hat{\mathbf{p}}$ dynamically selects the rotation plane—is not provided in the present paper. This limitation corresponds to the $\triangle$ grade assigned in Table~\ref{tab:assessment}, row~4, and represents the principal geometric gap between the present results and a Lorentz-covariant chirality–helicity framework.
+
+\textit{(ii) External dependence of the mass--helicity link.} The statement that ``no internal rotation implies no helicity flip'' is geometrically transparent within the present framework: as $m_e \to 0$ the Zitterbewegung speed $v_{\mathrm{ZB}} \to 0$, eliminating the internal rotation that helicity labels. However, the quantitative derivation of $v_{\mathrm{ZB}}$ as a function of $m_e$ within the 0-Sphere framework—without invoking external inputs—remains an open problem. The present paper therefore relies on the numerical result $v_{\mathrm{ZB}} \approx 0.04c$ imported from \cite{hanamura10}, which is the basis of the $\triangle$ grade assigned in Table~\ref{tab:assessment}, row~5.
+
+\textit{(iii) The Weyl spinor correspondence is structural, not a proven isomorphism.} In Section~\ref{subsec:chirality_def}, the forward geodesic was identified with the upper Weyl spinor $\psi_R$ (Kernel~A dominant) and the backward geodesic with $\psi_L$ (Kernel~B dominant). This identification rests on the observation that $\cos^4\iphase$ (Kernel~A energy) is large near $\iphase = 0$ and $\iphase = \pi$, whereas $\sin^4\iphase$ (Kernel~B energy) is large near $\iphase = \pi/2$ and $\iphase = 3\pi/2$. However, "Kernel~A dominant'' is a local statement about the internal phase value, whereas chirality in the Dirac equation is a global Lorentz-invariant property of the entire spinor. The correspondence proposed here should therefore be regarded as a \emph{structural analogy}: both cases exhibit a two-valued Lorentz-invariant binary, but a direct algebraic isomorphism between the 0-Sphere kernel dynamics and the Weyl spinor representation has not been established. Whether the internal dynamics can generate the $\gamma$-matrix algebra from first principles remains an open question, which is the primary reason this correspondence receives the $\blacksquare$ grade in Table~\ref{tab:assessment}, row~6.
+
+% ========================================
+% Discussion: degrees-of-freedom audit
+% ========================================
+\subsection{Degrees-of-freedom audit: why the reinterpretation does not require extra states}
+\label{subsec:dof_audit}
+
+The reinterpretation of the Dirac spinor in Appendix~\ref{app:dirac} raises a question that deserves careful treatment before it is set aside as resolved. The question can be stated sharply: the conventional reading of the Dirac equation assigns its four components to \emph{electron, positron, spin-up, spin-down}. The 0-Sphere reinterpretation replaces ``electron/positron'' with ``Kernel~A dominant/Kernel~B dominant,'' yielding \emph{Kernel~A, Kernel~B, spin-up, spin-down}. If chirality $\chi = \mathrm{sign}(da/dt)$ now carries the electron/positron distinction \emph{in addition} to the kernel distinction, one might count six independent binary labels and conclude that six degrees of freedom are needed where the Dirac equation supplies only four. This section records the reasoning by which that apparent paradox dissolves.
+
+\paragraph{The apparent paradox and two candidate resolutions.}
+Two strategies for reconciling the count come to mind immediately.
+
+\textit{Strategy~1} would introduce a new internal degree of freedom---for instance, a phase along the imaginary axis of the complex plane---to accommodate the additional binary. In the context of the 0-Sphere model, the most natural candidate would be an imaginary extension of the internal phase $\iphase \to \iphase + i\phi$, which could in principle double the state space and generate the required room.
+
+\textit{Strategy~2} would instead locate an error in the count itself: the six labels are not all independent, and the four Dirac components already account for every physically distinct state once the model's internal constraint is properly applied.
+
+Before choosing, we need a criterion that cannot be adjusted post hoc. The 0-Sphere model provides one: \emph{Zitterbewegung must be a real, subluminal, physically realizable oscillation}. This is not an aesthetic preference but the load-bearing quantitative result of the series---the prediction $v_\mathrm{ZB} \approx 0.04047c$ derived without adjustable parameters from $\gamma(v_\mathrm{ZB}) = 1 + a$~\cite{hanamura33, hanamura10}. Any modification to the internal phase structure that is inconsistent with a single real phase variable $\iphase \in \mathbb{R}$ evolving under the energy identity~\eqref{eq:energy_identity} will destroy this prediction.
+
+\paragraph{Strategy~1 is excluded by the Zitterbewegung constraint.}
+Extending $\iphase$ to a complex variable introduces a second real degree of freedom $\phi$ that is not present in the energy identity. The identity
+\begin{equation}
+\cos^4\!\tfrac{\iphase}{2} + \sin^4\!\tfrac{\iphase}{2} + \tfrac{1}{2}\sin^2\iphase = 1
+\label{eq:identity_audit}
+\end{equation}
+holds for real $\iphase$ and is the direct expression of energy conservation between the two kernels and the photon sphere. If $\iphase$ acquires an imaginary part, the cosines and sines become hyperbolic in $\phi$, and the left-hand side of Eq.~\eqref{eq:identity_audit} is no longer bounded by unity; the energy constraint is violated. In addition, a complex phase variable would imply a second oscillation mode whose frequency is not tied to $\omega_\mathrm{ZB}$, producing a second velocity scale that has no counterpart in the model's predictions. Strategy~1 is therefore not merely inconvenient---it is incompatible with the Zitterbewegung constraint and is excluded on those grounds.
+
+\paragraph{Strategy~2: the correct degrees-of-freedom count.}
+The resolution lies in recognizing that Kernel~A and Kernel~B are \emph{not} independent degrees of freedom. They are two aspects of the same single real phase variable $\iphase$. When $\iphase = 0$, energy is fully localized at Kernel~A ($Te_1 = E_0$, $Te_2 = 0$); when $\iphase = \pi$, it is fully localized at Kernel~B ($Te_1 = 0$, $Te_2 = E_0$). The pair $(Te_1, Te_2)$ is determined completely and instantaneously by $\iphase$ alone:
+\begin{equation}
+\{Te_1,\, Te_2\} = \{E_0\cos^4\!\tfrac{\iphase}{2},\; E_0\sin^4\!\tfrac{\iphase}{2}\}.
+\label{eq:kernel_phase}
+\end{equation}
+There is no additional binary choice: once $\iphase$ is specified, both kernel energies are fixed. The label ``Kernel~A dominant'' or ``Kernel~B dominant'' is a shorthand for a range of $\iphase$, not a new quantum number.
+
+The correct count is therefore:
+\begin{itemize}
+\item $\chi = \mathrm{sign}(da/dt)$: \textbf{one binary}, encoding forward versus backward geodesic (electron versus positron).
+\item Spin projection $s = \pm\tfrac{1}{2}$: \textbf{one binary}, encoding the rotation direction of the photon sphere in the $yz$-plane.
+\item Internal phase $\iphase(t)$: \textbf{continuous dynamical variable}, describing the instantaneous partition of energy between the two kernels and the photon sphere.
+\end{itemize}
+The product $2 \times 2 = 4$ discrete states matches the four Dirac spinor components exactly. The phase $\iphase$ is the internal dynamics \emph{within} each of these four states, not a label that indexes between them. Table~\ref{tab:dirac_reinterpret} in Appendix~\ref{app:reinterpret} makes this correspondence explicit row by row.
+
+\paragraph{Why the confusion arises---and why it matters.}
+The source of the apparent overcounting is the step where the 0-Sphere reinterpretation replaces ``particle/antiparticle'' with ``Kernel~A/Kernel~B'' in the Dirac spinor~\cite{hanamura07}. Reading that replacement as assigning \emph{independent} spatial sites to the two spinor components is natural but incorrect: the two components are not two simultaneously existing objects but two phases of a single oscillation cycle. The Dirac equation at rest ($\mathbf{p} = \mathbf{0}$) has degenerate eigenvalues $\pm mc^2$ at the moments $\iphase = n\pi$ when the photon-sphere momentum vanishes---precisely the instants when all energy resides at one kernel. Between those instants, the system is in a superposition of kernel energies described by $\iphase \in (n\pi, (n+1)\pi)$, which is a \emph{continuous interpolation} along the Dirac solution family~\eqref{eq:phase_momentum_table}, not a separate quantum state.
+
+Clarifying this point is not merely a bookkeeping exercise. It shows that the 0-Sphere reinterpretation does not enlarge the Hilbert space of the Dirac equation; it \emph{reinterprets the physical content} of the existing four-dimensional space. The electron-positron distinction, which in standard QFT requires second quantization to handle, enters the 0-Sphere framework at the classical-field level as the orientation of a directed curve. This is a conceptual economy, not an extension. Whether it can be promoted to a full algebraic isomorphism between the 0-Sphere kernel dynamics and the $\gamma$-matrix algebra---in particular, whether $\gamma^5$ can be derived geometrically from $\mathrm{sign}(da/dt)$---remains the principal open question noted in Table~\ref{tab:assessment}, row~6.
+
+\paragraph{The scope of the electron result and the neutrino extension (future work).}
+The conclusion above---four degrees of freedom, constraint $\omega_A = \omega_B$, Zitterbewegung well-defined---is a statement \emph{about the electron}. It is natural to ask whether the same framework extends to neutrinos, and in particular whether the DOF count breaks down when neutrino oscillations are taken into account. This paragraph records the reasoning that was developed alongside the present paper and is preserved here as a signpost for future work, since the logical branch point is sharp enough that its location deserves to be marked explicitly.
+
+In the 0-Sphere Neutrino Model~\cite{hanamura09}, the two-kernel structure is retained but the equal-frequency condition is lifted: the two thermal oscillators are assigned independent frequencies $\omega_{\nu 1} \neq \omega_{\nu 2}$, so that the energy conservation relation becomes
+\begin{equation}
+E_\nu = E_\nu\!\left[\cos^4\!\tfrac{\omega_{\nu 1} t}{2} + \sin^4\!\tfrac{\omega_{\nu 2} t}{2} + K.E.\right],
+\label{eq:neutrino_energy}
+\end{equation}
+where $K.E.$ can no longer be simplified to $\tfrac{1}{2}E_\nu\sin^2(\omega t)$ because the two frequency arguments differ. The internal trajectory of the photon sphere, which traces a closed $4\pi$ loop for the electron, now traces a Lissajous curve whose closure time is $2\pi/|\omega_{\nu1} - \omega_{\nu2}|$; if $\omega_{\nu1}/\omega_{\nu2}$ is irrational, the curve never closes.
+
+The DOF question then becomes: does the passage from one phase variable $\theta$ to two independent variables $(\theta_A, \theta_B) = (\omega_{\nu1}t, \omega_{\nu2}t)$ produce a genuine enlargement of the state space, forcing 6 or 8 degrees of freedom?
+
+The answer, on careful inspection, is \emph{no}---but for a reason that is more subtle than the electron case. The Dirac spinor remains four-dimensional for the neutrino as well. The two independent phase variables $(\theta_A, \theta_B)$ do not index new spinor components; they parametrize the \emph{shape} of the internal trajectory. Stated differently, $\omega_A/\omega_B$ is a geometric property of the curve, not a quantum number labeling distinct states. The correct classification is therefore:
+\begin{itemize}
+\item $\chi = \mathrm{sign}(da/dt)$: one binary (forward/backward geodesic).
+\item Spin projection $s = \pm\tfrac{1}{2}$: one binary (rotation direction).
+\item Internal trajectory shape $\omega_A/\omega_B$: \emph{continuous parameter}, encoding the species identity of the particle.
+\end{itemize}
+The product $2 \times 2 = 4$ spinor states is unchanged. The frequency ratio $\omega_A/\omega_B$ is an additional real parameter that specifies \emph{which} particle the spinor describes, not how many states it possesses.
+
+This leads to the key topological observation: \emph{the 6-DOF apparent problem is not a spinor-dimension problem but a topological bifurcation in the internal geodesic.} The electron occupies the topological class of closed curves ($\omega_A = \omega_B$, Lissajous ratio $1:1$, $4\pi$ periodicity). The neutrino occupies the topological class of non-closing curves ($\omega_A \neq \omega_B$, ratio irrational, no finite period). The boundary between these two classes---the condition $\omega_A = \omega_B$---is precisely the condition that makes the Zitterbewegung prediction $v_\mathrm{ZB} \approx 0.04047c$ well-defined, and it is the same condition that prevents the electron from undergoing flavor oscillations. The DOF audit of the present section thus bifurcates into two branches:
+
+\smallskip
+\begin{center}
+$\omega_A = \omega_B$: closed geodesic $\longrightarrow$ stable particle, $\chi$ globally defined, DOF = 4.\\[4pt]
+$\omega_A \neq \omega_B$: open (Lissajous) geodesic $\longrightarrow$ oscillating particle, $\chi$ locally defined only, DOF = 4 + shape parameter.
+\end{center}
+\smallskip
+
+\noindent A critical methodological remark is necessary here regarding the relationship between this framework and the standard PMNS matrix. In the conventional treatment of neutrino mixing, the PMNS matrix is a unitary transformation between flavor and mass eigenstates, whose coefficients are supplied as experimental inputs to the field-theoretic Lagrangian. The 0-Sphere framework does not and should not import the PMNS matrix as a primitive: the PMNS matrix is a construction of quantum field theory and implicitly relies on the notion of a field defined over spacetime, which is precisely the structure the 0-Sphere program aims to replace with line integrals along internal geodesics. In the line-integral picture, the mixing angle is not inserted by hand but should, in principle, be derivable from the frequency ratio $\omega_A/\omega_B$ as a geometric property of the Lissajous trajectory. Whether the observed neutrino mixing angles can be derived from a self-consistency condition on the internal trajectory shape---without reference to the PMNS formalism---is a well-posed and consequential question for the 0-Sphere program. It is recorded here as a future task, not resolved.
+
+To summarize the status of the degrees-of-freedom question across both particles: the 6-DOF or 8-DOF count that might appear necessary at first glance is in both cases a counting error. For the electron it arises from mistaking the dependent pair $(Te_1, Te_2)$ for two independent degrees of freedom; for the neutrino it arises from mistaking the shape parameter $\omega_A/\omega_B$ for a new spinor label. In both cases the resolution is that \emph{extra structure lives in the geometry of the internal geodesic, not in the dimension of the Hilbert space.} This is precisely the consequence one should expect from a framework that replaces fields with line integrals: richness of physical content migrates from the state-space index to the trajectory shape.
+
+% ========================================
+% Section 8: Outlook
+% ========================================
+\section{Outlook}
+\label{sec:outlook}
+
+The results of this paper can be summarized in four complementary aspects.
+
+\begin{enumerate}
+
+\item \textbf{Geometric structure.}
+
+A phase-staggered scalar oscillator array with $n$ axes and uniform angular spacing produces an apparent rotation in internal phase space. The bright-star locus traces the unit circle, while the centroid locus traces a circle of radius $\tfrac{1}{2}$.
+
+\item \textbf{Dynamical mechanism.}
+
+The tangential component of the vector-sum mode displacement generates angular momentum on the photon sphere without invoking any circular force law.
+
+\item \textbf{Relativistic geometric correction.}
+
+Thomas precession provides the kinematic mechanism by which sequential scalar boost cycles accumulate into a phase stagger that quantifies the photon-sphere rotation and connects it to the measured anomalous magnetic moment $a_e$ via the identity $\Delta[L]=|\gamma_L-1|\cdot L_0$~\cite{hanamura47}. It is a relativistic correction to an existing topological structure, not the generator of that structure.
+
+\item \textbf{Quantum correspondence.}
+
+The sign of the accumulated rotation maps onto the electron/positron distinction (Section~\ref{sec:chirality}) as the orientation of the phase flow on $S^1$. In addition, the centroid amplitude $\tfrac{1}{2}$, the Thomas-precession coefficient $\tfrac{1}{2}$, and the spin quantum number $s=\tfrac{1}{2}$ appear as geometric, kinematic, and topological aspects of the common AM--GM constraint $\cos^2\iphase + \sin^2\iphase = 1$, answering the open question first posed in Paper~\#47~\cite{hanamura47} (Section~\ref{subsec:three_halves}).
+
+\end{enumerate}
+
+Taken together with the energy-floor result of \cite{hanamura46}, these elements complete a geometric account of photon-sphere angular momentum in the 0-Sphere model.
+
+In this picture, the factor $\tfrac{1}{2}$ appears simultaneously as a spatial radius, a relativistic kinematic coefficient, and the spin quantum number. The angular momentum arises from scalar dynamics through the relativistic geometric correction of Thomas precession, while the chirality of the rotation distinguishes matter from antimatter as a topological property of the directed thermal geodesic.
+
+This geometric viewpoint suggests that several familiar quantum properties may originate from deeper kinematic constraints in the internal phase structure.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+The author acknowledges the use of large language models in a limited supportive role for textual organization and TikZ figure preparation during document preparation. All physical interpretations, methodological judgments, and philosophical commitments remain the responsibility of the author.
+
+\clearpage
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+% Sorted by order of first appearance in text
+
+\bibitem{hanamura07}
+S.~Hanamura, \textit{Coexistence of Positive and Negative-Energy States in the Dirac Equation}, Zenodo (2020). \href{https://doi.org/10.5281/zenodo.17760132}{10.5281/zenodo.17760132}
+
+\bibitem{hanamura10}
+S.~Hanamura, \textit{Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction}, Zenodo (2023). \href{https://doi.org/10.5281/zenodo.17764997}{10.5281/zenodo.17764997}
+
+\bibitem{hanamura19}
+S.~Hanamura, \textit{Spin as a Real Vector: Geometric Origin of U(1) Gauge and SU(2) Periodicity}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765238}{10.5281/zenodo.17765238}
+
+\bibitem{hanamura26}
+S.~Hanamura, \textit{Spin from Geometry: Emergence of Spin via Internal Berry Phase}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765409}{10.5281/zenodo.17765409}
+
+\bibitem{hanamura47}
+S.~Hanamura, \textit{Rotational Lorentz Contraction as the Geometric Origin of the Anomalous Magnetic Moment: A Structural Correspondence with the Muon Lifetime Problem}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19120057}{10.5281/zenodo.19120057}
+
+\bibitem{hanamura01}
+S.~Hanamura, \textit{A Model of an Electron Including Two Perfect Black Bodies}, Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}
+
+\bibitem{hanamura06}
+S.~Hanamura, \textit{Correspondence Between a 0-Sphere and the Electron Model}, Zenodo (2020). \href{https://doi.org/10.5281/zenodo.17759908}{10.5281/zenodo.17759908}
+
+\bibitem{hanamura46}
+S.~Hanamura, \textit{Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor and the Zero-Point Energy in the 0-Sphere Model}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19010945}{10.5281/zenodo.19010945}
+
+\bibitem{hanamura29}
+S.~Hanamura, \textit{Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18067760}{10.5281/zenodo.18067760}
+
+\bibitem{hanamura49}
+S.~Hanamura, \textit{Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere Model}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{10.5281/zenodo.19393391}
+
+\bibitem{hanamura13}
+S.~Hanamura, \textit{Unified Spin Dynamics: From Pseudovector Nature to Relativistic Constraints}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765079}{10.5281/zenodo.17765079}
+
+\bibitem{hanamura40}
+S.~Hanamura, \textit{On the Derivative-Order Mismatch Between Gauge Theory and Gravity: A Supplement on Connection, Curvature, and Line-Integral Observables}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18736670}{10.5281/zenodo.18736670}
+
+\bibitem{hanamura31}
+S.~Hanamura, \textit{Line Integrals as Fundamental Observables: Holonomy, Phase Accumulation, and the 0-Sphere Two-Kernel System}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{10.5281/zenodo.18203433}
+
+\bibitem{hanamura33}
+S.~Hanamura, \textit{Geometrical Confinement: Rest Mass and Zitterbewegung as Topological Phenomena in the 0-Sphere Model}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18356895}{10.5281/zenodo.18356895}
+
+\bibitem{hanamura09}
+S.~Hanamura, \textit{Beyond the Standard Model: Neutrino Oscillations and the Search for New Physics}, Zenodo (2023). \href{https://doi.org/10.5281/zenodo.17764952}{10.5281/zenodo.17764952}
+
+\bibitem{Griffiths}
+D.~J.~Griffiths, \textit{Introduction to Elementary Particles}, 2nd ed.\ (Wiley-VCH, Weinheim, 2008).
+
+\bibitem{J.J.Sakurai}
+J.~J.~Sakurai, \textit{Advanced Quantum Mechanics} (Addison-Wesley, Reading, MA, 1967).
+
+\bibitem{Dirac1928}
+P.~A.~M.~Dirac, ``The quantum theory of the electron,'' Proc.\ R.\ Soc.\ Lond.\ A \textbf{117}, 610--624 (1928). \href{https://doi.org/10.1098/rspa.1928.0023}{10.1098/rspa.1928.0023}
+
+\end{thebibliography}
+
+% ========================================
+% Appendix A: Dirac equation — matrix form and 0-Sphere reinterpretation
+% ========================================
+\appendix
+
+\section{Dirac equation: four-component spinor structure and 0-Sphere reinterpretation}
+\label{app:dirac}
+
+This appendix records the matrix form and standard solutions of the Dirac equation, and maps each component explicitly onto the 0-Sphere kernel vocabulary introduced in~\cite{hanamura07}. The purpose is twofold: to supply the formal background assumed in Section~\ref{sec:chirality} without interrupting the geometric flow of the main text, and to make the paper self-contained for readers who wish to compare the 0-Sphere framework directly with the textbook Dirac treatment. Readers already fluent in the Dirac formalism may proceed directly to Table~\ref{tab:dirac_reinterpret} in Section~\ref{app:reinterpret}.
+
+\subsection{Matrix form and four-component spinor}
+\label{app:dirac_matrix}
+
+The Dirac equation for a free electron is written in Hamiltonian form as~\cite{Griffiths,J.J.Sakurai}
+\begin{align}
+E
+\begin{pmatrix}
+\Psi^{(+)} \\ \Psi^{(-)}
+\end{pmatrix}
+&=
+\begin{pmatrix}
+mc^2\,\mathbf{1} & c\,\boldsymbol{\sigma}\cdot\mathbf{p} \\
+c\,\boldsymbol{\sigma}\cdot\mathbf{p} & -mc^2\,\mathbf{1}
+\end{pmatrix}
+\begin{pmatrix}
+\Psi^{(+)} \\ \Psi^{(-)}
+\end{pmatrix},
+\label{eq:dirac_matrix}
+\end{align}
+where $\boldsymbol{\sigma}=(\sigma_1,\sigma_2,\sigma_3)$ are the Pauli matrices and $\mathbf{1}$ is the $2\times2$ unit matrix. Each of $\Psi^{(+)}$ and $\Psi^{(-)}$ is itself a two-component spinor, giving the full four-component Dirac spinor
+\begin{align}
+\Psi =
+\begin{pmatrix}
+\Psi^{(+)} \\ \Psi^{(-)}
+\end{pmatrix}
+=
+\begin{pmatrix}
+\Psi^{(+)}_{\mathrm{u}} \\[2pt]
+\Psi^{(+)}_{\mathrm{d}} \\[2pt]
+\Psi^{(-)}_{\mathrm{d}} \\[2pt]
+\Psi^{(-)}_{\mathrm{u}}
+\end{pmatrix}.
+\label{eq:four_spinor}
+\end{align}
+The conventional assignment is $\Psi^{(+)}\leftrightarrow$ particle and $\Psi^{(-)}\leftrightarrow$ antiparticle~\cite{Dirac1928}; the 0-Sphere reinterpretation of this assignment is described in Section~\ref{app:reinterpret}.
+
+Equation~\eqref{eq:dirac_matrix} separates into two coupled equations:
+\begin{align}
+(E - mc^2)\,\Psi^{(+)} &= c\,\boldsymbol{\sigma}\cdot\mathbf{p}\;\Psi^{(-)},\label{eq:coupled_pos}\\
+(E + mc^2)\,\Psi^{(-)} &= c\,\boldsymbol{\sigma}\cdot\mathbf{p}\;\Psi^{(+)}.\label{eq:coupled_neg}
+\end{align}
+The energy-momentum relation $E^2 = |\mathbf{p}|^2c^2 + m^2c^4$ follows, admitting both $E=+\sqrt{|\mathbf{p}|^2c^2+m^2c^4}$ (positive-energy) and $E=-\sqrt{|\mathbf{p}|^2c^2+m^2c^4}$ (negative-energy) solutions.
+
+\subsection{At-rest solutions ($\mathbf{p}=\mathbf{0}$)}
+\label{app:atrest}
+
+Setting $\mathbf{p}=\mathbf{0}$ decouples the two blocks in Eq.~\eqref{eq:dirac_matrix}, yielding four orthonormal basis spinors~\cite{Griffiths}:
+\begin{align}
+\Psi^{(+)}_{\mathrm{u}}
+&= \begin{pmatrix}1\\0\\0\\0\end{pmatrix},\qquad
+\Psi^{(+)}_{\mathrm{d}}
+= \begin{pmatrix}0\\1\\0\\0\end{pmatrix},\notag\\[4pt]
+\Psi^{(-)}_{\mathrm{u}}
+&= \begin{pmatrix}0\\0\\0\\1\end{pmatrix},\qquad
+\Psi^{(-)}_{\mathrm{d}}
+= \begin{pmatrix}0\\0\\1\\0\end{pmatrix},
+\label{eq:basis_spinors}
+\end{align}
+with eigenvalues
+\begin{align}
+\Psi^{(+)}_{\mathrm{u}},\;\Psi^{(+)}_{\mathrm{d}}&:\quad E = +mc^2,\notag\\
+\Psi^{(-)}_{\mathrm{u}},\;\Psi^{(-)}_{\mathrm{d}}&:\quad E = -mc^2.
+\label{eq:eigenvalues}
+\end{align}
+In the 0-Sphere framework, $\mathbf{p}=\mathbf{0}$ corresponds to the phase $\iphase = n\pi$ ($n\in\mathbb{Z}$), at which the photon-sphere momentum $p_{\gamma^*}$ vanishes and energy is fully localized at a single kernel~\cite{hanamura07, hanamura01}. The two spin projections (up/down) within each energy sector correspond to the two orientations of the photon-sphere rotation axis discussed in Section~\ref{sec:chirality}.
+
+\subsection{Plane-wave solutions ($\mathbf{p}\neq\mathbf{0}$)}
+\label{app:planewave}
+
+For general momentum $\mathbf{p}$, the positive-energy solutions ($E=+\sqrt{|\mathbf{p}|^2c^2+m^2c^4}$) and negative-energy solutions ($E=-\sqrt{|\mathbf{p}|^2c^2+m^2c^4}$) are~\cite{Griffiths}
+\begin{widetext}
+\begin{align}
+\Psi^{(+)}_{\mathrm{u}}(\mathbf{p})
+&= N\begin{pmatrix}
+1 \\[2pt] 0 \\[4pt]
+\dfrac{c\,p_3}{E+mc^2} \\[8pt]
+\dfrac{c(p_1+ip_2)}{E+mc^2}
+\end{pmatrix},\qquad\qquad
+\Psi^{(+)}_{\mathrm{d}}(\mathbf{p})
+= N\begin{pmatrix}
+0 \\[2pt] 1 \\[4pt]
+\dfrac{c(p_1-ip_2)}{E+mc^2} \\[8pt]
+\dfrac{-c\,p_3}{E+mc^2}
+\end{pmatrix}.
+\label{eq:positive_pw}
+\end{align}
+\begin{align}
+\Psi^{(-)}_{\mathrm{u}}(\mathbf{p})
+&= N\begin{pmatrix}
+\dfrac{-c(p_1-ip_2)}{|E|+mc^2} \\[8pt]
+\dfrac{c\,p_3}{|E|+mc^2} \\[4pt]
+0 \\[2pt] 1
+\end{pmatrix},\qquad\qquad
+\Psi^{(-)}_{\mathrm{d}}(\mathbf{p})
+= N\begin{pmatrix}
+\dfrac{-c\,p_3}{|E|+mc^2} \\[8pt]
+\dfrac{-c\,p_3}{|E|+mc^2} \\[8pt]
+\dfrac{-c(p_1+ip_2)}{|E|+mc^2} \\[8pt]
+1 \\[2pt] 0
+\end{pmatrix}.
+\label{eq:negative_pw}
+\end{align}
+\end{widetext}
+Setting $p_2=p_3=0$ (momentum aligned with the $x$-axis, consistent with the spatial assignment in Section~\ref{sec:chirality}) gives the simplified forms
+\begin{align}
+\Psi^{(+)}_{\mathrm{u}}&= N\!\begin{pmatrix}1\\0\\0\\\dfrac{cp_1}{E+mc^2}\end{pmatrix},\quad
+\Psi^{(+)}_{\mathrm{d}}= N\!\begin{pmatrix}0\\1\\\dfrac{cp_1}{E+mc^2}\\0\end{pmatrix},
+\label{eq:pos_simplified}
+\end{align}
+\begin{align}
+\Psi^{(-)}_{\mathrm{u}}&= N\!\begin{pmatrix}-\dfrac{cp_1}{|E|+mc^2}\\0\\0\\1\end{pmatrix},\quad
+\Psi^{(-)}_{\mathrm{d}}= N\!\begin{pmatrix}0\\-\dfrac{cp_1}{|E|+mc^2}\\1\\0\end{pmatrix}.
+\label{eq:neg_simplified}
+\end{align}
+The sign reversal of $p_1$ between Eqs.~\eqref{eq:pos_simplified} and~\eqref{eq:neg_simplified} has a direct physical meaning in the 0-Sphere picture: the positive-energy solutions correspond to the photon sphere traveling from Kernel~A to Kernel~B ($p_{\gamma^*}>0$), and the negative-energy solutions to the return journey ($p_{\gamma^*}<0$)~\cite{hanamura07}. This sign reversal is therefore not a formal artifact to be eliminated by second quantization, but a record of the photon sphere's direction of travel within the two-kernel cycle.
+
+\clearpage
+
+\subsection{Phase-momentum correspondence}
+\label{app:phase_table}
+
+In the 0-Sphere model the Dirac momentum $\mathbf{p}$ is replaced by the photon-sphere momentum $p_{\gamma^*}$~\cite{hanamura07}. The sign of $p_{\gamma^*}$ and the rate of change of each kernel's thermal energy alternate with the internal phase $\iphase = \omega t$:
+\begin{align}
+&\frac{\partial Te_1}{\partial t}<0,\;\frac{\partial Te_2}{\partial t}>0,\;p_{\gamma^*}<0\notag\\
+&\qquad:\quad (4n)\pi < \iphase < (4n{+}1)\pi,\notag\\[4pt]
+&\frac{\partial Te_1}{\partial t}>0,\;\frac{\partial Te_2}{\partial t}<0,\;p_{\gamma^*}>0\notag\\
+&\qquad:\quad (4n{+}1)\pi < \iphase < (4n{+}2)\pi,\notag\\[4pt]
+&\frac{\partial Te_1}{\partial t}<0,\;\frac{\partial Te_2}{\partial t}>0,\;p_{\gamma^*}<0\notag\\
+&\qquad:\quad (4n{+}2)\pi < \iphase < (4n{+}3)\pi,\notag\\[4pt]
+&\frac{\partial Te_1}{\partial t}>0,\;\frac{\partial Te_2}{\partial t}<0,\;p_{\gamma^*}>0\notag\\
+&\qquad:\quad (4n{+}3)\pi < \iphase < (4n{+}4)\pi,\notag\\[4pt]
+&\hspace{6em}(n=0,1,2,\ldots).\label{eq:phase_momentum_table}
+\end{align}
+The $4\pi$ repeat structure (period $4\pi$ in $\iphase$, not $2\pi$) is consistent with the spinorial periodicity established in Section~\ref{sec:thomas}: two full cycles of the bright-star locus are required to return the internal state to its original value. Within each $2\pi$ half-period, positive and negative momentum solutions appear exactly once each, mapping onto one complete traversal of the kernel pair $A\to B\to A'$.
+
+\subsection{Three-layer reinterpretation}
+\label{app:reinterpret}
+
+Table~\ref{tab:dirac_reinterpret} collects the three successive reinterpretations of the Dirac spinor components. The left column is the conventional QFT assignment. The center column is the 0-Sphere reinterpretation introduced in~\cite{hanamura07}: the positive- and negative-energy components are reassigned to the emission and absorption phases of the two-kernel thermodynamic cycle, eliminating the need for antiparticles to explain the negative-energy solutions. The right column is the geometric refinement of the present paper: the sign of $da/dt$ (thermal geodesic orientation on $S^1$) replaces the binary emission/absorption label and acquires a Lorentz-invariant meaning as chirality $\chi$. Reading Table~\ref{tab:dirac_reinterpret} from left to right traces the conceptual evolution from algebraic spinor indices to geometric geodesic orientation.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Three-layer reinterpretation of the Dirac spinor: from QFT to 0-Sphere to geometric chirality}}
+\label{tab:dirac_reinterpret}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{5.5cm}p{6.5cm}}
+\toprule
+\textbf{Standard QFT} & \textbf{0-Sphere Model \cite{hanamura07} (2020)} & \textbf{This work} \\
+\midrule
+$\Psi^{(+)}$: particle
+& Spinor 1 / Kernel A; emission phase ($Te_1$ decreasing)
+& Forward geodesic: $\chi = +1$, $da/dt > 0$ (electron); forward $S^1$ winding \\
+\addlinespace[0.3cm]
+$\Psi^{(-)}$: antiparticle
+& Spinor 2 / Kernel B; absorption phase ($Te_2$ increasing)
+& Backward geodesic: $\chi = -1$, $da/dt < 0$ (positron); backward $S^1$ winding \\
+\addlinespace[0.3cm]
+$E > 0$: positive energy
+& Thermal potential energy absorbed at a kernel; $Te$ increasing
+& Phase advancing: $\iphase$ increasing, bright star moving CCW \\
+\addlinespace[0.3cm]
+$E < 0$: negative energy
+& Thermal potential energy emitted from a kernel; $Te$ decreasing
+& Phase retreating: $\iphase$ decreasing, bright star moving CW \\
+\addlinespace[0.3cm]
+$p > 0$: positive momentum
+& Photon sphere moving $A \to B$; $p_{\gamma^*} > 0$
+& Rotation in $+y$ direction (CCW in $yz$-plane; $h = +\tfrac{1}{2}$) \\
+\addlinespace[0.3cm]
+$p < 0$: negative momentum
+& Photon sphere moving $B \to A$; $p_{\gamma^*} < 0$
+& Rotation in $-y$ direction (CW in $yz$-plane; $h = -\tfrac{1}{2}$) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The three columns represent successive refinements of the same four-component spinor structure. The conventional QFT assignment (left) uses the algebraic sign of $E$ to distinguish particle from antiparticle. The 0-Sphere reinterpretation~\cite{hanamura07} (center) replaces this with the direction of thermal energy flow between Kernels A and B within a single electron; no antiparticle state is required. The present work (right) promotes this to a Lorentz-invariant geometric statement: chirality $\chi = \mathrm{sign}(da/dt)$ is the orientation of the $S^1$ phase flow, a topological invariant classified by $\pi_1(S^1)=\mathbb{Z}$, immune to Lorentz boosts because path orientation is a topological property of directed curves. Helicity $h$ is its frame-dependent projection onto the propagation axis (Section~\ref{subsec:helicity_def}). Rows 5--6 connect the Dirac plane-wave sign reversal (Eqs.~\eqref{eq:pos_simplified}--\eqref{eq:neg_simplified}) directly to the rotation direction of the photon sphere in the $yz$-plane (Fig.~\ref{fig:yzplane}).
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Appendix B: Record of Reasoning
+% ========================================
+\section{Record of reasoning: how the conclusions of this paper were reached}
+\label{app:reasoning_record}
+
+\subsection{Purpose of this appendix}
+\label{app:reasoning_purpose}
+
+This appendix is unusual in form. It records, in near-chronological order, the reasoning process that led to the main conclusions of this paper---including paths that were explored and rejected, and the explicit reasons for each rejection. It is addressed as much to a future reader who will load this document as a prompt for continued reasoning as to a human referee who wishes to understand the derivation.
+
+The motivation is practical. The 0-Sphere Model is developed iteratively across a series of papers, each of which builds on prior results. A future session---whether conducted by a human researcher or by a language model reading the paper as context---will benefit from knowing not only what was concluded but also which logical branches were pruned and why. Repeating a rejected path is a waste of effort; knowing in advance that it was examined and found defective is a saving of time.
+
+Two specific threads are recorded here: (B.2) the degrees-of-freedom audit that resolved the apparent 6-DOF problem, and (B.3) the examination and rejection of the PMNS matrix as a tool for extending the framework to neutrinos.
+
+\subsection{The degrees-of-freedom audit: how the apparent 6-DOF problem was identified and dissolved}
+\label{app:reasoning_dof}
+
+\paragraph{How the problem arose.}
+The Dirac equation has four spinor components. The conventional assignment is: positive-energy up, positive-energy down, negative-energy up, negative-energy down, corresponding physically to electron-spin-up, electron-spin-down, positron-spin-up, positron-spin-down. The 0-Sphere reinterpretation~\cite{hanamura07} replaces ``electron/positron'' with ``Kernel~A dominant/Kernel~B dominant,'' so the four components become: Kernel-A-up, Kernel-A-down, Kernel-B-up, Kernel-B-down.
+
+The apparent problem arises when chirality $\chi = \mathrm{sign}(da/dt)$ is introduced in the present paper to encode the electron/positron distinction geometrically. At first reading, it seems that the model now carries \emph{five} binary labels: Kernel~A, Kernel~B, spin-up, spin-down, and $\chi = \pm1$. Since three independent binaries yield $2^3 = 8$ states (or at minimum, if two are partially redundant, 6), the Dirac equation's four components appear insufficient.
+
+\paragraph{Two candidate strategies.}
+Two strategies for resolving this were considered.
+
+\textit{Strategy~1: introduce a new internal degree of freedom.} The most natural candidate in the 0-Sphere vocabulary would be an imaginary extension of the internal phase $\iphase \to \iphase + i\phi$, allowing the phase space to double and accommodate six or eight states.
+
+\textit{Strategy~2: locate a counting error.} Perhaps the five labels are not all independent, and careful analysis reveals that the four Dirac components already account for all physically distinct states.
+
+\paragraph{The deciding criterion.}
+Before evaluating either strategy, a criterion that could not be adjusted post hoc was needed. The 0-Sphere Model provides one: \emph{Zitterbewegung must be a real, subluminal, physically realizable oscillation with a definite speed $v_\mathrm{ZB} \approx 0.04047c$.} This prediction is derived without free parameters from $\gamma(v_\mathrm{ZB}) = 1 + a$~\cite{hanamura33, hanamura10}. Any modification to the internal phase structure that is incompatible with a single real phase variable $\iphase \in \mathbb{R}$ will destroy this prediction.
+
+\paragraph{Rejection of Strategy~1.}
+If $\iphase$ acquires an imaginary part $\phi$, the trigonometric functions in the energy identity become hyperbolic in $\phi$, and the left-hand side of
+\begin{equation*}
+\cos^4\!\tfrac{\iphase}{2} + \sin^4\!\tfrac{\iphase}{2} + \tfrac{1}{2}\sin^2\iphase = 1
+\end{equation*}
+is no longer bounded by unity. Energy conservation is violated. Additionally, a second oscillation mode at a frequency unrelated to $\omega_\mathrm{ZB}$ would appear, producing a second velocity scale absent from the model's predictions. Strategy~1 is therefore \emph{incompatible with the Zitterbewegung constraint} and was rejected on those grounds. It is not merely inconvenient; it is excluded by the model's central quantitative prediction.
+
+\paragraph{Resolution via Strategy~2.}
+The counting error is this: Kernel~A and Kernel~B are \emph{not} independent degrees of freedom. Both are determined by the single real phase variable $\iphase$:
+\begin{equation*}
+Te_1 = E_0\cos^4\!\tfrac{\iphase}{2}, \quad Te_2 = E_0\sin^4\!\tfrac{\iphase}{2}.
+\end{equation*}
+Once $\iphase$ is specified, both values are fixed. ``Kernel~A dominant'' is shorthand for $\iphase \approx 0 \pmod{2\pi}$; ``Kernel~B dominant'' is shorthand for $\iphase \approx \pi \pmod{2\pi}$. They are phases of one oscillation cycle, not separate quantum numbers. The correct independent labels are therefore only $\chi$ (one binary) and spin (one binary), giving $2 \times 2 = 4$ states, which matches the Dirac spinor dimension exactly.
+
+\paragraph{Summary of the resolution.}
+The 6-DOF problem was a counting error caused by treating the output of a constrained dynamical system (the two kernel energies) as though they were two free inputs. The energy identity is the constraint that reduces two apparent degrees of freedom to one. This constraint is not an assumption introduced for convenience; it is the direct algebraic expression of energy conservation in the two-kernel system, and its validity is guaranteed by the same reasoning that gives the Zitterbewegung prediction.
+
+\subsection{The PMNS matrix: examined and rejected as a tool for the neutrino extension}
+\label{app:reasoning_pmns}
+
+\paragraph{How the question arose.}
+After resolving the DOF problem for the electron, the natural next question was whether the same framework extends to neutrinos. In the 0-Sphere Neutrino Model~\cite{hanamura09}, the equal-frequency condition is lifted ($\omega_{\nu1} \neq \omega_{\nu2}$), and the two kernel oscillators become genuinely independent. The internal trajectory of the photon sphere, which closes in $4\pi$ for the electron, now traces a Lissajous curve that may never close.
+
+The question was whether the ``extra'' degree of freedom introduced by $(\theta_A, \theta_B)$ being independent forces a 6-DOF or 8-DOF state space for the neutrino spinor.
+
+\paragraph{Initial temptation: import the PMNS matrix.}
+The standard tool for relating the additional structure ($\omega_{\nu1}/\omega_{\nu2}$) to observable mixing is the PMNS (Pontecorvo--Maki--Nakagawa--Sakata) matrix, which is a $3 \times 3$ unitary matrix whose entries are experimentally measured. The suggestion arose to use PMNS as a bridge: the frequency ratio $\omega_{\nu1}/\omega_{\nu2}$ could be identified with the PMNS mixing angle, thereby connecting the 0-Sphere framework to measured neutrino physics.
+
+\paragraph{Why the PMNS matrix was rejected.}
+The rejection was immediate once the foundational stance of the 0-Sphere program was recalled. The PMNS matrix is a construction of quantum field theory. It is defined as a unitary transformation acting on flavor and mass eigenstate vectors in a Hilbert space that is populated by creation and annihilation operators acting on a vacuum. Every step of that construction presupposes the existence of a quantum field defined over spacetime.
+
+The 0-Sphere program aims to replace field-theoretic constructions with line integrals along internal geodesics. Importing the PMNS matrix as a primitive would mean \emph{borrowing a conclusion from the framework being replaced in order to validate the replacement.} This is circular and methodologically inadmissible.
+
+The correct statement is the reverse: if the 0-Sphere framework is self-consistent, then the PMNS mixing angles should be \emph{derivable} from the frequency ratio $\omega_{\nu1}/\omega_{\nu2}$ as a geometric property of the Lissajous trajectory, without reference to the PMNS formalism. Whether such a derivation is possible is a well-posed and consequential future problem for the program.
+
+\paragraph{Resolution of the neutrino DOF question without PMNS.}
+The neutrino DOF question was resolved by the same logic as the electron case, with one modification. For the electron, $(\theta_A, \theta_B)$ collapses to a single variable $\theta$ via the constraint $\omega_A = \omega_B$, and the two kernel energies are dependent. For the neutrino, $(\theta_A, \theta_B)$ are genuinely independent, but they do not index new spinor components; they parametrize the \emph{shape} of the internal trajectory. The spinor dimension remains four. The frequency ratio $\omega_{\nu1}/\omega_{\nu2}$ is a continuous real parameter that specifies which particle the spinor describes, not an additional quantum number that requires additional spinor components.
+
+The topological summary is:
+\begin{itemize}
+\item $\omega_A = \omega_B$: internal geodesic is a closed $4\pi$ curve. Particle is stable, chirality $\chi$ is globally well-defined, no flavor oscillation. \emph{This is the electron.}
+\item $\omega_A \neq \omega_B$: internal geodesic is a Lissajous curve, generically non-closing. Particle undergoes flavor oscillation, $\chi$ is only locally defined. \emph{This is the neutrino.}
+\end{itemize}
+The 6-DOF or 8-DOF count that might appear necessary is in both cases a counting error of the same type: mistaking a geometric property of the internal trajectory for a new quantum number labeling distinct states.
+
+\paragraph{The general principle.}
+The common thread in both resolutions---electron DOF and neutrino DOF---is the following: \emph{in a framework based on line integrals rather than fields, the richness of physical content migrates from the dimension of the state space to the shape of the internal trajectory.} A field theory encodes particle species by multiplying the number of field components; the 0-Sphere framework encodes particle species by varying the geometry of the internal geodesic. These are two different ontological choices, and they must not be mixed. Importing field-theoretic constructions (PMNS, second quantization, vacuum polarization) into the 0-Sphere framework as inputs rather than outputs will systematically produce false counting problems and spurious degrees of freedom.
+
+This principle is recorded here as a methodological constraint for all future extensions of the 0-Sphere program.
+
+\subsection{On the frequency ratio $\omega_A/\omega_B$: rational, irrational, and the origin of neutrino interaction suppression}
+\label{app:reasoning_ratio}
+
+\paragraph{The two cases and their physical meaning.}
+The frequency ratio $\omega_A/\omega_B$ takes values in the positive reals. The distinction between rational and irrational values is not merely a mathematical curiosity; it is a physically decisive bifurcation within the 0-Sphere neutrino framework.
+
+\paragraph{Case 1: $\omega_A/\omega_B \in \mathbb{Q}$ (rational).}
+Write $\omega_A/\omega_B = p/q$ in lowest terms. The Lissajous trajectory closes after a finite time $T_\mathrm{close} = 2\pi q/\omega_A = 2\pi p/\omega_B$. We now prove that \emph{at the closure moment the kinetic energy of the photon sphere vanishes}, i.e., all energy has condensed into a single kernel.
+
+The neutrino energy conservation relation (following \cite{hanamura09}, Eq.~(IV.4)) is
+\begin{equation}
+K.E.(t) = E_\nu\!\left[1 - \cos^4\!\tfrac{\omega_A t}{2} - \sin^4\!\tfrac{\omega_B t}{2}\right].
+\label{eq:nu_KE}
+\end{equation}
+Since both terms on the right are non-negative and each lies in $[0,1]$, the condition $K.E. = 0$ requires their sum to equal unity, which holds if and only if one of the following two cases is satisfied simultaneously:
+
+\textit{Case 1a} (all energy at Kernel~A):
+\begin{align}
+&\cos^4\!\tfrac{\omega_A t}{2} = 1 \;\text{ and }\; \sin^4\!\tfrac{\omega_B t}{2} = 0\notag\\
+&\quad\Longleftrightarrow\quad
+\omega_A t = 4k\pi,\;\; \omega_B t = 2n\pi,\quad k,n\in\mathbb{Z},
+\label{eq:KE0_caseA}
+\end{align}
+which requires $\omega_A/\omega_B = 2k/n \in \mathbb{Q}$.
+
+\textit{Case 1b} (all energy at Kernel~B):
+\begin{align}
+&\cos^4\!\tfrac{\omega_A t}{2} = 0 \;\text{ and }\; \sin^4\!\tfrac{\omega_B t}{2} = 1\notag\\
+&\quad\Longleftrightarrow\quad
+\omega_A t = (2k{+}1)\pi,\;\; \omega_B t = (2m{+}1)\pi,\quad k,m\in\mathbb{Z},
+\label{eq:KE0_caseB}
+\end{align}
+which requires $\omega_A/\omega_B = (2k+1)/(2m+1) \in \mathbb{Q}$.
+
+In both cases the conclusion is the same: \emph{a finite time $t > 0$ at which $K.E. = 0$ exists if and only if $\omega_A/\omega_B$ is rational.} $\square$
+
+At this $K.E. = 0$ moment, the internal photon sphere is momentarily at rest, all thermal potential energy is localized at a single kernel, and the neutrino is in a state structurally analogous to the $\mathbf{p} = \mathbf{0}$ at-rest eigenstate of the Dirac equation (Appendix~\ref{app:atrest}). The 0-Sphere hypothesis, recorded here for future verification, is that \emph{neutrino interactions occur preferentially at these $K.E. = 0$ moments.} If correct, this provides a geometric explanation for the suppression of neutrino interaction cross-sections: interactions require waiting for the Lissajous curve to close, which takes a time $T_\mathrm{close} \propto q/\omega_A$ that grows with the denominator $q$ of the reduced fraction $p/q = \omega_A/\omega_B$. The larger $q$, the rarer the interaction opportunity per unit time.
+
+\paragraph{Case 2: $\omega_A/\omega_B \notin \mathbb{Q}$ (irrational).}
+When the ratio is irrational, the Lissajous curve never closes. By Weyl's equidistribution theorem, the pair $(\omega_A t / 2\pi,\, \omega_B t / 2\pi) \bmod 1$ is dense in $[0,1]^2$ but never simultaneously lands on the lattice points required by Eqs.~\eqref{eq:KE0_caseA} or~\eqref{eq:KE0_caseB}. Therefore $K.E.(t) > 0$ for all $t > 0$: the kinetic energy of the photon sphere \emph{never reaches zero.}
+
+In this case the thermal potential energies of the two kernels remain permanently separated and oscillating independently, never converging to a single-kernel ground state. The neutrino never reaches the $\mathbf{p} = \mathbf{0}$ configuration. Under the hypothesis above, such a neutrino would have \emph{zero interaction probability} in the $K.E. = 0$ sense---it would be, in effect, sterile. Whether the irrational-ratio case corresponds to a sterile neutrino species is a well-posed question for future work.
+
+\paragraph{Connection to the mixing angle derivation program.}
+The rational/irrational bifurcation also illuminates the question of deriving neutrino mixing angles without importing the PMNS matrix. The mixing angle $\theta_{12}$ in the standard two-flavor approximation is an experimentally measured real number. If $\omega_A/\omega_B = \tan^2\theta_{12}$ (or some other simple functional form), then the rationality of the mixing angle---and hence the existence of a finite interaction time---would be a constraint derivable from the internal geometry of the Lissajous trajectory. Conversely, if the mixing angle is transcendental, the 0-Sphere framework would predict a neutrino that never interacts via the $K.E. = 0$ channel. The experimental fact that neutrinos \emph{do} interact, albeit rarely, is therefore a constraint on the functional relationship between $\omega_A/\omega_B$ and the mixing angles. This is the research program that the present paper opens, and whose prosecution is deferred to future work.
+
+\paragraph{Open problems and corrected status of the DOF question for neutrinos.}
+The discussion above contains three claims whose mathematical status must be distinguished carefully, and one of which was found to be erroneous upon review.
+
+\textit{(i) The $K.E.=0$ condition (working hypothesis, not proven).}
+The argument that $K.E.=0$ requires one of the two cases in Eqs.~\eqref{eq:KE0_caseA}--\eqref{eq:KE0_caseB} is \emph{incomplete as stated.}
+The equation
+\begin{equation*}
+\cos^4\!\tfrac{\omega_A t}{2} + \sin^4\!\tfrac{\omega_B t}{2} = 1
+\end{equation*}
+can in principle be satisfied by intermediate values such as $\cos^4 x = 0.7$ and $\sin^4 y = 0.3$, not only by the extreme cases $(1,0)$ and $(0,1)$.
+A complete proof would require showing that no such intermediate solution exists given the constrained form $\theta_i = \omega_i t$, or finding explicit counterexamples.
+The association of $K.E.=0$ with $\omega_A/\omega_B \in \mathbb{Q}$ is therefore recorded as a \emph{working hypothesis} motivating future analysis, not as a proved theorem.
+
+\textit{(ii) Non-negativity of $K.E.$ is not automatically guaranteed.}
+The expression $K.E. = E_\nu[1 - \cos^4\!\tfrac{\omega_A t}{2} - \sin^4\!\tfrac{\omega_B t}{2}]$ can become negative if $\cos^4\!\tfrac{\omega_A t}{2} + \sin^4\!\tfrac{\omega_B t}{2} > 1$.
+For the electron ($\omega_A = \omega_B = \omega$), the algebraic identity
+\begin{equation*}
+\cos^4\!\tfrac{\theta}{2} + \sin^4\!\tfrac{\theta}{2} + \tfrac{1}{2}\sin^2\theta \equiv 1
+\end{equation*}
+guarantees $K.E. = \tfrac{1}{2}E_0\sin^2\theta \geq 0$ for all $\theta$.
+No analogous identity is available when $\omega_A \neq \omega_B$.
+Establishing $K.E. \geq 0$ for all $t$ is an open necessary condition that the neutrino model must satisfy, and it places a non-trivial constraint on the admissible values of $\omega_A/\omega_B$.
+
+\textit{(iii) The neutrino carries genuine 2 internal DOF: the electron analogy does not extend.}
+An earlier draft of this appendix contained a theorem claiming that the Hamiltonian constraint reduces the neutrino's apparent 2-DOF system to 1 DOF, on the grounds that both $\theta_A$ and $\theta_B$ are driven by the same physical clock $t$.
+This argument is \emph{erroneous} and is retracted here.
+The error is a conflation of the dimension of a trajectory with the number of degrees of freedom.
+A particle moving in three-dimensional space traces a 1-dimensional curve in time, yet its degrees of freedom are 3; analogously, two coupled oscillators driven by a common time parameter retain 2 degrees of freedom even though each state is indexed by a single value of $t$.
+Energy conservation restricts the phase-space trajectory to a hypersurface of codimension 1, but does not reduce the number of independent generalized coordinates.
+
+The correct statement is: \emph{the electron has 1 internal DOF because the energy identity is an algebraic identity that makes $Te_2$ a determinate function of $Te_1$ through the single shared variable $\theta$.} This coupling is a structural feature of the equal-frequency case $\omega_A = \omega_B$, where both kernels are not independent oscillators but two expressions of the same phase. When $\omega_A \neq \omega_B$, as stated explicitly in~\cite{hanamura09}, the two oscillators are ``orthogonal and independent components of each other.'' No algebraic identity eliminates one in favor of the other, and the neutrino therefore carries genuine 2 internal DOF.
+
+This is not a defect of the 0-Sphere framework; it reflects a physical distinction. Both the electron ($\omega_A = \omega_B$, 1 internal DOF) and the neutrino ($\omega_A \neq \omega_B$, 2 internal DOF) are accommodated within a 4-component Dirac spinor because the spinor dimension counts the observable discrete labels ($\chi \in \{+1,-1\}$ and $s \in \{+\tfrac{1}{2},-\tfrac{1}{2}\}$), not the internal continuous DOF. The distinction between electron and neutrino is encoded in the geometry of the internal trajectory on the 2-torus $(\theta_A,\theta_B)\in[0,2\pi)^2$: a closed diagonal ($\omega_A=\omega_B$, electron) versus a winding curve at slope $\omega_A/\omega_B$ (neutrino). Whether the 2-DOF internal structure of the neutrino can be embedded in a line-integral formulation without reference to quantum field theory---and in particular whether $\omega_A/\omega_B$ determines the neutrino mixing angles geometrically without importing the PMNS matrix---is the principal open problem that the present paper identifies for future work.
+
+\subsection{Summary table: DOF claims, their status, and future tasks}
+\label{app:reasoning_summary}
+
+Table~\ref{tab:dof_summary} collects every claim examined in this appendix together with its current mathematical status and the corresponding future task. The table is intended as a compact reference for readers---human or machine---who load this paper as context for subsequent reasoning and need to know quickly what has been established, what remains a working hypothesis, and what was retracted.
+
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Status of DOF claims and future research tasks arising from the 6/8-DOF discussion}}
+\label{tab:dof_summary}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.2cm}p{1.8cm}p{2.4cm}p{6.6cm}}
+\toprule
+\textbf{Claim} & \textbf{Particle} & \textbf{Status} & \textbf{Future task / note} \\
+\midrule
+Kernel A/B are not independent DOF; both fixed by single phase $\theta$
+& Electron
+& $\surd\surd$ Established
+& Follows from the algebraic identity $\cos^4\!\tfrac{\theta}{2}+\sin^4\!\tfrac{\theta}{2}+\tfrac{1}{2}\sin^2\theta\equiv1$; no further work needed \\
+\addlinespace[0.3cm]
+DOF = 4 ($\chi\times$ spin), consistent with Dirac spinor dimension
+& Electron
+& $\surd\surd$ Established
+& Confirmed by the three-layer reinterpretation (Table~\ref{tab:dirac_reinterpret}); algebraically closed \\
+\addlinespace[0.3cm]
+Imaginary extension $\iphase\to\iphase+i\phi$ (Strategy~1) excluded
+& Electron
+& $\surd\surd$ Established
+& Excluded by $v_\mathrm{ZB}\approx0.04047c$ constraint; energy identity would be violated \\
+\addlinespace[0.3cm]
+$K.E.=0$ at finite $t$ $\Longleftrightarrow$ $\omega_A/\omega_B\in\mathbb{Q}$
+& Neutrino
+& $\triangle$ Working hypothesis
+& Proof incomplete: intermediate values $(\cos^4 x, \sin^4 y)\neq(1,0),(0,1)$ summing to 1 not excluded; complete proof or counterexample needed \\
+\addlinespace[0.3cm]
+$K.E.(t)\geq0$ for all $t$ when $\omega_A\neq\omega_B$
+& Neutrino
+& $\triangle$ Open constraint
+& No algebraic identity guarantees non-negativity; constraint on admissible $\omega_A/\omega_B$ must be derived \\
+\addlinespace[0.3cm]
+Hamiltonian constraint reduces neutrino to 1 internal DOF
+& Neutrino
+& $\times$ Retracted
+& Conflates trajectory dimension with DOF; two independent oscillators remain 2 DOF under energy conservation \\
+\addlinespace[0.3cm]
+Neutrino carries genuine 2 internal DOF ($\omega_A\neq\omega_B$, independent kernels)
+& Neutrino
+& $\surd$ Accepted
+& Consequence of \cite{hanamura09} §III-A (``orthogonal and independent''); consistent with Dirac spinor dimension 4 because spinor counts discrete labels, not internal continuous DOF \\
+\addlinespace[0.3cm]
+PMNS matrix is inadmissible as primitive input
+& Neutrino
+& $\surd\surd$ Established
+& PMNS is a QFT construction; importing it would borrow from the framework being replaced; $\omega_A/\omega_B$ is the correct 0-Sphere primitive \\
+\addlinespace[0.3cm]
+$\omega_A/\omega_B$ determines neutrino mixing angles geometrically
+& Neutrino
+& $\blacksquare$ Open program
+& Central future task: derive mixing angles from Lissajous trajectory shape without PMNS; rationality constraint from interaction existence is the entry point \\
+\addlinespace[0.3cm]
+Irrational $\omega_A/\omega_B$ $\Rightarrow$ sterile neutrino candidate
+& Neutrino
+& $\blacksquare$ Conjecture
+& Follows from $K.E.>0$ always (working hypothesis); no interaction channel available; consistency with sterile neutrino phenomenology unexplored \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Status grades: $\surd\surd$ established within the 0-Sphere framework with no remaining gap. $\surd$ accepted on the basis of prior work in the series. $\triangle$ working hypothesis or open constraint requiring further proof. $\times$ retracted: argument found to be erroneous. $\blacksquare$ open research program or conjecture; no proof attempted in the present paper. The retracted claim (row 6) is included deliberately so that future reasoning sessions do not reconstruct the same erroneous argument.
+\end{minipage}
+\end{table*}
+
+\clearpage
+
+\end{document}

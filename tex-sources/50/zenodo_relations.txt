@@ -1,0 +1,216 @@
+================================================================================
+zenodo_relations.txt — Paper #50
+"Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular
+ Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model"
+Author: Satoshi Hanamura
+Date: April 9, 2026
+DOI (this paper): [FILL: 10.5281/zenodo.XXXXXXX — after Zenodo pre-registration]
+================================================================================
+NOTE: Two DOI placeholders remain in the bibliography of main.tex:
+  - hanamura49 (\bibitem): "[DOI pending]" — #49 is published; fill in actual DOI
+    before Zenodo upload. Replace in main.tex with: 10.5281/zenodo.19393391
+  - hanamura52 (\bibitem): "[DOI to be assigned]" — future companion paper #52,
+    not yet published. Acceptable to retain as placeholder in the upload version.
+
+[Summary]
+  [1] Cites:             16 entries (14 Zenodo DOIs + 2 external + 1 DOI pending)
+  [2] Is supplement to:  0 entries
+  [3] Continues:         5 entries
+  [4] References:        3 entries
+  [5] Requires:          6 entries
+  [6] Is part of:        1 entry (use #49 DOI once confirmed; #47 DOI used below)
+  [Reverse Relations]:   7 target papers listed for update
+================================================================================
+
+[1] Cites
+  — All papers cited via \bibitem in main.tex —
+
+  #1  Hanamura 2018 — A Model of an Electron Including Two Perfect Black Bodies
+      DOI: 10.5281/zenodo.16759284
+
+  #6  Hanamura 2020 — Correspondence Between a 0-Sphere and the Electron Model
+      DOI: 10.5281/zenodo.17759908
+
+  #7  Hanamura 2020 — Coexistence of Positive and Negative-Energy States in the Dirac Equation
+      DOI: 10.5281/zenodo.17760132
+
+  #9  Hanamura 2023 — Beyond the Standard Model: Neutrino Oscillations
+      DOI: 10.5281/zenodo.17764952
+
+  #10 Hanamura 2023 — Redefining Electron Spin and AMM Through Harmonic Oscillation and Lorentz Contraction
+      DOI: 10.5281/zenodo.17764997
+
+  #13 Hanamura 2025 — Unified Spin Dynamics: From Pseudovector Nature to Relativistic Constraints
+      DOI: 10.5281/zenodo.17765079
+
+  #19 Hanamura 2025 — Spin as a Real Vector: Geometric Origin of U(1) Gauge and SU(2) Periodicity
+      DOI: 10.5281/zenodo.17765238
+
+  #26 Hanamura 2025 — Spin from Geometry: Emergence of Spin via Internal Berry Phase
+      DOI: 10.5281/zenodo.17765409
+
+  #29 Hanamura 2025 — Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics
+      DOI: 10.5281/zenodo.18067760
+
+  #31 Hanamura 2026 — Line Integrals as Fundamental Observables in Physics
+      DOI: 10.5281/zenodo.18203433
+
+  #33 Hanamura 2026 — Geometrical Confinement: Rest Mass and Zitterbewegung
+      DOI: 10.5281/zenodo.18356895
+
+  #40 Hanamura 2026 — On the Derivative-Order Mismatch Between Gauge Theory and Gravity
+      DOI: 10.5281/zenodo.18736670
+
+  #46 Hanamura 2026 — Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor
+      DOI: 10.5281/zenodo.19010945
+
+  #47 Hanamura 2026 — Rotational Lorentz Contraction as the Geometric Origin of the AMM
+      DOI: 10.5281/zenodo.19120057
+
+  #49 Hanamura 2026 — Photon-Sphere Fragmentation as a Gravitational Mediator
+      DOI: 10.5281/zenodo.19393391
+
+  External (not Zenodo — no Zenodo relation entry required):
+      Dirac 1928, Proc. R. Soc. Lond. A 117, DOI: 10.1098/rspa.1928.0023
+      Griffiths, Introduction to Elementary Particles (Wiley-VCH, 2008)
+      Sakurai, Advanced Quantum Mechanics (Addison-Wesley, 1967)
+
+================================================================================
+
+[2] Is supplement to
+  — None. This is a primary research paper establishing new results. —
+
+================================================================================
+
+[3] Continues
+  — Papers whose open questions or research threads are directly advanced —
+
+  #47 Hanamura 2026 — Rotational Lorentz Contraction (three independent 1/2 factors)
+      DOI: 10.5281/zenodo.19120057
+      Reason: Paper #50 provides the answer to the open question posed in #47 Sec. III.A:
+              the common geometric origin of the three 1/2 factors (geometric, kinematic,
+              topological) is the AM-GM constraint cos^2(theta) + sin^2(theta) = 1.
+
+  #46 Hanamura 2026 — Geometric Origin of the One-Half Factor
+      DOI: 10.5281/zenodo.19010945
+      Reason: The centroid-radius result (r = 1/2 circle) in Sec. 2.3 of #50 provides the
+              spatial counterpart to the energy floor of #46; both reflect the same AM-GM
+              constraint.
+
+  #7  Hanamura 2020 — Coexistence of Positive and Negative-Energy States in the Dirac Equation
+      DOI: 10.5281/zenodo.17760132
+      Reason: #50 promotes the geometric reinterpretation of Dirac Psi^(+/-) first proposed
+              in #7 to a Lorentz-invariant theorem: chi = sign(da/dt) is topologically
+              protected via pi_1(S^1) = Z.
+
+  #10 Hanamura 2023 — Redefining Electron Spin and AMM
+      DOI: 10.5281/zenodo.17764997
+      Reason: #50 identifies v_ZB ~ 0.04c (first derived in #10) as the kinematic controller
+              of helicity; helicity-flip condition tied to v_ZB is a new application.
+
+  #19 Hanamura 2025 — Spin as a Real Vector: U(1) Gauge and SU(2) Periodicity
+      DOI: 10.5281/zenodo.17765238
+      Reason: The Thomas precession vector Omega_T(t) established in #19 is connected in
+              #50 to the phase stagger delta_b = pi/n of the oscillator array; the 4pi
+              spinorial periodicity is given a new geometric derivation via the pi-period
+              of the oscillation axis space.
+
+================================================================================
+
+[4] References
+  — Thematically related 0-SM papers not in bibitem; added for LLM crawlability —
+
+  #24 Hanamura 2025 — Thermal Geodesics: Extending GR Through Internal Thermodynamic Structure
+      DOI: 10.5281/zenodo.17765349
+      Reason: The directed thermal geodesic A->B->A' is central to #50's chirality definition;
+              #24 established the thermal geodesic framework.
+
+  #38 Hanamura 2026 — Geometric Phase Structure: Dual DOF within 2pi Periodicity
+      DOI: 10.5281/zenodo.18718174
+      Reason: g = 2 as topological invariant (phase-based, #38) is complementary to the
+              spin quantum number s = 1/2 as topological face of AM-GM constraint (#50 Sec. 7.4).
+
+  #43 Hanamura 2026 — On Observer-Dependent Torsion, Zitterbewegung, and Phase Accumulation
+      DOI: 10.5281/zenodo.18896784
+      Reason: The S^1 orientation (chirality) and open-path vs. closed-loop framework of
+              #43 is structurally related to the chirality chi = sign(da/dt) developed in #50.
+
+================================================================================
+
+[5] Requires
+  — Papers whose results are used as necessary inputs in this paper —
+
+  #1  Hanamura 2018 — A Model of an Electron Including Two Perfect Black Bodies
+      DOI: 10.5281/zenodo.16759284
+      Reason: The central energy identity E_0 = cos^4 + sin^4 + (1/2)sin^2 and
+              the radiation gradient F(theta) = E_0 sin(theta) are foundational inputs.
+
+  #7  Hanamura 2020 — Coexistence of Positive and Negative-Energy States in the Dirac Equation
+      DOI: 10.5281/zenodo.17760132
+      Reason: The 0-Sphere reinterpretation of Dirac Psi^(+/-) as Kernels A/B (chirality
+              sec. 6 and appendix A) is taken as established input from #7.
+
+  #10 Hanamura 2023 — Redefining Electron Spin and AMM
+      DOI: 10.5281/zenodo.17764997
+      Reason: v_ZB ~ 0.04047c is used as a quantitative input throughout
+              (helicity flip, Thomas prefactor, three-1/2 kinematic face).
+
+  #46 Hanamura 2026 — Geometric Origin of the One-Half Factor
+      DOI: 10.5281/zenodo.19010945
+      Reason: The energy floor cos^4 + sin^4 >= E_0/2 (AM-GM) is used directly
+              in Sec. 2.3 to explain the centroid radius = 1/2.
+
+  #47 Hanamura 2026 — Rotational Lorentz Contraction and Muon Lifetime
+      DOI: 10.5281/zenodo.19120057
+      Reason: The identity DeltaL = |gamma_L - 1| * L_0 and the three-1/2 open question
+              (first stated in #47 Sec. III.A) are used as the explicit motivation for
+              Sec. 7.4 of the present paper.
+
+  #49 Hanamura 2026 — Photon-Sphere Fragmentation as a Gravitational Mediator
+      DOI: 10.5281/zenodo.19393391
+      Reason: The arc-curvature argument v x a != 0 (justifying Thomas precession
+              for the 0-Sphere thermal geodesic) is used as an established input from
+              the companion paper #49; without it the Thomas mechanism argument in Sec. 5
+              relies on a result not derived in this paper.
+
+================================================================================
+
+[6] Is part of
+  — 0-Sphere Model series membership; use immediately preceding paper's DOI —
+
+  #49 Hanamura 2026 — Photon-Sphere Fragmentation as a Gravitational Mediator
+      DOI: 10.5281/zenodo.19393391
+      Note: Once #49 DOI is confirmed, use it here. Fallback (if unavailable):
+            #47 DOI: 10.5281/zenodo.19120057
+
+================================================================================
+
+[Reverse Relations — Recommended Updates to Target Papers]
+
+The following papers should have their Zenodo records updated to include a
+relation pointing toward Paper #50 (DOI: [to be assigned]):
+
+  #47 — Add: Is continued by  → DOI of #50
+        Reason: #50 answers the open question posed in #47 Sec. III.A (three 1/2 factors).
+
+  #46 — Add: Is continued by  → DOI of #50
+        Reason: #50 provides the spatial counterpart (centroid r = 1/2) to #46's energy floor.
+
+  #7  — Add: Is continued by  → DOI of #50
+        Reason: #50 promotes the #7 reinterpretation to a Lorentz-invariant theorem.
+
+  #10 — Add: Is continued by  → DOI of #50
+        Reason: #50 establishes v_ZB as the kinematic controller of helicity.
+
+  #19 — Add: Is continued by  → DOI of #50
+        Reason: #50 connects Thomas precession vector to the phase stagger and 4pi periodicity.
+
+  #49 — Add: Is continued by  → DOI of #50
+        Reason: #50 is the direct continuation that uses the arc-curvature input from #49.
+
+  #1  — Add: Is cited by      → DOI of #50
+        Reason: Energy identity and radiation gradient are cited as foundational.
+
+================================================================================
+END OF zenodo_relations_50.txt
+================================================================================
