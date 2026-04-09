@@ -30,7 +30,7 @@ jobs:
 
       - name: Create folders
         run: |
-          for i in $(seq 1 47); do
+          for i in $(seq 52 60); do
             mkdir -p tex-sources/$i
             touch tex-sources/$i/.gitkeep
           done
