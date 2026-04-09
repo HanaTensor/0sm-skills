@@ -27,12 +27,15 @@
 | 02/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/papers.md | Group02 (#11–#20) 論文詳細 |
 | 03/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/papers.md | Group03 (#21–#30) 論文詳細 |
 | 04/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md | Group04 (#31–#40) 論文詳細 |
-| 05/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md | Group05 (#41–#50) 論文詳細 |
+| 05/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md | Group05 (#41–#47) 論文詳細 |
+| 06/papers.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md | Group06 (#48–#60) 論文詳細 |
+
 | 01/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/concept.md | Group01 逆引き辞典 |
 | 02/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/concept.md | Group02 逆引き辞典 |
 | 03/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/concept.md | Group03 逆引き辞典 |
 | 04/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/concept.md | Group04 逆引き辞典 |
 | 05/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md | Group05 逆引き辞典 |
+| 06/concept.md | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md | Group06 逆引き辞典 |
 
 ---
 
