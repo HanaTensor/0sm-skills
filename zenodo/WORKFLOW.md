@@ -182,7 +182,7 @@ Version Relationshipsに追記（補足・新版関係があれば）:
 | 03 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/papers.md | #21–#30 |
 | 04 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md | #31–#40 |
 | 05 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md | #41–#47 |
-| 06 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md | #48–#60 |
+| 06 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md | #48–#60 |
 ```
 新論文セクションを追加:
   ## #[N] — [Title] ([Date])
