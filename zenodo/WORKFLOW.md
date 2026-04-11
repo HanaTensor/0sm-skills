@@ -2,7 +2,7 @@
 
 > File: `zenodo/WORKFLOW.md` | Repository: `HanaTensor/0sm-skills`
 > 用途：0-Sphere Model論文の新規アップロード時に実行する全手順。ZenodoアップロードとGitHub更新を統合。
-> Last updated: 2026-03-23
+> Last updated: 2026-04-12
 
 <!-- PIPELINE ENTRY POINT
      Claude: upon fetching this file, automatically fetch all URLs listed in
@@ -42,13 +42,13 @@
 
 ```
 Step 0. 前提確認（DOIプレースホルダー検出）
-Step 1. main.tex クリーンアップ
+Step 1. main.tex クリーンアップ + 参照整合性チェック
 Step 2. readme.txt 新規作成
 Step 3. zenodo_relations.txt 作成
 Step 3.5. zenodo_description.html 作成
 Step 4. ファイル納品・Zenodoアップロード
 Step 5. TikZ検出 → figshare対応（任意）
-Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
+Step 6. GitHub 0sm-skills リポジトリ更新
 ```
 
 ---
@@ -68,7 +68,7 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 
 ---
 
-## Step 1. main.tex クリーンアップ
+## Step 1. main.tex クリーンアップ + 参照整合性チェック
 
 参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md
 
@@ -76,7 +76,100 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 ├── 日本語コメント削除
 ├── セクション/サブセクション英語コメント確認・追加
 ├── コメントアウト行削除
-└── チェックリスト実行（Section 3のファイル構造チェックリスト）
+├── チェックリスト実行（latex-standards.md Section 3のファイル構造チェックリスト）
+│
+├── [参照整合性チェック — 以下4項目を必ず実施]
+│   ├── bibitem順序チェック
+│   │     \thebibliography の \bibitem 順が、本文中の \cite{} 初出順と
+│   │     一致しているか確認する。
+│   │     APS形式では参照番号は初引用順に付番される。
+│   │     ズレがある場合は bibitem を引用初出順に並べ直す。
+│   │
+│   ├── 孤立bibitemチェック
+│   │     \bibitem にエントリがあるが、本文中に対応する \cite{} が
+│   │     一度も現れないエントリを検出・削除する。
+│   │     （コンパイルエラーにならないため見落としやすい）
+│   │
+│   ├── Table参照チェック
+│   │     すべての \label{tab:XXX} に対して、本文またはAppendix内に
+│   │     \ref{tab:XXX} が存在するか確認する。
+│   │     存在しない場合は「リンク切れ表」として報告する。
+│   │
+│   └── Figure参照チェック
+│         すべての \label{fig:XXX} に対して、本文またはAppendix内に
+│         \ref{fig:XXX} が存在するか確認する。
+│         存在しない場合は「リンク切れ図」として報告する。
+└──
+```
+
+### 参照整合性チェック — 自動検査スクリプト
+
+Claudeは以下のPythonスクリプトを bash_tool で実行して結果を報告する。
+手動確認の代替として使用する（main.tex のパスを適宜変更すること）。
+
+```python
+import re
+
+with open('main.tex', 'r', encoding='utf-8') as f:
+    content = f.read()
+lines = content.split('\n')
+
+# --- bibitem順序チェック ---
+bib_start = next((i for i, l in enumerate(lines, 1)
+                  if r'\begin{thebibliography}' in l), None)
+
+cite_seen, cite_order = {}, []
+for i, line in enumerate(lines, 1):
+    for m in re.finditer(r'\\cite\{([^}]+)\}', line):
+        for key in [k.strip() for k in m.group(1).split(',')]:
+            if key not in cite_seen:
+                cite_seen[key] = i
+                cite_order.append((i, key))
+
+bib_order = []
+for i, line in enumerate(lines, 1):
+    m = re.search(r'\\bibitem\{([^}]+)\}', line)
+    if m:
+        bib_order.append((i, m.group(1)))
+
+print("=== BIBITEM ORDER CHECK ===")
+cite_keys = [k for _, k in cite_order]
+bib_keys  = [k for _, k in bib_order]
+mismatches = [(i+1, ck, bk) for i, (ck, bk)
+              in enumerate(zip(cite_keys, bib_keys)) if ck != bk]
+if mismatches:
+    for pos, ck, bk in mismatches:
+        print(f"  MISMATCH at position {pos}: cite={ck}, bib={bk}")
+else:
+    print("  OK — all bibitems in citation order")
+
+unused_bib = [k for k in bib_keys if k not in set(cite_keys)]
+if unused_bib:
+    for k in unused_bib:
+        print(f"  ORPHAN BIBITEM (never cited): {k}")
+
+# --- Table/Figure参照チェック ---
+for prefix, label_type in [('tab', 'TABLE'), ('fig', 'FIGURE')]:
+    labels, refs = {}, {}
+    for i, line in enumerate(lines, 1):
+        for m in re.finditer(rf'\\label\{{{prefix}:([^}}]+)\}}', line):
+            labels[f'{prefix}:{m.group(1)}'] = i
+        for m in re.finditer(rf'\\ref\{{{prefix}:([^}}]+)\}}', line):
+            key = f'{prefix}:{m.group(1)}'
+            if key not in refs:
+                refs[key] = i
+    print(f"\n=== {label_type} REFERENCE CHECK ===")
+    if not labels:
+        print(f"  No {prefix}: labels found")
+        continue
+    for key, lno in sorted(labels.items(), key=lambda x: x[1]):
+        if key in refs:
+            print(f"  OK  L{lno:4d}: {key}  → ref'd at L{refs[key]}")
+        else:
+            print(f"  *** UNREFERENCED L{lno:4d}: {key}")
+    orphan_refs = [k for k in refs if k not in labels]
+    for k in orphan_refs:
+        print(f"  *** ORPHAN REF (no label): {k}")
 ```
 
 ---
@@ -133,7 +226,7 @@ Step 6. GitHub 0sm-skills リポジトリ更新  ← 新規追加
 
 ```
 納品ファイル:
-  ├── main.tex（クリーンアップ済み）
+  ├── main.tex（クリーンアップ済み・参照整合性確認済み）
   ├── readme.txt（新規作成）
   ├── zenodo_relations.txt（英語のみ、LLMクローリング最適化）
   └── zenodo_description_[N].html（Description欄コピペ用）
@@ -183,6 +276,7 @@ Version Relationshipsに追記（補足・新版関係があれば）:
 | 04 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md | #31–#40 |
 | 05 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md | #41–#47 |
 | 06 | https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md | #48–#60 |
+
 ```
 新論文セクションを追加:
   ## #[N] — [Title] ([Date])
@@ -231,14 +325,16 @@ G. 実験予測全索引 — 新予測追加
 
 ### 6.5 グループ境界を超える場合（新グループ作成）
 
-論文#51（または次のグループ境界）を追加する場合：
+論文#61以降、グループ07/が必要になった場合：
 
 ```
-1. 06/ ディレクトリを作成
-2. 06/papers.md を新規作成（01/papers.mdのフォーマット参照）
-3. 06/concept.md を新規作成（01/concept.mdのフォーマット参照）
-4. index.mdのQuick Navigationテーブルに06/を追加
+1. 07/ ディレクトリを作成
+2. 07/papers.md を新規作成（01/papers.mdのフォーマット参照）
+3. 07/concept.md を新規作成（01/concept.mdのフォーマット参照）
+4. index.mdのQuick Navigationテーブルに07/を追加
 5. global-concept.mdのヘッダーコメントを更新
+6. pipeline-manifest.md の Active Group Files を 07/ に更新
+   （06/ を Archive Group Files へ移動）
 ```
 
 ---
@@ -261,6 +357,10 @@ Update 0[X]/concept.md: add #[N] concepts
 Zenodo作業:
   [ ] Step 0: DOIプレースホルダーなし確認
   [ ] Step 1: main.tex クリーンアップ完了
+        └── bibitem順序チェック完了（引用初出順に一致）
+        └── 孤立bibitemチェック完了（未引用エントリなし）
+        └── Table参照チェック完了（リンク切れなし）
+        └── Figure参照チェック完了（リンク切れなし）
   [ ] Step 2: readme.txt 作成完了
   [ ] Step 3: zenodo_relations.txt 作成完了（逆方向リスト含む）
   [ ] Step 3.5: zenodo_description.html 作成・タグ検証完了
