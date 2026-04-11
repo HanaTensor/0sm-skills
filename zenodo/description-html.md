@@ -48,6 +48,21 @@ sub, table, caption, tbody, thead, th, td, tr, u, ul
 
 ## 4. 数式表示ルール
 
+### ZenodoにおけるMathJax・LaTeX数式レンダリングの可否
+
+**結論：現在のZenodo（InvenioRDM、2023年10月〜）では、MathJax・LaTeX数式レンダリングはDescription欄で使用できない。**
+
+| 手段 | 可否 | 理由 |
+|------|------|------|
+| `$$...$$` / `\(...\)` デリミタ | ✗ | MathJaxがページに読み込まれていない |
+| MathMLタグ `<math>`, `<mrow>` | ✗ | Zenodo許可タグリスト外のためstrip |
+| `<img src="...">` で数式画像埋め込み | ✗ | `<img>` タグが許可タグ外 |
+| `<script>` でMathJaxを外部ロード | ✗ | `<script>` タグが許可タグ外、かつ `style` 属性もstrip |
+| **Unicode文字 + `<sub>` / `<em>` / `<b>`** | **✓** | **現状の唯一の実用手段** |
+
+> **補足：旧Zenodoとの違い**
+> 旧Zenodo（〜2023年10月）はCKEditorにMathJaxプラグインを組み込んでおり（`window.CKEDITOR.config.mathJaxLib`）、`$$...$$` による数式レンダリングが可能だった。InvenioRDMへの移行後、この機能は引き継がれていない。
+
 ### 禁止：`<blockquote><code>` による数式ブロック
 
 Zenodoのエディタでは `<blockquote><code>` はグレー反転背景・等幅フォントでレンダリングされ、視認性が著しく低下する。数式ブロックへの使用を禁止する。
