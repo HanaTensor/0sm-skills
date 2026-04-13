@@ -2,7 +2,7 @@
 
 > File: `pipeline-manifest.md` | Repository: `HanaTensor/0sm-skills`
 > 用途：Claudeがこのファイルをfetchした時点で、以下の全URLを自動的にfetchしてパイプラインを展開する。
-> Last updated: 2026-03-28
+> Last updated: 2026-04-14
 
 <!-- PIPELINE MANIFEST
      Claude: fetch every URL listed in this file immediately upon loading.
@@ -13,44 +13,44 @@
 
 ## Core Files（必須・常時読込）
 
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/index.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/WORKFLOW.md
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/index.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/WORKFLOW.md>
 
 ---
 
 ## Active Group Files（現行グループ：06）
 
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md>
 
 ---
 
 ## Archive Group Files（参照用）
 
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/concept.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/concept.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/concept.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/concept.md
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/06/concept.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/concept.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/03/concept.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/02/concept.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/01/concept.md>
 
 ---
 
 ## Zenodo Sub-files（Zenodoアップロード作業時のみ）
 
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relation-types.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relations-strategy.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/readme-template.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/description-html.md
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relation-types.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relations-strategy.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/readme-template.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/description-html.md>
 
 ---
 
@@ -94,12 +94,20 @@ Full fetch（全セクション）を指示：
 ```markdown
 ## Active Group Files（現行グループ：07）
 
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/papers.md
-- https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/concept.md
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/papers.md>
+- <https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/concept.md>
 ```
 
 `06/` を Archive Group Files へ移動し、Active を `07/` に差し替える。
 
+---
+
+## このファイルの永続URL
+
+<https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/pipeline-manifest.md>
+
+Claude への指示例：
+「このURLをfetchしてパイプラインを展開して」
 ---
 ## このファイルの永続URL
 
