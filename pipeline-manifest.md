@@ -74,7 +74,7 @@ Claudeが自動的に：
   1. index.md を取得（論文番号・DOI確認）
   2. global-concept.md を取得（初出フラグ・スレッド照合）
   3. WORKFLOW.md を取得（手順確認）
-  4. 06/papers.md & 06/concept.md を取得（現行グループ詳細）
+  4. 07/papers.md & 07/concept.md を取得（現行グループ詳細）
   → 準備完了。指示を受け付ける状態へ
 ```
 
