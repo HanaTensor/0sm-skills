@@ -1,4 +1,4 @@
-# 0-Sphere Model Papers: Group 06 (#48–, Mar 2026–)
+# 0-Sphere Model Papers: Group 07 (#48–, Mar 2026–)
 
 **Coverage:** Papers #48–#51 (March–April 2026)
 **Parent Index:** index.md
@@ -242,7 +242,7 @@ DOF audit:  χ × spin = 2 × 2 = 4  (matches Dirac spinor)
 
 ### Thomas Precession Justification
 
-Delegated to Paper #49 (Tomonaga framing). The yz-plane rotation is driven by the radiation gradient F = E₀sinθ via Thomas precession; used here without re-derivation.
+Delegated to Paper #49. The yz-plane rotation is driven by the radiation gradient F = E₀sinθ via Thomas precession; used here without re-derivation.
 
 ### What the Model Can and Cannot Derive
 
@@ -339,7 +339,7 @@ Is supplement to #50 · Continues #50 + #29 + #30 + #31 + #40 · Requires #50 + 
 
 ---
 
-## Cross-Paper Connections (Group 06)
+## Cross-Paper Connections (Group 07)
 
 **From Group 05 AMM arc (#10→#35→#36→#47) to #48:**
 #47 established ΔL=|γ_L−1|×L₀; #48 embeds this into the U(1) fiber bundle as γ_anomalous = a·2π.
