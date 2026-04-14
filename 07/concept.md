@@ -1,4 +1,4 @@
-# 0-Sphere Model Concept Index: Group 06 (#48–, Mar 2026–)
+# 0-Sphere Model Concept Index: Group 07 (#48–, Mar 2026–)
 
 **Coverage:** Papers #48–#51 (March–April 2026)
 **Parent Index:** index.md · global-concept.md
@@ -7,7 +7,7 @@
 
 ---
 
-## New Analogies (Group 06)
+## New Analogies (Group 07)
 
 | アナロジー | 論文 | キーワード |
 |---|---|---|
@@ -23,7 +23,7 @@
 
 ---
 
-## New Equations (Group 06)
+## New Equations (Group 07)
 
 ### G06-1. U(1)バンドル・Berry位相
 
@@ -94,7 +94,7 @@
 
 ---
 
-## New Concept Threads (Group 06)
+## New Concept Threads (Group 07)
 
 ### G06-T1. U(1)バンドル正式化スレッド
 
@@ -213,7 +213,7 @@
 
 ---
 
-## New First Occurrences (Group 06)
+## New First Occurrences (Group 07)
 
 | 概念・量 | 初出 |
 |---|---|
@@ -253,7 +253,7 @@
 
 ---
 
-## New Experimental Predictions / Open Tasks (Group 06)
+## New Experimental Predictions / Open Tasks (Group 07)
 
 | 項目 | 論文 | 状況 |
 |---|---|---|
@@ -276,7 +276,7 @@
 
 ---
 
-## Scope and Methodology Notes (Group 06)
+## Scope and Methodology Notes (Group 07)
 
 **#48の方法論的立場:**
 
