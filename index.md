@@ -1,7 +1,7 @@
 # 0-Sphere Model — Master Index
 
-> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-04-04
-> Total: 49 papers (#1–#49, #16 missing) | Coverage: Nov 2018 – Apr 2026
+> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-04-18
+> Total: 52 papers (#1–#52, #16 missing) | Coverage: Nov 2018 – Apr 2026
 
 ---
 
@@ -14,7 +14,7 @@
 | [03/papers.md](03/papers.md) + [03/concept.md](03/concept.md) | #21–#30 | Jun–Dec 2025 |
 | [04/papers.md](04/papers.md) + [04/concept.md](04/concept.md) | #31–#40 | Jan–Feb 2026 |
 | [05/papers.md](05/papers.md) + [05/concept.md](05/concept.md) | #41–#47 | Feb–Mar 2026 |
-| [07/papers.md](06/papers.md) + [07/concept.md](07/concept.md) | #48– | Mar 2026– |
+| [07/papers.md](07/papers.md) + [07/concept.md](07/concept.md) | #48–#52 | Mar–Apr 2026 |
 | [global-concept.md](global-concept.md) | All | Cross-series |
 
 ---
@@ -102,7 +102,7 @@
 | 49 | 2026-04-04 | Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model | [10.5281/zenodo.19393391](https://doi.org/10.5281/zenodo.19393391) |
 | 50 | 2026-04-09 | Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model | [10.5281/zenodo.19482145](https://doi.org/10.5281/zenodo.19482145)|
 | 51 | 2026-04-12 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | [10.5281/zenodo.19489126](https://doi.org/10.5281/zenodo.19489126)|
-| 52 | 2026-04-18 | Directional Decomposition of Force Types in the 0-Sphere Helical Geometry: Gravity, Electromagnetism, and Spin as Three Projections of a Single Internal Dynamics | [10.5281/zenodo.19583032](https://doi.org/10.5281/zenodo.19583032)|
+| 52 | 2026-04-18 | Geometric Origin of the Weak Equivalence Principle in the 0-Sphere Model: Force Classification and the λ_C Cancellation Theorem in the Helical Geometry | [10.5281/zenodo.19583032](https://doi.org/10.5281/zenodo.19583032) |
 
 ---
 
