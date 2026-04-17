@@ -48,7 +48,7 @@ sub, table, caption, tbody, thead, th, td, tr, u, ul
 
 ## 4. 数式表示ルール
 
-### ZenodoにおけるMathJax・LaTeX数式レンダリングの可否
+### Zenodoにおける数式レンダリングの方法
 
 **結論：KaTeXによる数式表現を用いる。**
 
