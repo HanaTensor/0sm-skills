@@ -1,7 +1,7 @@
 # 0-Sphere Model — Master Index
 
-> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-04-18
-> Total: 52 papers (#1–#52, #16 missing) | Coverage: Nov 2018 – Apr 2026
+> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-04-19
+> Total: 53 papers (#1–#53, #16 missing) | Coverage: Nov 2018 – Apr 2026
 
 ---
 
@@ -14,7 +14,7 @@
 | [03/papers.md](03/papers.md) + [03/concept.md](03/concept.md) | #21–#30 | Jun–Dec 2025 |
 | [04/papers.md](04/papers.md) + [04/concept.md](04/concept.md) | #31–#40 | Jan–Feb 2026 |
 | [05/papers.md](05/papers.md) + [05/concept.md](05/concept.md) | #41–#47 | Feb–Mar 2026 |
-| [07/papers.md](07/papers.md) + [07/concept.md](07/concept.md) | #48–#52 | Mar–Apr 2026 |
+| [07/papers.md](07/papers.md) + [07/concept.md](07/concept.md) | #48–#53 | Mar–Apr 2026 |
 | [global-concept.md](global-concept.md) | All | Cross-series |
 
 ---
@@ -94,14 +94,14 @@
 | 46 | 2026-03 | Geometric Origin of the One-Half Factor: Thermal PE Floor and Zero-Point Energy | [10.5281/zenodo.19010945](https://doi.org/10.5281/zenodo.19010945) |
 | 47 | 2026-03 | Rotational Lorentz Contraction as Geometric Origin of AMM: Structural Correspondence with Muon Lifetime | [10.5281/zenodo.19120057](https://doi.org/10.5281/zenodo.19120057) |
 
-### Group 07 — Fiber Bundle, Gauge Symmetry (Mar 2026–)
+### Group 07 — Fiber Bundle, Gauge Symmetry, Quartet Supplement (Mar 2026–)
 
 | # | Date | Title | DOI |
 |---|------|-------|-----|
 | 48 | 2026-03-28 | Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition | [10.5281/zenodo.19227518](https://doi.org/10.5281/zenodo.19227518) |
 | 49 | 2026-04-04 | Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model | [10.5281/zenodo.19393391](https://doi.org/10.5281/zenodo.19393391) |
-| 50 | 2026-04-09 | Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model | [10.5281/zenodo.19482145](https://doi.org/10.5281/zenodo.19482145)|
-| 51 | 2026-04-12 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | [10.5281/zenodo.19489126](https://doi.org/10.5281/zenodo.19489126)|
+| 50 | 2026-04-09 | Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model | [10.5281/zenodo.19482145](https://doi.org/10.5281/zenodo.19482145) |
+| 51 | 2026-04-12 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | [10.5281/zenodo.19489126](https://doi.org/10.5281/zenodo.19489126) |
 | 52 | 2026-04-16 | Geometric Origin of the Weak Equivalence Principle in the 0-Sphere Model: Force Classification and the λ_C Cancellation Theorem in the Helical Geometry | [10.5281/zenodo.19583032](https://doi.org/10.5281/zenodo.19583032) |
 | 53 | 2026-04-19 | From Gravitational Mediation to Directional Force Classification: A Conceptual and Mathematical Supplement to Papers #49, #50, #51, and #52 of the 0-Sphere Model Series | [10.5281/zenodo.19616971](https://doi.org/10.5281/zenodo.19616971) |
 
@@ -127,6 +127,15 @@
 | #49 | Supplement to | #34, #48 |
 | #49 | Continues | #34, #46, #48 |
 | #49 | Requires | #1, #33, #34, #46, #48 |
+| #50 | Continues | #49, #48, #24 |
+| #50 | Requires | #1, #49, #10, #24 |
+| #51 | Supplement to | #50 |
+| #51 | Continues | #50, #29, #30, #31, #40 |
+| #51 | Requires | #50, #29, #31, #33, #24, #1 |
+| #52 | Continues | #51, #49, #34 |
+| #52 | Requires | #1, #10, #33, #49, #51 |
+| #53 | Supplement to | #49, #50, #51, #52 |
+| #53 | Requires | #1, #10, #19, #33, #34, #40, #46, #47, #48, #49, #50, #51, #52 |
 
 ---
 
