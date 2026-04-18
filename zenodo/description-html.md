@@ -50,7 +50,7 @@ sub, table, caption, tbody, thead, th, td, tr, u, ul
 
 ### Zenodoにおける数式レンダリングの方法
 
-**結論：KaTeXによる数式表現を用いる。**
+**結論：HTML + KaTeXによる数式表現を用いる。**
 
 ---
 
