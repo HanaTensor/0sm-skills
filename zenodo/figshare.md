@@ -26,7 +26,6 @@ figure[N]_[slug].tex
 - \documentclass[tikz, border=8pt]{standalone} を使用する。
 - main.tex のプリアンブル（amsmath, amssymb, bm, tikz, tikzlibrary等）を過不足なく継承する。
 - \cite{...} はすべて削除し、必要に応じて具体的な文献名（例: Synge (1960)）に置換する。
-- 1000words前後にて作成せよ
 
 プリアンブルコメント（出典明記）：
 必ず確定済みのDOIを埋め込む。
