@@ -234,25 +234,11 @@ for prefix, label_type in [('tab', 'TABLE'), ('fig', 'FIGURE')]:
 
 ---
 
-## Step 5. TikZ検出 → figshare対応（任意）
-
-参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md
-
-```
-main.texに \begin{tikzpicture} が存在するか検出
-  存在しない → 作業完了（Step 6へ）
-  存在する   → figshare用スタンドアロンファイルを作成するか確認
-    作成する → figshare.md の手順を実行
-    作成しない → Step 6へ
-```
-
----
-
-## Step 6. GitHub 0sm-skills リポジトリ更新 ⭐
+## Step 5. GitHub 0sm-skills リポジトリ更新 ⭐
 
 **ZenodoへのDOI確定後に実施する。**
 
-### 6.1 index.md を更新
+### 5.1 index.md を更新
 
 参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/index.md
 
@@ -264,7 +250,7 @@ Version Relationshipsに追記（補足・新版関係があれば）:
   | [#N] | [Relation] | [#M] | [Note] |
 ```
 
-### 6.2 該当グループの papers.md を更新
+### 5.2 該当グループの papers.md を更新
 
 グループ対応URL：
 
@@ -286,7 +272,7 @@ Version Relationshipsに追記（補足・新版関係があれば）:
   **Key:** ...
 ```
 
-### 6.3 該当グループの concept.md を更新
+### 5.3 該当グループの concept.md を更新
 
 グループ対応URL：
 
@@ -309,7 +295,7 @@ F. 誤り・修正フラグ — 訂正がある場合は追加 ⚠️
 G. 実験予測索引 — 新予測があれば追加
 ```
 
-### 6.4 global-concept.md を更新
+### 5.4 global-concept.md を更新
 
 参照：https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/global-concept.md
 
@@ -323,7 +309,7 @@ F. 訂正・注意フラグ — 訂正がある場合 ⚠️
 G. 実験予測全索引 — 新予測追加
 ```
 
-### 6.5 グループ境界を超える場合（新グループ作成）
+### 5.5 グループ境界を超える場合（新グループ作成）
 
 論文#61以降、グループ07/が必要になった場合：
 
@@ -365,11 +351,10 @@ Zenodo作業:
   [ ] Step 3: zenodo_relations.txt 作成完了（逆方向リスト含む）
   [ ] Step 3.5: zenodo_description.html 作成・タグ検証完了
   [ ] Step 4: Zenodoアップロード完了・DOI確定
-  [ ] Step 5: TikZ確認（figshare対応: 実施/スキップ）
 
 GitHub作業:
-  [ ] Step 6.1: index.md 更新・コミット
-  [ ] Step 6.2: XX/papers.md 更新・コミット
-  [ ] Step 6.3: XX/concept.md 更新・コミット
-  [ ] Step 6.4: global-concept.md 更新・コミット
+  [ ] Step 5.1: index.md 更新・コミット
+  [ ] Step 5.2: XX/papers.md 更新・コミット
+  [ ] Step 5.3: XX/concept.md 更新・コミット
+  [ ] Step 5.4: global-concept.md 更新・コミット
 ```
