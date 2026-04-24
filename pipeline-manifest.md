@@ -2,7 +2,7 @@
 
 > File: `pipeline-manifest.md` | Repository: `HanaTensor/0sm-skills`
 > 用途：Claudeがこのファイルをfetchした時点で、以下の全URLを自動的にfetchしてパイプラインを展開する。
-> Last updated: 2026-04-14
+> Last updated: 2026-04-25
 
 <!-- PIPELINE MANIFEST
      Claude: fetch every URL listed in this file immediately upon loading.
@@ -15,6 +15,12 @@
      jsDelivr CDN が @main/06/ パスに誤った404レスポンスをキャッシュした。
      パージ後も汚染が残留したため、06/ を使用せず 07/ へ繰り上げた（2026-04-14）。
      現行グループは 07/（論文 #48–）。
+-->
+
+<!-- NOTE: figshareについて
+     著者のfigshareアカウント凍結により、今後figshare関連作業は行わない（2026-04-25）。
+     zenodo/figshare.md はリポジトリから削除済み。
+     WORKFLOW.md の旧Step 5（TikZ→figshare対応）も削除済み。
 -->
 
 ---
@@ -36,8 +42,6 @@
 
 ## Archive Group Files（参照用）
 
-- [07/papers.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/papers.md)
-- [07/concept.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/concept.md)
 - [05/papers.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/papers.md)
 - [05/concept.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/05/concept.md)
 - [04/papers.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/04/papers.md)
@@ -57,7 +61,6 @@
 - [zenodo/relations-strategy.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/relations-strategy.md)
 - [zenodo/latex-standards.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/latex-standards.md)
 - [zenodo/readme-template.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/readme-template.md)
-- [zenodo/figshare.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/figshare.md)
 - [zenodo/description-html.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/zenodo/description-html.md)
 
 ---
@@ -75,44 +78,6 @@ Claudeが自動的に：
   2. global-concept.md を取得（初出フラグ・スレッド照合）
   3. WORKFLOW.md を取得（手順確認）
   4. 07/papers.md & 07/concept.md を取得（現行グループ詳細）
-  → 準備完了。指示を受け付ける状態へ
-```
-
-### パターン B：物理議論・概念開発時
-
-```
-Core Files（index.md + global-concept.md）のみ取得で十分。
-Claudeへの指示例：
-  「pipeline-manifest.md の Core Files だけ読み込んで」
-```
-
-### パターン C：Zenodoアップロード作業時
-
-```
-Full fetch（全セクション）を指示：
-  「pipeline-manifest.md を全部読み込んで」
-```
-
----
-
-## Active Group Files（現行グループ：07）
-
-- [07/papers.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/papers.md)
-- [07/concept.md](https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/07/concept.md)
-
-## 使い方
-
-### パターン A：フル展開（新論文追加時）
-
-```
-このURLをClaudeに提供するだけ：
-https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/pipeline-manifest.md
-
-Claudeが自動的に：
-  1. index.md を取得（論文番号・DOI確認）
-  2. global-concept.md を取得（初出フラグ・スレッド照合）
-  3. WORKFLOW.md を取得（手順確認）
-  4. 06/papers.md & 06/concept.md を取得（現行グループ詳細）
   → 準備完了。指示を受け付ける状態へ
 ```
 
