@@ -123,7 +123,7 @@ Claude への指示例：
 ## 代替案
 
 このURLをfetchせよ：
-https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/pipeline-core.md?v=TIMESTAMP
+https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/pipeline-manifest.md?v=TIMESTAMP
 
 取得後、
 "Last updated" が最新日付であることを確認せよ。
