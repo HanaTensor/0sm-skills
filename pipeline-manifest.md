@@ -119,3 +119,12 @@ https://cdn.jsdelivr.net/gh/HanaTensor/0sm-skills@main/pipeline-manifest.md
 
 Claude への指示例：
 「このURLをfetchしてパイプラインを展開して」
+
+## 代替案
+
+このURLをfetchせよ：
+https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/pipeline-core.md?v=TIMESTAMP
+
+取得後、
+"Last updated" が最新日付であることを確認せよ。
+古い場合は再取得せよ。
