@@ -107,7 +107,7 @@ The 0-Sphere model series has been developed since 2018 as a single-author resea
 
 This record is deposited on Zenodo as \#66 of the series --- an archival deliberation record, distinct in genre from the research papers of the corpus. It is not submitted for peer review and makes no claim to the standards of a journal article. Its purpose is threefold. First, it fixes the priority and provenance of several substantive results (Sec.~\ref{sec:ledger}) that subsequent papers in the series may cite by DOI. Second, it consolidates those results into an explicit map of candidate directions for future papers (Sec.~\ref{sec:stones}), which is the deliverable the theme asked for. Third, it preserves the \emph{method}: the session produced multiple rounds of mutual error detection, retraction, and correction-of-correction, and this process --- which vanishes from a results-only paper --- is itself worth archiving, both for the transparency policy of the series and as a specimen of dual-model verification practice.
 
-A remark on the intended readership. This document is written to be legible to a human reader with a graduate-level physics background, but it is equally written to be \emph{loaded}: the author intends to supply it, together with a comprehensive review of the series, to future reasoning sessions as the prompt from which the next move is explored. Appendix~\ref{app:future} gives explicit reading instructions for that use. Appendix~\ref{app:checks} reproduces, without skipped steps, the explicit arithmetic behind every numerical and algebraic verification quoted in this record; it is addressed to readers new to the material, and doubles as a machine-checkable restatement of the session's verification norms. Appendix~\ref{app:glossary} provides a glossary --- standard terms, 0-Sphere terms, and the record's label systems --- pitched at a reader beginning graduate study.
+A remark on the intended readership. This document is written to be legible to a human reader with a graduate-level physics background, but it is equally written to be \emph{loaded}: the author intends to supply it, together with a comprehensive review of the series, to future reasoning sessions as the prompt from which the next move is explored. Appendix~\ref{app:future} gives explicit reading instructions for that use. Appendix~\ref{app:checks} reproduces, without skipped steps, the explicit arithmetic behind every numerical and algebraic verification quoted in this record; it is addressed to readers new to the material, and doubles as a machine-checkable restatement of the session's verification norms. Appendix~\ref{app:glossary} provides a glossary --- standard terms, 0-Sphere terms, and the record's label systems --- pitched at a reader beginning graduate study. Appendix~\ref{app:primers} supplies self-contained primers on the four pieces of standard machinery the record imports (Lorentz representation theory, the Weinberg--Witten and Landau--Yang theorems, and the linearized-gravity quadrupole formalism), and Appendix~\ref{app:corpus} lists exactly what is assumed from each source paper, so that the record can be entered without prior reading of the series.
 
 % ----------------------------------------
 % Subsection 1.2: Method: dual-model cross-verification
@@ -748,7 +748,7 @@ This record was drafted in its entirety by large language models. The deliberati
 
 This appendix is addressed to a future reasoning session --- human, machine, or both --- that loads this document, together with a comprehensive review of the series, as the prompt from which the next move is explored. The following reading order and cautions are recommended.
 
-\paragraph{Entry point.} Begin with Table~\ref{tab:stones}. It is the distillate of the session: seven directions, their dependencies, and the two highlighted paths (D1 shortest, D3 highest leverage). Then read Sec.~\ref{sec:deferred} to learn which decisions are the author's and must not be presumed by the session. A reader new to the field should keep the glossary (Appendix~\ref{app:glossary}) at hand; it also decodes the record's label systems (E/C/D/O and the per-paper task letters). When this record is loaded as a prompt, the foundational trilogy \#29/\#30/\#31 \cite{hanamura29,hanamura30,hanamura31} should accompany it, together with the comprehensive review of the series, since directions D2, D3, and D6 are formulated against the standards those three papers declare; whenever D3 is the target, Paper \#60 \cite{hanamura60} should be included as well, since it formulates O3 and O4 as the edges of a single triangle, together with Paper \#63 \cite{hanamura63}, whose open task O16 (the physical identity of $A_\mu$) isolates the bottleneck of the route convergence.
+\paragraph{Entry point.} Begin with Table~\ref{tab:stones}. It is the distillate of the session: seven directions, their dependencies, and the two highlighted paths (D1 shortest, D3 highest leverage). Then read Sec.~\ref{sec:deferred} to learn which decisions are the author's and must not be presumed by the session. A reader new to the field should keep the glossary (Appendix~\ref{app:glossary}) at hand; it also decodes the record's label systems (E/C/D/O and the per-paper task letters). The primers of Appendix~\ref{app:primers} make the imported machinery self-contained, and Appendix~\ref{app:corpus} replaces prior reading of the source papers with an explicit list of what is assumed from each. When this record is loaded as a prompt, the foundational trilogy \#29/\#30/\#31 \cite{hanamura29,hanamura30,hanamura31} should accompany it, together with the comprehensive review of the series, since directions D2, D3, and D6 are formulated against the standards those three papers declare; whenever D3 is the target, Paper \#60 \cite{hanamura60} should be included as well, since it formulates O3 and O4 as the edges of a single triangle, together with Paper \#63 \cite{hanamura63}, whose open task O16 (the physical identity of $A_\mu$) isolates the bottleneck of the route convergence.
 
 \paragraph{Status vocabulary.} Claims in this record carry one of four statuses, and conflating them is the fastest way to corrupt a continuation. \emph{Closed}: verified against the sources by both agents (e.g., the split of Table~\ref{tab:split}). \emph{Closable modulo a named postulate}: Proposition~\ref{prop:rank2}, conditional on Hypothesis~\ref{hyp:H}. \emph{Open}: O3 and everything that terminates on it. \emph{Deferred}: the author's canonical decisions of Sec.~\ref{sec:deferred} --- a future session may argue about these but must not treat them as made.
 
@@ -921,6 +921,8 @@ This glossary is pitched at a reader beginning graduate study. Part~1 defines th
 
 \item[Bonnet--Myers theorem.] A complete Riemannian manifold whose Ricci curvature is bounded below by a positive constant is compact, with an explicit bound on its diameter. \emph{Here:} applied in \#51 to the positively curved photon sphere to \emph{derive} the Compton-scale confinement of the electron's internal structure.
 
+\item[Double copy (KLT/BCJ relations).] A family of exact relations expressing gravity scattering amplitudes as ``squares'' of gauge-theory amplitudes: at tree level via the Kawai--Lewellen--Tye string relations, and more generally via the Bern--Carrasco--Johansson color-kinematics duality, in which a graviton polarization factorizes as $\varepsilon_{\mu\nu}=\varepsilon_\mu\tilde\varepsilon_\nu$ for a \emph{single} null momentum. \emph{Here:} the motivating analogy of exchange E1; it does not directly apply to the back-to-back pair (the two fragments do not share a momentum), as corrected in E5 and Sec.~\ref{sec:taskI}. See Appendix~\ref{app:primers}.
+
 \item[Elliptic vs.\ hyperbolic equations.] Two basic types of partial differential equation. Elliptic equations (e.g., Laplace's) have solutions determined entirely by boundary data, with no propagating degrees of freedom; hyperbolic equations (e.g., the wave equation) propagate local disturbances at finite speed. \emph{Here:} the criterion of direction D6 --- the type of the photon-sphere interior equation would decide whether the line-integral ontology (boundary data suffices) or a field ontology (local degrees of freedom) is fundamental.
 
 \item[Gauge invariance / gauge potential.] The electromagnetic potential $A_\mu$ can be shifted by $\partial_\mu\lambda$ without changing any observable; quantities invariant under this shift are gauge invariant. \emph{Here:} the corpus reads gauge freedom as endpoint-relative (localized at the two kernels) rather than as a redundancy spread over spacetime.
@@ -933,7 +935,7 @@ This glossary is pitched at a reader beginning graduate study. Part~1 defines th
 
 \item[Invariant mass.] For a system with total energy $E$ and total momentum $\mathbf p$, the frame-independent combination $M^2c^4=E^2-|\mathbf p|^2c^2$. A system of two massless quanta can have $M\neq0$ (Appendix~\ref{app:checks-mass}). \emph{Here:} the one-line computation that reclassifies the fragment pair as massive.
 
-\item[Irreducible representations of the Lorentz group.] Lorentz-covariant objects are classified by pairs $(j_1,j_2)$. The ones used here: $(\tfrac12,\tfrac12)$ = four-vectors; $(1,0)\oplus(0,1)$ = antisymmetric rank-2 tensors, such as the field strength $F_{\mu\nu}$; $(1,1)$ = symmetric traceless rank-2 tensors, such as the metric perturbation $h_{\mu\nu}$. \emph{Here:} the starting position of the whole session --- no linear map connects $(1,0)\oplus(0,1)$ to $(1,1)$ (Appendix~\ref{app:checks-rep}).
+\item[Irreducible representations of the Lorentz group.] Lorentz-covariant objects are classified by pairs $(j_1,j_2)$. The ones used here: $(\tfrac12,\tfrac12)$ = four-vectors; $(1,0)\oplus(0,1)$ = antisymmetric rank-2 tensors, such as the field strength $F_{\mu\nu}$; $(1,1)$ = symmetric traceless rank-2 tensors, such as the metric perturbation $h_{\mu\nu}$. \emph{Here:} the starting position of the whole session --- no linear map connects $(1,0)\oplus(0,1)$ to $(1,1)$ (Appendix~\ref{app:checks-rep}; a full primer on the classification is Appendix~\ref{app:primer-lorentz}).
 
 \item[Landau--Yang theorem.] A system of two real photons cannot have total angular momentum $J=1$; along the relative axis the allowed values are $J=0$ or $J=2$. Proven from Bose symmetry and gauge invariance. \emph{Here:} the consistency check that the fixed-chirality pair lands on $J=2$ (used as an analogy, since the fragments are photon-\emph{like}).
 
@@ -1011,6 +1013,170 @@ This glossary is pitched at a reader beginning graduate study. Part~1 defines th
 \item[Task (I), (C), (IV).] Open tasks declared inside Paper \#58 ((I): polarization construction; (IV): single-fragment transmission) and Paper \#59 ((C): gauge--metric coupling channel).
 \item[Task (viii).] Open task of Paper \#49: reconciliation of the kinematic conventions at $\iphase=\pi/2$ (the \#10 versus \#49 clash of entries C2--C3).
 \item[Hypothesis H / Proposition 1.] Hypothesis~\ref{hyp:H} (polarization inheritance) and Proposition~\ref{prop:rank2} (source-side rank-2 structure), the session's principal constructive pair.
+\end{description}
+
+% ========================================
+% Appendix D: Primers on the Imported Machinery
+% ========================================
+\section{Primers on the Imported Theorems and Formalisms}
+\label{app:primers}
+
+The body of this record imports four pieces of standard machinery: the representation theory of the Lorentz group, the Weinberg--Witten theorem, the Landau--Yang theorem, and the quadrupole formalism of linearized general relativity. Each is standard, but none is standard \emph{equipment} for a reader entering from outside particle theory or gravitational physics. This appendix supplies a self-contained primer for each, pitched one level below the body text; the aim in every case is that the reader be able to judge \emph{how} the machinery is used here, not merely accept that it is. Precise treatments are in the cited originals and in any field-theory or gravitational-wave textbook.
+
+\subsection{Lorentz representation theory: where the labels $(j_1,j_2)$ come from}
+\label{app:primer-lorentz}
+
+\paragraph{The algebra splits into two rotation algebras.}
+The Lorentz group in four dimensions is generated by three rotations $J_i$ and three boosts $K_i$, with commutation relations
+\begin{align}
+[J_i,J_j]&=i\epsilon_{ijk}J_k,\qquad
+[J_i,K_j]=i\epsilon_{ijk}K_k,\notag\\
+[K_i,K_j]&=-\,i\epsilon_{ijk}J_k .
+\end{align}
+The boosts do not close among themselves (the minus sign), so this does not look like two independent symmetries --- until one forms the complex combinations
+\begin{equation}
+A_i=\tfrac{1}{2}\left(J_i+iK_i\right),\qquad
+B_i=\tfrac{1}{2}\left(J_i-iK_i\right),
+\end{equation}
+which satisfy
+\begin{align}
+[A_i,A_j]&=i\epsilon_{ijk}A_k,\qquad
+[B_i,B_j]=i\epsilon_{ijk}B_k,\notag\\
+[A_i,B_j]&=0 :
+\end{align}
+two \emph{commuting} copies of the angular-momentum algebra $\mathfrak{su}(2)$. Every finite-dimensional irreducible representation of the (complexified) Lorentz algebra is therefore labeled by a pair of ``spins'' $(j_1,j_2)$, one for each copy, with dimension $(2j_1+1)(2j_2+1)$. Because the physical rotation generator is $J_i=A_i+B_i$, the ordinary spin content of $(j_1,j_2)$ is obtained by the usual addition of angular momenta: it contains spins $|j_1-j_2|,\,|j_1-j_2|+1,\ldots,j_1+j_2$.
+
+\paragraph{The representations used in this record.}
+\begin{center}
+\footnotesize
+\begin{tabular}{lcl}
+\toprule
+$(j_1,j_2)$ & dim & realization \\
+\midrule
+$(0,0)$ & 1 & scalar \\
+$(\tfrac12,0)$, $(0,\tfrac12)$ & 2 & left/right Weyl spinors \\
+$(\tfrac12,\tfrac12)$ & 4 & four-vector $V^\mu$ \\
+$(1,0)\oplus(0,1)$ & $3+3$ & antisymmetric $F_{\mu\nu}$ \\
+$(1,1)$ & 9 & symmetric traceless $h_{\mu\nu}$ \\
+\bottomrule
+\end{tabular}
+\end{center}
+
+\paragraph{Why $F_{\mu\nu}$ is $(1,0)\oplus(0,1)$.}
+An antisymmetric tensor has six components --- the three of $\mathbf E$ and the three of $\mathbf B$. Define the dual $(\star F)_{\mu\nu}=\tfrac12\epsilon_{\mu\nu\rho\sigma}F^{\rho\sigma}$; in Lorentzian signature $\star^2=-1$ on 2-forms, so the eigenvalues of $\star$ are $\pm i$ and the complex combinations
+\begin{equation}
+F^{\pm}_{\mu\nu}=\tfrac12\left(F_{\mu\nu}\mp i(\star F)_{\mu\nu}\right)
+\qquad\text{(equivalently } \mathbf E\pm i\mathbf B\text{)}
+\end{equation}
+are the self-dual and anti-self-dual parts, each with three complex components. These are exactly the $(1,0)$ and $(0,1)$ irreducible pieces: each is a spin-1 object under one $\mathfrak{su}(2)$ copy and a scalar under the other. Parity exchanges the two copies ($J_i$ is a pseudovector, $K_i$ a vector, so $A_i\leftrightarrow B_i$), which is why a parity-respecting real field must use the direct sum.
+
+\paragraph{Why $h_{\mu\nu}$ is $(1,1)$, and the tensor-product count.}
+The product of two four-vectors decomposes as
+\begin{equation}
+\left(\tfrac12,\tfrac12\right)\otimes\left(\tfrac12,\tfrac12\right)
+=(0,0)\oplus(1,0)\oplus(0,1)\oplus(1,1),
+\end{equation}
+by applying angular-momentum addition independently in each slot ($\tfrac12\otimes\tfrac12=0\oplus1$). The dimensions check: $4\times4=16=1+3+3+9$. Sorting by symmetry: the antisymmetric part of the product (6 components) is $(1,0)\oplus(0,1)$; the symmetric part (10 components) is the trace $(0,0)$ plus the symmetric traceless $(1,1)$ (9 components). The metric perturbation $h_{\mu\nu}$, symmetric and (after removing the trace) traceless, lives in $(1,1)$; its spin content is $|1-1|,\ldots,1+1=0,1,2$, and for a massless field the gauge freedom of linearized gravity (Appendix~\ref{app:primer-lingrav}) removes everything except the helicity-$\pm2$ pair.
+
+\paragraph{Schur's lemma, precisely.}
+Let $V$ and $W$ carry irreducible representations of the same group, and let $T:V\to W$ be linear and \emph{equivariant} ($T\rho_V(g)=\rho_W(g)T$ for all $g$). Then: (i) if $V$ and $W$ are inequivalent, $T=0$; (ii) if $V=W$ (over $\mathbb C$), $T$ is a multiple of the identity. Proof idea for (i): $\ker T$ and $\mathrm{im}\,T$ are invariant subspaces, so each is $0$ or everything; a nonzero $T$ would force $\ker T=0$ and $\mathrm{im}\,T=W$, making $T$ an isomorphism --- contradicting inequivalence.
+
+\paragraph{What this buys the session.}
+A hypothetical Lorentz-covariant linear map $F_{\mu\nu}\mapsto h_{\mu\nu}$ is an equivariant map $(1,0)\oplus(0,1)\to(1,1)$. Restricted to each summand it is an equivariant map between inequivalent irreducibles, hence zero by (i); so the whole map is zero. No amount of ingenuity circumvents this at the linear level --- the bridge must be quadratic (two field strengths, as in stress-tensor bilinears $F_{\mu\alpha}F_\nu{}^\alpha$) or must use two vector-valued objects, which is precisely the pair route of Sec.~\ref{sec:taskI}. This is the entire content of the session's starting position, and the reason exchange E1 turned immediately to pairs.
+
+\subsection{The Weinberg--Witten theorem: statement and proof sketch}
+\label{app:primer-ww}
+
+\paragraph{Statement (spin-2 part).}
+In any Lorentz-invariant theory possessing a Lorentz-\emph{covariant}, conserved stress--energy tensor $T^{\mu\nu}$, there is no massless particle of helicity $|\lambda|>1$ that carries nonvanishing energy-momentum \cite{ww}. (A companion statement with a conserved covariant current forbids massless charged particles with $|\lambda|>\tfrac12$.)
+
+\paragraph{Proof sketch.}
+Consider the one-particle matrix element $\langle p',\lambda|T^{\mu\nu}|p,\lambda\rangle$ for a massless particle of helicity $\lambda$. Energy-momentum conservation and the normalization of the charges force this matrix element to be nonzero in the forward limit ($\langle p,\lambda|T^{0\nu}|p,\lambda\rangle$ must reproduce $p^\nu$, since the particle gravitates). Now choose the frame in which $\mathbf p$ and $\mathbf p'$ are back-to-back along a common axis, and rotate about that axis by an angle $\theta$. Each massless helicity state is an eigenstate of this rotation, and with the momenta anti-aligned the two phases combine to $e^{2i\lambda\theta}$ acting on the matrix element. But the object $T^{\mu\nu}$ has only two vector indices: under the same rotation its components decompose into pieces transforming as $e^{ih\theta}$ with $|h|\leq2$. A nonzero matrix element therefore requires $2|\lambda|\leq2$, i.e.\ $|\lambda|\leq1$. A massless helicity-$\pm2$ particle would need $e^{4i\theta}$ components, which a rank-2 tensor cannot supply --- so its covariant $T^{\mu\nu}$ matrix elements vanish, contradicting the requirement that it gravitate.
+
+\paragraph{The escape hatches, and the one used here.}
+The theorem's hypotheses fail in three standard ways: (i) the particle is \emph{massive} (the little group is then $SU(2)$, the helicity-phase argument collapses); (ii) the theory has no Lorentz-covariant conserved $T^{\mu\nu}$ (general relativity itself: the gravitational energy pseudo-tensor is gauge-dependent, which is why the graviton of GR is not self-forbidden); (iii) the particle does not carry the charge in question. The session's finding (Sec.~\ref{sec:ww}) is that the fragment pair takes escape (i): its invariant mass $2E_{\mathrm{frag}}/c^2$ is nonzero (Appendix~\ref{app:checks-mass}), so it is a massive $J=2$ \emph{source configuration} --- structurally a tensor meson, not a graviton --- and the theorem never engages it. The price, paid honestly in the body text, is that massless helicity-$\pm2$ \emph{radiation} must then come from the field side (open problem O3).
+
+\subsection{The Landau--Yang theorem: statement and proof sketch}
+\label{app:primer-ly}
+
+\paragraph{Statement.}
+A system of two real (on-shell, transverse) photons cannot have total angular momentum $J=1$ \cite{landau,yang}.
+
+\paragraph{Proof sketch.}
+Work in the center-of-momentum frame: momenta $\pm k\hat{\mathbf z}$, transverse polarizations $\bm\varepsilon_1,\bm\varepsilon_2$. Photons are bosons, so the two-photon amplitude must be \emph{symmetric} under the simultaneous exchange $(\bm\varepsilon_1\leftrightarrow\bm\varepsilon_2,\ \hat{\mathbf z}\to-\hat{\mathbf z})$. A $J=1$ state would couple to a vector amplitude, bilinear in the two polarizations. The available vector bilinears are
+\begin{equation}
+\bm\varepsilon_1\times\bm\varepsilon_2,
+\qquad
+(\bm\varepsilon_1\cdot\bm\varepsilon_2)\,\hat{\mathbf z},
+\qquad
+\left[(\bm\varepsilon_1\times\bm\varepsilon_2)\cdot\hat{\mathbf z}\right]\hat{\mathbf z}
+\end{equation}
+(terms involving $\bm\varepsilon_i\cdot\hat{\mathbf z}$ vanish by transversality). Check each under the exchange: $\bm\varepsilon_1\times\bm\varepsilon_2\to\bm\varepsilon_2\times\bm\varepsilon_1=-\bm\varepsilon_1\times\bm\varepsilon_2$; $(\bm\varepsilon_1\cdot\bm\varepsilon_2)\hat{\mathbf z}\to-(\bm\varepsilon_1\cdot\bm\varepsilon_2)\hat{\mathbf z}$; the third flips sign twice in the prefactor and once in $\hat{\mathbf z}$, net odd. Every candidate is \emph{antisymmetric}, so no Bose-symmetric $J=1$ amplitude exists. The axial-helicity version of the same fact --- $J_z=\lambda_1-\lambda_2\in\{0,\pm2\}$ for anti-aligned momenta, never $\pm1$ --- is worked out arithmetically in Appendix~\ref{app:checks-Jx}. Classic applications: the decay $Z\to\gamma\gamma$ is forbidden; $\pi^0(J=0)\to\gamma\gamma$ and $f_2(1270)(J=2)\to\gamma\gamma$ are allowed. The theorem is exact for real photons only (virtual photons evade it), which is why the body text uses it for the photon-\emph{like} fragments as a consistency check at the same level as Hypothesis~\ref{hyp:H}, not as a derivation.
+
+\subsection{Linearized gravity and the quadrupole formalism}
+\label{app:primer-lingrav}
+
+\paragraph{The linearized field and its gauge freedom.}
+Write the metric as flat plus small, $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$ with $|h|\ll1$, and keep first order. Coordinate changes $x^\mu\to x^\mu+\xi^\mu$ act as the gauge transformation $h_{\mu\nu}\to h_{\mu\nu}-\partial_\mu\xi_\nu-\partial_\nu\xi_\mu$. In harmonic gauge the Einstein equation becomes a wave equation,
+\begin{equation}
+\Box\,\bar h_{\mu\nu}=-\frac{16\pi G}{c^4}\,T_{\mu\nu},
+\qquad
+\bar h_{\mu\nu}\equiv h_{\mu\nu}-\tfrac12\eta_{\mu\nu}h,
+\end{equation}
+and the residual gauge freedom can be used, for radiation in vacuum, to reach the transverse-traceless (TT) gauge: $h_{0\mu}=0$, $h^i{}_i=0$, $\partial^i h_{ij}=0$. Exactly two polarizations survive --- the helicity-$\pm2$ pair whose explicit tensors are constructed in Appendix~\ref{app:checks-pol}. The universal coupling to matter is $h_{\mu\nu}T^{\mu\nu}$, which is also the vertex whose existence settles the task~(C) question of Sec.~\ref{sec:taskC}.
+
+\paragraph{Why the quadrupole is the first radiating moment.}
+Expand the source in multipoles. The monopole of the mass distribution is the total energy --- conserved, so it cannot oscillate and cannot radiate. The dipole is the center-of-energy motion --- conservation of momentum (and the equivalence principle: gravitational charge is inertial mass) freezes it. The first moment free to vary is the quadrupole
+\begin{equation}
+Q_{ij}=\int\rho\left(x_ix_j-\tfrac13\delta_{ij}r^2\right)d^3x,
+\end{equation}
+and the far-zone field and radiated power are
+\begin{equation}
+h^{TT}_{ij}\sim\frac{2G}{c^4 r}\,\ddot Q^{TT}_{ij}(t-r/c),
+\qquad
+P=\frac{G}{5c^5}\left\langle\dddot Q_{ij}\dddot Q_{ij}\right\rangle,
+\end{equation}
+the latter being the Peters--Mathews formula \cite{peters}. This is the machinery that \#59 runs on the proton-trapped electron's mass distribution --- and the point pressed throughout this record (Table~\ref{tab:split}, Fig.~\ref{fig:loadmap}) is that every step of it presupposes a background metric on which $\Box$, TT projection, and the retarded solution are defined. Whether that background is the \emph{emergent} metric of \#51 is exactly open problem O3; until it is closed, the formalism is imported, not derived.
+
+\paragraph{A remark on the double copy.}
+The Kawai--Lewellen--Tye and Bern--Carrasco--Johansson relations \cite{klt,bcj} express graviton amplitudes as squares of gauge amplitudes, with a single null momentum shared by the two vector factors ($\varepsilon_{\mu\nu}=\varepsilon_\mu\tilde\varepsilon_\nu$). They motivated exchange E1's opening move, and nothing more: the fragment pair is back-to-back, the two momenta are not shared, and the correct standard frame is two-particle angular-momentum composition (Sec.~\ref{sec:taskI}). The primer-level moral is a caution: the double copy is a statement about amplitudes at a single momentum, not a license to multiply any two polarizations found in nature.
+
+% ========================================
+% Appendix E: Corpus Dependencies
+% ========================================
+\section{What This Record Assumes from Each Source Paper}
+\label{app:corpus}
+
+Half the difficulty of this record for a newcomer is not the imported machinery of Appendix~\ref{app:primers} but the corpus-internal premises: results established in the source papers and used here without rederivation. This appendix lists, for each source paper, exactly what is assumed and where it is used, so that the record can be entered without prior reading of the series. (The structural overview of the series, \#65, provides the full context; the entries below are deliberately minimal.)
+
+\begin{description}[style=unboxed, leftmargin=0em, itemsep=3pt]
+
+\item[Paper \#10 \cite{hanamura10}.] \emph{Assumed:} the kinematic convention $v=\cos\omega t$, $a=-\sin\omega t$ for the internal traversal (rest at $\iphase=\pi/2$), and the rotational-Lorentz-contraction origin of the anomalous moment. \emph{Used in:} the convention clash of entries C2--C3 (Table~\ref{tab:acollision}); \#10 is one of the two parents of the $\pi/2$ contradiction.
+
+\item[Paper \#29 \cite{hanamura29}.] \emph{Assumed:} the spinorial connection is embedded along the thermal geodesic by relativistic kinematics alone; the line integral of the Thomas-precession connection accumulates $2\pi$ per one-way traversal, in two lobes of $\pi$; the operative object is the line integral of a \emph{connection}, not the curvature of a path. \emph{Used in:} the foundational trilogy standard (Sec.~\ref{sec:theme}); direction D2 (Hypothesis~\ref{hyp:H} as parallel transport); the third-witness observation on the convention clash (Sec.~\ref{sec:deferred}).
+
+\item[Paper \#30 \cite{hanamura30}.] \emph{Assumed:} conservation laws arise from connection-based phase accumulation; stress--energy is derived, not fundamental; the Einstein equation is an a posteriori consistency condition (``geometric checksum''). \emph{Used in:} the outsourcing verdict of Table~\ref{tab:split} and the hierarchy argument of Sec.~\ref{sec:ww} (O3 as the demand that the emergent metric pass the checksum in the radiative regime).
+
+\item[Paper \#31 \cite{hanamura31}.] \emph{Assumed:} the ordering principle --- observables are holonomies of connections along histories (AB, Berry, Wilson loops as one class); the two-kernel transport realized as an endpoint-dependent line integral of a scalar potential. \emph{Used in:} the primacy thesis under test in direction D6; the framework vocabulary throughout.
+
+\item[Paper \#49 \cite{hanamura49}.] \emph{Assumed:} single-fragment ejection per de-excitation event at the kinetic-energy maximum; fragments are photon-sector quanta (no new degree of freedom; its Table~II); the $A\to B$ thermal geodesic is arc-connected, making $\mathbf v\times\mathbf a\neq\mathbf 0$; open task (viii) (the $|v|\propto\sin\iphase$ convention: maximum speed at $\iphase=\pi/2$). \emph{Used in:} the E1 tension; the self-conjugacy route (E7--E9); entry C3's convention clash; Hypothesis~\ref{hyp:H}'s textual anchor.
+
+\item[Paper \#50 \cite{hanamura50}.] \emph{Assumed:} chirality $\chi=\mathrm{sign}(da/dt)$ with $a$ the \emph{monotonic} internal phase on $S^1$; $\chi$ is a Lorentz-invariant topological binary ($\pi_1(S^1)=\mathbb Z$); a flip within one electron is impossible (it would interchange electron and positron). \emph{Used in:} the refutation of E4's opposite-chirality proposal; the fixed-$\chi$ construction (Proposition~\ref{prop:rank2}); entry C2.
+
+\item[Paper \#51 \cite{hanamura51}.] \emph{Assumed:} the emergent-metric construction $g_{\mu\nu}=\partial_{A\mu}\partial_{B\nu}\mathcal S_s$ is verified in the flat-space limit \emph{only}; Bonnet--Myers confinement derived from the non-path-connectedness of $S^0$; the helical trajectory carries two velocity scales. \emph{Used in:} the two-metric problem; the task (I)/O3 boundary (Fig.~\ref{fig:loadmap}); direction D3.
+
+\item[Paper \#52 \cite{hanamura52}.] \emph{Assumed:} the gravitational/electromagnetic directional decoupling is a \emph{kinematic orthogonality} $\mathbf v\perp\mathbf a$ of a single particle, with an explicit warning that conflating distinct orthogonalities is a category error; a dedicated appendix records the Weinberg--Witten theorem with applicability to the framework marked non-trivial. \emph{Used in:} the reformulation of task (C) (Sec.~\ref{sec:taskC}); the WW route (Sec.~\ref{sec:ww}); the E4/E5 collation events.
+
+\item[Paper \#57 \cite{hanamura57}.] \emph{Assumed:} the $\ell=2$ spherical-harmonic imprinting mechanism for phase information on the photon sphere. \emph{Used in:} direction D5 (single-fragment transmission of rank-2 information) and the boundary-data refinement of direction D6.
+
+\item[Paper \#58 \cite{hanamura58}.] \emph{Assumed:} the phase-stable pair with two ejection events per cycle ($\iphase=\pi/2,\,3\pi/2$); the pair tensor $h_{\mu\nu}\propto\varepsilon_{1\mu}\varepsilon_{2\nu}+\varepsilon_{1\nu}\varepsilon_{2\mu}$ with polarizations left unassigned (= open task (I)); open task (IV) (single-fragment mediation); the $\chi$-degeneracy passage struck by entries C2--C3. \emph{Used in:} the central object of the whole session.
+
+\item[Paper \#59 \cite{hanamura59}.] \emph{Assumed:} one fragment per cycle event with phase re-normalization (its Appendix~A); spin-2 from the mass quadrupole computed with the GR formalism (its Sec.~V); the emergent-metric derivation of its Sec.~IV; Eq.~(III.3) (entry C1); open task (C). \emph{Used in:} the split of Table~\ref{tab:split}; entries C1--C3; the task (C) reformulation.
+
+\item[Paper \#60 \cite{hanamura60}.] \emph{Assumed:} the Berry--Synge--Bonnet--Myers triangle programme --- three established vertices, three open edges, closure resolving O3 and O4 simultaneously; the citation of \#58's pair tensor as physical motivation for the closure edge. \emph{Used in:} problem (b) of Table~\ref{tab:split}; the demarcation refinement of Sec.~\ref{sec:ww}; direction D3.
+
+\item[Paper \#63 \cite{hanamura63}.] \emph{Assumed:} the two-route formulation (metric door / connection door) with convergence as the decisive open problem; the physical identity of $A_\mu$ isolated as O16; the internal-winding correction of the curvature-family reading. \emph{Used in:} the D3 formulation and Sec.~\ref{sec:ww} (integrated at the archival-revision stage, as marked there).
+
 \end{description}
 
 \begin{thebibliography}{99}
