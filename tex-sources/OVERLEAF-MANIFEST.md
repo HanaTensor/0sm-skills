@@ -15,14 +15,14 @@
 - 複数リビジョン保有: #30 (r1, r2)、#51 (r1: 図版含む全量 / r2: main.tex のみ → main-overleaf.tex は r2 由来)。
 - **Zenodo 自動取得(2026-07-19)**: 各レコードの API(`zenodo.org/api/records/<id>/files/main.tex/content`)から公開版 main.tex を一括取得。#46, #51–62, #64 に新規設置、#28 は改訂公開版(Revised: 2026-02-13)へ更新、#30, #34–45, #47, #48, #50 は既存と完全一致を確認。
 - **スキル清書(2026-07-19)**: #1–12, #63 の main.tex を 0sm-zenodo-upload スキル Step 1(latex-standards.md)で Overleaf 原本から生成(日本語コメント全削除・コメントアウト行削除・英語バナー挿入・明示日付。#1 は Overleaf 内の既存 main_cleanup.tex を採用、#2 は \today → February 24, 2019、#11 は \end{document} 後の作業メモ切除)。本文はコメント除去後のコード実体レベルで原本と一致検証済み。**この 13 本は Zenodo レコード側に tex 未収録**(PDF のみ)— レコード追補時は GitHub のこの main.tex をそのまま使える。
-- **全 63 論文(#1–64、#16 欠番)に main.tex が揃った**(#67 は同日廃棄済み・上記参照)。
-- **コンパイル検証(2026-07-19)**: 全 14 本(#1–12, #63, #67)を tectonic (XeTeX) で PDF 生成確認。互換修正 2 種を適用: hyperref 旧ドライバ指定(dvipdfm/pdftex)除去、#6 の caption `justification=center`→`centering`。#1/#3/#8 の EPS 図版は epstopdf 対応エンジン(Overleaf pdfLaTeX 等)が必要。
+- **全 63 論文(#1–64、#16 欠番)に main.tex が揃った**。
+- **コンパイル検証(2026-07-19)**: 全 13 本(#1–12, #63)を tectonic (XeTeX) で PDF 生成確認。互換修正 2 種を適用: hyperref 旧ドライバ指定(dvipdfm/pdftex)除去、#6 の caption `justification=center`→`centering`。#1/#3/#8 の EPS 図版は epstopdf 対応エンジン(Overleaf pdfLaTeX 等)が必要。
 - **Zenodo レコードへの tex 追補**: 対象 32 レコードの一覧と手順は [`ZENODO-TEX-BACKLOG.md`](ZENODO-TEX-BACKLOG.md)。
 - **規約統一(2026-07-19 追記)**: #13–15, #17–27, #29, #31–33, #49 の 19 本も規約統一+コンパイル検証済み(#13/#14/#49 はフル清書、#26 は破損スタブを原本から復旧)。#41, #48, #50 のみ Overleaf 版と実質同一のまま(Zenodo 公開版と一致しているため現状維持が正)。
 
 ## 特記事項
 
-- **旧 99-1(→一時 #67)は廃棄(2026-07-19)** — 「Rethinking Particles as Spacetime Oscillators (Research Summary)」(2025-04-13、#1–#14 期総括)。全コーパス照合の結果、固有の科学的内容ゼロ(γ=1+a は #62、臨界半径は #14/#47、対消滅は #8 等すべて既出・上位互換あり)+総括機能は #65 Structural Overview が完全上位互換+2025-04 時点の陳腐化記述を含むため廃棄と判定(User 承認済み)。**#66・#67 は欠番として空き**。復元は commit d415dcb(tex-sources/67/ 一式)。REV-01 = #65(実体未収蔵)。
+- **旧 99-1「Rethinking Particles as Spacetime Oscillators (Research Summary)」は採番せず破棄(2026-07-19)** — コーパスと全面重複のため(User 承認)。**#65 以降(#66, #67 含む)は通常の通番として今後の論文に使用する(欠番にしない)**。`tex-sources/65–67/` は将来用の空スキャフォールド。#65 = The 0-Sphere Model: A Structural Overview(未収蔵)。
 - **off-series/solar-neutrino-dna-recoils/** — Overleaf 名「28-1 Solar Neutrino–Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans」。目録 #28(G/c² 次元整合)とは別物の系列外論文(生物物理)。番号衝突のため未採番のまま退避。採番は User 判断待ち。
 - 目録(index.md)の 63 論文 #1–#64(#16 欠番)は全て Overleaf 原本が揃った。
 
@@ -96,4 +96,4 @@
 | 62-1 | The Bridge Equation γ = 1 + a from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Squ | `62/overleaf/r1/` |
 | 63-1 | From Line Integral to Covariant Derivative: A Reader’s Map of the Bridge from the 0-Sphere Model to Riemannian Curvature | `63/overleaf/r1/` |
 | 64-1 | The Square Root of the Hyperspherical Laplacian: A Geometric Foundation for Spin Two-Valuedness on S³ in the 0-Sphere Model | `64/overleaf/r1/` |
-| 99-1 | Rethinking Particles as Spacetime Oscillators: (Research Summary) | ~~`67/overleaf/r1/`~~ 廃棄(d415dcb で復元可) |
+| 99-1 | Rethinking Particles as Spacetime Oscillators: (Research Summary) | 破棄(未採番) |

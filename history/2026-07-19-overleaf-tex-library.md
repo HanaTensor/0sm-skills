@@ -29,10 +29,8 @@ Overleaf に保存されていた全論文プロジェクトを GitHub(`tex-sour
 
 **採番判断(User 指示 + 判定)**:
 
-- 旧 Overleaf 名「99-1 Rethinking Particles as Spacetime Oscillators (Research Summary)」は
-  **99 番を廃止し #67 (REV-02)** として保存。中身は 2025-04-13 付・#1–#14 期の研究総括で、
-  現行の #65「The 0-Sphere Model: A Structural Overview」(REV-01・未収蔵)への合流ではなく
-  歴史的スナップショットとして独立保存が適切と判定。経緯は `tex-sources/67/NOTE.md`。
+- 旧 Overleaf 名「99-1 Rethinking Particles as Spacetime Oscillators (Research Summary)」
+  (2025-04-13 付・#1–#14 期の研究総括)は、同日の全コーパス照合(§7)により採番せず破棄。
 - 「28-1 Solar Neutrino–Induced Nuclear Recoils …」は目録 #28 と番号衝突する**系列外論文**
   (生物物理)のため、未採番のまま `tex-sources/off-series/solar-neutrino-dna-recoils/` へ退避。
   採番は User 判断待ち。
@@ -73,16 +71,15 @@ User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload 
   環境対応・ref/label 整合・日本語ゼロを確認。ローカルに LaTeX toolchain が無いため
   コンパイル検証は未実施(Overleaf での二重コンパイル確認を推奨)。
 
-### 5. コンパイル検証・#67 清書・追補チェックリスト(同日追記)
+### 5. コンパイル検証・追補チェックリスト(同日追記)
 
-- **実コンパイル検証**: tectonic (XeTeX) + Ghostscript を導入し、全 14 本
-  (#1–12, #63, #67)の PDF 生成に成功。これに伴う互換修正 2 種を本体へ適用:
+- **実コンパイル検証**: tectonic (XeTeX) + Ghostscript を導入し、#1–12, #63 の
+  全 13 本で PDF 生成に成功。これに伴う互換修正 2 種を本体へ適用:
   hyperref の旧ドライバ指定(dvipdfm×11 / pdftex×1)を除去して自動検出化、
   #6 の caption 廃止指定 `justification=center` → `centering`(いずれも本文非接触)。
   #1/#3/#8 の EPS 図版は tectonic 単体では埋め込めず事前変換で検証
   (Overleaf pdfLaTeX では epstopdf 自動変換で問題ない)。
-- **#67 清書**: 同一規約で cleaned main.tex を生成・検証・設置。
-  → **全 64 番号(#1–64, #67)に main.tex が揃った**。
+- 旧 99-1 も同規約で清書したが、§7 の判定により同日破棄。
 - **Zenodo 追補チェックリスト**: tex 未収録レコードは #1–12/#63 だけでなく
   #13–15, #17–27, #29, #31–33, #49 を含む **32 件**と判明。一覧・手順・
   DOI バージョン方針の注意を `tex-sources/ZENODO-TEX-BACKLOG.md` に整備(User 手作業用)。
@@ -103,7 +100,7 @@ User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload 
   fig_thermal.tex / fig_TotalHamiltonian.tex 併用で成功 → Zenodo 追補時も同梱要)。
   本文はコメント除去後のコード実体レベルで各ソースと一致検証済み。
 
-### 7. 旧 99-1(一時 #67)の廃棄判定(同日追記)
+### 7. 旧 99-1 の破棄判定(同日追記)
 
 User の依頼で「Rethinking Particles as Spacetime Oscillators (Research Summary)」
 (2025-04-13、#1–#14 期総括)の存続価値をコーパス全体と照合して判定:
@@ -115,22 +112,19 @@ User の依頼で「Rethinking Particles as Spacetime Oscillators (Research Summ
   ロードマップ収載)が完全上位互換。
 - 2025-04 時点の陳腐化記述(RMS/√2 の旧定式化、muon g-2 4.2σ 等)を含む。
 
-→ **廃棄確定**(User 承認)。`tex-sources/67/` を削除し、**#66・#67 は欠番として空き**。
-復元は commit `d415dcb` に一式あり。この文書の過去セクションにある「#67」への言及は
-廃棄前の経緯として原文のまま残す。
+→ **破棄確定**(User 承認)。採番はしない。**#65 以降(#66, #67 含む)は通常の通番として
+今後の論文に使用する(欠番にしない)**。`tex-sources/65–67/` は空スキャフォールドとして維持。
 
 ## 結果と現在地
 
 - 清書済み `main.tex`: **63 論文全数(#1–64、#16 欠番)**。うち 32 本
   (#1–15, #17–27, #29, #31–33, #49, #63)は今日コンパイル検証済み。
   **Zenodo 追補対象 32 件はすべて upload-ready で品質統一済み**(`ZENODO-TEX-BACKLOG.md` 参照)。
-- 採番状況: #16 永久欠番、#65 = Structural Overview(REV-01・未収蔵)、#66・#67 = 空き。
+- 採番状況: #16 永久欠番。#65 = Structural Overview(未収蔵)、#66・#67 は今後の通番として使用予定(空スキャフォールド)。
 - 残る User 手作業: (1) Zenodo 32 レコードへの tex 追補(DOI バージョン方針の
   統一決定が先)、(2) #65/#66 の Overleaf エクスポート提供、
   (3) off-series(Solar Neutrino)の採番判断。
-- 注記: #13, #14, #41, #48–50 の main.tex は Overleaf 版と実質同一(清書工程未経過の可能性)。
 - 規約・対応表の正典: [`tex-sources/OVERLEAF-MANIFEST.md`](../tex-sources/OVERLEAF-MANIFEST.md)
-- 宙ぶらりん: #65(Structural Overview REV-01)・#66 は本エクスポート未収録で `tex-sources/65` `66` は未作成。
 
 ## 参照
 
