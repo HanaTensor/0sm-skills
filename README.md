@@ -10,6 +10,7 @@ Satoshi Hanamura の 0-Sphere Model 論文系列（63本、#1–#64、#16 永久
 | [wall-practice-index.md](wall-practice-index.md) | 壁練（構想議論）の入口: テーマ別発火チェーン・未解決問題台帳・トリガー語彙表 | skill `0sm-wall-practice` の fetch 先 |
 | `tex-sources/NN/` | 論文 #NN の一次資料（main.tex=Zenodo清書版 / main-overleaf.tex=Overleaf原本 / overleaf/rK/=完全スナップショット / PDF / 図版 / readme。規約は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)） | 一次資料の正典 |
 | `workspace-baselines/` | curate workspace の完全スナップショット（最新 tar 1本で全引き継ぎ完結） | 個票・派生索引の正典 |
+| `history/` | 大きな作業セッションの履歴文書（日付別） | 経緯の記録 |
 
 ## Claude での使い方
 

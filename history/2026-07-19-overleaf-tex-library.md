@@ -1,0 +1,77 @@
+# 作業履歴 2026-07-19 — Overleaf 原本収蔵と tex ライブラリ化
+
+> 対象コミット: `09ed0fb` → `6dbd1b3` → `48bcb41`(3件・main 直コミット)
+> 作業者: User (Satoshi Hanamura) + Claude Code (Fable 5)
+
+## 背景と目的
+
+Overleaf に保存されていた全論文プロジェクトを GitHub(`tex-sources/`)へ整理・収蔵し、
+論文 tex の「ライブラリ化」を確立した。動機は 2 つ:
+
+1. **後続研究者への便宜** — tex があれば図表・数式込みで再現・検証・引用ができる。
+   PDF のみの寄託とは保存物としての性格が変わる。
+2. **AI 可読性** — PDF スキャンでは LLM が数式・図表を評価しにくい。
+   LaTeX/TikZ コードは数式が一意に読め、図は「幾何の構成手順」として読めるため、
+   壁練スキル等で AI が原文を読みに行く本コーパスの運用ではほぼ必須の下部構造。
+
+(#1–#12 は viXra 期に PDF をアップロードしただけで、当時は tex ライブラリ化を
+想定していなかった。上記の考えに基づき方針を改めた。)
+
+## 実施内容
+
+### 1. Overleaf 全 67 プロジェクトの一括収蔵(`09ed0fb`)
+
+- ソース: Overleaf 一括エクスポート「Overleaf Projects (67 items)」(zip 67 本)。
+- 各論文 #NN に `tex-sources/NN/overleaf/rK/` を新設し、zip の中身を**無加工格納**
+  (K = zip プレフィクス `NN-K` のリビジョン)。目録 63 論文 #1–#64(#16 欠番)の原本が全て揃った。
+- 複数リビジョン: #30 (r1, r2)、#51 (r1: 図版含む全量 / r2: main.tex のみ)。
+- 既存のトップ階層 main.tex(Zenodo 清書版)は一切上書きしていない。
+
+**採番判断(User 指示 + 判定)**:
+
+- 旧 Overleaf 名「99-1 Rethinking Particles as Spacetime Oscillators (Research Summary)」は
+  **99 番を廃止し #67 (REV-02)** として保存。中身は 2025-04-13 付・#1–#14 期の研究総括で、
+  現行の #65「The 0-Sphere Model: A Structural Overview」(REV-01・未収蔵)への合流ではなく
+  歴史的スナップショットとして独立保存が適切と判定。経緯は `tex-sources/67/NOTE.md`。
+- 「28-1 Solar Neutrino–Induced Nuclear Recoils …」は目録 #28 と番号衝突する**系列外論文**
+  (生物物理)のため、未採番のまま `tex-sources/off-series/solar-neutrino-dna-recoils/` へ退避。
+  採番は User 判断待ち。
+
+### 2. main.tex 二本立て規約の確定(`6dbd1b3`)
+
+User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload スキル発火で清書版生成)を
+そのまま構造に写した:
+
+| ファイル | 役割 |
+|---|---|
+| `NN/main.tex` | **Zenodo 清書版のみ**。有無がそのまま「清書済みシグナル」 |
+| `NN/main-overleaf.tex` | **Overleaf 原本**(日本語コメント込み)。全番号に常設 |
+| `NN/overleaf/rK/` | zip スナップショット(図版込み・不可変アーカイブ) |
+
+初回コミットで行った「未清書番号への raw main.tex 昇格コピー」はこの規約と矛盾するため取り消し。
+
+### 3. Zenodo 公開版 main.tex の API 一括取得(`48bcb41`)
+
+- 63 レコードを `zenodo.org/api/records/<id>` で走査 → **31 レコードに main.tex 収録**を確認。
+- 全 31 本を `…/files/main.tex/content` からダウンロードし、LaTeX 構造検証のうえ配置:
+  - **新規設置**: #46, #51–62, #64(14 本)
+  - **更新**: #28(公開版は Revised: 2026-02-13 付。repo 側は改訂前だった)
+  - **一致検証**: #30, #34–45, #47, #48, #50(16 本が公開版とバイト一致 =
+    repo 清書版が公開版の忠実な写しであることを機械的に裏付け)
+
+## 結果と現在地
+
+- 清書済み `main.tex`: 36 → **50 番号**。
+- **残る未清書 = #1–12, #63, #67**(Zenodo レコードに tex 未収録 = PDF のみ、#67 は Zenodo 未公開)。
+  清書時は「repo に main.tex 設置 + Zenodo レコードへ tex 追補」をワンセットで行う。
+  着手順は参照頻度の高い ★ 付き(#1, #3, #7, #10)からが効率的。
+- 注記: #13, #14, #41, #48–50 の main.tex は Overleaf 版と実質同一(清書工程未経過の可能性)。
+- 規約・対応表の正典: [`tex-sources/OVERLEAF-MANIFEST.md`](../tex-sources/OVERLEAF-MANIFEST.md)
+- 宙ぶらりん: #65(Structural Overview REV-01)・#66 は本エクスポート未収録で `tex-sources/65` `66` は未作成。
+
+## 参照
+
+- 収蔵規模: 519 ファイル・約 180MB(`09ed0fb`)
+- ローカルクローン: `~/Desktop/0sm-skills`
+- 原文精読 URL: `https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/tex-sources/NN/main.tex`
+  (404 = 未清書 → `NN/main-overleaf.tex` に原本が必ずある)
