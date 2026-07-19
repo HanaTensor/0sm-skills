@@ -1,0 +1,427 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{breqn}
+\numberwithin{equation}{section}% (p.37)
+
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period}
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+    \title{Beyond the Standard Model:\\
+    Neutrino Oscillations and the Search for New Physics}
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+    \date{April 16, 2023}
+% ========================================
+% Abstract
+% ========================================
+        \begin{abstract}
+
+
+ The interpretation that the positive and negative solutions of the Dirac equation are particles and antiparticles is a common and widespread one. In this paper, we would aim to extend the 0-Sphere Electron Model to explore the internal structure of neutrino oscillations. From another point of view, the positive and negative solutions could correspond to a process in which two particles emit and absorb energy. This paper proposes a new model for the internal structure of neutrinos. The model has been created in which the Lissajous curve arises from two energy oscillators obtained from the positive and negative solutions of the Dirac equation. This model, the 0-Sphere Neutrino Model, assumes the existence of oscillators with thermal energy that are converted into kinetic energy, and includes two oscillators with different vibrational frequencies that are described by Lissajous curves. 
+
+        \end{abstract}
+    \maketitle
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 1: INTRODUCTION
+% ========================================
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+Ginzburg listed neutrino oscillations as one of the 30 most important issues in physics \cite{Ginzburg1999}. Ginzburg lists item 30 on its list as ``Neutrino Physics and Astronomy. Neutrino oscillations''. Identifying neutrino oscillations and neutrino masses is a major challenge in particle physics. The mass of neutrinos is many orders of magnitude smaller than that of other elementary particles such as quarks and leptons, with a mass difference of at least $10^{10}$ times \cite{KATRIN}. Neutrino oscillations were first observed in the late 1990s \cite{Akhmedov}, and their existence contradicts the original Standard Model of particle physics in several ways \cite{KamLAND}. Neutrinos were initially assumed to be massless, but the observation of neutrino oscillations \cite{Wolfenstein1978} requires that at least two of the three neutrino types have non-zero masses. Additionally, the Standard Model assumes that neutrinos interact only via the weak nuclear force, which cannot explain neutrino oscillations.
+
+In a previous paper by the author \cite{Hanamura1}, the electron is modelled as a particle that is generated and annihilated with a period of Compton wavelengths. The electron was modeled as having an internal structure consisting of two oscillators with thermal potential energy that contribute to the electron's mass. This model provided a promising approach to solving the problem of ultraviolet divergence.
+
+In the 0-Sphere Electron Model, mentioned in the paper \cite{Hanamura1}, we introduced a new concept of Thermal Potential Energy (TPE) as the internal structure of electrons, which differs from the conventional understanding of TPE as a fixed thermal energy. The most significant difference from conventional particle models is the bold idea that TPE, which constitutes mass, is repeatedly generated and annihilated through a well-ordered cycle where TPE is radiated, all energy is converted into kinetic energy, and kinetic energy is then recreated as TPE again.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.22]{Fig.5x5Lissajous.png}
+            \caption{Lissajous curves with different angular frequency ratios.} 
+        \label{Lissajous5x5}
+    \end{figure}
+
+To further advance the understanding of neutrino oscillations, we propose an advanced method of modeling neutrinos as particles with Lissajous curves in Fig. \ref{Lissajous5x5}. Through this approach, we aim to explore the intricate relationship between neutrino oscillations and Lissajous curves and offer new insights into the internal structure of neutrinos.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 2: Some preliminary knowledge
+% ========================================
+\section{Some preliminary knowledge}
+
+
+%Neutrinos are elementary particles that are electrically neutral, weakly interacting, and have a tiny mass. They can undergo two types of reactions, which are weak interactions and spontaneous flavor changes.
+
+%1. Weak interactions: Weak interactions are one of the four fundamental forces of nature, and they are responsible for the decay of certain particles and the fusion of protons and neutrons in the Sun. In weak interactions, a neutrino can interact with other particles, such as electrons, protons, or neutrons, through the weak force. This interaction is weak because it has a very small cross-section, meaning that it is very unlikely to happen.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.27]{Fig.1.png}
+            \caption{Slightly distorted curved surface of the bowl \cite{NagoyaUniv}.} 
+        \label{Fig.1}
+    \end{figure}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.25]{Fig.2.png}
+            \caption{Motion of a quality point on the inner surface of a bowl \cite{NagoyaUniv}.} 
+        \label{Fig.2}
+    \end{figure}
+
+%An example of a weak interaction is the beta decay of a neutron into a proton, an electron, and an antineutrino. In this process, the antineutrino is produced when a down quark in the neutron changes into an up quark, emitting a W boson, which then decays into an electron and an antineutrino.
+
+%2. Spontaneous flavor changes: Neutrinos come in three different flavors - electron, muon, and tau neutrinos. These flavors are associated with their corresponding charged leptons - electrons, muons, and taus. Neutrinos can spontaneously change their flavor as they travel through space or matter. This phenomenon is known as neutrino oscillation or flavor oscillation.
+
+%The flavor change occurs because neutrinos have a small mass, which means that they do not travel at the speed of light. As they move, the three different flavors of neutrinos can mix with each other, causing the neutrino to change its flavor. This process has been observed in experiments, and it has important implications for understanding the nature of neutrinos and their role in the universe.
+
+%In summary, weak interactions and spontaneous flavor changes are two types of reactions that can occur in neutrinos. Weak interactions involve the interaction of a neutrino with other particles through the weak force, while spontaneous flavor changes involve the oscillation of a neutrino between different flavors as it travels through space or matter.
+
+
+% ----------------------------------------
+% Subsection 2.1: Thermal Single Resonator with Lissajous Curve and Two Different Frequencies
+% ----------------------------------------
+\subsection{Thermal Single Resonator with Lissajous Curve and Two Different Frequencies}
+
+
+In this paper, we would aim to extend the 0-Sphere Electron Model to explore the internal structure of neutrino oscillations. When neutrino oscillations are considered in terms of the Lissajous curve, the classical knowledge is that there is only one mass point. If a single mass point is an oscillator with degrees of freedom in both the $x$-axis and $y$-axis directions (Fig. \ref{Fig.1}), it can have a trajectory that draws a Lissajous curve. Such a single mass point is convenient for recognizing individual units of elementary particles (Fig. \ref{Fig.2}).
+
+Therefore, we recognize not one but two masses. This model formation of two masses is an assumption derived from the 0-sphere. Therefore, this model abandons the classical notion of a single mass point with two spatial axial degrees of freedom. Instead, it assumes that two thermally energetic oscillators (TPEs) with two different frequencies are located inside the subatomic particle that is conventionally considered to be a single neutrino.
+
+
+% ----------------------------------------
+% Subsection 2.2: Outline of The 0-Sphere Electron Model
+% ----------------------------------------
+\subsection{Outline of The 0-Sphere Electron Model}
+
+The model within three oscillators inside an electron with zero-point energy, $\frac{1}{2} E_0$, in the ground state was assumed.
+
+We obtained the following:
+
+        \begin{equation}
+                (Oscillator \ 1): T_{e1} = E_{0}  \ \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{e3_Osc_1_PE}
+        \end{equation}
+
+        \begin{equation}
+                (Oscillator \ 2): T_{e2} = E_{0}  \ \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{e3_Osc_2_PE}
+        \end{equation}
+
+        \begin{equation}
+                (Oscillator \ 3):  \gamma^{*} = \frac{1}{2} \ E_{0} \ \mathrm{sin}^{2} (\omega t)
+                    \ .
+                \label{e3_Osc_3_KE}  
+        \end{equation}
+
+Where $E_0$ is the energy possessed by the ground state of the electron, $T_{e1}$ is the first spinor in the electron, $T_{e2}$ is another spinor in the electron and $\gamma^{*}$ is the kinetic energy possessed by the virtual photon surrounding the electron.
+
+These two spinors act as both emitters and absorbers in turn. To meet the requirements for simultaneous emission and absorption, assign $T_{e1}$ in Eq. (\ref{e3_Osc_1_PE}) and $T_{e2}$ Eq. (\ref{e3_Osc_2_PE}) which have different phases, to each.
+
+In this paper, oscillator 1 (\ref{e3_Osc_1_PE}) and oscillator 2 (\ref{e3_Osc_2_PE}) are applied to assume the new neutrino model. More strictly speaking, the electronic model sets the frequency of the two oscillators to the same value, while the new neutrino model sets the frequency of the two oscillators not to the same value.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 3: The Underlying Causes of Neutrino Oscillations
+% ========================================
+\section{\label{sec:The Underlying Causes of Neutrino Oscillations}The Underlying Causes of Neutrino Oscillations}
+
+% ----------------------------------------
+% Subsection 3.1: Consistency of The 0-Sphere Model with Negative Energy Solutions in the Dirac Equation.
+% ----------------------------------------
+\subsection{Consistency of The 0-Sphere Model with Negative Energy Solutions in the Dirac Equation.}
+
+
+In the paper \cite{Hanamura1}, the electron is modeled as having an internal structure rather than a single particle. It was assumed that the two oscillators have a thermal potential energy that is mass. As a result of this assumption, it was a great achievement to find a clue to solve the problem of ultraviolet divergence.
+
+In this paper, we would like to apply the 0-Sphere Electron Model to find a clue to the internal structure of neutrino oscillations. In the paper \cite{Hanamura6}, the author gave an alternative viewpoint to the conventional view that the positive sign of a solution to the Dirac equation is a particle state and the negative sign is an anti-particle state. The solutions with positive and negative signs respectively represented thermal oscillators. The process by which the two thermal oscillators alternately radiate and absorb thermal energy corresponds to the positive and negative solutions.
+
+
+To date, the internal structure of neutrinos has been unknown. In this paper, the positive and negative solutions of the Dirac equation are intrinsic to the neutrino model as two oscillators with different frequencies. Then, two independent oscillators $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ could exist inside the neutrino, just as $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$ exist for the electron. In the case of the electron, $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$ are indistinguishable, and the equations of the model were developed assuming that they have the same properties. Utilizing the 0-Sphere Model, we can also model neutrinos that also satisfy the condition that a single neutrino has an internal structure that causes neutrino flavor mixing.
+
+
+$T_{\nu \mathrm{1}}$, $T_{\nu \mathrm{2}}$ and $T_{\nu \mathrm{3}}$ are thermal oscillators that correspond to $T_{\mathrm{e1}}$ , $T_{\mathrm{e2}}$ and $T_{\mathrm{e3}}$ particles in neutrino type and are represented as primitive spinor particles corresponding to positive and negative solutions obtained from the Dirac equation. The basis of this idea relies on the paper \cite{Hanamura1}. In the paper, it was confirmed that the two thermal potential energies in the electron radiate and absorb with a period of 4$\pi$. 
+
+In other words, it is an entity form of a particle that allows thermal energy to exist at a fixed point $+a$ or $-a$, which is one period of a single oscillation. They are entities of particles with a life span that can change their position when one period is over.
+
+For the neutrinos described here, the 4$\pi$ period does not exist, because the period during which $T_{\nu \mathrm{1}}$ begins to radiate and then emit all thermal potential energy is different from that of $T_{\nu \mathrm{2}}$. This is because, as mentioned earlier, $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ are assumed to be two thermal oscillators with different frequencies $\omega_{\mathrm{1}}$ and $\omega_{\mathrm{2}}$ ($\omega_{\mathrm{2}} \neq \omega_{\mathrm{1}}$).
+
+
+% ----------------------------------------
+% Subsection 3.2: Brief Review of The 0-Sphere
+% ----------------------------------------
+\subsection{Brief Review of The 0-Sphere}
+
+The 0-sphere is the disjoint union of two points. It is two points equidistant from the origin. The 1-sphere is a circle in two dimensions, while the 0-sphere is a point that contains neither lines nor planes. Also, a point is not a single point, but always a combination of two points.
+
+It was appropriate to describe the electronic model in the paper \cite{Hanamura1}, which assumed that the structural form encompassing these two points consists of two thermal oscillators. These two points $+a$ and $-a$ as shown in Fig.\ref{Fig.0-Sphere} (a) are located on the intersection of a circle of a certain radius and a straight line. Since the 1-sphere Fig.\ref{Fig.0-Sphere} (b) represents a circle composed of a line, the 0-sphere is more appropriate to represent a pair of two-point particles.
+
+The 0-Sphere $Neutrino$ Model would extend the above idea, i.e. two thermal oscillators could be considered to exist in a single neutrino particle.
+
+
+% ----------------------------------------
+% Subsection 3.3: Two Flavor Isolation
+% ----------------------------------------
+\subsection{Two Flavor Isolation}
+
+In this section, we will proceed to discuss the reactions in which neutrinos spontaneously change flavors for reasons that have not been explained so far.
+
+Two oscillators are required to cause neutrino oscillations. And there must be a mass difference between $\nu$1 and $\nu$2. 
+
+
+There are three neutrino flavor distinctions, but to simplify the explanation, we consider neutrino oscillations with two flavor distinctions: the two flavors are the electron flavor and the muon flavor.
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{Fig.0-Sphere.png}
+            \caption{The 0-sphere and the 1-sphere.} 
+        \label{Fig.0-Sphere}
+    \end{figure}
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.18]{F_neu_1.png}
+            \caption{The eigenstate of the neutrino weak interaction in quantum mechanical terms is expressed as $(\nu_{\epsilon}, \nu_{\mu}, \nu_{\tau})$, and the eigenstate of mass is expressed as $(\nu_1, \nu_2, \nu_3)$. In reality, neutrino eigenstates are observed to be a mixture of three generations of neutrino eigenmass states in Eq. (\ref{3genMass}). This figure is a simplified model representation.} 
+        \label{Ftriangle}
+    \end{figure}
+
+The requirement for neutrino flavor oscillations to occur is the existence of two types of neutrinos $\nu$1 and $\nu$2. And the following two requirements must be satisfied;
+
+    \begin{enumerate}
+        \item There must be a mass difference between $\nu$1 and $\nu$2.
+        \item Neutrino oscillations must be causing flavor mixing.
+    \end{enumerate}
+
+Flavor mixing means that neutrinos $\nu$1 and $\nu$2 are quantum mechanical superpositions of electron-flavored neutrinos and muon-flavored neutrinos.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 4: DISCUSSION
+% ========================================
+\section{\label{sec:DISCUSSION}DISCUSSION}
+
+% ----------------------------------------
+% Subsection 4.1: Implementation of the Lissajous Curve by Internalising the Two Oscillators
+% ----------------------------------------
+\subsection{Implementation of the Lissajous Curve by Internalising the Two Oscillators}
+
+
+The ratio of the frequencies $\omega_{\mathrm{1}}$ and $\omega_{\mathrm{2}}$ determines the shape of the Lissajous curve. Depending on the ratio of $\omega_{\mathrm{1}}$ to $\omega_{\mathrm{2}}$, the time required for a cycle to coincide with the start and end points of the Lissajous curve can be very long.
+
+As a discussion of this section, we propose the hypothesis that the time it takes for the Lissajous curve to close is much longer than that of the electron, making it difficult for interactions to occur.
+
+One phase of the 0-Sphere Electron Model was 4$\pi$. On the other hand, one phase of the 0-Sphere $Neutrino$ Model is longer in comparison. This is because it is dominated by two frequencies $\omega_{\mathrm{1}}$ to $\omega_{\mathrm{2}}$. Furthermore, if the ratio of $\omega_{\mathrm{1}}$ to $\omega_{\mathrm{2}}$ is an irrational number, the Lissajous curve will not close forever. In other words, the start and end points will never overlap within a finite time.
+
+The neutrino interaction may occur when all $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ have finished radiating and the thermal potential energy of $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ are $T_{\nu \mathrm{1}} = 0$, $T_{\nu \mathrm{2}} = 0$, and all the energy from both is converted to kinetic energy. If this is assumed to be the timing of neutrino interactions, it would explain phenomena where neutrino interactions are less likely to occur than electron interactions.
+
+To begin with, in the electron model, the energy radiated by $T_{\mathrm{e1}}$ was absorbed by $T_{\mathrm{e2}}$. Alternatively, in this neutrino model, there could be a scenario in which the energy radiated by $T_{\nu \mathrm{1}}$ is not absorbed by $T_{\nu \mathrm{2}}$, since the thermal potential energy of $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ have different frequencies, and if they are orthogonal and independent components of each other, then the thermal energy of $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ are wholly radiated. It can create a scenario where it immediately sublimates into the kinetic energy of the boson that envelopes $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$.
+
+In order to maintain particle nature under these conditions, a scenario is possible in which the kinetic energy of $T_{\nu \mathrm{1}}$, which has been converted from the thermal oscillator, is again condensed to the thermal oscillator energy of $T_{\nu \mathrm{1}}$. The kinetic energy is again reintegrated into $T_{\nu \mathrm{1}}$ and converted into thermal oscillator energy condensed to a single point. In the same manner, $T_{\nu \mathrm{2}}$ follows a comparable energy change process.
+
+Incidentally, in the 0-Sphere Electron Model, there was a virtual photon $\gamma^{*}$ that encapsulated $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$. As bosons encapsulating the thermal oscillators $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$, $W^+$, $W^-$ and $Z^0$ would be candidates.
+
+
+% ----------------------------------------
+% Subsection 4.2: Structuring Three Generations of Neutrinos
+% ----------------------------------------
+\subsection{Structuring Three Generations of Neutrinos}
+
+
+In the previous section \ref{sec:The Underlying Causes of Neutrino Oscillations}, we considered a model in which neutrinos have an internal structure and two types of thermal potential energy, $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$. The factors causing the two neutrino oscillations in Fig. \ref{Ftriangle} are deduced by fitting two neutrinos with different eigenmasses states inside the neutrino to the 0-Spere Model.
+
+    \begin{equation}
+        \left|\nu_e\right\rangle=U_{e 1}\left|\nu_1\right\rangle+U_{e 2}\left|\nu_2\right\rangle=\sum_{i=1}^2 U_{e i}\left|\nu_i\right\rangle
+        \label{2genMass}
+    \end{equation}
+
+\noindent
+where $\left|\nu_e\right\rangle$ is the eigenstate of a neutrino with mass $m_i$. $U_{ei}$ is the magnitude of the neutrino $\left|\nu_i\right\rangle$ component of the electron-neutrino.
+
+
+On the other hand, if we assume, for example, that the electron neutrino is a single elementary particle consisting of three different mixed states, then the electron neutrino has the following equation;
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.25]{Fig.3.png}
+            \caption{Three neutrino mixtures; the symbols $\nu_1$, $\nu_2$, and $\nu_3$ are in common, so we will not use these symbols in this paper. We use $T_{\nu \mathrm{1}}$, $T_{\nu \mathrm{2}}$ and $T_{\nu \mathrm{3}}$ instead. Image source: \cite{NagoyaUniv}.} 
+        \label{}
+    \end{figure}
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=0.18]{F_Neu_2.png}
+            \caption{(a) Two-mass-state neutrino model. (b) Three-mass-state neutrino model. In both models, $T_{\nu \mathrm{1}}$, $T_{\nu \mathrm{2}}$ and $T_{\nu \mathrm{3}}$ have thermal masses, which change their energy transfer to kinetic energy, following the hypothesis of the 0-Sphere Model. Formations (a) and (b) correspond to Eqs. (\ref{2genMass}) and (\ref{3genMass}), respectively.} 
+        \label{2gen3gen}
+    \end{figure}
+
+    \begin{equation}
+        \left|\nu_e\right\rangle=U_{e 1}\left|\nu_1\right\rangle+U_{e 2}\left|\nu_2\right\rangle+U_{e 3}\left|\nu_3\right\rangle=\sum_{i=1}^3 U_{e i}\left|\nu_i\right\rangle
+        \label{3genMass}
+    \end{equation}
+
+
+There is room to construct a model that includes a single thermal oscillator $T_{\nu \mathrm{3}}$ with a different frequency inside a single neutrino. However, for the sake of simplicity, we will limit our discussion to a model in which a single neutrino has two different oscillators $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$. Under these conditions, three generations of neutrinos can be considered. That is, we consider $T_{\nu \mathrm{1}}$, $T_{\nu \mathrm{2}}$ and $T_{\nu \mathrm{3}}$ as two pairs of oscillators that make up the neutrino, just as the electron model was composed of $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ pairs.
+
+Utilizing this composition proposal, the neutrino that transitions between the electron neutrino and the muon neutrino would be considered to have its interior composed of $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$. Similarly, muon and tau neutrinos \cite{OPERA2015} could be composed of $T_{\nu \mathrm{2}}$ and $T_{\nu \mathrm{3}}$, and the neutrinos transitioning between tau and electron neutrinos have $T_{\nu \mathrm{3}}$ and $T_{\nu \mathrm{1}}$ in their internal structure.
+
+
+However, if we consider neutrinos in which three different mass states exist simultaneously for $\nu_e$, $\nu_{\mu}$, and $\nu_{\tau}$ as in Eq. (\ref{3genMass}) (Fig. \ref{2gen3gen}(b)), the neutrino cannot distinguish three generations of particles and becomes one generation. In this respect, as in Fig. \ref{2gen3gen}(a), the method of considering neutrino oscillations as having three generations of particles with two mass eigenstates cannot be discarded.
+
+
+Atmospheric neutrinos oscillate \cite{Pontecorvo1967} between $\nu_e$ and $\nu_{\mu}$. Therefore, atmospheric neutrinos can be represented in two mass-mixing states as shown in Eq. (\ref{2genMass}). If the fact that atmospheric neutrinos oscillate \cite{Kajita1998} to tau neutrinos is observed, it is consistent with the Eq. (\ref{3genMass}). Or
+we consider that the generation is transferred as a result of the spontaneous flavor changes of the mixed state, i.e., $\left|\nu_e\right\rangle=U_{e 1}\left|\nu_1\right\rangle+U_{e 2}\left|\nu_2\right\rangle$ to the $\left|\nu_\tau\right\rangle=U_{\tau 2}\left|\nu_2\right\rangle+U_{\tau 3}\left|\nu_3\right\rangle$ or $\left|\nu_\tau\right\rangle=U_{\tau 3}\left|\nu_3\right\rangle+U_{\tau 1}\left|\nu_1\right\rangle$ neutrinos.
+
+
+% ----------------------------------------
+% Subsection 4.3: Consideration for Extremely Light \\Neutrino Mass
+% ----------------------------------------
+\subsection{Consideration for Extremely Light \\Neutrino Mass}
+
+
+The model does not require heavy right-handed neutrinos, which are adjusted in the seesaw model \cite{Yanagida}. The seesaw mechanism is a theoretical explanation for the small mass of neutrinos. It postulates the existence of heavy right-handed neutrinos, which would be the counterparts to the left-handed neutrinos that we observe. According to the seesaw mechanism, the masses of the left-handed and right-handed neutrinos are inversely proportional to each other. Since the right-handed neutrinos are much heavier than the left-handed ones, the left-handed neutrinos have very small masses.
+
+
+In the 0-Sphere Neutrino Model, we have assumed that two very light neutrino thermal oscillators form a single pair of particles. This particle is complete in itself and produces neutrino oscillations. And the extremely light mass state can be explained as follows.
+
+The reason for this is the mathematical result that the thermal oscillator radiates its own energy and converts it into kinetic energy for a long period of time. In other words, the 0-Sphere Electron Model, which was a pair of the same frequency, has a Lissajous curve. This curve is a straight line at an angle of 45 degrees and repeats its period in its phase length depending on the energy of the electrons.
+
+The Lissajous curve with a frequency ratio of 1:1 shown in the top leftmost sub-window in Fig. \ref{Lissajous5x5} corresponds to the 0-Sphere Electron Model. Neutrino oscillation but not electron oscillation occurs because the two oscillators that make up the electron could be the same frequency. Also, in the electron model, the fourth power of the thermal oscillator had an energy density of $E_e = 1/2E_e$ at the phase 2$\pi$. It also had an energy density of $E_e = E_e$ at the phase 0$\pi$ and 4$\pi$, and the energy density of the thermal oscillator was never zero at any phase.
+
+On the other hand, the case of two pairs of thermal neutrino oscillators with two different frequencies by this model differs significantly from the electron model: the thermal oscillator energy of $T_{\nu \mathrm{1}}$, $T_{\nu \mathrm{2}}$ was converted to kinetic energy, and when the conversion was exhausted, the kinetic energy of $T_{\nu \mathrm{1}}$ might be again self-contained as thermal oscillator. Let us consider the absorption of energy. In other words, the two thermal oscillators do not absorb each other's radiated thermal energy. This is because they have different frequencies.
+
+Having continued our discussion with two paired oscillators, $T_{\nu \mathrm{1}}$, $T_{\nu \mathrm{2}}$, we can assume a situation where the frequencies are independent and $T_{\nu \mathrm{1}}$, $T_{\nu \mathrm{2}}$ all convert to kinetic energy. It can then be understood that $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ can remain in kinetic energy for a very long time until the Lissajous curve closes. Such a state can be regarded as a situation where the neutrino mass is extremely light and its kinetic energy is close to the speed of light.
+
+
+Let us review equation in the previous paper \cite{Hanamura1}. 
+
+    \begin{equation}
+        E_{e} = \ E_{e} \left( \mathrm{cos}^{4} \left( \frac{\omega_e t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega_e t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega_e t) \right) \\
+        \label{e3_E=E1+E2+gamma}
+    \end{equation}
+
+
+We can now develop the law of conservation of energy model in the above electronic model. The new neutrino model is expressed by the following equation. Rewrite the parentheses on the right side of Eq. (\ref{e3_E=E1+E2+gamma}) as follows:
+
+    \begin{equation}
+        E_{\nu} = \ E_{\nu} \left( \mathrm{cos}^{4} \left( \frac{\omega_{\nu 1} t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega_{\nu 2} t}{2} \right) + \mathrm{K.E.} \right) \\
+        \label{e3_N=N1+N2+KE}
+    \end{equation}
+
+
+The equation (\ref{e3_N=N1+N2+KE}) is the new representation that causes neutrino oscillations. The first and second right-hand side terms are substituted from the frequency $\omega_e$ to the frequencies $\omega_{\nu 1}$ and $\omega_{\nu 2}$. The third term on the right-hand side is expressed as K.E. because it can no longer be simplified to a term $\gamma^{*}_{\mathrm{K.E.}} = \frac{1}{2} E_{e} \mathrm{sin}^{2} (\omega_e t)$.
+
+
+As an important addition, that does not deny the state of flavour change to a heavier mass-specific state by receiving energy externally when all energy has been radiated. The eigenmasses states where $T_{\nu \mathrm{1}}$ might change to $T_{\nu \mathrm{2}}$ or heavier $T_{\nu \mathrm{3}}$ should be considered. Conversely, interactions where energy is released and $T_{\nu \mathrm{3}}$ could become $T_{\nu \mathrm{2}}$ or lighter $T_{\nu \mathrm{1}}$ should also be considered as well. Allowing a change from one specific mass eigenstate to another could compensate for the shortcoming of Fig. \ref{2gen3gen}(b)) and increase the validity of the model in Fig. \ref{2gen3gen}(a).
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Section 5: CONCLUSION
+% ========================================
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+
+In this paper, a model is constructed in which the neutrino contains two thermal oscillators $T_{\nu \mathrm{1}}$ and $T_{\nu \mathrm{2}}$ with two different frequencies. The basis of this model is based on a paper written by the author \cite{Hanamura1}, and the logic is extended in this paper.
+
+
+It is the new interpretation of the Dirac equation that has made possible the hypothesis that there are two oscillators in a particle that is conventionally regarded as a single subatomic particle. The conventional interpretation of the Dirac equation is that the positive and negative energy solutions correspond to a particle and an antiparticle. In this paper we have extended the 0-Sphere Electron Model with the same angular frequency ratio. As a result, the 0-Sphere Neutrino Model with different angular frequency ratios was proposed. In the newly proposed model, there are two thermal oscillators with each mass eigenstate inside the neutrino. The neutrino would be found to oscillate as a particle with a Lissajous curve.
+
+
+With this modeling, the neutrinos satisfied the requirements for flavor oscillations to occur. In other words, we were able to build a model in which neutrinos mix flavors because we assumed two thermal oscillators with difference mass between $\nu_1$ and $\nu_2$. There are three ways to model neutrinos with two thermal oscillators and three generations to combine the three thermal oscillators with different frequencies, which is consistent with three generations of neutrino types.
+
+
+We also stated that the reason why neutrino interactions are unlikely to occur is not only because of the weak interactions. In this paper, we propose that the two thermal oscillators assumed to exist inside the neutrino are mutually orthogonal and do not undergo a reciprocal cycle of radiation and absorption like the two oscillators of the electron. The reason is that the Lissajous curve of neutrino oscillation can take a much longer period than that of the electron, which requires 4$\pi$ rotation to return to its initial state. Assuming that one interaction occurs per Lissajous curve closure is consistent with why neutrino interactions rarely occur. The development of a mathematical rationale to substantiate this assumption is a future task.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Section 6: Appendix
+% ========================================
+\section{Appendix}
+\label{Appendix}
+
+% ----------------------------------------
+% Subsection 6.1: Lissajous Curves with Python
+% ----------------------------------------
+\subsection{Lissajous Curves with Python}
+\label{}
+
+
+The Lissajous curve Fig. \ref{Lissajous5x5} was generated by ChatGPT with the following questions scripted by the author.
+
+    \begin{quote}
+        ``
+        Create a python code that displays Lissajous curves with different angular frequency ratios. Note that the angular frequency ratio is an integer and varies from 1 to 5. The graph display of the Lissajous curve consists of 25 sub-windows, 5 vertical and 5 horizontal.
+        ''
+    \end{quote}
+
+It should be noted that the output of the Python code by ChatGPT is often error-prone and needs to be corrected on our end.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+    \bibitem{Ginzburg1999} V L Ginzburg, What problems of physics and astrophysics seem now to be especially important and interesting (thirty years later, already on the verge of XXI century)?, Phys.-Usp. $\textbf{42}$ 353 (1999)
+    
+    \bibitem{KATRIN} The KATRIN Collaboration, Direct neutrino-mass measurement with sub-electronvolt sensitivity, Nat. Phys. 18, 160–166 (2022) \href{https://doi.org/10.1038/s41567-021-01463-1}{https://doi.org/10.1038/s41567-021-01463-1}
+    
+    \bibitem{Akhmedov} Quantum mechanics aspects and subtleties of neutrino oscillations, \href{https://arxiv.org/abs/1901.05232}{arXiv:1901.05232} (2019)
+ 
+    \bibitem{KamLAND} The KamLAND Collaboration, Precision Measurement of Neutrino Oscillation Parameters with KamLAND, Phys.Rev.Lett.100:221803 (2008)
+    
+    \bibitem{Wolfenstein1978} L. Wolfenstein, Neutrino oscillations in matter, Phys. Rev. $\textbf{D 17}$, 2369 (1978)
+    
+    \bibitem{Hanamura1} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+    
+    \bibitem{NagoyaUniv} Seiji Tanahashi, MNS neutrino oscillation theory (written in Japanese), Nagoya University, philosophia - No.30 spring - summer (2016)
+    \href{https://www.sci.nagoya-u.ac.jp/publication/files/pdf/30.pdf}{https://www.sci.nagoya-u.ac.jp/publication/files/pdf/30.pdf}
+    
+    \bibitem{Hanamura6} S. Hanamura, Correspondence Between a 0-Sphere and the Electron Model, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17759908}{doi:10.5281/zenodo.17759908}. [Originally: \href{https://vixra.org/abs/2001.0610}{viXra:2001.0610}]
+    
+    \bibitem{OPERA2015} OPERA Collaboration, Discovery of tau neutrino appearance in the CNGS neutrino beam with the OPERA experiment, \href{https://arxiv.org/abs/1507.01417}{https://arxiv.org/abs/1507.01417}
+    
+    \bibitem{Pontecorvo1967} B. Pontecorvo, Neutrino Experiments and the Problem of Conservation of Leptonic Charge, Sov.Phys.JETP 26 (1968) 984-988, \href{http://centropontecorvo.df.unipi.it/Articles/Neutrino_Experiments_and_the_Problem_of_Conservation_of_Leptonic_Charge_JETP-1968.pdf}{http://centropontecorvo.df.unipi.it}
+    
+    \bibitem{Kajita1998} T. Kajita and Y. Totsuka, Atmospheric neutrino oscillation and neutrino masses, \href{https://www.ipmu.jp/sites/default/files/imce/E02_Feature.pdf}{https://www.ipmu.jp} (1998)
+    
+    \bibitem{Yanagida} T. Yanagida, Horizontal Symmetry and Masses of Neutrinos, Prog. Theor. Phys. $\textbf{64}$, 1103 (1980)
+\end{thebibliography}
+
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}

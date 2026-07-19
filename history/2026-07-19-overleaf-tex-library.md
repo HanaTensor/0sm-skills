@@ -59,12 +59,26 @@ User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload 
   - **一致検証**: #30, #34–45, #47, #48, #50(16 本が公開版とバイト一致 =
     repo 清書版が公開版の忠実な写しであることを機械的に裏付け)
 
+### 4. #1–12, #63 のスキル清書(同日追記)
+
+0sm-zenodo-upload スキル Step 1(latex-standards.md)を発火し、Overleaf 原本
+(`main-overleaf.tex`)から 13 本の cleaned main.tex を生成・設置:
+
+- 適用規約: 日本語コメント全削除(204 行)+コメントアウト命令削除(62 行)+
+  英語バナー(Section/Subsection/Appendix/Bibliography 等)挿入+明示日付+空コメント禁止。
+- 個別判断: #1 は Overleaf 内に在った既存 `main_cleanup.tex`(著者清書・date: March 10, 2019)を採用。
+  #2 は `\date{\today}` → February 24, 2019(原本コメントに残る著者記録)。
+  #11 は `\end{document}` 後に付いていた日本語の文献作業メモを切除。
+- 検証: 全 13 本で「コメント除去後のコード実体」が原本と完全一致(機械照合)+
+  環境対応・ref/label 整合・日本語ゼロを確認。ローカルに LaTeX toolchain が無いため
+  コンパイル検証は未実施(Overleaf での二重コンパイル確認を推奨)。
+
 ## 結果と現在地
 
-- 清書済み `main.tex`: 36 → **50 番号**。
-- **残る未清書 = #1–12, #63, #67**(Zenodo レコードに tex 未収録 = PDF のみ、#67 は Zenodo 未公開)。
-  清書時は「repo に main.tex 設置 + Zenodo レコードへ tex 追補」をワンセットで行う。
-  着手順は参照頻度の高い ★ 付き(#1, #3, #7, #10)からが効率的。
+- 清書済み `main.tex`: 36 → 50 → **63 番号(#67 以外すべて)**。
+- **Zenodo レコード側に tex 未収録なのは #1–12, #63**(PDF のみ)。レコード追補時は
+  GitHub の `tex-sources/NN/main.tex` をそのままアップロードすればよい状態にした。
+  #67 は Zenodo 未公開のため main.tex なし(main-overleaf.tex のみ)。
 - 注記: #13, #14, #41, #48–50 の main.tex は Overleaf 版と実質同一(清書工程未経過の可能性)。
 - 規約・対応表の正典: [`tex-sources/OVERLEAF-MANIFEST.md`](../tex-sources/OVERLEAF-MANIFEST.md)
 - 宙ぶらりん: #65(Structural Overview REV-01)・#66 は本エクスポート未収録で `tex-sources/65` `66` は未作成。

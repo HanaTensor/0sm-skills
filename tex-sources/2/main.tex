@@ -1,0 +1,427 @@
+
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[reprint,amsmath,amssymb,aps,draft]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[pdftex, colorlinks=true,linkcolor=blue,filecolor=blue,
+urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{listings}
+\numberwithin{equation}{section}% (p.37)
+
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+\captionsetup[figure]{labelfont={bf},name={Fig.},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Table.},labelsep=period}
+
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+    \title{A New Representation of Spin Angular Momentum}
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+    \date{February 24, 2019}
+% ========================================
+% Abstract
+% ========================================
+        \begin{abstract}
+        This paper aims to present intuitive imagery of the angular momentum of electrons, which has not been attempted yet. As electrons move similarly to a slinky spring, we first discuss the motions of a slinky progressing down an uneven stairway. The spin angular momentum under a magnetic field gradient is analogous to a slinky traveling down the uneven stairway inclined perpendicular to the advancing direction (i.e., every step inclined a bit to the left or right side to the advancing direction). The study extends our previous work from a single virtual oscillating photon to a particle moving linearly in one direction. The entire mass energy of the electrons is assumed as thermal potential energy. Particles (spinors) possessing this energy emit all their energy by radiation, which is then absorbed by a paired spinor particle. This transfer of radiative energy is accomplished by a virtual photon enveloping the spinor particles. Although the spinor particle contains both the absorber and emitter depending on its phase, a spinor particle cannot exhibit both the functions simultaneously; therefore, the spinor particle moves similar to a slinky spring.
+
+        \end{abstract}
+    \maketitle
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 1: INTRODUCTION
+% ========================================
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+    Studying quantum spin has remarkably progressed over the past century. Spin angular momentum has traditionally been explained in terms of rigid bodies and waves. However, the electron is treated as a point particle in the elementary particle model. A particle with zero radius must have an infinite rotation speed to acquire angular momentum.
+    
+    In 1922, Otto Stern and Walter Gerlach demonstrated and measured the magnetic moment of the silver atom\cite{Gerlach}. Electron spin entered the public arena through Uhlenbeck and Goudsmit in 1925 \cite{Uhlenbeck}. 
+
+    Spinor angular momentum is difficult to envisage when electrons are regarded as rigid point particles or waves. If angular momentum is conceptualized as a rigid rotator turning around an axis, at least two mass points are required. Based on our previous model, in which one electron consists of three particles, we propose a new representation of electron angular momentum that does not rely on an axial rotation analogy.
+
+    Bare electrons transfer thermal potential energy by absorption and radiation. By this mechanism, they can linearly progress with uniform step-wise motions, similarly to the movements of a slinky spring. Slinky is a toy that can be played with in various forms. When the stairway is inclined to the left or right, the slinky will gradually shift to the left or right as it negotiates the stairs.
+    
+    This is because the center of gravity of the slinky moves a bit in the $y$-axis direction step by step. Fig.\ref{f_Slinky} (c) has an inclination of step in the $y$-axis direction as compared with Fig.\ref{f_Slinky} (a). The slinky moves down and seems to find a landing position where the potential energy is minimized due to the influence of gravity and is shifted compared with (a). The analytic behavior of the slinky spring is very difficult, so we would not consider it in this study. The phenomenon was used with regard to obtaining an image.
+
+    Such shifting in two directions can describe the motions of silver atoms in a beam passing through a magnetic field, induced by their up or down angular momenta in the Stern--Gerlach experiment.
+    
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_Slinky.eps}
+                \caption{(a) A Slinky painted blue and green on opposite sides moving down a stairway. All steps are horizontally with the ground. (b) Footprints of the Slinky viewed from directly above the stairs. (c) A staircase with height $h'<h$ was changed only on one side of the staircase. The other side has the same height $h$ in Fig (a). The gradient slope of the staircase corresponds to the magnetic gradient of the Stern--Gerlach experiment in this study. (d) The slinky spring is moving toward the direction of inclining gradient slope.}
+            \label{f_Slinky}
+        \end{figure}
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_two_delta_functions_with_photon.eps}
+                \caption{The position of the virtual photon at $t = 0$. Bare electrons at two points, $-a$ and $+a$, are separated by a distance of $2a$, which is the same length of the electron's Compton wavelength. }
+            \label{fz_two_delta_functions_with_photon}
+        \end{figure}
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Section 2: METHODS
+% ========================================
+\section{\label{sec:METHODS}METHODS}
+
+
+% = = * * = =  * * = = * * = = 
+% ----------------------------------------
+% Subsection 2.1:
+% ----------------------------------------
+\subsection{
+    \label{sec:Extension of the electronic model}
+        Extension of the electronic model}
+
+
+    In our previous paper, we created a model, wherein two discretely existing bare electrons reciprocate between locations $x = a$ and $x = -a$ by simple vibration (Fig. \ref{fz_two_delta_functions_with_photon}). In this study, the zero-point energy was applied to the law of conservation of energy.
+    
+    As a result, if a combination of one vector particle and two-spinor particles were used, zero-point energy could be expressed while establishing the law of conservation of energy. We assumed that two-spinor particles as bare electrons existing at a finite distance.
+    
+    Two spinors are represented at positions $+a$ and $-a$, respectively, and we considered an image that exchanges potential thermal energy with each other via a virtual photon as the vector particle. The bare electrons at locations 1 and 2 are described by the following equations, respectively:
+    
+        \begin{equation}
+            T_{\mathrm{e1}} = \int_{\mathrm{all \ space}}^{} E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) \ \delta(x-a)dx
+            \ ,
+            \label{e_delta_ver1_cos}
+        \end{equation}
+        
+        \begin{equation}
+            T_\mathrm{e2} = \int_{\mathrm{all \ space}}^{} E_{0} \sin^{4} \left( \frac{\omega t}{2} \right) \ \delta(x+a)dx
+            \ .
+            \label{e_delta_ver1_sin}
+        \end{equation}
+
+    These two Dirac delta functions assumed were derived as a continuation of Eq. (\ref{ez_E=E1+E2+gamma}) in our previous study \cite{Hanamura}. The total energy of the electron $E_{0}$ for $h\nu$, which is the initial potential energy of the considering system, where $t$ is time and $\omega$ is the angular frequency of the vibrating electron. The time dynamics of the thermal potential energy varies as the fourth power of the cosine and sine at fixed positions 1 and 2, respectively. The rest mass of an electron is expressed in electron volt (eV):
+
+        \begin{equation}
+            E_{0} = m_{0} \ (\mathrm{eV})
+            %T_{\mathrm{0(time=0)}} \ (\mathrm{eV}) = m_{0} e \ \ (\mathrm{eV}) \ (\mathrm{C})
+            \ ,
+        \end{equation}
+
+    \noindent
+    where $E_{0}$ and $m_{0}$ denotes the particle's rest mass.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_one_direction.eps}
+                \caption{Modified image of an electron in this study moving uni-directionally along the $x$-axis. During each time interval $t_{n}$ to $t_{n+1}$, the electron travels a distance $r$. Blue dots at $x_{0}, x_{2}, x_{4}$ and $x_{6}$ are foot prints of spinor 1, and green dots $x_{1}, x_{3}$ and $x_{5}$ are foot prints of spinor 2. Spinor 1 and 2 alternately have the function of both radiation and absorption of thermal potential energy, respectively, and proceeds discretely step by step. See Appendix \ref{Appendix} Fig. \ref{fz_cos^4_sin^4} for the correspondence between energy variable and phase of two spinors.}
+            \label{f_an_electron}
+        \end{figure}
+
+    As a supplementary notice, the unit of $T_{e1}$, $T_{e2}$, and $E_{0}$, in Eqs. (\ref{e_delta_ver1_cos}) and (\ref{e_delta_ver1_sin}) was Joules in the previous paper \cite{Hanamura} because we wanted to discuss one electron particle as a whole is regarded as an isolated system in the category of thermodynamics. For the sake of convenience in this study, we have changed the unit to electron volt.
+    
+    However, in this model, a bare electron with potential energy is surrounded by a virtual photon with kinetic energy. The thermal potential energy can exist as discrete thermal spots. Virtual photons can transfer the thermal potential energy from spot to spot by radiation.
+
+    Equations (\ref{e_delta_ver1_cos}) and (\ref{e_delta_ver1_sin}) represents one thermal element located in the entire space by Dirac delta function. The unit was Joules. Based on the coordinate information obtained from Eqs. (\ref{e_delta_ver1_cos}) and (\ref{e_delta_ver1_sin}), we remake a model developed from two spinors reciprocating between two points ($x = a$) and ($x = -a$), and change the $x$-axis to an object moving at a constant linear velocity:
+        
+        \begin{equation}
+                x_{\mathrm{e1}} = 2 n r
+                \ \ (n = 0, 1, 2,...)
+                \ ,
+            \label{e_delta_ver2_cos}
+        \end{equation}
+
+        \begin{equation}
+                x_{\mathrm{e2}} = (2 n + 1) r
+                \ \ (n = 0, 1, 2,...)
+                \ .
+            \label{e_delta_ver2_sin}
+        \end{equation}
+
+
+    Equation (\ref{e_delta_ver2_cos}) shows the location of a thermal spot, which has energy value $E_{0} \cos^{4} \left( \omega t / 2 \right)$ at the coordinates ($x = +a$), and equation (\ref{e_delta_ver2_sin}) shows the location of the spinor 2 which has energy value $E_{0} \sin^{4} \left( \omega t / 2 \right)$, ($x = -a$). These values represent the discrete positions of spinor 1 and spinor 2, as shown in Fig. 1 with blue and green dots, respectively.
+
+    The above model must be developed in a more realistic manner. In this study, we modify the motions of the bare electrons from reciprocal vibrations to progression in one direction. In the modified version, the bare electrons are not restricted to oscillatory motions between two fixed points $x = a$ and $x = -a$. 
+
+    Figure \ref{f_an_electron} shows the step-wise movement of an electron in the new model. The electron starts from the origin at time $t_{0}$ and has moved by a distance $r_{1}$ at time $t_{1}$. To capture this movement, we modify Eqs. (\ref{e_delta_ver2_cos}) and (\ref{e_delta_ver2_sin}) to show their positions by substituting $\delta(x - 2 n r)$ and $\delta(x - (2 n + 1) r ) dx$ into the delta functions as follows:
+
+        \begin{equation}
+        \begin{split}
+            T_{\mathrm{e1}} = \int_{-\infty}^{\infty} E_{0} \cos^{4} \left( \frac{\omega t_{e1}}{2} \right) \ \delta(x - 2 n r)dx \\
+            (\omega t_{e1} = 2n \pi : n = 0,1,2,3...)
+            \ ,
+        \end{split}
+            \label{e_delta_ver3_cos}
+        \end{equation}
+        
+        \begin{equation}
+        \begin{split}
+            T_{\mathrm{e2}} = \int_{-\infty}^{\infty} E_{0} \sin^{4} \left( \frac{\omega t_{e2}}{2} \right) \ \delta(x - (2 n + 1) r ) dx \\
+            (\omega t_{e2} = (2n+1) \pi : n = 0,1,2,3...)
+            \ .
+        \end{split}
+            \label{e_delta_ver3_sin}
+        \end{equation}
+
+
+    The thermal potential energy of the system at time $t_{n}$ is represented by the electron's position, which is obtained using Eq. (\ref{e_delta_ver3_cos}) when $n$ is the positive even integer and by Eq. (\ref{e_delta_ver3_sin}) when $2n + 1$ is the positive odd integer.
+    
+    By expressing the time $\omega t_{\mathrm{e1}}$ and $\omega t_{\mathrm{e2}}$ as a positive integer, we discretize the movements of the electrons. In our previous study, two bare electrons were located at their respective positions between time $t_{n}$ and time $t_{n+1}$. We view at the blue and green dots on the vertical dotted gray lines, $t_{2}$, ($x_{2}, t_{2}$) and $t_{3}$, ($x_{3}, t_{3}$) in Fig. \ref{f_an_electron}. The blue dot represents spinor 1, and the green dot represents spinor 2. Integer phase for example, $t_{2}$ with phase $2\pi$ or $t_{3}$ with phase $3\pi$, one spinor has all thermal energy of the system. With this phase, the value of the thermal potential energy of another spinor is zero.
+    
+    This is an image equal to the upright state at the moment when the slinky spring does not stretch on a step of the staircase and it does not cross another step. In the early phase between $2\pi$ and $3\pi$, the blue dot as spinor 1 is the emitter, and the green dot as spinor 2 is the absorber. In phase $3\pi$, the thermal potential energy of spinor 1 would be valued as zero. For spinor 2, the green dot represents the whole energy of the system. Then, the phase between $3\pi$ and $4\pi$, spinor 2 on point $x_{3}$ changes its role from acting as the absorber to emitter. In this phase, spinor 1 would appear at $x_{4}$ and absorb the energies. Spinor 1 located $x_{2}$ was disappeared instead of spinor 1 appearing at $x_{4}$. Finally, in phase $4\pi$, the whole energy is absorbed in spinor 1 at ($x_{4}, t_{4}$), i.e., every spinor has a phase in terms of both absorber and emitter in turn.
+    
+    For example, between time $t_{2}$ and $t_{3}$, there were two thermal spots (bare electrons), one at $x_{2}$, the other at $x_{3}$, each in different states. The bare electron $x_{2}$ radiated its thermal potential energy through a virtual photon and transferred it to the bare electron at $x_{3}$.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Section 3: DISCUSSION
+% ========================================
+\section{\label{sec:DISCUSSION}DISCUSSION}
+
+% = = * * = =  * * = = * * = =
+% ----------------------------------------
+% Subsection 3.1:
+% ----------------------------------------
+\subsection{
+    \label{sec:Discrete moving objects and angular momentum}
+        Discrete moving objects and angular momentum}
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_spin_angular.eps}
+                \caption{From its point position at $x_{0} = 0$, $t_{0} = 0$ (blue dot), the electron spreads to the Compton wavelength (yellow circle). Another bare electron in absorbing phase appeared at point A$'$, which is on the surface of the  virtual photon in the phase $\omega t = \pi$. The green dot A$' (x'_{1}, z'_{1})$ at $t_{1}$ is affected by the angular momentum.}
+            \label{f_spin_angular}
+        \end{figure}
+
+    In the previous section, electrons moving linearly in one direction were discretized in space. Based on the Stern--Gerlach experiment, we now discuss the addition of spin angular momentum to the electron model.
+    
+    Suppose that the electron is placed at the origin of the $x$-$z$ plane (see Fig. \ref{f_spin_angular}). From this position, the electron moves with uniformly accelerated linear motion. This linear and discrete motion along the $x$-axis direction is driven by the following mechanism. A bare electron initially placed at the origin ($x_{0} = 0$ at time $t_{0} = 0$) radiates its potential thermal energy along with its phase. Another bare electron appears at the next destination point $x = x_{1}$, which immediately absorbs the thermal potential energy of the first election.
+
+    The origin of the bare electron at $x = x_{0}$ and the first destination point $x = x_{1}$ are assumed to be separated by the radial spread of the virtual photon to the Compton wavelength. The same assumption was made in our previous study \cite{Hanamura}.
+
+    Therefore, the central positions of the bare electrons at time $t_{1}$ with phase $\omega t_{1} = \pi$ are given by
+
+        \begin{equation}
+        \begin{split}
+            x'_{1} =  r \cos{\alpha}
+            \ ,
+        \end{split}
+            \label{e_cos_alpha}
+        \end{equation}
+
+
+        \begin{equation}
+        \begin{split}
+            z'_{1} =  r \sin{\alpha}
+            \ .
+        \end{split}
+            \label{e_sin_alpha}
+        \end{equation}
+
+
+    where $r$ is the radius of the virtual photon (distance from $x_{0}$ to point A$'$ in Fig. \ref{f_spin_angular}). In the former study, the total energy of the electron in an isolated system was assumed as $E_{0} = h \nu$. In the present modification, an isolated system can no longer be assumed. In the non-relativistic case, we can derive the mass increase of the electron using the insights gained in the previous study.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_two_Comptons_1.eps}
+                \caption{At locations A$^{\prime}$ and B$^{\prime}$, bare electrons are generated as an absorber (green dot), and as an emitter (blue dot) in the both panels. The Compton wavelength differs between the two cases. The angle of $\alpha$ in the top panel is narrower than that of $\beta$ because $x_{1} > x_{2}$ with same value of spin angular momentum (1/2 $\hbar$).}
+            \label{f_two_Comptons_1}
+        \end{figure}
+
+    That is, the virtual photon carries all the kinetic energy of one electron, while the bare electron has zero kinetic energy. Hence, the locus of the electron can be considered as the summation of the kinetic energy that increases with regard to the virtual photon.
+
+        
+% = = * * = =  * * = = * * = =
+% ----------------------------------------
+% Subsection 3.2:
+% ----------------------------------------
+\subsection{
+    \label{sec:Behavior of electrons as kinetic energy increases}
+        Behavior of electrons in accordance with kinetic energy increases and decreases}
+
+
+    This subsection considers the orbits of electrons passing through a magnetic field gradient. Two cases are considered.
+    
+    In classical mechanics, the angular momentum increases as the rotational radius decreases to maintain a constant torque. This phenomenon, which is commonly exploited by spinning figure skaters who spread and withdraw their arms, can be replaced by the present electronic model.
+
+    As the velocity of the electron increases, its kinetic energy also increases, and the Compton wavelength reduces. In our previous study, we assumed that bare electrons are surrounded by virtual photons with a radius equal to the Compton wavelength (see Fig. \ref{fz_an_electron}. Appendix). Therefore, in the electronic model, the shortening of the Compton wavelength means a shortening of the radius of the virtual photon surrounding the bare electrons.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_two_Comptons_2.eps}
+                \caption{Comparison of the orbits of electrons with different radii and the same spin angular momentum. The thermal potential energy (mass) of the electrons is transmitted through radiation between the blue dots and green dots.}
+            \label{f_two_Comptons_2}
+        \end{figure}
+        
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_Compton_radius.eps}
+                \caption{(a) Linear motions of electrons when not receiving spin angular momentum. (b) and (c) The movements of electrons gaining an upward and downward spin angular momentum, respectively.}
+            \label{f_Compton_radius}
+        \end{figure}
+        
+    Figure \ref{f_two_Comptons_1} demonstrates an absorbing and an emitting bare electron with different Compton wavelengths. Figure \ref{f_two_Comptons_2} shows how thermal potential energy is transferred between two electrons with radii of different virtual photons. In other words, the two electrons with different kinetic energies traverse through a magnetic field gradient, tracing an orbit.
+
+    In the electron model, it is important to note that a rigid rotator (such as a rotating turntable or an ice-skater) does not physically rotate after receiving momentum. We regarded bare electrons as thermal spots with zero radius. When the thermal spot moves from a certain location and then emits its energy, an absorber appears at the point affected by the spin angular momentum. This point appears to gain a rotational moment.
+    
+    The situation is easily understood by imagining a stairway tilted perpendicularly to the direction of travel. Let us place a slinky at the top of a staircase, and incline the staircase. The slinky will gradually slide to the right or left as it moves down the stairs. The electron states corresponding to the two kinds of trajectories are depicted in Figure \ref{f_Compton_radius}.
+    
+    The magnetic field gradient corresponds to the inclination of the stairway at right angles to the traveling direction. It also corresponds to the radius of the virtual photon, assuming that the step width corresponds to the Compton wavelength. Electrons moving at low and high velocity are analogous to a slinky descending a gentle and steep stairway, respectively. Indeed, a steeply descending slinky has a fast downward speed.
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_footprints.eps}
+                \caption{a) One-state spin and an alternating two-state superposition of an electron's phase. (b) Diagram corresponding the Slinky's footprints to the phases in (a).}
+            \label{f_footprints}
+        \end{figure}
+
+
+% = = * * = =  * * = = * * = =
+% ----------------------------------------
+% Subsection 3.3:
+% ----------------------------------------
+\subsection{
+    \label{sec:Discrete behavior and Slinky movement of a bare electron}
+        Discrete behavior and Slinky movement of a bare electron}
+
+
+    Consider free electrons moving at a constant linear velocity in the $x$-axis direction to a place where there is no outer magnetic field. This subsection discusses the correspondence between the Slinky and the spin without considering the splitting of the spin due to anomalous Zeeman effect.
+    
+    As described in the previous subsection, a slinky spring is helpful for visualizing the movement of discrete bare electrons. To capture the end-to-end movements of a slinky down an inclined wooden board or a flight of stairs, we imagine that one end is painted blue and the opposite end is painted green. The pattern printed on the wooden board is a succession of alternating blue and green hollow circles (see Fig. \ref{f_Slinky}).
+
+    In our previous study\cite{Hanamura}, we considered the bare electrons as two spinor oscillators contained in one electron, whose spins follow the superposition principle. The state change due to the electron's phase is shown in Fig. \ref{f_footprints}(a). In the present study, the blue and green footprints of the slinky correspond to Eqs. (\ref{e_delta_ver2_cos}) and (\ref{e_delta_ver2_sin}), respectively.
+    
+    Next, let us correspond the slinky footprints to the phases of the electron. The states of the two bare electrons in Fig. \ref{f_footprints}(b) correspond to the footprints of the slinky walking down the stairs (Fig. \ref{f_Slinky}(b)).
+
+    When the slinky spring is placed vertically on the stairs with no elongation, its phase is $0\pi,1\pi,2\pi,3\pi,4\pi$... In this state, the kinetic energy of the spring is zero, consistent with previous studies in which virtual photons have zero kinetic energy when their phase is $n\pi$ (with $n$ being an integer).
+
+    Correspondence between the state changes of the two spinors due to the electron's phase, i.e., ``up:$\ket{\uparrow}$'' spin and ``down:$\ket{\downarrow}$'' spin, are hypothetical stages and have not been proved yet in the previous as well as present study. Verifying these correspondence relations is an issue that needs to be resolved.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Section 4: CONCLUSION
+% ========================================
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+
+    The above contents and graphics provide an image of spin angular momentum that has not been considered before. Bare electrons moving as thermal spots behave similarly to a slinky spring descending a slope or a stairway. The descending slinky takes discrete steps in a fixed direction. 
+    The magnetic field gradient is analogous to the tilt of a stairway perpendicular to the descent direction.
+    
+    Furthermore, the simple vibration of a slinky spring transposes energy from one discrete position to another, analogous to the radiation of thermal energy from an emitter electron to an absorber (as described in our previous paper \cite{Hanamura}).
+    
+    A single electron particle can be considered as a two-spinor system: a spinor that emits thermal potential energy and a spinor that absorbs that thermal potential energy. The appearance position of the absorber varies with the kinetic energy of the electrons. The radius of the virtual photon surrounding the electron equals the Compton wavelength of the emitted energy. The landing point of a descending slinky corresponds to the appearance point of the absorber. Therefore, the emission/absorption behavior of electrons is similar to the step-wise movement of a slinky spring.
+    
+    The kinetic energy possessed by the slinky spring closely resembles the energy of mediating the virtual photon. In the previous study, we showed that the difference between the emitted and absorbed radiation energies equaled the kinetic energy of the virtual photon. At the initial phase ($0\pi$ to $1/2 \pi$) of the electron model shown in Fig. \ref{Appendix}.\ref{fz_cos^4_sin^4}, the energy released from the emitter is divided into the thermal potential energy absorbed by the absorber and the kinetic energy absorbed by the virtual photon. The sum of both energies represents the transfer of the potential and kinetic energies from coil to coil as the slinky moves down the steps.
+    
+    In this paper, the primary purpose was obtaining an intuitive picture of spin angular momentum. Therefore, we extended the previous model, which was limited to simple oscillations of bare electrons, to linear motions of the electrons. Although the mechanism that determines the up or down configuration of the spin was not discussed, the imagery cultivated in this research will guide the model refinement in future work.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+    \bibitem{Gerlach}Gerlach, W. and Stern, O. Der experimentelle Nachweis der Richtungsquantelung im Magnetfeld. Z. Phys. 9, 349–352 (1922)
+    \bibitem{Uhlenbeck}G.E. Uhlenbeck, S. Goudsmit. “Ersetzung der Hypothese vom unmechanischen Zwang durch eine Forderung bezüglich des inneren Verhaltens jedes einzelnen Elektrons”. Naturwissenschaften 13 (47): 953–954. doi:10.1007/BF01558878 (1925)
+    \bibitem{Hanamura} S. Hanamura. A Model of an Electron Including Two Perfect Black Bodies, \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}, (2018)
+
+
+\end{thebibliography}
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+%Insert space for margin layout.
+
+        
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Section 5: Appendix
+% ========================================
+\section{Appendix}
+\label{Appendix}
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{fz_electron_all.eps}
+                \caption{Modified electron model}
+            \label{fz_an_electron}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{fz_cos^4_sin^4.eps}
+                \caption{Plots of $T_{\mathrm{e1}}$ = $E_{0} \cos^{4}(\frac{\omega t}{2})$ (blue) and $T_{\mathrm{e2}}$ = $E_{0} \sin^{4}(\frac{\omega t}{2})$ (green) with $E_{0} = 1$.}
+            \label{fz_cos^4_sin^4}
+        \end{figure}
+
+
+    In this study, an electron particle was modeled as shown in Fig. \ref{fz_an_electron}, where $\alpha$ is the $ \it fine \ structure \ constant$ $\alpha = e^{2}/4 \pi \hbar c \approx 1/137$.
+
+    The conservation of energy equation includes the terms of three transducers, where each oscillator preserves its kinetic and potential energies. The formula is;
+
+        \begin{equation}
+            \begin{split}
+                E_{0}
+                    &= \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega t) \right)
+                    .
+            \end{split}
+            \label{ez_E=E1+E2+gamma}
+        \end{equation}
+
+    \noindent
+    where $E_{0}$ is the total initial energy of a single electron particle. The oscillators are obtained as follows:
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 1): T^{\prime}_{\mathrm{T.P.E.}} 
+                    & \equiv E_{0} \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{ez_Osc_3_PE}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 2):
+                T^{\prime \prime}_{\mathrm{T.P.E.}} 
+                    & \equiv E_{0} \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{ez_Osc_2_PE}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 3): \gamma^{*}_\mathrm{K.E.}
+                    & \equiv \frac{1}{2} \ E_{0} \ \mathrm{sin}^{2} (\omega t)
+                    \ .
+                \label{ez_Osc_1_KE}  
+            \end{split}
+        \end{equation}
+
+
+    \noindent
+    where $\gamma^{*}_\mathrm{K.E.}$ is a constant equaling the kinetic energy of the virtual photon (treated as a vector particle). $\gamma^{*}_\mathrm{K.E.}$ can represent the conversion of thermal potential energy to kinetic energy, which is then transmitted. Similarly, T$^{\prime}$ and T$^{\prime \prime}$ are two spinors representing bare electrons.
+
+    They can be assigned as emitter and absorber. The subscript T.P.E. stands for the thermal potential energy of the electron. Figure. \ref{fz_cos^4_sin^4} shows the fluctuations in thermal potential energy when oscillators 2 and 3 alternate their phases from the emitter to the absorber states. The increases and decreases in the Fig. \ref{fz_cos^4_sin^4} can be explained by the repeated increase and decrease of the electron's mass energy as thermal energy is radiated and emitted.
+ 
+    How these three particles work in combination, and the simple oscillations of virtual photons, are explained in our previous paper \cite{Hanamura}. Figures \ref{fz_an_electron} and \ref{fz_cos^4_sin^4} are also reproduced from \cite{Hanamura}.
+
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}

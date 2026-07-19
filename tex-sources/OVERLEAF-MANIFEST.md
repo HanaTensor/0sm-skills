@@ -14,7 +14,8 @@
 
 - 複数リビジョン保有: #30 (r1, r2)、#51 (r1: 図版含む全量 / r2: main.tex のみ → main-overleaf.tex は r2 由来)。
 - **Zenodo 自動取得(2026-07-19)**: 各レコードの API(`zenodo.org/api/records/<id>/files/main.tex/content`)から公開版 main.tex を一括取得。#46, #51–62, #64 に新規設置、#28 は改訂公開版(Revised: 2026-02-13)へ更新、#30, #34–45, #47, #48, #50 は既存と完全一致を確認。
-- **未清書(main.tex 無し)の番号**: #1–12, #63, #67。#1–12 と #63 の Zenodo レコードには tex が未収録(PDF 等のみ)のため、スキル発火で清書版を生成したら `NN/main.tex` として追加し、可能なら Zenodo レコードにも tex を追補する。
+- **スキル清書(2026-07-19)**: #1–12, #63 の main.tex を 0sm-zenodo-upload スキル Step 1(latex-standards.md)で Overleaf 原本から生成(日本語コメント全削除・コメントアウト行削除・英語バナー挿入・明示日付。#1 は Overleaf 内の既存 main_cleanup.tex を採用、#2 は \today → February 24, 2019、#11 は \end{document} 後の作業メモ切除)。本文はコメント除去後のコード実体レベルで原本と一致検証済み。**この 13 本は Zenodo レコード側に tex 未収録**(PDF のみ)— レコード追補時は GitHub のこの main.tex をそのまま使える。
+- **未清書(main.tex 無し)の番号**: #67 のみ(Zenodo 未公開)。
 - #13, #14, #41, #48–50 の main.tex は Overleaf 版と実質同一(清書工程を経ていない可能性)。清書し直す場合は上書きしてよい(※ #41, #48, #50 は Zenodo 公開版とも一致確認済み)。
 
 ## 特記事項

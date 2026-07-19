@@ -1,0 +1,464 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{breqn}
+\numberwithin{equation}{section}% (p.37)
+
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period}
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+    \title{Consideration of electron-positron pair annihilation \\ by thermal oscillations and an inelastic collision}
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+    \date{July 4, 2021}
+% ========================================
+% Abstract
+% ========================================
+        \begin{abstract}
+
+
+In this paper, we discuss the phenomenon that in the photons generated after electron-positron annihilation, the sources of thermal potential energy that make up the electrons and positrons are equally divided. As a result, the photon contains one thermal point each for the electron and positron, and a picture of a single system emerges. This annihilation could be predicted to occur at the point where the two domains intersect if the electron and positron phases are properly aligned on the Riemann surface. Taking advantage of the model in which the interior of the electron radiates and radiates thermophores, the electron-positron annihilation could be likened to an inelastic collision observed from opposite directions in time. In addition, we consider that the oscillation caused by thermal radiation inside the electron cancels out that of the positron, causing the electron and positron to lose mass and transform into a photon.
+
+
+        \end{abstract}
+    \maketitle
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 1: INTRODUCTION
+% ========================================
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+
+The 0-sphere electron model was described in a paper first posted by Hanamura in the fall of 2018 \cite{Hanamura1} \cite{Hanamura2}. The paper generally stated that an electron have an internal structure that has not been measured so far. The 0-sphere electron model assumed that there was a single thermal spot inside the real photon. This thermal spot travels to another point inside the real photon by radiation, and the repeated radiation and absorption of thermal energy by the thermal spot has been regarded as electron oscillation.
+
+
+The feature of this model was that electrons could reasonably express wave–particle duality. Furthermore, the distance interval of the interaction is not infinite because the two thermal spots are exchanging thermal energy away from each other. Therefore, the model did not cause divergence difficulties on the UV side due to the interaction.
+
+Positrons are antiparticles of electrons that were theoretically predicted by Dirac in 1930 and discovered by Anderson in 1933 \cite{O.E.Mogensen}. The following is an overview of annihilation.
+
+    \begin{quote}
+        ``
+        In particle physics, {\it annihilation} is the process that occurs when a subatomic particle collides with its respective antiparticle to produce other particles, such as an electron colliding with a positron to produce two photons. The total energy and momentum of the initial pair are conserved in the process and distributed among a set of other particles in the final state \cite{wiki_Annihilation}.
+        ''
+    \end{quote}
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_betadecay.png}
+            \caption{Naturally occurring electron-positron annihilation as a result of beta plus decay. Image source: \cite{wiki_Annihilation}} 
+        \label{f8_betadecay}
+    \end{figure}
+
+
+Electron-positron annihilation is caused, for example, by beta-plus decay. In this paper, we try to explain the collision between electron and positron depicted on the left side of Fig. \ref{f8_betadecay} using the 0-sphere model.
+
+
+In order to explain the electron-positron annihilation with the 0-sphere model, the phase of the electron and proton is important. In conclusion, this paper will show that electron-positron annihilation cannot occur unless the phase conditions of these two particles are met.
+
+
+If we look carefully at Figure 1, we can observe that the positrons from beta-plus decay are annihilated after hitting various electrons here and there.
+
+
+Electrons and positrons have opposite charges and there should be an attractive force between both particles. If this is the case, the electron should immediately collide with the positron to produce a photon.
+
+
+Conventionally, the condition for annihilation is that a threshold must be exceeded in energy for an electron and positron to collide and become a photon. For example, when a positron is incident on a material, it repeatedly collides with the nucleus and electrons and is thermalized to annihilate the electrons.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f_e_phase.eps}
+            \caption{A schematic of the manner in which a virtual photon can be moved as a simple harmonic oscillator with the emergence and disappearance of bare electrons at the fixed points $x=a$ and $x=-a$ \cite{Hanamura2}. (a) Spinor 1 retains all of the thermal potential energy. (b) Spinor 1 radiates thermal energy to Spinor 2. (c) Spinor 2 finishes receiving all of the thermal potential energy.} 
+        \label{f_e_phase}
+    \end{figure}
+
+
+As you read through this paper, it becomes clear that electrons and positrons that do not satisfy the phase conditions do not collide with each other, even if they are thermalized and have sufficient energy, based on Pauli's exclusion principle. In the following discussion, it has assumed that spinors and thermal spots are not distinguished.
+
+
+This paper attempted to extend it from a single-particle model to a two-particle model due to focusing on the expressive possibility of this electron model. The electron-positron pair annihilation is explained as the two-particle model.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 2: METHODS
+% ========================================
+\section{\label{sec:METHODS}METHODS}
+
+% ----------------------------------------
+% Subsection 2.1: Review of the previous work
+% ----------------------------------------
+\subsection{Review of the previous work}
+\label{Review of the previous work}
+
+
+Referring to Fig. \ref{f_e_phase}, the two bare electrons are two spinors 1 and 2 represented by the blue and green dots, respectively \cite{Hanamura1}. The open circles express the thermal potential energy, which has a zero value. The arrows within the yellow circles (b) and (d) have two meanings: the direction in which the real photon is moving, and the direction to which the thermal potential energy is radiated between the two spinor particles (i.e., the blue and green dots) \cite{Hanamura3}.
+
+
+Figure \ref{f8_phase1} shows the oscillation in Fig. \ref{f_e_phase} re-expressed on the Riemann surface. A rotating phasor, which we see every day, has a cycle of 2$\pi$. In Fig. \ref{f_e_phase}, a rotating phasor with a cycle of 4$\pi$ is drawn to give a bird's-eye view of the behavior of spinors, where the horizontal axis of the rotating phasor with a cycle of 2$\pi$ represents the spatial position of the weight suspended by the spring, and the vertical axis represents the kinetic energy of the system.
+
+
+On the other hand, when the rotating phasor with 4$\pi$ per cycle was adopted for the 0-sphere model, the vertical axis represented the behavior of spinor particle 1 and the horizontal axis represented the behavior of spinor particle 2. It should be noted that just because the blue dot on the horizontal axis, i.e., spinor 1, moves from a positive value to a negative value, it does not mean that the spinor particles are moving continuously in space. The value of spinor 1 represented by the horizontal axis is its own thermal potential energy.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_phase1.png}
+            \caption{(a) The electron phase of the 0-sphere model on a translucent Riemann surface. One cycle requires a 720-degree rotation. (b) A 720-degree unit circle: The spin-up and spin-down are switched when the electron phase is 1 $1/2\pi$ and 3 $1/2\pi$, as depicted by the shaded dotted line.} 
+        \label{f8_phase1}
+    \end{figure}
+
+
+The $z$-axis represents the spin state in Fig. \ref{f_e_phase}(a) . The y-axis represents the kinetic energy of a real photon. The $y$-axis represents the kinetic energy of a real photon, where a value greater than zero indicates a positive energy and a value less than zero indicates a negative energy.
+
+
+At phase 0$\pi$, the spinor 1 contained in one electron has all the thermal potential energy of the system. It is the heat point and the source of mass. In the phase 0$\pi$ to $\pi$ cycle, the spinor particle 1 completes the radiation of all the thermal energy to a point inside the photon that is spatially distant. The thermal potential energy of spinor 1 is zero value at phase $\pi$ at the origin of the horizontal axis.
+
+
+The blue and green dots in Fig. \ref{f_e_phase} were drawn with different transparency levels depending on the thermal potential energy content. As the phase is 0$\pi$, (a), the opacity of the blue point is 100 percent, because the spinor particle 1, represented by the blue dot, contains all the thermal potential energy of the system in the electron. The opacity of the green circle is set to 100 percent for the phase $\pi$, (c), where all the thermal potential energy has moved from the blue dot to the green dot. If the opacity of spinor 1 was set to 0 percent, the point would not be visible, so it was drawn as a blue circle.
+
+
+As the phase is 1/2$\pi$, (b), the thermal potential energy in the system is evenly distributed, so the opacity is set to 50 percent. The sum of the thermal potential energies of spinors 1 and 2 is not always conserved. As can be judged from Eq. \ref{e_E=E1+E2+gamma} below, we should not forget that the thermal potential energy is converted to kinetic energy depending on the phase. This is because this kinetic energy is the fundamental force that causes the photons surrounding a single electron to oscillate.
+
+
+% ----------------------------------------
+% Subsection 2.2: Discovered the law of conservation of energy inside an electron system
+% ----------------------------------------
+\subsection{Discovered the law of conservation of energy inside an electron system}
+\label{Discovered the law of conservation of energy inside the electron}
+
+
+Get back to Fig. \ref{f_e_phase} and Fig. \ref{f8_phase1}. The behavior of spinor 1 and spinor 2 exchanging thermal potential energy is illustrated along a 720-degree rotating phasor in Fig. \ref{f8_phase1}.
+
+
+Those two figures showed how a spin-1 particle photon and a spin-1/2 particle electron oscillate in a consistent manner. With the concept of spin, we know that the thermophores of electrons need two cycles of radiation and absorption. This necessity is due to the up and down spins. In addition, we could show that a photon with spin-1 makes two spatial round trips during a rotation of 720 degrees.
+
+
+The law of conservation of energy in our electron model is expressed by the following equation \cite{Hanamura1}. This equation includes the terms of three transducers, where each oscillator preserves its kinetic and potential energies. The formula is;
+
+    \begin{equation}
+        \begin{split}
+            E_{0}
+            &= \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega t) \right)
+            ,
+        \end{split}
+        \label{e_E=E1+E2+gamma}
+    \end{equation}
+
+\noindent
+where $E_{0}$ is the total initial energy of a single electron particle. The three terms on the left-hand side represent, from left to right, spinor particle 1, spinor particle 2, and photon, respectively. Equation \ref{e_E=E1+E2+gamma} shows that the sum of the internal kinetic energy and thermal potential energy of the electron is constant at any phase.
+
+
+Solving the Dirac equation resulted in both positive and negative energy values as its solutions. In the 0-sphere model, there are two thermal spots in one electron, one radiating thermal energy and the other absorbing thermal energy.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_FeynmanDiagram.png}
+            \caption{A Feynman diagram showing the mutual annihilation of a bound state electron positron pair into two photons. The electrons and positrons were regarded as counter-rotating phasors for the purpose of followed discussion. Image source: \cite{wiki_Annihilation}} 
+        \label{f8_FeynmanDiagram}
+    \end{figure}
+
+
+Given this cycle alternates, a real photon moves back and forth between the two thermal spots. Therefore, there could be a phase where the kinetic energy is both positive and negative values in the one-electron behavior. (See ``Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron \cite{Hanamura5}'' for details.)
+
+
+% ----------------------------------------
+% Subsection 2.3: Set up two requirements
+% ----------------------------------------
+\subsection{Set up two requirements}
+\label{Set up two requirements}
+
+
+How should we represent the positron in the 0-sphere model? In this study, we will use the Feynman diagram to represent the positron.
+
+
+In the Feynman diagram, the direction of the arrow is opposite to that of the electron in order to represent the positron. This is a positive and negative direction with respect to the time axis. For this study, we will assume that the electron is in clockwise phase and the positron is in counterclockwise phase.
+
+
+To determine the initial phase of the electron and positron, we will follow Pauli's exclusion principle. If we recall one electron in the spin-up state, the other positron is assumed to be in the spin-down state.
+
+
+Putting these two requirements together, the 0-sphere model must satisfy at least the following two conditions in order to explain electron-positron annihilation in a consistent manner.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_random1.png}
+            \caption{(a) An electron moving from the positive coordinate of the x-axis to the negative value. The electrons are moving from right to left. (b) A positron moving from the negative coordinate of the y-axis in the direction of the positive value. The positron is moving from left to right. (c) The movement of the electron and positron is transcribed on the same screen. The electron and positron annihilate at the origin.} 
+        \label{f8_random1}
+    \end{figure}
+    
+
+    \begin{itemize}
+        \item That electrons and positrons take opposite phases in time (Feynman diagram).
+        \item When an electron and a positron move spatially and collide, their spins are opposite to each other (Pauli exclusion principle).
+    \end{itemize}
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+% ========================================
+% Section 3: DISCUSSION
+% ========================================
+\section{\label{sec:DISCUSSION}DISCUSSION}
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_phase2.png}
+            \caption{An electron and a positron rotate around the 720-degree unit circle as counter-rotating phasors. $D_{0}$ is the domain of the Riemann surface with $-1/2 \pi \leq \omega t \leq 3/2 \pi $ and $D_{1}$ is $ 3/2 \pi \leq \omega t \leq 7/2 \pi $, respectively. (a) The electron phase of the 0-sphere model on a translucent Riemann surface. One cycle requires a 720-degree rotation. (b) The spin-up and spin-down are switched when the electron phase is 1 $1/2\pi$ and 3 $1/2\pi$, as depicted by the shaded dotted line.} 
+        \label{f8_phase2}
+    \end{figure}
+
+
+% ----------------------------------------
+% Subsection 3.1: Determination of the initial phase of an electron and a positron
+% ----------------------------------------
+\subsection{Determination of the initial phase of an electron and a positron}
+\label{Determination of the initial phase of an electron and a positron}
+
+
+In the Feynman diagram, electrons and protons have arrows pointing in opposite directions on the time axis. Time passes in the upward direction on the y-axis as drawn in Fig. \ref{f8_FeynmanDiagram}. The electron in the blue circle moves upward, while the positron has an arrow pointing downward. Apply the principle of the positron's arrow head pointing in the opposite direction to time to the 0-sphere model.
+
+
+We assume the situation shown in Fig. \ref{f8_random1} when an electron and a positron collide. In Fig. \ref{f_e_phase}(a), a thermal spot of the electron were located at coordinate $+a$ in one-dimensional space and was depicted by filled blue circle.
+
+
+On the other hand, the positron is assumed to be in a state where the thermophores exist at the spatial coordinate $-a$. Figure \ref{f8_random1}(b). Assume that these electrons and positrons are going to move as shown in Fig. \ref{f8_random1}(c) in the next instant.
+
+
+It is important to note that in the 0-sphere model, when the electrons move from $+a$ to $-a$, it is not the case of a fixed object moving continuously, but the thermal spot in the photons are emitted from the $+a$ coordinate by radiation and are restored to the thermal spot at the $-a$ coordinate.
+
+
+In Fig. \ref{f8_random1}(c), electrons and positrons appear to coexist between the spatial coordinates of $+a$ and $-a$. In this case, their spin states are up and down, so they can coexist according to Pauli's exclusion principle.
+
+
+As depicted in Fig. \ref{f8_FeynmanDiagram}(c), the electron and the positron have momentum $p$ and $q$, respectively. 
+
+
+The initial phase and the direction of phase rotation, which are consistent with the rules in the Feynman diagram enumerated above and Pauli's exclusion principle, are shown in Fig. \ref{f8_phase2}. The result of applying Fig. \ref{f8_phase1}(b) to the electron and positron moving in opposite directions relative to the time axis is shown in Fig. \ref{f8_phase2}(b).
+
+
+It should be noted that the blue point and the red point do not rotate in opposite directions because the electron has kinetic energy $p$ toward the left and the positron has kinetic energy $q$ toward the right. It could be misleading to cross-reference Figs. \ref{f8_random1} and \ref{f8_phase2} and try to decipher the meaning of the figures.
+
+
+In the previously submitted 0-sphere model, double thermal spot radiates and absorbs thermal energy at a spatially separated distance. It is argued that electrons move spatially due to this radiation and absorption. The 0-sphere model allows this movement to be either a reciprocating motion or a continuous movement in a fixed direction. The result of this discussion led to quantum random walks \cite{Hanamura4} \cite{J.Kempe}.
+
+
+The spins just before annihilation are different from each other because Pauli's exclusion principle was applied so that the two particles can be located in the same space without contradiction at the origin. (Fig. \ref{f8_random1} (c))
+
+
+% ----------------------------------------
+% Subsection 3.2: Annihilation of thermal spots with different initial phases
+% ----------------------------------------
+\subsection{Annihilation of thermal spots with different initial phases}
+\label{Annihilation of thermal spots with different initial phases}
+
+
+The two thermophores, which have been assumed to exist inside the electron in the 0-sphere model, are defined as the following functional equation of simple harmonic oscillation:
+
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 1): S_{e1}^{-} 
+                    & \equiv \mathrm{cos} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{e3_def_osc_1}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 2): S_{e2}^{-}
+                    & \equiv \mathrm{sin} \left( \frac{\omega t}{2} \right)
+                    .
+                \label{e3_def_osc_2}
+            \end{split}
+        \end{equation}
+
+
+Since the positron was out of phase with the electron by -$\pi$ or 3$\pi$, the following equations are obtained.
+
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 3): S_{e3}^{+} 
+                    & \equiv \mathrm{cos} \left( - \frac{\omega t}{2} - \pi \right)
+                    ,
+                \label{e3_def_osc_3}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 4): S_{e4}^{+}
+                    & \equiv \mathrm{sin} \left( - \frac{\omega t}{2} - \pi \right)
+                    .
+                \label{e3_def_osc_4}
+            \end{split}
+        \end{equation}
+
+
+For simplicity, the angular velocity was assumed to take the same value $\omega t$ for electron and positron.
+
+
+In order to discuss electron-positron annihilation as shown in the above defining equations from (\ref{e3_def_osc_1}) to (\ref{e3_def_osc_4}), it is necessary to assume four thermal particles, $S_{e1}^{-}, S_{e2}^{-}, S_{e3}^{+}, S_{e4}^{+}$. When electrons and positrons collide, they do not collide with hard materials. The two spinors are doing the thermal radiation and absorption respectively. The following equation describes how two pairs of spinors are combined in those two radiation-absorption process, $S_{total}$. 
+
+
+        \begin{equation}
+            \begin{split}
+                S_{total} 
+                &= S_{e1}^{-} + S_{e2}^{-} + S_{e3}^{+} + S_{e4}^{+} \\
+                &= \mathrm{cos} \left( \frac{\omega t}{2} \right) +  \mathrm{sin} \left( \frac{\omega t}{2} \right) \\
+                &\quad + \mathrm{cos} \left( - \frac{\omega t}{2} - \pi \right) + \mathrm{sin} \left( - \frac{\omega t}{2} - \pi \right)
+%                &= \mathrm{cos} \left( \frac{\omega t}{2} \right) +  \mathrm{sin} \left( \frac{\omega t}{2} \right) - \mathrm{cos} \left( - \frac{\omega t}{2} \right) - \mathrm{sin} \left( - \frac{\omega t}{2} \right) \\
+%                &= 0
+                .
+                \label{e3_Osc_Total}
+            \end{split}
+        \end{equation}
+
+
+When $\omega t$ is 3 $\pi$, the value of the above equation becomes zero value as shown below.
+
+        \begin{equation}
+            \begin{split}
+                S_{total(\omega t = 3\pi)} 
+                &= S_{e1}^{-} + S_{e2}^{-} + S_{e3}^{+} + S_{e4}^{+} \\
+                &= \mathrm{cos} \left( \frac{3}{2} \pi \right) +  \mathrm{sin} \left( \frac{3}{2} \pi \right) \\
+                &\quad + \mathrm{cos} \left( \frac{5}{2} \pi \right) + \mathrm{sin} \left( \frac{5}{2} \pi \right) \\
+                &= 0
+                .
+                \label{e3_Osc_Total}
+            \end{split}
+        \end{equation}
+
+
+When the phase $\omega t$ is $3\pi$, the direction of the thermal radiation of the electron and that of the positron become opposite, and the thermal radiation energy of the electron and positron are considered to cancel out. This phase is equal to the connection point between the two domains ($D_{0} \cap D_{1}$) when the analytical connection is considered in the Riemann surface.
+
+
+The interpretation of what Eq. (\ref{e3_Osc_Total}) means is that the four spinors have completed the thermal radiation and absorption cycle. It means that all the thermal energy is converted into kinetic energy, which is received by the photon. The fact that all thermal potential energy is transferred to kinetic energy means that it loses mass. This could be related to Einstein's special theory of relativity, in which he had a keen insight into the phenomenon of the transfer of mass to energy.
+
+% In order for Eq. (\ref{e3_Osc_Total}) to be zero, not only do we have to sum all four spinors, but we also have to find a combination of two spinors, one from each electron and positron, so that their total value is zero.
+
+
+There is an important consequence to be shown from this discussion. The two photons that scatter in opposite directions after annihilation each contain a pair of spinors derived from an electron and a positron. The 0-sphere model assumes that both electrons and positrons are composed of at least one photon each, so there is no inconsistency in the appearance of two photons after a collision \cite{Hanamura1}.
+
+
+% ----------------------------------------
+% Subsection 3.3: Viewing annihilation from the perspective of inelastic collisions
+% ----------------------------------------
+\subsection{Viewing annihilation from the perspective of inelastic collisions}
+\label{Viewing annihilation from the perspective of inelastic collisions}
+
+
+Electron-positron annihilation can be understood as the opposite behavior of an inelastic collision: when two lumps of clay are collided from opposite directions, they become one lump and stop moving. This phenomenon is due to the transfer of kinetic energy of the clay to thermal energy, etc., and the total kinetic energy itself is not conserved.
+
+
+On the contrary, the process of colliding two photons to produce an electron and a positron can be called an inelastic collision. In other words, the collision of kinetic energy shifts the system to the process of generating oscillation of the thermal potential energy.
+
+
+Similarly, in the 0-sphere model, considering the assumption that an electron is periodically emitting thermal radiation internally, the amplitude of thermal potential energy becomes zero when electrons and positrons collide, and thermal radiation halts.
+
+
+% These two photons $\gamma_{1}$ and $\gamma_{2}$ could be summarised as;
+
+%                 &= S_{e1}^{-} + S_{e3}^{+} \\
+%                 &= \mathrm{cos} \left( \frac{\omega t}{2} \right) + \mathrm{cos} \left( \frac{\omega t}{2} - \pi \right) \\
+%                 &= 0
+%                 ,
+
+%                 &= S_{e2}^{-} + S_{e4}^{+} \\
+%                 &= \mathrm{sin} \left( \frac{\omega t}{2} \right) +  \mathrm{sin} \left( \frac{\omega t}{2} - \pi \right) \\
+%                 &= 0
+%                 .
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Section 4: CONCLUSION
+% ========================================
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+
+The above discussion has led us to several important conclusions:
+
+    \begin{itemize}
+        \item The collision of electrons and positrons requires two sets of spinors with thermal radiation and absorption systems.
+        \item The spinor phases of the electron and positron follow opposite directions on the unit circle.
+        \item The spinors of the electron and positron can coexist in the same place during the collision because they satisfy Pauli's exclusion principle.
+        \item Electrons and positrons collide at the point of intersection of the two planes of the Riemann surface. This is equal to the connection point between the two domains ($D_{0} \cap D_{1}$) when the analytic connection is considered on the Riemann surface.
+        \item The photon number is conserved before and after the collision.
+        \item The two photons after the collision contain one spinor particle each from the electron and positron.
+    \end{itemize}
+
+
+We intentionally refrained from including mathematical expressions in this paper. The reason for this is that we want as many readers as possible to read through this paper. The research papers that Hanamura has contributed to in the past have been written with mathematical formulas. Another aim of this paper is to summarize those papers and to give meaning to their comprehensiveness.
+
+
+In this study, Pauli's exclusion principle was directly applied to electrons and positrons. It is not clear whether the Pauli exclusion principle also holds for the annihilation of electrons and positrons. Because of the symmetry of the electron and positron, they may have the same spin when they annihilate. Therefore, the application of the Pauli exclusion principle to electrons and positrons in this paper is only a theoretical conclusion based on assumptions.
+
+
+The significance of this study would lie in the application of the theory of Feynman diagrams to the concept of pairwise annihilation, despite the fragility of the argument based on such an assumption. In the conventional concept of elementary particles, the electron has only the duality of particle and wave. In this paper, on the other hand, the phase of the wave is clearly introduced and discussed by introducing the phase of the spinor particle in the 0-sphere electron model \cite{Hanamura1} \cite{Hanamura2}.
+
+
+In this study, we captured the phenomenon of massless photons from electron-positron annihilation, as following sentences. The spinors cease to oscillate, i.e., they become spinors without thermal radiation and absorption. The photon has no mass because all the thermal potential energy of the spinor thermal point and its flow has been transferred to kinetic energy.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+    \bibitem{Hanamura1} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+    
+    \bibitem{Hanamura2} S. Hanamura, Correspondence Between a 0-Sphere and the Electron Model, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17759908}{doi:10.5281/zenodo.17759908}. [Originally: \href{https://vixra.org/abs/2001.0610}{viXra:2001.0610}]
+    
+    \bibitem{O.E.Mogensen} Ole Erik Mogensen, \textit{Positron Annihilation in Chemistry}, pp. 5-6, Springer-Verlag, 1995.
+    
+    \bibitem{wiki_Annihilation} "Antimatter". Lawrence Berkeley National Laboratory,  \href{https://en.wikipedia.org/wiki/Annihilation#cite_note-Particleadventure.org-2}{Annihilation, Wikipedia}, 2008.
+    
+    \bibitem{Hanamura3} S. Hanamura, Uniquely Distinguishing an Electron's Spin from Two Quantum States via Riemann Surface Guidance, Zenodo (2019), \href{https://doi.org/10.5281/zenodo.17759634}{doi:10.5281/zenodo.17759634}. [Originally: \href{https://vixra.org/abs/1903.0541}{viXra:1903.0541}]
+    
+    \bibitem{J.Kempe} Julia Kempe, Quantum random walks - an introductory overview, Contemporary Physics, Vol. 44 (4), p.307-327, \href{https://arxiv.org/pdf/quant-ph/0303081.pdf}{arXiv:quant-ph/0303081}, 2003.
+    
+    \bibitem{Hanamura4} S. Hanamura, Transition Theory of An Electron Traveling from Uncertain to Causal Basis, Zenodo (2019), \href{https://doi.org/10.5281/zenodo.17759726}{doi:10.5281/zenodo.17759726}. [Originally: \href{https://vixra.org/abs/1909.0432}{viXra:1909.0432}]
+    
+    \bibitem{Hanamura5} S. Hanamura, Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17760132}{doi:10.5281/zenodo.17760132}. [Originally: \href{https://vixra.org/abs/2006.0104}{viXra:2006.0104}]
+    
+\end{thebibliography}
+
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}
