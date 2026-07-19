@@ -1,6 +1,6 @@
 # 作業履歴 2026-07-19 — Overleaf 原本収蔵と tex ライブラリ化
 
-> 対象コミット: `09ed0fb` → `6dbd1b3` → `48bcb41`(3件・main 直コミット)
+> 対象コミット: `3ed3c87` → `80def85` → `4fcef42`(3件・main 直コミット)
 > 作業者: User (Satoshi Hanamura) + Claude Code (Fable 5)
 
 ## 背景と目的
@@ -19,7 +19,7 @@ Overleaf に保存されていた全論文プロジェクトを GitHub(`tex-sour
 
 ## 実施内容
 
-### 1. Overleaf 全 67 プロジェクトの一括収蔵(`09ed0fb`)
+### 1. Overleaf 全 67 プロジェクトの一括収蔵(`3ed3c87`)
 
 - ソース: Overleaf 一括エクスポート「Overleaf Projects (67 items)」(zip 67 本)。
 - 各論文 #NN に `tex-sources/NN/overleaf/rK/` を新設し、zip の中身を**無加工格納**
@@ -35,7 +35,7 @@ Overleaf に保存されていた全論文プロジェクトを GitHub(`tex-sour
   (生物物理)のため、未採番のまま `tex-sources/off-series/solar-neutrino-dna-recoils/` へ退避。
   採番は User 判断待ち。
 
-### 2. main.tex 二本立て規約の確定(`6dbd1b3`)
+### 2. main.tex 二本立て規約の確定(`80def85`)
 
 User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload スキル発火で清書版生成)を
 そのまま構造に写した:
@@ -48,7 +48,7 @@ User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload 
 
 初回コミットで行った「未清書番号への raw main.tex 昇格コピー」はこの規約と矛盾するため取り消し。
 
-### 3. Zenodo 公開版 main.tex の API 一括取得(`48bcb41`)
+### 3. Zenodo 公開版 main.tex の API 一括取得(`4fcef42`)
 
 - 63 レコードを `zenodo.org/api/records/<id>` で走査 → **31 レコードに main.tex 収録**を確認。
 - 全 31 本を `…/files/main.tex/content` からダウンロードし、LaTeX 構造検証のうえ配置:
@@ -128,7 +128,7 @@ User の依頼で「Rethinking Particles as Spacetime Oscillators (Research Summ
 
 ## 参照
 
-- 収蔵規模: 519 ファイル・約 180MB(`09ed0fb`)
+- 収蔵規模: 519 ファイル・約 180MB(`3ed3c87`)
 - ローカルクローン: `~/Desktop/0sm-skills`
 - 原文精読 URL: `https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/tex-sources/NN/main.tex`
   (404 = 未清書 → `NN/main-overleaf.tex` に原本が必ずある)
