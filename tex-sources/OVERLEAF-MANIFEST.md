@@ -15,7 +15,9 @@
 - 複数リビジョン保有: #30 (r1, r2)、#51 (r1: 図版含む全量 / r2: main.tex のみ → main-overleaf.tex は r2 由来)。
 - **Zenodo 自動取得(2026-07-19)**: 各レコードの API(`zenodo.org/api/records/<id>/files/main.tex/content`)から公開版 main.tex を一括取得。#46, #51–62, #64 に新規設置、#28 は改訂公開版(Revised: 2026-02-13)へ更新、#30, #34–45, #47, #48, #50 は既存と完全一致を確認。
 - **スキル清書(2026-07-19)**: #1–12, #63 の main.tex を 0sm-zenodo-upload スキル Step 1(latex-standards.md)で Overleaf 原本から生成(日本語コメント全削除・コメントアウト行削除・英語バナー挿入・明示日付。#1 は Overleaf 内の既存 main_cleanup.tex を採用、#2 は \today → February 24, 2019、#11 は \end{document} 後の作業メモ切除)。本文はコメント除去後のコード実体レベルで原本と一致検証済み。**この 13 本は Zenodo レコード側に tex 未収録**(PDF のみ)— レコード追補時は GitHub のこの main.tex をそのまま使える。
-- **未清書(main.tex 無し)の番号**: #67 のみ(Zenodo 未公開)。
+- **#67 も清書済み(2026-07-19)**: main.tex は Zenodo 未公開だが upload-ready(スキル規約適用・コンパイル検証済み)。→ **全 64 番号(#1–64, #67)に main.tex が揃った**。
+- **コンパイル検証(2026-07-19)**: 全 14 本(#1–12, #63, #67)を tectonic (XeTeX) で PDF 生成確認。互換修正 2 種を適用: hyperref 旧ドライバ指定(dvipdfm/pdftex)除去、#6 の caption `justification=center`→`centering`。#1/#3/#8 の EPS 図版は epstopdf 対応エンジン(Overleaf pdfLaTeX 等)が必要。
+- **Zenodo レコードへの tex 追補**: 対象 32 レコードの一覧と手順は [`ZENODO-TEX-BACKLOG.md`](ZENODO-TEX-BACKLOG.md)。
 - #13, #14, #41, #48–50 の main.tex は Overleaf 版と実質同一(清書工程を経ていない可能性)。清書し直す場合は上書きしてよい(※ #41, #48, #50 は Zenodo 公開版とも一致確認済み)。
 
 ## 特記事項

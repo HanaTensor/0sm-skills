@@ -73,12 +73,28 @@ User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload 
   環境対応・ref/label 整合・日本語ゼロを確認。ローカルに LaTeX toolchain が無いため
   コンパイル検証は未実施(Overleaf での二重コンパイル確認を推奨)。
 
+### 5. コンパイル検証・#67 清書・追補チェックリスト(同日追記)
+
+- **実コンパイル検証**: tectonic (XeTeX) + Ghostscript を導入し、全 14 本
+  (#1–12, #63, #67)の PDF 生成に成功。これに伴う互換修正 2 種を本体へ適用:
+  hyperref の旧ドライバ指定(dvipdfm×11 / pdftex×1)を除去して自動検出化、
+  #6 の caption 廃止指定 `justification=center` → `centering`(いずれも本文非接触)。
+  #1/#3/#8 の EPS 図版は tectonic 単体では埋め込めず事前変換で検証
+  (Overleaf pdfLaTeX では epstopdf 自動変換で問題ない)。
+- **#67 清書**: 同一規約で cleaned main.tex を生成・検証・設置。
+  → **全 64 番号(#1–64, #67)に main.tex が揃った**。
+- **Zenodo 追補チェックリスト**: tex 未収録レコードは #1–12/#63 だけでなく
+  #13–15, #17–27, #29, #31–33, #49 を含む **32 件**と判明。一覧・手順・
+  DOI バージョン方針の注意を `tex-sources/ZENODO-TEX-BACKLOG.md` に整備(User 手作業用)。
+- 小掃除: `tex-sources/12/[#12]main.tex`(Overleaf 原本と同一の冗長コピー)を削除。
+
 ## 結果と現在地
 
-- 清書済み `main.tex`: 36 → 50 → **63 番号(#67 以外すべて)**。
-- **Zenodo レコード側に tex 未収録なのは #1–12, #63**(PDF のみ)。レコード追補時は
-  GitHub の `tex-sources/NN/main.tex` をそのままアップロードすればよい状態にした。
-  #67 は Zenodo 未公開のため main.tex なし(main-overleaf.tex のみ)。
+- 清書済み `main.tex`: 36 → 50 → 63 → **64 番号(全数)**。全て規約適用済み、
+  うち今日の 14 本はコンパイル検証済み。
+- 残る User 手作業: (1) Zenodo 32 レコードへの tex 追補(`ZENODO-TEX-BACKLOG.md` 参照・
+  DOI バージョン方針の統一決定が先)、(2) #65/#66 の Overleaf エクスポート提供、
+  (3) off-series(Solar Neutrino)の採番判断、(4) #13/#14/#49 の清書し直し(推奨)。
 - 注記: #13, #14, #41, #48–50 の main.tex は Overleaf 版と実質同一(清書工程未経過の可能性)。
 - 規約・対応表の正典: [`tex-sources/OVERLEAF-MANIFEST.md`](../tex-sources/OVERLEAF-MANIFEST.md)
 - 宙ぶらりん: #65(Structural Overview REV-01)・#66 は本エクスポート未収録で `tex-sources/65` `66` は未作成。
