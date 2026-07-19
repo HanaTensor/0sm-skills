@@ -107,7 +107,7 @@ The 0-Sphere model series has been developed since 2018 as a single-author resea
 
 This record is deposited on Zenodo as \#66 of the series --- an archival deliberation record, distinct in genre from the research papers of the corpus. It is not submitted for peer review and makes no claim to the standards of a journal article. Its purpose is threefold. First, it fixes the priority and provenance of several substantive results (Sec.~\ref{sec:ledger}) that subsequent papers in the series may cite by DOI. Second, it consolidates those results into an explicit map of candidate directions for future papers (Sec.~\ref{sec:stones}), which is the deliverable the theme asked for. Third, it preserves the \emph{method}: the session produced multiple rounds of mutual error detection, retraction, and correction-of-correction, and this process --- which vanishes from a results-only paper --- is itself worth archiving, both for the transparency policy of the series and as a specimen of dual-model verification practice.
 
-A remark on the intended readership. This document is written to be legible to a human reader with a graduate-level physics background, but it is equally written to be \emph{loaded}: the author intends to supply it, together with a comprehensive review of the series, to future reasoning sessions as the prompt from which the next move is explored. Appendix~\ref{app:future} gives explicit reading instructions for that use. Appendix~\ref{app:checks} reproduces, without skipped steps, the explicit arithmetic behind every numerical and algebraic verification quoted in this record; it is addressed to readers new to the material, and doubles as a machine-checkable restatement of the session's verification norms.
+A remark on the intended readership. This document is written to be legible to a human reader with a graduate-level physics background, but it is equally written to be \emph{loaded}: the author intends to supply it, together with a comprehensive review of the series, to future reasoning sessions as the prompt from which the next move is explored. Appendix~\ref{app:future} gives explicit reading instructions for that use. Appendix~\ref{app:checks} reproduces, without skipped steps, the explicit arithmetic behind every numerical and algebraic verification quoted in this record; it is addressed to readers new to the material, and doubles as a machine-checkable restatement of the session's verification norms. Appendix~\ref{app:glossary} provides a glossary --- standard terms, 0-Sphere terms, and the record's label systems --- pitched at a reader beginning graduate study.
 
 % ----------------------------------------
 % Subsection 1.2: Method: dual-model cross-verification
@@ -748,7 +748,7 @@ This record was drafted in its entirety by large language models. The deliberati
 
 This appendix is addressed to a future reasoning session --- human, machine, or both --- that loads this document, together with a comprehensive review of the series, as the prompt from which the next move is explored. The following reading order and cautions are recommended.
 
-\paragraph{Entry point.} Begin with Table~\ref{tab:stones}. It is the distillate of the session: seven directions, their dependencies, and the two highlighted paths (D1 shortest, D3 highest leverage). Then read Sec.~\ref{sec:deferred} to learn which decisions are the author's and must not be presumed by the session. When this record is loaded as a prompt, the foundational trilogy \#29/\#30/\#31 \cite{hanamura29,hanamura30,hanamura31} should accompany it, together with the comprehensive review of the series, since directions D2, D3, and D6 are formulated against the standards those three papers declare; whenever D3 is the target, Paper \#60 \cite{hanamura60} should be included as well, since it formulates O3 and O4 as the edges of a single triangle, together with Paper \#63 \cite{hanamura63}, whose open task O16 (the physical identity of $A_\mu$) isolates the bottleneck of the route convergence.
+\paragraph{Entry point.} Begin with Table~\ref{tab:stones}. It is the distillate of the session: seven directions, their dependencies, and the two highlighted paths (D1 shortest, D3 highest leverage). Then read Sec.~\ref{sec:deferred} to learn which decisions are the author's and must not be presumed by the session. A reader new to the field should keep the glossary (Appendix~\ref{app:glossary}) at hand; it also decodes the record's label systems (E/C/D/O and the per-paper task letters). When this record is loaded as a prompt, the foundational trilogy \#29/\#30/\#31 \cite{hanamura29,hanamura30,hanamura31} should accompany it, together with the comprehensive review of the series, since directions D2, D3, and D6 are formulated against the standards those three papers declare; whenever D3 is the target, Paper \#60 \cite{hanamura60} should be included as well, since it formulates O3 and O4 as the edges of a single triangle, together with Paper \#63 \cite{hanamura63}, whose open task O16 (the physical identity of $A_\mu$) isolates the bottleneck of the route convergence.
 
 \paragraph{Status vocabulary.} Claims in this record carry one of four statuses, and conflating them is the fastest way to corrupt a continuation. \emph{Closed}: verified against the sources by both agents (e.g., the split of Table~\ref{tab:split}). \emph{Closable modulo a named postulate}: Proposition~\ref{prop:rank2}, conditional on Hypothesis~\ref{hyp:H}. \emph{Open}: O3 and everything that terminates on it. \emph{Deferred}: the author's canonical decisions of Sec.~\ref{sec:deferred} --- a future session may argue about these but must not treat them as made.
 
@@ -903,6 +903,116 @@ The value $\omega_{\mathrm{ZB}}\approx1.55\times10^{20}\,\mathrm{rad\,s^{-1}}$ q
 % ========================================
 % Bibliography
 % ========================================
+% ========================================
+% Appendix C: Glossary
+% ========================================
+\section{Glossary for Readers Entering the Field}
+\label{app:glossary}
+
+This glossary is pitched at a reader beginning graduate study. Part~1 defines the standard physics and mathematics terms used in this record, with a note on the role each plays here; Part~2 defines the terms specific to the 0-Sphere model, with their home papers; Part~3 is a key to the labels (E, C, D, O, \ldots) by which the record cross-references itself. Definitions are deliberately informal; the cited sources carry the precise statements.
+
+\subsection{Standard physics and mathematics terms}
+
+\begin{description}[style=unboxed, leftmargin=0em, itemsep=3pt]
+
+\item[Aharonov--Bohm (AB) effect.] An electron acquires a measurable phase shift when its path encloses a magnetic flux, even if the magnetic field vanishes everywhere along the path. It shows that the line integral of the potential, $\oint\mathbf A\cdot d\mathbf l$, carries physics that the local field values along the path do not. \emph{Here:} the flagship example of the series' claim that path-integrated phase is the primary observable.
+
+\item[Berry phase / connection / curvature.] When the parameters of a quantum system are carried slowly around a closed loop, the state returns to itself up to a phase with a geometric part --- the Berry phase --- expressible as the holonomy of a connection (the Berry connection) on parameter space; its curvature is the Berry curvature. \emph{Here:} the corpus assigns the electron's internal oscillation a Berry connection, and problem (b) of Table~\ref{tab:split} asks whether its curvature can be identified with the Riemann curvature of an emergent metric.
+
+\item[Bonnet--Myers theorem.] A complete Riemannian manifold whose Ricci curvature is bounded below by a positive constant is compact, with an explicit bound on its diameter. \emph{Here:} applied in \#51 to the positively curved photon sphere to \emph{derive} the Compton-scale confinement of the electron's internal structure.
+
+\item[Elliptic vs.\ hyperbolic equations.] Two basic types of partial differential equation. Elliptic equations (e.g., Laplace's) have solutions determined entirely by boundary data, with no propagating degrees of freedom; hyperbolic equations (e.g., the wave equation) propagate local disturbances at finite speed. \emph{Here:} the criterion of direction D6 --- the type of the photon-sphere interior equation would decide whether the line-integral ontology (boundary data suffices) or a field ontology (local degrees of freedom) is fundamental.
+
+\item[Gauge invariance / gauge potential.] The electromagnetic potential $A_\mu$ can be shifted by $\partial_\mu\lambda$ without changing any observable; quantities invariant under this shift are gauge invariant. \emph{Here:} the corpus reads gauge freedom as endpoint-relative (localized at the two kernels) rather than as a redundancy spread over spacetime.
+
+\item[Graviton.] The hypothetical massless spin-2 quantum of the gravitational field. Masslessness and helicity $\pm2$ are what the word implies; a massive spin-2 object is \emph{not} a graviton. \emph{Here:} the deliberation's key move is that the fragment pair is a massive $J=2$ \emph{source}, not a graviton, which is what evades the Weinberg--Witten theorem.
+
+\item[Helicity.] The projection of a particle's spin onto its direction of motion, $\lambda=\mathbf S\cdot\hat{\mathbf p}$; for massless particles it is Lorentz-invariant. For a photon $\lambda=\pm1$; for a graviton $\pm2$. Not to be confused with chirality (see Part~2 for the 0-Sphere usage).
+
+\item[Holonomy.] The net transformation (a phase, or more generally a group element) accumulated by parallel transport around a closed loop in a space carrying a connection. AB phases, Berry phases, and Wilson loops are holonomies. \emph{Here:} the corpus's ordering principle (\#31) is that observables are holonomies of connections along histories.
+
+\item[Invariant mass.] For a system with total energy $E$ and total momentum $\mathbf p$, the frame-independent combination $M^2c^4=E^2-|\mathbf p|^2c^2$. A system of two massless quanta can have $M\neq0$ (Appendix~\ref{app:checks-mass}). \emph{Here:} the one-line computation that reclassifies the fragment pair as massive.
+
+\item[Irreducible representations of the Lorentz group.] Lorentz-covariant objects are classified by pairs $(j_1,j_2)$. The ones used here: $(\tfrac12,\tfrac12)$ = four-vectors; $(1,0)\oplus(0,1)$ = antisymmetric rank-2 tensors, such as the field strength $F_{\mu\nu}$; $(1,1)$ = symmetric traceless rank-2 tensors, such as the metric perturbation $h_{\mu\nu}$. \emph{Here:} the starting position of the whole session --- no linear map connects $(1,0)\oplus(0,1)$ to $(1,1)$ (Appendix~\ref{app:checks-rep}).
+
+\item[Landau--Yang theorem.] A system of two real photons cannot have total angular momentum $J=1$; along the relative axis the allowed values are $J=0$ or $J=2$. Proven from Bose symmetry and gauge invariance. \emph{Here:} the consistency check that the fixed-chirality pair lands on $J=2$ (used as an analogy, since the fragments are photon-\emph{like}).
+
+\item[Linearized gravity / metric perturbation.] Writing the spacetime metric as flat plus small, $g_{\mu\nu}=\eta_{\mu\nu}+h_{\mu\nu}$, and keeping first order in $h$. The graviton lives here, and the universal coupling to matter is $h_{\mu\nu}T^{\mu\nu}$. \emph{Here:} the frame in which task (C)'s ``no spin-1--spin-2 vertex'' premise was tested and found non-standard.
+
+\item[Multipole moments / quadrupole formula.] Any source distribution can be expanded in multipoles: monopole (total), dipole, quadrupole, \ldots. Conservation of energy and momentum freezes the monopole and dipole of a mass distribution, so the lowest moment free to radiate gravitationally is the quadrupole; the Peters--Mathews formula gives the emitted power. \emph{Here:} the route by which \#59 obtains rank-2 structure --- correct physics, but imported from general relativity (column (a) of Table~\ref{tab:split}).
+
+\item[Polarization vector.] The unit (possibly complex) vector describing the oscillation plane of a wave or the spin state of a massless quantum; circular polarizations about $\hat e_x$ are $\bm\varepsilon_\pm=(\hat e_y\pm i\hat e_z)/\sqrt2$. \emph{Here:} the building block of the pair construction (Appendix~\ref{app:checks-pol}).
+
+\item[Schur's lemma.] A linear map that commutes with the action of a group, between two inequivalent irreducible representations, must be zero. \emph{Here:} the one-line reason the ``antisymmetric-to-symmetric conversion'' search is closed (Appendix~\ref{app:checks-rep}).
+
+\item[Selection rule.] A statement that certain transitions or configurations are forbidden by symmetry alone, independent of dynamical details. Landau--Yang is one.
+
+\item[Self-conjugate particle.] A particle that is its own antiparticle (photon, $\pi^0$, hypothetically the graviton). \emph{Here:} required of the mediator; secured by the photon-sector nature of the fragments.
+
+\item[Spin-2.] Angular momentum two in units of $\hbar$; for a field, the statement that its quanta transform as a symmetric traceless rank-2 tensor. The gravitational field is the canonical spin-2 case.
+
+\item[Stress--energy tensor $T^{\mu\nu}$.] The conserved current of energy and momentum; the source of gravity in general relativity. \emph{Here:} its Lorentz-covariant conservation is the hypothesis under which Weinberg--Witten operates, and the corpus's \#30 demotes it from fundamental to derived.
+
+\item[Symmetric traceless tensor.] A rank-2 tensor with $T_{ij}=T_{ji}$ and $\sum_i T_{ii}=0$; in four dimensions, nine independent components. The shape of a metric perturbation and of a quadrupole moment.
+
+\item[Synge's world function.] The two-point function $\sigma(x,x')$ equal to half the squared geodesic distance between $x$ and $x'$; differentiating twice and taking the coincidence limit returns the metric. \emph{Here:} the corpus (\#51) runs this backwards --- posit the two-point phase functional, extract the metric --- which is the ``metric door'' of \#63.
+
+\item[Tensor meson.] A massive spin-2 bound state of quarks, e.g.\ $f_2(1270)$. \emph{Here:} the existence proof that massive $J=2$ composites are commonplace and untroubled by Weinberg--Witten.
+
+\item[Thomas precession.] A purely kinematic rotation experienced by an accelerated, moving frame, arising because two non-collinear Lorentz boosts compose to a boost \emph{plus a rotation}; to leading order $\boldsymbol\Omega_T=\tfrac1{2c^2}\,\mathbf a\times\mathbf v$. \emph{Here:} the corpus's mechanism for generating internal rotation and spinorial phase from oscillatory motion (\#10, \#29, \#49).
+
+\item[Weinberg--Witten theorem.] In any theory with a Lorentz-covariant conserved stress--energy tensor, there are no massless particles of spin greater than one --- in particular, no composite massless graviton built from massless constituents. \emph{Here:} the standing obstruction recorded in \#52's appendix; evaded in this record because the pair is massive (Sec.~\ref{sec:ww}).
+
+\item[Wilson line / Wilson loop.] The path-ordered exponential of a gauge potential along a curve --- open (two endpoints) or closed (a loop). The closed version is gauge invariant; the open version carries endpoint dependence. \emph{Here:} the open Wilson line between the two kernels is the corpus's primary object (\#55).
+
+\item[Zitterbewegung (ZB).] The rapid oscillatory motion that appears when the Dirac equation's positive- and negative-energy components interfere; conventionally at speed $c$ and unobservable. \emph{Here:} reinterpreted as the physically real, sub-luminal ($\approx0.04c$) internal oscillation of the electron --- the model's central move.
+
+\end{description}
+
+\subsection{0-Sphere model terms}
+
+\begin{description}[style=unboxed, leftmargin=0em, itemsep=3pt]
+
+\item[Kernels $A$, $B$.] The two energy-localization sites of the electron's internal structure --- the two points of the 0-sphere $S^0$. The rest energy oscillates between them with the $\cos^4/\sin^4$ split (\#1).
+
+\item[Photon sphere.] The collective radiative carrier that transports energy between the kernels; modeled as a compact positively curved surface at the Compton scale. Not to be confused with the black-hole photon sphere of general relativity.
+
+\item[Photon-sphere fragment.] A quantum ejected from the photon sphere at the de-excitation of an excited internal state (\#49); the proposed gravitational mediator. Photon-sector: it carries no new degree of freedom.
+
+\item[Thermal geodesic.] The arc-connected path in three-dimensional space along which the internal energy transport proceeds; its curvature makes $\mathbf v\times\mathbf a\neq\mathbf 0$ and thereby generates Thomas precession (\#49).
+
+\item[Internal phase $\iphase$.] The angle $\omega t$ (or $\omega t/2$, per convention) parametrizing where in the transfer cycle the system sits; ejection events occur at $\iphase=\pi/2$ and $3\pi/2$ (\#58).
+
+\item[Chirality $\chi$ (0-Sphere usage).] $\chi=\mathrm{sign}(da/dt)$ with $a$ the \emph{monotonic} internal phase on the circle $S^1$: the orientation of the internal phase flow, a topological invariant distinguishing electron from positron (\#50). Distinct from the chirality of massless fermions in field theory; the collision of the two usages (and of the symbol $a$) is the subject of Table~\ref{tab:acollision}.
+
+\item[Phase-stable pair.] The two fragments ejected back-to-back within one internal cycle whose relative phase is locked (\#58); the candidate spin-2 source configuration of this record.
+
+\item[Emergent metric.] The metric $g_{\mu\nu}=\partial_{A\mu}\partial_{B\nu}\mathcal S_s$ extracted from the two-point phase functional by the reversed Synge construction (\#51); verified so far only in the flat-space limit --- hence open problem O3.
+
+\item[Metric door / connection door.] \#63's names for the two routes from the phase functional to curvature: differentiate to the metric ($\mathcal S\to g_{\mu\nu}$), or read the functional as a connection line integral and pass through the covariant derivative ($\mathcal S=\int A\to\nabla\to R$). Their convergence is the decisive open problem.
+
+\item[Geometric checksum.] \#30's reading of the Einstein field equation: not a generative law but an a posteriori consistency condition verifying that accumulated phase along worldlines is globally coherent.
+
+\item[Internal winding.] \#63's correction of the curvature-family reading: since the thermal geodesic is unique, the family in which curvature lives is the winding of the internal phase (the Thomas-precession vortex on the kernels' U(1) bundle), not a congruence of neighbouring spatial geodesics.
+
+\item[Two-metric problem.] The unresolved identity between the emergent metric of \#59's Sec.~IV and the background metric presupposed by the quadrupole formula in its Sec.~V; a face of O3 (Table~\ref{tab:split}).
+
+\item[Line-integral ontology / directed-path framework.] The series' foundational stance (\#29--\#31, \#56): the primary physical objects are directed path integrals of connections, and local field values are derived descriptors. The opposing stance is the local-field framework; \#56 shows the same identity can support opposite conclusions in the two frameworks.
+
+\end{description}
+
+\subsection{Key to the record's labels}
+
+\begin{description}[style=unboxed, leftmargin=0em, itemsep=3pt]
+\item[E1--E10.] The ten exchanges of the deliberation, in chronological order (Sec.~\ref{sec:record}); odd exchanges are Fable 5's, even ones Opus 4.8's, E10 trilateral.
+\item[C1--C3.] The three Corrections Log entries produced by the session against Papers \#58/\#59 (Table~\ref{tab:corrections}); distinct from the series-wide corrections log of the overview.
+\item[D1--D7.] The seven candidate directions for future papers (Table~\ref{tab:stones}); D1 = shortest path, D3 = highest leverage.
+\item[O3, O4, O13, O16.] Entries of the series-wide open-task registry (maintained in the structural overview, \#65): O3 = curved-spacetime completion of the emergent metric; O4 = Berry curvature $\leftrightarrow$ Riemann bridge; O13 = closure of the Berry--Synge--Bonnet--Myers triangle; O16 = physical identity of $A_\mu$.
+\item[Task (I), (C), (IV).] Open tasks declared inside Paper \#58 ((I): polarization construction; (IV): single-fragment transmission) and Paper \#59 ((C): gauge--metric coupling channel).
+\item[Task (viii).] Open task of Paper \#49: reconciliation of the kinematic conventions at $\iphase=\pi/2$ (the \#10 versus \#49 clash of entries C2--C3).
+\item[Hypothesis H / Proposition 1.] Hypothesis~\ref{hyp:H} (polarization inheritance) and Proposition~\ref{prop:rank2} (source-side rank-2 structure), the session's principal constructive pair.
+\end{description}
+
 \begin{thebibliography}{99}
 
 \bibitem{hanamura49} S. Hanamura, ``Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{10.5281/zenodo.19393391}
