@@ -1,19 +1,25 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
  aps,
 ]{revtex4-1}
 
-\usepackage{graphicx}% Include figure files
-\usepackage{dcolumn}% Align table columns on decimal point
-\usepackage{bm}% bold math
+\usepackage{graphicx}
+\usepackage{dcolumn}
+\usepackage{bm}
 \usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
-\usepackage{caption} % for captionsetup[figure]
-\usepackage{threeparttable} % for table caption modification
-\usepackage{breqn} % dmath: automatic equation line breaking
-\numberwithin{equation}{section}% (p.37)
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{breqn}
+\numberwithin{equation}{section}
 
+% ========================================
+% Page Layout Configuration
+% ========================================
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=3000
@@ -21,29 +27,31 @@
 \flushbottom
 \usepackage[final]{microtype}
 
-\usepackage{ragged2e}  % for \justifying command
+\usepackage{ragged2e}
 \usepackage{booktabs}
 
-
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
-        labelfont={bf},name={Fig.},labelsep=period} % raggedright for left-aligned figure captions
+        labelfont={bf},name={Fig.},labelsep=period}
     \captionsetup[table]{
         labelfont={bf},name={Table.},labelsep=period}
 
-
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{A Supplementary Correction to the 0-Sphere Model:\\ Dimensional Consistency of $G$ and $c^2$}
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
-\date{September 23, 2025}
-
-
+\date{September 23, 2025 (Revised: February 13, 2026)}
 
 \begin{abstract}
 We re-examine recent attempts to incorporate general relativistic corrections into the description of lepton Zitterbewegung. 
 A dimensional inconsistency in the application of geodetic precession led to spurious claims of a finite muon critical radius. 
-When the correct $G$ and $c^2$ factors are restored, geodetic precession becomes negligible at quantum scales, 
+When the correct $G$ and $c^2$ factors are restored, geodetic precession becomes negligible at quantum scales ($\Delta\phi_{\rm geodetic} \sim 10^{-29}$~rad at $R \sim 10^{-25}$~m), 
 leaving the critical radius undefined. We then explore alternatives such as Thomas precession, which yields a nonzero correction 
 but cancels its radius dependence, also eliminating the notion of a critical radius. 
 Our results clarify the role of relativistic effects in microscopic lepton dynamics and point toward gravitomagnetic 
@@ -52,6 +60,18 @@ or semiclassical stress-energy approaches as possible next steps.
 
 \maketitle
 
+% ========================================
+% Revision Note
+% ========================================
+\section*{Revision Note}
+
+This revision corrects numerical errors in the intermediate quantity $3Gm_\mu/c^2$ and in the geodetic precession estimates that propagated from it. Specifically:
+\begin{itemize}
+\item The value $3Gm_\mu/c^2 \approx 7.496 \times 10^{-60}$~m stated in v1 is corrected to $\approx 4.196 \times 10^{-55}$~m (the v1 value was too small by a factor of $\sim 5.6 \times 10^4$).
+\item The geodetic precession at $R \sim 10^{-25}$~m is corrected from $\sim 2.35 \times 10^{-34}$~rad to $\sim 1.32 \times 10^{-29}$~rad.
+\item References to ``$10^{-52}$~rad'' in the abstract and conclusion are corrected to ``$10^{-29}$~rad.''
+\end{itemize}
+The final result $R_{\rm crit} \approx 2.55 \times 10^{-52}$~m and all qualitative conclusions are unchanged.
 
 % ========================================
 % Section 1: Introduction
@@ -61,12 +81,11 @@ or semiclassical stress-energy approaches as possible next steps.
 The dynamics of elementary particles such as electrons and muons are well described by quantum electrodynamics (QED)~\cite{schwinger1948}, but the possibility of incorporating relativistic corrections into microscopic Zitterbewegung has been repeatedly raised. 
 Zitterbewegung refers to the rapid oscillatory motion that emerges from the Dirac equation~\cite{dirac1928,zitterbewegung1930} and is often reinterpreted in semiclassical models as a trembling motion associated with spin and anomalous magnetic moments. Recent high-precision measurements of the electron anomalous magnetic moment~\cite{fan2023} continue to provide stringent tests of QED predictions. Our work~\cite{zenodo.16905633} attempted to connect these oscillations with general relativistic corrections, in particular geodetic precession of the spin vector.
 
-The motivation for this line of research stems from the search for mass-dependent instabilities in lepton dynamics. It was suggested that a ``critical radius'' exists for the muon, below which Zitterbewegung vanishes, possibly leading to decay. The proposed mechanism relied on combining Lorentz contraction effects from special relativity (SR) with geodetic precession from general relativity (GR). However, a closer examination reveals that the calculation omitted the necessary factors of $G$ and $c^2$ in the expansion parameter. This omission resulted in a numerical overestimation of the GR correction by many orders of magnitude.
+The motivation for this line of research stems from the search for mass-dependent instabilities in lepton dynamics. It was suggested that a ``critical radius'' exists for the muon, below which Zitterbewegung vanishes, possibly leading to decay. The proposed mechanism relied on combining Lorentz contraction effects from special relativity (SR) with geodetic precession from general relativity (GR). However, a closer examination reveals that the calculation omitted the necessary factors of $G$ and $c^2$ in the expansion parameter. This omission resulted in a numerical overestimation of the GR correction by approximately 27 orders of magnitude (the ratio $c^2/G \approx 1.35 \times 10^{27}$).
 
 The present paper revisits the problem by restoring the correct form of the geodetic precession, analyzing its actual scale, and exploring alternative relativistic corrections. 
 In particular, we investigate whether Thomas precession, arising from acceleration in SR, 
 could provide a meaningful substitute.
-
 
 % ========================================
 % Section 2: Motivation
@@ -79,9 +98,9 @@ The geodetic precession angle for a gyroscope in orbit around mass $M$ at radius
 \label{eq:geodetic_full}
 \end{equation}
 This expression is dimensionally consistent, with the expansion parameter $GM/(c^2R)$. 
-Applying this to a muon mass with $R$ at the microscopic scale yields
+Applying this to a muon mass with $R$ at the microscopic scale ($R \sim 10^{-25}$~m) yields
 \begin{equation}
-\Delta \phi_{\mathrm{geodetic}} \sim 10^{-52} \ \ \text{rad per orbit}.
+\Delta \phi_{\mathrm{geodetic}} \sim 10^{-29} \ \ \text{rad per orbit}.
 \end{equation}
 Thus the geodetic effect is negligible, consistent with the conventional view that GR plays no role in quantum-scale dynamics. 
 Consequently, the previously claimed muon critical radius at $3.4 \times 10^{-25}\,\mathrm{m}$~\cite{zenodo.16905633} 
@@ -140,7 +159,6 @@ may in principle reintroduce $r$ dependence and deserve further study.
 Similarly, one could attempt to map the effective acceleration into a potential and 
 recover a semi-classical geodetic-type correction, but this requires explicit assumptions beyond SR.
 
-
 % ========================================
 % Section 4: Analysis and Detailed Derivations
 % ========================================
@@ -155,7 +173,7 @@ Throughout we set $\beta\equiv v/c$ and $\gamma\equiv(1-\beta^{2})^{-1/2}$. Nume
 which correspond to speeds $v\approx 0.04047\,c$ as used in the original empirical mapping between Lorentz contraction and the anomalous moment in the cited work. We also take the electron Compton wavelength as a characteristic microscopic radius where needed, $r_{\rm C}^{(e)}=\lambda_{C,e}\simeq 2.42631\times10^{-12}\,\mathrm{m}$.
 
 % ----------------------------------------
-% Subsection 4.1: Special-Relativistic Angle Deficit (Lorentz Contraction)
+% Subsection 4.1: Special-relativistic angle deficit
 % ----------------------------------------
 \subsection{Special-relativistic angle deficit (Lorentz contraction)}
 
@@ -192,7 +210,7 @@ Numerically, for the muon value $\beta_{\mu}=0.040581$,
 \end{equation}
 
 % ----------------------------------------
-% Subsection 4.2: Geodetic Precession -- Correct Dimensional Form and Numerical Magnitude
+% Subsection 4.2: Geodetic precession
 % ----------------------------------------
 \subsection{Geodetic precession --- correct dimensional form and numerical magnitude}
 
@@ -203,13 +221,14 @@ The standard exact expression for a gyroscope in a Schwarzschild-like field trav
 \end{equation}
 Thus, the combination governing the magnitude is $GM/(c^{2}R)$. Using SI values $G=6.67430\times10^{-11}\,\mathrm{m^{3}\,kg^{-1}\,s^{-2}}$ and $c=2.99792458\times10^{8}\,\mathrm{m/s}$, and inserting the muon mass $m_{\mu}=1.883531627\times10^{-28}\,\mathrm{kg}$, we obtain the characteristic scale
 \begin{equation}
-\frac{3GM}{c^{2}} \;=\; \frac{3Gm_{\mu}}{c^{2}} \approx 7.496\times10^{-60}\ \mathrm{m}.
+\frac{3GM}{c^{2}} \;=\; \frac{3Gm_{\mu}}{c^{2}} \approx 4.196\times10^{-55}\ \mathrm{m}.
+\label{eq:3GM_over_c2}
 \end{equation}
 Therefore a radius $R$ of order $10^{-25}\,\mathrm{m}$ gives
 \begin{align}
-\Delta\phi_{\mathrm{geodetic}} &\sim \frac{3\pi G m_\mu}{c^{2} R} \\
-&\sim \pi\times\frac{7.496\times10^{-60}}{10^{-25}} \\
-&\sim 2.35\times10^{-34}\ \mathrm{rad},
+\Delta\phi_{\mathrm{geodetic}} &\sim \frac{3\pi G m_\mu}{c^{2} R} \label{eq:geodetic_estimate_a}\\
+&\sim \pi\times\frac{4.196\times10^{-55}}{10^{-25}} \label{eq:geodetic_estimate_b}\\
+&\sim 1.32\times10^{-29}\ \mathrm{rad}, \label{eq:geodetic_estimate_c}
 \end{align}
 which is completely negligible. If one instead follows the dimensionally consistent route to solve for the ``critical radius'' via the relation
 \begin{equation}
@@ -226,10 +245,10 @@ For the muon parameters stated above ($\beta_{\mu}=0.040581$) this evaluates to
 R_{\text{crit}} \approx 2.55\times 10^{-52}\ \mathrm{m},
 \label{eq:Rcrit_withG_num}
 \end{equation}
-so the GR-based critical radius with correct dimensions is absurdly small compared to any physically relevant microscopic scale. By contrast, the omission of $G/c^{2}$ (i.e. using $3M/\beta^{2}$ with $M$ in kg) produces a numerical value around $10^{-25}\,\mathrm{m}$ — this is a units mistake, not a physical effect. We document both values explicitly to make this point quantitative.
+so the GR-based critical radius with correct dimensions is absurdly small compared to any physically relevant microscopic scale. By contrast, the omission of $G/c^{2}$ (i.e. using $3M/\beta^{2}$ with $M$ in kg) produces a numerical value around $10^{-25}\,\mathrm{m}$ --- this is a units mistake, not a physical effect. The overestimation factor is $c^2/G \approx 1.35 \times 10^{27}$, i.e., approximately 27 orders of magnitude. We document both values explicitly to make this point quantitative.
 
 % ----------------------------------------
-% Subsection 4.3: Thomas Precession: Derivation and Consequences
+% Subsection 4.3: Thomas precession
 % ----------------------------------------
 \subsection{Thomas precession: derivation and consequences}
 
@@ -277,7 +296,7 @@ becomes, with $\Delta\phi_{\mathrm{add}}=\Delta\phi_{\mathrm{T}}$,
 which involves only $\beta$ (or $\gamma$), not $R$. Thus either this algebraic equation for $\beta$ has a (nontrivial) solution or it does not; it cannot be solved for $R$ and therefore cannot define a critical radius. We analyze the consequences numerically below.
 
 % ----------------------------------------
-% Subsection 4.4: Numerical Evaluation: SR vs Thomas for Electron and Muon
+% Subsection 4.4: Numerical evaluation
 % ----------------------------------------
 \subsection{Numerical evaluation: SR vs Thomas for electron and muon}
 
@@ -306,7 +325,7 @@ For the muon ($\beta_{\mu}=0.040581$):
 Thus $\Delta\phi_{\mathrm{T}}\approx 2\times\Delta\phi_{\mathrm{SR}}$ to leading order in $\beta$, consistent with the analytic low-$\beta$ expansions in Eqs.~\eqref{eq:delta_phi_SR_series} and \eqref{eq:DeltaPhiT_lowbeta}.
 
 % ----------------------------------------
-% Subsection 4.5: Angle-Linear Composition and the Critical-Radius Condition
+% Subsection 4.5: Angle-linear composition
 % ----------------------------------------
 \subsection{Angle-linear composition and the ``critical-radius'' condition}
 
@@ -331,7 +350,7 @@ Using the numerical values above, one finds
 for either electron- or muon-like $\beta$ in the range considered. Thus $L/L_0>1$, and the equation $L/L_0=1$ has no nontrivial radius solution; Thomas precession acts to increase the effective half-circumference relative to the SR-only value rather than to restore it to unity at some finite radius.
 
 % ----------------------------------------
-% Subsection 4.6: Discussion of the Implication
+% Subsection 4.6: Discussion
 % ----------------------------------------
 \subsection{Discussion of the implication}
 
@@ -345,7 +364,7 @@ It follows that three logical outcomes cover the possible routes forward:
 \end{enumerate}
 
 % ----------------------------------------
-% Subsection 4.7: Paths Not Taken: Gravitomagnetism and Semi-Classical Backreaction
+% Subsection 4.7: Gravitomagnetism and semi-classical backreaction
 % ----------------------------------------
 \subsection{Paths not taken: gravitomagnetism and semi-classical backreaction}
 
@@ -357,14 +376,12 @@ Second, a semi-classical (``half-quantum'') treatment where one computes $\langl
 
 We note that both routes remain, in principle, calculable and could yield an $R$-dependent contribution larger than naive $GM/c^{2}R$ if the local averaged energy density is made sufficiently large or if the flux is highly coherent and concentrated. Absent such assumptions, the GR-based route remains numerically negligible.
 
-
-
 % ========================================
 % Section 5: Conclusion
 % ========================================
 \section{Conclusion}\label{sec:conclusion}
 
-We have revisited the attempt to combine SR and GR corrections in the microscopic dynamics of leptons. Restoring the correct dimensional factors in geodetic precession reduces its contribution to $10^{-52}$ rad, eliminating any observable effect on Zitterbewegung. The muon critical radius reported in earlier work 
+We have revisited the attempt to combine SR and GR corrections in the microscopic dynamics of leptons. Restoring the correct dimensional factors in geodetic precession reduces its contribution to $\sim 10^{-29}$~rad (at $R \sim 10^{-25}$~m), with the dimensionally consistent critical radius evaluating to $R_{\rm crit} \approx 2.55 \times 10^{-52}$~m --- far below any physically relevant scale. The muon critical radius reported in earlier work 
 is therefore not supported. We then explored Thomas precession as an alternative correction. Although its magnitude is comparable to the Lorentz contraction deficit, its independence from orbital radius prevents the definition of a critical radius. The conclusion is that neither geodetic nor Thomas precession yields a meaningful instability scale for the muon. 
 
 Future investigations may focus on gravitomagnetic effects or semiclassical approaches linking the stress-energy tensor to local inertial frames. Such methods may allow the introduction of a genuine radius-dependent correction at the quantum scale. Until then, Zitterbewegung remains governed by SR alone, with GR contributions safely negligible. 
@@ -380,36 +397,25 @@ Future investigations may focus on gravitomagnetic effects or semiclassical appr
 J.~Schwinger,
 ``On Quantum-Electrodynamics and the Magnetic Moment of the Electron,''
 \textit{Phys. Rev.} \textbf{73}, 416 (1948).
-% Calculated the electron anomalous magnetic moment alpha/(2pi) via one-loop QED correction.
-% Established the concept of quantum corrections to the magnetic moment.
 
 \bibitem{dirac1928}
 P.~A.~M.~Dirac,
 ``The Quantum Theory of the Electron,''
 \textit{Proc. R. Soc. Lond. A} \textbf{117}, 610 (1928).
-% Introduced the Dirac equation; predicted electron spin and the existence of antiparticles.
-% Established the theoretical basis for the magnetic moment g=2.
 
 \bibitem{zitterbewegung1930}
-E.~Schrödinger,
-``Über die kräftefreie Bewegung in der relativistischen Quantenmechanik,''
+E.~Schr\"odinger,
+``\"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik,''
 \textit{Sitzungsber. Preuss. Akad. Wiss. Phys.-Math. Kl.} \textbf{24}, 418 (1930).
-% First proposal of the Zitterbewegung concept. Describes the high-frequency oscillatory
-% phenomenon arising from the Dirac equation.
 
 \bibitem{fan2023}
 X.~Fan, T.~G.~Myers, B.~A.~D.~Sukra, and G.~Gabrielse, 
 ``Measurement of the Electron Magnetic Moment,'' 
 \textit{Phys. Rev. Lett.} \textbf{130}, 071801 (2023). 
 \href{https://doi.org/10.1103/PhysRevLett.130.071801}{https://doi.org/10.1103/PhysRevLett.130.071801}.
-% Highest-precision measurement of the electron anomalous magnetic moment to date.
-% Provides stringent tests of QED and constraints on new physics.
 
 \bibitem{zenodo.16905633} 
 S. Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principles Approach to Anomalous Magnetic Moments and Geodetic Precession, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765097}{doi:10.5281/zenodo.17765097}. [Originally: \href{https://vixra.org/abs/2501.0130}{viXra:2501.0130}]
-% Establishes a direct algebraic relation between lepton anomalous magnetic moments and
-% Zitterbewegung velocity; integrates quantum phenomena with SR and GR principles.
-% Derives precise predictions incorporating geodetic precession.
 
 \bibitem{thomas1926} 
 Thomas, L. H., 
@@ -419,9 +425,6 @@ DOI: \href{https://doi.org/10.1038/117514a0}{10.1038/117514a0}
 
 \bibitem{zenodo.16759284} 
 S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{https://vixra.org/abs/1811.0312}{viXra:1811.0312}]
-% Proposes an electron model redefining the electron as two perfect black bodies,
-% interpreting virtual photons as real photons. Aims to address spinorial behavior
-% and the self-energy problem.
 
 \end{thebibliography}
 
@@ -429,7 +432,7 @@ S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (
 % Author's Note
 % ========================================
 \section*{Author's Note}
-The author has been continuously developing the 0-Sphere model since 2018~\cite{zenodo.16759284}, well before the advent of advanced large language models (LLMs). This historical continuity underscores the originality and independence of the theoretical framework, which has evolved through the author’s own work rather than through AI-assisted generation.
+The author has been continuously developing the 0-Sphere model since 2018~\cite{zenodo.16759284}, well before the advent of advanced large language models (LLMs). This historical continuity underscores the originality and independence of the theoretical framework, which has evolved through the author's own work rather than through AI-assisted generation.
 
 This manuscript serves as a supplementary analysis extending the author's previous submission ``Bridging Quantum Mechanics and General Relativity: A First-Principles Approach to Anomalous Magnetic Moments and Geodetic Precession.'' During a dimensional review conducted with the assistance of AI tools (ChatGPT 5.0), a critical inconsistency was identified: the omission of $G$ and $c^2$ factors in geodetic precession calculations. Earlier AI models (e.g., GPT-4.0) had failed to recognize this issue, and its identification through GPT-5.0 highlights a noteworthy advance in AI-assisted theoretical checks. 
 
@@ -441,6 +444,7 @@ This note is intended as an open letter rather than a formal publication for pee
 \noindent
 Note: The theoretical framework underlying this study has been under development since 2018, predating the availability of advanced AI tools. Its continuity can be verified through the author's publication history on Zenodo.
 
-
-
+% ========================================
+% End of Document
+% ========================================
 \end{document}

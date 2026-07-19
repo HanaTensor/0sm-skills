@@ -1,0 +1,922 @@
+% #56: framework boundary (companion to #55)
+% 10.5281/zenodo.19900974
+
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
+\lstset{style=pythonstyle}
+\newcommand{\iphase}{\theta}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\hodge}{\star}
+
+\newcommand{\yzplane}[3]{%
+\begin{tikzpicture}[x=2.4cm, y=2.4cm]
+  \fill[black!88] (-1.30,-1.35) rectangle (1.30,1.58);
+  \draw[white!35, thin, ->] (-1.18,0)--(1.22,0)
+    node[right, white, font=\footnotesize]{$y$};
+  \draw[white!35, thin, ->] (0,-1.18)--(0,1.30)
+    node[above, white, font=\footnotesize]{$z$};
+  \node[cyan!75, font=\small] at (0, 1.50) {$#2$};
+  \draw[cyan!55, thick] (0,0) circle (0.68);
+  \draw[orange!80, dashed, thin] (-1.08,0)--(1.08,0);
+  \draw[orange!80, dashed, thin] (0,-1.08)--(0,1.08);
+  \node[orange!80, font=\footnotesize] at (1.14, 0.14) {$A$};
+  \node[orange!80, font=\footnotesize] at (0.14, 1.14) {$B$};
+  \pgfmathsetmacro{\sgn}{#1}
+  \pgfmathsetmacro{\startA}{25*\sgn}
+  \pgfmathsetmacro{\endA}{155*\sgn}
+  \draw[yellow!85, very thick, ->]
+    ({0.68*cos(\startA)},{0.68*sin(\startA)})
+    arc (\startA:\endA:0.68);
+  \fill[yellow!92!orange] (0.68, 0) circle (0.058);
+  \draw[white!50, thin] (-1.05,-0.92) circle (0.11);
+  \draw[white!50, thin] (-1.05-0.078,-0.92-0.078)--(-1.05+0.078,-0.92+0.078);
+  \draw[white!50, thin] (-1.05+0.078,-0.92-0.078)--(-1.05-0.078,-0.92+0.078);
+  \node[white!55, font=\footnotesize] at (-1.05,-1.12) {$+x$};
+  \node[white!90, font=\footnotesize] at (0, -1.26) {#3};
+  \node[white!45, font=\footnotesize, align=center] at (0.78, -0.88)
+    {viewed\\from $-x$};
+\end{tikzpicture}%
+}
+
+\begin{document}
+
+\title{
+The Framework Boundary:\\
+How Local-Field and Directed-Path Descriptions\\
+Diverge in the 0-Sphere Model\\
+{\normalsize ---with Application to Microscopic Time Reversibility---}
+}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{May 3, 2026}
+
+\begin{abstract}
+We identify a structural feature of physical description that we term the \emph{framework boundary}: a single mathematical identity, read within two different conceptual frameworks, can lead to opposite physical conclusions. The two frameworks are the \emph{local-field framework}, in which the value of a field $\phi(x)$ at a spacetime point is primary, and the \emph{directed-path framework}, in which the phase $\Phi(\gamma) = \int_\gamma\omega$ accumulated along a directed path is primary and local field values are derived densities. Both frameworks compute identical numbers from identical equations; they differ in what physical interpretation is assigned to those numbers. The relationship parallels the Lagrangian--Eulerian distinction in continuum mechanics, articulated for the 0-Sphere line-integral ontology in the companion paper~\cite{hanamura55}.
+
+As an application, we examine the zero integral torque identity $\sum_{k=0}^{n-1}\sin(4b_k)=0$ of the 0-Sphere $n$-oscillator system. The local-field reading takes this as a decoupling condition: the internal modes exert zero net torque on the global phase $a$, the internal structure becomes invisible, and the identity certifies that the modes may be ignored. The directed-path reading takes the same identity as a topological protection condition: zero net torque on $a$ means the directed advance $\chi=\mathrm{sign}(da/dt)$ is undisturbed by the modal ensemble, and the chirality of the thermal geodesic is preserved as a topological invariant.
+
+The two readings disagree on whether genuine microscopic irreversibility exists at the single-electron level. We develop the directed-path reading systematically and locate the result within the historical landscape: where Boltzmann answered the Loschmidt objection statistically and Penrose cosmologically, the directed-path framework answers structurally---microscopic time-reversal symmetry is itself a framework artifact rather than a feature of physical reality.
+\end{abstract}
+
+
+\maketitle
+
+%-------------------------------------------------------------
+\section{Introduction}
+\label{sec:introduction}
+%-------------------------------------------------------------
+
+The selection of a conceptual framework for physical description is not an aesthetic choice. It is a substantive decision that determines which physical phenomena enter into the theory as observable and which remain invisible. This is the principal claim of the present paper. We argue that physics admits two distinct frameworks for assigning primacy to physical quantities, that the two are not equivalent in their empirical content, and that several phenomena---including, as we shall see, the microscopic arrow of time of a single electron---are visible in one framework and invisible in the other. The framework boundary, in the sense developed below, is the line at which these two descriptions diverge.
+
+The first framework, which we shall refer to as the \emph{local-field framework}, takes the value of a field $\phi(x)$ at a spacetime point $x$ as the primary carrier of physical information. Physical processes, in this framework, are described by field equations that govern how these local values evolve. Global or topological properties of field configurations are secondary: they are computed from the local values and are not regarded as independently real. Within this framework, an observable quantity is something that can be expressed as a function of local field values at a specific instant. Standard formulations of classical electromagnetism in terms of $\mathbf{E}(\mathbf{r},t)$ and $\mathbf{B}(\mathbf{r},t)$, of general relativity in terms of $g_{\mu\nu}(x)$ and $T_{\mu\nu}(x)$, and of quantum field theory in terms of operator-valued fields evaluated at spacetime points all belong to this framework.
+
+The second framework, which we shall refer to as the \emph{directed-path framework}, takes as primary the phase accumulated along a directed path $\gamma$:
+\begin{equation}
+\Phi(\gamma) = \int_\gamma \omega,
+\label{eq:path_integral_primary}
+\end{equation}
+where $\omega$ is a connection one-form defined along the path. Local field values, in this framework, are secondary: they are the infinitesimal densities from which $\Phi(\gamma)$ is assembled by integration, but the integrated quantity along the directed path is the physically real object. The Aharonov--Bohm effect, the Berry phase of adiabatically transported quantum systems, and the Wilson loops of gauge theories all furnish empirical examples in which the directed-path quantity carries physical information that the corresponding local field values, taken in isolation, do not. The line-integral ontology developed across the 0-Sphere Model series~\cite{hanamura31, hanamura29, hanamura30}, and given its most articulated form in the four-function decomposition of the open Wilson line~\cite{hanamura55}, belongs to this framework.
+
+\textbf{The principal claim of the present paper is that these two frameworks are not computationally contradictory but interpretationally divergent.} Both yield identical mathematical results from identical equations. They differ in what physical interpretation is assigned to those results. The same expression can be read in two different ways, and the two readings can lead to opposite conclusions about what the physical world contains. We shall develop this claim in two stages. In the first stage (Sec.~\ref{sec:framework_boundary}), we articulate the framework boundary as a general structural feature of physical description, drawing on the Lagrangian--Eulerian distinction familiar from continuum mechanics~\cite{hanamura55} as a structural analogy. In the second stage (Secs.~\ref{sec:zerotorque}--\ref{sec:directional_laws}), we trace the framework boundary through three specific applications to the 0-Sphere $n$-oscillator system: the zero integral torque identity, the topological chirality invariant, and the directional phase reading of conservation laws.
+
+The application to microscopic time reversibility, which occupies Sec.~\ref{sec:irreversibility}, illustrates the consequences of the framework boundary at maximum physical sharpness. The arrow-of-time problem asks why physical processes exhibit a preferred temporal direction even though the fundamental equations of physics are, at the microscopic level, symmetric under time reversal. Newton's equations transform into themselves under $t\to -t$ for velocity-independent forces, and the Schr\"odinger equation transforms into itself under anti-unitary time reversal. Yet macroscopic experience is full of irreversible processes. The contrast between microscopic reversibility and macroscopic irreversibility has been a central puzzle since the nineteenth century, and the major analyses of the question---Boltzmann's H-theorem~\cite{Boltzmann1872}, Loschmidt's objection~\cite{Loschmidt1876}, Penrose's cosmological proposal~\cite{Penrose1989}---all share a common starting premise: that microscopic physics is time-reversal symmetric.
+
+The framework boundary calls this premise into question. Microscopic time-reversal symmetry, we shall argue, is a feature of the local-field framework, not of physical reality. Within the directed-path framework, the chirality $\chi = \mathrm{sign}(da/dt)$ of the 0-Sphere internal phase is a topologically protected invariant of the trajectory; the time-reversed state $\chi \to -\chi$ lies in a topologically disconnected sector of the physical state space and is dynamically unreachable. Microscopic time reversibility therefore holds within the local-field reading and fails within the directed-path reading; both readings are mathematically consistent, but they describe different physical worlds. The Loschmidt objection of 1876, which is grounded in the local-field reading, ceases to be an objection within the directed-path reading. We do not claim that the directed-path framework is uniquely correct; we claim that the two frameworks make different physical content visible, and that the question of which framework better matches physical reality is to be settled empirically.
+
+The historical position of the present contribution within the arrow-of-time literature can be stated compactly. Boltzmann answered the Loschmidt objection statistically: most initial conditions lead to entropy increase~\cite{Boltzmann1872}. Penrose answered cosmologically: the macroscopic arrow of time traces to the extraordinarily low entropy of the Big Bang state, associated with the Weyl curvature hypothesis~\cite{Penrose1989}. Both responses retain the premise that microscopic dynamics are time-reversal symmetric; both locate the source of the arrow somewhere outside the microscopic dynamics themselves, either in the statistics of initial conditions or in the boundary conditions of the universe. The directed-path framework offers a third response: microscopic time-reversal symmetry is itself an artifact of the framework chosen to describe the microscopic dynamics, and within the directed-path framework no Loschmidt-type symmetry holds at the single-particle level. The arrow of time becomes a structural property of the individual electron, not a statistical or cosmological property of large ensembles. The structural irreversibility identified in this way is not in conflict with the Boltzmann and Penrose analyses; rather, it lies at a deeper level than either, providing the microscopic foundation that both analyses presuppose.
+
+The paper is organized as follows. Section~\ref{sec:framework_boundary} articulates the framework boundary as a general structural feature of physical description. Section~\ref{sec:twokernel} reviews the two-kernel architecture of the 0-Sphere Model in the form required for the subsequent applications. Section~\ref{sec:zerotorque} treats the first application: the zero integral torque identity and its two divergent readings. Section~\ref{sec:chirality} treats the second application: the chirality $\chi$ as a topologically protected invariant of the directed trajectory. Section~\ref{sec:directional_laws} treats the third application: conservation laws read as directional phase consistency conditions. Section~\ref{sec:irreversibility} synthesizes the three applications into the microscopic arrow of time and locates the result within the historical landscape of Boltzmann, Loschmidt, and Penrose. Section~\ref{sec:opendriven} establishes the dynamical mechanism by which the chirality is preserved: the 0-Sphere system is an open, driven, non-conservative system maintained in a non-equilibrium steady state. Section~\ref{sec:helical} discusses the consequence of one-directional energy radiation along the helical trajectory. Section~\ref{sec:prigogine} relates the result to Prigogine's dissipative-structure programme. Section~\ref{sec:position} states the position of the present paper within the 0-Sphere Model series. Section~\ref{sec:scope} addresses scope and anticipated objections. Section~\ref{sec:conclusion} concludes.
+
+Appendix~\ref{app:claims} lists the logical status of each principal claim of the paper, distinguishing established results from conjectures. Appendix~\ref{app:4bk} provides the step-by-step derivation of the mode torque $\sin(4b_k)$ that underlies the zero integral torque identity. Appendix~\ref{app:roadmap} provides a conceptual roadmap of the framework boundary for readers from field theory or classical mechanics. Appendix~\ref{app:modes} develops the physical interpretation of the zero integral torque condition in terms of the mixed spherical-harmonic modes of the photon sphere and the boundary constraints imposed by the kernels acting as fixed endpoints; this material articulates a physical picture of the identity that is implicit in the directed-path reading but not transparent within a purely formal treatment.
+
+
+%-------------------------------------------------------------
+\section{The Framework Boundary}
+\label{sec:framework_boundary}
+%-------------------------------------------------------------
+
+The framework boundary is the conceptual line at which the local-field and directed-path descriptions of physical systems diverge in their interpretation of identical mathematical structures. In this section we articulate the boundary as a general structural feature, drawing on the Lagrangian--Eulerian distinction of continuum mechanics as the closest classical analogue, and we exhibit the boundary at work in the canonical empirical example of the Aharonov--Bohm effect.
+
+\subsection{Two frameworks for physical description}
+\label{sec:two_frameworks}
+
+The local-field framework takes the value of a field at a spacetime point as primary. The mathematical objects of the framework are functions $\phi(x)$, and the equations of the framework are partial differential equations that govern how these functions evolve. An observable, in this framework, is a quantity that can be evaluated at a spacetime point given the local field values there. The structural assumption of the framework is that all physical information is contained, in principle, in the totality of local field values at all spacetime points; any quantity that is not so contained is not a physical observable.
+
+The directed-path framework takes the phase accumulated along a directed path as primary. The mathematical objects of the framework are integrals $\Phi(\gamma) = \int_\gamma \omega$, where $\gamma$ is a directed curve and $\omega$ is a connection one-form, and the equations of the framework are conditions on these integrated quantities. An observable, in this framework, is a quantity that can be expressed as an integral along a directed path. The structural assumption of the framework is that some physical information is irreducibly path-integrated: it lives in the cumulative effect along an extended trajectory and cannot be assembled from local field values evaluated at points without the additional input of the path itself. Local field values are not denied; they are reinterpreted as the infinitesimal densities from which path integrals are built.
+
+The two frameworks are not in formal contradiction. Given a connection one-form $\omega$ defined throughout a region of spacetime, the path integral $\int_\gamma \omega$ is a well-defined functional of the path $\gamma$, computable from the local values of $\omega$ along $\gamma$. The point of the distinction is not that the two frameworks compute different numbers but that they assign different physical statuses to those numbers. Within the local-field framework, $\int_\gamma \omega$ is a derived quantity computed from the local values of $\omega$; the local values are primary, the integral is secondary. Within the directed-path framework, $\int_\gamma \omega$ is the primary observable, and the local values of $\omega$ are derived densities. The framework boundary is the line at which this priority is reversed.
+
+The Lagrangian--Eulerian distinction of continuum mechanics provides the closest classical analogue to the framework boundary~\cite{hanamura55}. The Eulerian description assigns physical quantities to fixed spatial points and records the field configuration at each point; it is the standpoint of $\rho(\mathbf{x},t)$, $\mathbf{u}(\mathbf{x},t)$, and $p(\mathbf{x},t)$ in fluid dynamics, and of $\phi(x)$, $A_\mu(x)$, and $g_{\mu\nu}(x)$ in field theory. The Lagrangian description follows material elements along their physical trajectories and records the history accumulated along each trajectory; it is the standpoint of path data, endpoints, and variational principles. In computational fluid dynamics, the introduction of particle-based methods (smoothed particle hydrodynamics, the moving particle semi-implicit method, and related approaches) has made accessible phenomena---free-surface flows, spray formation, and interfacial discontinuities---that remain difficult to capture within a purely Eulerian grid formulation. The change of viewpoint, from field values at fixed grid points to histories accumulated along particle trajectories, reveals physical content that is implicit but not easily extracted within the field-based description. The local-field and directed-path frameworks of the present paper stand in the same relation: the local-field framework is Eulerian, the directed-path framework is Lagrangian, and the difference between them is not in what they compute but in what they make visible.
+
+This Lagrangian--Eulerian correspondence is not a metaphor. The four-function decomposition of the open Wilson line developed in the companion paper~\cite{hanamura55} establishes that the same single object $\WL[A\to A'] = \int_A^{A'}\Pi$ carries Lagrangian data directly: a physical trajectory, two physically determined endpoints, and a history accumulated along the trajectory. The Eulerian quantities $F_{\mu\nu}(x)$ and $g_{\mu\nu}(x)$ of conventional electromagnetism and general relativity are recovered by propagating this Lagrangian data into the continuum in two distinct directions, as the dual-sector hierarchy of Function 4 makes explicit. The framework boundary articulated here is the conceptual analogue of the dual-sector hierarchy: where~\cite{hanamura55} identifies that one Lagrangian primitive supports two Eulerian sectors, the present paper identifies that the choice of primitive---Lagrangian or Eulerian, directed-path or local-field---determines what physical content the description can resolve.
+
+\subsection{The Aharonov--Bohm effect as empirical demonstration}
+\label{sec:aharonov_bohm}
+
+The framework boundary is not a philosophical hypothesis; it is empirically demonstrated in the Aharonov--Bohm effect~\cite{Aharonov1959, Tonomura1986}. Inside an idealized solenoid, the magnetic field $\mathbf{B}=0$ identically. The vector potential $\mathbf{A}$, however, does not vanish: it forms a closed loop around the solenoid axis. An electron whose path encircles the solenoid acquires a phase shift
+\begin{equation}
+\Phi_{\mathrm{AB}} = \frac{e}{\hbar}\oint \mathbf{A}\cdot d\mathbf{l},
+\label{eq:aharonov_bohm}
+\end{equation}
+which is experimentally measurable as a shift in the interference pattern between two electron paths that pass on opposite sides of the solenoid.
+
+The empirical reality of $\Phi_{\mathrm{AB}}$ is established beyond reasonable doubt by the experiments of Tonomura and collaborators~\cite{Tonomura1986}, in which the magnetic field was magnetically shielded from the electron paths to a degree that excluded any local-field explanation. The phase shift was observed at full predicted magnitude. The experimental result is unambiguous: the directed-path quantity $\oint\mathbf{A}\cdot d\mathbf{l}$ has physical reality independent of the local field value $\mathbf{B}$ along the path.
+
+The two frameworks read this experimental result differently. Within the local-field framework, the phase shift is interpreted as an artifact of the gauge potential $\mathbf{A}$, which is itself not a physical observable. The reading is that the quantum mechanical wave function is sensitive to the gauge potential through its phase, and that this sensitivity reveals an aspect of the gauge potential that has no classical analogue. The local-field framework accommodates the Aharonov--Bohm effect at the cost of treating $\mathbf{A}$ as having physical content beyond what $\mathbf{B}$ can express, but it does not regard this as a failure of the framework: it regards it as a feature of the quantum theory that supplements the classical local-field description. Within the directed-path framework, by contrast, the phase $\oint\mathbf{A}\cdot d\mathbf{l}$ is the primary observable, and the experimental result is the direct empirical confirmation of the framework's structural claim. The local field value $\mathbf{B}=0$ along the path is irrelevant to the value of the integral; the directed-path quantity has its own physical content, demonstrated by experiment, that the local field $\mathbf{B}$ cannot resolve.
+
+Both readings are empirically adequate. They differ in what they take to be the most natural ontological description of the situation. The directed-path framework regards the experiment as showing that line integrals of connections are primary observables, of which local field values are derived densities. The local-field framework regards it as showing that quantum mechanics introduces new physical content not present in the classical local-field description, with the gauge potential acquiring a non-classical role. The framework boundary is the line at which these two natural descriptions diverge. The present paper takes the directed-path reading as a guiding principle, on the grounds that the line-integral ontology developed in the 0-Sphere series~\cite{hanamura31, hanamura29, hanamura30, hanamura55} provides a coherent structural framework within which a wide range of phenomena---the Aharonov--Bohm effect, the Berry phase, Wilson loops, and the four-function decomposition of the present paper's companion---are understood as instances of the same primary observable structure.
+
+\subsection{The boundary as a structural feature, not a model artifact}
+\label{sec:structural_feature}
+
+The framework boundary is not an artifact of the 0-Sphere Model. It is a structural feature of physical description that persists across formalisms. The Lagrangian--Eulerian distinction in continuum mechanics; the Heisenberg--Schr\"odinger picture distinction in quantum mechanics, in which the time evolution can be assigned either to the operators or to the states; the difference between local and non-local observables in quantum field theory~\cite{Mandelstam1968, Polyakov1979}; the contrast between closed-loop and open-path observables in gauge theory~\cite{WuYang1975}---all of these reflect the same underlying duality between point-wise and integrated descriptions. In each case, both descriptions are mathematically self-consistent, both are computationally equivalent in well-defined senses, and yet they make different physical content visible.
+
+What is distinctive about the line-integral ontology of the 0-Sphere series is not that it identifies the framework boundary---which is implicit in many areas of physics---but that it takes the directed-path framework as the primary description from the outset. The local-field quantities $F_{\mu\nu}$, $g_{\mu\nu}$, and the conventional fields of standard physics are then derived structures, recovered by propagating the directed-path data into the continuum~\cite{hanamura55}. The framework choice is structural, not auxiliary: it determines which phenomena enter the theory as primary and which enter as derived. The arrow of time, as we shall argue in Sec.~\ref{sec:irreversibility}, is one of the phenomena whose status depends on this choice.
+
+
+%-------------------------------------------------------------
+\section{The Two-Kernel Architecture}
+\label{sec:twokernel}
+%-------------------------------------------------------------
+
+The 0-Sphere Model assigns to the electron an internal architecture consisting of two localized energy kernels, denoted A and B, connected by a virtual photon sphere that mediates energy transfer between them. We summarize here the features of this architecture relevant to the framework-boundary analysis; comprehensive accounts are available in the foundational paper~\cite{hanamura01} and in the topological-confinement analysis of Ref.~\cite{hanamura33}.
+
+\subsection{Energy partition and Hamiltonian identity}
+\label{sec:energy_partition}
+
+The internal energy of the electron is partitioned among three components. The kernel A carries an energy
+\begin{equation}
+E_A = E_0\cos^4\!\!\left(\tfrac{\theta}{2}\right),
+\label{eq:EA_56}
+\end{equation}
+the kernel B carries an energy
+\begin{equation}
+E_B = E_0\sin^4\!\!\left(\tfrac{\theta}{2}\right),
+\label{eq:EB_56}
+\end{equation}
+and the photon sphere carries an energy
+\begin{equation}
+\EphS = \tfrac{1}{2}E_0\sin^2\theta,
+\label{eq:Eph_56}
+\end{equation}
+where $\theta = \omZB t$ is the internal phase parametrized by the Zitterbewegung frequency $\omZB$ and the proper time $t$. These three components satisfy the Hamiltonian identity
+\begin{equation}
+E_A + E_B + \EphS = E_0\!\left[\cos^4\!\!\left(\tfrac{\theta}{2}\right) + \sin^4\!\!\left(\tfrac{\theta}{2}\right) + \tfrac{1}{2}\sin^2\theta\right] \equiv E_0
+\label{eq:identity}
+\end{equation}
+identically for all values of $\theta$. The identity is algebraic, not approximate; it expresses the closed nature of the internal energy budget at every instant of the cycle.
+
+The radiation gradient between the kernels is given by
+\begin{equation}
+\Egrad = E_A - E_B = E_0\cos\theta,
+\label{eq:gradient}
+\end{equation}
+which drives the photon sphere along an open thermal geodesic from one kernel toward the other~\cite{hanamura24}. The gradient vanishes at $\theta = \pi/2$ and $\theta = 3\pi/2$, at which moments the kernels are at equal energy and the photon sphere is at maximum kinetic energy. The gradient is maximally positive at $\theta = 0$ and maximally negative at $\theta = \pi$, at which moments the photon sphere is at one of the kernels with vanishing kinetic energy.
+
+The Hamiltonian identity Eq.~\eqref{eq:identity} embodies a structural feature of the model that is central to the framework-boundary analysis: the identity holds for all values of the internal phase $\theta$, with no degree of freedom left for the phase value to enter as an observable. Within the local-field framework, this is a strong statement: it says that no external measurement of any local field associated with the electron can determine the value of $\theta$ at any instant, since the energy budget is closed and the same total $E_0$ is observed regardless of $\theta$. Within the directed-path framework, the same statement is read differently: it says that the directed advance of $\theta$ along the trajectory is governed by a closed cycle in which the integrated phase $\int d\theta = 2\pi$ per cycle is the primary observable. The total energy is invariant; the directed cycle is observable. The two readings will return as the source of the divergent interpretations of the zero integral torque identity in Sec.~\ref{sec:zerotorque}.
+
+\subsection{Thermal geodesic and virtual photon dynamics}
+\label{sec:thermal_geodesic}
+
+The trajectory of the photon sphere between the kernels is a thermal geodesic in the sense of Ref.~\cite{hanamura24}: an extremal path in an internal thermodynamic geometry whose metric is determined by the radiation gradient. The thermal geodesic is open: the kernel positions $\mathbf{r}_A$ and $\mathbf{r}_{A'}$ at the start and end of one inter-kernel cycle are spatially distinct, $\mathbf{r}_{A'} \neq \mathbf{r}_A$, because the electron as a whole is in motion relative to any external observer~\cite{hanamura47}. The openness of the trajectory is geometric, not approximate; the kernel never returns exactly to its point of departure.
+
+The recent refinement of the trajectory geometry in Ref.~\cite{hanamura51} establishes that the thermal geodesic is in fact a three-dimensional helix, with a transverse Zitterbewegung speed $v_{\mathrm{ZB}} \approx 0.04 c$ and a longitudinal pitch speed of order $c$. The helical geometry is essential to the directional structure of the trajectory: the helix has a definite handedness (right-handed or left-handed), and the handedness is the geometric encoding of the chirality $\chi$ that we shall examine in Sec.~\ref{sec:chirality}. The Bonnet--Myers diameter bound applied to the photon-sphere curvature, also developed in Ref.~\cite{hanamura51}, secures the existence and uniqueness of the helical thermal geodesic between the kernel positions.
+
+The two-kernel architecture, the Hamiltonian identity, and the helical thermal geodesic together provide the physical basis for the framework-boundary analysis. The internal phase $\theta$ advances along the helical trajectory, the cycle is closed in energy but open in space, and the directed advance of $\theta$ along the trajectory is the elementary observable in the directed-path framework. We turn now to the structural identity that exhibits the framework boundary at its sharpest.
+
+
+%-------------------------------------------------------------
+\section{Application I: The Zero Integral Torque Identity}
+\label{sec:zerotorque}
+%-------------------------------------------------------------
+
+The first application of the framework boundary concerns a specific mathematical identity that arises in the analysis of the 0-Sphere $n$-oscillator system and admits two divergent physical readings.
+
+\subsection{The $n$-oscillator system and the phase-staggered architecture}
+\label{sec:noscillator}
+
+The $n$-oscillator system, introduced in Ref.~\cite{hanamura50}, generalizes the two-kernel structure of the 0-Sphere Model to $n$ phase-staggered oscillators arrayed on the unit circle of the internal phase space. The architecture consists of $n$ kernels distributed at phases $b_k = \pi k / n$ for $k = 0, 1, \ldots, n-1$, with each kernel carrying its own oscillation amplitude and the ensemble coupled through the shared photon-sphere domain. The $n=2$ case reduces to the original two-kernel architecture; the general $n$-oscillator system is the natural extension required for the analysis of internal modes excited by absorbed photons.
+
+When external photons of energy $\hbar\omega$ are absorbed by the system, they do not excite a single oscillation mode but rather a spectrum of modes distributed across the photon sphere. In earlier work~\cite{hanamura50, hanamura48}, these excitations were argued to admit a description in terms of spherical harmonic modes on the photon sphere, reflecting the coexistence of multiple oscillatory patterns within the single physical structure. The $n$-oscillator system is the algebraic representation of this spherical-harmonic mode structure restricted to the unit circle: each value of $b_k$ corresponds to one mode in the ensemble, and the global phase $a$ of the system is the collective degree of freedom through which the ensemble couples to external observables.
+
+The mode torque acting on the global phase $a$, derived from the Hamiltonian dynamics of the phase-staggered ensemble, takes the form $\sin(4b_k)$ for the $k$-th mode (Appendix~\ref{app:4bk}). The factor of four arises from two independent doublings: the first doubling reflects the $\theta \to 2\theta$ structure of the spinorial Berry phase~\cite{hanamura26, hanamura48}, the second the squaring of the modal amplitude in the energy expression. The result is that the mode torque on $a$ is an odd function of $b_k$ with period $\pi/2$, vanishing at $b_k = 0, \pi/4, \pi/2, 3\pi/4$.
+
+\subsection{The zero integral torque identity}
+\label{sec:zerotorque_identity}
+
+For the $n$-oscillator system with kernels uniformly distributed at $b_k = \pi k/n$, the total torque on the global phase $a$ is
+\begin{equation}
+\sum_{k=0}^{n-1}\sin(4b_k) = \sum_{k=0}^{n-1}\sin\!\left(\frac{4\pi k}{n}\right).
+\label{eq:zero_torque_sum}
+\end{equation}
+This sum vanishes identically for all $n \geq 2$:
+\begin{equation}
+\sum_{k=0}^{n-1}\sin\!\left(\frac{4\pi k}{n}\right) = 0.
+\label{eq:zero_torque_main}
+\end{equation}
+The proof is elementary and is given in Appendix~\ref{app:4bk}; it reduces to the geometric series identity $\sum_{k=0}^{n-1} e^{i 4\pi k/n} = 0$ for $4\pi/n$ not a multiple of $2\pi$, with the imaginary part returning Eq.~\eqref{eq:zero_torque_main}.
+
+The identity Eq.~\eqref{eq:zero_torque_main} is the zero integral torque condition of the 0-Sphere $n$-oscillator system. It expresses an exact cancellation among the mode torques: regardless of the individual amplitudes of the modes, the total torque on the global phase $a$ from the ensemble is zero.
+
+The physical motivation for the identity, expressed in terms of the boundary structure of the 0-Sphere Model, can be stated as follows. The two energy kernels A and B (and, in the $n$-oscillator generalization, all $n$ kernels) act as fixed endpoints of the internal dynamics. When the photon sphere reaches any of these endpoints, its kinetic contribution must vanish according to the Hamiltonian dynamics: the energy partition Eqs.~\eqref{eq:EA_56}--\eqref{eq:Eph_56} requires that $\EphS = 0$ when the photon sphere is at either kernel, since $\sin\theta = 0$ at $\theta = 0$ and $\theta = \pi$. The internal modes excited by absorbed photons must therefore satisfy a global boundary constraint: their integrated angular impulse between the two fixed endpoints must cancel. The identity Eq.~\eqref{eq:zero_torque_main} is the algebraic expression of this boundary constraint within the $n$-oscillator representation of the spherical-harmonic mode structure.
+
+This physical interpretation is developed in detail in Appendix~\ref{app:modes}, which articulates the picture in terms of the mixed spherical-harmonic modes of the photon sphere and the fixed-endpoint boundary conditions imposed by the kernels. We note here only that the identity is not an accidental cancellation: it is the structural consequence of imposing the kernel boundary conditions on an arbitrary mixture of photon-sphere modes, and as such it holds independently of the specific decomposition of the photon-sphere state into modes.
+
+\subsection{Two readings of the same identity}
+\label{sec:two_readings}
+
+The zero integral torque identity Eq.~\eqref{eq:zero_torque_main} admits two physical readings that lead to opposite conclusions about the physical status of the 0-Sphere internal structure. The two readings are mathematically identical in their content; they differ in what physical interpretation is assigned to the result.
+
+\textbf{The local-field reading.} Within the local-field framework, the global phase $a$ is the sole observable degree of freedom of the system: it is the collective phase whose evolution can in principle be detected through external measurements of local field values. Internal modes contribute to the dynamics of $a$ through the torques they exert on it. If the modes exert zero net torque on $a$, they do not modify the dynamics of $a$. The internal modes therefore decouple from the observable degree of freedom $a$, and the internal structure becomes invisible to any local field measurement. The zero integral torque identity, in this reading, certifies that the internal mode structure of the 0-Sphere system is unobservable and may be safely ignored. The conclusion is that the 0-Sphere internal architecture, however elaborate it may be in formal description, contributes nothing to the physical content of the theory. The internal modes decouple, the internal structure is invisible, and the zero-torque condition is the mathematical statement of this invisibility.
+
+\textbf{The directed-path reading.} Within the directed-path framework, the elementary observable is the directed advance of the internal phase $a$ along its trajectory, encoded in the chirality $\chi = \mathrm{sign}(da/dt)$. The directed advance is a property of the trajectory, not of any local field value at a point: it specifies the sign of the phase advance, which is a global property of the directed history. Internal modes can in principle disrupt this directed advance, either by adding torques in the same direction (accelerating the advance) or in the opposite direction (decelerating or reversing it). If the modes exert zero net torque on $a$, the directed advance is undisturbed by the ensemble: the chirality $\chi$ proceeds at its native rate, unmodified by the modal dynamics. The zero integral torque identity, in this reading, certifies that the chirality of the internal trajectory is protected from mode-induced disruption. The conclusion is that the 0-Sphere internal structure carries a topologically stable directed history, encoded in the chirality $\chi$, that is preserved by the modal architecture rather than washed out by it. The internal modes do not decouple; rather, they collectively guarantee the topological stability of the directed phase advance.
+
+The two readings derive identical mathematical content from identical equations. They differ in the prior question each framework brings to the identity: \emph{what kind of physical information matters?} If the answer is ``local instantaneous values,'' the identity is a certificate of irrelevance. If the answer is ``directed path histories,'' the identity is a certificate of topological stability. Table~\ref{tab:framework_boundary} collects the two readings side by side.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The Framework Boundary: Two Readings of the Zero Integral Torque Identity}}
+\label{tab:framework_boundary}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{5.5cm}p{6.5cm}}
+\toprule
+& \textbf{Local-field framework} & \textbf{Directed-path framework} \\
+\midrule
+Primary physical quantity
+& Local field value $\phi(x)$ at each point $x$
+& Phase $\int_\gamma\omega$ accumulated along directed path $\gamma$ \\
+\addlinespace[0.3cm]
+Reading of $\sum_k\sin(4b_k)=0$
+& Internal modes exert zero net torque on $a$ $\Rightarrow$ modes decouple from $a$ $\Rightarrow$ internal structure is unobservable
+& Internal modes exert zero net torque on $a$ $\Rightarrow$ directed advance $\chi=\mathrm{sign}(da/dt)$ is protected from mode disruption $\Rightarrow$ thermal geodesic carries stable directed history \\
+\addlinespace[0.3cm]
+Status of internal structure
+& Invisible; safely ignorable
+& Physically real; encodes topological invariant $\chi$ \\
+\addlinespace[0.3cm]
+Consequence for time reversal
+& No internal structure $\Rightarrow$ no internal source of irreversibility $\Rightarrow$ microscopic reversibility holds
+& $\chi$ is topologically protected $\Rightarrow$ time-reversed state ($\chi\to-\chi$) is dynamically unreachable $\Rightarrow$ microscopic irreversibility \\
+\addlinespace[0.3cm]
+Empirical analogue
+& Magnetic field $\mathbf{B}=0$ inside solenoid $\Rightarrow$ no effect on local dynamics
+& $\oint\mathbf{A}\cdot d\mathbf{l}\neq 0$ around solenoid $\Rightarrow$ Aharonov--Bohm phase shift \\
+\addlinespace[0.3cm]
+Lagrangian--Eulerian status
+& Eulerian (field values at fixed points)
+& Lagrangian (history along trajectory) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The two frameworks are not computationally contradictory: both derive $\sum_k\sin(4b_k)=0$ correctly. The divergence is in what physical meaning is assigned to the result. The local-field framework reads the identity as decoupling; the directed-path framework reads it as topological protection. The arrow-of-time result of this paper is accessible only within the directed-path framework. The Lagrangian--Eulerian classification follows the structural correspondence developed in Ref.~\cite{hanamura55}.
+\end{minipage}
+\end{table*}
+
+The empirical analogue listed in the table is intended to highlight the structural parallel with the Aharonov--Bohm effect. Within the local-field framework, the magnetic field $\mathbf{B}=0$ along the electron path implies no influence on the local dynamics, just as zero net torque on $a$ implies decoupling of the internal modes. Within the directed-path framework, the gauge potential integrated along the path $\oint\mathbf{A}\cdot d\mathbf{l}$ remains a primary observable despite the vanishing local field, just as the directed advance $\chi$ remains a primary observable despite the vanishing total mode torque. The Aharonov--Bohm experiment empirically distinguishes the two readings in the gauge-potential context; we shall argue in Sec.~\ref{sec:irreversibility} that the directed-path reading of the zero integral torque identity has its own empirical consequence in the form of microscopic time irreversibility.
+
+
+%-------------------------------------------------------------
+\section{Application II: Topological Chirality}
+\label{sec:chirality}
+%-------------------------------------------------------------
+
+The second application of the framework boundary concerns the topological structure of the internal phase space and the resulting protection of the directed advance from continuous deformation. The chirality $\chi$ becomes accessible as a physical observable only within the directed-path framework; within the local-field framework, $\chi$ is invisible, and the topological protection that follows from it is correspondingly invisible.
+
+\subsection{Definition and Lorentz invariance}
+\label{sec:chirality_def}
+
+The chirality $\chi$ of the $n$-oscillator system is defined as the sign of the time derivative of the internal phase $a$:
+\begin{equation}
+\chi = \mathrm{sign}\!\left(\frac{da}{dt}\right) \in \{+1,-1\}.
+\label{eq:chirality_def}
+\end{equation}
+The value $\chi = +1$ corresponds to the phase advancing counterclockwise (the standard convention for the electron), while $\chi = -1$ corresponds to the phase advancing clockwise. The two values describe physically distinct directed advances of the internal phase along the trajectory.
+
+Under a proper orthochronous Lorentz transformation $\Lambda \in \mathrm{SO}^+(1,3)$, the phase derivative transforms as
+\begin{equation}
+\frac{da}{dt} \;\longrightarrow\; \frac{da}{dt'} = \frac{da/dt}{\gamma_\Lambda},
+\label{eq:phase_lorentz}
+\end{equation}
+where $\gamma_\Lambda > 0$ is the Lorentz factor. Since $\gamma_\Lambda$ is strictly positive, the sign of $da/dt$ is preserved: the chirality $\chi$ is the same in all inertial frames connected by proper Lorentz transformations~\cite{hanamura50}. Under time reversal $\mathcal{T}: t \to -t$, however, $\chi \to -\chi$. The chirality is a $\mathcal{T}$-odd quantity, like angular momentum and velocity.
+
+Figure~\ref{fig:yzplane} shows the two circulation states. The left panel shows counterclockwise rotation ($\chi = +1$), identified with the electron, and the right panel shows clockwise rotation ($\chi = -1$), the time-reversed state, tentatively identified with the positron. The two panels represent two physically distinct internal states whose difference is Lorentz invariant.
+
+\begin{figure*}[ht]
+\caption{\textbf{Photon-sphere circulation in the $yz$-plane for the two chirality sectors, viewed from $-x$.} The two panels represent the two topologically disconnected sectors $\chi=\pm 1$ of the physical state space. \textit{Left}: CCW rotation, $\chi=+1$, $h=+\tfrac{1}{2}$, identified with the electron. \textit{Right}: CW rotation, $\chi=-1$, $h=-\tfrac{1}{2}$, the time-reversed state, tentatively identified with the positron. Orange dashed lines: Kernel~A ($y$-axis) and Kernel~B ($z$-axis) oscillation axes. Cyan circle: photon-sphere orbit (radius~$\tfrac{1}{2}$). Yellow curved arrow: rotation direction. Yellow dot: instantaneous bright-mode position.}
+\label{fig:yzplane}
+\centering
+\vspace{6pt}
+\begin{tabular}{cc}
+\yzplane{1}{h=+\tfrac{1}{2}}{Electron\;($\chi=+1,\;da/dt>0$)} &
+\yzplane{-1}{h=-\tfrac{1}{2}}{Positron\;($\chi=-1,\;da/dt<0$)}
+\end{tabular}
+\vspace{4pt}
+\end{figure*}
+
+\subsection{The chirality as a directed-path observable}
+\label{sec:chirality_directed_path}
+
+The chirality $\chi = \mathrm{sign}(da/dt)$ is not accessible from any instantaneous local field value. To determine $\chi$, one must compare the value of the phase $a$ at two different times: the sign of the difference $a(t_2) - a(t_1)$ for $t_2 > t_1$ encodes the direction of the advance. The chirality is therefore a property of the directed history of the trajectory, not of any field value at a point.
+
+Within the local-field framework, this property is inaccessible. A local field measurement at time $t$ returns the value of some field $\phi(\mathbf{r}, t)$ at $(\mathbf{r}, t)$; it does not return any information about how $\phi$ was advancing toward this value. The local-field framework can in principle reconstruct the time derivative $\partial_t \phi$ at a point through a limiting procedure, but only by performing measurements at multiple times---which already implicitly invokes the directed structure of the trajectory. The clean point-wise measurement promised by the local-field framework cannot resolve the chirality; the framework treats $\chi$ as a derived quantity computed from a sequence of local measurements, not as a primary observable.
+
+Within the directed-path framework, by contrast, the chirality is the most elementary directed-path observable. The phase $a$ is the integrated quantity $\int_\gamma da$ along the trajectory; the chirality is the sign of this integration. The framework treats $\chi$ as a primary observable, accessible directly from the directed structure of the trajectory without the need for limiting procedures or sequences of point-wise measurements. The change in framework therefore changes the status of $\chi$: from a derived quantity in the local-field framework to a primary observable in the directed-path framework.
+
+This change in status is the source of the chirality protection developed in the next subsection. A primary observable that is topologically distinguished is automatically protected; a derived quantity computed from local measurements is not.
+
+\subsection{Topological protection}
+\label{sec:topological_protection}
+
+The topological protection of $\chi$ is established through a winding-number argument applied to the orbit structure of the internal phase space. The physical state space of the $n$-oscillator system, restricted to the attractor orbit at fixed center-of-mass radius $r_{\mathrm{cm}} = 1/2$ (Sec.~\ref{sec:opendriven}), decomposes into two disconnected components: $\{(a, \chi): \chi = +1\}$ and $\{(a, \chi): \chi = -1\}$. Each component is topologically equivalent to a circle $S^1$: the phase $a$ winds continuously around $[0, 2\pi)$ while $\chi$ remains constant.
+
+A winding number $w = +1$ is assigned to the component $\chi = +1$ and $w = -1$ to $\chi = -1$. The winding number is a topological invariant of the orbit: it cannot be changed by any continuous deformation of the orbit that stays within the physical state space. Changing $w$ from $+1$ to $-1$ would require the orbit to pass through a degenerate configuration where $da/dt = 0$. The system passes through the locus $\mathcal{S} = \{da/dt = 0\}$ at $\theta = 0$ and $\theta = \pi$ during each oscillation cycle---these are the turning points of the photon sphere between the kernels. However, these are genuine turning points with $d^2 a/dt^2 \neq 0$: the radiation gradient $E_0 \sin\theta$ immediately drives the phase away from each turning point, and the sign of this driving is the same before and after. The chirality $\chi$ does not change at the turning points.
+
+The spinorial structure of the internal dynamics provides an additional geometrical argument. The spinorial representation of the oscillator dynamics belongs to SU(2), and the fiber of the SU(2) principal bundle over the orbit space assigns a fixed sign to $da/dt$---the chirality---as a section of this bundle~\cite{hanamura48, hanamura45}. The non-triviality of this section is what prevents continuous chirality reversal. The spinorial state of the electron after a $4\pi$ round trip is the same as before, but the chirality of the traversal (which direction the round trip went) is a global property of the entire trajectory, not a local phase that can be continuously adjusted.
+
+The topological protection survives perturbations. Any perturbation of the system that maintains the energy conservation identity Eq.~\eqref{eq:identity} and the limit-cycle attractor at $r_{\mathrm{cm}} = 1/2$ cannot change $\chi$. This includes electromagnetic perturbations (which couple to the electron through its charge but do not directly alter the internal phase direction), gravitational perturbations (which couple through the thermal geodesic but do not violate the energy identity), and thermal fluctuations (which may perturb the phase value of $a$ but not its direction of advance, as long as the perturbations are smaller than the scale of the energy identity). The electron's chirality is robust, not fine-tuned: it is protected by the topological structure of the phase space, not by the smallness of some perturbation.
+
+A physically transparent way to state the protection is through the second law of thermodynamics applied internally. If the chirality were to reverse, the radiation gradient $E_0 \sin\theta$ would become a driving force in the wrong direction: it would drive energy from the cooler kernel to the warmer one. This is the internal analogue of heat flowing spontaneously from cold to hot, which violates the second law. The topological protection of $\chi$ is thus equivalent to the statement that the internal second law of thermodynamics of the 0-Sphere electron cannot be violated by any continuous dynamical evolution.
+
+\subsection{Time reversal and the disconnected sectors}
+\label{sec:time_reversal_sectors}
+
+The time-reversal transformation $\mathcal{T}$ acts on the internal phase as $\theta \to -\theta$, sending $d\theta/dt \to -d\theta/dt$ and therefore $\chi \to -\chi$. The time-reversed state of a forward-chirality ($\chi = +1$) electron is a backward-chirality ($\chi = -1$) electron. In a time-reversal symmetric theory, both states would be equally valid physical states, accessible from each other by the time-reversal operation.
+
+The 0-Sphere Model is not time-reversal symmetric in this sense, and the asymmetry is structural rather than dynamical. We must distinguish between a \emph{formal} symmetry and a \emph{physical} symmetry. A formal symmetry is a transformation of the mathematical variables that maps solutions to solutions; it applies at the level of the equations. A physical symmetry is a transformation that maps physically realizable states to physically realizable states; it applies at the level of the state space. Time reversal is a formal symmetry of many physical theories---meaning that the equations have this symmetry. The 0-Sphere Model breaks time reversal as a \emph{physical} symmetry: the time-reversed state lies outside the physically accessible state space, in a topologically disconnected sector that cannot be reached by any continuous evolution from the original sector.
+
+The connection between the spinorial phase asymmetry and the physical symmetry breaking can be made explicit. As established in Ref.~\cite{hanamura29}, a one-way traversal of the thermal geodesic from kernel A to kernel B accumulates a spinorial phase of $+2\pi$. The time-reversed traversal accumulates $-2\pi$. In SU(2), the states with spinorial phases $+2\pi$ and $-2\pi$ are related by a shift of $4\pi$, which is the full SU(2) period and the trivial element of the group, but is a nontrivial element in the covering space: the two spinorial states are topologically distinct, separated by the spinorial period. The U(1) fiber structure that underlies this distinction---showing that the internal $2\pi$ periodicity of the photon-sphere kinetic energy uniquely induces a principal U(1) bundle whose Berry holonomy $\gamma_{\mathrm{intrinsic}} = \pi$ is topologically protected---is established in Ref.~\cite{hanamura48}.
+
+The conclusion is that the 0-Sphere electron, once initialized in the forward-chirality state $\chi = +1$, remains in that state for all future times under any continuous perturbation consistent with the model's structural constraints. The arrow of time for the single electron is topologically inscribed in its internal structure. The local-field reading of the $n$-oscillator dynamics, which treats the internal modes as decoupled from observable degrees of freedom, gives no access to this topological structure; the directed-path reading, which treats the directed advance as the elementary observable, makes the topological protection visible as a structural feature of the system. The framework boundary is thus not a peripheral matter of interpretation but the line that determines whether the arrow of time of a single electron is a physical phenomenon or an inaccessible internal detail.
+
+
+%-------------------------------------------------------------
+\section{Application III: Conservation Laws as Directional Phase Consistency Conditions}
+\label{sec:directional_laws}
+%-------------------------------------------------------------
+
+The third application of the framework boundary concerns the structural status of conservation laws. Within the local-field framework, conservation laws are time-neutral balance equations: they assert that certain quantities remain constant as time passes, with no preferred direction of time entering the statement. Within the directed-path framework, conservation laws are reread as directional phase consistency conditions: they assert that the phase accumulated along a directed path satisfies certain self-consistency requirements, with the directed character of the path entering the statement essentially. The two readings yield equivalent computational consequences for time-symmetric situations and divergent consequences for situations where the directed structure of the trajectory is itself the object of interest.
+
+\subsection{The conventional reading of conservation laws}
+\label{sec:conventional_reading}
+
+In Newtonian mechanics, energy conservation is expressed as
+\begin{equation}
+\frac{dE}{dt} = 0,
+\label{eq:energy_conservation_newtonian}
+\end{equation}
+which states that the total energy is independent of time. The statement is time-neutral: it applies equally whether $t$ advances in the positive or negative direction. The same is true of momentum conservation, angular momentum conservation, and the local conservation laws of field theory expressed through Noether's theorem and the divergence-free conditions $\partial_\mu T^{\mu\nu} = 0$ in flat spacetime or $\nabla_\mu T^{\mu\nu} = 0$ in curved spacetime~\cite{Wald1984}. None of these statements distinguishes a forward direction of time from a backward direction.
+
+Within the local-field framework, this time neutrality is a feature of the conservation laws themselves: they are statements about the time-symmetric balance of physical quantities at each instant. The arrow of time, in this reading, must come from elsewhere---from initial conditions, from cosmological boundary conditions, or from statistical considerations. The conservation laws themselves contain no preferred direction.
+
+\subsection{The directed-path reading}
+\label{sec:directed_reading}
+
+The reformulation of conservation laws within the directed-path framework, developed across Refs.~\cite{hanamura30, hanamura55}, takes a different starting point. The primary objects are integrals along directed paths. Conservation laws, in this reading, are conditions on these integrals.
+
+Consider the total energy of the 0-Sphere electron, evaluated as the integral of the appropriate energy current along a one-cycle trajectory of the photon sphere. The integral is by construction directed: it is taken along the helical thermal geodesic from kernel A to kernel B (the forward half-cycle), and from kernel B to kernel A' (the backward half-cycle that closes the cycle but at a displaced spatial position $\mathbf{r}_{A'} \neq \mathbf{r}_A$). The integral
+\begin{equation}
+\Phi(\gamma) = \int_\gamma \omega
+\label{eq:directed_integral}
+\end{equation}
+is defined over a directed path; reversing the direction of the path, $\gamma \to -\gamma$, sends the integral to $\Phi(-\gamma) = -\Phi(\gamma)$. The forward and backward traversals therefore yield integrals of opposite sign.
+
+Energy conservation, in the directed-path reading, is the statement that the integrals along forward and backward traversals satisfy a self-consistency condition: the total accumulated phase around a closed trajectory must vanish, modulo the spinorial periodicity discussed in Sec.~\ref{sec:time_reversal_sectors}. The condition is no longer time-neutral. It depends on the directed structure of the path through the ordering of the two half-cycles, and it is sensitive to whether the trajectory traces forward chirality or backward chirality.
+
+The reformulation extends to the conservation laws of general relativity. The Bianchi identity $\nabla_\mu G^{\mu\nu} \equiv 0$ of general relativity, which implies the covariant conservation $\nabla_\mu T^{\mu\nu} = 0$ of the stress-energy tensor, is reread in Ref.~\cite{hanamura30} as a geometric consistency condition on the connection-based holonomy: the requirement that the accumulated phase along directed thermal geodesics be self-consistent when compared along different worldlines in the same spacetime region. Within the standard interpretation, the Bianchi identity is a purely mathematical identity of Riemannian geometry, devoid of physical content beyond ensuring the consistency of the field equations. Within the directed-path interpretation of Ref.~\cite{hanamura30}, the Bianchi identity is the geometric encoding of a directional consistency condition: the same accumulated phase must be obtained by any path connecting the same endpoints, modulo the topologically invariant winding contributions, regardless of which path is taken---and the comparison is a comparison of directed integrals along directed paths, not a comparison of point-wise field values.
+
+The four-function decomposition of the open Wilson line in the companion paper~\cite{hanamura55} extends this reading further. The Maxwell wave equation $\Box \Pi = 0$ and the Einstein field equations are unified there as integrability conditions ensuring smooth interpolation of Wilson-line data, not as dynamical generators of the theory. The dynamics resides at the Wilson-line level---in the directed integrals of the connection one-form along the helical thermal geodesic---and the Eulerian field equations of both sectors are consistency conditions on the propagation of this Lagrangian data.
+
+The summary of this reformulation can be stated in a single sentence: \emph{Newtonian conservation is a time-neutral balance equation, while 0-Sphere conservation is a directional phase consistency condition.} The former has no preferred temporal direction; the latter has a preferred direction fixed by the chirality of the thermal geodesic. The arrow of time is thus encoded not only in the dynamics but also in the fundamental structure of the conservation laws themselves.
+
+\subsection{Equivalence and divergence}
+\label{sec:equivalence_divergence}
+
+The two readings of conservation laws yield equivalent computational consequences for time-symmetric situations. If the physical situation under consideration does not distinguish a forward direction from a backward direction---for instance, the analysis of a stationary equilibrium---then the time-neutral statement Eq.~\eqref{eq:energy_conservation_newtonian} and the directed-path statement Eq.~\eqref{eq:directed_integral} produce identical predictions for all observable quantities. The framework boundary is invisible in time-symmetric situations.
+
+The boundary becomes visible in situations where the directed structure of the trajectory is itself the object of interest. The internal dynamics of the 0-Sphere electron is one such situation: the chirality $\chi$ of the trajectory enters the description as a primary observable in the directed-path reading, and the conservation laws acquire a chirality-dependent structure that the local-field reading cannot reproduce. Microscopic time reversibility is another such situation, as we shall develop in Sec.~\ref{sec:irreversibility}: the question of whether the time-reversed trajectory is physically realizable is a question about the directed structure of the trajectory, and it has no formulation within a strictly time-neutral conservation framework. The framework boundary, in these situations, is the line that determines whether the question itself is well-posed.
+
+Two empirical situations of related physical interest fall in this directed-path domain. The first is the cosmological asymmetry between matter and antimatter: the observed dominance of matter over antimatter in the universe is, within the standard model, attributed to CP-violating processes acting on a time-asymmetric initial state, and the very statement of the asymmetry requires a directed temporal description in which the early universe is connected to the present by an unrepeatable sequence~\cite{Sakharov1967}. The second is the unidirectionality of biological time: living organisms exhibit a thermodynamic and developmental progression that is not invertible in any continuous sense, and the description of this progression requires the language of directed paths, attractors, and limit cycles characteristic of the directed-path framework~\cite{Prigogine1984}. In both cases, the directed-path reading is closer to the operational language in which the phenomena are described, while the local-field reading retains its computational power within the time-neutral parts of the analysis. The two readings are complementary in physical situations of mixed time-symmetric and time-asymmetric character; they diverge when the time-asymmetric structure becomes the primary object.
+
+
+%-------------------------------------------------------------
+\section{Microscopic Time Reversibility as a Framework-Dependent Property}
+\label{sec:irreversibility}
+%-------------------------------------------------------------
+
+We now synthesize the three applications of the framework boundary into the central physical claim of the paper: microscopic time reversibility is a feature of the local-field framework, not of physical reality. Within the directed-path framework, the chirality $\chi$ of the 0-Sphere internal trajectory is a topologically protected invariant whose reversal is dynamically unreachable, and microscopic irreversibility is therefore a structural feature of the single electron, established without recourse to statistical assumptions or cosmological boundary conditions. The Loschmidt objection, traditionally taken as showing that microscopic dynamics cannot generate macroscopic irreversibility, ceases to be an objection within the directed-path reading.
+
+\subsection{The Loschmidt objection}
+\label{sec:loschmidt}
+
+Loschmidt's objection of 1876 may be stated as follows~\cite{Loschmidt1876}. The fundamental equations of microscopic physics are time-reversal symmetric: Newton's equations transform into themselves under $t \to -t$ for velocity-independent forces, and the Schr\"odinger equation transforms into itself under anti-unitary time reversal. If every microscopic trajectory is individually time-reversible, then for every entropy-increasing history there exists a time-reversed entropy-decreasing history, obtainable by reversing all velocities at the final time. The two trajectories are equally valid solutions of the microscopic equations of motion. Macroscopic irreversibility cannot, therefore, follow as a strict consequence of microscopic dynamics: the time-reversed trajectory is dynamically allowed at the microscopic level, and its non-occurrence in practice must be explained by something other than the microscopic equations themselves.
+
+The objection is decisive within the local-field framework. If the primary description of a physical process is given by local field values evolving under field equations, and if those field equations are time-reversal symmetric, then the time-reversed process is automatically a valid solution of the same equations. The local-field framework provides no internal resource for distinguishing forward-time evolution from backward-time evolution.
+
+Boltzmann's response was statistical: the time-reversed trajectory is dynamically allowed but extremely improbable, in the sense that it requires extraordinary coordination among the initial velocities of $\sim 10^{23}$ particles~\cite{Boltzmann1872}. The statistical response retains the time-reversal symmetry of the microscopic dynamics and locates the source of irreversibility in the typical behavior of large ensembles. Penrose's response was cosmological: the macroscopic arrow of time traces to the extraordinarily low entropy of the Big Bang state, associated with the Weyl curvature hypothesis~\cite{Penrose1989}. The cosmological response retains the time-reversal symmetry of the microscopic dynamics and locates the source of irreversibility in the boundary conditions of the universe. Both responses share the premise that microscopic dynamics are time-reversal symmetric. Both locate the source of the arrow somewhere outside the microscopic dynamics themselves.
+
+\subsection{The framework-dependent character of microscopic time reversibility}
+\label{sec:framework_dependent}
+
+The framework-boundary analysis of the present paper shows that the premise shared by Boltzmann and Penrose---that microscopic dynamics is time-reversal symmetric---is a feature of the local-field framework, not a feature of physical reality. Within the local-field framework, time-reversal symmetry of the equations follows from the form of the Newtonian and Schr\"odinger equations under $t \to -t$. The symmetry is a property of the equations, expressed in the local-field variables.
+
+Within the directed-path framework, the elementary observable is not a local field value but a directed path integral. The directed character of the path is part of the elementary observable: $\int_\gamma \omega$ depends on the orientation of $\gamma$, with $\int_{-\gamma}\omega = -\int_\gamma \omega$. Time reversal, applied to a directed path, reverses its orientation. But the orientation of the path is part of the elementary observable, not a derived quantity. Time-reversed and forward-time trajectories therefore differ as directed paths, and the question of whether they are physically equivalent is decided by the topological structure of the space of directed paths, not by the form of the equations.
+
+In the 0-Sphere internal phase space, the topological structure of the space of directed paths is given by the analysis of Sec.~\ref{sec:chirality}: the physical state space decomposes into two topologically disconnected sectors $\chi = \pm 1$, separated by the dynamically unreachable degenerate state $\chi = 0$. Time reversal sends $\chi \to -\chi$, which is the transformation between the two sectors. Within the directed-path framework, this transformation is not a continuous deformation: the time-reversed trajectory lies in a topologically disconnected sector and cannot be reached by any continuous evolution from the forward-time trajectory. Time reversal is a formal symmetry of the equations, but it is not a physical symmetry of the state space.
+
+The result is structural: microscopic time reversibility holds within the local-field reading and fails within the directed-path reading. Both readings are mathematically self-consistent. They describe different physical worlds. The question of which reading better matches physical reality is empirical, and the directed-path reading carries empirical commitments---in particular, the existence of internal directed structure in single particles, accessible through the chirality $\chi$ and the topological invariants associated with it. The companion paper~\cite{hanamura55} identifies one such empirical commitment: the gravitational redshift of the internal Zitterbewegung clock predicted in Ref.~\cite{hanamura22}, with fractional shift $\delta\nu/\nu \approx 5.29 \times 10^{-10}$ between satellite-borne and surface-bound electrons, is a falsifiable prediction of the directed-path framework that is not generated by the local-field reading. The framework boundary therefore has empirical content, not merely interpretational consequences.
+
+\subsection{The Loschmidt objection within the directed-path reading}
+\label{sec:loschmidt_resolution}
+
+Within the directed-path framework, the Loschmidt objection ceases to function as an objection. The objection presupposes that microscopic dynamics is time-reversal symmetric, and derives the conclusion that macroscopic irreversibility cannot follow from the microscopic dynamics alone. Both elements of this argument are framework-dependent.
+
+The premise of microscopic time-reversal symmetry, as we have argued in Sec.~\ref{sec:framework_dependent}, is a feature of the local-field framework. Within the directed-path framework, microscopic time-reversal symmetry does not hold: the chirality $\chi$ is topologically protected, and the time-reversed state is dynamically unreachable. The premise of the Loschmidt objection therefore does not apply within the directed-path framework.
+
+The conclusion of the Loschmidt objection---that macroscopic irreversibility cannot follow from microscopic dynamics alone---is correspondingly modified. Within the directed-path framework, microscopic irreversibility is a structural feature of the individual electron, and macroscopic irreversibility is the collective expression of this microscopic irreversibility across the $\sim 10^{23}$ electrons of any thermodynamically relevant system. The Loschmidt-symmetric backward trajectory of an individual electron does not exist within the directed-path framework: not because it is improbable, not because the universe began in a low-entropy state, but because the chirality of the individual electron is topologically protected and the backward trajectory lies in a disconnected sector of the state space.
+
+The resolution of the Loschmidt objection within the directed-path framework is thus structurally different from both the Boltzmann and Penrose responses. Where Boltzmann answered statistically and Penrose cosmologically, the directed-path framework answers structurally: the microscopic dynamics, properly described, is not time-reversal symmetric in the physical state space, and the question of how macroscopic irreversibility emerges from a time-symmetric microscopic theory does not arise. The arrow of time is microscopic, single-particle, and topological; the macroscopic arrow is the aggregate of microscopic arrows.
+
+We do not assert that this resolution is uniquely correct. The local-field reading remains internally consistent, and the Boltzmann and Penrose responses to the Loschmidt objection within that reading remain valid. The claim is that the Loschmidt objection is framework-dependent: within one framework, it is a genuine puzzle requiring statistical or cosmological resolution; within another framework, it does not arise as a puzzle. The choice of framework is empirical, settled by the comparison between the predictions of the two readings and the observed phenomena. The directed-path framework predicts, among other things, the gravitational shift of the internal Zitterbewegung clock~\cite{hanamura22, hanamura55}; this prediction, if confirmed, would establish the empirical adequacy of the directed-path framework at the single-particle level and correspondingly weaken the local-field reading on which the Boltzmann and Penrose analyses rest.
+
+\subsection{Comparison with Boltzmann, Penrose, and Prigogine}
+\label{sec:comparison_existing}
+
+Table~\ref{tab:comparison} summarizes the structural differences among the four approaches to the arrow of time considered in this paper.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Four approaches to the arrow of time}}
+\label{tab:comparison}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{2.5cm}p{3.0cm}p{3.5cm}p{3.0cm}p{3.0cm}}
+\toprule
+& \textbf{Boltzmann (1872)}~\cite{Boltzmann1872}
+& \textbf{Penrose (1989)}~\cite{Penrose1989}
+& \textbf{Prigogine (1984)}~\cite{Prigogine1984}
+& \textbf{Directed-path (present paper)} \\
+\midrule
+Microscopic dynamics
+& Time-reversal symmetric
+& Time-reversal symmetric
+& Time-reversal symmetric
+& Time-reversal asymmetric (within directed-path framework) \\
+\addlinespace[0.3cm]
+Source of arrow
+& Statistical typicality of initial conditions
+& Cosmological boundary conditions (low-entropy Big Bang)
+& Macroscopic non-equilibrium structures
+& Topological protection of single-particle chirality \\
+\addlinespace[0.3cm]
+Scale of irreversibility
+& Macroscopic ($\sim 10^{23}$ particles)
+& Cosmological
+& Macroscopic ($\sim 10^{23}$ particles)
+& Microscopic (single particle) \\
+\addlinespace[0.3cm]
+Status of Loschmidt objection
+& Genuine puzzle, resolved statistically
+& Genuine puzzle, resolved cosmologically
+& Genuine puzzle, resolved through dissipative dynamics
+& Does not arise (premise framework-dependent) \\
+\addlinespace[0.3cm]
+Empirical commitment
+& Statistical mechanics of large ensembles
+& Cosmological initial conditions
+& Open driven systems exhibiting dissipative structures
+& Internal structure of single particles, gravitational redshift of $\omZB$~\cite{hanamura22} \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The directed-path approach differs structurally from Boltzmann, Penrose, and Prigogine in locating the source of irreversibility at the single-particle microscopic level, in identifying the Loschmidt objection as framework-dependent rather than as a genuine puzzle, and in carrying empirical commitments at the single-particle level (in particular through the gravitational redshift prediction of Ref.~\cite{hanamura22}, organized within the metric sector of the four-function decomposition of Ref.~\cite{hanamura55}). The four approaches are not mutually exclusive: the directed-path framework provides the microscopic foundation, while the macroscopic analyses of Boltzmann, Penrose, and Prigogine remain valid within their respective domains.
+\end{minipage}
+\end{table*}
+
+The four approaches are not mutually exclusive. The directed-path framework provides the microscopic foundation: at the single-particle level, irreversibility is structural, encoded in the topological protection of the chirality. The macroscopic analyses of Boltzmann, Penrose, and Prigogine remain valid within their respective domains: the statistical typicality of initial conditions in large ensembles, the cosmological character of the universe's initial state, and the dissipative-structure organization of macroscopic non-equilibrium systems all describe how microscopic irreversibilities aggregate into the macroscopic arrow of time experienced in everyday life. The directed-path framework does not displace these analyses; it provides the microscopic foundation that they presuppose.
+
+
+%-------------------------------------------------------------
+\section{Dynamical Mechanism: The 0-Sphere as an Open, Driven System}
+\label{sec:opendriven}
+%-------------------------------------------------------------
+
+The structural results of Secs.~\ref{sec:zerotorque}--\ref{sec:irreversibility} establish the topological protection of the chirality and its consequence for microscopic time reversibility. This section establishes the dynamical mechanism by which the chirality is maintained: the 0-Sphere electron is an open, driven, non-conservative system in a non-equilibrium steady state, and the limit-cycle structure of the internal dynamics provides the dynamical guarantee that the chirality is preserved against perturbation.
+
+\subsection{Topological energy confinement within the photon sphere}
+\label{sec:confinement}
+
+The support of the energy distribution, $\mathrm{supp}(E)$, is contained within the closed domain $\mathcal{D}$ bounded by the photon sphere. This confinement is not achieved through a potential well in the quantum-mechanical sense but through the topological structure of the phase space and the algebraic necessity of the Hamiltonian identity~\cite{hanamura33}. Within $\mathcal{D}$, the energy conservation identity Eq.~\eqref{eq:identity} holds with $E_0 \equiv 1$ for all values of $\theta$. The algebraic identity leaves no room for a gradual transition to an exterior state; any deformation that begins in $\mathcal{D}$ remains in $\mathcal{D}$.
+
+The key distinction from a conservative oscillator is that the condition $E_0 \equiv 1$ represents a continuously balanced energy budget through active exchange, not the absence of exchange. The kernels are continuously emitting and absorbing radiation; the photon sphere is continuously receiving and transmitting energy between them. The constancy of the total $E_0$ is maintained dynamically, as a non-equilibrium steady state, not statically as a conserved quantity in an isolated system.
+
+A further active dimension of this confinement is established by the photon-sphere ejection mechanism of Ref.~\cite{hanamura49}. The Hamiltonian identity does not merely prevent escape from $\mathcal{D}$ passively; it governs the sole channel through which the internal structure interacts with the exterior. In the ground state ($n = 0$), the Thomas-precession stress at $\theta = \pi/2$ exactly saturates the binding floor $E_0/2$ without exceeding it, so no fragment release is permitted---the non-equilibrium steady state is sealed not by the absence of stress but by marginal balance at threshold. When external photons excite the system to $n \geq 1$, the identity accommodates fragment release as the de-excitation $n \to n - 1$, actively restoring the ground-state non-equilibrium steady state. The identity $E_0 \equiv 1$ thus acts not only as a static constraint but as a dynamical gateway: it controls which interactions with the exterior are algebraically permitted and enforces a restoration dynamics that returns the system to its ground-state configuration.
+
+This dynamical interpretation of the Hamiltonian identity admits a natural reading within the directed-path framework. The identity may be read as the gauge-consistency condition for the internal U(1) holonomy~\cite{hanamura48}, with fragment ejection as the mechanism by which the internal gauge phase is actively maintained. The development of this interpretation as a full gauge-theoretic statement is reserved for a future paper.
+
+\subsection{Permanent structural coupling to the radiation field}
+\label{sec:coupling}
+
+Each kernel is modeled as a Stefan-Boltzmann complete blackbody: it absorbs and emits radiation at all frequencies with an emissivity of exactly one~\cite{hanamura01}. This is not a perturbative correction; it is a structural feature built into the definition of the kernels. At any instant, the warmer kernel radiates more energy than it absorbs, and the cooler kernel absorbs more than it radiates. The net energy flux is from the warmer kernel to the cooler one, mediated by the virtual photon sphere, making the 0-Sphere system thermodynamically open.
+
+This continuous exchange with a fixed total energy $E_0$ is the defining signature of a non-equilibrium steady state. The system is like a river that maintains a constant water level while water continuously flows through it; the constancy of the level does not indicate that water is not flowing. The magnitude of the radiation coupling connects to observable quantities: the total power emitted through Zitterbewegung radiation, related to $\sigma T_e^4$, falls in the X-ray domain at $\nu_{\mathrm{ZB}} \approx 5.0 \times 10^{18}$~Hz, placing it at a precisely defined frequency distinguishable from background radiation and from the $\gamma$-ray frequency predicted by the standard Dirac equation.
+
+\subsection{The three-layer argument for non-conservative dynamics}
+\label{sec:three_layer}
+
+The three properties---topological energy confinement, Stefan-Boltzmann coupling, and topological protection of the chirality---form a three-layer logical argument demonstrating that the 0-Sphere dynamics are genuinely non-conservative. The first layer establishes that the energy support is bounded within $\mathcal{D}$ and that $E_0 \equiv 1$ represents a non-equilibrium steady state rather than equilibrium. The second layer establishes that the kernels are permanently connected to the electromagnetic radiation field, providing the driving force that sustains the steady state. The third layer establishes that the direction of the internal phase advance is fixed by a topological invariant that cannot be continuously changed.
+
+These three layers are mutually reinforcing. Remove any one and the arrow-of-time argument breaks down. Without confinement, the system could escape the non-equilibrium steady state and dissipate into a conservative oscillator; without coupling, the driving would vanish and the system would become conservative; without chirality protection, the direction of flow could be reversed by a perturbation, and the dynamics would become time-symmetric.
+
+The contrast with a conservative harmonic oscillator is instructive at each layer. For a conservative oscillator, there is no topological confinement of the energy support (the wavefunction has unbounded tails), there is no coupling to a radiation field (the oscillator is isolated by assumption), and there is no topological protection of a flow direction (the dynamics are generated by a time-reversal symmetric Hamiltonian). The 0-Sphere system differs from a conservative oscillator at all three layers simultaneously. The argument for irreversibility therefore does not depend on any single special property but on the joint action of three structurally independent features.
+
+\subsection{The limit-cycle attractor}
+\label{sec:limit_cycle}
+
+The internal dynamics of the 0-Sphere $n$-oscillator system form a stable limit cycle. The center-of-mass radius of the photon-sphere orbit on the unit circle of the internal phase space settles, under the joint action of the radiation gradient and the zero integral torque condition, at the attractor value
+\begin{equation}
+r_{\mathrm{cm}} = \tfrac{1}{2},
+\label{eq:rcm_attractor}
+\end{equation}
+determined by the AM-GM inequality applied to the kernel energies~\cite{hanamura50}. The attractor is stable: small perturbations of $r_{\mathrm{cm}}$ are restored by the dynamics, since deviations from $r_{\mathrm{cm}} = 1/2$ correspond to imbalances between the kernel energies that drive a restoring radiation gradient.
+
+The limit-cycle structure is the dynamical guarantee that the internal phase advances continuously around the unit circle without escaping to other regions of the internal phase space. Combined with the topological protection of the chirality (Sec.~\ref{sec:chirality}), the limit cycle ensures that the 0-Sphere electron, once initialized in the forward-chirality sector, executes an unending sequence of phase advances $a \to a + 2\pi$ at fixed chirality, with no possibility of escape into the time-reversed sector. The limit cycle is the dynamical realization of the topological structure; the topological protection is the structural reason why the limit cycle has a definite direction of advance rather than two equally valid directions.
+
+
+%-------------------------------------------------------------
+\section{One-Directional Energy Radiation and the Helical Trajectory}
+\label{sec:helical}
+%-------------------------------------------------------------
+
+The chirality of the internal trajectory has a direct macroscopic consequence in the form of one-directional energy radiation along the helical thermal geodesic.
+
+The thermal geodesic, as established in Ref.~\cite{hanamura51}, is a three-dimensional helix with transverse Zitterbewegung speed $v_{\mathrm{ZB}} \approx 0.04 c$ and longitudinal pitch speed of order $c$. The helical trajectory is one-directional in a geometrically precise sense: the combination of forward axial advance and transverse circular rotation defines a handed helix---right-handed for $\chi = +1$ and left-handed for $\chi = -1$. The handedness cannot be continuously changed without passing through the degenerate configuration $v_{\mathrm{ZB}} = 0$ (corresponding to $\chi = 0$), which is excluded from the physical state space. The one-directionality of the helix is the geometric manifestation of the topological protection of the chirality.
+
+As the photon sphere advances along the right-handed helix ($\chi = +1$), it emits radiation primarily in the forward direction. The axial advance at $v_{\mathrm{pitch}} \sim c$ means that the radiation is Doppler-shifted toward higher frequencies in the forward direction (blue-shifted) and toward lower frequencies in the backward direction (red-shifted). The net radiation pattern is asymmetric: more energy is emitted in the forward direction per unit time than in the backward direction. This forward-biased emission is the direct macroscopic manifestation of the microscopic chirality $\chi = +1$.
+
+The conjecture regarding the emergence of the spacetime metric from the helical trajectory, proposed in Ref.~\cite{hanamura51} and given its place within the dual-sector hierarchy of Ref.~\cite{hanamura55}, suggests a deep connection between the arrow of time and the causal structure of spacetime. The metric reconstruction formula
+\begin{equation}
+g_{\mu\nu}(x) = \left.\frac{\partial^2 \mathcal{S}_s}{\partial x_A^\mu \partial x_B^\nu}\right|_{x_A = x_B = x},
+\label{eq:metric_conjecture}
+\end{equation}
+where $\mathcal{S}_s$ is the symmetrized line integral accumulated along the helical trajectory, would mean that the spacetime metric encodes the chirality of the underlying helical trajectories. If this conjecture is correct in its curved-space generalization (Stage 3 of the staged programme of Ref.~\cite{hanamura55}), the metric components would differ for $\chi = +1$ and $\chi = -1$ traversals, and the light cones of spacetime---which determine the causal structure and hence the arrow of time at the macroscopic level---would be derived from the microscopic chirality of each electron's internal dynamics. The framework boundary would thus extend its consequences from the internal dynamics of the single electron to the global causal structure of spacetime itself. The full development of this conjecture is reserved for future work.
+
+
+%-------------------------------------------------------------
+\section{Relation to Prigogine's Dissipative Structures}
+\label{sec:prigogine}
+%-------------------------------------------------------------
+
+Prigogine and Stengers introduced the concept of dissipative structures to describe self-organized patterns arising in open systems driven far from equilibrium~\cite{Prigogine1984}. The paradigmatic examples include B\'enard convection cells, the Belousov--Zhabotinsky reaction, and biochemical oscillations characteristic of biological clocks. All these systems share three structural features: they are maintained by continuous energy input from an external source, they dissipate energy to their environment, and they exhibit ordered behavior (spatial or temporal) impossible in a closed equilibrium system.
+
+The 0-Sphere two-kernel system shares all three structural features with Prigogine dissipative structures. It is an open system connected to the electromagnetic radiation field via the Stefan-Boltzmann coupling. It maintains a non-equilibrium steady state in which energy flows continuously between the kernels while the total internal energy $E_0$ remains constant. It exhibits ordered temporal oscillation: the internal phase advances at the constant rate $\omZB$ in the fixed direction $\chi = +1$. The 0-Sphere limit cycle is therefore a dissipative structure in the Prigogine sense, operating at the single-particle quantum scale.
+
+The most important parallel between the 0-Sphere approach and Prigogine's programme lies in the treatment of the arrow of time. Prigogine argued that dissipative structures do not merely exhibit time-asymmetric behavior as an emergent collective phenomenon; rather, they constitute a new relationship between dynamics and thermodynamics in which the temporal direction is selected by the structure of the non-equilibrium flow, not by a statistical argument~\cite{Prigogine1984, Lebowitz1993}. The 0-Sphere Model reaches the same conclusion by a different route and at a more fundamental level: the temporal direction is selected by the topological structure of the single-electron chirality, not by the collective behavior of many particles.
+
+The key difference in scope is in the scale at which irreversibility is established. Prigogine's dissipative structures involve $\sim 10^{23}$ particles; the arrow of time they exhibit is a collective, emergent phenomenon. The directed-path framework of the present paper establishes irreversibility for a single electron: it is a single-particle, microscopic phenomenon. This difference in scale suggests a layered view: the directed-path framework provides the microscopic foundation, and Prigogine's dissipative structures represent the macroscopic organization that emerges from the collective action of many such protected chiralities.
+
+The connection to biological clocks illuminates the robustness of the limit-cycle structure. Biological rhythms---circadian clocks, heartbeats, neural oscillations---are modeled in many cases as limit cycles: self-sustaining oscillations maintained against perturbations by the combined action of driving and dissipation. The 0-Sphere limit cycle is the quantum analogue of these biological limit cycles, with two additional properties that have no classical counterpart. First, the zero integral torque identity Eq.~\eqref{eq:zero_torque_main} provides a structural torque balance that is exact (not approximate), ensuring perfect robustness against angular momentum drift. Second, the topological protection of the chirality ensures that the oscillation direction is fixed by topology, not by dynamics---it cannot be reversed by any perturbation, however strong, as long as the perturbation maintains the energy conservation identity.
+
+The non-equilibrium steady state framework provides a precise thermodynamic characterization. A steady state is characterized by nonzero probability currents, positive entropy production, and a constant average probability distribution maintained by external driving~\cite{Zeh2007}. All three conditions are satisfied in the 0-Sphere system: the probability current is the directional advance of the phase $a$ (driven by the chirality), the entropy production is associated with the net radiation emitted by the electron into the electromagnetic vacuum, and the constant average distribution is the energy conservation identity $E_0 \equiv 1$ holding for all $\theta$. The Zitterbewegung radiation at frequency $\nu_{\mathrm{ZB}} \approx 5.0 \times 10^{18}$~Hz is the physical carrier of the entropy production at the single-particle level.
+
+
+%-------------------------------------------------------------
+\section{Position within the 0-Sphere Programme}
+\label{sec:position}
+%-------------------------------------------------------------
+
+The present paper occupies a definite position within the 0-Sphere Model series, building on a sequence of structural and conceptual results developed in the preceding papers. We summarize this position here so that the relations between the framework boundary identified in this paper and the broader programme can be stated explicitly.
+
+The conceptual foundation of the directed-path framework was laid in the line-integral trilogy~\cite{hanamura29, hanamura30, hanamura31}. Reference~\cite{hanamura29} established that the relevant geometric quantity for spinorial phase accumulation is the line integral of a connection along proper time, with a $2\pi$ phase accumulating internally even when the external trajectory is straight. Reference~\cite{hanamura30}, in its second version, reinterpreted the Bianchi identity as the integrability condition for line integrals of the connection to be globally well-defined, and the Einstein field equation as a posterior consistency condition rather than a primary dynamical law. Reference~\cite{hanamura31} consolidated the viewpoint into a unifying principle: the Aharonov--Bohm effect, the Berry phase, and Wilson loops are not separate quantum, geometric, and gauge-theoretic phenomena but instances of the same underlying line-integral structure.
+
+The structural form of this directed-path framework, applied to the open Wilson line of the 0-Sphere electromagnetic sector, was developed in the companion paper~\cite{hanamura55}. The four-function decomposition of the open Wilson line identified there---phase-history carrier, gauge localization, holonomy composition, and boundary data generating both Maxwell and metric continuum sectors---articulates the directed-path framework in its most concrete form. The companion paper also establishes the Lagrangian--Eulerian framing on which the framework boundary of the present paper rests: the Wilson line carries Lagrangian data directly, while the Eulerian quantities $F_{\mu\nu}$ and $g_{\mu\nu}$ are recovered by propagating the Lagrangian data into the continuum in two distinct directions. The framework boundary of the present paper is the conceptual generalization of the dual-sector structure of Function 4 in the companion paper: where~\cite{hanamura55} identifies that one Lagrangian primitive supports two Eulerian sectors, the present paper identifies that the choice of primitive determines what physical content the description can resolve, and that the same mathematical identity can be read in two ways depending on which primitive is taken.
+
+The application to microscopic time reversibility, which occupies the central physical claim of the paper, builds on a sequence of results spread across the series. The chirality $\chi$ as a Lorentz-invariant directed-path observable was established in Ref.~\cite{hanamura50}, in the context of phase-shifted oscillator arrays and the electron-positron distinction. The U(1) fiber bundle structure that underlies the topological protection of $\chi$ was developed in Ref.~\cite{hanamura48}. The open-path versus closed-loop distinction central to the analysis was established in Ref.~\cite{hanamura45}. The energy partition and Hamiltonian identity were laid out in Ref.~\cite{hanamura01}, and the topological confinement of the energy support within the photon-sphere domain was analyzed in Ref.~\cite{hanamura33}. The thermal geodesic as the natural extremal path of the internal dynamics was introduced in Ref.~\cite{hanamura24}, and its helical refinement together with the Bonnet--Myers diameter bound were developed in Ref.~\cite{hanamura51}. The photon-sphere ejection mechanism that maintains the non-equilibrium steady state was analyzed in Ref.~\cite{hanamura49}.
+
+The empirical commitment of the directed-path framework, which distinguishes it from the local-field framework at the single-particle level, is the gravitational redshift of the internal Zitterbewegung clock predicted in Ref.~\cite{hanamura22}. As organized within the four-function decomposition of the companion paper~\cite{hanamura55}, this prediction belongs structurally to the metric branch of the dual-sector hierarchy: the proper-time-governed Zitterbewegung oscillator is subject to gravitational time dilation in the same manner as any other proper-time-governed clock, and the resulting fractional shift $\delta\nu/\nu \approx 5.29 \times 10^{-10}$ between satellite-borne and surface-bound electrons constitutes a falsifiable test of the directed-path framework at scales accessible to currently operational satellite-based experimental geometries.
+
+The relation among the papers in this region of the programme can be summarized in the following structure. The line-integral trilogy~\cite{hanamura29, hanamura30, hanamura31} establishes the directed-path framework as a general approach. The companion paper~\cite{hanamura55} develops its structural form for the open Wilson line, identifies its empirical commitment through the metric-sector experimental signature, and articulates the Lagrangian--Eulerian framing. The present paper identifies the framework boundary as a general structural feature of physical description, applies it to the microscopic arrow of time as a paradigm case, and locates the result within the historical landscape of arrow-of-time analyses. Together, the companion paper and the present paper constitute the structural and conceptual completion of the line-integral programme as it stood in early 2026: the structural completion through the four-function decomposition, the conceptual completion through the framework boundary.
+
+
+%-------------------------------------------------------------
+\section{Scope of the Contribution and Anticipated Objections}
+\label{sec:scope}
+%-------------------------------------------------------------
+
+We close with a clear statement of what the present paper does and does not establish, and with anticipations of objections that might naturally be raised against the framework-boundary analysis.
+
+\subsection{Scope of the contribution}
+\label{sec:scope_contribution}
+
+The present paper establishes the framework boundary as a general structural feature of physical description, not a peculiarity of the 0-Sphere Model. The two frameworks---local-field and directed-path---are present, in different forms, throughout physics: in the Lagrangian--Eulerian distinction of continuum mechanics, in the Heisenberg--Schr\"odinger picture distinction of quantum mechanics, in the local-versus-non-local distinction of quantum field theory, and in the open-path-versus-closed-loop distinction of gauge theory. What is distinctive about the present analysis is the systematic identification of the framework boundary as a structural feature, the recognition that the same mathematical identity can be read in two ways with opposite physical conclusions, and the application to microscopic time reversibility as a case where the choice of framework determines whether the question is well-posed.
+
+The application of the framework boundary to microscopic time reversibility establishes that the chirality $\chi$ of the 0-Sphere internal trajectory is a topologically protected invariant of the directed history, that the time-reversed state lies in a topologically disconnected sector of the physical state space, and that the resulting microscopic irreversibility is a structural feature of the single electron, established without recourse to statistical assumptions or cosmological boundary conditions. The Loschmidt objection of 1876 ceases to function as an objection within the directed-path framework, because the premise of microscopic time-reversal symmetry on which it rests is itself a feature of the local-field framework rather than of physical reality.
+
+The present paper does not establish the empirical adequacy of the directed-path framework. The choice between the two frameworks is empirical, not conceptual, and is settled by the comparison between their predictions and the observed phenomena. The directed-path framework carries empirical commitments---in particular, the gravitational redshift of the internal Zitterbewegung clock predicted in Ref.~\cite{hanamura22} and organized within the metric sector of Ref.~\cite{hanamura55}---that the local-field framework does not generate. The verification or falsification of these commitments by future experiment is the empirical test of the framework choice. The present paper offers the structural analysis of what is at stake in the choice; it does not offer the empirical verdict.
+
+\subsection{Anticipated objections}
+\label{sec:objections}
+
+Several objections to the framework-boundary analysis may be raised, and we address them here in summary form.
+
+\textbf{Objection 1: The two frameworks are computationally equivalent, hence physically equivalent.} The objection rests on a confusion between computational equivalence and physical equivalence. Two frameworks that produce the same numerical predictions for all observables are computationally equivalent. They are physically equivalent only if they assign the same physical content to those predictions. The two frameworks of the present analysis produce the same numerical predictions for observables expressible in either framework, but they assign different physical content to the result of the same calculation. The Aharonov--Bohm effect (Sec.~\ref{sec:aharonov_bohm}) is the canonical empirical demonstration that this difference matters: both frameworks predict the same interference shift, but they differ in whether the shift reveals a primary observable (the directed-path reading) or a non-classical role of an auxiliary quantity (the local-field reading). The framework boundary is real, not merely interpretive, when its consequences extend to phenomena where the two readings predict observably different things---and the gravitational redshift of the internal Zitterbewegung clock is one such case~\cite{hanamura22, hanamura55}.
+
+\textbf{Objection 2: Microscopic time-reversal symmetry is an empirical fact, not a framework artifact.} The objection asserts that the time-reversal symmetry of microscopic equations is established by direct observation, not derived from framework choice. The response is that what is established by direct observation is a particular form of consistency in the predictions of microscopic theories: the empirical regularities at the microscopic level are compatible with both time-symmetric and time-asymmetric formulations of the underlying dynamics, provided each formulation is supplemented by appropriate auxiliary structures. The Boltzmann statistical response and the Penrose cosmological response demonstrate the empirical adequacy of the time-symmetric formulation supplemented by typicality assumptions or cosmological boundary conditions. The directed-path framework demonstrates the empirical adequacy of a time-asymmetric formulation supplemented by the topological protection of the chirality. The choice between the two is not settled by the empirical regularities alone; it requires further experimental input that distinguishes the two formulations at the level of their predictions for new phenomena. The gravitational redshift of the internal Zitterbewegung clock is one such distinguishing prediction.
+
+\textbf{Objection 3: The directed-path framework is parasitic on the local-field framework, since path integrals are computed from local connection one-forms.} The objection notes that the integrand in $\int_\gamma \omega$ is a local quantity, $\omega$, and concludes that the directed-path framework reduces to the local-field framework with the path integral as a derived computational device. The response is that the reduction goes only one way. Given a connection one-form $\omega$ defined throughout a region, the path integral $\int_\gamma \omega$ is computable from the local data along $\gamma$. But the converse is not true: the local data $\omega$ does not, on its own, single out the directed-path quantities as the physically primary observables. The choice to treat $\int_\gamma \omega$ as primary, rather than $\omega$ at each point as primary, is a structural commitment of the framework, not a consequence of the mathematics. The Aharonov--Bohm effect again illustrates the point: both frameworks compute the same phase shift, but only the directed-path framework treats the phase shift as the primary observable that the experiment is measuring. The local-field framework can accommodate the result computationally; it cannot derive the result as a primary phenomenon without supplementing the local-field ontology with quantum-mechanical considerations external to the local-field structure itself.
+
+\textbf{Objection 4: The 0-Sphere Model is non-standard physics, hence its framework choice has no general implications.} The objection asserts that the framework boundary, even if real within the 0-Sphere Model, is irrelevant to standard physics. The response is that the framework boundary is independent of the specific physical model. The Lagrangian--Eulerian distinction in continuum mechanics, the Aharonov--Bohm effect within standard quantum mechanics, the Berry phase across many physical systems, and the open-path versus closed-loop structure of standard gauge theory all instantiate the framework boundary in standard physics. What the 0-Sphere Model contributes is a systematic articulation of the boundary as a structural feature, together with a model in which the directed-path framework is taken as primary throughout. The articulation, however, applies to physical description in general, not to the 0-Sphere Model in particular. If the directed-path framework is empirically supported by the gravitational-redshift prediction or by other tests of the line-integral ontology, the framework boundary becomes a general feature of how physics is to be described; if the directed-path framework is not empirically supported, the framework boundary remains a real structural feature of physical description, but its specific application to single-particle irreversibility recedes into the local-field framework and the Loschmidt objection retains its standard status. The structural analysis of the boundary stands either way.
+
+
+%-------------------------------------------------------------
+\section{Conclusion}
+\label{sec:conclusion}
+%-------------------------------------------------------------
+
+We have identified a structural feature of physical description that we have termed the framework boundary: the conceptual line at which the local-field and directed-path descriptions of physical systems diverge in their interpretation of identical mathematical structures. The two frameworks are not computationally contradictory but interpretationally divergent; both yield the same numerical predictions from the same equations, but they assign different physical interpretations to those predictions. The directed-path framework, articulated through the line-integral ontology of the 0-Sphere Model series and given its structural form in the four-function decomposition of the open Wilson line in the companion paper~\cite{hanamura55}, stands to the local-field framework in the same relation that a Lagrangian description of continuum mechanics stands to an Eulerian one: not as alternative theories but as two viewpoints that make different physical content visible.
+
+We have applied the framework boundary to three specific contexts within the 0-Sphere $n$-oscillator system. The zero integral torque identity $\sum_k \sin(4 b_k) = 0$ admits two divergent readings: a decoupling reading within the local-field framework, in which the internal modes become invisible to local observables, and a topological-protection reading within the directed-path framework, in which the chirality of the directed advance is preserved against modal disruption. The chirality $\chi = \mathrm{sign}(da/dt)$, the elementary directed-path observable, is topologically protected within the directed-path framework, with the time-reversed state lying in a disconnected sector of the physical state space. The conservation laws of the system, when read within the directed-path framework, become directional phase consistency conditions rather than time-neutral balance equations.
+
+These three applications converge on the central physical claim: microscopic time reversibility is a feature of the local-field framework, not a feature of physical reality. Within the directed-path framework, the chirality is topologically protected, the time-reversed trajectory is dynamically unreachable, and microscopic irreversibility is a structural feature of the single electron. The Loschmidt objection of 1876, which presupposes microscopic time-reversal symmetry as an empirical premise, ceases to function as an objection within the directed-path reading: the premise is itself a framework artifact.
+
+The historical position of the present contribution within the arrow-of-time literature is structurally distinct from both the Boltzmann statistical response and the Penrose cosmological response. Where Boltzmann answered statistically and Penrose cosmologically, the directed-path framework answers structurally: microscopic dynamics is not time-reversal symmetric in the physical state space, and the macroscopic arrow of time is the aggregate of microscopic arrows protected at the single-particle level. The three responses are not mutually exclusive: the directed-path framework provides the microscopic foundation, while the macroscopic analyses of Boltzmann, Penrose, and Prigogine remain valid within their respective domains.
+
+Two reservations must be stated explicitly. First, the present paper does not establish the empirical adequacy of the directed-path framework. The choice between the two frameworks is empirical, settled by the comparison between their predictions and the observed phenomena. The directed-path framework carries empirical commitments---in particular, the gravitational redshift of the internal Zitterbewegung clock predicted in Ref.~\cite{hanamura22} and organized within the metric sector of Ref.~\cite{hanamura55}---that future experiment will verify or falsify. The structural analysis of what is at stake in the choice is offered here; the empirical verdict is to be returned by experiment. Second, the framework boundary itself is a real structural feature of physical description regardless of the empirical fate of the directed-path framework. The Lagrangian--Eulerian distinction in continuum mechanics, the Aharonov--Bohm effect in quantum mechanics, and the open-path versus closed-loop structure of gauge theory all instantiate the boundary in standard physics. The articulation of the boundary as a general structural feature, rather than as a peripheral matter of interpretation, stands as the principal conceptual contribution of the present paper.
+
+The framework boundary, finally, has consequences that extend beyond the specific application to microscopic time reversibility. The same conceptual line determines, in different physical contexts, which phenomena are visible to a given description and which are invisible. Phenomena that depend on the directed structure of trajectories---the chirality of single particles, the directional structure of conservation laws, the proper-time governance of internal clocks, the line-integral character of metric reconstruction---are visible within the directed-path framework and invisible within the local-field framework. The choice of framework is therefore not auxiliary to the description of physical reality; it is constitutive of which physical reality the description can resolve. The framework boundary is the line at which physics, as practiced within one description, ends and physics, as practiced within another, begins.
+
+
+%-------------------------------------------------------------
+
+\begin{acknowledgments}
+This work was conducted independently by the author. During preparation, large language models were used as a pedagogical and editorial aid, primarily to verify the standard presentation of well-established results in physics and to improve the clarity and logical organization of the exposition. All physical assumptions, conceptual judgments, and the framework-boundary analysis proposed here were formulated and assessed solely by the author.
+\end{acknowledgments}
+
+
+%-------------------------------------------------------------
+
+\begin{thebibliography}{99}
+
+% Sorted by order of first appearance in text
+
+\bibitem{hanamura55}
+S.~Hanamura, ``Four Functions of the Open Wilson Line in the 0-Sphere Model: Phase-History Carrier, Gauge Localization, Holonomy Composition, and Boundary Data Generating Both Maxwell and Metric Sectors,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19800797}{doi:10.5281/zenodo.19800797}
+
+\bibitem{hanamura31}
+S.~Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{doi:10.5281/zenodo.18203433}
+
+\bibitem{hanamura29}
+S.~Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18067760}{doi:10.5281/zenodo.18067760}
+
+\bibitem{hanamura30}
+S.~Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws (v2),'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18819682}{doi:10.5281/zenodo.18819682}
+
+\bibitem{Boltzmann1872}
+L.~Boltzmann, ``Weitere Studien \"uber das W\"armegleichgewicht unter Gasmolek\"ulen,'' Sitzungsberichte der Akademie der Wissenschaften zu Wien \textbf{66}, 275--370 (1872).
+
+\bibitem{Loschmidt1876}
+J.~Loschmidt, ``\"Uber den Zustand des W\"armegleichgewichtes eines Systems von K\"orpern mit R\"ucksicht auf die Schwerkraft,'' Sitzungsberichte der Akademie der Wissenschaften zu Wien \textbf{73}, 128--142 (1876).
+
+\bibitem{Penrose1989}
+R.~Penrose, \textit{The Emperor's New Mind: Concerning Computers, Minds and the Laws of Physics} (Oxford University Press, Oxford, 1989).
+
+\bibitem{Aharonov1959}
+Y.~Aharonov and D.~Bohm, ``Significance of Electromagnetic Potentials in the Quantum Theory,'' Phys.\ Rev.\ \textbf{115}, 485--491 (1959). \href{https://doi.org/10.1103/PhysRev.115.485}{doi:10.1103/PhysRev.115.485}
+
+\bibitem{Tonomura1986}
+A.~Tonomura, N.~Osakabe, T.~Matsuda, T.~Kawasaki, J.~Endo, S.~Yano, and H.~Yamada, ``Evidence for Aharonov--Bohm Effect with Magnetic Field Completely Shielded from Electron Wave,'' Phys.\ Rev.\ Lett.\ \textbf{56}, 792--795 (1986). \href{https://doi.org/10.1103/PhysRevLett.56.792}{doi:10.1103/PhysRevLett.56.792}
+
+\bibitem{Mandelstam1968}
+S.~Mandelstam, ``Feynman Rules for Electromagnetic and Yang--Mills Fields from the Gauge-Independent Field-Theoretic Formalism,'' Phys.\ Rev.\ \textbf{175}, 1580--1603 (1968). \href{https://doi.org/10.1103/PhysRev.175.1580}{doi:10.1103/PhysRev.175.1580}
+
+\bibitem{Polyakov1979}
+A.~M.~Polyakov, ``String representations and hidden symmetries for gauge fields,'' Phys.\ Lett.\ B \textbf{82}, 247--250 (1979). \href{https://doi.org/10.1016/0370-2693(79)90747-0}{doi:10.1016/0370-2693(79)90747-0}
+
+\bibitem{WuYang1975}
+T.~T.~Wu and C.~N.~Yang, ``Concept of Nonintegrable Phase Factors and Global Formulation of Gauge Fields,'' Phys.\ Rev.\ D \textbf{12}, 3845--3857 (1975). \href{https://doi.org/10.1103/PhysRevD.12.3845}{doi:10.1103/PhysRevD.12.3845}
+
+\bibitem{hanamura01}
+S.~Hanamura, ``A Model of an Electron Including Two Perfect Black Bodies,'' Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}
+
+\bibitem{hanamura33}
+S.~Hanamura, ``Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass and Zitterbewegung,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18356895}{doi:10.5281/zenodo.18356895}
+
+\bibitem{hanamura24}
+S.~Hanamura, ``Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765349}{doi:10.5281/zenodo.17765349}
+
+\bibitem{hanamura47}
+S.~Hanamura, ``Rotational Lorentz Contraction as the Geometric Origin of the Anomalous Magnetic Moment: A Structural Correspondence with the Muon Lifetime Problem,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19120057}{doi:10.5281/zenodo.19120057}
+
+\bibitem{hanamura51}
+S.~Hanamura, ``Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19489126}{doi:10.5281/zenodo.19489126}
+
+\bibitem{hanamura50}
+S.~Hanamura, ``Phase-Shifted Oscillator Arrays, Chirality, and the Electron/Positron Distinction in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{doi:10.5281/zenodo.19393391}
+
+\bibitem{hanamura48}
+S.~Hanamura, ``Geometric Origin of $g=2$ in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19227518}{doi:10.5281/zenodo.19227518}
+
+\bibitem{hanamura26}
+S.~Hanamura, ``Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765409}{doi:10.5281/zenodo.17765409}
+
+\bibitem{hanamura45}
+S.~Hanamura, ``Open-Path Spinorial Transport in the 0-Sphere Model and the Status of Torsion: Holonomy Sufficiency and the Possibility of Emergent Semigroup Geometry,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18950974}{doi:10.5281/zenodo.18950974}
+
+\bibitem{Wald1984}
+R.~M.~Wald, \textit{General Relativity} (University of Chicago Press, Chicago, 1984).
+
+\bibitem{Sakharov1967}
+A.~D.~Sakharov, ``Violation of CP invariance, C asymmetry, and baryon asymmetry of the universe,'' JETP Letters \textbf{5}, 24--27 (1967).
+
+\bibitem{Prigogine1984}
+I.~Prigogine and I.~Stengers, \textit{Order out of Chaos: Man's New Dialogue with Nature} (Bantam Books, New York, 1984).
+
+\bibitem{hanamura22}
+S.~Hanamura, ``Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765318}{doi:10.5281/zenodo.17765318}
+
+\bibitem{hanamura49}
+S.~Hanamura, ``Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{doi:10.5281/zenodo.19393391}
+
+\bibitem{Lebowitz1993}
+J.~L.~Lebowitz, ``Boltzmann's entropy and time's arrow,'' Physics Today \textbf{46}, 32--38 (1993). \href{https://doi.org/10.1063/1.881363}{doi:10.1063/1.881363}
+
+\bibitem{Zeh2007}
+H.~D.~Zeh, \textit{The Physical Basis of the Direction of Time}, 5th ed.\ (Springer, Berlin, 2007).
+
+\end{thebibliography}
+
+
+%-------------------------------------------------------------
+\appendix
+%-------------------------------------------------------------
+
+\section{Status of Principal Claims}
+\label{app:claims}
+
+This appendix records the logical status of the principal claims of the paper, distinguishing established results from conjectures and from claims of structural articulation that organize existing material rather than introducing new physical content.
+
+\textbf{Claims of structural articulation.} The framework-boundary analysis itself is a structural articulation of features of physical description that are present in scattered form throughout the literature. The Lagrangian--Eulerian distinction in continuum mechanics, the open-path versus closed-loop distinction in gauge theory, and the Heisenberg--Schr\"odinger picture distinction in quantum mechanics all instantiate the framework boundary in different forms. The contribution of the present paper is the identification of the framework boundary as a single structural feature underlying these various instantiations, and the systematic articulation of its consequences. The articulation does not introduce new physical content beyond what is implicit in the existing distinctions; it makes that content explicit.
+
+\textbf{Established results.} The Lorentz invariance of the chirality $\chi$ under proper orthochronous transformations is established by direct calculation, as in Eq.~\eqref{eq:phase_lorentz} of the main text. The zero integral torque identity Eq.~\eqref{eq:zero_torque_main} is established by elementary calculation, as in Appendix~\ref{app:4bk}. The topological disconnection of the chirality sectors $\chi = \pm 1$ in the physical state space, given the existence of the limit-cycle attractor at $r_{\mathrm{cm}} = 1/2$, is established by the winding-number argument of Sec.~\ref{sec:topological_protection}. The energy partition Eqs.~\eqref{eq:EA_56}--\eqref{eq:Eph_56} and the Hamiltonian identity Eq.~\eqref{eq:identity} are established by direct algebraic calculation, as in Refs.~\cite{hanamura01, hanamura33}. The non-equilibrium-steady-state character of the 0-Sphere internal dynamics is established by the three-layer argument of Sec.~\ref{sec:three_layer}, given the structural assumptions of topological energy confinement, Stefan-Boltzmann coupling, and topological protection of the chirality.
+
+\textbf{Claims of interpretation.} The directed-path reading of the zero integral torque identity, of the chirality, and of the conservation laws is a structural interpretation of established mathematical results within the directed-path framework. The interpretation is consistent with the mathematical content of the results and with the broader directed-path framework articulated in Refs.~\cite{hanamura31, hanamura55}. The choice between the directed-path interpretation and the local-field interpretation is empirical, not derivable from the mathematical results alone. The empirical commitments of the directed-path framework, in particular the gravitational redshift of the internal Zitterbewegung clock~\cite{hanamura22, hanamura55}, are the means by which the choice can in principle be settled by experiment.
+
+\textbf{Conjectures.} The conjecture that the spacetime metric encodes the chirality of the underlying helical trajectories, formulated in Sec.~\ref{sec:helical} on the basis of the metric reconstruction formula Eq.~\eqref{eq:metric_conjecture} of Ref.~\cite{hanamura51}, is a structural conjecture awaiting development through the curved-space completion of Stage 3 of the staged programme of Ref.~\cite{hanamura55}. The proposal that the Hamiltonian identity Eq.~\eqref{eq:identity} can be read as the gauge-consistency condition for the internal U(1) holonomy, mentioned in Sec.~\ref{sec:confinement}, is a structural proposal whose development as a full gauge-theoretic statement is reserved for future work.
+
+\textbf{Claims that the present paper does not establish.} The present paper does not establish the empirical adequacy of the directed-path framework at the single-particle level; this awaits the experimental verification or falsification of the gravitational redshift prediction~\cite{hanamura22} and the related empirical commitments of the line-integral ontology. The paper does not establish that the directed-path framework provides the unique correct description of physical reality; it establishes that the directed-path framework is an internally consistent description with its own domain of empirical commitments, distinct from those of the local-field framework. The paper does not displace the Boltzmann or Penrose analyses of the macroscopic arrow of time within their respective domains; it offers a microscopic foundation for those analyses that, if empirically adequate, would underlie rather than replace them.
+
+
+\section{Derivation of the Mode Torque $\sin(4 b_k)$}
+\label{app:4bk}
+
+This appendix provides the step-by-step derivation of the mode torque $\sin(4 b_k)$ that underlies the zero integral torque identity Eq.~\eqref{eq:zero_torque_main} of the main text.
+
+The $n$-oscillator system of the 0-Sphere Model consists of $n$ phase-staggered modes arrayed on the unit circle of the internal phase space at phases $b_k = \pi k/n$ for $k = 0, 1, \ldots, n-1$. The amplitude of the $k$-th mode is denoted $A_k$, and the global phase of the system is denoted $a$. The energy associated with the $k$-th mode, in the spinorial representation appropriate to the 0-Sphere internal dynamics~\cite{hanamura26, hanamura48}, takes the form
+\begin{equation}
+E_k = \tfrac{1}{2} A_k^2 \cos^2(2 b_k - a),
+\label{eq:Ek_app}
+\end{equation}
+where the factor of two in the argument $2 b_k$ reflects the spinorial $2\pi \to 4\pi$ doubling of the internal phase~\cite{hanamura26, hanamura50}, and the squared amplitude reflects the standard quadratic dependence of energy on amplitude.
+
+The torque exerted by the $k$-th mode on the global phase $a$ is given by the negative derivative of $E_k$ with respect to $a$:
+\begin{equation}
+\tau_k = -\frac{\partial E_k}{\partial a} = A_k^2 \cos(2 b_k - a) \sin(2 b_k - a).
+\label{eq:tauk_app}
+\end{equation}
+Applying the double-angle identity $2 \sin\phi \cos\phi = \sin(2\phi)$ with $\phi = 2 b_k - a$, we obtain
+\begin{equation}
+\tau_k = \tfrac{1}{2} A_k^2 \sin(4 b_k - 2 a).
+\label{eq:tauk_simplified}
+\end{equation}
+The factor of four in the argument arises from two independent doublings: the spinorial doubling that produced $2 b_k$ in Eq.~\eqref{eq:Ek_app}, and the trigonometric doubling that produced $\sin(4 b_k - 2 a)$ in Eq.~\eqref{eq:tauk_simplified}. The two doublings are independent in their physical origin: the first reflects the $\mathrm{SU}(2)$ structure of the internal spinorial dynamics, the second reflects the standard trigonometric algebra.
+
+The total torque on the global phase $a$, summed over all $n$ modes, is
+\begin{equation}
+\tau_{\mathrm{total}} = \sum_{k=0}^{n-1} \tau_k = \tfrac{1}{2} \sum_{k=0}^{n-1} A_k^2 \sin(4 b_k - 2 a).
+\label{eq:tau_total_app}
+\end{equation}
+For modes of equal amplitude $A_k = A$ (the case relevant to the limit-cycle attractor at $r_{\mathrm{cm}} = 1/2$), Eq.~\eqref{eq:tau_total_app} simplifies to
+\begin{equation}
+\tau_{\mathrm{total}} = \tfrac{1}{2} A^2 \sum_{k=0}^{n-1} \sin(4 b_k - 2 a).
+\label{eq:tau_equal_amp}
+\end{equation}
+The trigonometric sum can be evaluated using the identity
+\begin{equation}
+\sum_{k=0}^{n-1} \sin(\alpha + k \beta) = \frac{\sin(n\beta/2)}{\sin(\beta/2)} \sin\!\left(\alpha + \frac{(n-1)\beta}{2}\right),
+\label{eq:sin_sum}
+\end{equation}
+with $\alpha = -2a$ and $\beta = 4\pi/n$ (since $b_k = \pi k/n$ implies $4 b_k = 4\pi k/n$). The factor $\sin(n\beta/2) = \sin(2\pi) = 0$ vanishes identically for all $n \geq 2$, and therefore
+\begin{equation}
+\sum_{k=0}^{n-1} \sin(4 b_k - 2 a) = 0
+\label{eq:zero_torque_app}
+\end{equation}
+identically for all $n \geq 2$ and for all values of $a$. The total torque on the global phase $a$ from the equal-amplitude $n$-oscillator ensemble is therefore zero, regardless of the value of $a$ at any instant. This is the zero integral torque identity Eq.~\eqref{eq:zero_torque_main} of the main text.
+
+The proof shows that the identity holds without any condition on the value of $a$: the cancellation is a structural feature of the equal-amplitude $n$-oscillator architecture, not a coincidence at specific phases. The two readings of this structural feature---the local-field decoupling reading and the directed-path topological-protection reading---are the subject of Sec.~\ref{sec:two_readings} of the main text.
+
+
+\section{Conceptual Roadmap of the Framework Boundary}
+\label{app:roadmap}
+
+This appendix provides a conceptual roadmap of the framework boundary for readers approaching the analysis from a background in standard field theory or classical mechanics. The roadmap is organized around the question: what changes in the description of a physical system when one moves from the local-field framework to the directed-path framework?
+
+The local-field framework, as practiced in standard field theory, takes as primary the value of fields at spacetime points. The fundamental objects are functions $\phi(x)$, $A_\mu(x)$, $g_{\mu\nu}(x)$, and so on, evaluated at coordinate points $x$. The fundamental equations are partial differential equations relating these field values---the wave equation, Maxwell's equations, the Einstein equations. The fundamental observables are quantities expressible in terms of these local field values: energy densities, charge densities, curvature scalars. The framework is enormously powerful: nearly all of modern physics, from quantum field theory to general relativity, is articulated within it.
+
+The directed-path framework starts from a different primitive. Instead of taking field values at points as primary, it takes as primary the integrated quantities $\int_\gamma \omega$ along directed paths $\gamma$. The fundamental objects are not field values but path integrals; the fundamental observables are not local densities but accumulated phases. Local field values are still present in the description, but they enter as derived densities from which the primary path integrals are built.
+
+The change in framework is not a change in the equations one writes down or the calculations one performs. The connection one-form $\omega$ has the same local form in both frameworks, and the path integral $\int_\gamma \omega$ is computed by the same procedure. The change is in the assignment of physical priority. In the local-field framework, $\omega$ is primary and $\int_\gamma \omega$ is a derived computational device. In the directed-path framework, $\int_\gamma \omega$ is primary and $\omega$ is a derived density.
+
+This change in priority has three operational consequences for how a physical system is described.
+
+The first operational consequence is in the choice of observables. Within the local-field framework, the observables are quantities evaluated at spacetime points: $\phi(x)$, the electric field $\mathbf{E}(\mathbf{r}, t)$, the curvature $R^\mu_{\;\nu\rho\sigma}(x)$. Within the directed-path framework, the observables include path-dependent quantities that have no formulation as point-wise field values: the holonomy $\oint_C A$ around a closed loop, the Aharonov--Bohm phase $\Phi_{\mathrm{AB}} = (e/\hbar)\oint_C \mathbf{A}\cdot d\mathbf{l}$ (Sec.~\ref{sec:aharonov_bohm}), and the chirality $\chi = \mathrm{sign}(da/dt)$ of a directed trajectory (Sec.~\ref{sec:chirality}). The latter quantity, in particular, has no local field expression: it is the sign of the directed advance along a path, and a single point-wise field measurement cannot resolve it.
+
+The second operational consequence is in the structure of the equations of motion. Within the local-field framework, the equations of motion are partial differential equations governing the evolution of field values. Within the directed-path framework, the equations of motion are conditions on the path integrals---typically integrability conditions ensuring that the integrated phase is well-defined modulo specified periodicities. The Maxwell wave equation $\Box \Pi = 0$ and the Einstein field equations, in the directed-path reading articulated in Refs.~\cite{hanamura30, hanamura55}, are unified as integrability conditions on Wilson-line data rather than as dynamical generators of field evolution.
+
+The third operational consequence is in the structure of conservation laws. Within the local-field framework, conservation laws are time-neutral balance equations of the form $\partial_\mu T^{\mu\nu} = 0$. Within the directed-path framework, conservation laws are directional phase consistency conditions on integrals along directed paths, with the directional structure of the path entering the statement essentially (Sec.~\ref{sec:directional_laws}).
+
+The reader from a standard field-theory background may ask whether the directed-path framework is computationally equivalent to the local-field framework, and if so, whether the framework choice carries any physical content beyond the choice of language. The answer to the first question is yes for quantities expressible in both frameworks; the path integral $\int_\gamma \omega$ is computable from $\omega$ along $\gamma$. The answer to the second question is also yes, but for a subtle reason: the framework choice determines which observables enter the theory as primary and which enter as derived, and this determination has empirical consequences when the two frameworks disagree about which observables are the primary objects of measurement. The Aharonov--Bohm effect (Sec.~\ref{sec:aharonov_bohm}) is the canonical empirical demonstration that the framework choice matters: both frameworks compute the same phase shift, but they disagree about whether that phase shift reveals a primary observable (the directed-path reading) or supplies a non-classical role to the gauge potential (the local-field reading). The microscopic time reversibility of single particles (Sec.~\ref{sec:irreversibility}) is the application within the present paper where the framework choice has the most decisive consequences.
+
+The reader from a classical-mechanics background may find the directed-path framework more natural under the label of the Lagrangian description in continuum mechanics. The contrast between Lagrangian and Eulerian descriptions in fluid dynamics is the closest classical analogue of the framework boundary~\cite{hanamura55}. The Eulerian description records the velocity field $\mathbf{u}(\mathbf{r}, t)$ at fixed grid points; the Lagrangian description follows fluid parcels along their physical trajectories. Both descriptions are computationally equivalent for sufficiently regular flows, but they make different physical content visible. Free-surface flows, spray formation, and interfacial discontinuities are difficult to capture in the Eulerian description and natural in the Lagrangian description; this is the practical reason for the rise of particle-based methods in computational fluid dynamics. The framework boundary of the present paper is the field-theoretic analogue of this classical distinction: the local-field framework is Eulerian, the directed-path framework is Lagrangian, and the change of viewpoint reveals physical content that is implicit but not transparent within the alternative description.
+
+
+\section{Mixed Internal Modes and the Boundary Constraint}
+\label{app:modes}
+
+This appendix develops the physical interpretation of the zero integral torque identity in terms of the mixed spherical-harmonic modes of the photon sphere and the boundary constraints imposed by the kernels acting as fixed endpoints. The identity is, in this physical reading, the algebraic expression of a global cancellation imposed on the mixed mode structure by the kernel boundary conditions.
+
+\subsection{The kernel boundary conditions}
+\label{sec:kernel_boundary}
+
+The two energy kernels A and B (and, in the $n$-oscillator generalization, all $n$ kernels) act as fixed endpoints of the internal dynamics. The Hamiltonian identity Eq.~\eqref{eq:identity} of the main text imposes a definite condition on the kinetic content of the photon sphere at these endpoints: when the photon sphere is located at either kernel ($\theta = 0$ corresponds to kernel A, $\theta = \pi$ to kernel B), the photon-sphere energy $\EphS = \tfrac{1}{2}E_0\sin^2\theta$ vanishes, $\sin^2\theta = 0$. The photon sphere has zero kinetic energy at the kernel positions. This is not an approximate or asymptotic statement: it is exact, following from the Hamiltonian identity for all phases $\theta \in [0, 2\pi)$.
+
+When external photons of energy $\hbar\omega$ are absorbed by the system, they excite the photon sphere into a mixture of oscillation modes. In the spherical-harmonic representation developed in Refs.~\cite{hanamura50, hanamura48}, these modes are labeled by integer indices $(\ell, m)$ corresponding to the irreducible representations of the rotation group acting on the photon-sphere surface. Each absorbed photon excites a definite linear combination of these modes, with the specific combination determined by the photon energy and angular momentum. The excited state of the photon sphere is therefore a superposition
+\begin{equation}
+\Psi_{\mathrm{ph}} = \sum_{\ell, m} c_{\ell m} \, Y_{\ell m}(\Omega),
+\label{eq:psi_phs}
+\end{equation}
+where $Y_{\ell m}(\Omega)$ is the spherical harmonic at solid angle $\Omega$ on the photon sphere and $c_{\ell m}$ is the complex amplitude of the $(\ell, m)$ mode in the absorbed photon's contribution.
+
+The kernel boundary conditions impose a constraint on the superposition Eq.~\eqref{eq:psi_phs}: the contribution of all modes to the photon-sphere kinetic energy must vanish at the kernel locations. This is a global boundary constraint on the mixed mode structure: it does not restrict any individual mode but the integrated contribution of the ensemble.
+
+\subsection{The integrated angular impulse}
+\label{sec:integrated_angular_impulse}
+
+The angular impulse contributed by a mode with index $(\ell, m)$ to the global phase $a$ of the system is, after the spinorial doubling and trigonometric algebra of Appendix~\ref{app:4bk}, a function of the form $A_{\ell m}^2 \sin(4 b_{\ell m} - 2a)$, where $b_{\ell m}$ is the phase of the mode within the unit-circle representation of the spherical-harmonic structure. The total angular impulse from the mode ensemble is the sum $\sum_{\ell m} A_{\ell m}^2 \sin(4 b_{\ell m} - 2a)$.
+
+The boundary constraint imposed by the kernels requires this sum to vanish: regardless of the specific amplitudes $A_{\ell m}$ excited by an absorbed photon, the integrated angular impulse between the two fixed endpoints (the kernels) must cancel. This requirement is the physical origin of the zero integral torque identity Eq.~\eqref{eq:zero_torque_main} of the main text. The mathematical identity $\sum_k \sin(4 b_k) = 0$ for uniformly distributed $b_k = \pi k/n$ is the algebraic expression of the boundary constraint within the $n$-oscillator representation of the spherical-harmonic mode structure.
+
+The physical picture can be summarized as follows. The kernels act as fixed endpoints; the photon sphere is excited into mixed modes by absorbed photons; each mode contributes an angular impulse; the boundary constraint requires the integrated impulse to vanish. The identity is the algebraic encoding of this physical fact.
+
+\subsection{The common temporal phase}
+\label{sec:common_phase}
+
+A consequence of the boundary constraint, which is implicit in the directed-path reading of Sec.~\ref{sec:two_readings} of the main text but not obvious from the local-field reading, is that the cancellation does not eliminate the internal dynamics. It selects a common temporal phase shared by the mixed oscillatory modes. The directed phase accumulation along the internal radiation path---the integral of the phase advance along the helical thermal geodesic---is the quantity that survives the cancellation. The local-field framework, which reads the cancellation as decoupling, treats this surviving phase as having no observable consequence; the directed-path framework, which reads the cancellation as topological protection, treats this surviving phase as the elementary observable of the system.
+
+The metaphor that may be useful here is that of a common multiple. The kernel boundary constraint imposes a restriction on the mixed mode structure: each mode, individually, may have any phase, but the collection must satisfy the boundary constraint. The phase that survives the boundary constraint is, in this sense, a collective phase determined by the requirement that the modal ensemble be compatible with the fixed endpoints. The directed path of the photon sphere along the helical thermal geodesic carries this collective phase as the integral of the phase advance along the trajectory; the chirality $\chi = \mathrm{sign}(da/dt)$ is the sign of the integrated advance.
+
+The interpretation of the zero integral torque identity as the boundary constraint on mixed modes makes the directed-path reading physically transparent. The internal modes of the photon sphere are not decoupled from the global dynamics; they are constrained by the boundary conditions to contribute zero net torque on the global phase. The constraint allows the mixed modes to coexist within the photon-sphere structure while leaving the directed advance of the global phase undisturbed. The chirality is the topologically stable directed history that emerges from this structural compatibility.
+
+
+\end{document}

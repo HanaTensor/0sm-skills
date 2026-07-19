@@ -1,0 +1,1166 @@
+% ========================================
+% Paper #59: Proton-Trapped Electron as the Generator of
+%             Spin-2 Gravitational Radiation
+%   Quadrupole Moment Generation via Coulomb Confinement
+%   and Directional Locking of the ZB Axis
+%
+% Author       : Satoshi Hanamura
+% DOI          : 10.5281/zenodo.19932907
+% Date         : May 23, 2026
+% Class        : Structural Clarification Note
+%
+% Series position : 3rd of the four-paper sequence #57-#60
+%                   (microscopic gravitational mechanism cluster)
+% Companion DOIs  : #60 = 10.5281/zenodo.19932922
+%
+% Bibliographic predecessors cited in this manuscript:
+%   #1  (10.5281/zenodo.16759284) -- 4-pi boundary condition foundation
+%   #10 (10.5281/zenodo.17764997) -- bridge equation gamma = 1 + a
+%   #15 (10.5281/zenodo.17765121) -- gyroscopic origin of inertial mass
+%                                     (rest mass microscopic foundation)
+%   #33 (10.5281/zenodo.18356895) -- Geometrical Confinement (foundation)
+%   #34 (10.5281/zenodo.18437010) -- Geometrical Confinement (emergent gravity)
+%   #42 (10.5281/zenodo.18857609) -- monopole/dipole conservation structure
+%   #49 (10.5281/zenodo.19393391) -- photon-sphere fragmentation mechanism
+%   #51 (10.5281/zenodo.19489126) -- endpoint variation -> g_munu
+%   #52 (10.5281/zenodo.19583032) -- ZB-axis convergence, e_x = gravity direction
+%   #57 (10.5281/zenodo.19932176) -- Y_l^m imprinting
+%
+% Note on Paper #58:
+%   The earlier coherent-pair construction of Paper #58 has been replaced
+%   here by the 4-pi internal-cycle boundary condition of Paper #1.
+%   Paper #58 is therefore intentionally not cited as a prerequisite of
+%   the present work; it is referenced only in the bibliography of Zenodo
+%   relations metadata as a structural predecessor whose phase-stability
+%   construction the present paper supersedes.
+% ========================================
+
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prd, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+% --- paragraph heading: run-in italic with extra top skip for block readability ---
+\makeatletter
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+    {3mm \@plus 1ex \@minus .2ex}%   space before (block separator)
+    {-1em}%                          negative -> run-in
+    {\normalfont\normalsize\itshape}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning}
+
+% --- Custom Macros ---
+\newcommand{\iphase}{\theta}
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\vZB}{v_{\mathrm{ZB}}}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+\newcommand{\anom}{a_{\mathrm{e}}}
+\newcommand{\betaZB}{\beta_{\mathrm{ZB}}}
+\newcommand{\OmT}{\boldsymbol{\Omega}_T}
+\newcommand{\ehat}[1]{\hat{e}_{#1}}
+\newcommand{\lambdaCe}{\lambda_{\mathrm{C}}^{(e)}}
+\newcommand{\lambdaCp}{\lambda_{\mathrm{C}}^{(p)}}
+\newcommand{\omZBe}{\omega_{\mathrm{ZB}}^{(e)}}
+\newcommand{\omZBp}{\omega_{\mathrm{ZB}}^{(p)}}
+
+% ========================================
+\begin{document}
+% ========================================
+
+\title{Proton-Trapped Electron as the Generator of Spin-2 Gravitational Radiation:\\ Coulomb Confinement, ZB Axis Locking,\\ and the Separation of Gravitational and Electromagnetic Sectors}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{May 23, 2026}
+
+% ========================================
+\begin{abstract}
+We propose a speculative structural correspondence between the internal dynamics of the electron and composite hadronic systems within the 0-Sphere framework. In this model, the electron is described by a two-kernel architecture connected through a photon-sphere-like energy structure, giving rise to Zitterbewegung at the Compton scale. Extending this framework, we explore possible mappings to the internal structure of the proton as described by quantum chromodynamics, where quark confinement and gluon-mediated interactions define the relevant scale and dynamics.
+
+We present candidate correspondences between the two systems, including alternative interpretations in which internal oscillatory dynamics and effective energy structures are distributed among quark constituents. These mappings are explicitly treated as speculative and are not intended as a replacement for established theory, but rather as a structural analogy that highlights potential parallels between electromagnetic and strong interaction regimes.
+
+This work aims to clarify the conceptual structure of the 0-Sphere model and to identify open problems required for a rigorous extension to composite particles, including the incorporation of quark confinement and non-perturbative dynamics. The proposed framework suggests possible avenues for future investigation, particularly in relation to scale correspondence and testable structural features.
+
+\end{abstract}
+
+\maketitle
+
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+% ========================================
+
+The 0-Sphere model has progressively built an account of gravitational coupling from the internal dynamics of the electron.
+Paper~\#34~\cite{hanamura34} demonstrated photon-mediated phase synchronization as the origin of gravitational-like acceleration.
+Paper~\#49~\cite{hanamura49} identified the ejected photon-sphere fragment at $\iphase = \pi/2$ as the gravitational mediator.
+Paper~\#52~\cite{hanamura52} proposed that the longitudinal direction $\ehat{x}$ (velocity direction of the helical trajectory) is the gravitational sector, and introduced the deterministic ZB axis drift as the single-particle mechanism by which an electron responds to an external field.
+
+A question left open in Paper~\#52 is: \emph{what determines the direction of the ejected spin-2 fragment, and why does it not average to zero?}
+For a free electron, the ZB axis $\hat{e}(t)$ precesses at $\Delta\phi = 2\pi\anom$ per cycle without a preferred orientation, so the fragments emitted over many cycles point in varying directions and do not accumulate into observable directed quadrupole gravitational radiation due to directional isotropization.
+The present paper proposes two complementary answers: (i) the Coulomb potential of the proton provides a directional well that locks the ZB axis to the proton--electron axis, supplying the preferred direction; and (ii) the boundary conditions of the $4\pi$ internal cycle established in Paper~\#1~\cite{hanamura01} provide phase re-normalization at each cycle boundary, supplying the phase stability that sustains a non-zero $Q_{ij}(t)$.
+
+\paragraph{Postulate: ZB as a real, subluminal internal oscillation.}
+We postulate that the electron possesses a real, subluminal internal oscillatory motion (Zitterbewegung, ZB), treated as a physical degree of freedom rather than a mere interference artifact.
+The internal velocity satisfies $|\mathbf{v}_{\mathrm{ZB}}| < c$, ensuring compatibility with relativistic causality.
+Its characteristic scale is taken to be of order $2mc^2/\hbar$ in frequency and the Compton wavelength in length~\cite{hanamura10, Schrodinger1930}.
+In this framework, the ZB motion induces a directional anisotropy in the effective energy distribution $\rho_{\mathrm{eff}}$, providing the microscopic origin of the time-dependent quadrupole moment.
+
+\paragraph{The self-isolation of the free electron.}
+A free electron in vacuum cannot spontaneously localize.
+Its negative charge produces electromagnetic repulsion ($\hat{e}_y$ sector, spin-1) that far exceeds any gravitational self-attraction ($\hat{e}_x$ sector, spin-2 candidate) by the coupling ratio $\sim 10^{42}$.
+In the 0-Sphere framework:
+\begin{equation}
+\delta E_\mathrm{EM} \propto e E \lambdaCe \;\gg\; \delta E_\mathrm{grav} \propto m_e g \lambdaCe.
+\end{equation}
+The EM turning-point asymmetry overwhelms the gravitational asymmetry, and the ZB axis cannot converge to a gravitational-sector direction.
+A proton --- providing a Coulomb well that overcomes this EM barrier --- is the minimal structure required to lock the ZB axis and enable directed gravitational radiation.
+
+\paragraph{Relation to Paper~\#57.}
+Paper~\#57~\cite{hanamura57} addressed the \emph{transmission} of gravitational information via $Y_\ell^m$ imprinting and the $\varepsilon_1$ elimination enabled by mass asymmetry ($M \gg m_e$).
+The present paper addresses the \emph{directionality and phase stability}: why does the emitted fragment point in a fixed direction, and what physical mechanism maintains phase coherence over successive ZB cycles without invoking an extrinsic coherent-pair structure?
+The two papers are logically complementary; together with Paper~\#52 they constitute a candidate complete microscopic account of directed gravitational radiation.
+
+\paragraph{Terminology: effective photon sphere.}
+Throughout this paper, the term \emph{effective photon sphere} (in this work) denotes a structured radiative mode carrying memory of the non-closed ZB trajectory --- specifically, a photon-sphere fragment that preserves the directional imprint of the A$\to$B and B$\to$A' traversals and propagates that imprint at $c$ to a receiving system.
+This usage follows Papers~\#1, \#34, and~\#49~\cite{hanamura01,hanamura34,hanamura49}.
+
+% ========================================
+\section{Free Electron: Absence of External Endpoint Variation and Pattern Isotropization}
+\label{sec:free_electron}
+% ========================================
+
+\subsection{Deterministic Axis Drift Without a Preferred Direction}
+
+For a free electron in vacuum, the ZB axis $\hat{e}(t)$ evolves according to the deterministic drift established in Paper~\#52:
+\begin{equation}
+\hat{e}(t + T_\mathrm{ZB}) = R(\ehat{z},\, 2\pi\anom)\,\hat{e}(t),
+\label{eq:axis_drift_free}
+\end{equation}
+where $R(\ehat{z}, \alpha)$ denotes rotation by $\alpha$ about $\ehat{z}$, and $T_\mathrm{ZB} = 2\pi/\omZBe$ is the ZB period.
+The drift angle per cycle is $\Delta\phi = 2\pi\anom \approx 7.3\times10^{-3}$~rad, so the axis completes a full precession in $N_\mathrm{prec} \approx 2\pi/\Delta\phi \approx 860$ ZB cycles, corresponding to a precession period:
+\begin{equation}
+T_\mathrm{prec}
+= N_\mathrm{prec} \times T_\mathrm{ZB}
+\approx 860 \times \frac{2\pi}{\omZBe}
+\approx 5\times10^{-16}\ \text{s}.
+\label{eq:prec_period}
+\end{equation}
+In the absence of any external directional bias, $\hat{e}(t)$ sweeps uniformly over a precession cone.
+The ejected photon-sphere fragments over one precession period therefore span all directions on that cone.
+
+\subsection{Suppression of Gravitational Radiation from a Free Electron}
+
+\paragraph{Two gravitational channels from 0SM internal Zitterbewegung.}
+The 0-Sphere internal Zitterbewegung couples to the gravitational sector through two structurally distinct channels.
+\emph{Channel~A (static, monopole sector):} the time-integrated total energy of the two-kernel system, $E_0 = m_e c^2$, acts as a rest-mass source for the static Schwarzschild contribution $g_{\mu\nu} \supset 2 G m_e/(c^2 r)$ to the external metric. The microscopic origin of this rest-mass source is established in Paper~\#15~\cite{hanamura15}: the conservation of the internal angular momentum carried by the two-kernel oscillation imposes a gyroscopic resistance to reorientation of the kernel axis, which is identified with inertial mass at the microscopic level. The macroscopic mechanism that connects this inertial mass to the gravitational sector is supplied through the equivalence principle, implemented at the photon-mediated phase-synchronization level by Paper~\#34~\cite{hanamura34} on the foundational Hamiltonian identity of Paper~\#1~\cite{hanamura01}. Channel~A is universally active for any electron, free or bound.
+\emph{Channel~B (dynamic, quadrupole sector):} the time-varying quadrupole moment of the externally observable mass distribution sources gravitational radiation through the standard quadrupole formula~\cite{Hartle2003, Peters1963}. The microscopic criterion for this channel to be active is a non-vanishing external endpoint variation of the phase functional $\mathcal{S}(x_A, x_B)$, developed in Section~\ref{sec:endpoint}. For an isolated free electron, the kernel positions are rigidly comoving with the center of mass and the criterion fails; for the proton-trapped electron (Section~\ref{sec:trapped}), orbital motion supplies the required endpoint variation and the criterion is satisfied.
+
+The two channels are logically independent: Channel~A is preserved for all electrons in accordance with the equivalence principle, while Channel~B's source-existence criterion is configuration-dependent. The remainder of this subsection establishes the absence of Channel~B for the isolated free electron in two distinct levels of description --- a framework-level statement (primary mechanism) and a kinematic-level statement (auxiliary check) --- and identifies a caveat regarding the latter.
+
+\paragraph{Framework-level (primary mechanism): no external endpoint variation.}
+The fundamental reason for the suppression is the endpoint-variation framework of Paper~\#51~\cite{hanamura51}, developed in detail in Section~\ref{sec:endpoint}.
+The external metric $g_{\mu\nu}^{(\mathrm{ext})}$ couples to variation of the phase-functional endpoints $(x_A, x_B)$ relative to external spacetime, not to internal $\lambdaCe$-scale phase oscillation.
+For a free electron, the kernel positions are rigidly comoving with the center of mass; the endpoints undergo no variation relative to external reference points, so
+\begin{equation}
+\delta_\mathrm{endpoint}^{(\mathrm{ext})}\,\mathcal{S} = 0
+\quad \Rightarrow \quad
+\delta g_{\mu\nu}^{(\mathrm{ext})} = 0
+\quad (\text{free electron}).
+\label{eq:free_no_endpoint}
+\end{equation}
+No dynamic external metric is generated, hence no quadrupole gravitational radiation.
+This is the strong, scale-separation statement and is established as Proposition~\ref{prop:endpoint} in Section~\ref{sec:endpoint}.
+The static monopole gravitational field ($\propto Gm_e/r^2$) is unaffected and remains non-zero in accordance with the equivalence principle; the suppression here concerns only the time-varying quadrupole sector.
+
+\paragraph{Kinematic-level (auxiliary check): pattern isotropization.}
+A complementary kinematic statement, valid \emph{at the level of the radiation pattern} (the angular distribution on the sky), follows from the deterministic axis precession of Eq.~\eqref{eq:axis_drift_free}.
+The time-averaged quadrupole tensor over one precession period is:
+\begin{equation}
+\langle Q_{ij}\rangle_{T_\mathrm{prec}}
+\propto \left\langle \hat{e}_i\hat{e}_j \right\rangle_\mathrm{cone}
+= \frac{1}{3}\delta_{ij},
+\label{eq:cone_avg}
+\end{equation}
+so the trace-free anisotropic component vanishes:
+\begin{equation}
+\left\langle Q_{ij} - \frac{1}{3}\delta_{ij}Q \right\rangle_{T_\mathrm{prec}} = 0.
+\label{eq:tracefree_avg}
+\end{equation}
+\emph{The angular distribution} of any instantaneous emission is therefore isotropized on the precession timescale $T_\mathrm{prec} \approx 5\times10^{-16}$~s.
+
+\paragraph{Caveat: pattern isotropization does not by itself suppress total power.}
+The cancellation in Eq.~\eqref{eq:tracefree_avg} applies to the angular structure of $Q_{ij}$, \emph{not} to the scalar contraction $\dddot{Q}_{ij}\dddot{Q}^{ij}$ that governs the total radiated power via the quadrupole formula.
+For $Q_{ij}(t) = A\cos(\omZBe t)\bigl(\hat{e}_i\hat{e}_j - \tfrac{1}{3}\delta_{ij}\bigr)$, direct calculation gives
+\begin{equation}
+\dddot{Q}_{ij}\,\dddot{Q}^{ij}
+= \tfrac{2}{3}\,A^2\,(\omZBe)^6\,\sin^2(\omZBe t),
+\label{eq:dddQ_squared}
+\end{equation}
+which is independent of $\hat{e}(t)$.
+Consequently,
+\begin{equation}
+\langle Q_{ij}\rangle_{T_\mathrm{prec}} = 0
+\quad\not\Rightarrow\quad
+\langle \dddot{Q}_{ij}\,\dddot{Q}^{ij}\rangle_{T_\mathrm{prec}} = 0:
+\label{eq:isotropization_caveat}
+\end{equation}
+pattern isotropization redistributes emission across the sky but does not, by itself, suppress the total radiated power.
+The suppression of \emph{total} radiation from a free electron is the framework-level statement of Eq.~\eqref{eq:free_no_endpoint}: a free electron generates no external endpoint variation, so no quadrupole gravitational radiation is emitted in the first place.
+The pattern-isotropization argument is retained here as an auxiliary kinematic observation; it is consistent with, but does not substitute for, the endpoint-variation mechanism of Section~\ref{sec:endpoint}.
+
+\begin{proposition}[Free electron: no quadrupole gravitational radiation]
+\label{prop:free}
+A free electron in vacuum generates no quadrupole gravitational radiation.
+The mechanism is framework-level (Section~\ref{sec:endpoint}, Proposition~\ref{prop:endpoint}): the phase-functional endpoints $(x_A, x_B)$ are rigidly comoving with the center of mass; endpoint variation relative to external spacetime vanishes ($\delta_\mathrm{endpoint}^{(\mathrm{ext})}\mathcal{S} = 0$); the dynamic external metric vanishes ($\delta g_{\mu\nu}^{(\mathrm{ext})} = 0$); hence no quadrupole radiation is sourced.
+The static monopole gravitational field ($\propto Gm_e/r^2$) is unaffected, in accordance with the equivalence principle.
+The deterministic ZB-axis precession of Eq.~\eqref{eq:axis_drift_free} provides a complementary kinematic statement at the level of the radiation pattern (Eq.~\eqref{eq:tracefree_avg}), isotropizing the angular distribution of any instantaneous emission on the timescale $T_\mathrm{prec}$; this pattern-level statement does not by itself suppress the scalar power $\dddot{Q}_{ij}\dddot{Q}^{ij}$ (Eq.~\eqref{eq:isotropization_caveat}) and is therefore auxiliary to the framework-level suppression.
+\end{proposition}
+
+% ========================================
+\section{Proton-Trapped Electron: Coulomb Confinement and ZB Axis Locking}
+\label{sec:trapped}
+% ========================================
+
+\subsection{The Proton as a Coulomb Potential Well}
+
+A proton at the origin creates a Coulomb potential $V(r) = -e^2/(4\pi\epsilon_0 r)$ that provides a spherically symmetric attractive well for the electron.
+In the 0-Sphere framework, this well modifies the turning-point energy asymmetry of Eq.~(4.1) of Paper~\#52.
+For an electron at position $\mathbf{r}$ relative to the proton, the Coulomb contribution to the turning-point energy difference is:
+\begin{equation}
+\delta E_\mathrm{Coulomb}(\hat{e})
+= -\frac{e^2}{4\pi\epsilon_0 r^2}\,(\hat{r}\cdot\hat{e})\,\lambdaCe,
+\label{eq:coulomb_asymmetry}
+\end{equation}
+where $\hat{r}$ is the proton-to-electron unit vector and $\hat{e}$ is the current ZB axis.
+This asymmetry is directed along $\hat{r}$: it biases the ZB axis drift toward alignment with the proton--electron axis, defining an effective anisotropy axis aligned with the interaction direction.
+
+\subsection{Axis Locking: Convergence to the Proton--Electron Direction}
+
+The total turning-point asymmetry in a hydrogen atom combines the gravitational term (\#52) and the Coulomb term (Eq.~\eqref{eq:coulomb_asymmetry}):
+\begin{align}
+\delta E_\mathrm{total}(\hat{e})
+&= m_e g \lambdaCe\,(\hat{e}\cdot\hat{g})
+\notag\\
+&\quad + \frac{e^2}{4\pi\epsilon_0 r^2}\,\lambdaCe\,(\hat{e}\cdot\hat{r})
++ \ldots
+\label{eq:total_asymmetry}
+\end{align}
+The Coulomb term dominates by the ratio:
+\begin{align}
+\frac{\delta E_\mathrm{Coulomb}}{\delta E_\mathrm{grav}}
+&\approx \frac{e^2/(4\pi\epsilon_0 r^2)}{m_e g}
+\notag\\
+&\approx \frac{e^2}{4\pi\epsilon_0 m_e g a_0^2}
+\approx 10^{39},
+\label{eq:coulomb_grav_ratio}
+\end{align}
+where $a_0 = 5.3\times10^{-11}$~m is the Bohr radius.
+The ZB axis therefore converges toward $\hat{r}$ (the proton--electron direction) on a timescale that is $10^{39}$ times faster than convergence toward the gravitational direction alone.
+
+\begin{proposition}[Coulomb locking of the ZB axis]
+\label{prop:lock}
+For an electron in the Coulomb well of a proton at separation $r \sim a_0$, the Coulomb turning-point asymmetry $\delta E_\mathrm{Coulomb} \sim e^2\lambdaCe/(4\pi\epsilon_0 a_0^2)$ dominates the gravitational asymmetry by a factor of $\sim 10^{39}$. The ZB axis $\hat{e}$ converges deterministically to the proton--electron direction $\hat{r}$ within a small number of ZB cycles, effectively locking $\hat{e} \approx \hat{r}$.
+\end{proposition}
+
+\subsection{Directed Spin-2 Emission: Phase Stability via $4\pi$ Boundary Re-normalization}
+
+Once the ZB axis is locked to $\hat{r}$, every subsequent ZB cycle produces a photon-sphere fragment directed along $\hat{r}$.
+The quadrupole moment of the locked system:
+\begin{equation}
+Q_{ij}^{(\text{locked})}(t)
+= \frac{E_0 (\lambdaCe)^2}{c^2}
+\cos(\omZBe t)
+\left(\hat{r}_i\hat{r}_j - \frac{1}{3}\delta_{ij}\right),
+\label{eq:Q_locked}
+\end{equation}
+has a definite, non-zero trace-free part directed along $\hat{r}$.
+The gravitational wave power is now:
+\begin{equation}
+P_\mathrm{GW}^{(\text{locked})}
+= \frac{G}{5c^5}
+\left\langle
+  \dddot{Q}_{ij}^{(\text{locked})}
+  \dddot{Q}^{(\text{locked})\,ij}
+\right\rangle
+\sim 10^{-70}\ \text{W},
+\label{eq:P_locked}
+\end{equation}
+with a fixed direction $\hat{r}$.
+In contrast, the free-electron power is zero (Proposition~\ref{prop:free}).
+
+The difference between Eqs.~\eqref{eq:cone_avg} and~\eqref{eq:Q_locked} is the axis locking:
+\begin{equation}
+P_\mathrm{GW}^{(\text{free})} = 0,
+\qquad
+P_\mathrm{GW}^{(\text{locked})} \sim 10^{-70}\ \text{W}.
+\label{eq:power_comparison}
+\end{equation}
+\textbf{Gravitational wave radiation is generated by bound matter (proton--electron pairs), not by free electrons.}
+This is the 0-Sphere microscopic origin of the empirical observation that isolated free electrons do not emit directional gravitational wave radiation.
+
+\subsection{Phase Stability from the $4\pi$ Internal Cycle (Paper~\protect\#1)}
+\label{subsec:4pi}
+
+The oscillation $Q_{ij}(t) \propto \cos(\omZBe t)$ of Eq.~\eqref{eq:Q_locked} must be phase-stable across successive ZB cycles for $\langle\dddot{Q}_{ij}\dddot{Q}^{ij}\rangle \neq 0$ to hold.
+This phase stability does not require an external phase-locking mechanism; it is guaranteed by the boundary conditions of the internal energy cycle established in Paper~\#1~\cite{hanamura01}.
+
+The central energy identity of Paper~\#1 is:
+\begin{equation}
+E_0 = E_0\!\left[\cos^4\!\!\left(\frac{\iphase}{2}\right) + \sin^4\!\!\left(\frac{\iphase}{2}\right) + \frac{1}{2}\sin^2\!\iphase\right],
+\label{eq:energy_identity}
+\end{equation}
+where the three terms represent, respectively, the thermal potential energy of Kernel~A ($E_A = E_0\cos^4(\iphase/2)$), Kernel~B ($E_B = E_0\sin^4(\iphase/2)$), and the kinetic energy of the photon sphere ($\gamma_{KE} = \frac{1}{2}E_0\sin^2\iphase$).
+
+A complete spinorial ZB cycle spans $4\pi$ in internal phase $\iphase$, reflecting the $4\pi$ periodicity of the electron's spinorial wavefunction.
+Within this $4\pi$ cycle, the photon sphere undergoes a forward traversal ($\iphase: 0 \to 2\pi$, A$\to$B direction) and a return traversal ($\iphase: 2\pi \to 4\pi$, B$\to$A' direction).
+At the boundary points of each $2\pi$ traversal, the photon-sphere kinetic energy vanishes identically ($\gamma_{KE} = 0$) and the full internal energy resides in a single kernel:
+\begin{align}
+\iphase &= 0,\, 2\pi,\, 4\pi:
+\notag\\
+&\quad E_A = E_0\cos^4(0) = E_0,\quad E_B = 0
+\notag\\
+&\quad\text{(Kernel A: 100\%),}
+\label{eq:boundary_A}\\[6pt]
+\iphase &= \pi,\, 3\pi:
+\notag\\
+&\quad E_B = E_0\sin^4\!\!\left(\tfrac{\pi}{2}\right) = E_0,\quad E_A = 0
+\notag\\
+&\quad\text{(Kernel B: 100\%).}
+\label{eq:boundary_B}
+\end{align}
+These energy eigenstates at $\iphase = n\pi$ constitute a \emph{phase re-normalization}: the internal phase is reset to a thermodynamically definite state at every half-period.
+Because the boundary states are fully determined by the energy identity (not by external preparation or interference), the phase of the oscillation cannot drift across successive cycles.
+
+The mechanism can be stated precisely: \emph{phase coherence is maintained not by aligning phases externally, but by resetting the internal state to the same energy eigenstate at every cycle boundary.}
+This is the $4\pi$-cycle analogue of the statement that a harmonic oscillator whose turning points are fixed energy states cannot develop phase drift, even in the absence of an external locking mechanism.
+
+\begin{proposition}[$4\pi$ boundary condition as phase stabilizer]
+\label{prop:phase}
+The boundary conditions of the $4\pi$ spinorial cycle (Paper~\#1), which require $\gamma_{KE} = 0$ and total energy concentration in a single kernel at every half-period ($\iphase = n\pi$), provide a natural phase re-normalization equivalent in effect to an external coherent-pair locking mechanism. The oscillation $Q_{ij}(t) \propto \cos(\omZBe t)$ is therefore phase-stable across successive ZB cycles without requiring any extrinsic phase-locking structure.
+\end{proposition}
+
+% ========================================
+\section{Endpoint Variation, Path Deformation, and the Origin of $g_{\mu\nu}$}
+\label{sec:endpoint}
+% ========================================
+
+\subsection{The Two Variational Structures of the Phase Functional}
+
+Paper~\#51~\cite{hanamura51} proposed that the spacetime metric emerges as the second functional derivative of the phase accumulation functional $\mathcal{S}(x_A, x_B) = \int_{\Gamma_\mathrm{ext}} \mathcal{A}_\mu\,dx^\mu$:
+\begin{equation}
+g_{\mu\nu}(x)
+= \partial_{A\mu}\partial_{B\nu}
+  \mathcal{S}_s(x_A, x_B)\big|_{x_A = x_B = x}.
+\label{eq:synge_metric}
+\end{equation}
+Two distinct variational operations on $\mathcal{S}$ produce two physically distinct structures:
+\begin{align}
+\delta_\mathrm{path}\,\mathcal{S}
+&\;\longrightarrow\; F_{\mu\nu} = d\mathcal{A}
+\notag\\
+&\quad\text{(Berry curvature, gauge force, EM sector)},
+\label{eq:path_var}\\[4pt]
+\delta_\mathrm{endpoint}\,\mathcal{S}
+&\;\longrightarrow\; g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}
+\notag\\
+&\quad\text{(spacetime metric, gravitational sector)}.
+\label{eq:endpoint_var}
+\end{align}
+Path deformation at fixed endpoints produces the field-strength curvature $F_{\mu\nu}$, identified with the electromagnetic sector in Paper~\#53.
+Endpoint variation produces the metric $g_{\mu\nu}$, identified with the gravitational sector.
+
+The directional decomposition of Paper~\#52~\cite{hanamura52} is consistent with this: the $\ehat{y}$ direction (acceleration, EM) corresponds to transverse path deformation, while the $\ehat{x}$ direction (velocity, gravity) corresponds to the propagation direction of the endpoints themselves.
+
+\subsection{Free Electron: Fixed Endpoints, Static Metric}
+
+For a free electron in vacuum, Kernel~A and Kernel~B are separated by $\lambda_C$ and their positions are determined by the internal dynamics alone.
+The \emph{separation} between the kernels is fixed at $\lambda_C$ by the Compton-scale confinement established in Paper~\#33~\cite{hanamura33}.
+However, the \emph{absolute positions} of Kernel~A and Kernel~B in space are determined by the center-of-mass position of the electron, which moves freely.
+
+The key constraint is: for a \emph{free} electron, there is no external potential that would cause the kernel positions to vary \emph{relative to external reference points}.
+The endpoints $x_A$ and $x_B$ therefore do not undergo variation relative to the external spacetime; they are ``carried along'' rigidly with the electron.
+Consequently:
+\begin{equation}
+\delta_\mathrm{endpoint}^{(\mathrm{ext})}\,\mathcal{S} = 0
+\quad \Rightarrow \quad
+\delta g_{\mu\nu}^{(\mathrm{ext})} = 0
+\quad (\text{free electron}).
+\label{eq:free_metric}
+\end{equation}
+The free electron's internal phase functional generates a \emph{self-metric} (the metric of its own internal geometry) but does not generate a dynamic variation of the external spacetime metric.
+Note that the static monopole gravitational field ($\propto Gm_e/r^2$) is not zero; it is not captured by the endpoint-variation formalism, which addresses only the time-varying quadrupole sector.
+
+\subsection{Proton-Trapped Electron: Variable Endpoints and Dynamic Metric}
+
+When an electron is bound in the Coulomb well of a proton, the situation changes fundamentally.
+The electron's orbital motion around the proton allows Kernel~A and Kernel~B to occupy positions distributed over the orbital scale.
+The relevant length scales are:
+\begin{align}
+\lambda_C^{(e)} &\approx 2.4\times10^{-12}\ \text{m}
+\quad (\text{ZB/Kernel separation scale}),
+\label{eq:lambdaCe}\\
+a_0 &\approx 5.3\times10^{-11}\ \text{m}
+\quad (\text{Bohr radius, orbital scale}),
+\label{eq:a0}\\
+\frac{a_0}{\lambda_C^{(e)}} &\approx 22.
+\label{eq:scale_ratio}
+\end{align}
+The electron's Kernel positions $(x_A, x_B)$ can vary within the orbital volume --- a region $\sim 22$ times larger than the kernel separation.
+This constitutes a genuine \emph{endpoint variation} in the sense of Eq.~\eqref{eq:endpoint_var}: as the electron moves through its orbit, the endpoints of the phase functional sweep through a finite volume of spacetime.
+
+Moreover, the proton itself, as a spin-$\frac{1}{2}$ particle, is proposed to carry its own internal photon sphere (Section~\ref{sec:proton}).
+The coupling between the electron's phase functional and the proton's internal structure introduces an additional degree of freedom in the endpoint positions: the proton's kernel positions provide a second pair of reference points $(x_A^{(p)}, x_B^{(p)})$ that interact with $(x_A^{(e)}, x_B^{(e)})$ through the Coulomb field.
+
+The combined system possesses a phase functional
+\begin{equation}
+\mathcal{S}_\mathrm{H}
+= \mathcal{S}^{(e)}(x_A^{(e)}, x_B^{(e)})
++ \mathcal{S}^{(p)}(x_A^{(p)}, x_B^{(p)})
++ \mathcal{S}^\mathrm{int}
+\label{eq:S_hydrogen}
+\end{equation}
+whose endpoint derivatives are now non-trivial in the external spacetime:
+\begin{align}
+\delta_\mathrm{endpoint}^{(\mathrm{ext})}\,\mathcal{S}_\mathrm{H}
+&\neq 0
+\notag\\
+\Rightarrow\quad
+g_{\mu\nu}^{(\mathrm{ext})}
+&= \partial_\mu\partial_\nu \mathcal{S}_\mathrm{H}
+  \big|_\mathrm{coincidence}
+\neq 0
+\notag\\
+&\qquad (\text{proton-trapped electron}).
+\label{eq:trapped_metric}
+\end{align}
+\textbf{The dynamic (time-varying) metric --- and hence the quadrupole gravitational radiation --- is generated by bound matter, not by free particles, because only bound systems allow the phase-functional endpoints to vary relative to external spacetime reference points. The static monopole gravitational field ($\propto Gm_e/r^2$) is present for free and bound electrons alike, in accordance with the equivalence principle.}
+
+\begin{proposition}[Endpoint variation as the origin of gravitational radiation]
+\label{prop:endpoint}
+For a free electron in vacuum, the phase-functional endpoints $(x_A, x_B)$ are rigidly comoving with the electron; endpoint variation relative to external spacetime vanishes, and no dynamic external metric is generated.
+For an electron bound in the Coulomb well of a proton, the orbital motion allows $(x_A^{(e)}, x_B^{(e)})$ to vary over the orbital volume ($\sim a_0$), and the proton's own internal structure provides a second pair of reference endpoints $(x_A^{(p)}, x_B^{(p)})$.
+The resulting endpoint variation of the combined hydrogen-atom phase functional $\mathcal{S}_\mathrm{H}$ generates a dynamic external metric $g_{\mu\nu}$, which is identified with the quadrupole gravitational radiation of the hydrogen atom.
+\end{proposition}
+
+\subsection{The Hierarchy: EM from Path Deformation, Gravity from Endpoint Variation}
+
+Proposition~\ref{prop:endpoint} resolves a question implicit in the directional decomposition of Paper~\#52.
+That paper proposed, by analogy, that $\ehat{x}$ (velocity direction, metronome) is the gravitational sector and $\ehat{y}$ (acceleration direction, antenna) is the electromagnetic sector.
+The present analysis provides a deeper structural justification:
+\begin{itemize}[leftmargin=2em, itemsep=4pt]
+\item \textbf{EM ($\ehat{y}$, path deformation):} The Larmor radiation along $\ehat{y}$ arises from the transverse deformation of the thermal geodesic path, with fixed endpoints at $x_A$ and $x_B$. This is the path-variation operation of Eq.~\eqref{eq:path_var}, generating $F_{\mu\nu}$ (electromagnetic curvature).
+\item \textbf{Gravity ($\ehat{x}$, endpoint variation):} The directed spin-2 fragment along $\ehat{x}$ arises from the longitudinal propagation of the endpoints as the electron orbits the proton. This is the endpoint-variation operation of Eq.~\eqref{eq:endpoint_var}, generating $g_{\mu\nu}$ (spacetime metric, gravitational field).
+\item \textbf{Spin ($\ehat{z}$, Thomas precession):} The $\ehat{z}$ direction governs the spinorial phase accumulation (holonomy), which is neither path deformation nor endpoint variation but the rotational structure of the Berry phase.
+\end{itemize}
+
+% ========================================
+\subsection{Directional Decoupling in the 0-Sphere Framework}
+% ========================================
+
+In the directional decomposition of Paper~\#52~\cite{hanamura52}, the helical trajectory defines three orthogonal sectors driven by distinct internal mechanisms:
+the $\ehat{x}$ (longitudinal, velocity) direction is the gravitational sector, driven by the turning-point asymmetry;
+the $\ehat{y}$ (transverse, acceleration) direction is the electromagnetic Larmor sector, driven by the centripetal acceleration of the photon sphere;
+and $\ehat{z} = \ehat{x}\times\ehat{y}$ is the spinorial sector.
+
+The photon-sphere fragment ejected along $\ehat{x}$ and the Larmor radiation emitted along $\ehat{y}$ are decoupled in the 0-Sphere equations of motion:
+no internal mechanism in the helical dynamics of Paper~\#52 connects the longitudinal turning-point ejection process to the transverse Larmor emission process.
+This decoupling is a consequence of the internal geometry of the trajectory, not of any field-theoretic argument.
+
+Whether this internal decoupling corresponds to the absence of a direct interaction vertex in a field-theoretic description---such as the standard result that no gauge-invariant coupling exists between spin-1 and spin-2 fields in linearized gravity---is an open question that requires a formal mapping from the 0-Sphere internal structure to a field-theoretic framework.
+Such a mapping has not been established in this series and is recorded as open task~(C).
+
+\subsection{Correspondence with the 0-Sphere Directional Decomposition}
+
+In the 0-Sphere framework of Paper~\#52, the three coordinate directions of the helical trajectory carry different physical roles:
+\begin{align}
+\ehat{x}\ (\text{velocity})
+&\longrightarrow \text{gravitational sector}
+\notag\\
+&\quad (\text{longitudinal,}
+\notag\\
+&\quad\phantom{(}\text{turning-point asymmetry}),
+\label{eq:ex_grav}\\
+\ehat{y}\ (\text{acceleration})
+&\longrightarrow \text{EM sector}
+\notag\\
+&\quad (\text{transverse, Larmor radiation}),
+\label{eq:ey_EM}\\
+\ehat{z} = \ehat{x}\times\ehat{y}
+&\longrightarrow \text{spinorial sector}
+\notag\\
+&\quad (\text{Thomas precession}).
+\label{eq:ez_spin}
+\end{align}
+The $\ehat{x}$ and $\ehat{y}$ sectors are driven by qualitatively distinct internal mechanisms and carry physically distinct directional structures;
+the internal dynamics of the helical trajectory provide no coupling channel between them.
+
+\begin{proposition}[Directional decoupling of gravitational and electromagnetic sectors]
+\label{prop:ortho}
+The gravitational sector ($\ehat{x}$, longitudinal) and the electromagnetic sector ($\ehat{y}$, transverse Larmor) are driven by distinct internal mechanisms of the 0-Sphere helical trajectory and share no coupling channel in the equations of motion established in Paper~\#52.
+Whether this internal decoupling corresponds to the absence of a direct interaction vertex in a field-theoretic description is an open question recorded in open task~(C).
+\end{proposition}
+
+\subsection{Physical Consequence: Gravitational Radiation Is Electromagnetically Transparent}
+
+Proposition~\ref{prop:ortho} has a physically transparent consequence: the spin-2 gravitational sector radiation passes through electromagnetic fields without scattering.
+In the 0-Sphere framework:
+\begin{itemize}[leftmargin=2em, itemsep=2pt]
+\item A photon-sphere fragment ejected along $\ehat{x}$ does not couple to the Larmor radiation emitted along $\ehat{y}$: the two processes are driven by distinct components of the helical dynamics (longitudinal turning-point asymmetry vs.\ transverse acceleration) and share no coupling channel in the 0-Sphere equations of motion.
+\item This is the 0-Sphere microscopic origin of the well-known macroscopic fact that gravitational waves pass through ordinary matter with negligible attenuation (cross-section $\propto G^2$, extremely small).
+\item The two sectors share the same underlying 0-Sphere dynamics (same $\omZBe$, same $\lambdaCe$) but couple to different physical degrees of freedom ($T_{\mu\nu}$ vs.\ $j_\mu$).
+\end{itemize}
+
+% ========================================
+\section{Why Gravity Is Quadrupole: Conservation Laws and the Non-Closing Path}
+\label{sec:quadrupole_selection}
+% ========================================
+
+\subsection{The Selection Rule: What Is Conserved Determines the Leading Radiation Multipole}
+
+The distinction between electromagnetic radiation (leading multipole: dipole) and gravitational radiation (leading multipole: quadrupole) arises from conservation laws, not from an arbitrary assumption about the mediating particle's spin.
+
+For the electromagnetic field, the source is electric charge.
+Charge is both positive and negative; thus the dipole moment $\mathbf{p}(t)$ can vary in time, and dipole radiation is the leading contribution.
+
+For the gravitational field, the source is mass-energy.
+Mass-energy is always positive (no negative mass exists).
+Consequently:
+\begin{itemize}[leftmargin=2em, itemsep=2pt]
+\item The \emph{monopole} (total mass-energy) is conserved --- it does not radiate.
+\item The \emph{dipole} (mass-weighted center of mass) obeys conservation of momentum --- it moves at constant velocity and does not radiate.
+\item The \emph{quadrupole} $Q_{ij}$ involves the second spatial moment of the mass distribution and is the lowest multipole that can vary freely in time.
+\end{itemize}
+\textbf{The conservation of monopole and dipole moments forces gravity to be a quadrupole theory.}
+In the 0-Sphere language, this is why the gravitational sector must be rank-2: the rank-1 channel is forbidden by momentum conservation, and only the rank-2 channel is unconstrained.
+
+\paragraph{Structural origin in the 0-Sphere energy identity.}
+The monopole and dipole selection rules of gravitational radiation find a structural counterpart in the 0-Sphere energy identity of Paper~\#1~\cite{hanamura01}.
+Paper~\#42~\cite{hanamura42} established that the algebraic structure of the identity---a \emph{single global term} $\tfrac{1}{2}E_0\sin^2\iphase$ (kinetic energy of the photon sphere, globally coherent and undivided) versus \emph{paired spatial terms} $E_0\cos^4(\iphase/2) + E_0\sin^4(\iphase/2)$ (thermal potential energies at spatially separated Kernels~A and~B)---determines the multipole character of physical fields: the single global term corresponds to electric charge as a monopole quantity, while the paired spatial terms generate the intrinsically dipolar structure of magnetization, prohibiting magnetic monopoles from the model.
+In the gravitational sector, the same accounting yields: the total internal energy $E_0$ is a conserved constant of motion (monopole radiation forbidden), and momentum conservation forbids a time-varying mass dipole (dipole radiation forbidden)~\cite{Hartle2003}.
+The paired-term oscillating kernel distribution is therefore the irreducible source of gravitational radiation---generating the quadrupole that is the lowest permitted multipole.
+This connects Paper~\#42's prohibition of magnetic monopoles to the standard quadrupole selection rule of general relativity: both originate in the same single/paired asymmetry of the energy identity.
+
+\subsection{The 0-Sphere Non-Closing Path as Source of Spatial Anisotropy}
+
+Paper~\#52~\cite{hanamura52} established that the ZB trajectory does not close: the axis precesses by $\Delta\phi = 2\pi\anom$ per cycle.
+The forward traversal $A \to B$ and the return $B \to A'$ are \emph{not} the inverse of each other --- a consequence of the non-zero anomalous magnetic moment, which prevents the trajectory from retracing its own path.
+
+This non-closure has a physical consequence for quadrupole generation that becomes clear in the proton-trapped case:
+\begin{enumerate}[label=(\roman*), leftmargin=2em, itemsep=4pt]
+\item \textbf{$A \to B$ (forward traversal, $\iphase: 0 \to 2\pi$):} The photon sphere imprints a directional history --- the local ZB frequency $\nu_\mathrm{ZB}^{(e)}$ and the Thomas-precession stress --- on its trajectory. In the potential well of the proton, this forward traversal is biased by the Coulomb asymmetry established in Section~\ref{sec:trapped}. The traversal begins and ends at a boundary state ($\iphase = 0$, $2\pi$) in which Kernel~A carries 100\% of the thermal PE (Eq.~\eqref{eq:boundary_A}).
+\item \textbf{$B \to A'$ (return traversal, $\iphase: 2\pi \to 4\pi$):} The return path is \emph{not} the time-reverse of the forward path, because the ZB axis has drifted by $\Delta\phi = 2\pi\anom$ and the proton's Coulomb bias has been partially re-encoded. The ejected photon-sphere fragment at $\iphase = 3\pi/2$ therefore carries a polarization reflecting this accumulated directional asymmetry.
+\item \textbf{Accumulated anisotropy:} Over successive $4\pi$ cycles, the non-closing drift accumulates a directional imprint along the proton--electron axis $\hat{r}$. At each cycle boundary ($\iphase = 0, 4\pi, 8\pi, \ldots$), the internal state is reset to the same energy eigenstate (Kernel~A at 100\%), ensuring that the phase of the accumulated anisotropy is re-normalized rather than allowed to drift. This is precisely the spatial anisotropy required for a non-zero trace-free quadrupole moment (Eq.~\eqref{eq:Q_locked}).
+\end{enumerate}
+
+The structural summary is:
+\begin{align}
+&\underbrace{A \to B \neq B \to A'}_{\Delta\phi = 2\pi\anom}
+\notag\\
+&\quad\Longrightarrow\;
+\underbrace{\text{boundary reset at each }2\pi\text{ traversal}}_{\iphase = n\pi:\; E_\mathrm{kernel} = E_0\ (100\%)}
+\notag\\
+&\quad\Longrightarrow\;
+\underbrace{\text{directional history along }\hat{r}}_{\text{Coulomb axis locking (Prop.~\ref{prop:lock})}}
+\notag\\
+&\quad\Longrightarrow\;
+\underbrace{Q_{ij}(t) \propto \hat{r}_i\hat{r}_j}_{\text{quadrupole}}.
+\label{eq:nonclose_chain}
+\end{align}
+
+\subsection{From Internal Kernel Interaction to the Effective Quadrupole Moment}
+
+The dialogue between the two variational operations of Paper~\#51~\cite{hanamura51} (path deformation $\to$ $F_{\mu\nu}$; endpoint variation $\to$ $g_{\mu\nu}$, established in Section~\ref{sec:endpoint}) and the quadrupole generation of the present section can be made explicit through the concept of an \emph{effective energy density distribution}.
+
+The internal kernel dynamics of the hydrogen atom produce a time-dependent energy distribution.
+At the level of the electron alone, the energy oscillates between Kernels~A and~B:
+\begin{align}
+E_A^{(e)}(\iphase) &= E_0\cos^4\!\!\left(\frac{\iphase}{2}\right),
+\label{eq:EA_EB_e}\\
+E_B^{(e)}(\iphase) &= E_0\sin^4\!\!\left(\frac{\iphase}{2}\right).
+\notag
+\end{align}
+In the proton-trapped case, the proton's internal structure (whether described as a two-kernel system or otherwise) provides a second energy distribution centered at the proton position.
+The combined effective energy density of the hydrogen atom is:
+\begin{equation}
+\rho_\mathrm{eff}(\mathbf{x}, t) = \rho^{(e)}(\mathbf{x}, t) + \rho^{(p)}(\mathbf{x}, t),
+\label{eq:rho_eff}
+\end{equation}
+where $\rho^{(e)}$ is localized near the electron position (oscillating between the two electron kernels along the ZB axis $\hat{e} \approx \hat{r}$) and $\rho^{(p)}$ is localized at the proton.
+
+The quadrupole moment of this distribution is:
+\begin{equation}
+Q_{ij}(t) = \int \rho_\mathrm{eff}(\mathbf{x},t)
+\left(x_i x_j - \frac{1}{3}|\mathbf{x}|^2\delta_{ij}\right)d^3x.
+\label{eq:Qij_rho}
+\end{equation}
+Since $\rho^{(e)}$ oscillates at $\omZBe$ along the locked axis $\hat{r}$, the trace-free part of $Q_{ij}$ oscillates at $\omZBe$ with fixed direction $\hat{r}$, recovering Eq.~\eqref{eq:Q_locked}.
+
+\paragraph{The complete chain: history $\to$ distribution $\to$ quadrupole $\to$ radiation.}
+The following explicit chain connects the non-closed trajectory to gravitational radiation, making the logical steps transparent:
+
+\begin{align}
+&\underbrace{A \to B \neq B \to A'}_{\text{non-closed traj. }(\Delta\phi = 2\pi\,\alpha_{\mathrm{anom}})}
+\notag\\
+&\quad\Longrightarrow\;
+\underbrace{
+  \rho_\mathrm{eff}(\mathbf{x},t)\ \text{anisotropic along } \hat{r}
+}_{\text{Coulomb locking (Prop.~\ref{prop:lock}); phase stable (Prop.~\ref{prop:phase})}}
+\notag\\
+&\quad\Longrightarrow\;
+Q_{ij}(t)
+= \int\!\rho_\mathrm{eff}
+  \!\left(x_ix_j - \tfrac{1}{3}|\mathbf{x}|^2\delta_{ij}\right)d^3x
+\notag\\
+&\qquad\quad\propto\; \cos(\omega_{ZB} t)\,\hat{r}_i\hat{r}_j
+\notag\\
+&\quad\Longrightarrow\;
+\underbrace{
+  \dddot{Q}_{ij}(t) \propto \omega_{ZB}^3\sin(\omega_{ZB} t)\,\hat{r}_i\hat{r}_j \neq 0
+}_{P_\mathrm{GW} \propto \langle {\dddot{Q}}_{ij}{\dddot{Q}}^{ij}\rangle \neq 0}.
+\label{eq:full_quad_chain}
+\end{align}
+
+The non-closed trajectory is the necessary and sufficient condition for the anisotropy of $\rho_\mathrm{eff}$: a closed trajectory ($\anom = 0$) would produce an isotropic time-averaged distribution with $\langle Q_{ij}\rangle = 0$, and no gravitational radiation.
+The non-zero anomalous magnetic moment $\anom$ is therefore the microscopic condition for the existence of the gravitational quadrupole, exactly as it is the condition for environmental responsiveness established in Paper~\#52~\cite{hanamura52}.
+The radiated power follows the standard quadrupole formula $P_\mathrm{GW} \propto \langle \dddot{Q}_{ij}\dddot{Q}^{ij}\rangle$~\cite{Peters1963}, ensuring consistency with the established framework of gravitational radiation.
+
+\begin{proposition}[Kernel interaction $\to$ effective distribution $\to$ quadrupole]
+\label{prop:kernel_quadrupole}
+The internal kernel dynamics (EM sector, spin-1, U(1) gauge) of the electron do not by themselves produce a quadrupole moment: the kernel interaction is a gauge-sector process.
+The quadrupole moment of Eq.~\eqref{eq:Qij_rho} arises when the kernel dynamics are projected onto the spatial energy distribution $\rho_\mathrm{eff}(\mathbf{x},t)$ via the Coulomb-locked ZB axis $\hat{e} \approx \hat{r}$.
+This projection is the step at which the gauge-sector (path deformation, $F_{\mu\nu}$) couples to the metric sector (endpoint variation, $g_{\mu\nu}$), as established in Section~\ref{sec:endpoint}.
+\end{proposition}
+
+% ========================================
+\section{The Proton's Internal Structure: An Open Question}
+\label{sec:proton}
+% ========================================
+
+The present paper has treated the proton exclusively as a Coulomb potential source.
+This is sufficient for the axis-locking mechanism of Section~\ref{sec:trapped}, but it raises a deeper question: does the proton itself have an internal 0-Sphere structure, and if so, does it generate its own spin-2 radiation?
+
+\subsection{The Proton as a Spinor}
+
+The proton is a spin-$\frac{1}{2}$ particle and satisfies the Dirac equation.
+It therefore has a Zitterbewegung, with characteristic length and frequency:
+\begin{align}
+\lambdaCp &= \frac{\hbar}{m_p c} \approx 1.32\times10^{-15}\ \text{m},
+\label{eq:lambdaCp}\\
+\omZBp &\approx \frac{v_\mathrm{ZB}^{(p)}}{\lambdaCp},
+\label{eq:omZBp}
+\end{align}
+where $v_\mathrm{ZB}^{(p)}$ is the proton's internal ZB speed, determined by its anomalous magnetic moment $\mu_p = 2.793\,\mu_N$ (analogous to $a_e$ for the electron).
+
+\subsection{Quark Structure and the 0-Sphere Framework}
+
+The proton's internal structure is governed by quantum chromodynamics (QCD): it consists of two up quarks and one down quark, held together by gluon exchange.
+Individual quarks are not observed as free particles (color confinement).
+The characteristic confinement scale $\sim 10^{-15}$~m coincides with $\lambdaCp$, suggesting a possible structural parallel with the 0-Sphere two-kernel architecture.
+
+A speculative candidate mapping is:
+\begin{itemize}[leftmargin=2em, itemsep=2pt]
+\item Kernel~A $\leftrightarrow$ center of mass of the two up quarks,
+\item Kernel~B $\leftrightarrow$ the down quark,
+\item photon sphere $\leftrightarrow$ coherent gluon field oscillation between the quark centers.
+\end{itemize}
+Under this mapping, the proton's Zitterbewegung would occur at the confinement scale $\lambdaCp$, and the radiation gradient would be governed by the strong force rather than the electromagnetic force.
+
+\textit{This candidate mapping is speculative.} A rigorous 0-Sphere description of the proton's internal structure requires resolving the quark confinement problem within the 0-Sphere framework, which is beyond the scope of the present paper and is recorded as open task~(A).
+
+\vspace{2mm}
+
+An alternative speculative mapping can also be considered:
+
+\begin{itemize}[leftmargin=2em, itemsep=2pt]
+\item the two up quarks $\leftrightarrow$ carriers of Zitterbewegung,
+\item the down quark $\leftrightarrow$ mediator of the effective kinetic structure corresponding to the photon sphere in the electron case.
+\end{itemize}
+
+In this interpretation, the Zitterbewegung arises from the internal oscillatory dynamics between the two up quarks, while the down quark governs the effective energy structure analogous to the photon sphere.
+
+As in the previous mapping, this interpretation remains speculative. Furthermore, just as the two kernels of the electron cannot be independently isolated or observed, the oscillatory dynamics between the up quarks would not permit the extraction or independent observation of individual quarks, consistent with experimental results on quark confinement.
+
+% ========================================
+\section{Synthesis: The Hydrogen Atom as a Gravitational Antenna}
+\label{sec:hydrogen}
+% ========================================
+
+Combining the results of Sections~\ref{sec:free_electron}--\ref{sec:proton}, the hydrogen atom functions as a gravitational antenna:
+
+\begin{enumerate}[label=(\roman*), leftmargin=2em, itemsep=4pt]
+\item The electron's ZB axis $\hat{e}$ is locked to the proton--electron direction $\hat{r}$ by the Coulomb asymmetry (Proposition~\ref{prop:lock}).
+\item Each ZB cycle produces a directed spin-2 photon-sphere fragment along $\hat{r}$, whose phase is stabilized by the $4\pi$ boundary condition of Paper~\#1 (Proposition~\ref{prop:phase}).
+\item The directed fragments accumulate into a quadrupole moment $Q_{ij}(t) \propto \hat{r}_i\hat{r}_j$ (Section~\ref{sec:quadrupole_selection}).
+\item The $Y_\ell^m$ imprinting of Paper~\#57 encodes the local ZB frequency $\nu_\mathrm{ZB}^\mathrm{local}$ onto the emitted fragments, providing the gravitational phase information for distant synchronization.
+\item The receiving atom (at a different gravitational potential) synchronizes its ZB frequency to the incoming mode, converting $\Delta E_\mathrm{sync}$ to translational kinetic energy --- the macroscopic gravitational acceleration of Paper~\#34.
+\end{enumerate}
+
+The complete chain from single-particle dynamics to macroscopic gravity is:
+\begin{align}
+&\underbrace{\text{Proton Coulomb well}}_{\text{direction locking}}
+\;\longrightarrow\;
+\underbrace{\text{ZB axis locked to }\hat{r}}_{\text{this paper, \S\ref{sec:trapped}}}
+\notag\\
+&\quad\longrightarrow\;
+\underbrace{\text{directed spin-2 fragment ($4\pi$ phase-stable)}}_{\text{Paper \#1 b.c., \S\ref{subsec:4pi}}}
+\notag\\
+&\quad\longrightarrow\;
+\underbrace{Y_\ell^m\text{ imprinting}}_{\text{Paper \#57}}
+\;\longrightarrow\;
+\underbrace{\Delta E_\mathrm{sync} = \hbar\Delta\nu}_{\text{Paper \#34}}.
+\label{eq:full_chain}
+\end{align}
+
+% ========================================
+\section{Open Tasks}
+\label{sec:open}
+% ========================================
+
+\begin{enumerate}[label=(\Alph*), leftmargin=2em]
+
+\item \textbf{Proton's 0-Sphere internal structure.}
+The proton is treated here as a Coulomb point source. Paper~\#10~\cite{hanamura10} established two distinct ZB velocities via the bridge equation $\gamma = 1 + a$: the \emph{maximum} velocity (using $a$ directly, applicable to the peak of SHM acceleration) and the \emph{average} velocity (using $a/\sqrt{2}$, the RMS correction for time-averaged motion). Applying this to the proton with $a_p = (g_p-2)/2 = 1.793$:
+\begin{align}
+v_\mathrm{max}^{(p)}
+&= c\sqrt{1 - \frac{1}{(1+a_p)^2}}
+\notag\\
+&= c\sqrt{1 - \frac{1}{(2.793)^2}}
+\approx 0.934c,
+\label{eq:vmax_p}\\[4pt]
+v_\mathrm{rms}^{(p)}
+&= c\sqrt{1 - \frac{1}{(1+a_p/\sqrt{2})^2}}
+\notag\\
+&= c\sqrt{1 - \frac{1}{(2.268)^2}}
+\approx 0.897c.
+\label{eq:vrms_p}
+\end{align}
+Both are subluminal, satisfying the model's validity condition $v_\mathrm{max} < c$. The large $a_p = 1.793$ reflects that the proton is a quark composite with highly relativistic internal dynamics. The model's integrity is confirmed: the bridge equation $\beta = \sqrt{1-1/(1+a)^2}$ is exact for all $a > 0$ and always yields $\beta < 1$. The expression $\beta \approx \sqrt{2a}$, which appears in some prior discussion notes, is a Taylor approximation introduced for convenience and is not part of the original bridge equation of Paper~\#10; it was never claimed to define the equation's range of validity.
+
+\item \textbf{Free electron: zero or non-zero net quadrupole gravitational radiation?}
+Proposition~\ref{prop:free} states that the time-averaged gravitational radiation from a free electron vanishes to leading order. A more precise statement requires the axis-averaging timescale $T_\mathrm{prec} \approx 5\times10^{-16}$~s and whether any residual anisotropy survives the averaging. The instantaneous power is non-zero; only the direction-averaged power vanishes. Note that the static monopole gravitational field (proportional to $m_e$) is always non-zero by the equivalence principle and is not part of this open question.
+
+\item \textbf{Correspondence between 0-Sphere directional decoupling and field-theoretic vertex structure.}
+Proposition~\ref{prop:ortho} establishes that the gravitational and electromagnetic sectors share no coupling channel in the 0-Sphere internal dynamics.
+Whether this decoupling corresponds to the standard result that no gauge-invariant spin-1--spin-2 interaction vertex exists in linearized field theory is a separate question requiring a formal mapping from the 0-Sphere framework to a field-theoretic description; such a mapping has not been established.
+Gravitational lensing arises from the curvature of spacetime and does not imply a direct spin-1--spin-2 coupling; whether this macroscopic phenomenon has a counterpart in the 0-Sphere microscopic picture is a further open question.
+
+\item \textbf{Quantum-mechanical axis locking vs.\ 1s-orbital spherical symmetry.}
+The 1s orbital of the hydrogen atom has spherical probability density; there is no preferred direction for $\hat{r}$ in the quantum-mechanical wavefunction. The present paper's ZB axis locking assumes a definite instantaneous proton--electron position $\hat{r}(t)$, consistent with the Lagrangian (single-particle) framework of Paper~\#52. The reconciliation of this deterministic picture with the spherically symmetric quantum wavefunction requires elaboration (the candidate interpretation: spherical symmetry is the ensemble/time average over many ZB cycles, not the instantaneous state).
+
+\item \textbf{Relation to Paper~\#57's $\varepsilon_1$ elimination.}
+Paper~\#57 eliminated the photon-generation inefficiency $\varepsilon_1$ via mass asymmetry ($M \gg m_e$ suppresses dephasing of the $Y_\ell^m$ imprint). The present paper's Coulomb axis-locking is a separate effect. Whether the two mechanisms are independent or complementary aspects of the same physical process requires analysis.
+
+\item \textbf{Quantitative axis-locking timescale.}
+Proposition~\ref{prop:lock} states that axis locking occurs within a small number of ZB cycles but does not compute the exact number. This requires solving the drift equation $d\hat{e}/d\tau = f(\iphase, \hat{e}, \delta E_\mathrm{Coulomb})$ (open task~(I) of Paper~\#52) in the presence of the Coulomb potential.
+
+\end{enumerate}
+
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ========================================
+
+We have proposed that the proton's Coulomb well plays a dual role in the 0-Sphere account of gravitational radiation: it provides the confinement that prevents the electron from self-dispersing (overcoming the EM repulsion barrier), and it locks the electron's ZB axis to the proton--electron direction, enabling directed spin-2 photon-sphere fragment emission that accumulates into a non-zero quadrupole moment.
+
+\textbf{The key structural claim of this paper is that gravitational wave radiation in the 0-Sphere framework is generated by bound matter (proton--electron pairs), not by free electrons, because axis locking requires a directional Coulomb confinement.}
+Free electrons precess uniformly over a cone, and their photon-sphere fragments are effectively isotropized, leading to a strongly suppressed observable gravitational radiation signal over one precession period $T_\mathrm{prec} \approx 5\times10^{-16}$~s.
+The static monopole gravitational field (proportional to $m_e$) is present for free and bound electrons alike, in accordance with the equivalence principle.
+Bound electrons have their ZB axis locked by the proton's Coulomb field, and their directed photon-sphere fragments accumulate into a sustained quadrupole moment, phase-stabilized by the $4\pi$ internal cycle boundary conditions of Paper~\#1: at every turning point $\iphase = n\pi$, the total internal energy is concentrated in a single kernel, resetting the internal phase to a definite eigenstate without requiring any external phase-locking mechanism.
+
+Phase coherence in this framework is not the alignment of phases from outside, but the prevention of phase drift from within --- guaranteed by the energy eigenstates at the $4\pi$ cycle boundaries.
+
+The gravitational sector ($\hat{e}_x$ direction) and the electromagnetic sector ($\hat{e}_y$ direction) are decoupled in the 0-Sphere internal dynamics: both sectors originate from the same internal helical dynamics, but they are driven by distinct mechanisms and share no coupling channel in the equations of motion.
+Whether this internal decoupling corresponds to the absence of a direct spin-1--spin-2 interaction vertex in a field-theoretic description is an open question recorded in open task~(C); a formal mapping between the 0-Sphere framework and field theory has not been established.
+
+The paper is a Structural Proposal.
+The proton's internal 0-Sphere structure and the quantitative axis-locking timescale are the primary open tasks, and constitute the main targets for future validation.
+
+\begin{acknowledgments}
+The author acknowledges the use of large language models in a supportive role for textual organization, mathematical consultation, and structural analysis of the relationships among earlier papers in the series. All physical interpretations, theoretical claims, and conclusions are the sole responsibility of the author.
+\end{acknowledgments}
+
+% ========================================
+\begin{thebibliography}{99}
+
+% --- sorted in order of first citation in the text ---
+
+\bibitem{hanamura34}
+S.~Hanamura, ``Geometrical Confinement: Emergent Gravitational Dynamics,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18437010}{10.5281/zenodo.18437010}
+
+\bibitem{hanamura49}
+S.~Hanamura, ``Photon-Sphere Fragmentation as a Gravitational Mediator,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{10.5281/zenodo.19393391}
+
+\bibitem{hanamura52}
+S.~Hanamura, ``Geometric Origin of the Weak Equivalence Principle in the
+0-Sphere Model: Force Classification and the $\lambda_C$ Cancellation
+Theorem in the Helical Geometry,'' Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19583032}{10.5281/zenodo.19583032}
+
+\bibitem{hanamura01}
+S.~Hanamura, ``A Model of an Electron Including Two Perfect Black Bodies,''
+Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}
+
+\bibitem{hanamura10}
+S.~Hanamura, ``Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction,''
+Zenodo (2023). \href{https://doi.org/10.5281/zenodo.17764997}{10.5281/zenodo.17764997}
+
+\bibitem{Schrodinger1930}
+E.~Schr\"{o}dinger, ``\"{U}ber die kr\"{a}ftefreie Bewegung in der relativistischen Quantenmechanik,''
+Sitzungsber.\ Preuss.\ Akad.\ Wiss.\ Berlin \textbf{24}, 418 (1930).
+
+\bibitem{hanamura57}
+S.~Hanamura, ``Spherical Harmonic Imprinting and the Physical Identity of
+Phase Information: Microscopic Mechanism of Gravitational Coupling in the
+0-Sphere Model,'' Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19932176}{10.5281/zenodo.19932176}
+
+\bibitem{hanamura15}
+S.~Hanamura, ``Spin-Induced Inertial Resistance in Electrons: A Gyroscopic Interpretation Based on General Relativity,''
+Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765121}{10.5281/zenodo.17765121}
+
+\bibitem{Hartle2003}
+J.~B.~Hartle, \textit{Gravity: An Introduction to Einstein's General Relativity}
+(Addison-Wesley, San Francisco, 2003), Chap.~23.
+
+\bibitem{Peters1963}
+P.~C.~Peters and J.~Mathews, ``Gravitational Radiation from Point Masses in a Keplerian Orbit,''
+Phys.\ Rev.\ \textbf{131}, 435 (1963).
+
+\bibitem{hanamura51}
+S.~Hanamura, ``Helical Trajectory, Fixed-Endpoint Line Integrals, and the
+Emergence of the Spacetime Metric in the 0-Sphere Model,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19489126}{10.5281/zenodo.19489126}
+
+\bibitem{hanamura33}
+S.~Hanamura, ``Geometrical Confinement: Rest Mass and Zitterbewegung,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18356895}{10.5281/zenodo.18356895}
+
+\bibitem{hanamura42}
+S.~Hanamura, ``On the Non-Perturbative Nature of the 0-Sphere Model and Magnetic Monopole Absence,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18857609}{10.5281/zenodo.18857609}
+
+\end{thebibliography}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Coherence vs.\ $2\pi$ renormalization as phase stability mechanisms}}
+\label{tab:coherence_vs_renorm}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{5.5cm}p{6.5cm}}
+\toprule
+\textbf{Property} & \textbf{Coherence (conventional)} & \textbf{$2\pi$ renormalization (this work)} \\
+\midrule
+Mechanism
+& Continuous phase alignment
+& Discrete phase reset at $\iphase = n\pi$ \\
+\addlinespace[0.3cm]
+Origin
+& External locking or preparation
+& Internal Hamiltonian eigenstates (Paper~\#1) \\
+\addlinespace[0.3cm]
+Phase across cycles
+& Accumulated (persistent)
+& Reset (non-accumulating) \\
+\addlinespace[0.3cm]
+Compatibility with non-closed path
+& Tension: accumulation $\leftrightarrow$ non-closure
+& Compatible: eigenstate reset is independent of path \\
+\addlinespace[0.3cm]
+Stability mechanism
+& Interference among aligned phases
+& Impossibility of eigenstate drift \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The $2\pi$ renormalization mechanism avoids phase accumulation by exploiting the fixed-energy boundary conditions of the $4\pi$ internal cycle. Because the boundary states are energy eigenstates (not coherent superpositions), no external preparation or phase-locking device is required.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% APPENDIX
+% ========================================
+\appendix
+
+\section{On Phase Coherence and $2\pi$ Renormalization: Why the Conventional Framework Was Not Used}
+\label{app:coherence}
+
+\subsection{The Standard Meaning of Coherence}
+
+In conventional quantum mechanics and quantum optics, \emph{coherence} refers to the sustained alignment of phases across repeated or parallel processes, enabling stable interference.
+For a time-dependent observable $O(t)$ to accumulate rather than average out, two conditions are typically required:
+\begin{enumerate}[label=(\roman*), leftmargin=2em, itemsep=2pt]
+\item \textbf{Phase alignment:} successive emission or scattering events share a definite phase relationship.
+\item \textbf{Phase preservation:} this relationship is maintained continuously across time, so that constructive contributions accumulate rather than cancel.
+\end{enumerate}
+In the context of gravitational quadrupole radiation, a \emph{coherent pair} structure --- in which two ejection events per ZB cycle form a phase-locked rank-2 tensor --- is a natural and sufficient mechanism for sustained $Q_{ij}(t) \neq 0$.
+The present paper considered this framework and ultimately did not adopt it.
+This appendix explains why, and argues that the alternative mechanism is structurally stronger.
+
+\subsection{The Problem with Coherence in a Non-Closed-Trajectory Framework}
+
+The trajectory in the 0-Sphere model is, by construction, \emph{non-closing}: the ZB axis precesses by $\Delta\phi = 2\pi\anom$ per cycle, so that the return path $B \to A'$ is not the inverse of the forward path $A \to B$.
+This non-closure is \emph{the physical mechanism} that generates directional memory and anisotropy (Section~\ref{sec:quadrupole_selection}).
+
+Here lies the tension: conventional coherence requires \emph{phase accumulation} from cycle to cycle, but phase accumulation in a non-closed trajectory leads to indefinite drift.
+If the phase were to accumulate without bound, the quadrupole $Q_{ij}(t) \propto \cos(\omZBe t + \phi_\mathrm{acc}(n))$ would develop a cycle-dependent offset $\phi_\mathrm{acc}(n)$ that eventually desynchronizes the oscillation.
+Requiring an external coherent-pair mechanism to counteract this drift would introduce a separate stabilizing structure not grounded in the 0-Sphere's existing equations of motion.
+
+The dilemma is therefore structural:
+\begin{align}
+&\underbrace{\text{non-closed trajectory}}_{\text{source of anisotropy (needed)}}
+\notag\\
+&\quad\longleftrightarrow\;
+\underbrace{\text{phase accumulation}}_{\text{threat to stability (unwanted)}}.
+\label{eq:dilemma}
+\end{align}
+Coherence resolves stability by \emph{maintaining} phase alignment across cycles, which is in tension with the non-closure that provides the anisotropy in the first place.
+
+\subsection{The $2\pi$ Renormalization as a Stronger Alternative}
+
+The resolution adopted in this paper is to replace continuous phase preservation with a \emph{discrete phase renormalization} grounded in the energy identity of Paper~\#1~\cite{hanamura01}.
+At every half-period $\iphase = n\pi$, the photon-sphere kinetic energy vanishes identically and the system returns to a definite energy eigenstate (100\% thermal PE in a single kernel):
+\begin{align}
+\gamma_{KE}(\iphase = n\pi) &= \tfrac{1}{2}E_0\sin^2(n\pi) = 0,
+\label{eq:KE_zero}\\
+E_\mathrm{kernel}(\iphase = n\pi) &= E_0 \quad \text{(one kernel, 100\%).}
+\label{eq:PE_full}
+\end{align}
+These states are energy eigenstates of the Hamiltonian of Paper~\#1 and are therefore \emph{not} superpositions or coherent states, but fully determined configurations.
+Consequently, the internal phase cannot drift across a cycle boundary; it is reset to the \emph{same eigenstate} at every $\iphase = n\pi$, regardless of the trajectory followed during the preceding traversal.
+
+Table~\ref{tab:coherence_vs_renorm} makes clear that the distinction between the two frameworks is not merely technical but structural. Coherence stabilizes dynamics by preserving phase information across cycles, whereas the $2\pi$ renormalization eliminates the possibility of cumulative phase drift by enforcing identical boundary conditions at each half-cycle.
+In this sense, the latter does not compete with coherence on the same footing but replaces the need for phase memory altogether with a sequence of path-independent eigenstate returns. This shift allows the model to retain anisotropy from non-closure while avoiding long-term desynchronization.
+
+\subsection{Why This Replacement Is Internally Stronger}
+
+The $2\pi$ renormalization mechanism is preferable to conventional coherence in the 0-Sphere framework for three reasons.
+
+First, it is endogenous: the boundary conditions $\gamma_{KE}(n\pi) = 0$ follow directly from the energy identity of Paper~\#1, which is the foundational equation of the entire 0-Sphere series, and no additional structure beyond what is already present in the theory is required. By contrast, conventional coherence would require a separate physical mechanism (e.g., a coherent-pair emission process) not independently established.
+
+Second, it is compatible with non-closure. Because the phase reset occurs at fixed energy eigenstates rather than by tracking a running phase, it is insensitive to the drift $\Delta\phi = 2\pi\anom$ per cycle. The non-closed trajectory produces the directional anisotropy, while the eigenstate boundary conditions prevent this anisotropy from desynchronizing; the two mechanisms are therefore orthogonal in function and do not conflict.
+
+Third, it is topologically robust. An energy eigenstate at a Hamiltonian turning point is not perturbed by small fluctuations in the trajectory: any path that begins and ends at $\gamma_{KE} = 0$ will return the system to the same energy eigenstate, regardless of the details of the intermediate path. This is analogous to the topological protection of Berry-phase contributions and provides a stronger stability guarantee than coherence, which can be degraded by dephasing.
+
+\subsection{Precise Statement}
+
+The central conceptual substitution of this paper is:
+\begin{quote}
+\emph{Coherence is not the alignment of phases; it is the non-accumulation of phase drift. The $2\pi$ renormalization via Hamiltonian boundary conditions is a sufficient --- and, in the present framework, more natural --- mechanism for this non-accumulation.}
+\end{quote}
+This substitution does not reject coherence as a physical concept; it identifies a deeper, theory-internal structure that plays the same stabilizing role without the auxiliary assumptions that a conventional coherent-pair framework would require.
+
+% ========================================
+\section{External Metric Coupling and the Source-Existence Criterion for Gravitational Radiation: A Pedagogical Commentary}
+\label{app:external_coupling}
+
+\subsection{Purpose and Audience}
+
+The argument of Section~\ref{sec:free_electron} (Proposition~\ref{prop:free}) asserts that an isolated free electron generates no quadrupole gravitational radiation because the phase-functional endpoints undergo no variation relative to external spacetime: $\delta_{\mathrm{endpoint}}^{(\mathrm{ext})}\mathcal{S} = 0 \Rightarrow \delta g_{\mu\nu}^{(\mathrm{ext})} = 0$.
+This appendix unpacks what \emph{external endpoint variation} means in physical terms, why its absence is the appropriate criterion for the absence of gravitational radiation, and how the 0-Sphere line-integral framework expresses this distinction in a manner that differs from the standard stress-energy formulation of general relativity.
+The exposition is intended for a reader with a graduate-level background in physics but not necessarily specialized in either general relativity or the present series.
+
+\subsection{What General Relativity Actually Requires for Gravitational Radiation}
+
+In general relativity, the metric $g_{\mu\nu}$ at a given spacetime point is sourced by the stress-energy tensor $T_{\mu\nu}$ via the Einstein equations; the presence of mass-energy therefore implies the presence of spacetime curvature.
+However, the propagation of \emph{gravitational waves} requires more than the mere presence of mass: it requires the mass distribution to vary in time in a manner that produces a non-vanishing far-field radiation pattern.
+
+\begin{table*}[t!]
+\centering
+\renewcommand{\arraystretch}{1.35}
+\begin{tabular}{lcc}
+\hline\hline
+System & Gravitational field & Gravitational waves \\
+\hline
+Static star                  & yes & no  \\
+Isolated black hole at rest  & yes & no  \\
+Binary star system           & yes & yes \\
+Static spherical electron    & yes & no  \\
+\hline\hline
+\end{tabular}
+\caption{The gravitational field arises from the presence of mass-energy (via the equivalence principle); gravitational waves arise from the time variation of the mass distribution, not from mass per se.}
+\label{tab:GR_field_vs_waves}
+\end{table*}
+
+The static configurations possess curvature but do not radiate because $\partial_t g_{\mu\nu} = 0$ in the rest frame; there is no time-varying field to propagate.
+A binary system, by contrast, has a quadrupole moment that varies on the orbital timescale, sourcing far-field radiation.
+The Hulse--Taylor binary pulsar furnishes the most precise experimental confirmation of this distinction~\cite{Hartle2003, Peters1963}.
+
+\subsection{Why Quadrupole? A Brief Multipole Argument}
+
+The gravitational wave amplitude in the far-field zone is governed by the multipole expansion of the source.
+Two conservation laws eliminate the lowest two multipoles:
+\begin{itemize}[leftmargin=2em, itemsep=4pt]
+\item \emph{Monopole.} The total mass-energy $M = \int \rho \, d^3x$ is conserved (energy conservation). Hence $\ddot{M} = 0$, and the monopole does not radiate.
+\item \emph{Dipole.} The mass dipole $D^i = \int \rho\, x^i\, d^3x$ is proportional to the position of the center of mass. For an isolated system, momentum conservation implies that the center of mass moves uniformly, so $\ddot{D}^i = 0$, and the dipole does not radiate either.
+\end{itemize}
+The first multipole permitted to radiate is therefore the quadrupole.
+Defining the trace-free quadrupole moment
+\begin{equation}
+Q_{ij}(t) = \int \rho(\bm{x}, t)\!\left(x_i x_j - \tfrac{1}{3}\delta_{ij}|\bm{x}|^2\right) d^3x,
+\label{eq:Q_def_appB}
+\end{equation}
+the transverse-traceless gravitational wave amplitude at distance $r$ and the radiated power are, to leading order:
+\begin{align}
+h_{ij}^{\mathrm{TT}}(\bm{x}, t) &\propto \frac{G}{r c^4}\, \ddot{Q}_{ij}^{\mathrm{TT}}\!\left(t - r/c\right),
+\label{eq:h_quadrupole_appB}\\
+P_{\mathrm{GW}} &= \frac{G}{5 c^5}\!\left\langle \dddot{Q}_{ij}\, \dddot{Q}^{ij} \right\rangle.
+\label{eq:P_quadrupole_appB}
+\end{align}
+The quadrupole moment is therefore the central quantity of gravitational-wave theory at leading order; its third time derivative determines the total radiated power.
+
+\subsection{The Decisive Distinction: Internal versus External}
+
+A feature of Eq.~\eqref{eq:Q_def_appB} that is sometimes obscured by the elegance of the formalism is that $Q_{ij}$ is computed from the \emph{externally observable} mass distribution $\rho(\bm{x}, t)$.
+The quantity that sources gravitational radiation is the time variation of the mass distribution \emph{as seen by an observer outside the system}.
+
+Consider the following thought experiment.
+A sealed, rigid box contains a vibrating motor.
+Inside the box, mass is in constant motion: gears spin, pistons reciprocate, electrons in the motor windings oscillate.
+The internal energy is large; the internal motion is rapid.
+Yet to an external observer, the box's center of mass is fixed and its overall mass distribution is invariant.
+Equation~\eqref{eq:Q_def_appB} integrates over the externally measurable $\rho$, and that integration yields a constant tensor.
+The third time derivative $\dddot{Q}_{ij}$ vanishes; no gravitational waves are emitted, despite the considerable internal mechanical activity.
+
+The lesson is general:
+\begin{quote}
+\emph{A system radiates gravitationally only if its mass distribution varies on a length scale visible to external observers.
+Internal motion that is fully contained within an unchanging external configuration does not contribute.}
+\end{quote}
+This is not a kinematic statement about the orientation or polarization of the emission; it is a statement about whether a quadrupole source exists at all in the external description.
+
+\subsection{The Free Electron as a Closed Capsule}
+
+The 0-Sphere model places the electron's two thermodynamic kernels at separation $\lambdaCe \approx 2.4 \times 10^{-12}$~m, connected by a photon-sphere that confines the internal Zitterbewegung dynamics within this scale.
+For an isolated electron at rest:
+\begin{itemize}[leftmargin=2em, itemsep=4pt]
+\item the internal kernel oscillation occurs at angular frequency $\omZBe \approx 1.55 \times 10^{20}$~rad/s with amplitude $\sim \lambdaCe$;
+\item the center of mass is stationary (or moves uniformly along a geodesic);
+\item the photon-sphere confinement ensures that the kernel pair does not propagate as a free pair: the kernels do not escape, the inter-kernel separation does not grow, and the spatial extent of the electron is bounded by the Compton scale.
+\end{itemize}
+
+This is precisely the ``sealed capsule with internal vibration'' of the preceding subsection.
+From the standpoint of an external observer at distance $r \gg \lambdaCe$, the electron's externally observable mass distribution is constant: a localized mass $m_e$ centered at a fixed position.
+The internal oscillation, however rapid, does not appear in the externally computed $Q_{ij}^{(\mathrm{ext})}$.
+
+In the language of the 0-Sphere phase functional $\mathcal{S}(x_A, x_B) = \int_{\Gamma_{\mathrm{ext}}} \mathcal{A}_\mu\, dx^\mu$, the endpoints $x_A$ and $x_B$ are rigidly comoving with the electron's center of mass.
+The variation of $\mathcal{S}$ under displacement of these endpoints in external spacetime is therefore zero:
+\begin{equation}
+\delta_{\mathrm{endpoint}}^{(\mathrm{ext})}\mathcal{S} = 0
+\;\;\Longrightarrow\;\;
+\delta g_{\mu\nu}^{(\mathrm{ext})} = 0
+\quad (\text{free electron}).
+\label{eq:appB_free}
+\end{equation}
+No dynamic external metric is generated; no quadrupole radiation is sourced.
+Equation~\eqref{eq:appB_free} is the 0-Sphere statement of the closed-capsule observation.
+
+The static Schwarzschild contribution $g_{\mu\nu} \supset 2Gm_e/(c^2 r)$, sourced by the electron's rest mass through the equivalence principle, remains intact. At the microscopic level, the origin of this rest mass within the 0-Sphere framework is established in Paper~\#15~\cite{hanamura15}: the conserved internal angular momentum of the two-kernel oscillation produces a gyroscopic resistance to reorientation of the kernel axis, which is identified with inertial mass. The closed-capsule character of the free electron --- internal oscillation without external endpoint variation --- is thus consistent at both levels: internally, the system carries angular-momentum-based inertia (sourcing the static field via the equivalence principle); externally, no time-varying mass distribution is visible (no quadrupole radiation source).
+The suppression in Eq.~\eqref{eq:appB_free} concerns only the time-varying quadrupole sector --- the radiative channel.
+
+\subsection{The Bound Electron as a Rotating Dumbbell}
+
+A hydrogen atom presents a structurally different situation.
+The electron's orbital motion around the proton, on the Bohr scale $a_0 \approx 5.3 \times 10^{-11}$~m, is approximately $22\,\lambdaCe$.
+The two kernels of the electron, separated by $\lambdaCe$, are now configured within a region whose center of mass orbits the proton on the much larger orbital scale.
+
+To an external observer, the bound system possesses a directional structure with a quadrupole moment of magnitude $Q_{ij} \sim m_e a_0^2$ that varies as the electron traverses its orbit.
+The configuration is analogous to a rotating dumbbell of moment of inertia $\sim m_e a_0^2$: the external mass distribution rearranges itself in time, sweeping over a finite spatial volume.
+
+In the 0-Sphere phase functional, the endpoints $(x_A^{(e)}, x_B^{(e)})$ are no longer rigidly comoving with a stationary center of mass: they sweep through the orbital volume as the electron orbits the proton.
+The variation of $\mathcal{S}$ under displacement of these endpoints in external spacetime is therefore non-zero, and
+\begin{equation}
+\delta_{\mathrm{endpoint}}^{(\mathrm{ext})}\mathcal{S}_{\mathrm{H}} \neq 0
+\;\;\Longrightarrow\;\;
+\delta g_{\mu\nu}^{(\mathrm{ext})} \neq 0
+\quad (\text{hydrogen atom}).
+\label{eq:appB_bound}
+\end{equation}
+A time-varying external metric is generated, and quadrupole gravitational radiation is sourced.
+The radiated power, computed from Eq.~\eqref{eq:P_quadrupole_appB} with the orbital-scale $Q_{ij}$, is $P_{\mathrm{GW}}^{(\mathrm{locked})} \sim 10^{-70}$~W per hydrogen atom (Section~\ref{sec:trapped}) --- non-zero, but minuscule, consistent with the experimental absence of detectable gravitational radiation from atomic systems.
+
+The contrast between the closed-capsule and rotating-dumbbell pictures captures the essential physical content of Eqs.~\eqref{eq:appB_free} and \eqref{eq:appB_bound}.
+The criterion for gravitational radiation is not the presence of internal motion --- which is universal at the Compton scale --- but the existence of an externally observable mass-redistribution channel that couples the internal dynamics to the metric.
+
+\subsection{The Line-Integral Framework: Originality and Structural Naturalness}
+
+Standard general relativity expresses the relationship between matter and the metric through the Einstein equations $G_{\mu\nu} = (8\pi G/c^4)\,T_{\mu\nu}$, with the stress-energy tensor $T_{\mu\nu}$ defined as a local quantity on the four-manifold.
+In this formulation, the question of which internal degrees of freedom couple to the external metric is answered implicitly through the choice of $T_{\mu\nu}$: only those components that contribute to the spatial integral of mass-energy over a region of interest enter the metric source.
+The distinction between ``internal'' and ``external'' coupling is therefore not a primary structural feature of the formalism; it must be put in by hand through a choice of macroscopic averaging or coarse-graining scale.
+
+The 0-Sphere model adopts a different primary object: the line-integral phase functional
+\begin{equation}
+\mathcal{S}(x_A, x_B) = \int_{\Gamma_{\mathrm{ext}}} \mathcal{A}_\mu\, dx^\mu,
+\label{eq:S_lineintegral}
+\end{equation}
+where $\Gamma_{\mathrm{ext}}$ is the trajectory of the system in external spacetime and $\mathcal{A}_\mu$ is the connection 1-form (in the present context, the photon-mediated connection of Paper~\#34).
+Both the metric and the gauge curvatures emerge from variational operations on $\mathcal{S}$, but via \emph{different} operations~\cite{hanamura51}:
+\begin{align}
+\delta_{\mathrm{path}}\,\mathcal{S}
+&\;\longrightarrow\; F_{\mu\nu} = d\mathcal{A}
+\notag\\
+&\quad(\text{electromagnetic curvature, gauge force}),
+\label{eq:path_var_appB}\\[4pt]
+\delta_{\mathrm{endpoint}}\,\mathcal{S}
+&\;\longrightarrow\; g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}_s
+\notag\\
+&\quad(\text{spacetime metric, gravitational sector}),
+\label{eq:endpoint_var_appB}
+\end{align}
+where $\mathcal{S}_s(x_A, x_B)$ is the Synge world function~\cite{hanamura51, hanamura52}.
+
+This dual-sector variational structure is naturally aligned with the internal-versus-external distinction:
+\begin{itemize}[leftmargin=2em, itemsep=4pt]
+\item \textbf{Path variations} $\delta_{\mathrm{path}}$ deform the trajectory \emph{at fixed endpoints}; they probe the internal dynamics along the path. The resulting curvature $F_{\mu\nu}$ describes the electromagnetic interaction, which couples to internal phase accumulation.
+\item \textbf{Endpoint variations} $\delta_{\mathrm{endpoint}}$ displace the endpoints themselves in external spacetime; they are sensitive only to the boundary data of the path, not to internal details. The resulting curvature $g_{\mu\nu}$ describes the gravitational interaction, which couples only to externally observable position information.
+\end{itemize}
+
+The criterion for gravitational radiation --- a non-vanishing $\delta_{\mathrm{endpoint}}^{(\mathrm{ext})}\mathcal{S}$ --- is therefore a structural feature of the formalism, not an imposed coarse-graining.
+The closed-capsule and rotating-dumbbell pictures are both directly readable from Eqs.~\eqref{eq:path_var_appB}--\eqref{eq:endpoint_var_appB}:
+the free electron has fixed external endpoints (closed capsule), so $\delta_{\mathrm{endpoint}}^{(\mathrm{ext})}\mathcal{S} = 0$;
+the bound electron has orbiting external endpoints (rotating dumbbell), so $\delta_{\mathrm{endpoint}}^{(\mathrm{ext})}\mathcal{S} \neq 0$.
+
+In the standard stress-energy formulation, the same physical conclusion can be reached by carefully accounting for which internal motions enter the macroscopic $T_{\mu\nu}$, but the analysis requires an explicit choice of averaging scale or auxiliary assumptions about effective field theory.
+In the 0-Sphere line-integral formulation, the distinction is automatic: it is encoded in the choice between path variation and endpoint variation.
+This is the structural sense in which the line-integral framework is naturally suited to the radiation-versus-static distinction, and it is what the present series claims as the originality of its formulation of the gravitational sector.
+
+\subsection{Summary}
+
+The criterion governing whether a system emits gravitational radiation is not the presence of mass, nor even the presence of internal motion, but the existence of an externally observable, time-varying mass distribution.
+A free electron, despite carrying a non-zero rest mass and undergoing internal Zitterbewegung at the Compton scale, satisfies the first condition (presence of mass) but not the second (external time variation).
+Its mass sources the static metric in accordance with the equivalence principle, but does not radiate, in accordance with the conservation laws underlying the quadrupole formula.
+
+The 0-Sphere model expresses this distinction structurally through the line-integral phase functional $\mathcal{S}(x_A, x_B)$ and its two variational sectors.
+The absence of external endpoint variation $\delta_{\mathrm{endpoint}}^{(\mathrm{ext})}\mathcal{S}$ for the free electron is the formal expression of the closed-capsule observation; the presence of such variation for the bound electron is the formal expression of the rotating-dumbbell observation.
+The criterion is thus encoded in the choice of variational operation rather than in an external coarse-graining prescription, providing the formalism with what we believe is a clarifying structural alignment with the radiation-versus-static distinction of general relativity.
+
+\clearpage
+
+\end{document}

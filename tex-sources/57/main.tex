@@ -1,0 +1,523 @@
+% ========================================
+% #57: Spherical Harmonic Imprinting and the Physical Identity of Phase Information:
+%   Microscopic Mechanism of Gravitational Coupling in the 0-Sphere Model
+%
+% Working number: #57
+% DOI: 10.5281/zenodo.19932176
+% Predecessor: #1, #34, #22, #37, #49, #52, #55, #56
+% Companion (queued): #58 (spin-2), #59 (bound state), #60 (BSBM triangle)
+%
+% SERIES CONTEXT
+% --------------
+% This paper is the foundational mechanism paper of a four-paper sequence
+% #57-#60 addressing in turn:
+%   #57 (this paper): physical identity of phase information; Y_l^m imprinting;
+%                     mass asymmetry -> epsilon_1 elimination; metronome elevation.
+%   #58: spin-2 structure of the mediator (rank-2 polarization tensor).
+%   #59: bound-state condition for directed emission (Coulomb axis locking).
+%   #60: geometric unification (Berry-Synge-Bonnet-Myers triangle).
+%
+% Scope restriction (deliberate):
+%   The present paper is restricted to the microscopic transmission mechanism.
+%   Specifically:
+%     - Spin-2 character of the imprinted fragment -> deferred to #58.
+%     - Coulomb axis locking / bound vs free electron -> deferred to #59.
+%     - Berry-Riemann unification -> deferred to #60.
+%   This restriction allows each paper to make a clean, single-purpose
+%   contribution to the overall account.
+%
+% Framing decisions:
+%   (i) Gravitational dependence is located in the frequency mismatch
+%       Delta_nu between emitter and absorber, not in any modification
+%       of a_e at altitude. This is consistent with #28's dimensional
+%       analysis (direct GR corrections to v_ZB at quantum scale are
+%       suppressed by c^2/G ~ 10^27) and with #22's standard redshift
+%       prediction Delta_nu ~ 2.64e9 Hz at GPS altitude.
+%   (ii) The metronome analogy of #34 is elevated only at the level
+%        of the driving principle (entropic synchronization), preserving
+%        #34's explicit kinematic disanalogy (metronome dissipates
+%        oscillation; 0-Sphere converts to translation).
+%   (iii) Framework anchored on #55 (open Wilson line, four functions)
+%         and #56 (framework boundary: directed-path vs local-field).
+%         The Y_l^m imprint is the Function-4 boundary data of the
+%         metric branch.
+% ========================================
+
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+
+% --- Custom Macros ---
+\newcommand{\iphase}{\theta}
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\nuZB}{\nu_{\text{ZB}}}
+\newcommand{\nuZBl}{\nu_{\text{ZB}}^{\rm local}}
+\newcommand{\nuZBf}{\nu_{\text{ZB}}^{\rm flat}}
+\newcommand{\lambdaC}{\lambda_{\rm C}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\ehat}[1]{\hat{e}_{#1}}
+
+% ========================================
+\begin{document}
+% ========================================
+
+\title{Spherical Harmonic Imprinting and the Physical Identity of Phase Information:\\
+Microscopic Mechanism of Gravitational Coupling in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{May 9, 2026}
+
+% ========================================
+\begin{abstract}
+We propose that the ``phase information'' carrier between 0-Sphere subsystems---left undefined in Paper~\#34's photon-mediated entropic synchronization mechanism---is a spherical harmonic excitation mode $Y_\ell^m(\theta,\phi)$ of the photon sphere. When an electron emits a photon-sphere fragment at internal phase $\iphase = \pi/2$ (Paper~\#49), the local Zitterbewegung frequency $\nuZBl$ is imprinted onto the fragment as a $Y_\ell^m$ excitation that propagates at $c$ without requiring a new mediator. The proposal realizes the metric-branch boundary data of the open Wilson line (Function~4 of Paper~\#55), and the absorption process operates within the directed-path framework of Paper~\#56, resolving the apparent conflict with the perturbative-QED resonance condition $\nu_{\rm photon} = \nu_{\rm transition}$.
+
+The frequency mismatch $\Delta\nu = \nuZBl(\Phi_{\rm emit}) - \nuZBl(\Phi_{\rm abs})$ between emitter and absorber drives the entropic synchronization energy $\Delta E_{\rm sync} = \hbar\Delta\nu$ of Paper~\#34, recovering the GPS-altitude gravitational redshift $\Delta\nu \approx 2.64\times 10^9$~Hz of Papers~\#22 and~\#37 as the standard general-relativistic result. A second contribution is the microscopic basis of the $\varepsilon_1$ elimination of Paper~\#34: when emission occurs from an atom of mass $M \gg m_e$, the recoil-induced perturbation satisfies $\delta v / v_{\rm ZB} = m_e/M \ll 1$, suppressing two of the three sources of inefficiency (directional mismatch, energy quantization) while leaving phase coherence for future work. The metronome analogy of Paper~\#34 is correspondingly elevated at the level of the driving principle (entropic synchronization) while its kinematic disanalogy (oscillation versus translation) is preserved.
+
+This paper supplies only the transmission mechanism. The spin-2 character of the imprinted fragment, the bound-state condition for directed emission, and the geometric foundation of gauge--gravity unification are addressed in companion Papers~\#58, \#59, and \#60.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+\section{Introduction}
+\label{sec:introduction}
+% ========================================
+
+Paper~\#34~\cite{hanamura34} demonstrated that photon-mediated phase synchronization between effective 0-Sphere subsystems produces gravitational-like acceleration: when a receiving electron at gravitational potential $\Phi_{\rm abs}$ encounters a photon emitted by another electron at $\Phi_{\rm emit}$, the receiver's internal Zitterbewegung frequency~\cite{schrodinger1930} adjusts toward the incoming mode, and the synchronization energy $\Delta E_{\rm sync} = \hbar\Delta\nu$ converts to translational kinetic energy. Paper~\#22~\cite{hanamura22} provided the gravitational redshift of internal quantum clocks: $\Delta\nu \approx 2.64\times 10^9$~Hz between GPS altitude and Earth's surface, numerically identical to the standard general-relativistic result for any clock at the relevant frequency. Paper~\#37~\cite{hanamura37} re-expressed the Newtonian potential energy $mgh$ as the line-integral $\Theta = \int_\gamma \omega$ of an internal connection, demonstrating that the 0-Sphere mechanism is consistent with the empirical successes of general relativity in their established domains.
+
+A central feature of this account, however, was left structurally incomplete: the photon was asserted to carry ``energy, momentum, and phase information'' between subsystems, but the microscopic identity of this ``phase information'' was not specified. Paper~\#34 made the analogy between this synchronization and the entropic entrainment of mechanical metronomes explicit, but accompanied it with the explicit disclaimer that ``no claim of physical equivalence or quantitative correspondence is implied''~\cite{hanamura34}. Two natural questions follow: (i) what property of the emitted photon encodes the frequency $\nuZBl$ of its source, and (ii) by what mechanism does the receiving electron detect and respond to this property?
+
+The present paper proposes a structural answer that has been latent in the model since its foundational papers but has not previously been exploited for this purpose. The 0-Sphere photon sphere is a geometrically structured collection of real photon trajectories on the Compton-scale domain~\cite{hanamura01,hanamura34}, and a finite-size sphere supports spherical harmonic oscillation modes $Y_\ell^m(\theta,\phi)$. We propose that the emitting electron imprints its local Zitterbewegung frequency $\nuZBl$ onto the photon sphere as a $Y_\ell^m$ excitation mode, and that the receiving electron's synchronization response constitutes the $\Delta E_{\rm sync}$ of Paper~\#34.
+
+\subsection{Position within the four-paper sequence}
+
+This paper is the foundational mechanism paper of a logically connected four-paper sequence:
+
+\begin{itemize}[leftmargin=2em, itemsep=2pt]
+\item \textbf{Paper~\#57 (this paper):} Microscopic transmission mechanism. Identifies $Y_\ell^m$ as the carrier of phase information, elevates the metronome analogy of Paper~\#34 at the level of its driving principle, and supplies the microscopic basis of the $\varepsilon_1$ elimination claimed in Paper~\#34.
+\item \textbf{Paper~\#58~\cite{hanamura58}:} Spin-2 structure of the mediator. The $\pi$-periodicity of the Thomas angular velocity produces two ejection events per Zitterbewegung cycle whose phase-stable pair carries a rank-2 polarization tensor.
+\item \textbf{Paper~\#59~\cite{hanamura59}:} Bound-state condition for directed emission. Free electrons are isotropized by axis precession; the proton's Coulomb well locks the Zitterbewegung axis to the proton--electron direction, supplying the directional bias required for non-zero quadrupole radiation.
+\item \textbf{Paper~\#60~\cite{hanamura60}:} Geometric unification. The Berry--Synge--Bonnet--Myers triangle organizes the gauge and gravitational sectors as joint consequences of a single internal phase functional.
+\end{itemize}
+
+The present paper supplies only the transmission mechanism. The spin-2 character of the imprinted fragment, the directional locking that determines whether emission occurs, and the geometric foundation of the gauge--gravity unification are addressed independently in Papers~\#58, \#59, and \#60 respectively. The connection of the present paper's $Y_\ell^m$ to the specific value $\ell = 2$ is recorded in Paper~\#58 as its open task~(IV) and is not asserted here.
+
+\subsection{Methodological note on the gravitational dependence}
+
+The gravitational dependence of the present mechanism is located in the frequency mismatch $\Delta\nu = \nuZBl(\Phi_{\rm emit}) - \nuZBl(\Phi_{\rm abs})$ between emitter and absorber, not in any modification of the bridge equation $\gamma = 1 + a_e$ of Paper~\#10 at altitude. The reasons for this framing choice are structural and worth stating explicitly. First, Paper~\#28~\cite{hanamura28} established that direct general-relativistic corrections to the Zitterbewegung velocity at quantum scales overstate the actual effect by approximately $c^2/G \approx 10^{27}$, so that $v_{\rm ZB}$ is correctly governed by special-relativistic Lorentz contraction alone; the structural reorientation of Paper~\#30v2~\cite{hanamura30v2}, which reinterprets the Einstein field equation as an a posteriori consistency condition rather than a generative dynamical law, removes the conceptual basis on which a direct curvature-induced modification of $a_e$ could be predicated. Second, the dimensionless ratio $a_e = \nu_{\rm Larmor}/\nu_{\rm cyclotron} - 1$ is invariant under uniform gravitational redshift, so a Penning-trap measurement of $a_e$ at altitude does not directly probe $\Phi$. The frequency mismatch $\Delta\nu$ between emitter and absorber, in contrast, is the natural carrier of the gravitational dependence in the synchronization mechanism and recovers the $\Delta\nu \approx 2.64\times 10^9$~Hz prediction of Paper~\#22 directly without invoking any altitude dependence of $a_e$.
+
+The structure of the paper is as follows. Section~\ref{sec:framework} situates the proposal within the dual-sector hierarchy of Paper~\#55 and the framework boundary of Paper~\#56. Section~\ref{sec:imprinting} presents the $Y_\ell^m$ imprinting mechanism. Section~\ref{sec:mass_asymmetry} develops the mass asymmetry argument for the $\varepsilon_1$ elimination of Paper~\#34. Section~\ref{sec:absorption} treats the absorption process as directed-path phase matching, resolving the apparent conflict with the perturbative-QED resonance condition. Section~\ref{sec:metronome} elevates the metronome analogy of Paper~\#34 at the level of its driving principle while preserving the kinematic disanalogy. Section~\ref{sec:predictions} states the experimental predictions and connects to the queued papers. Section~\ref{sec:open} records the open problems candidly.
+
+% ========================================
+\section{Framework: Dual-Sector Hierarchy and Boundary Data}
+\label{sec:framework}
+% ========================================
+
+\subsection{The open Wilson line and its four functions}
+
+Paper~\#55~\cite{hanamura55} established that the open Wilson line~\cite{wilson1974} $\WL[\gamma]$ along a directed path $\gamma$ from $x_A$ to $x_B$ functions in four distinct roles within the 0-Sphere framework: (1) phase-history carrier, (2) gauge localization device, (3) holonomy composition object, and (4) boundary data generating both the Maxwell sector (via path variation at fixed endpoints) and the metric sector (via endpoint variation at fixed path). The fourth function is central to the present paper. The two distinct variational operations on the phase functional $\mathcal{S}(x_A, x_B) = \int_\gamma \mathcal{A}_\mu\, dx^\mu$,
+\begin{align}
+\delta_{\rm path}\,\mathcal{S}
+&\;\longrightarrow\; F_{\mu\nu}
+\notag\\
+&\quad\text{(field strength, Maxwell sector)},
+\label{eq:path_var}\\[4pt]
+\delta_{\rm endpoint}\,\mathcal{S}
+&\;\longrightarrow\; g_{\mu\nu}
+\notag\\
+&\quad\text{(metric, gravitational sector)},
+\label{eq:endpoint_var}
+\end{align}
+generate the two physical sectors as orthogonal aspects of the same underlying object.
+
+The proposal of the present paper concerns the second branch. The $Y_\ell^m$ excitation mode imprinted on the photon sphere is the physical realization of the boundary data of Function~4 in the metric branch: a single excitation of the photon-sphere geometry that, upon absorption by a receiving subsystem at a different gravitational potential, generates the frequency mismatch $\Delta\nu$ that drives entropic synchronization. The present paper does not derive Maxwell's equations from this framework---that derivation is the content of Paper~\#54~\cite{hanamura54}---but adopts the dual-sector hierarchy as the structural setting in which the $Y_\ell^m$ proposal acquires geometric meaning.
+
+\subsection{Framework boundary: directed path versus local field}
+
+Paper~\#56~\cite{hanamura56} identified an essential distinction between two readings of the same physical situation: the local-field reading, in which observable quantities are field values $\phi(x)$ assigned to spacetime points, and the directed-path reading, in which observable quantities are accumulated phases $\Phi(\gamma) = \int_\gamma \omega$ along extended trajectories. The two readings make different predictions in cases where the path-history of a process is essential to the outcome, with the Aharonov--Bohm effect~\cite{aharonov_bohm1959} serving as the canonical example. Paper~\#56 argued that several apparent paradoxes of the 0-Sphere framework---including the apparent conflict with microscopic time-reversibility---are framework-boundary cases in which the local-field reading leads to inconsistencies that the directed-path reading resolves.
+
+The absorption process of the present paper is a further framework-boundary case. In the local-field reading, photon absorption is a pointwise coupling between the field value at the absorber's location and the absorber's transition matrix elements, and energy conservation enforces the resonance condition $\nu_{\rm photon} = \nu_{\rm transition}$. In the directed-path reading, absorption is a phase-matching process between the accumulated phase of the incoming photon and the absorber's internal trajectory; no requirement that the two share identical instantaneous values is imposed. The resonance condition is therefore an artifact of the local-field framework, not a constraint that the directed-path framework must reproduce. Section~\ref{sec:absorption} develops this resolution in detail.
+
+% ========================================
+\section{\texorpdfstring{The $Y_\ell^m$ Imprinting Mechanism}{The Y l m Imprinting Mechanism}}
+\label{sec:imprinting}
+% ========================================
+
+\subsection{Finite size of the photon sphere and mode capacity}
+
+The 0-Sphere Model, established in Paper~\#1~\cite{hanamura01} and developed in Paper~\#34~\cite{hanamura34}, places the two energy kernels $A$ and $B$ at a separation of order the Compton wavelength,
+\begin{equation}
+\lambdaC = \frac{\hbar}{m_e c} \approx 2.43 \times 10^{-12}\ \text{m},
+\label{eq:compton}
+\end{equation}
+connected by a photon sphere whose internal radiative trajectories carry the energy circulation between the kernels. Paper~\#34 explicitly noted, in support of the photon-sphere description, the geometric analogy with a water droplet in microgravity which sustains internal oscillatory modes characterized by spherical harmonics $Y_\ell^m(\theta,\phi)$. That analogy was introduced as a structural illustration of how a finite-size object can sustain mode oscillations without an associated conserved particle number; it was not used in Paper~\#34 to ascribe a dynamical role to specific $Y_\ell^m$ modes. The present paper takes this latent structural feature and exploits it dynamically: a finite-size sphere on the Compton scale supports a discrete spectrum of $Y_\ell^m$ excitation modes, and these modes constitute the natural internal degrees of freedom for encoding the $\nuZBl$ of the emitting subsystem.
+
+The photon sphere is, in the strict sense, a dynamically sustained collection of real photon trajectories rather than a continuous medium~\cite{hanamura34}. The $Y_\ell^m$ modes considered here are not the surface oscillations of a material droplet but the angular-mode decomposition of the radiative-trajectory ensemble. The dimensional consistency of the mode spectrum follows from the finite size $\sim\lambdaC$ of the ensemble: the lowest non-trivial modes have angular momentum $\ell = 1, 2, \ldots$ and excitation frequencies of order $c/\lambdaC = m_e c^2/\hbar$, which is precisely $\nuZBf \approx 5\times 10^{18}$~Hz.
+
+\subsection{The imprinting event}
+
+Paper~\#49~\cite{hanamura49} established that the photon-sphere kinetic energy profile,
+\begin{equation}
+\EphS(\iphase) = \frac{E_0}{2}\sin^2\iphase,
+\label{eq:eph}
+\end{equation}
+reaches the ejection threshold $E_0/2$ at internal phase $\iphase = \pi/2$. At this moment the photon-sphere fragment is emitted; the present paper proposes that during the emission event the local Zitterbewegung frequency $\nuZBl$ is imprinted onto the emitted fragment as a $Y_\ell^m$ excitation mode:
+\begin{equation}
+\nu_{\ell m} \;\propto\; \nuZBl(\Phi_{\rm emit}),
+\label{eq:imprint}
+\end{equation}
+with the proportionality constant determined by the geometric structure of the ejection event~\cite{hanamura49}. The specific selection rule for which $\ell$ value is excited by the ejection mechanism, and the corresponding numerical constant, are not derived here. Paper~\#58~\cite{hanamura58} proposes (as its open task~IV) that the spin-2 character of the gravitational mediator selects $\ell = 2$; the present paper does not commit to this assignment. The $Y_\ell^m$ proposal of this paper requires only that some non-trivial mode is excited, not that a specific $\ell$ is selected.
+
+\subsection{Propagation as an internal mode}
+
+The imprinted $Y_\ell^m$ mode is an internal angular-mode excitation of the photon-sphere fragment, not a separate propagating wave that would require an additional field equation. Since the photon-sphere fragment propagates at $c$ as a collection of real photon trajectories, its internal mode is carried at $c$ together with the fragment. No new mediator beyond the photon is required, in keeping with the foundational commitment of Paper~\#34.
+
+The structural distinction from a conventional propagating wave is essential. A longitudinal mode of the electromagnetic field, in the standard sense, would require a separate dispersive structure with a finite mass and subluminal phase velocity; this is excluded both by experiment and by the photon's gauge structure. The $Y_\ell^m$ excitation considered here is not a longitudinal mode in this sense. It is an angular-mode excitation of the geometric structure of the photon-sphere ensemble, transverse-polarized at every point along each constituent photon trajectory but collectively encoding directional information through the angular distribution of those trajectories. The carrier is therefore not a new particle but a new property of the existing fragment ensemble.
+
+% ========================================
+\section{\texorpdfstring{Mass Asymmetry as the Microscopic Basis of $\varepsilon_1$ Elimination}{Mass Asymmetry as the Microscopic Basis of epsilon 1 Elimination}}
+\label{sec:mass_asymmetry}
+% ========================================
+
+\subsection{The efficiency factorization of Paper~\#34}
+
+Paper~\#34~\cite{hanamura34} introduced an efficiency decomposition of the energy conversion from internal Zitterbewegung dynamics to macroscopic translational motion. The Zenodo record of that paper notes that the decomposition is presented as a heuristic factorization of well-established physical constraints rather than as a fundamental theorem; the body of the paper, however, develops the decomposition as a quantitative argument and concludes that the elimination of the photon-generation factor $\varepsilon_1$ ``improves the effective conversion efficiency by precisely ten orders of magnitude.'' The factorization is:
+\begin{align}
+\varepsilon_{\rm conv}\,(\text{conventional})
+&= \varepsilon_1 \cdot \varepsilon_2 \cdot \varepsilon_3 \;\sim\; 10^{-15},
+\label{eq:eps_conv}\\
+\varepsilon_{\rm 0SM}\,(\text{0-Sphere})
+&= \varepsilon_2 \cdot \varepsilon_3 \;\sim\; 10^{-4}\text{--}10^{-5},
+\label{eq:eps_0sm}
+\end{align}
+where the factors are: $\varepsilon_1 \sim 10^{-10}$ for the conversion of internal Zitterbewegung energy to emitted free photons in conventional models; $\varepsilon_2$ for phase synchronization across subsystems; $\varepsilon_3$ for conversion of synchronized phase gradients to translational motion. Paper~\#34 attributes the smallness of the conventional $\varepsilon_1$ to three distinct physical sources, listed in the energy-budget analysis of that paper: directional mismatch (photons emit in specific directions whereas internal vibrations are isotropic), energy quantization (discrete photon energies do not match the continuous internal vibrational spectrum), and phase coherence (efficient emission requires coherent alignment that thermal conditions resist).
+
+The 0-Sphere claim, as stated in Paper~\#34, is that the photon sphere is a constitutive geometric element of the subsystem rather than a product of energy conversion: the Zitterbewegung energy is structurally present within the photon-sphere geometry, eliminating the need for the kinetic-to-radiative conversion step. This claim, however, did not specify the microscopic mechanism by which the elimination operates; the present paper supplies that mechanism for two of the three sources of inefficiency.
+
+\subsection{The recoil suppression}
+
+When a photon-sphere fragment of momentum $p_\gamma \approx m_e v_{\rm ZB}$ is emitted from an atom or molecule of total mass $M$, the recoil-induced velocity perturbation~\cite{mossbauer1958} imparted to the emitting subsystem is:
+\begin{equation}
+\frac{\delta v}{v_{\rm ZB}} \;=\; \frac{p_\gamma}{M v_{\rm ZB}} \;=\; \frac{m_e}{M} \;\ll\; 1
+\quad (M \gg m_e).
+\label{eq:recoil}
+\end{equation}
+For a hydrogen atom $M = 1836\,m_e$, $\delta v / v_{\rm ZB} \approx 5\times 10^{-4}$; for heavier atoms and molecules the ratio is smaller still. The emitting subsystem therefore retains its $\nuZBl$ undisturbed during the emission event, and the imprinted $Y_\ell^m$ mode preserves the source frequency to high accuracy. This suppression does not occur for an isolated electron ($M = m_e$, $\delta v/v_{\rm ZB} \approx 1$), consistent with the modeling choice of Paper~\#34 to treat matter constituents as atomic or molecular effective 0-Sphere subsystems.
+
+\subsection{Two of the three sources of inefficiency are eliminated}
+
+The mass asymmetry argument addresses two of the three sources of inefficiency listed in Paper~\#34:
+
+\begin{enumerate}[label=(\roman*), leftmargin=2em, itemsep=4pt]
+\item \textbf{Directional mismatch.} In a conventional point-particle model, the internal vibrations of the emitter are randomly oriented while the emitted photon must propagate in a specific direction; matching the two requires a small fraction of emission events to align favorably. In the 0-Sphere model, the recoil of the emitter is suppressed by the factor $m_e/M$, so the emission event does not redirect the internal Zitterbewegung axis. The imprinted $Y_\ell^m$ mode therefore preserves the directional structure of $\nuZBl$ regardless of the emission direction.
+
+\item \textbf{Energy quantization.} In a conventional model, the discrete photon energies $h\nu$ must match transitions in the continuous internal vibrational spectrum, requiring an additional matching factor. In the 0-Sphere model, the energy of the photon-sphere fragment is structurally fixed by the ejection threshold $E_0/2$ of Paper~\#49 and the geometric scale $\lambdaC$, with no quantization-mismatch step required.
+
+\item \textbf{Phase coherence.} The third source of inefficiency in Paper~\#34---efficient emission requires phase coherence across the emitting system, difficult to achieve under thermal conditions---is not addressed by the mass asymmetry argument. The phase-coherence factor remains as a structural component of the energy budget. Whether it can be analogously suppressed by an additional structural argument is left as an open problem (Section~\ref{sec:open}).
+\end{enumerate}
+
+The microscopic basis of the $\varepsilon_1$ elimination of Paper~\#34 is therefore a partial result rather than a complete one: two of the three sources are explicitly suppressed by the mass asymmetry, while the third remains a heuristic component of the energy budget. The present paper does not claim that the partial result reproduces the full ten-order-of-magnitude improvement quoted in Paper~\#34. It claims only that the heuristic factorization of Paper~\#34 acquires a microscopic basis for two of its three components.
+
+\subsection{Structural parallel with the $\lambda_C$ cancellation theorem}
+
+Paper~\#52~\cite{hanamura52} established a structural cancellation theorem for the 0-Sphere mass-energy ratio: the Compton wavelength $\lambdaC$ enters the gravitational coupling expression both as a numerator (via the energy density $E_0/\lambdaC$) and as a denominator (via the time-scale $\lambdaC/v_{\rm ZB}$), with the two appearances cancelling exactly because they originate in the same internal geometric scale. The cancellation is structural---it would not hold for two unrelated length scales of comparable magnitude---and it underlies the weak equivalence principle in the 0-Sphere framework.
+
+The mass asymmetry argument of the present paper has the same structural character. The factor $m_e/M$ that suppresses the recoil-induced dephasing is not an algebraic accident of the recoil calculation but a structural consequence of the 0-Sphere assignment of Zitterbewegung to the electron alone, with the nucleus contributing mass without contributing to the internal photon-sphere dynamics. In a model in which the nucleus also contributed to the internal oscillation, the relevant ratio would not factorize as $m_e/M$ and the argument would not go through. The structural parallel to the $\lambda_C$ cancellation of Paper~\#52 is not coincidental: both are consequences of the same architectural choice that locates the photon-sphere structure in the electronic degree of freedom alone.
+
+% ========================================
+\section{Absorption as Directed-Path Phase Matching}
+\label{sec:absorption}
+% ========================================
+
+\subsection{The frequency mismatch and the synchronization energy}
+
+When the photon-sphere fragment carrying a $Y_\ell^m$ excitation at frequency $\nu_{\ell m} \propto \nuZBl(\Phi_{\rm emit})$ reaches a receiving electron at gravitational potential $\Phi_{\rm abs}$, the receiver's own local Zitterbewegung frequency $\nuZBl(\Phi_{\rm abs})$ in general differs from the incoming mode. The frequency mismatch, accumulated along the directed path from emitter to absorber, is:
+\begin{equation}
+\Delta\nu \;=\; \nuZBl(\Phi_{\rm emit}) - \nuZBl(\Phi_{\rm abs}).
+\label{eq:mismatch}
+\end{equation}
+Both quantities run on proper time at their respective gravitational potentials. The redshift relation between them is the standard general-relativistic time-dilation factor: an emitter at deeper gravitational potential ($\Phi_{\rm emit}$ more negative) ticks more slowly relative to an external reference, so $\nuZBl(\Phi_{\rm emit}) < \nuZBl(\Phi_{\rm abs})$ when $|\Phi_{\rm emit}| > |\Phi_{\rm abs}|$. To first order in $\Phi/c^2$, the redshift takes the standard form:
+\begin{equation}
+\Delta\nu \;\approx\; \nuZBf\,\bigl(\Phi_{\rm abs} - \Phi_{\rm emit}\bigr)/c^2,
+\label{eq:redshift}
+\end{equation}
+where $\nuZBf \approx 5\times 10^{18}$~Hz is the flat-space Zitterbewegung frequency.
+
+The synchronization energy of Paper~\#34 follows directly:
+\begin{equation}
+\Delta E_{\rm sync} \;=\; \hbar\Delta\nu \;\approx\; \hbar\nuZBf\,\bigl(\Phi_{\rm abs} - \Phi_{\rm emit}\bigr)/c^2.
+\label{eq:sync_energy}
+\end{equation}
+This expression is the microscopic content of the ``phase information'' carried by the photon: the imprinted $Y_\ell^m$ mode encodes $\nuZBl(\Phi_{\rm emit})$, and the receiver's own internal frequency provides $\nuZBl(\Phi_{\rm abs})$; the difference is converted to translational kinetic energy when the receiver synchronizes.
+
+\subsection{The resonance condition problem and its resolution}
+
+A natural objection arises from the perturbative-QED account of photon absorption. Standard quantum electrodynamics requires that the incoming photon frequency match an allowed transition of the absorbing system; if $\nu_{\ell m} \neq \nuZBl(\Phi_{\rm abs})$, the photon would not be absorbed at all in the conventional picture. Yet the present mechanism requires precisely the opposite: the frequency mismatch $\Delta\nu$ must be non-zero for synchronization to do any work. How can the same process simultaneously demand and forbid frequency mismatch?
+
+The resolution operates within the framework boundary of Paper~\#56~\cite{hanamura56}. The resonance condition is a statement of the local-field framework: photon absorption is modeled as a pointwise coupling between the field value $\phi(x)$ at the absorber's location and a transition matrix element of the absorber, with energy conservation enforced at the point of coupling. Within this framework, the requirement $\nu_{\rm photon} = \nu_{\rm transition}$ is unavoidable.
+
+The 0-Sphere absorption process, however, is a directed-path event in the sense of Paper~\#56. The physically relevant quantity is not the field value at a single spacetime point but the accumulated phase along the directed path from emitter to absorber:
+\begin{equation}
+\Phi(\gamma) \;=\; \int_\gamma \omega,
+\label{eq:line_integral}
+\end{equation}
+following the line-integral ontology established in Paper~\#31~\cite{hanamura31}. Absorption is not a pointwise event but a phase-matching process between the accumulated phase of the incoming $Y_\ell^m$ mode and the integral of the absorber's own internal connection along its absorption-period worldline. The relevant matching condition is between two integrated quantities, not between two instantaneous values, and the constraint that two distinct integrated quantities must agree at every intermediate point does not apply.
+
+The structural distinction is precisely the one Paper~\#56 framed as the framework boundary: the local-field reading and the directed-path reading are not two formulations of the same physics but two different physics that agree in regimes where path-history is inessential and disagree where it is essential. The resonance condition is a feature of the local-field reading. The frequency-mismatch synchronization of the present paper is a feature of the directed-path reading. The two readings give different predictions, and Paper~\#56 argues that the physical situation determines which reading applies.
+
+A quantitative description of the directed-path absorption process---an absorption cross-section for off-resonance $Y_\ell^m$ modes, a detuning bandwidth, and the rate of synchronization as a function of $\Delta\nu$---is not provided here. The structural resolution removes the apparent inconsistency with the local-field framework but does not constitute a quantitative theory of the absorption rate. The quantitative theory is recorded as the primary open problem of the present mechanism (Section~\ref{sec:open}).
+
+% ========================================
+\section{The Metronome Principle, Not the Metronome Analogy}
+\label{sec:metronome}
+% ========================================
+
+\subsection{What Paper~\#34 said and did not say}
+
+Paper~\#34~\cite{hanamura34} introduced the synchronization of mechanical metronomes on a shared platform as a structural illustration of the entropic entrainment mechanism, and accompanied the illustration with an explicit and precise disclaimer: ``No claim of physical equivalence or quantitative correspondence is implied. The metronome system serves as a pedagogical macroscopic analogy illustrating the principle of entropy-driven synchronization and energy redistribution, wherein energy sustains oscillation but does not convert to net translation. In contrast, the 0-Sphere model proposes a distinct microscopic mechanism based on photon-mediated phase networks, in which translational motion emerges as the primary effect from the conversion of internal vibrational energy.''
+
+Two structural features of this disclaimer are essential. First, the metronome and the 0-Sphere subsystem share the \emph{driving principle} of synchronization: both are governed by the thermodynamic tendency of coupled oscillators to reduce phase mismatch through energy redistribution. Second, the metronome and the 0-Sphere subsystem differ in the \emph{kinematic outcome} of that synchronization: the metronome dissipates the redistributed energy into ongoing oscillation (no translation), while the 0-Sphere subsystem converts the redistributed energy into translational kinetic motion (translation as primary effect). The disclaimer of Paper~\#34 refused to identify these two situations.
+
+\subsection{The elevation that the present paper performs}
+
+The present paper proposes that the elevation from analogy to mechanism operates only at the level of the driving principle, while the kinematic disanalogy is preserved.
+
+The driving principle is now identified with a specific microscopic process: the entropic synchronization between the receiver's $\nuZBl$ and the incoming $Y_\ell^m$ excitation. The directed-path absorption mechanism of Section~\ref{sec:absorption} provides the microscopic content of this principle: the receiver adjusts its internal phase accumulation rate to match the imprinted $Y_\ell^m$ mode through phase-matching along its worldline, releasing the synchronization energy $\Delta E_{\rm sync} = \hbar\Delta\nu$ in the process. This driving principle is the same as the one that operates in the mechanical metronome: thermodynamic minimization of phase mismatch through energy redistribution. To this extent, the analogy of Paper~\#34 is upgraded to an identification of mechanism.
+
+The kinematic outcome, by contrast, remains structurally different in the two systems and the disclaimer of Paper~\#34 must be retained. In the mechanical metronome, the redistributed energy returns to the oscillation that it was extracted from---the mechanism conserves the oscillatory energy on average and produces no net translational displacement. In the 0-Sphere subsystem, the redistributed energy is funneled directly into translational motion, not because the principle is different but because the kinematic configuration is different: the photon-sphere fragment carrying the imprint propagates at $c$ along a definite spatial direction (the longitudinal $\ehat{x}$ direction of Paper~\#52~\cite{hanamura52}), so the synchronization energy is acquired in a directionally biased way that the symmetric metronome platform cannot reproduce. The conversion of internal energy to translational kinetic energy that Paper~\#34 designates as the primary effect of the 0-Sphere mechanism is the consequence of this directional bias, not a feature of the synchronization principle itself.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The metronome and the 0-Sphere mechanism: principle elevated, kinematic disanalogy preserved}}
+\label{tab:metronome_vs_0sm}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.0cm}p{5.5cm}p{6.0cm}}
+\toprule
+\textbf{Feature} & \textbf{Mechanical metronome} & \textbf{0-Sphere subsystem (this paper)} \\
+\midrule
+Driving principle (this paper elevates the analogy here)
+& Thermodynamic minimization of phase mismatch through coupled oscillator dynamics
+& Thermodynamic minimization of phase mismatch through directed-path $Y_\ell^m$ phase matching \\
+\addlinespace[0.3cm]
+Coupling channel
+& Mechanical momentum exchange through a movable platform parallel to the swing direction
+& Photon-sphere fragment carrying $Y_\ell^m$ excitation, propagating at $c$ along $\ehat{x}$ \\
+\addlinespace[0.3cm]
+Kinematic outcome (Paper~\#34's disanalogy preserved)
+& Redistributed energy sustains oscillation; no net translation
+& Redistributed energy converts to translational kinetic energy along the propagation direction \\
+\addlinespace[0.3cm]
+Why outcomes differ
+& Symmetric platform: extracted energy returns to the same oscillator system isotropically
+& Directionally biased emission via $\ehat{x}$ ($\iphase = \pi/2$ ejection event of Paper~\#49); synchronization energy enters along a definite spatial direction \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The elevation of Paper~\#34's metronome analogy operates at the level of the driving principle (first row), where the present paper provides the microscopic content of the entropic synchronization. The kinematic disanalogy that Paper~\#34 explicitly preserved (third row) is reproduced here: the metronome and the 0-Sphere subsystem differ not in the driving principle but in the directional structure of the coupling channel.
+\end{minipage}
+\end{table*}
+
+\subsection{Why this re-framing matters for the queued papers}
+
+The re-framing is not a cosmetic clarification. It allows Paper~\#58~\cite{hanamura58} to develop the directional structure of the emission---the rank-2 polarization tensor that the phase-stable pair carries and that determines the spin-2 character of the mediator---without inheriting any commitment of the present paper to a specific kinematic identification with the metronome system. Paper~\#59~\cite{hanamura59} then provides the bound-state condition under which the directional bias is non-trivially produced (the Coulomb axis-locking of the proton-trapped electron), again without conflicting with anything stated here. The kinematic disanalogy of Paper~\#34, faithfully preserved by the present paper, leaves the directional structure of the 0-Sphere emission as a separate question that the queued papers address from first principles.
+
+% ========================================
+\section{Predictions and Connection to the Queued Papers}
+\label{sec:predictions}
+% ========================================
+
+\subsection{Recovery of Paper~\#22's gravitational redshift prediction}
+
+The synchronization energy of Eq.~\eqref{eq:sync_energy} reproduces the prediction of Paper~\#22~\cite{hanamura22}. For an emitter at Earth's surface and an absorber at GPS satellite altitude, $|\Phi_{\rm emit}| > |\Phi_{\rm abs}|$, and the standard expression gives:
+\begin{equation}
+\Delta\nu_{\rm GPS}\;=\;\nuZBf\,\bigl(\Phi_{\rm GPS} - \Phi_{\rm Earth}\bigr)/c^2 \;\approx\; 2.64\times 10^9\ \text{Hz}.
+\label{eq:gps}
+\end{equation}
+This is numerically identical to the standard general-relativistic redshift of a clock~\cite{pound_rebka1960,vessot1980} at frequency $\nuZBf \approx 5\times 10^{18}$~Hz between Earth's surface and GPS altitude, as Paper~\#37~\cite{hanamura37} explicitly noted. The 0-Sphere account therefore does not predict a new effect at the level of the frequency-shift magnitude; it predicts the microscopic mechanism by which the standard redshift result is realized. The shifted frequency is the imprinted $Y_\ell^m$ mode, the carrier is the photon-sphere fragment, and the receiver's response is the directed-path absorption process described in Section~\ref{sec:absorption}.
+
+Direct measurement of $\Delta\nu_{\rm GPS} \approx 2.64\times 10^9$~Hz at $\nu_{\rm ZB}^{\rm flat} \approx 5\times 10^{18}$~Hz is well beyond the reach of current optical frequency metrology, which operates at frequencies $\sim 10^{14}$--$10^{15}$~Hz. The prediction is therefore not a direct experimental falsifier in the near term. Its empirical content is structural: any future technology that probes electron-internal frequencies at the Compton scale should observe the standard gravitational redshift, not the absence of redshift, and should observe it with the dependence on $\Phi$ predicted by general relativity rather than a 0-Sphere-specific modified dependence.
+
+\subsection{Forward references to Papers~\#58, \#59, and \#60}
+
+Three open questions in the present mechanism are addressed by the queued papers and recorded here as forward references rather than as content of this paper:
+
+\paragraph{Specific value of $\ell$.}
+The $Y_\ell^m$ imprinting of Section~\ref{sec:imprinting} requires only that some non-trivial mode is excited; the specific selection rule for $\ell$ is not derived. Paper~\#58~\cite{hanamura58} proposes that the spin-2 character of the gravitational mediator selects $\ell = 2$, and that this assignment is supported by the rank-2 polarization tensor of the phase-stable pair of two ejection events per Zitterbewegung cycle. The connection between the present paper's $Y_\ell^m$ and Paper~\#58's rank-2 pair is recorded as Paper~\#58's open task~(IV); it is not asserted in the present paper.
+
+\paragraph{Bound-state condition for directed emission.}
+The synchronization mechanism of the present paper requires that the emitting system produce a photon-sphere fragment with a definite directional structure---otherwise the imprinted $Y_\ell^m$ averages to isotropic and no net synchronization torque is exerted on the receiver. Paper~\#59~\cite{hanamura59} establishes that a free electron's Zitterbewegung axis precesses without a preferred direction, isotropizing the emission over the precession period $T_{\rm prec} \approx 5\times 10^{-16}$~s. The proton's Coulomb well, however, locks the Zitterbewegung axis to the proton--electron direction, supplying the directional bias under which the present paper's mechanism produces non-zero quadrupole gravitational radiation. The proper interpretation of the present paper is therefore that it describes the transmission process \emph{conditional on} the directional locking of Paper~\#59; the question of whether the locking actually occurs in a given physical situation is the content of Paper~\#59 and is not addressed here.
+
+\paragraph{Geometric foundation.}
+The present paper anchors the $Y_\ell^m$ imprinting in the dual-sector hierarchy of Paper~\#55, treating the imprint as the boundary data of Function~4 in the metric branch. The full geometric foundation---specifically, the identification of the Berry curvature~\cite{berry1984} $\mathcal{F}_{\mu\nu}$ generated by the internal connection with the Riemann tensor $R^\rho{}_{\sigma\mu\nu}$ of the emergent metric on the Bonnet--Myers-bounded compact domain---is the content of Paper~\#60~\cite{hanamura60}'s Berry--Synge--Bonnet--Myers triangle. The present paper does not commit to the closure of that triangle; it requires only that the dual-sector hierarchy of Paper~\#55 be the correct framework for situating the $Y_\ell^m$ imprint, which it is regardless of whether Paper~\#60's closure conditions are satisfied.
+
+% ========================================
+\section{Open Problems}
+\label{sec:open}
+% ========================================
+
+The following open problems of the present mechanism are recorded explicitly:
+
+\begin{enumerate}[label=(\Alph*), leftmargin=2em, itemsep=4pt]
+
+\item \textbf{Quantitative directed-path absorption rate.}
+Section~\ref{sec:absorption} resolved the apparent conflict between the present mechanism and the perturbative-QED resonance condition by appeal to the framework boundary of Paper~\#56. A quantitative description---absorption cross-section as a function of detuning $\Delta\nu$, response time of the receiver, dependence on $\ell$ and $m$---is not provided. A first-principles derivation within the line-integral ontology of Papers~\#31 and~\#34 is the primary unresolved structural issue of the present mechanism.
+
+\item \textbf{Phase-coherence component of $\varepsilon_1$.}
+Section~\ref{sec:mass_asymmetry} eliminated two of the three sources of inefficiency listed in Paper~\#34 (directional mismatch, energy quantization) via the mass asymmetry argument. The third source---phase coherence---is not addressed by mass asymmetry. Whether an additional structural argument can suppress this component is open. The closeness between the residual $\varepsilon_2 \cdot \varepsilon_3 \sim 10^{-4}$--$10^{-5}$ of Paper~\#34 and the $\varepsilon_{\rm required} \approx 7\times 10^{-5}$ derived in that paper from the energy-budget analysis remains, on the present account, partially heuristic.
+
+\item \textbf{Specific selection rule for $\ell$.}
+The proportionality constant in Eq.~\eqref{eq:imprint} and the selection rule that determines which $\ell$ value is excited by the ejection mechanism of Paper~\#49 are not derived here. Paper~\#58 records this as its open task~(IV) under the candidate identification $\ell = 2$.
+
+\item \textbf{Long-range $1/r^2$ scaling.}
+The synchronization mechanism is a near-neighbor interaction in the sense of Paper~\#34: photon-sphere fragments propagate from emitter to absorber over a finite distance and the synchronization torque is exerted at the receiving electron. The mechanism by which cumulative near-neighbor synchronization events produce an effective $1/r^2$ force at macroscopic distances is the inherited open problem of Paper~\#34 and is not addressed here.
+
+\item \textbf{Equivalence-principle compatibility.}
+Free-fall universality requires that the synchronization force be composition-independent. The mass asymmetry argument of Section~\ref{sec:mass_asymmetry} is composition-dependent at the atomic level (it requires $M \gg m_e$), and a careful analysis of how composition-dependent atomic factors average out at macroscopic scales is not provided. Whether the mechanism is consistent with the equivalence principle in its standard formulation requires a separate analysis.
+
+\end{enumerate}
+
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ========================================
+
+The ``phase information'' that Paper~\#34 asserted photons carry between 0-Sphere subsystems is here identified with a spherical harmonic excitation mode $Y_\ell^m$ of the photon sphere. The emission event imprints the local Zitterbewegung frequency $\nuZBl$ onto the photon-sphere fragment as a $Y_\ell^m$ excitation; the absorption event releases the synchronization energy $\Delta E_{\rm sync} = \hbar\Delta\nu$ when the receiver's local frequency differs from the incoming mode. The mechanism recovers Paper~\#22's gravitational redshift prediction $\Delta\nu \approx 2.64\times 10^9$~Hz at GPS altitudes as a direct consequence of the standard general-relativistic time dilation between emitter and absorber, and supplies a microscopic basis for two of the three sources of inefficiency in Paper~\#34's $\varepsilon_1$ factorization via the mass asymmetry $m_e/M \ll 1$.
+
+Paper~\#34's structural disclaimer of the metronome analogy is preserved at the level of the kinematic outcome (the metronome dissipates oscillatory energy without translation; the 0-Sphere subsystem converts oscillatory energy to translational motion) while the analogy is elevated at the level of the driving principle (entropic synchronization through phase mismatch reduction). The microscopic content of the driving principle is the directed-path phase matching of Section~\ref{sec:absorption}, which operates within the framework boundary of Paper~\#56 and resolves the apparent conflict with the perturbative-QED resonance condition.
+
+The present paper is the foundational mechanism paper of a four-paper sequence. Paper~\#58 addresses the spin-2 character of the imprinted fragment as a rank-2 polarization tensor of a phase-stable pair of ejection events. Paper~\#59 establishes the bound-state condition under which the directional bias required for the present mechanism is realized: free electrons are isotropized by axis precession; only a Coulomb-trapped electron supplies a definite emission direction. Paper~\#60 organizes the gauge and gravitational sectors as joint consequences of a single internal phase functional through the Berry--Synge--Bonnet--Myers triangle. The present paper supplies only what is required for the transmission step; the spin character, bound-state condition, and geometric foundation are addressed in those queued papers.
+
+\begin{acknowledgments}
+The author acknowledges the use of large language models in a supportive role for textual organization, mathematical consultation, and structural analysis of the relationships among earlier papers in the series. All physical interpretations, theoretical claims, and conclusions are the sole responsibility of the author.
+\end{acknowledgments}
+
+% ========================================
+\begin{thebibliography}{99}
+% ========================================
+% Bibliography ordered by first appearance in body text.
+% Convention: each entry is cited in the body before its bibitem appears
+% here, matching the cite-order convention of the APS / REVTeX 4-2
+% numerical reference style.
+% ========================================
+
+% -- Cite #1 (line ~113, Section 1 Introduction, first paragraph) --
+\bibitem{hanamura34}
+S.~Hanamura, ``Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass, Zitterbewegung, and Gravitational-Like Phenomena --- Emergent Gravitational Dynamics Without Additional Mediators,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18437010}{10.5281/zenodo.18437010}
+
+% -- Cite #2 (line ~113, "Zitterbewegung frequency" canonical reference) --
+\bibitem{schrodinger1930}
+E.~Schr\"odinger, ``\"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik,'' Sitzungsber. Preuss. Akad. Wiss., Phys.-Math. Kl. \textbf{24}, 418 (1930).
+
+% -- Cite #3 (line ~113, gravitational redshift of internal clocks) --
+\bibitem{hanamura22}
+S.~Hanamura, ``Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765318}{10.5281/zenodo.17765318}
+
+% -- Cite #4 (line ~113, line-integral interpretation of mgh) --
+\bibitem{hanamura37}
+S.~Hanamura, ``Reinterpreting Gravitational Potential Energy as an Internal Line-Integral Quantity in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18637487}{10.5281/zenodo.18637487}
+
+% -- Cite #5 (line ~117, foundational two-kernel architecture) --
+\bibitem{hanamura01}
+S.~Hanamura, ``A Model of an Electron Including Two Perfect Black Bodies,'' Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}
+
+% -- Cite #6 (line ~125, queued companion: spin-2) --
+\bibitem{hanamura58}
+S.~Hanamura, ``Spin-2 Structure of the Gravitational Mediator: Phase-Stable Pair Emission and Quadrupole Radiation in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19932861}{10.5281/zenodo.19932861}
+
+% -- Cite #7 (line ~126, queued companion: bound state) --
+\bibitem{hanamura59}
+S.~Hanamura, ``Proton-Trapped Electron as the Generator of Spin-2 Gravitational Radiation: Coulomb Confinement, ZB Axis Locking, and the Separation of Gravitational and Electromagnetic Sectors,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19932907}{10.5281/zenodo.19932907}
+
+% -- Cite #8 (line ~127, queued companion: BSBM triangle) --
+\bibitem{hanamura60}
+S.~Hanamura, ``The Berry--Synge--Bonnet--Myers Triangle: Structural Conditions for the Unification of Gauge and Gravitational Sectors in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19932922}{10.5281/zenodo.19932922}
+
+% -- Cite #9 (line ~134, dimensional consistency of G and c^2) --
+\bibitem{hanamura28}
+S.~Hanamura, ``A Supplementary Correction to the 0-Sphere Model: Dimensional Consistency of $G$ and $c^2$,'' Zenodo (2026, v3). \href{https://doi.org/10.5281/zenodo.18636509}{10.5281/zenodo.18636509}
+
+% -- Cite #10 (line ~134, Einstein equation reinterpretation) --
+\bibitem{hanamura30v2}
+S.~Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026, v2). \href{https://doi.org/10.5281/zenodo.18819682}{10.5281/zenodo.18819682}
+
+% -- Cite #11 (line ~145, four functions of the open Wilson line) --
+\bibitem{hanamura55}
+S.~Hanamura, ``Four Functions of the Open Wilson Line in the 0-Sphere Model: Phase-History Carrier, Gauge Localization, Holonomy Composition, and Boundary Data Generating Both Maxwell and Metric Sectors,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19800797}{10.5281/zenodo.19800797}
+
+% -- Cite #12 (line ~145, original Wilson loop) --
+\bibitem{wilson1974}
+K.~G.~Wilson, ``Confinement of quarks,'' Phys. Rev. D \textbf{10}, 2445 (1974). \href{https://doi.org/10.1103/PhysRevD.10.2445}{10.1103/PhysRevD.10.2445}
+
+% -- Cite #13 (line ~160, Maxwell from Wilson-line phase functional) --
+\bibitem{hanamura54}
+S.~Hanamura, ``Maxwell Electrodynamics as a Derived Low-Energy Limit of the 0-Sphere Wilson-Line Phase Functional,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19701297}{10.5281/zenodo.19701297}
+
+% -- Cite #14 (line ~164, framework boundary: directed path vs local field) --
+\bibitem{hanamura56}
+S.~Hanamura, ``The Framework Boundary: How Local-Field and Directed-Path Descriptions Diverge in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19900974}{10.5281/zenodo.19900974}
+
+% -- Cite #15 (line ~164, original Aharonov-Bohm paper) --
+\bibitem{aharonov_bohm1959}
+Y.~Aharonov and D.~Bohm, ``Significance of Electromagnetic Potentials in the Quantum Theory,'' Phys. Rev. \textbf{115}, 485 (1959). \href{https://doi.org/10.1103/PhysRev.115.485}{10.1103/PhysRev.115.485}
+
+% -- Cite #16 (line ~186, photon-sphere ejection at theta=pi/2) --
+\bibitem{hanamura49}
+S.~Hanamura, ``Photon-Sphere Fragmentation as a Gravitational Mediator,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{10.5281/zenodo.19393391}
+
+% -- Cite #17 (line ~226, recoil-mass-ratio scaling, structural parallel) --
+\bibitem{mossbauer1958}
+R.~L.~M\"ossbauer, ``Kernresonanzfluoreszenz von Gammastrahlung in Ir$^{191}$,'' Z. Phys. \textbf{151}, 124 (1958). \href{https://doi.org/10.1007/BF01344210}{10.1007/BF01344210}
+
+% -- Cite #18 (line ~250, lambda_C cancellation theorem and WEP) --
+\bibitem{hanamura52}
+S.~Hanamura, ``Geometric Origin of the Weak Equivalence Principle in the 0-Sphere Model: Force Classification and the $\lambda_C$ Cancellation Theorem in the Helical Geometry,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19583032}{10.5281/zenodo.19583032}
+
+% -- Cite #19 (line ~291, line-integral ontology) --
+\bibitem{hanamura31}
+S.~Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{10.5281/zenodo.18203433}
+
+% -- Cite #20 (line ~366, original GR redshift experiment) --
+\bibitem{pound_rebka1960}
+R.~V.~Pound and G.~A.~Rebka, ``Apparent Weight of Photons,'' Phys. Rev. Lett. \textbf{4}, 337 (1960). \href{https://doi.org/10.1103/PhysRevLett.4.337}{10.1103/PhysRevLett.4.337}
+
+% -- Cite #21 (line ~366, Gravity Probe A clock-frequency test) --
+\bibitem{vessot1980}
+R.~F.~C.~Vessot \textit{et al.}, ``Test of relativistic gravitation with a space-borne hydrogen maser,'' Phys. Rev. Lett. \textbf{45}, 2081 (1980). \href{https://doi.org/10.1103/PhysRevLett.45.2081}{10.1103/PhysRevLett.45.2081}
+
+% -- Cite #22 (line ~381, original Berry phase paper) --
+\bibitem{berry1984}
+M.~V.~Berry, ``Quantal phase factors accompanying adiabatic changes,'' Proc. R. Soc. Lond. A \textbf{392}, 45 (1984). \href{https://doi.org/10.1098/rspa.1984.0023}{10.1098/rspa.1984.0023}
+
+\end{thebibliography}
+
+\end{document}
