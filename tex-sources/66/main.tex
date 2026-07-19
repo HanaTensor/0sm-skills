@@ -421,9 +421,9 @@ This demarcation, proposed by Opus 4.8 in E6 and adopted trilaterally, is summar
   dead/.style={draw=deepgray, dashed, rounded corners, text width=4.6cm, align=center, font=\footnotesize, inner sep=5pt},
   >={Stealth}
 ]
-\node[box] (src) at (-4.6,0) {\textbf{Source side --- task (I) of \#58}\\ Back-to-back fragment pair; invariant mass $2E_{\mathrm{frag}}\neq0$; massive $J=2$ configuration; tensor structure $\varepsilon_{+\mu}\varepsilon_{+\nu}$, automatically traceless; $J_x=\pm2$.\\ \emph{Status: closable modulo Hypothesis H (Prop.~\ref{prop:rank2}).}};
-\node[obox] (rad) at (4.6,0) {\textbf{Radiation side --- open problem O3}\\ Massless helicity-$\pm2$ field $h_{\mu\nu}$ as perturbation of the \emph{emergent} metric; requires the curved-spacetime completion of the Synge construction (\#51: flat-limit check only).\\ \emph{Status: open; final gate for both columns of Table~\ref{tab:split}.}};
-\draw[->, thick, deepgray] (src.east) -- node[above, font=\footnotesize] {quadrupole formalism} node[below, font=\footnotesize] {(currently imported from GR)} (rad.west);
+\node[box] (src) at (-5.0,0) {\textbf{Source side --- task (I) of \#58}\\ Back-to-back fragment pair; invariant mass $2E_{\mathrm{frag}}\neq0$; massive $J=2$ configuration; tensor structure $\varepsilon_{+\mu}\varepsilon_{+\nu}$, automatically traceless; $J_x=\pm2$.\\ \emph{Status: closable modulo Hypothesis H (Prop.~\ref{prop:rank2}).}};
+\node[obox] (rad) at (5.0,0) {\textbf{Radiation side --- open problem O3}\\ Massless helicity-$\pm2$ field $h_{\mu\nu}$ as perturbation of the \emph{emergent} metric; requires the curved-spacetime completion of the Synge construction (\#51: flat-limit check only).\\ \emph{Status: open; final gate for both columns of Table~\ref{tab:split}.}};
+\draw[->, thick, deepgray] (src.east) -- node[midway, fill=white, inner sep=2pt, font=\scriptsize, text width=2.9cm, align=center] {quadrupole formalism\\ (currently imported from GR)} (rad.west);
 \draw[deepgray, thick, dashed] (0,-2.0) -- (0,1.9) node[above, font=\small\itshape, text=deepgray] {task (I) / O3 boundary};
 \node[wbox] (ww) at (-4.6,-3.3) {\textbf{Weinberg--Witten theorem}\\ Forbids massless spin $j>1$ composites in theories with a Lorentz-covariant conserved $T^{\mu\nu}$ (\#52, appendix: ``applicability non-trivial'').};
 \node[dead] (dg) at (1.4,-3.3) {``graviton $=$ massless composite pair'' \\ (particle reading: \emph{abandoned})};
