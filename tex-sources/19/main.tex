@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,14 +10,13 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
 \usepackage{breqn} % dmath: automatic equation line breaking
 \numberwithin{equation}{section}% (p.37)
 
-% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
 % not recommended for academic papers requiring strict typesetting.
 \tolerance=1000
 \emergencystretch=1em
@@ -27,6 +29,9 @@
 \usepackage{booktabs}
 
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -35,13 +40,18 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Spin as a Real Vector from Internal Photon-Sphere Motion:\\ Geometric Origin of U(1) Gauge and SU(2) Periodicity}
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{June 15, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 We propose a geometric and deterministic model of electron spin in which spin angular momentum arises from internal reciprocating motion of a confined photon-sphere, rather than from an abstract pseudovector. In this model, spin is described as a real, time-evolving vector whose $z$-component varies as $\sin(2\omega t)$, leading naturally to the $4\pi$ periodicity characteristic of spin-$\frac{1}{2}$ particles. The model corrects a previous dimensional inconsistency by introducing an explicit angular velocity vector $\boldsymbol{\Omega}(t) = -\frac{1}{4c^2} \sin(2\omega t)\,\mathbf{e}_z$, inspired by a reinterpretation of Thomas precession as a physically real effect of internal dynamics.
 
@@ -117,9 +127,6 @@ The following symbols and definitions are used throughout this paper:
     \item $c$ : Speed of light in vacuum. Used explicitly in $\boldsymbol{\Omega}(t)$ to restore dimensions in non-natural units.
 \end{itemize}
 
-% ----------------------------------------
-% Figure 1: f-double_frequency.png -- Internal motion components
-% ----------------------------------------
 \begin{figure*}[t!]
     \centering 
     \includegraphics[width=\textwidth]{f-double_frequency.png}
@@ -183,9 +190,6 @@ This revised form makes clear that the internal angular velocity is directed alo
 
 This approach aligns with the foundational work of Barut and Bracken \cite{barut1981}, who demonstrated that Zitterbewegung can be described as a finite three-dimensional harmonic oscillator with compact phase space, governed by SO(5) Lie algebra. Their formulation showed that the electron's internal motion takes place in a hyperplane orthogonal to the four-momentum, providing a geometric framework for understanding the oscillatory dynamics we propose here.
 
-% ----------------------------------------
-% Figure 2: f-TotalHamiltonian.png -- Energy conservation visualization
-% ----------------------------------------
 \begin{figure*}[t!]
     \centering 
     \includegraphics[width=\textwidth]{f-TotalHamiltonian.png}
@@ -196,7 +200,7 @@ This approach aligns with the foundational work of Barut and Bracken \cite{barut
 
 
 % ----------------------------------------
-% Subsection 4.3: Spin as a Real Oscillating Vector
+% Subsection 4.3: Spin as a Real Oscillating Vector: Temporal Structure and Symmetry
 % ----------------------------------------
 \subsection{Spin as a Real Oscillating Vector: Temporal Structure and Symmetry}
 
@@ -253,7 +257,7 @@ This reinterpretation reveals that spin angular momentum emerges from relativist
 
 
 % ----------------------------------------
-% Table 1: Conventional QT vs 0-Sphere Geometric Spin Model
+% Table 1
 % ----------------------------------------
 \begin{table*}[t!]
 \caption{Comparison between Conventional Quantum Theory and the Present Geometric Spin Model}
@@ -409,4 +413,7 @@ S. Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principl
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

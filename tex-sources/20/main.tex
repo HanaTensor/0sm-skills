@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,14 +10,13 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
 \usepackage{breqn} % dmath: automatic equation line breaking
 \numberwithin{equation}{section}% (p.37)
 
-% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
 % not recommended for academic papers requiring strict typesetting.
 \tolerance=1000
 \emergencystretch=1em
@@ -25,6 +27,9 @@
 \usepackage{ragged2e}  % for \justifying command
 \usepackage{booktabs}
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -33,13 +38,18 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Emergent Conservation Laws from Internal Geometry:\\ A Noetherian Reinterpretation in the 0-Sphere Model}
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{June 22, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 This paper introduces the 0-Sphere model—a geometric and deterministic reinterpretation of quantum mechanics—based on internal oscillatory motion constrained by closed time-phase dynamics. In this framework, core quantum phenomena such as superposition, spin quantization, and Zitterbewegung emerge from rapid alternation between two internal energy kernels ($A$ and $B$), without invoking intrinsic randomness or wavefunction collapse.
 
@@ -87,7 +97,7 @@ This reinterpretation provides a concrete physical basis for phenomena typically
 
 
 % ========================================
-% Section 3: Noetherian Inversion
+% Section 3: Noetherian Inversion: From Imposed Symmetries to Emergent Conservation
 % ========================================
 \section{Noetherian Inversion: From Imposed Symmetries to Emergent Conservation}
 
@@ -117,7 +127,7 @@ While Noether’s theorem establishes that symmetries are sufficient to produce 
 \section{Discussion}
 
 % ----------------------------------------
-% Subsection 4.1: Geometric Origin of TPE and the Two-Point Structure
+% Subsection 4.1: Geometric Origin of Thermal Potential Energy and the Two-Point Structure
 % ----------------------------------------
 \subsection{Geometric Origin of Thermal Potential Energy and the Two-Point Structure}
 
@@ -148,7 +158,7 @@ Crucially, this deterministic picture of spin evolution does not contradict the 
 Table~\ref{tab:noether_comparison} summarizes the key distinctions between these complementary approaches.
 
 % ----------------------------------------
-% Table 1: Noetherian Framework vs 0-Sphere Model
+% Table 1
 % ----------------------------------------
 \begin{table*}[t!]
 \caption{Comparison between Standard Noetherian Framework and the 0-Sphere Model}
@@ -198,12 +208,10 @@ Relationship to Noether & Noether's theorem as derivation tool: symmetry implies
 \end{table*}
 
 % After table, before next section
-%\vfill  % fill remaining space
-%\clearpage  % start new page
 
 
 % ----------------------------------------
-% Table 2: Standard QFT vs 0-Sphere Model
+% Table 2
 % ----------------------------------------
 \begin{table*}[t!]
 \caption{Comparison between Standard Quantum Field Framework and the 0-Sphere Model}
@@ -259,7 +267,6 @@ Field–Matter Relationship & Gauge fields shape matter interactions via imposed
 % After table, before next section
 \vfill  % fill remaining space
 \clearpage  % start new page
-
 
 
 % ----------------------------------------
@@ -437,19 +444,19 @@ S. Hanamura, Spin as a Real Vector from Internal Photon-Sphere Motion: Geometric
 \end{thebibliography}
 
 % ========================================
-% Appendix: Chronological Development of the 0-Sphere Model
+% Section 6: appendix
 % ========================================
 \section{appendix}
 
 % ----------------------------------------
-% Appendix Overview: Chronological Development
+% Subsection 6.1: Chronological Development of the 0-Sphere Model
 % ----------------------------------------
 \subsection{Chronological Development of the 0-Sphere Model}
 
 This appendix traces the theoretical evolution of the 0-Sphere model through the author's published works, demonstrating how the fundamental concepts emerged and matured over time. Each subsection corresponds to a major publication that contributed essential elements to the current comprehensive framework.
 
 % ----------------------------------------
-% Appendix A.1: Foundational Framework (2018 paper)
+% Subsection 6.2: Foundational Framework: The Dual-Kernel Electron Model (2018 paper~\cite{hanamura1811.0312})
 % ----------------------------------------
 \subsection{Foundational Framework: The Dual-Kernel Electron Model (2018 paper~\cite{hanamura1811.0312})}
 
@@ -473,7 +480,7 @@ Spinor behavior emerges from the dual-kernel geometry through the half-frequency
 The most significant achievement of this foundational work was demonstrating that electron self-energy interactions could be rendered finite through internal structure. By replacing point-particle self-interaction with inter-kernel interactions over finite distances, the model eliminates ultraviolet divergences without requiring renormalization procedures. The finite size of the photon sphere provides a natural cutoff scale, suggesting that geometric internal structure could provide a systematic approach to divergence-free quantum field theory. This represents a return to the pre-renormalization ideal of finite, well-defined physical calculations while maintaining full compatibility with experimental observations.
 
 % ----------------------------------------
-% Appendix A.2: Dirac Equation Reinterpretation (2020 paper)
+% Subsection 6.3: Dirac Equation Reinterpretation: Positive and Negative Energy States (2020 paper~\cite{hanamura2006.0104})
 % ----------------------------------------
 \subsection{Dirac Equation Reinterpretation: Positive and Negative Energy States (2020 paper~\cite{hanamura2006.0104})}
 
@@ -499,7 +506,7 @@ This work established several boundary conditions essential for the model's cons
 The implications for quantum field theory prove far-reaching. By providing classical mechanisms for phenomena typically attributed to particle creation and annihilation, the model suggests that second quantization might emerge from collective thermal dynamics rather than fundamental field operators. The success in reinterpreting negative energy states indicates that other apparent paradoxes in relativistic quantum mechanics might similarly yield to geometric thermal models, as suggested by observations in ultracold atomic systems~\cite{zhang2013}. This opens possibilities for reformulating quantum field theory on classical thermodynamic foundations while preserving its predictive accuracy.
 
 % ----------------------------------------
-% Appendix A.3: Experimental Predictions and gamma=1+a Breakthrough (2023 paper)
+% Subsection 6.4: Experimental Predictions and the $\gamma = 1 + a$ Breakthrough (2023 paper~\cite{hanamura2309.0047})
 % ----------------------------------------
 \subsection{Experimental Predictions and the $\gamma = 1 + a$ Breakthrough (2023 paper~\cite{hanamura2309.0047})}
 
@@ -552,7 +559,7 @@ The work establishes crucial experimental criteria for validating the theory. Me
 The implications extend far beyond electron physics to fundamental questions about the nature of physical reality. The success in deriving quantum magnetic behavior from classical relativistic geometry suggests that the quantum-classical distinction might be observational rather than ontological. The model indicates that apparently abstract quantum phenomena could emerge from concrete physical processes operating below currently accessible experimental scales, potentially revolutionizing our understanding of the relationship between classical and quantum physics.
 
 % ----------------------------------------
-% Appendix A.4: Geodesic Motion and QM-GR Unification (2024 paper)
+% Subsection 6.5: Geodesic Motion and Quantum-Relativistic Unification (2024 paper~\cite{hanamura2411.0117})
 % ----------------------------------------
 \subsection{Geodesic Motion and Quantum-Relativistic Unification (2024 paper~\cite{hanamura2411.0117})}
 
@@ -606,7 +613,7 @@ The work's most profound implication lies in suggesting that the apparent confli
 The mathematical elegance of the closed algebraic description, combined with specific numerical predictions and natural accommodation of both quantum and relativistic principles, reflects the unreasonable effectiveness of mathematics in the natural sciences~\cite{wigner1960}. The demonstration that quantum behavior emerges from deterministic geometric processes operating on geodesic paths suggests that the mysterious aspects of quantum mechanics might reflect our incomplete understanding of underlying classical geometric principles~\cite{misner1973}.
 
 % ----------------------------------------
-% Appendix A.5: Mass Hierarchy and Critical Radius Theory (2025 paper)
+% Subsection 6.6: Mass Hierarchy and Critical Radius Theory (2025 paper~\cite{hanamura2501.0130})
 % ----------------------------------------
 \subsection{Mass Hierarchy and Critical Radius Theory (2025 paper~\cite{hanamura2501.0130})}
 
@@ -661,7 +668,7 @@ The theoretical framework reveals mass-dependent transitions between classical a
 The unification of special relativity, general relativity, and quantum mechanics through critical radius theory represents a paradigmatic advance in theoretical physics. Rather than requiring new physics beyond the Standard Model and general relativity, the framework demonstrates how apparent mysteries in particle physics might be resolved through proper application of existing relativistic principles to quantum mechanical systems. This approach suggests that the long-sought unification of quantum mechanics and gravity might emerge from geometric understanding of particle structure rather than from fundamentally new theoretical frameworks.
 
 % ----------------------------------------
-% Appendix A.6: SU(2) Geometric Unification and Spin Vector Theory (2025 paper)
+% Subsection 6.7: SU(2) Geometric Unification and Spin Vector Theory (2025 paper~\cite{hanamura2506.0072})
 % ----------------------------------------
 \subsection{SU(2) Geometric Unification and Spin Vector Theory (2025 paper~\cite{hanamura2506.0072})}
 
@@ -693,7 +700,7 @@ Most significantly, this geometric foundation offers a classical and determinist
 
 
 % ========================================
-% Glossary
+% Section 7: Glossary
 % ========================================
 \section{Glossary}
 \begin{description}
@@ -729,4 +736,7 @@ Most significantly, this geometric foundation offers a classical and determinist
   \item[\textbf{Zitterbewegung (ZB)}] Originally predicted by Schr\"{o}dinger as light-speed quantum trembling, here reinterpreted as subluminal ($\approx 4\%$ light speed) oscillatory motion of internal energy within electrons. Results from alternating energy transfer between kernels along geodesic paths.
 \end{description}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

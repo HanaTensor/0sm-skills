@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -58,14 +61,23 @@
 % Internal phase notation
 \newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics}
 
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{December 27, 2025}
 
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 The thermal geodesic was originally introduced in the 0-Sphere model as a variational principle governing energy transfer between localized kernels, formulated in terms of particle-wise proper time rather than absolute coordinate time. 
 In homogeneous regions, this geodesic reduces to a straight trajectory in real space, raising the question of how nontrivial internal dynamics arise along such a simple path. 
@@ -78,6 +90,9 @@ The framework preserves compatibility with established quantum and relativistic 
 
 \maketitle
 
+% ========================================
+% Section 1: Introduction
+% ========================================
 \section{Introduction}
 \label{sec:introduction}
 
@@ -99,7 +114,7 @@ The purpose of this work is not to modify established quantum or relativistic th
 
 
 % ----------------------------------------
-% Table 1: Structural Correspondence between Discrete and Geometric Formulations
+% Table 1
 % ----------------------------------------
 \begin{table*}[t!]
 \centering
@@ -134,7 +149,7 @@ Likewise, the partial order $\prec$ does not reduce to the geodesic equation; in
 \end{table*}
 
 % ========================================
-% Section 1: From Geodesics to Spinors: A Proper-Time Perspective
+% Section 2: From Geodesics to Spinors:\\ A Proper-Time Perspective
 % ========================================
 \section{From Geodesics to Spinors:\\ A Proper-Time Perspective}
 \label{sec:geodesics_spinors}
@@ -212,7 +227,7 @@ In this way, the thermal geodesic framework preserves the simplicity of straight
 
 
 % ========================================
-% Section 2: Dimensional Independence and Geometric Universality
+% Section 3: Dimensional Independence and Geometric Universality
 % ========================================
 \section{Dimensional Independence and Geometric Universality}
 \label{sec:dimensional_independence}
@@ -243,7 +258,7 @@ This dimensional independence ensures that the 0-Sphere model remains a backgrou
 \vspace{20mm}
 
 % ========================================
-% Section 3: Conclusion
+% Section 4: Conclusion
 % ========================================
 \section{Conclusion}
 
@@ -499,10 +514,10 @@ S.~Weinberg,
 \end{thebibliography}
 
 
-% ========================================
-% Appendix B: Dynamical Illustration of Spinorial Periodicity
-% ========================================
 \appendix
+% ========================================
+% Appendix A: Appendix B: Dynamical Illustration of Spinorial Periodicity
+% ========================================
 \section{Appendix B: Dynamical Illustration of Spinorial Periodicity}
 \label{app:spin_dynamics}
 
@@ -521,37 +536,64 @@ From the perspective of the main text, this result may be viewed as a concrete r
 We emphasize that this appendix serves solely as an illustrative complement. The geometric results of the main text do not rely on the details of this internal model, and remain valid at the level of connection and holonomy independently of any specific microscopic realization.
 
 % ========================================
-% Appendix C: Glossary of Key Concepts
+% Appendix B: Glossary of Key Concepts
 % ========================================
 \section{Glossary of Key Concepts}
 \label{app:glossary}
 
 This appendix collects concise definitions of technical terms as they are used in the present work. The descriptions are intentionally limited to terminology and conventions required for reading the paper, and do not introduce additional results or interpretations beyond those developed in the main text.
 
+% ----------------------------------------
+% Subsection 4.1: Thermal Geodesic
+% ----------------------------------------
 \subsection*{Thermal Geodesic}
 A trajectory connecting two localized energy kernels, obtained by extremizing an effective action formulated in terms of the proper time $\tau$. In homogeneous and isotropic regions, the thermal geodesic reduces to a straight path in coordinate space, while remaining a geodesic with respect to the effective thermal metric~\cite{hanamura17765017}.
 
+% ----------------------------------------
+% Subsection 4.2: Proper Time ($\tau$)
+% ----------------------------------------
 \subsection*{Proper Time ($\tau$)}
 The time parameter measured in the instantaneous rest frame of a particle. In the present framework, proper time replaces coordinate time as the affine parameter along the thermal geodesic, allowing relativistic kinematics to be incorporated in a covariant manner~\cite{schwinger1951,bjorken1964}.
 
+% ----------------------------------------
+% Subsection 4.3: Connection (Connection One-Form)
+% ----------------------------------------
 \subsection*{Connection (Connection One-Form)}
 A geometric object that specifies how vectors or internal states are parallel transported along a curve. In this work, the physically relevant quantity is the line integral of the connection along a worldline parameterized by $\tau$, rather than the curvature associated with a surface~\cite{nakahara2003}.
 
+% ----------------------------------------
+% Subsection 4.4: Thomas Precession
+% ----------------------------------------
 \subsection*{Thomas Precession}
 An effective rotational motion arising from the non-commutativity of successive Lorentz boosts experienced by an accelerated particle~\cite{thomas1926,Jackson1999}. Thomas precession is a purely kinematic effect and does not rely on external spatial curvature.
 
+% ----------------------------------------
+% Subsection 4.5: Spinorial Phase
+% ----------------------------------------
 \subsection*{Spinorial Phase}
 An internal phase associated with the evolution of a spin-1/2 state under parallel transport with respect to a connection. Such phases are sensitive to the geometric structure of the connection and are not determined solely by the local dynamical Hamiltonian~\cite{wigner1939,sakurai2017}.
 
+% ----------------------------------------
+% Subsection 4.6: Holonomy
+% ----------------------------------------
 \subsection*{Holonomy}
 The net effect accumulated by parallel transport of a state along a closed path with respect to a given connection. Holonomy provides a global characterization of the connection that is independent of the local parametrization of the path~\cite{nakahara2003}.
 
+% ----------------------------------------
+% Subsection 4.7: Poincar\'e Upper Half-Plane
+% ----------------------------------------
 \subsection*{Poincar\'e Upper Half-Plane}
 A standard model of two-dimensional hyperbolic geometry, in which geodesics are represented as semicircles orthogonal to the real axis. In the present work, this space is used as a geometric prototype to visualize properties of geodesic motion in the presence of a nontrivial connection.
 
+% ----------------------------------------
+% Subsection 4.8: Covariant Acceleration
+% ----------------------------------------
 \subsection*{Covariant Acceleration}
 The rate of change of a tangent vector under parallel transport defined by a connection. A curve is said to be geodesic when its covariant acceleration vanishes, regardless of the appearance of the trajectory in coordinate space~\cite{wald1984}.
 
+% ----------------------------------------
+% Subsection 4.9: Isotropic Homogeneity
+% ----------------------------------------
 \subsection*{Isotropic Homogeneity}
 The condition that the effective thermal metric is spatially uniform and direction-independent within a given region. Under this condition, the thermal geodesic assumes its simplest form in coordinate space, without implying the absence of internal geometric structure.
 
@@ -570,4 +612,7 @@ The condition that the effective thermal metric is spatially uniform and directi
 % hold independently of whichever specific geodesic equation is adopted. (2025-12-23)
 
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

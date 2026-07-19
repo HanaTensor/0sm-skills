@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,14 +10,13 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
-\usepackage{caption} % captionsetup[figure]用
-\usepackage{threeparttable} % Table のキャプションを変更
-\usepackage{breqn} %dmath用：数式の自動折り返し
+\usepackage{caption}
+\usepackage{threeparttable}
+\usepackage{breqn}
 \numberwithin{equation}{section}% (p.37)
 
-% \sloppy はすべての文章を「緩め」に設定し、オーバーフローや不均一な単語間隔を許すため、厳密な組版が求められる論文では推奨されません。
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=3000
@@ -22,9 +24,8 @@
 \flushbottom
 \usepackage[final]{microtype}
 
-\usepackage{ragged2e} % 均等割付けのために追加
+\usepackage{ragged2e}
 
-% Figsにも均等割付けをする(2023/12/24)
 \captionsetup{
     format=plain,
     justification=justified,
@@ -32,21 +33,28 @@
 
 
 \captionsetup[figure]{justification=raggedright,
-labelfont={bf},name={Fig.},labelsep=period} %Fig.の注釈を左揃えするためrangedrightを用いる
+labelfont={bf},name={Fig.},labelsep=period}
 \captionsetup[table]{
     labelfont={bf},name={Table.},labelsep=period}
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
 
-
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Unified Spin Dynamics: \\From Pseudovector Nature to Relativistic Constraints}
 
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{January 1, 2025}
-%\date{\today}
 
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 We present an algebraic framework demonstrating that electron spin states arise dynamically rather than being predetermined. By reinterpreting Thomas precession in accelerated motion, we establish the natural quantization of spin angular momentum to $\hbar/2$, and its characteristic $4\pi$ periodicity. The 0-Sphere model introduces a dynamic photon sphere, characterized by Zitterbewegung oscillation at approximately $0.04c$. This mechanism resolves the superluminal velocity paradox in classical electron models, while providing a physical basis for spin orientation. Our analysis of the outer product operation reveals that spin states emerge from periodic variations, with orientation determined by dynamic processes rather than predefined properties. The model naturally explains spin's pseudovectorial nature through the geometric properties of the photon sphere, providing a unified understanding of spin transformation under spatial inversion and time reversal. Furthermore, we propose a novel interpretation of quantum entanglement through temporal phase progression, where correlated spins maintain their relationship via coherent oscillations instead of non-local interactions. Our findings suggest that the violation of Bell's inequality originates from the failure of realism, not locality. This perspective preserves locality and explains entangled states through coherent temporal phase evolution, offering a novel understanding of quantum mechanical correlations.
 \end{abstract}
@@ -54,6 +62,9 @@ We present an algebraic framework demonstrating that electron spin states arise 
 
 \maketitle
 
+% ========================================
+% Section 1: Introduction
+% ========================================
 \section{Introduction}
 \label{sec:intro}
 
@@ -62,14 +73,12 @@ Bell's seminal work in 1964 established a rigorous mathematical framework to tes
 The discrete nature of electron spin states, definitively demonstrated by the Stern-Gerlach experiment~\cite{Gerlach1922}, challenged classical interpretations and established the quantum mechanical nature of spin. However, the physical mechanism behind spin angular momentum quantization and quantum entanglement remains poorly understood, a gap this study seeks to address.
 
 
-
 While the pseudovectorial nature of electron spin is well-established through quantum mechanics and Pauli matrices, a fully intuitive geometric visualization reconciling this property with relativistic constraints remains an open challenge. Classical rotating sphere models encounter superluminal velocity issues, while modern geometric phase theories, though mathematically advanced, lack intuitive interpretability. The 0-Sphere model presented here bridges this gap, offering a unified geometric framework that naturally incorporates spin's pseudovectorial properties while remaining consistent with quantum mechanical and relativistic principles.
 
 
 Our approach reinterprets Thomas precession in accelerated motion, revealing a new origin for the quantization of spin angular momentum to $\hbar/2$ and the characteristic $4\pi$ periodicity of spinors. By examining the geometric nature of phase evolution under Thomas precession, we show that spin states arise dynamically from periodic variations, challenging the view of spin as a pre-existing intrinsic property.
 
 While simple harmonic motion traditionally lacks a directional orientation, our modified oscillator model incorporates forward orientation throughout the cycle to account for the electron's magnetic nature. This effective breaking of time-reversal symmetry emerges naturally from our closed algebraic equations, offering a unified mathematical explanation for spin quantization and its directional properties.
-
 
 
 Our algebraic formulation provides a framework that not only offers an intuitive visualization of electron spin and entanglement but also maintains consistency with established quantum mechanical principles. Most notably, our approach demonstrates how quantum correlations can arise through coherent temporal phase progression without requiring non-local interactions, suggesting new possibilities for understanding the deeper physical mechanisms underlying quantum phenomena.
@@ -84,7 +93,9 @@ The 0-Sphere model offers a novel interpretation of quantum entanglement. It pre
     \end{figure}
 
 
-
+% ========================================
+% Section 2: \label{sec:FundamentalProperties}Fundamental Properties \\of Time Reversal
+% ========================================
 \section{\label{sec:FundamentalProperties}Fundamental Properties \\of Time Reversal}
 
 The concept of time reversal plays a fundamental role in quantum mechanics. While classical time reversal can be understood as simply ``running time backwards'' - like reversing a video - quantum mechanical time reversal exhibits more subtle and profound properties, particularly when applied to spin systems. This quantum behavior is encapsulated in the mathematical relationship:
@@ -135,9 +146,15 @@ The time-reversal symmetry properties discussed above have significant theoretic
     \end{figure}
 
 
+% ========================================
+% Section 3: Electron Spin Reinterpreted
+% ========================================
 \section{Electron Spin Reinterpreted}
 \label{sec:ElectronSpinReinterpreted}
 
+% ----------------------------------------
+% Subsection 3.1: From Thomas Precession in Circular Motion to Linear Harmonic Acceleration
+% ----------------------------------------
 \subsection{From Thomas Precession in Circular Motion to Linear Harmonic Acceleration}
 
 The closed algebraic equation discussed here, Eq. ~\eqref{eq:omega}, will be derived and presented later in this section~\cite{Hanamura2023}. The harmonic oscillation in our model emerges naturally from the thermal energy gradient between the two kernels (for a detailed derivation, see Appendix \ref{sec:ThermalEnergyGradient}). This analysis bridges the gap between Thomas precession in circular motion and linear harmonic acceleration, as discussed in the following subsections. The traditional interpretation of electron spin, visualized in Fig.~\ref{f-barmagnets}, assumed continuous rotational states of magnetic moments. However, the Stern-Gerlach experiment definitively demonstrated that electron spin exists only in two discrete states, fundamentally challenging this classical picture.
@@ -147,7 +164,6 @@ The concept of quantum entanglement, first identified by Einstein, Podolsky, and
 The conventional model (Fig.~\ref{f-barmagnets}) treating spin as continuous circular motion encounters several fundamental limitations. First, it fails to explain the discrete nature of spin states conclusively demonstrated by the Stern-Gerlach experiment. Additionally, the model cannot account for the gyromagnetic ratio of exactly 2, which defies classical explanation. Furthermore, the observed $4\pi$ periodicity of spinor rotation remains inconsistent with classical angular momentum principles.
 
 To address these limitations, we propose a fundamental revision of Thomas precession by removing the assumption of constant acceleration. In our approach, the electron's motion is characterized by harmonic acceleration. As derived in detail in Appendix~\ref{sec:ThermalEnergyGradient} (Eq.~\ref{e3_simple_harmonic_motion}), the temperature gradient between the two kernels naturally leads to a sinusoidal force. This harmonic oscillation perspective leads us to substitute ${\boldsymbol a} = -\sin\theta$ into Thomas precession in place of the conventional constant acceleration $({\boldsymbol a} = \text{const})$.
-
 
 
 The discussion begins with the background of the association of spin with precessional motion. In relativity, if the electron is in uniform linear motion, the coordinate system describing the electron's motion can be calculated by Lorentz transformation. However, if the electron is in an accelerated motion, it is calculated that the axis of the coordinate system describing this electron rotates when observed from the laboratory system. Thomas wrote in his paper that the axes of a coordinate system with an origin and translating with the electrons are observed in a laboratory system to rotate with the following angular velocity as in Eq. (\ref{eq:thomas1}),
@@ -200,7 +216,9 @@ The above discussion yields an extremely important result. Namely, when the oute
 The results of the study of the above equation provide a basis for the quantisation of the spin angular momentum to a value half the Planck constant.
 
 
-
+% ----------------------------------------
+% Subsection 3.2: Non-Predetermined Nature of Spin States
+% ----------------------------------------
 \subsection{Non-Predetermined Nature of Spin States}
 
 Through a reinterpretation of Thomas precession using the 0-Sphere model, we examine how spin states emerge from temporal phase progression. By analyzing the harmonic oscillations, we show that the spin orientation alternates naturally between ``up'' and ``down'' states within a single oscillation cycle.
@@ -210,10 +228,15 @@ Specifically, during the first half-cycle with phase (\( 0 \leq \omega t/2 < \pi
 The algebraic equations presented in this study provide a closed-form derivation of this behavior, offering a deterministic framework for understanding spin dynamics that aligns with the experimental observations of the Stern-Gerlach experiment. These findings underscore the dynamic nature of spin states, challenging traditional views of spin as an intrinsic and static property.
 
 
-
+% ========================================
+% Section 4: Discussion
+% ========================================
 \section{Discussion}
 \label{sec:Discussion}
 
+% ----------------------------------------
+% Subsection 4.1: Physical Interpretation of the Double Angle Term
+% ----------------------------------------
 \subsection{Physical Interpretation of the Double Angle Term}
 \label{PhysicalInterpretation}
 
@@ -252,6 +275,9 @@ The interpretation through harmonic oscillation, rather than uniform circular mo
 Through the reinterpretation of Thomas precession, even with uniformly accelerated linear motion, the oscillator system manifests angular momentum—specifically, spin angular momentum. This formulation bridges the gap between classical and quantum mechanical descriptions of electron spin, providing a mathematical foundation for properties previously considered purely quantum mechanical. The double angle term emerges naturally from the classical equations of motion when considering harmonic oscillation, suggesting that some aspects of quantum spin can be understood through classical mathematics, albeit with non-classical interpretation.
 
 
+% ----------------------------------------
+% Subsection 4.2: Geometric and Algebraic Proof of Forward Orientation Preservation
+% ----------------------------------------
 \subsection{Geometric and Algebraic Proof of Forward Orientation Preservation}
 
 The preservation of forward orientation in our harmonic oscillator model, as illustrated in Fig.~\ref{f-pendlum-spinor}(c,d), emerges naturally from the mathematical structure of the double angle term \( \sin(2\omega t) \). This section provides a rigorous mathematical proof of this phenomenon and explores its physical implications.
@@ -280,7 +306,9 @@ This geometric proof not only validates our pendulum model but also provides a d
 % 2. Changed `scale=0.20` to `width=\textwidth` to make the figure scale to the full text width
 
 
-
+% ----------------------------------------
+% Subsection 4.3: Time Reversal in the 0-Sphere Model
+% ----------------------------------------
 \subsection{Time Reversal in the 0-Sphere Model}
 
 The pendulum representation shown in Fig.~\ref{f-pendlum-spinor} warrants deeper examination in the context of time-reversal symmetry. The reinterpretation of Thomas precession demonstrates that while angular velocity vanishes during uniform linear motion through the origin, it emerges during accelerated motion. This fundamental principle has significant implications for the oscillator model.
@@ -310,6 +338,9 @@ The photon sphere mechanism in the 0-Sphere model provides a consistent framewor
 A crucial question arises: does the photon sphere, with its radius on the order of the Compton wavelength, avoid exceeding the speed of light during its rotation? Historically, the concept of an electron with finite size has been rejected due to the superluminal velocities it would necessitate. In the following subsection, we will review this historical context and demonstrate how the 0-Sphere model, with its prediction that Zitterbewegung oscillation velocity is approximately $0.04c$, provides a mathematical framework that remains consistently below the speed of light.
 
 
+% ----------------------------------------
+% Subsection 4.4: Magnetization Dynamics and Phase Transition in the Oscillator Model
+% ----------------------------------------
 \subsection{Magnetization Dynamics and Phase Transition in the Oscillator Model}
 \label{MagnetizationDynamicsAnd}
 
@@ -320,14 +351,12 @@ An instantaneous $F$-$R$ reversal would violate special relativity's prohibition
 The photon sphere in this model mediates kinetic energy transport and exhibits unique behavior at the endpoints ($x = \pm a$) where the oscillator velocity vanishes. At these points, the photon sphere velocity reaches zero, leading to a nullification of magnetic effects. This state is analogous to the Meissner effect in superconductivity where photons, acquiring effective mass, exclude magnetic flux lines~\cite{Cohen1997}. The absence of coloration (white circles) at the endpoints in Fig.~\ref{f-TimeReverce1}(c) signifies this vanishing the photon sphere velocity and corresponding zero magnetic moment.
 
 
-
 \begin{figure*}[t!]
     \centering
     \includegraphics[width=\textwidth]{f-TimeReverce2.png}
     \caption{\justifying Time-reversal symmetry demonstration in the 0-Sphere model. Panel (c) represents temporal phase 0 to $\pi$ corresponding to the state $\hat{\boldsymbol{S}}$, panel (d) shows time-reversed state ($\pi$ to 0) representing $\mathcal{T}\hat{\boldsymbol{S}}\mathcal{T}^{-1}$, and panel (e) depicts phase $\pi$ to 2$\pi$ showing $-\hat{\boldsymbol{S}}$. Blue arrows indicate the spin axial vector direction. The $F$-$R$ mirror reflection in panel (e) illustrates the spinorial characteristic of mirror image inversion during directional reversal, providing a geometric visualization of spin's pseudovectorial nature (see Section~\ref{subsec:PseudovectorNature}).  In panel (c), the circle rotates clockwise, though this choice is arbitrary and has no mathematical significance - counterclockwise rotation would be equally valid. The $x$-axis in the figure represents the spatial trajectory of the electron's Zitterbewegung oscillation, showing its motion from $x=+a$ to $x=-a$ and back to $x=+a$. While the electron traverses the $x$-coordinate, the $F$-$R$ circle's spin axis vector maintains its orientation in the direction of motion. For clarity of visualization, we have taken the $z$-axis to be perpendicular to the page (pointing towards the viewer) to better illustrate the spin axis vector. In reality, the photon sphere maintains its spin axis vector parallel to the direction of motion along the $x$-axis while undergoing Larmor precession. This precession, though not explicitly shown in the figure for simplicity, is an essential feature of the electron's motion. The preservation of spin orientation relative to motion direction, combined with the $F$-$R$ mirror reflection, demonstrates how the model naturally incorporates the fundamental transformation properties of pseudovectors under spatial inversion.}
     \label{f-TimeReverce2}
 \end{figure*}
-
 
 
 Time-reversal symmetry demonstration in the 0-Sphere model (Fig.~\ref{f-TimeReverce2}) provides a comprehensive visualization of spin state transitions. Panel (c) represents phase 0 to $\pi$ corresponding to the state $\hat{\boldsymbol{S}}$, where the circle rotates clockwise. This choice of rotation direction is arbitrary and has no mathematical significance - counterclockwise rotation would be equally valid. Panel (d) shows the time-reversed state ($\pi$ to 0), representing $\mathcal{T}\hat{\boldsymbol{S}}\mathcal{T}^{-1}$, demonstrating how the spin orientation transforms under time reversal. Panel (e) depicts phase $\pi$ to 2$\pi$ showing $-\hat{\boldsymbol{S}}$, with the $F$-$R$ mirror reflection illustrating the spinorial characteristic of mirror image inversion during directional reversal.
@@ -337,9 +366,9 @@ The $x$-axis in the figure represents the spatial trajectory of the electron's Z
 The notion of massive, stationary photons at the endpoints aligns with established quantum mechanical observations in superconducting states. This framework provided by the closed algebraic equations of the 0-Sphere model offers a consistent interpretation of the experimentally observed binary nature of spin states without contradicting fundamental physical principles. The relationship between the photon sphere velocity and magnetic moment generation suggests potential connections to broader phenomena in quantum systems, warranting further experimental investigation.
 
 
-
-
-
+% ----------------------------------------
+% Subsection 4.5: Interpretation of Quantum Entanglement States Through Temporal Phase
+% ----------------------------------------
 \subsection{Interpretation of Quantum Entanglement States Through Temporal Phase}\label{subsec:quantum_entanglement}
 
 The quantum entanglement state represents a state where two electrons take states (c) and (e) respectively, as shown in Fig. 5 (\ref{f-TimeReverce2}). When single electron rest masses are placed in two kernels $A$ and $B$ and the pendulums begin to oscillate, the two simple pendulums interact alternately. This state constitutes quantum entanglement, where each pendulum alternates between $\hat{\boldsymbol{S}}$ and $-\hat{\boldsymbol{S}}$ states in temporal phase. This represents the alternating state of up and down spins, and even when the two electrons are separated remotely, as long as they oscillate in the same period and direction—that is, in a coherent state—each single electron periodically alternates between up and down spins without requiring Einstein's ``spooky action at a distance.'' The up and down spins are then revealed upon measurement. Through the progression of temporal phase, the two electrons alternately transition between $\hat{\boldsymbol{S}}$ and $-\hat{\boldsymbol{S}}$ states. Therefore, each spin is not predetermined, which constitutes a violation of realism. This provides a basis for accepting the violation of realism (where spin is not predetermined) without violating the locality in Bell's inequality.
@@ -359,6 +388,9 @@ Quantum entanglement requires that the angular momenta of the two electrons must
 Separating entangled electrons to remote locations means maintaining equal $\omega_{e1}$ and $\omega_{e2}$ while physically separating them. Both electrons continue to alternate between spin-up and spin-down states at the same frequency. Therefore, when one electron is measured and found to be in state $\hat{\boldsymbol{S}}$, the other electron's state is determined to be $-\hat{\boldsymbol{S}}$ without requiring any``spooky action at a distance.''
 
 
+% ----------------------------------------
+% Subsection 4.6: Pseudovectorial Nature of Spin \\in the 0-Sphere Model
+% ----------------------------------------
 \subsection{Pseudovectorial Nature of Spin \\in the 0-Sphere Model}
 \label{subsec:PseudovectorNature}
 
@@ -367,7 +399,9 @@ The behavior of the photon sphere during harmonic oscillation provides a natural
 Moreover, this inherent pseudovectorial behavior manifests in the model's treatment of time-reversal symmetry. The photon sphere's preservation of rotational direction relative to its motion, even after spatial inversion, naturally explains why spin angular momentum behaves as a pseudovector rather than a polar vector. This geometric property emerges organically from the model's structure rather than being imposed as an additional constraint, providing a natural framework for understanding the transformation properties of spin angular momentum.
 
 
-
+% ----------------------------------------
+% Subsection 4.7: Relativistic Limitations and the 0-Sphere Model
+% ----------------------------------------
 \subsection{Relativistic Limitations and the 0-Sphere Model}
 \label{sec:rel_limit_0sphere}
 
@@ -414,7 +448,6 @@ v \approx 170c
 This result, exceeding the speed of light by more than two orders of magnitude, further demonstrates the incompatibility between classical rotation and quantum spin~\cite{Ohanian1986}.
 
 
-
 \subsubsection{The Velocity of Electrons in the Bohr Model:\\ A Classical Paradox}
 \label{subsec:bohr_velocity}
 
@@ -456,7 +489,6 @@ The comparison of the Bohr velocity expression with the classical spin surface v
 While the Bohr model provides a foundational understanding of atomic structure, its classical underpinnings necessitate careful reinterpretation when applied to relativistic or quantum mechanical ~\cite{Dirac1928}. The velocity derived for electrons in hydrogen-like atoms, approximately \( \alpha c \), exemplifies the utility and limitations of the model. Furthermore, comparisons with classical interpretations of spin underscore the necessity of modern quantum theories that transcend classical analogies. The rejection of superluminal surface velocities, as derived from classical spin analogies, reaffirms the fundamental principles of relativity and highlights the intricate interplay between classical and quantum perspectives.
 
 
-
 \subsubsection{Interpretations in the 0-Sphere Model}
 The 0-Sphere model presents a distinct departure from conventional electron representations. Rather than maintaining an ambiguous description that merely acknowledges both particle and wave characteristics, the model provides a precise energetic allocation for these dual properties. The single electron in the 0-Sphere model manifests both particle and wave attributes through a well-defined energy distribution mechanism, which can be expressed as:
 
@@ -491,7 +523,6 @@ The key innovative aspects presented in this subsubsection can be summarized as 
 \end{enumerate}
 
 These innovations collectively constitute a self-consistent framework that addresses longstanding challenges in electron modeling while maintaining compatibility with both relativistic constraints and quantum mechanical principles. The implications of this framework, particularly regarding the photon sphere's behavior, suggest promising directions for future investigation.
-
 
 
 \vfill
@@ -594,7 +625,9 @@ Thus, even when incorporating the maximum velocity of Zitterbewegung as predicte
 This analysis demonstrates that the 0-Sphere model avoids the unphysical predictions of classical spin interpretations, such as velocities exceeding the speed of light. Both the average and maximum velocities predicted for Zitterbewegung are consistent with special relativity and further affirm the model's robustness in describing electron dynamics within quantum mechanical and relativistic frameworks.
 
 
-
+% ========================================
+% Section 5: Conclusion
+% ========================================
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -615,8 +648,10 @@ Furthermore, the relativistic analysis presented in Section \ref{sec:Discussion}
 The 0-Sphere model's introduction of the photon sphere with radius on the order of the Compton wavelength provides a novel mechanism for understanding energy transport in quantum systems. This framework maintains consistency with quantum electrodynamics while avoiding the complications associated with classical rotational models. These findings collectively suggest a new direction in quantum foundations research, offering a mathematical framework that naturally accommodates both the discrete nature of quantum phenomena and the continuous evolution described by the Schrödinger equation. Future investigations may explore the implications of this framework for quantum entanglement and the development of quantum technologies.
 
 
-
 \bibliographystyle{plain}
+% ========================================
+% Bibliography
+% ========================================
 \begin{thebibliography}{99}
 
 \bibitem{Bell1964}
@@ -779,8 +814,14 @@ Phys. Rev. Lett. \textbf{130}, no.7, 071801
 \vfill
 
 
+% ========================================
+% Section 6: \label{sec:Appendix}Appendix
+% ========================================
 \section{\label{sec:Appendix}Appendix}
 
+% ----------------------------------------
+% Subsection 6.1: An electron's structure in this study
+% ----------------------------------------
 \subsection{An electron's structure in this study}
 \label{An electron's structure in this study}
 
@@ -823,11 +864,13 @@ Equation \ref{eq:hamiltonian_review} shows that the sum of the three oscillator 
 The model exhibits a quantum-classical correspondence through its oscillator behavior. Oscillators 1 and 2 follow fermionic rules with a time phase period of $(\omega t/2)$, reflecting spin-1/2 characteristics. In contrast, oscillator 3 follows bosonic rules with a time phase period of $(\omega t)$, reflecting spin-1 behavior. This synchronization provides a unified description of both the 360-degree and 720-degree periodicities characteristic of quantum spin.
 
 
+% ----------------------------------------
+% Subsection 6.2: What is the 0-sphere
+% ----------------------------------------
 \subsection{What is the 0-sphere}
 \label{What is the 0-sphere}
 
 A 0-sphere is a pair of points and has no area. The general form of 0-sphere is represented as $n$-sphere. In this subsection, we will review the electronic model with the 0-sphere. A 0-sphere is a pair of points at the ends of a one-dimensional line segment. A 1-sphere is a circle as shown in Fig. \ref{f1_0-Sphere} $(\bm{\mathrm{a}}, \bm{\mathrm{b}})$. Alternatively, the 0-sphere is indicate an intersection of a straight line and a circle put on the same plane. In other words, by expanding a two-dimensional circle into three dimensions, the 0-sphere is an intersection points with a straight line passing through a hollow sphere.
-
 
 
 \begin{figure}[t!]
@@ -838,8 +881,9 @@ A 0-sphere is a pair of points and has no area. The general form of 0-sphere is 
 \end{figure}
 
 
-
-
+% ----------------------------------------
+% Subsection 6.3: Thermal energy gradient caused by two kernels
+% ----------------------------------------
 \subsection{Thermal energy gradient caused by two kernels}
 \label{sec:ThermalEnergyGradient}
 
@@ -906,9 +950,9 @@ Interaction between thermal and kinetic energy is essential in the 0-Sphere elec
 \end{figure}
 
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}
 
-% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
-
-
-
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *

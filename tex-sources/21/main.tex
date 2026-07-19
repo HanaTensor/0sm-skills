@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,14 +10,13 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
 \usepackage{breqn} % dmath: automatic equation line breaking
 \numberwithin{equation}{section}% (p.37)
 
-% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
 % not recommended for academic papers requiring strict typesetting.
 \tolerance=1000
 \emergencystretch=1em
@@ -25,6 +27,9 @@
 \usepackage{ragged2e}  % Add this package for \justifying command
 \usepackage{booktabs}
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -33,13 +38,18 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Anomalous Magnetic Moments Without Fields:\\ A Geometric and Observer-Dependent Interpretation}
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{June 29, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 Building upon the previously established 0-Sphere electron model with its internal structure of two thermal kernels and photon sphere exhibiting Zitterbewegung oscillations, we present a new observer-dependent interpretation that fundamentally reframes the origin of anomalous magnetic moments in quantum electrodynamics. While conventional QED requires external magnetic field interactions for any observable anomaly to manifest, our reinterpretation of the existing 0-Sphere framework demonstrates that anomalous magnetic moments can arise as purely geometric effects in free electrons through relativistic observer transformations. The crucial new insight emerges from recognizing that the same internal Zitterbewegung motion at $v \sim 0.04c$ yields different measurements depending on the observer's reference frame: an observer co-moving with the internal motion measures a $g$-factor of exactly 2 consistent with Dirac theory, while an observer in the laboratory frame perceives Lorentz contraction effects that manifest as the anomalous magnetic moment through the predicted relationship $\gamma = 1 + a_e$. This observer-dependent reinterpretation transforms our understanding of quantum magnetic anomalies from interaction-based corrections to relativistic geometric consequences of internal motion, suggesting that quantum phenomena traditionally attributed to virtual particle interactions may represent observable effects of relativistic internal structure, thereby opening new avenues for understanding quantum mechanics through geometric principles without requiring external field perturbations.
 \end{abstract}
@@ -63,7 +73,7 @@ The implications extend beyond magnetic moments to encompass fundamental questio
 \clearpage
 
 % ----------------------------------------
-% Table 1: Comparison of ZB-Based Models for Anomalous Magnetic Moment
+% Table 1
 % ----------------------------------------
 \begin{table*}[t!]
 \caption{Comparison of Zitterbewegung-Based Models for Anomalous Magnetic Moment}
@@ -101,7 +111,7 @@ Scope of application & General framework for understanding electron structure & 
 \section{Motivation}
 
 % ----------------------------------------
-% Subsection 2.1: Fundamental Departure from QED
+% Subsection 2.1: Fundamental Departure from QED: Observer-Dependent Anomaly in Free Electrons
 % ----------------------------------------
 \subsection{Fundamental Departure from QED: Observer-Dependent Anomaly in Free Electrons}
 
@@ -150,7 +160,7 @@ This formulation allows not only for a conceptually unified explanation of the a
 \section{Observer-Dependent Anomalous Magnetic Moment}
 
 % ----------------------------------------
-% Subsection 3.1: Internal ZB Dynamics and the Geometric Origin of Spin Anomaly
+% Subsection 3.1: Internal Zitterbewegung Dynamics and the Geometric Origin of Spin Anomaly
 % ----------------------------------------
 \subsection{Internal Zitterbewegung Dynamics and the Geometric Origin of Spin Anomaly}
 
@@ -174,7 +184,7 @@ The observer-dependent nature of this phenomenon becomes apparent when examining
 However, from the laboratory frame, where the observer remains stationary while the internal structure oscillates at relativistic speeds, Lorentz contraction distorts the effective geometry of the motion. This distortion manifests as a measurable deviation in the magnetic moment, with the magnitude of the anomaly directly proportional to the degree of relativistic contraction experienced by the internal oscillation. The relationship $\gamma = 1 + a_e$ quantitatively captures this geometric transformation, establishing a direct bridge between special relativity and quantum magnetic phenomena without invoking virtual particle interactions or external field perturbations.
 
 % ----------------------------------------
-% Subsection 3.2: Implications for QM and Relativistic Consistency
+% Subsection 3.2: Implications for Quantum Mechanics and Relativistic Consistency
 % ----------------------------------------
 \subsection{Implications for Quantum Mechanics and Relativistic Consistency}
 
@@ -389,4 +399,7 @@ S.~Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principl
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,14 +10,13 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
 \usepackage{breqn} % dmath: automatic equation line breaking
 \numberwithin{equation}{section}% (p.37)
 
-% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
 % not recommended for academic papers requiring strict typesetting.
 \tolerance=1000
 \emergencystretch=1em
@@ -24,6 +26,9 @@
 \usepackage[final]{microtype}
 
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -32,6 +37,9 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Time-Dependent Mass in the 0-Sphere Model:\\ 
 A Hamiltonian Approach to Thermal Modulation}
 \author{Satoshi Hanamura}
@@ -39,7 +47,9 @@ A Hamiltonian Approach to Thermal Modulation}
 \date{June 8, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 We investigate the challenges of incorporating time-dependent mass in classical Lagrangian mechanics, where velocity-dependent terms break time-translation symmetry and complicate energy conservation. Using the 0-Sphere model—a point-like system with thermally modulated mass inspired by Zitterbewegung and thermal oscillations—we demonstrate that a Hamiltonian formulation simplifies the dynamics by eliminating velocity-dependent terms and preserving energy conservation through conserved momentum, despite the Hamiltonian’s explicit time dependence. The model assumes a position-independent thermal potential and oscillatory mass modulation, providing a mathematically consistent framework. We also explore a preliminary quantum extension via the time-dependent Schrödinger equation, suggesting potential applications to thermally driven systems. While the model’s reliance on simplified potentials and the naive quantum approach limit its generality, this work offers a starting point for understanding systems with dynamic inertial properties, with possible relevance to cosmology and quantum mechanics.
 \end{abstract}
@@ -58,7 +68,6 @@ The problem of time-dependent mass systems has been considered in various contex
 The 0-Sphere model, motivated by an interpretation of Dirac’s Zitterbewegung as a localized oscillation at the Compton wavelength scale, envisions a particle confined within a photon-like sphere undergoing thermal oscillation between two potential wells, referred to as ``kernels.'' Rather than invoking extended objects as in string or field theories, the model postulates dynamics along a one-dimensional geodesic axis shaped by a thermally modulated geometry—an idealized framework in which temperature is assumed to influence inertial mass~\cite{thermodynamics_inertia}. This results in a time-dependent effective mass that complicates the direct application of standard Lagrangian methods.
 
 In this work, we explore the possibility that a Hamiltonian formulation may provide a more tractable approach. We examine the equations of motion for the 0-Sphere model, evaluate energy conservation, and tentatively consider extensions to quantum mechanical systems. While preliminary, this line of analysis may serve as a starting point for further theoretical development of the 0-Sphere model, particularly from a geometric and analytical mechanics perspective.
-
 
 
 % ========================================
@@ -262,4 +271,7 @@ S. Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principl
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

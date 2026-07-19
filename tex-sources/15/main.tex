@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,14 +10,13 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
 \usepackage{breqn} % dmath: automatic equation line breaking
 \numberwithin{equation}{section}% (p.37)
 
-% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
 % not recommended for academic papers requiring strict typesetting.
 \tolerance=1000
 \emergencystretch=1em
@@ -24,6 +26,9 @@
 \usepackage[final]{microtype}
 
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -32,12 +37,18 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Spin-Induced Inertial Resistance in Electrons:\\A Gyroscopic Interpretation Based on General Relativity}
 
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{April 20, 2025}
 
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 This study provides substantial support for the theory of Zitterbewegung within the electron and its association with gyroscopic effects. While Zitterbewegung has traditionally been interpreted as an oscillatory term in the Dirac equation, we have geometrically reconstructed this phenomenon through our model of spatially separated energy kernels exchanging thermal potential energy. Applying special relativistic principles and Lorentz transformation to this model yields an electron Zitterbewegung velocity of 0.040472$c$. Furthermore, by algebraically incorporating general relativistic effects through geodetic precession, we refine this velocity to 0.040374$c$.
 
@@ -126,9 +137,6 @@ Our model posits that, due to the time phase, there exists a specific phase in w
 At this complementary phase, the first cosine term and the third sine-squared term on the right-hand side of the equation become zero, indicating that both the thermal potential energy associated with Kernel $A$ and the kinetic energy of the photon sphere become zero. To represent this behavior, we adopted a combination of sine and cosine functions, modeling the electron as an oscillator. Furthermore, to incorporate the double-valued nature of spinors, the thermal potential energy is expressed along both the real and imaginary axes. This mathematical structure is expected to offer extensibility in the forthcoming theoretical developments.
 
 
-% ----------------------------------------
-% Figure 1: f-TotalHamiltonian.png -- Energy conservation in the 0-Sphere model
-% ----------------------------------------
 \begin{figure*}[t!]
     \centering 
     \includegraphics[width=\textwidth]{f-TotalHamiltonian.png}
@@ -138,13 +146,10 @@ At this complementary phase, the first cosine term and the third sine-squared te
 
 
 % ----------------------------------------
-% Subsection 2.2: The Seesaw and Basketball Analogy
+% Subsection 2.2: The Seesaw and Basketball Analogy for Simple Harmonic Motion
 % ----------------------------------------
 \subsection{The Seesaw and Basketball Analogy for Simple Harmonic Motion}
 
-% ----------------------------------------
-% Subsubsection 2.2.1: Conceptual Visualization of the 0-Sphere Model
-% ----------------------------------------
 \subsubsection{Conceptual Visualization of the 0-Sphere Model}
 To better conceptualize the 0-Sphere electron model~\cite{hanamura2020}, let us consider a seesaw at a playground, tilted to one side. Imagine placing a basketball at the higher end of the seesaw. If you stabilize the seesaw with your hand, the basketball would roll down toward the lower end and eventually fall off, continuing to roll on the ground. However, if you manipulate the seesaw at appropriate intervals, you could cause the basketball to travel back and forth in a controlled manner. This oscillatory motion forms the conceptual basis for simple harmonic oscillation.
 
@@ -154,9 +159,6 @@ To illustrate this state, we can compare it to Alice and Bob sitting on opposite
 
 However, during the intermediate phases, the basketball is in motion and is in neither Alice's nor Bob's hands. These moments correspond to the activation of the $\frac{1}{2} \sin^2(\omega t)$ term in the energy identity, representing the kinetic energy of the photon sphere. In this way, the time evolution of the system not only describes the periodic exchange of thermal potential energy between Kernel $A$ and Kernel $B$, but also captures the transient manifestation of kinetic energy that mediates between them.
 
-% ----------------------------------------
-% Subsubsection 2.2.2: Mathematical Representation of Energy Conservation
-% ----------------------------------------
 \subsubsection{Mathematical Representation of Energy Conservation}
 The use of fourth-power terms in Eq.~\eqref{eq:total_hamiltonian} is motivated by the Stefan–Boltzmann law, where radiative energy is proportional to the fourth power of temperature. In this model, the sinusoidal temperature distributions of Kernel $A$ and Kernel $B$ are expressed as $\cos^4(\omega t/2)$ and $\sin^4(\omega t/2)$, whose fourth powers represent the respective energy contributions. The inclusion of the kinetic energy term, $\frac{1}{2}\sin^2(\omega t)$, ensures total energy conservation throughout the oscillatory cycle. The mathematical identity:
 \[
@@ -254,7 +256,7 @@ The energy distribution equation (Eq.~\ref{eq:total_hamiltonian}) introduced in 
 This conceptual framework enables quantitative predictions regarding electron behavior under varying gravitational field conditions. For instance, if measurements of changes in electron Zitterbewegung within strong gravitational fields could be obtained, they would provide a direct means of testing this theoretical model. Such experiments would offer compelling evidence for the integration of proper time into the particle's intrinsic structure and validate the proposed unification of quantum mechanics and general relativity.
 
 % ----------------------------------------
-% Subsection 2.6: Electron-Positron Annihilation
+% Subsection 2.6: Electron-Positron Annihilation in the Spacetime Oscillator Framework
 % ----------------------------------------
 \subsection{Electron-Positron Annihilation in the Spacetime Oscillator Framework}
 \label{Electron-Positron}
@@ -276,9 +278,6 @@ Rather than merely explaining the exact number of generations, this model provid
 % ----------------------------------------
 \subsection{Theoretical Framework for Gyroscopic Inertia}
 
-% ----------------------------------------
-% Subsubsection 3.1.1: Geometric Equations Linking ZB and Relativity
-% ----------------------------------------
 \subsubsection{Geometric Equations Linking Zitterbewegung and Relativity}
 
 Building on the premise that the electron possesses an internal structure rather than being a point-like entity, we propose that its properties evolve with time in a periodic fashion. This temporal evolution is represented by Eq.~\eqref{eq:electron_transfer}. The thermal potential energy and kinetic energy, both of which fluctuate according to the temporal phase $E_{0}(t)$ of the rest energy, satisfy the law of energy conservation within the system of a single electron. This is expressed by Eq.~\eqref{eq:total_hamiltonian}.
@@ -292,9 +291,6 @@ As discussed in the previous section, Eq.~(\ref{eq:zitter_velocity}) predicts th
 Equation~(\ref{eq:geodetic_precession}) describes geodetic precession and is a standard result found in general relativity textbooks. Equation~(\ref{eq:core_equation}) forms the core of our theoretical framework: it places Lorentz contraction on the left-hand side and incorporates Eq.~(\ref{eq:zitter_velocity})—which expresses Lorentz contraction equivalently—on the right-hand side, while also correcting it with a geodetic precession term from general relativity. In this sense, Eqs.~(\ref{eq:zitter_velocity}, \ref{eq:gamma_anomalous}), and (\ref{eq:core_equation}) are newly proposed geometric equations that we have developed to bridge relativity and quantum mechanics.
 
 
-% ----------------------------------------
-% Subsubsection 3.1.2: Gyroscopic Resistance as the Origin of Inertial Mass
-% ----------------------------------------
 \subsubsection{Gyroscopic Resistance as the Origin of Inertial Mass}
 
 Classical gyroscopes resist changes to their orientation due to the conservation of angular momentum. When a torque is applied perpendicular to the spin axis, the gyroscope responds with precession—a motion perpendicular to both the torque and the spin axis. This resistance to directional change gives gyroscopes their characteristic ``perceived resistance'' when manipulated. We suggest that the familiar resistance experienced when manipulating a gyroscope---arising from its internal angular momentum---is fundamentally analogous to the origin of inertial mass at the quantum level. Similarly, if electrons possess intrinsic spin angular momentum as described in our model, they would exhibit an analogous resistance to acceleration—a property we interpret as inertial mass.
@@ -336,9 +332,6 @@ The formulation of a closed equation that consolidates these ideas remains a sub
 % ----------------------------------------
 \subsection{Experimental Verification Prospects}
 
-% ----------------------------------------
-% Subsubsection 3.3.1: Phase-Dependent Inertial Mass Measurements
-% ----------------------------------------
 \subsubsection{Phase-Dependent Inertial Mass Measurements}
 Should future technology allow for the generation of pulses shorter than the oscillation period of the electron’s internal Zitterbewegung, we could directly test the proposed phase---dependent inertial mass---a fundamentally novel prediction with far-reaching implications for quantum control. By precisely targeting moments when potential energy is completely localized in either Kernel $A$ or $B$, and by appropriately capturing the timing of subsequent radiation transfer, we could potentially reduce the energy required to move electrons.
 
@@ -346,9 +339,6 @@ This prediction arises because the destination point $B$ is determined by the pr
 
 If pulses of equal energy produce varying electron behaviors depending on their timing, this would provide further evidence for internal structure and temporal phase-dependent inertial mass. This principle might also enable measurement of electron phase and spin states.
 
-% ----------------------------------------
-% Subsubsection 3.3.2: Spin State Manipulation
-% ----------------------------------------
 \subsubsection{Spin State Manipulation}
 Since our model proposes that electron spin alternates between up and down states according to temporal phase, controlling the internal temporal phase could potentially allow deliberate manipulation of electron spin states—opening new possibilities for quantum control at the subatomic level.
 
@@ -356,9 +346,6 @@ If such spin state manipulation were realized through phase control, it could pr
 
 This perspective motivates a broader consideration of how spin state control has evolved in quantum physics. Recent progress in quantum state control provides a foundational context for our theoretical proposal. The field has evolved from early spin resonance experiments by Rabi, Ramsey, and others~\cite{rabi1937}, to the development of coherent manipulation techniques for two-level systems~\cite{allen1975}, which established the theoretical underpinnings of quantum control. Experimental milestones, such as precise state engineering in trapped ion systems~\cite{monroe1995}, demonstrated the feasibility of these principles in practice. Within this conceptual framework, our proposed mechanism—controlling electron spin through internal temporal phase modulation—offers a novel approach to deterministic spin state preparation, with potential advantages in speed and energy efficiency over conventional methods relying on thermalization or external driving fields.
 
-% ----------------------------------------
-% Subsubsection 3.3.3: Deterministic Control of Quantum Phenomena
-% ----------------------------------------
 \subsubsection{Deterministic Control of Quantum Phenomena}
 Additionally, if technology to measure and control the electron's internal energy transfer could be developed, it might fundamentally transform our understanding of quantum phenomena such as the double-slit experiment. By controlling the distribution of TPE between kernels $A$ and $B$, it might become possible to deliberately direct electrons toward specific regions of the detection screen, steering them left or right as desired. Such control would potentially move quantum mechanics beyond probabilistic descriptions toward deterministic manipulation of quantum behavior. This would represent a paradigm shift in our understanding of quantum phenomena, resolving long-standing philosophical debates about wave-particle duality.
 
@@ -480,8 +467,9 @@ Phys. Rev. Lett. \textbf{13}, 508 (1964). DOI: \href{https://doi.org/10.1103/Phy
 \end{thebibliography}
 
 % = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
-% \section{\label{sec:Appendix}Appendix}
 
-% \section*{Acknowledgments}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,7 +10,7 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
@@ -24,6 +27,9 @@
 \usepackage{ragged2e}  % for \justifying command
 \usepackage{booktabs}
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -32,13 +38,18 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Thermal Geodesics in the 0-Sphere Model:\\ Extending General Relativity through Internal Thermodynamic Structure}
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{July 20, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 We propose a geometric extension to general relativity through the 0-Sphere model, incorporating internal thermal dynamics into Einstein's field equations~\cite{landau1975,wald1984} via thermal geodesics. Particles are modeled as oscillatory systems composed of two thermal kernels and a mediating photon sphere. Energy transfer between kernel $A$ and kernel $B$ follows temperature-dependent internal geometry, defined by a metric $\mathcal{G}_{\mu\nu}(T)$~\cite{connes1994}, giving rise to motion along \textit{thermal geodesics}—paths that minimize thermodynamic action while contributing to external spacetime curvature through thermal stress-energy tensor $T_{\mu\nu}^{(\text{thermal})}$.
 
@@ -76,7 +87,7 @@ This paper develops a geometric extension of general relativity through thermal 
 
 
 % ----------------------------------------
-% Table 1: Comparison with Existing Theories (QFT / GR / 0-Sphere Model)
+% Table 1
 % ----------------------------------------
 \begin{table*}[!htbp]
 \caption{Comparison with Existing Theories}
@@ -221,7 +232,7 @@ In this framework, the Lagrangian is not merely a mathematical device, but a phy
 
 
 % ========================================
-% Section 4: Thermodynamic Emergence of Time, Zitterbewegung, and Photon Dynamics
+% Section 4: Thermodynamic Emergence of Time and Motion
 % ========================================
 \section{Thermodynamic Emergence of Time and Motion}
 \label{sec:thermodynamic_emergence}
@@ -283,7 +294,7 @@ By linking Zitterbewegung directly to internal thermal behavior, the model offer
 
 
 % ----------------------------------------
-% Table 2: Foundational Comparison: QFT vs Thermal Geodesic Framework
+% Table 2
 % ----------------------------------------
 \begin{table*}[!htbp] % try placement options in order: htbp
 \caption{Foundational Comparison between Quantum Field Theory and Thermal Geodesic Framework}
@@ -328,6 +339,9 @@ Magnetic Moment Origin & Quantum loop corrections from virtual particle interact
 \end{table*}
 
 
+% ----------------------------------------
+% Subsection 4.3: Photon Motion on Thermal Geodesics
+% ----------------------------------------
 \subsection{Photon Motion on Thermal Geodesics}
 \label{subsec:photon_thermal_geodesics}
 
@@ -358,6 +372,9 @@ These insights reinforce the importance of distinguishing thermal geodesics from
 \section{Geometric Formulation and Physical Implications}
 \label{sec:geometric_formulation}
 
+% ----------------------------------------
+% Subsection 5.1: Temperature-Dependent Metric and Thermal Geometry
+% ----------------------------------------
 \subsection{Temperature-Dependent Metric and Thermal Geometry}
 \label{subsec:temperature_dependent_metric}
 
@@ -389,7 +406,7 @@ The detailed analysis of spherical harmonic mode interactions, energy distributi
 
 
 % ----------------------------------------
-% Subsection 5.1: Comparison with General Relativity Geodesics
+% Subsection 5.2: Comparison with General Relativity Geodesics
 % ----------------------------------------
 \subsection{Comparison with General Relativity Geodesics}
 \label{subsec:comparison_gr_geodesics}
@@ -532,4 +549,7 @@ G. Amelino-Camelia, ``Quantum Gravity Phenomenology,'' \textit{Nature} \textbf{4
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

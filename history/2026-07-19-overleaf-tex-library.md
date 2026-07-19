@@ -88,13 +88,29 @@ User の運用(Overleaf 執筆版に日本語コメント → 0sm-zenodo-upload 
   DOI バージョン方針の注意を `tex-sources/ZENODO-TEX-BACKLOG.md` に整備(User 手作業用)。
 - 小掃除: `tex-sources/12/[#12]main.tex`(Overleaf 原本と同一の冗長コピー)を削除。
 
+### 6. Zenodo 追補対象の残り 19 本を規約統一(同日追記)
+
+追補対象 32 レコードのうち未検証だった #13–15, #17–27, #29, #31–33, #49 を処理:
+
+- **#13, #14**: 日本語コメント残存・バナー無しだったため Overleaf 原本からフル清書。
+- **#26**: 既存 main.tex が **41 行の破損スタブ**(プリアンブル途中で切断・
+  `\end{document}` 欠落)と判明 → Overleaf 原本(680 行)からフル清書で復旧。
+  今回の点検が無ければ破損ファイルを Zenodo に上げるところだった。
+- **#49**: 未清書相当だったためフル清書。
+- **残り 15 本**: 既存の英訳コメントを保持したまま規約統一(コメントアウト命令・
+  空コメント除去、バナー統一、旧ドライバ指定除去)。
+- **全 19 本を tectonic で実コンパイル検証**(#33 は `\input` される
+  fig_thermal.tex / fig_TotalHamiltonian.tex 併用で成功 → Zenodo 追補時も同梱要)。
+  本文はコメント除去後のコード実体レベルで各ソースと一致検証済み。
+
 ## 結果と現在地
 
-- 清書済み `main.tex`: 36 → 50 → 63 → **64 番号(全数)**。全て規約適用済み、
-  うち今日の 14 本はコンパイル検証済み。
-- 残る User 手作業: (1) Zenodo 32 レコードへの tex 追補(`ZENODO-TEX-BACKLOG.md` 参照・
-  DOI バージョン方針の統一決定が先)、(2) #65/#66 の Overleaf エクスポート提供、
-  (3) off-series(Solar Neutrino)の採番判断、(4) #13/#14/#49 の清書し直し(推奨)。
+- 清書済み `main.tex`: **64 番号(全数)**。うち 33 本(#1–15, #17–27, #29, #31–33,
+  #49, #63, #67)は今日コンパイル検証済み。**Zenodo 追補対象 32 件はすべて
+  upload-ready で品質統一済み**(`ZENODO-TEX-BACKLOG.md` 参照)。
+- 残る User 手作業: (1) Zenodo 32 レコードへの tex 追補(DOI バージョン方針の
+  統一決定が先)、(2) #65/#66 の Overleaf エクスポート提供、
+  (3) off-series(Solar Neutrino)の採番判断。
 - 注記: #13, #14, #41, #48–50 の main.tex は Overleaf 版と実質同一(清書工程未経過の可能性)。
 - 規約・対応表の正典: [`tex-sources/OVERLEAF-MANIFEST.md`](../tex-sources/OVERLEAF-MANIFEST.md)
 - 宙ぶらりん: #65(Structural Overview REV-01)・#66 は本エクスポート未収録で `tex-sources/65` `66` は未作成。

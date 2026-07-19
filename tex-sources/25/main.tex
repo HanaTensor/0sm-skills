@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,7 +10,7 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
@@ -25,6 +28,9 @@
 \usepackage{booktabs}
 
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -33,13 +39,18 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry}
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{July 25, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 We propose a geometric reinterpretation of Noether’s theorem in which conservation laws arise not from externally imposed symmetries, but from the intrinsic closed time-phase geometry of quantum systems. We extend our previous geometric studies of internal time-phase structures in quantum systems~\cite{hanamura2506.0119, hanamura2507.0128}, proposing a new interpretation of conservation laws arising from intrinsic closed time-phase geometry within the 0-sphere model. Based on the 0-Sphere model, this approach aligns with Einstein’s vision of deriving physical laws from spacetime structure itself. Within this model, conservation of energy and spin emerge as geometric necessities, while symmetries such as time-translation or rotation arise secondarily as emergent, large-scale features of internal dynamics. This inversion—geometry giving rise to conservation, which in turn yields symmetry—offers a new foundation for unifying quantum and relativistic physics.
 \end{abstract}
@@ -75,7 +86,7 @@ This paper is structured as follows. Building on our previous work~\cite{hanamur
 \label{sec:motivation}
 
 % ----------------------------------------
-% Subsection 2.1: Reversing the Symmetry-to-Law Paradigm
+% Subsection 2.1: Reversing the Symmetry-to-Law Paradigm:\\ A Philosophical Prelude
 % ----------------------------------------
 \subsection{Reversing the Symmetry-to-Law Paradigm:\\ A Philosophical Prelude}
 
@@ -108,7 +119,7 @@ This attempt represents a return to the pre-Noetherian spirit---but fortified by
 
 
 % ----------------------------------------
-% Table 1: Philosophical and Conceptual Comparison: Einstein vs 0-Sphere Model
+% Table 1
 % ----------------------------------------
 \begin{table*}[!htbp]
 \caption{Philosophical and Conceptual Comparison between Einstein's Vision and the 0-Sphere model}
@@ -455,4 +466,7 @@ H.~Poincaré,
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

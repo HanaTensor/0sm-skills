@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,14 +10,13 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
 \usepackage{breqn} % dmath: automatic equation line breaking
 \numberwithin{equation}{section}% (p.37)
 
-% \sloppy sets all text to loose spacing, allowing overflow and uneven word spacing;
 % not recommended for academic papers requiring strict typesetting.
 \tolerance=1000
 \emergencystretch=1em
@@ -24,6 +26,9 @@
 \usepackage[final]{microtype}
 
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -32,6 +37,9 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{From Clock Synchronization to Electromagnetism: \\A Realist Construction of $U(1)$ Gauge Theory}
 
 \author{Satoshi Hanamura}
@@ -39,7 +47,9 @@
 \date{June 1, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 Gauge symmetry is a cornerstone of modern field theory, yet its conceptual status remains unsettled: conventional formulations treat it as a redundancy in mathematical representation rather than a physically grounded structure. Here we propose a realist reinterpretation of $U(1)$ gauge symmetry in electromagnetism, demonstrating how gauge freedom emerges from internal phase dynamics intrinsic to the electron. Within the 0-Sphere model, the electron is modeled not as a point particle but as a temporally structured system possessing internal harmonic motion between two thermal potential energy kernels. This internal structure gives rise to deterministic, $4\pi$-periodic dynamics and a Zitterbewegung velocity $v_{\text{ZB}} = 0.040374c$, derived from first principles by combining special relativity with geodesic precession from general relativity.
 Coherent phase transport across an ensemble of such particles naturally induces a $U(1)$ gauge connection, interpreted as a geometric synchronization mechanism rather than a formal constraint. Furthermore, the internal energy structure encodes both $\omega t$ and $\omega t/2$ components, establishing a harmonic hierarchy that bridges bosonic gauge behavior with fermionic spin. This framework offers a particle-based, ontologically grounded reinterpretation of gauge symmetry, in which electromagnetic interactions emerge from the holonomy of internal phase transport. The resulting picture opens a path toward unifying quantum structure with geometric principles of interaction, without invoking non-Abelian complexity.
@@ -59,7 +69,6 @@ Various approaches have sought to address this conceptual redundancy. Lattice ga
 
 
 We propose a realist reinterpretation of $U(1)$ gauge symmetry, grounded in the internal phase dynamics of electrons within the 0-Sphere model~\cite{hanamura2024quantum}. Electrons, modeled as oscillators with thermal potential energy (TPE) kernels---localized energy reservoirs---generate a geometric gauge connection through synchronized oscillations. The Aharonov-Bohm effect demonstrates the physical significance of gauge potentials~\cite{aharonov1959}, supporting our particle-based approach. Inspired by foundational work in gauge theory~\cite{weyl1929, yang1954}, this framework unifies quantum mechanics with electromagnetic interactions.
-
 
 
 % ========================================
@@ -160,14 +169,13 @@ The presence of this periodic internal degree of freedom, characterized by the p
 The framework makes several testable predictions that distinguish it from conventional interpretations. The Zitterbewegung velocity $v_{\text{ZB}} = 0.040374c$ should be measurable as the characteristic oscillation speed of internal phase dynamics, representing a concrete signature of the electron's internal structure. The spatial scale over which phase synchronization occurs is expected to be related to the Compton wavelength modified by the Zitterbewegung factor, providing a geometric connection between quantum mechanics and the proposed internal dynamics. Additionally, the observed deviation of the electron's magnetic moment from the classical value $g = 2$ emerges from Lorentz contraction effects in the internal oscillations, offering a particle-based explanation for this fundamental quantum correction without invoking virtual particle loops or radiative corrections in the traditional sense.
 
 
-
 % ========================================
 % Section 4: Realist Gauge Geometry from First Principles
 % ========================================
 \section{Realist Gauge Geometry from First Principles}
 
 % ----------------------------------------
-% Subsection 4.1: Reinterpreting U(1) Gauge Symmetry
+% Subsection 4.1: Reinterpreting $U(1)$ Gauge Symmetry
 % ----------------------------------------
 \subsection{Reinterpreting $U(1)$ Gauge Symmetry}
 
@@ -184,7 +192,6 @@ Rather than being introduced axiomatically, the gauge potential in our model eme
 \theta(x) \to \theta(x) + \alpha(x),
 \end{equation}
 then becomes a real physical operation: it corresponds to resetting the internal phase of a particle at spacetime point $x$.
-
 
 
 % ----------------------------------------
@@ -220,11 +227,6 @@ S = \int_A^B ds,
 subject to the boundary conditions that TPE is localized at fixed points $A$ and $B$. As demonstrated by Hanamura~\cite{hanamura2024quantum}, this constraint leads directly to geodesic motion in the internal phase space, connecting quantum oscillations with the geometric principles of general relativity.
 
 
-
-
-% ----------------------------------------
-% Figure 1: f-TotalHamiltonian.png -- Energy conservation and hierarchical phase
-% ----------------------------------------
 \begin{figure*}[t!]
     \centering 
     \includegraphics[width=\textwidth]{f-TotalHamiltonian.png}
@@ -265,10 +267,8 @@ This shift allows for an alternative route to describing non-Abelian-like phenom
 Thus, while the present model does not yet explicitly incorporate non-Abelian group structures, it opens a pathway for realizing comparable dynamics through internal geometric degrees of freedom. In this view, non-Abelian gauge behavior could arise not from algebraic constraints imposed at the field level, but from emergent properties of internal temporal geometry.
 
 
-
-
 % ----------------------------------------
-% Table 1: Conventional Gauge Theory vs Present Realist Model
+% Table 1
 % ----------------------------------------
 \begin{table*}[t!]
 \renewcommand{\arraystretch}{1.5} % Adds vertical padding
@@ -291,7 +291,6 @@ Field strength $F_{\mu\nu}$ & Curvature of the gauge connection & Holonomy induc
 \end{tabular}
 \label{tab:conceptual_comparison}
 \end{table*}
-
 
 
 % ----------------------------------------
@@ -324,9 +323,7 @@ This construction reveals that the same internal phase variable $\theta(t)$, whe
 The implication is that the diversity of interaction channels—traditionally modeled by multiple gauge symmetries such as $SU(2)$ and $SU(3)$—might instead arise from structured internal phase harmonics within a unified $U(1)$ framework. The nontrivial behavior typically attributed to non-Abelian symmetry groups could be emergent from the dynamics of internal phase synchronization among layered temporal modes. In this sense, what appears as group-theoretic complexity may reflect the rich structure of hierarchical phase geometry internal to each particle.
 
 
-
 \newpage
-
 
 
 % ========================================
@@ -352,11 +349,8 @@ As Zee has suggested~\cite{zee2010}, the redundancy inherent in current gauge th
 \newpage
 
 
-
 % Replace existing thebibliography with inline entries (references.bib not used)
-%\bibliographystyle{apsrev4-1}
 %  APS Physical Review style
-%\bibliography{references}
 %  Would reference references.bib file
 
 % ========================================
@@ -431,10 +425,10 @@ S. Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principl
 \end{thebibliography}
 
 
-
 % = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
-% \section{\label{sec:Appendix}Appendix}
 
-% \section*{Acknowledgments}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

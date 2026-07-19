@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
 \usepackage{graphicx}
@@ -36,10 +39,8 @@
 \newcommand{\hodge}{\star}
 \newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
 
-% ========================================
 % TikZ macro: harmonic oscillator reinterpretation (side-by-side)
 % Left: conventional QM / Right: 0-Sphere interpretation
-% ========================================
 \newcommand{\figHOreinterpret}{%
 \begin{tikzpicture}[>=Stealth, font=\small]
 
@@ -47,7 +48,6 @@
 %   Potential minimum:  y = -0.70  (parabola 0.38x^2 - 0.70)
 %   n=0..3 at y = 0.00 / 1.40 / 2.80 / 4.20   (spacing = 1.40 = hbar*omega)
 %   ZPE gap: -0.70 -> 0.00 = 0.70 = (1/2)hbar*omega   [ratio 1:2, exact]
-%
 % Wavefunctions: Hermite H_n basis, a=0.22, domain [-2.5, 2.5]
 %   n=0:  A * exp(-a x^2)                      Gaussian, 0 nodes
 %   n=1:  A * x * exp(-a x^2)                  H_1,      1 node  at x=0
@@ -213,9 +213,6 @@
 \end{tikzpicture}%
 }
 
-% ========================================
-% TikZ macro: photon-sphere SHM and ejection   (RESTORED)
-% ========================================
 \newcommand{\figEjectionMechanism}{%
 \begin{tikzpicture}[>=Stealth, font=\small]
 
@@ -308,11 +305,9 @@
 \end{tikzpicture}%
 }
 
-% ========================================
 % TikZ macro: standing-wave excitation modes  (v2.1, enhanced)
 % New figure added at §3.2.2 to show modal structure and
 % n=0 (reference) vs n>=1 (actual ejection) distinction.
-% ========================================
 \newcommand{\figStandingWaves}{%
 \begin{tikzpicture}[>=Stealth, font=\small]
 
@@ -386,7 +381,6 @@
 %%    ZPE = (1/2)*1.50 = 0.75  =>  n=0 level at y = 1.10
 %%    n=1 at y = 2.60,  n=2 at y = 4.10,  n=3 at y = 5.60
 %%    Parabola: V(x) = 0.1736 x^2 + 0.35  [V(5.5)=5.60]
-%%
 %%  Standing waves (particle-in-box on [-5.5, 5.5]):
 %%    psi_n(x) = A_n * sin((n+1)*180*(x+5.5)/11)  [TikZ degrees]
 %%    n=0: 0 internal nodes  (single arch)
@@ -412,9 +406,7 @@
 \draw[gray!48, thin] (-0.18, 0.35) -- (0.18, 0.35);
 \node[anchor=west, font=\scriptsize, gray!52] at (0.20, 0.35) {$V_{\min}$};
 
-%%
 %% --- n = 0  (ground state: floor saturated, no ejection) ---
-%%
 \draw[red!40, thin] (-5.5, 1.10) -- (5.5, 1.10);
 \node[anchor=east, font=\small\bfseries, red!72] at (-5.70, 1.10) {$n{=}0$};
 \node[anchor=east, font=\small,         red!55] at (-5.70, 0.64)
@@ -427,18 +419,14 @@
 \node[anchor=west, font=\scriptsize,     red!52] at (3.02, 0.58)
   {Hamiltonian identity forbids emitting $\tfrac{1}{2}\hbar\omega$};
 
-%%
 %% --- Ejection threshold ---
-%%
 \draw[orange!68, line width=1.5pt, dashed] (-5.72, 1.85) -- (5.72, 1.85);
 \node[font=\scriptsize\bfseries, fill=orange!5, draw=orange!35,
   rounded corners=2pt, inner sep=2pt, text=orange!80!black]
   at (0, 1.87) {\enspace ejection threshold:\enspace
     $E_0/2 = \tfrac{1}{2}\hbar\omega$\enspace};
 
-%%
 %% --- n = 1 ---
-%%
 \draw[orange!45, thin] (-5.5, 2.60) -- (5.5, 2.60);
 \node[anchor=east, font=\small\bfseries, orange!82] at (-5.70, 2.60) {$n{=}1$};
 \node[anchor=east, font=\small,         orange!62] at (-5.70, 2.12)
@@ -454,9 +442,7 @@
 \draw[->, orange!80, line width=1.4pt] (7.60, 2.60) -- (7.60, 1.10);
 \node[anchor=west, font=\small,      orange!65] at (7.65, 1.85) {$-\hbar\omega$};
 
-%%
 %% --- n = 2 ---
-%%
 \draw[green!38!black!40, thin] (-5.5, 4.10) -- (5.5, 4.10);
 \node[anchor=east, font=\small\bfseries, green!62!black] at (-5.70, 4.10) {$n{=}2$};
 \node[anchor=east, font=\small,         green!50!black] at (-5.70, 3.62)
@@ -467,9 +453,7 @@
 \node[anchor=west, font=\small, green!55!black] at (5.62, 4.43)
   {eject $2\hbar\omega$};
 
-%%
 %% --- n = 3 ---
-%%
 \draw[teal!48, thin] (-5.5, 5.60) -- (5.5, 5.60);
 \node[anchor=east, font=\small\bfseries, teal!72] at (-5.70, 5.60) {$n{=}3$};
 \node[anchor=east, font=\small,         teal!60] at (-5.70, 5.12)
@@ -515,9 +499,13 @@
 }
 
 % ========================================
-\begin{document}
+% Document Begin
 % ========================================
+\begin{document}
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Photon-Sphere Fragmentation as a Gravitational Mediator:\\
 Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere model}
 
@@ -525,6 +513,8 @@ Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere model}
 \email{hana.tensor@gmail.com}
 \date{April 4, 2026}
 
+% ========================================
+% Abstract
 % ========================================
 \begin{abstract}
 The 0-Sphere model identifies a photon-sphere ejection mechanism driven by Thomas precession. The photon sphere executes simple harmonic motion between Kernels A and B along the A$\to$B thermal geodesic; at the midpoint $\theta=\pi/2$ the kinetic energy peaks at $E_0/2$, exactly saturating the geometric binding floor imposed by the Hamiltonian identity. The ground state $n=0$ is the reference case: emitting $\tfrac{1}{2}\hbar\omega$ would violate energy conservation, so no fragment is released. For excited states $n\geq1$, each de-excitation $n\to n-1$ ejects a fragment carrying $\hbar\omega$, with $n+1$ ejection opportunities per traversal corresponding to the $n+1$ antinodes of the standing-wave mode. Zitterbewegung drives the cascade $n\to n-1\to\cdots\to0$, providing a microscopic origin of entropic cooling; the ejected fragments mediate phase synchronization between neighboring subsystems, identified in Paper~\#34~\cite{hanamura34} as gravitational-like acceleration.
@@ -537,9 +527,10 @@ A geometric ultraviolet cutoff emerges from the modal structure. Re-absorption o
 \maketitle
 
 % ========================================
+% Section 1: Introduction
+% ========================================
 \section{Introduction}
 \label{sec:introduction}
-% ========================================
 
 The 0-Sphere model has progressively established that gravitational-like phenomena emerge from photon-mediated phase synchronization between internal oscillatory degrees of freedom of matter, without requiring a gravitational mediator beyond the photon~\cite{hanamura34}. Paper~\#34 demonstrated that entropic entrainment---the thermodynamically favorable synchronization of neighboring 0-Sphere subsystems---produces free-fall-like acceleration quantitatively consistent with Earth's gravitational field. However, the microscopic mechanism by which the photon sphere of one subsystem communicates phase information to neighboring subsystems was left as an open question: photon exchange was invoked as a mediating channel, but the precise mode of ejection and the physical identity of the mediating quantum were not specified.
 
@@ -566,9 +557,10 @@ A further dimension of this work is a reinterpretation of the quantum harmonic o
 A third contribution of this paper---not anticipated in Papers~\#34~\cite{hanamura34} or~\#48~\cite{hanamura48}---is the identification of a structural ultraviolet cutoff with a direct bearing on the renormalization problem of QFT. The $n$-th excitation mode of the photon sphere carries $n+1$ antinodes in its standing-wave profile (Fig.~\ref{fig:standing_waves}), producing $n+1$ ejection opportunities per A$\to$B traversal. When an ejected fragment is re-absorbed by the same electron rather than propagating to a neighbor, the event constitutes the 0-Sphere structural counterpart of a QED self-energy loop. In QFT, the sum over such loops at all orders diverges unless a UV cutoff is introduced by hand; in the 0-Sphere framework, the sum is bounded above by $n_{\max}+1$ and is therefore finite by structure. The finiteness of $n_{\max}$ follows from the same logic that limits the hydrogen atom to a finite Rydberg spectrum: just as the electron cannot be excited beyond the ionization threshold ($n_H \sim$ hundreds to thousands), the photon sphere cannot be promoted beyond the energy at which it escapes the Kernel A--B well. The Compton-scale spatial extent of the well, established in Paper~\#33~\cite{hanamura33}, supplies the geometric scale that sets this threshold. A quantitative determination of $n_{\max}$ requires understanding how $v_{\text{ZB}}$ depends on $n$ through the running of $\alpha$ and $a_e$, and is deferred to future work.
 
 % ========================================
+% Section 2: Synopsis
+% ========================================
 \section*{Synopsis}
 \label{sec:synopsis}
-% ========================================
 
 This paper is organized as follows.
 
@@ -602,12 +594,16 @@ Section~\ref{sec:conclusion} collects the main results.
 Appendix~\ref{app:eft} provides a self-contained introduction to effective field theory and scale hierarchy for the reader's reference, and raises the open question of whether the proton carries an internal ZB structure analogous to the electron.
 
 % ========================================
+% Section 3: The Hamiltonian Identity and the Geometric Zero-Point Energy
+% ========================================
 \section{The Hamiltonian Identity and the Geometric Zero-Point Energy}
 \label{sec:zpe}
-% ========================================
 
 Building on the geometric energy floor established in Paper~\#46~\cite{hanamura46} and the triple coincidence of independent derivations identified in Paper~\#48~\cite{hanamura48}, this section connects those algebraic results to the physical mechanism of photon-sphere ejection developed in subsequent sections. The key new element is the identification of the ejection threshold---the de-excitation $n \to n-1$---as the physical consequence of the geometric floor $E_0/2$ that Papers~\#46 and~\#48 established as an algebraic necessity.
 
+% ----------------------------------------
+% Subsection 3.1: The Three-Component Energy Identity
+% ----------------------------------------
 \subsection{The Three-Component Energy Identity}
 \label{sec:zpe_identity}
 
@@ -625,6 +621,9 @@ E_{\text{ph}}^{\max} = \frac{E_0}{2}.
 \end{equation}
 Crucially, this maximum is achieved when both $Te_1 = E_0\cos^4(\pi/4) = E_0/4$ and $Te_2 = E_0\sin^4(\pi/4) = E_0/4$ simultaneously. The kernel energies do not reach zero; they each retain exactly $E_0/4$ at the point of maximum photon-sphere kinetic energy.
 
+% ----------------------------------------
+% Subsection 3.2: Algebraic Origin of the Zero-Point Floor
+% ----------------------------------------
 \subsection{Algebraic Origin of the Zero-Point Floor}
 \label{sec:zpe_amgm}
 
@@ -649,6 +648,9 @@ The contrast with conventional quantum mechanics is shown in Fig.~\ref{fig:HO_re
 \end{minipage}
 \end{figure*}
 
+% ----------------------------------------
+% Table 1
+% ----------------------------------------
 \begin{table*}[t!]
 \centering
 \caption{\textbf{Zero-point energy $\tfrac{1}{2}\hbar\omega$: comparison of origins in conventional QM and the 0-Sphere model}}
@@ -693,10 +695,14 @@ The two frameworks produce the same zero-point energy $\tfrac{1}{2}\hbar\omega$ 
 \end{table*}
 
 % ========================================
+% Section 4: Simple Harmonic Motion of the Photon Sphere and the Ejection Mechanism
+% ========================================
 \section{Simple Harmonic Motion of the Photon Sphere and the Ejection Mechanism}
 \label{sec:ejection}
-% ========================================
 
+% ----------------------------------------
+% Subsection 4.1: The $\pi$-Cycle: One-Way Traversal as a Half Oscillation
+% ----------------------------------------
 \subsection{The $\pi$-Cycle: One-Way Traversal as a Half Oscillation}
 \label{sec:ejection_shm}
 
@@ -725,6 +731,9 @@ E_{\text{ph}}(\pi/2) = \frac{E_0}{2} = E_{\text{bind}},
 \end{equation}
 where $E_{\text{bind}} \equiv E_0/2$ denotes the algebraic binding energy floor~\eqref{eq:amgm_floor}.
 
+% ----------------------------------------
+% Subsection 4.2: Hydrostatic Equilibrium, Electromagnetic Binding, and the Ejection Threshold
+% ----------------------------------------
 \subsection{Hydrostatic Equilibrium, Electromagnetic Binding, and the Ejection Threshold}
 \label{sec:ejection_threshold}
 
@@ -793,6 +802,9 @@ The ejected fragments carry kinetic energy outward, stepping the internal state 
 
 Gravity, in this picture, is proposed as the macroscopic consequence of neighboring 0-Sphere subsystems absorbing each other's ejected fragments and drifting toward phase synchronization~\cite{hanamura34}: the same ZB engine that mediates cooling of an isolated particle is here taken to underlie a gravitational-like attraction between two nearby particles.
 
+% ----------------------------------------
+% Subsection 4.3: Connection to the Thomas Angular Velocity and the $\pi$ Period
+% ----------------------------------------
 \subsection{Connection to the Thomas Angular Velocity and the $\pi$ Period}
 \label{sec:ejection_omega}
 
@@ -817,10 +829,14 @@ The ejection mechanism is illustrated in Fig.~\ref{fig:ejection}.
 \end{figure*}
 
 % ========================================
+% Section 5: Ejected Fragment as Gravitational Mediator
+% ========================================
 \section{Ejected Fragment as Gravitational Mediator}
 \label{sec:graviton}
-% ========================================
 
+% ----------------------------------------
+% Subsection 5.1: Propagation and Synchronization
+% ----------------------------------------
 \subsection{Propagation and Synchronization}
 \label{sec:graviton_prop}
 
@@ -833,6 +849,9 @@ The identification of the mediating quantum is now explicit: it is not an abstra
 \end{equation}
 consistent with the entropic synchronization energy of Paper~\#34~\cite{hanamura34}.
 
+% ----------------------------------------
+% Subsection 5.2: Gravitational Interaction Without an Independent Mediator
+% ----------------------------------------
 \subsection{Gravitational Interaction Without an Independent Mediator}
 \label{sec:graviton_arch}
 
@@ -849,6 +868,9 @@ Three structural features of this architecture merit emphasis.
 
 The structural contrasts between the conventional graviton hypothesis and the 0-Sphere photon-sphere fragment are summarized in Table~\ref{tab:graviton_comparison}. This emergent picture of gravitational interaction---mediated by internal quanta of existing structure rather than a new elementary particle---shares the thermodynamic spirit of approaches that derive gravitational dynamics from entropy and the thermodynamics of horizons~\cite{Jacobson1995,Verlinde2011}, while the operative mechanism and scale differ from those proposals.
 
+% ----------------------------------------
+% Table 2
+% ----------------------------------------
 \begin{table*}[t!]
 \centering
 \caption{\textbf{Structural comparison: conventional graviton hypothesis vs.\ 0-Sphere photon-sphere fragment}}
@@ -897,12 +919,16 @@ The 0-Sphere framework does not require a new elementary particle to mediate gra
 \end{table*}
 
 % ========================================
+% Section 6: Geometric Ultraviolet Cutoff from Compton-Scale Mode Quantization
+% ========================================
 \section{Geometric Ultraviolet Cutoff from Compton-Scale Mode Quantization}
 \label{sec:cutoff}
-% ========================================
 
 The standing-wave modal structure established in Section~\ref{sec:ejection} has a consequence that reaches beyond the ejection mechanism itself. Each excitation level $n$ of the photon sphere carries $n+1$ antinodes in its standing-wave profile, corresponding to $n+1$ ejection opportunities per A$\to$B traversal. As $n$ increases without bound, so does the number of ejection events per cycle---yet the Kernel A--B well has a fixed spatial extent set by the Compton wavelength of the electron, and the photon sphere cannot remain confined once its accumulated energy suffices to escape the well entirely. A structural upper limit $n_{\max}$ therefore exists, determined not by a regularization prescription but by the same geometric and energetic constraints that govern the well itself. This constitutes a structural ultraviolet cutoff---a cutoff that emerges from the geometry rather than being imposed upon it.
 
+% ----------------------------------------
+% Subsection 6.1: Finite Mode Spectrum: Existence of $n_{\max}$
+% ----------------------------------------
 \subsection{Finite Mode Spectrum: Existence of $n_{\max}$}
 \label{sec:cutoff_nmax}
 
@@ -923,6 +949,9 @@ Each ejection event releases a photon-sphere fragment carrying $\hbar\omega$. If
 
 The finiteness of $n_{\max}$ follows from the same reasoning that limits the principal quantum number in atomic bound states. In hydrogen, the electron can be excited through Rydberg states up to principal quantum numbers $n_H \sim$ hundreds to thousands before the Coulomb binding energy is overcome and ionization occurs; beyond this point the electron is no longer bound and the discrete spectrum terminates. An entirely parallel structure governs the photon-sphere excitation ladder: at sufficiently high $n$, the accumulated energy of the photon sphere within the Kernel A--B well exceeds the geometric binding capacity of the well, and the photon sphere can no longer be regarded as a confined mode. The discrete excitation spectrum terminates at this point, and $n_{\max}$ is finite by the same logic that makes the hydrogen spectrum finite. The standing-wave structure for $n = 0,1,2,3$ is illustrated in Fig.~\ref{fig:standing_waves}; the pattern extends to $n_{\max}$, whose quantitative value is an open task (Section~\ref{sec:open}).
 
+% ----------------------------------------
+% Subsection 6.2: Structural Comparison with Ultraviolet Renormalization
+% ----------------------------------------
 \subsection{Structural Comparison with Ultraviolet Renormalization}
 \label{sec:cutoff_renorm}
 
@@ -934,6 +963,9 @@ The structural parallel with Debye's treatment of lattice vibrations reinforces 
 
 Whether the geometric $n_{\max}$ coincides quantitatively with any known QED scale---the Landau pole, the non-perturbative regime of $\alpha$, or the pair-production threshold---is an open question deferred to Section~\ref{sec:open}.
 
+% ----------------------------------------
+% Subsection 6.3: Analogy with Atomic Ionization and Rydberg States
+% ----------------------------------------
 \subsection{Analogy with Atomic Ionization and Rydberg States}
 \label{sec:cutoff_rydberg}
 
@@ -947,6 +979,9 @@ Atomic ionization---the separation of the electron from the proton---does not li
 
 The structural parallel with the hydrogen Rydberg ladder therefore operates at a different level than the internal 0-Sphere mode ladder. In hydrogen, the principal quantum number $n_H$ labels the Coulomb bound states of the \emph{electron--proton system} and is limited by the depth of the Coulomb well and by environmental perturbations. In the 0-Sphere framework, the excitation number $n$ labels the internal photon-sphere modes of the \emph{electron itself} and is limited by the Compton-scale geometry of the Kernel A--B well. These two ladders operate on different spatial scales---$a_0 \approx 137\,\lambdaC$ for the Coulomb well versus $\lambdaC$ for the Kernel well---and in different physical contexts. The analogy between them is structural (both are finite mode spectra with a geometric upper limit) rather than quantitative.
 
+% ----------------------------------------
+% Subsection 6.4: Scope of the Compton-Scale Cutoff: Free Electrons and Bound Electrons
+% ----------------------------------------
 \subsection{Scope of the Compton-Scale Cutoff: Free Electrons and Bound Electrons}
 \label{sec:cutoff_scope}
 
@@ -963,24 +998,32 @@ This decoupling has a direct consequence for the cutoff discussion. The Compton-
 In general, therefore, the well-depth and confinement scale determining $n_{\max}$ depend on the physical context: for a free electron, the scale is $\lambdaC$; for the electron in a hydrogen-like atom regarded as a Coulomb-confined particle, the scale is $a_0$; for the electron's internal ZB modes regardless of atomic environment, the scale is again $\lambdaC$. The identification of $n_{\max}$ with the Compton-scale cutoff is precise only in the last sense---the one relevant to the internal photon-sphere mode structure analyzed in this paper. Extending the 0-Sphere framework to describe the interaction between the internal ZB modes and the atomic Coulomb potential is deferred to future work.
 
 % ========================================
+% Section 7: Relation to Prior Work
+% ========================================
 \section{Relation to Prior Work}
 \label{sec:prior}
-% ========================================
 
+% ----------------------------------------
+% Subsection 7.1: Successor to Paper \#34: Microscopic Origin of Entropic Entrainment
+% ----------------------------------------
 \subsection{Successor to Paper \#34: Microscopic Origin of Entropic Entrainment}
 \label{sec:prior_34}
 
 Paper~\#34~\cite{hanamura34} established that entropic synchronization of 0-Sphere subsystems via photon exchange produces gravitational-like acceleration, with energy budget analysis showing $\epsilon_2 \times \epsilon_3 \sim 10^{-5}$ sufficient for Earth-scale gravity. Three open questions remained: (i) the microscopic identity of the mediating quantum, (ii) the mechanism of ejection from the source subsystem, and (iii) the origin of the near-neighbor character of the primary interaction. The present paper closes all three: (i) the mediating quantum is the photon-sphere fragment ejected at $\theta = \pi/2$ (for the ground-state reference); (ii) ejection occurs when the photon-sphere kinetic energy at maximum speed saturates the geometric binding floor $E_0/2$; (iii) the near-neighbor character follows from the Compton-scale photon-sphere size.
 
+% ----------------------------------------
+% Subsection 7.2: Companion to Paper \#48: Physical Realization of the $\pi$-Periodic Structure
+% ----------------------------------------
 \subsection{Companion to Paper \#48: Physical Realization of the $\pi$-Periodic Structure}
 \label{sec:prior_48}
 
 Paper~\#48~\cite{hanamura48} identified $\Omega_T \propto \tfrac{1}{2}\sin(2\theta)$ as a spin-2 candidate via $s = 2\pi/\pi = 2$ and established that the thermodynamic spin-state classification is algebraically preferred. It further noted that promoting this numerical correspondence to a derivation requires (i) an independent geometric mechanism not relying on kinematic spin-cycle counting, and (ii) a proof of rank-2 tensor transformation properties. The present paper addresses requirement (i): the ejected photon-sphere fragment, produced by the kinetic-stress balance at $\theta = \pi/2$, carries the $\pi$-periodic phase structure of $\Omega_T$ and constitutes a physically derived ejection mechanism independent of spin-cycle counting arguments. Requirement (ii)---the tensor structure proof---remains an open task for future work.
 
 % ========================================
+% Section 8: Open Questions and Scope
+% ========================================
 \section{Open Questions and Scope}
 \label{sec:open}
-% ========================================
 
 The present work advances the 0-Sphere gravitational program but leaves several fundamental questions open.
 
@@ -1005,9 +1048,10 @@ The present work advances the 0-Sphere gravitational program but leaves several 
 \textbf{(x) Interaction between internal ZB modes and the atomic Coulomb potential.} Section~\ref{sec:cutoff_scope} establishes that the Compton-scale cutoff governs the internal photon-sphere modes of the electron independently of atomic binding, and that the two relevant energy scales---$\hbar\omega \approx E_0 \approx 20.7$~keV for ZB excitation versus $13.6$~eV for hydrogen ground-state binding---are decoupled by six orders of magnitude. A complete theory of the bound electron within the 0-Sphere framework requires understanding how the internal ZB mode structure is modified by the external Coulomb potential, whether there exists a coupling between the two mode systems at higher perturbative orders, and whether this coupling produces observable corrections to atomic spectra or to the electron's anomalous magnetic moment in a bound state. This extension constitutes a qualitatively new regime of the 0-Sphere model and is deferred to future work.
 
 % ========================================
+% Section 9: Conclusion
+% ========================================
 \section{Conclusion}
 \label{sec:conclusion}
-% ========================================
 
 We have proposed a microscopic mechanism for gravitational interaction within the 0-Sphere framework. The photon sphere executing simple harmonic motion between Kernels A and B reaches its maximum speed---and maximum kinetic energy $E_0/2$---at the midpoint $\theta = \pi/2$ of the A$\to$B traversal, where the arc-curvature of the thermal geodesic generates a Thomas-precession stress that saturates the geometric binding energy floor $E_0/2$ imposed by the quartic Hamiltonian identity. The ground state $n=0$ is the reference case: the threshold is exactly saturated with no surplus, and emitting $\tfrac{1}{2}\hbar\omega$ would violate the Hamiltonian identity, so no fragment is released. Actual photon-sphere fragment emission begins at $n=1$---the first mode with two antinodes in its standing-wave profile (Fig.~\ref{fig:standing_waves})---and continues for all $n \geq 1$, with each de-excitation $n \to n-1$ releasing one quantum $\hbar\omega$.
 
@@ -1019,11 +1063,17 @@ Section~\ref{sec:cutoff} identifies a further structural consequence of the Comp
 
 The Zitterbewegung-driven cascade $n \to n-1 \to \cdots \to 0$ provides a microscopic mechanism for the cooling of isolated matter, complemented by environmental re-excitation that maintains thermal equilibrium via detailed balance. Gravity is here proposed as the macroscopic consequence of neighboring subsystems exchanging ejected fragments and drifting toward phase synchronization---the same ZB engine that mediates the internal thermodynamics of isolated electrons is taken to underlie the collective dynamics of gravitating matter.
 
+% ========================================
+% Acknowledgments
+% ========================================
 \begin{acknowledgments}
 The author acknowledges the use of a large language model (Claude Sonnet 4.6, Anthropic) as a supplementary tool for clarifying and structuring background descriptions of effective field theory (EFT) in the Appendix.
 All physical interpretations, theoretical claims, and conclusions are the sole responsibility of the author.
 \end{acknowledgments}
 
+% ========================================
+% Bibliography
+% ========================================
 \begin{thebibliography}{99}
 
 \bibitem{hanamura34}
@@ -1067,15 +1117,17 @@ S.~Hanamura, \textit{Rotational Lorentz Contraction as the Geometric Origin of t
 
 \end{thebibliography}
 
-% ========================================
 \appendix
-% ========================================
 
+% ========================================
+% Appendix A: Elements of Effective Field Theory and the Compton--Atomic Scale Hierarchy
 % ========================================
 \section{Elements of Effective Field Theory and the Compton--Atomic Scale Hierarchy}
 \label{app:eft}
-% ========================================
 
+% ----------------------------------------
+% Subsection 9.1: Note on Prerequisite Level
+% ----------------------------------------
 \subsection*{Note on Prerequisite Level}
 
 The following appendix employs concepts from Wilsonian effective field theory (EFT). Before proceeding, it is worth clarifying the expected knowledge level, so that the reader can calibrate their engagement with the material.
@@ -1089,7 +1141,9 @@ The purpose of this appendix is therefore twofold: to provide the technical cont
 This appendix is intended as a learning reference. Readers already familiar with the Wilsonian renormalization group and the decoupling theorem may proceed directly to Section~\ref{sec:cutoff_scope} without loss of technical content.
 
 
-
+% ----------------------------------------
+% Subsection 9.2: The Concept of Scale Separation
+% ----------------------------------------
 \subsection{The Concept of Scale Separation}
 \label{app:eft_scales}
 
@@ -1097,6 +1151,9 @@ Physical systems generically involve multiple length (or energy) scales. When tw
 
 For the hydrogen atom, the two relevant scales are the Bohr radius $a_0 = \hbar/(m_e c \alpha) \approx 5.29\times10^{-11}$~m and the Compton wavelength $\lambdaC = \hbar/(m_e c) \approx 2.43\times10^{-12}$~m. Their ratio is $a_0/\lambdaC = 1/\alpha \approx 137$. The corresponding energy scales are the hydrogen ground-state binding energy $E_{\text{H}} = 13.6$~eV and the electron rest-mass energy $m_e c^2 = 511$~keV; the ZB energy $E_0 \approx 20.7$~keV (Paper~\#46~\cite{hanamura46}) lies between these two. Because $\alpha \ll 1$, the scales are well separated, and atomic physics can be formulated independently of the details of Compton-scale dynamics to leading order in $\alpha$.
 
+% ----------------------------------------
+% Subsection 9.3: The Wilsonian Renormalization Group: Integrating Out High-Energy Modes
+% ----------------------------------------
 \subsection{The Wilsonian Renormalization Group: Integrating Out High-Energy Modes}
 \label{app:eft_wilson}
 
@@ -1104,6 +1161,9 @@ The Wilsonian approach to renormalization proceeds by systematically eliminating
 
 The key theorem---sometimes called the \emph{decoupling theorem} (Appelquist and Carazzone, 1975)---states that, under broad conditions, the effects of modes with mass $M$ on observables at energy $E \ll M$ are suppressed by powers of $(E/M)$. In the present context, $M \sim m_e c^2 / \lambdaC \cdot \hbar c \sim m_e c^2$ at the Compton scale and $E \sim 13.6$~eV at the atomic scale; the suppression is of order $(E/m_e c^2) \sim \alpha^2$. The leading corrections are further modified by factors of $\alpha$ from loop integrals, yielding the characteristic $\alpha/\pi$ suppression of QED radiative corrections.
 
+% ----------------------------------------
+% Subsection 9.4: The Fine-Structure Constant as Hierarchy Parameter
+% ----------------------------------------
 \subsection{The Fine-Structure Constant as Hierarchy Parameter}
 \label{app:eft_alpha}
 
@@ -1111,6 +1171,9 @@ The fine-structure constant $\alpha = e^2/(4\pi\epsilon_0 \hbar c) \approx 1/137
 
 The running of $\alpha$ with energy scale reflects the same physics: at energy $\mu$, the effective coupling is $\alpha(\mu) = \alpha(0)/[1 - (\alpha(0)/3\pi)\ln(\mu^2/m_e^2 c^4)]$ to one-loop order, which gives $\alpha(m_Z c^2) \approx 1/128$ at the $Z$-boson mass $m_Z c^2 \approx 91.2$~GeV. This running is a direct consequence of integrating out electron--positron vacuum polarization loops at each energy scale.
 
+% ----------------------------------------
+% Subsection 9.5: Concrete Examples: Lamb Shift and Anomalous Magnetic Moment
+% ----------------------------------------
 \subsection{Concrete Examples: Lamb Shift and Anomalous Magnetic Moment}
 \label{app:eft_examples}
 
@@ -1120,6 +1183,9 @@ Two precise experimental confirmations of the Compton-to-atomic scale connection
 
 \textbf{Anomalous magnetic moment.} The deviation of the electron's magnetic moment from the Dirac value is $a_e = (g-2)/2 \approx \alpha/(2\pi) - 0.328(\alpha/\pi)^2 + \cdots \approx 1.159\times10^{-3}$. Each term corresponds to one additional loop at the Compton scale. The leading term $\alpha/(2\pi)$ is the Schwinger correction (1948); higher terms have been computed to five-loop order and agree with experiment to twelve significant figures. In the 0-Sphere framework, $a_e$ enters via $\gamma = 1 + a_e$ (Papers~\#10 and~\#47~\cite{hanamura10,hanamura47}), connecting the Compton-scale anomaly to the macroscopic ZB speed $v_{\text{ZB}} \approx 0.04047c$.
 
+% ----------------------------------------
+% Subsection 9.6: The Proton as a Possible 0-Sphere Subsystem: Open Question
+% ----------------------------------------
 \subsection{The Proton as a Possible 0-Sphere Subsystem: Open Question}
 \label{app:eft_proton}
 
@@ -1138,4 +1204,7 @@ Whether the proton's internal dynamics are governed by the same ZB mechanism as 
 
 \clearpage
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

@@ -1,7 +1,7 @@
 # Zenodo tex 追補チェックリスト(2026-07-19 作成)
 
 > 目的: 各 Zenodo レコードに LaTeX ソース(main.tex)を追補し、後続研究者の再現と AI 可読性を確保する。
-> アップロードするファイルは常に `https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/tex-sources/NN/main.tex`(= 本 repo の清書版)。
+> 全 32 件が清書・コンパイル検証済み(2026-07-19)で品質統一されている。アップロードするファイルは常に `https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/tex-sources/NN/main.tex`(= 本 repo の清書版)。
 
 ## 手順メモ(User 手作業・Web UI)
 
@@ -25,25 +25,25 @@
 | ☐ | 10 | [zenodo.org/records/17764997](https://zenodo.org/records/17764997) | 2026-07-19 スキル清書・コンパイル検証済み |
 | ☐ | 11 | [zenodo.org/records/17765017](https://zenodo.org/records/17765017) | 2026-07-19 スキル清書・コンパイル検証済み |
 | ☐ | 12 | [zenodo.org/records/17765039](https://zenodo.org/records/17765039) | 2026-07-19 スキル清書・コンパイル検証済み |
-| ☐ | 13 | [zenodo.org/records/17765079](https://zenodo.org/records/17765079) | ⚠ 現 main.tex は Overleaf 版と実質同一(清書し直し推奨) |
-| ☐ | 14 | [zenodo.org/records/17765097](https://zenodo.org/records/17765097) | ⚠ 現 main.tex は Overleaf 版と実質同一(清書し直し推奨) |
-| ☐ | 15 | [zenodo.org/records/17765121](https://zenodo.org/records/17765121) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 17 | [zenodo.org/records/17765136](https://zenodo.org/records/17765136) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 18 | [zenodo.org/records/17765200](https://zenodo.org/records/17765200) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 19 | [zenodo.org/records/17765238](https://zenodo.org/records/17765238) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 20 | [zenodo.org/records/17765244](https://zenodo.org/records/17765244) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 21 | [zenodo.org/records/17765305](https://zenodo.org/records/17765305) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 22 | [zenodo.org/records/17765318](https://zenodo.org/records/17765318) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 23 | [zenodo.org/records/17765336](https://zenodo.org/records/17765336) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 24 | [zenodo.org/records/17765349](https://zenodo.org/records/17765349) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 25 | [zenodo.org/records/18064535](https://zenodo.org/records/18064535) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 26 | [zenodo.org/records/17765409](https://zenodo.org/records/17765409) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 27 | [zenodo.org/records/17765439](https://zenodo.org/records/17765439) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 29 | [zenodo.org/records/18067760](https://zenodo.org/records/18067760) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 31 | [zenodo.org/records/18203433](https://zenodo.org/records/18203433) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 32 | [zenodo.org/records/18275142](https://zenodo.org/records/18275142) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 33 | [zenodo.org/records/18356895](https://zenodo.org/records/18356895) | 既存清書版(過去セッション生成・Zenodo 未収録) |
-| ☐ | 49 | [zenodo.org/records/19393391](https://zenodo.org/records/19393391) | ⚠ 現 main.tex は Overleaf 版と実質同一(清書し直し推奨) |
+| ☐ | 13 | [zenodo.org/records/17765079](https://zenodo.org/records/17765079) | 2026-07-19 スキル清書・コンパイル検証済み |
+| ☐ | 14 | [zenodo.org/records/17765097](https://zenodo.org/records/17765097) | 2026-07-19 スキル清書・コンパイル検証済み |
+| ☐ | 15 | [zenodo.org/records/17765121](https://zenodo.org/records/17765121) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 17 | [zenodo.org/records/17765136](https://zenodo.org/records/17765136) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 18 | [zenodo.org/records/17765200](https://zenodo.org/records/17765200) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 19 | [zenodo.org/records/17765238](https://zenodo.org/records/17765238) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 20 | [zenodo.org/records/17765244](https://zenodo.org/records/17765244) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 21 | [zenodo.org/records/17765305](https://zenodo.org/records/17765305) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 22 | [zenodo.org/records/17765318](https://zenodo.org/records/17765318) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 23 | [zenodo.org/records/17765336](https://zenodo.org/records/17765336) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 24 | [zenodo.org/records/17765349](https://zenodo.org/records/17765349) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 25 | [zenodo.org/records/18064535](https://zenodo.org/records/18064535) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 26 | [zenodo.org/records/17765409](https://zenodo.org/records/17765409) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 27 | [zenodo.org/records/17765439](https://zenodo.org/records/17765439) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 29 | [zenodo.org/records/18067760](https://zenodo.org/records/18067760) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 31 | [zenodo.org/records/18203433](https://zenodo.org/records/18203433) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 32 | [zenodo.org/records/18275142](https://zenodo.org/records/18275142) | 2026-07-19 規約統一・コンパイル検証済み |
+| ☐ | 33 | [zenodo.org/records/18356895](https://zenodo.org/records/18356895) | 2026-07-19 規約統一・コンパイル検証済み。**main.tex に加え fig_thermal.tex / fig_TotalHamiltonian.tex も同梱すること**(\input 参照) |
+| ☐ | 49 | [zenodo.org/records/19393391](https://zenodo.org/records/19393391) | 2026-07-19 スキル清書・コンパイル検証済み |
 | ☐ | 63 | [zenodo.org/records/20767589](https://zenodo.org/records/20767589) | 2026-07-19 スキル清書・コンパイル検証済み |
 
 ## 対象外

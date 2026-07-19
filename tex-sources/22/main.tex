@@ -1,3 +1,6 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint,
  amsmath,amssymb,
@@ -7,7 +10,7 @@
 \usepackage{graphicx}% Include figure files
 \usepackage{dcolumn}% Align table columns on decimal point
 \usepackage{bm}% bold math
-\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage[colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
 \usepackage{braket}
 \usepackage{caption} % for captionsetup[figure]
 \usepackage{threeparttable} % for table caption modification
@@ -25,6 +28,9 @@
 \usepackage{booktabs}
 
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
     \captionsetup[figure]{justification=raggedright,
@@ -33,13 +39,18 @@
         labelfont={bf},name={Table.},labelsep=period}
 
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Gravitational Redshift of Internal Quantum Clocks:\\ A Zitterbewegung-Based Model}
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
 \date{July 6, 2025}
 
 
-
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 Zitterbewegung, a high-frequency oscillatory term originally derived from the Dirac equation~\cite{dirac1928}, has traditionally been viewed as a mathematical artifact without physical significance. In contrast, this paper adopts a reinterpretation of Zitterbewegung as a physically real internal motion of the electron. Within this framework, the internal oscillation is confined to a compact photonic shell structure governed by the electron's Compton wavelength~\cite{compton1923} and evolves according to the proper time of the system. Building on this model, the author has previously derived a special relativistic estimate for the mean internal velocity, yielding $v_{e,\text{SR}} = 0.040472c$~\cite{hanamura2309.0047}. This estimate was subsequently refined by incorporating general relativistic effects, including geodetic precession and curvature-modified critical radius constraints, resulting in a corrected velocity $v_{e,\text{SR+GR}} = 0.040374c$ at Earth's surface~\cite{hanamura2501.0130}. A key prediction of the model is that this velocity is subject to gravitational modulation: if Zitterbewegung were directly observable, its effective velocity would differ between gravitational potentials, such as those found at Earth's surface and in satellite orbits. This predicted velocity shift mirrors the time dilation corrections required in satellite-based atomic clocks, such as those used in the Global Positioning System (GPS)~\cite{ashby2003}, which account for both special and general relativistic effects.
 
@@ -390,4 +401,7 @@ R. Colella, A. W. Overhauser, and S. A. Werner,
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}
