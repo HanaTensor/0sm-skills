@@ -1,0 +1,474 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[12pt,letterpaper]{article}
+\usepackage{amsmath,amssymb}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage{authblk}
+\usepackage{setspace}
+\usepackage{geometry}
+\usepackage[labelfont=bf]{caption}
+\usepackage[colorlinks=true,linkcolor=blue,citecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{tabularx}
+
+% ========================================
+% Page Layout Configuration
+% ========================================
+\geometry{
+  letterpaper,
+  top=2.5cm,
+  bottom=2.5cm,
+  left=2.5cm,
+  right=2.5cm
+}
+
+\onehalfspacing
+
+\usepackage{ragged2e}
+\usepackage{booktabs}
+
+% ========================================
+% Document Begin
+% ========================================
+\begin{document}
+
+% ========================================
+% Title, Author, and Date
+% ========================================
+\title{A Note on Derivative Hierarchy\\ in Gauge Theory and Gravity\\
+\normalsize A Historical Supplement on Connection, Curvature, and Line-Integral Observables}
+
+\author{Satoshi Hanamura\thanks{Email: hana.tensor@gmail.com}}
+\date{February 28, 2026}
+
+\maketitle
+
+% ========================================
+% Table of Contents
+% ========================================
+\tableofcontents
+
+% ========================================
+% Research Summary
+% ========================================
+\begin{center}
+\textbf{Research Summary}
+\end{center}
+
+\justifying
+This supplementary note provides a historical and conceptual clarification of a structural distinction between gauge theories and general relativity that has remained largely implicit in the literature. Although both frameworks are formulated using connections and curvature, the correspondence between geometric objects and physical observables differs systematically by one derivative order.
+
+In gauge theories, curvature is directly identified with physical forces, while observable effects such as phase shifts arise through line integrals of the connection. In contrast, general relativity assigns force-like significance to the connection itself, while curvature primarily encodes mass--energy distributions through the Einstein equations.
+
+The purpose of this Supplement is not to modify established field equations or propose new dynamics, but to make this derivative-order mismatch explicit and to situate it within its historical development from Einstein to Yang--Mills. By emphasizing line integrals and accumulated phase as a common observational layer, the discussion clarifies how these otherwise distinct theoretical structures can be placed on equal footing without conceptual tension. This perspective provides the interpretive foundation for line-integral-based approaches, including the 0-Sphere model, and serves as a historical and conceptual bridge connecting classical gravity, gauge theory, and phase-based observables.
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+\justifying
+Modern theoretical physics is built upon two extraordinarily successful frameworks: gauge theory and general relativity. Both are formulated using the language of differential geometry, relying on connections, curvature, and symmetry principles. From a formal standpoint, their mathematical resemblance is striking. Yet beneath this similarity lies a subtle but consequential difference that has rarely been articulated explicitly: the correspondence between geometric objects and physical observables is shifted by one derivative order between the two theories.
+
+In gauge theories, curvature is directly associated with physical forces, while observable effects such as phase shifts arise through line integrals of the connection. In general relativity, by contrast, force-like gravitational effects are encoded at the level of the connection itself, while curvature primarily reflects the distribution of mass--energy through the Einstein equations.
+
+This Supplement is motivated by the observation that this difference, though often sensed implicitly, has not been formulated as a structural principle in the literature. The mismatch has neither been identified as a problem nor elevated to an organizing concept; instead, it has remained embedded within the historical development of each theory.
+
+The purpose of the present work is therefore modest but precise. We do not propose new dynamics, revise field equations, or advocate unification at the level of symmetry or interaction. Rather, we aim to make explicit a structural distinction that becomes visible only when gauge theory and gravity are compared at the level of derivative order and observational interpretation. To achieve this, we adopt a historical perspective, tracing how this distinction emerged---from Einstein's geometric reformulation of gravity, through early unification attempts, to the establishment of Yang--Mills theory---without being stated explicitly. We then argue that line integrals and accumulated phase provide a missing observational layer capable of accommodating both frameworks.
+
+In this sense, the present Supplement serves as a historical and conceptual companion to line-integral-based approaches, including the 0-Sphere model~\cite{hanamura18067760,hanamura18135855,hanamura18203433}. It clarifies why such approaches are not ad hoc reinterpretations, but rather articulate explicitly what remained implicit throughout the development of modern field theory.
+
+% ========================================
+% Section 2: Historical Context and Conceptual Motivation
+% ========================================
+\section{Historical Context and Conceptual Motivation}
+
+\justifying
+The distinction addressed in this Supplement did not arise from a single theoretical insight, but emerged gradually through the development of modern field theory. Einstein's reformulation of gravity, early unification attempts by Weyl and Cartan, and the eventual success of Yang--Mills gauge theory each clarified different aspects of the relationship between geometry and physical observables.
+
+Despite these advances, the question of \emph{where} physical meaning is assigned within the geometric hierarchy---at the level of connection, curvature, or their integrals---was rarely posed explicitly. As a result, the derivative-order mismatch between gauge theory and gravity remained an unspoken structural feature rather than a formulated principle. The following sections revisit this historical trajectory with a specific focus on this point, preparing the ground for a line-integral-based reinterpretation that makes the mismatch transparent rather than problematic.
+
+% ========================================
+% Section 3: Historical Perspective: From Einstein to Yang--Mills
+% ========================================
+\section{Historical Perspective: From Einstein to Yang--Mills}
+
+\justifying
+The structural distinction discussed in the preceding sections did not emerge abruptly. Rather, it crystallized through a sequence of developments spanning general relativity, early attempts at unification, and the eventual success of non-Abelian gauge theory.
+
+In this Supplementary historical note, we revisit the trajectory from Einstein to Yang--Mills from a specific and nonstandard viewpoint: the correspondence between physical observables and geometric objects, and the derivative order at which this correspondence is established.
+
+This perspective does not aim to reassess the correctness or success of the theories involved. Instead, it seeks to clarify why a derivative-order mismatch between gauge theory and gravity persisted implicitly throughout the twentieth century, without being articulated explicitly in the literature.
+
+% ----------------------------------------
+% Subsection 3.1: Einstein: Gravity as Connection, Curvature as Source
+% ----------------------------------------
+\subsection{Einstein: Gravity as Connection, Curvature as Source}
+
+\justifying
+Einstein's formulation of general relativity represented a radical departure from force-based descriptions of gravity. By identifying the gravitational interaction with spacetime geometry, Einstein effectively promoted the connection---through the Christoffel symbols---to the role of governing physical motion~\cite{Einstein1916}.
+
+In the weak-field limit, the Newtonian gravitational potential is absorbed into the metric component $g_{00}$, and gravitational acceleration emerges from the connection rather than from curvature. Curvature enters the theory primarily through the Einstein field equations,
+\begin{equation}
+G_{\mu\nu} = 8\pi G T_{\mu\nu},
+\end{equation}
+where it serves as a measure of mass--energy distribution.
+
+Thus, from the outset, general relativity established a correspondence in which:
+\begin{itemize}
+\item the \emph{connection} governs force-like effects and particle motion,
+\item the \emph{curvature} encodes sources rather than forces.
+\end{itemize}
+
+This assignment was internally consistent and empirically successful. However, at the time of its formulation, no mature gauge theory existed with which this structure could be meaningfully compared. As a result, the derivative-order mismatch remained implicit.
+
+% ----------------------------------------
+% Subsection 3.2: Weyl: The First Attempt at Unification
+% ----------------------------------------
+\subsection{Weyl: The First Attempt at Unification}
+
+\justifying
+Hermann Weyl was among the first to recognize the formal similarity between electromagnetism and spacetime geometry. In his 1918 theory, Weyl introduced a scale connection alongside the metric, anticipating later gauge-theoretic ideas~\cite{Weyl1918}.
+
+Crucially, Weyl attempted to place gravitational and electromagnetic interactions on an equal geometric footing by extending the notion of connection. However, this unification effort treated the mismatch between gravitational connection and electromagnetic curvature as a problem to be eliminated rather than a structural feature to be preserved.
+
+The failure of Weyl's theory on physical grounds---most notably its conflict with observed spectral stability---prevented further exploration of this geometric insight. As a result, the possibility that the two theories might exhibit a systematic derivative-order mismatch in their assignment of physical observables was not pursued.
+
+% ----------------------------------------
+% Subsection 3.3: Cartan: Structural Clarity without Observational Emphasis
+% ----------------------------------------
+\subsection{Cartan: Structural Clarity without Observational Emphasis}
+
+\justifying
+\'Elie Cartan's reformulation of differential geometry introduced a profound conceptual separation between connection, curvature, and torsion~\cite{Cartan1923}. From a mathematical standpoint, Cartan clarified the full hierarchy of geometric objects underlying both gravity and gauge-like structures.
+
+However, Cartan's work remained largely silent on the question of which geometric quantities should be regarded as physically observable. His framework provided the tools to distinguish derivative orders cleanly, but it did not assign observational priority to line integrals, holonomy, or accumulated phase.
+
+In this sense, Cartan revealed the structure but left its physical interpretation underdetermined. The derivative-order mismatch was fully visible at the mathematical level, yet remained unarticulated as a physical principle.
+
+% ----------------------------------------
+% Subsection 3.4: Yang--Mills: Curvature as Force
+% ----------------------------------------
+\subsection{Yang--Mills: Curvature as Force}
+
+\justifying
+The introduction of non-Abelian gauge theory by Yang and Mills marked a decisive turning point~\cite{YangMills1954}. In this framework, curvature was unambiguously identified with physical field strength, and the connection served primarily as a potential whose significance emerged through differentiation. This assignment proved extraordinarily successful. Gauge curvature directly encoded observable forces, and local field strengths became the primary carriers of physical meaning.
+
+However, this success also had a conceptual side effect. Because gauge theory worked so well with curvature-as-force, the contrasting structure of gravity---where force-like effects reside at the level of the connection---came to be regarded as an idiosyncrasy rather than as a systematic difference. The derivative-order mismatch thus became normalized rather than examined.
+
+% ========================================
+% Section 4: Why the Mismatch Remained Unspoken
+% ========================================
+\section{Why the Mismatch Remained Unspoken}
+
+\justifying
+Across these developments, a consistent pattern emerges. Each theory was internally coherent, empirically grounded, and mathematically well defined. Yet no framework explicitly compared the placement of physical observables across theories at the level of derivative order.
+
+This omission was not accidental, nor does it reflect conceptual failure. Rather, it arose from the absence of a common observational language capable of accommodating both curvature-based and connection-based descriptions. Without such a language, the mismatch appeared either trivial or irrelevant.
+
+Moreover, both frameworks achieved remarkable empirical success without requiring an explicit comparison of their geometric hierarchies. In such a context, structural asymmetries that did not lead to contradictions were rarely isolated as independent objects of analysis.
+In particular, physical observables were tacitly assumed to be local and differential in nature. Quantities defined through integration along extended histories were treated as secondary or derived, rather than as primary carriers of physical information. This shared but implicit observational bias further obscured the derivative-order mismatch.
+
+Having traced the historical trajectory through which this mismatch emerged but remained unarticulated, it is now appropriate to clarify its technical content in greater detail. The following section examines the derivative structure underlying general relativity, showing explicitly why connection and curvature occupy different observational roles in gravity compared to gauge theory.
+
+% ========================================
+% Section 5: Connection as First Derivative and Curvature as Second Derivative
+% ========================================
+\section{Connection as First Derivative and Curvature as Second Derivative}
+
+\justifying
+In discussions of gravitational field equations, it is often stated---sometimes casually and without further elaboration---that the connection involves first derivatives of the metric, while curvature involves second derivatives.
+Although this statement is mathematically correct in a broad sense, its physical meaning and conceptual implications are rarely unpacked in detail.
+
+In this section, we clarify what is meant by this hierarchy, why it is only approximate yet structurally robust, and how it underlies the derivative-order mismatch between gauge theory and gravity discussed throughout this Supplement.
+
+% ----------------------------------------
+% Subsection 5.1: Metric, Connection, and Their Derivative Structure
+% ----------------------------------------
+\subsection{Metric, Connection, and Their Derivative Structure}
+
+General relativity takes the spacetime metric $g_{\mu\nu}$ as its fundamental geometric object.
+The metric determines invariant intervals of length and time and encodes gravitational effects in its deviation from flatness.
+
+The Levi--Civita connection associated with the metric is defined by the Christoffel symbols,
+\begin{equation}
+\Gamma^\rho_{\mu\nu}
+=
+\frac{1}{2}
+g^{\rho\sigma}
+\left(
+\partial_\mu g_{\nu\sigma}
++
+\partial_\nu g_{\mu\sigma}
+-
+\partial_\sigma g_{\mu\nu}
+\right).
+\end{equation}
+This expression shows explicitly that the connection depends on the \emph{first derivatives} of the metric.
+
+The Christoffel symbols are not tensors and have no invariant meaning at a single spacetime point.
+Nevertheless, they play a direct physical role: they determine the motion of freely falling particles through the geodesic equation,
+\begin{equation}
+\frac{d^2 x^\mu}{d\tau^2}
++
+\Gamma^\mu_{\nu\rho}
+\frac{dx^\nu}{d\tau}
+\frac{dx^\rho}{d\tau}
+= 0.
+\end{equation}
+Thus, in general relativity, force-like gravitational effects appear at the level of the connection, which depends on first derivatives of the metric.
+
+% ----------------------------------------
+% Subsection 5.2: Curvature as a Second-Derivative Object and Tidal Effects
+% ----------------------------------------
+\subsection{Curvature as a Second-Derivative Object and Tidal Effects}
+
+Spacetime curvature is constructed from the connection via the Riemann curvature tensor,
+\begin{equation}
+R^\rho_{\ \sigma\mu\nu}
+=
+\partial_\mu \Gamma^\rho_{\nu\sigma}
+-
+\partial_\nu \Gamma^\rho_{\mu\sigma}
++
+\Gamma^\rho_{\mu\lambda} \Gamma^\lambda_{\nu\sigma}
+-
+\Gamma^\rho_{\nu\lambda} \Gamma^\lambda_{\mu\sigma}.
+\end{equation}
+Since the connection itself depends on the first derivatives of the metric, curvature necessarily involves \emph{second derivatives} of $g_{\mu\nu}$, together with nonlinear combinations of first derivatives.
+
+This derivative hierarchy has direct physical significance.
+Whereas the connection governs the motion of an individual test particle along a single worldline, curvature manifests itself only through \emph{relative} effects between neighboring trajectories.
+This distinction is made precise by the equation of geodesic deviation,
+\begin{equation}
+\frac{D^2 \xi^\mu}{D\tau^2}
+=
+- R^\mu_{\ \nu\rho\sigma}
+u^\nu u^\rho \xi^\sigma,
+\end{equation}
+where $\xi^\mu$ denotes the separation vector between nearby geodesics and $u^\mu$ the four-velocity.
+
+Physically, this equation describes tidal effects: the stretching, squeezing, and shearing experienced by an extended body or by a congruence of test particles.
+Crucially, such effects cannot be detected by an observer following a single worldline, regardless of the precision of local measurements.
+Only by comparing the histories of two or more neighboring trajectories does curvature become observable.
+
+This fact clarifies why curvature is not interpreted as a force in general relativity.
+The acceleration of a single freely falling particle can always be eliminated locally by an appropriate choice of coordinates, reflecting the connection-based nature of gravitational acceleration.
+Tidal effects, by contrast, are invariant and cannot be transformed away, precisely because they arise from curvature.
+
+From the viewpoint of derivative order, this distinction acquires a clear physical meaning.
+First-derivative objects (the connection) govern local motion, while second-derivative objects (curvature) govern relative motion and encode the influence of mass--energy through spacetime deformation.
+
+This separation is central to the derivative-order mismatch discussed throughout this Supplement. In gauge theories, curvature itself is identified with physical force.
+In general relativity, force-like effects reside at the level of the connection, while curvature encodes invariant, relative effects between neighboring worldlines.
+
+% ----------------------------------------
+% Subsection 5.3: Einstein Field Equations and the Role of Curvature
+% ----------------------------------------
+\subsection{Einstein Field Equations and the Role of Curvature}
+
+Curvature enters gravitational dynamics through the Einstein field equations,
+\begin{equation}
+G_{\mu\nu} = 8\pi G\, T_{\mu\nu},
+\end{equation}
+where the Einstein tensor contains second derivatives of the metric arranged to satisfy
+\begin{equation}
+\nabla^\mu G_{\mu\nu} = 0.
+\end{equation}
+
+Physically, this structure implies that curvature encodes mass--energy distributions rather than force. Gravitational acceleration experienced by a test particle is governed by the connection, while curvature describes how spacetime responds to sources. This derivative hierarchy---connection as first-order, curvature as second-order---is the structural origin of the mismatch emphasized throughout this Supplement.
+
+The assertion that ``the connection is first order and curvature is second order'' should not be interpreted as an exact counting rule, as both objects involve nonlinear combinations of derivatives. Nevertheless, the distinction remains structurally meaningful: the connection is algebraically linear in first derivatives of the metric, while curvature necessarily involves derivatives of the connection and therefore second derivatives of the metric. This hierarchy is invariant under coordinate changes and reflects a genuine organizational feature of the theory.
+
+In Abelian gauge theory, the field strength takes the form
+\begin{equation}
+F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu,
+\end{equation}
+which generalizes to $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu + [A_\mu, A_\nu]$ in the non-Abelian case. Crucially, curvature $F_{\mu\nu}$ corresponds directly to physical forces such as electric and magnetic fields.
+Thus, observable force appears at the level of first derivatives of the connection.
+
+By contrast, in gravity the first-derivative object (the connection) governs force-like effects, while the second-derivative object (curvature) encodes sources. This inversion of observational roles is the origin of the derivative-order mismatch emphasized in this Supplement.
+
+% ----------------------------------------
+% Subsection 5.4: Implications for Line-Integral-Based Observables
+% ----------------------------------------
+\subsection{Implications for Line-Integral-Based Observables}
+
+Because gravitational effects are encoded in the connection, physically meaningful quantities naturally arise through integrals of the connection along worldlines.
+Examples include gravitational redshift, clock comparison, and accumulated time dilation.
+
+These observables depend on the history of motion rather than on local curvature alone.
+In this sense, line integrals occupy a privileged observational role in gravity, analogous to the role of holonomy and phase accumulation in gauge theory.
+
+Understanding the derivative hierarchy between metric, connection, and curvature thus provides the conceptual foundation for line-integral-based interpretations.
+It clarifies why accumulated phase and history-dependent quantities can serve as a common observational layer across theories that otherwise differ in their geometric organization.
+
+This hierarchy does not indicate a deficiency of either framework.
+Rather, it reveals a structural distinction in how physical meaning is distributed across geometric objects---a distinction that becomes transparent once line integrals are taken seriously as fundamental observables.
+
+% ========================================
+% Section 6: Line Integrals as a Missing Observational Layer
+% ========================================
+\section{Line Integrals as a Missing Observational Layer}
+
+\justifying
+From a historical standpoint, the central observation of the present work is that line integrals---and the accumulated phase or history they encode---provide precisely the missing layer.
+
+Line integrals naturally accommodate both gauge-theoretic and gravitational phenomena:
+\begin{itemize}
+\item In gauge theory, they encode holonomy and phase accumulation, even in regions of vanishing curvature~\cite{AharonovBohm1959}.
+\item In gravity, they encode clock comparison, redshift, and accumulated time dilation along worldlines.
+\end{itemize}
+
+By placing observational meaning at the level of line integrals, the derivative-order mismatch ceases to be an obstacle. Instead, it becomes a structural distinction between how different theories organize their local geometric data beneath a shared observational layer.
+
+What is essential in both contexts is not the dimensionality of the integration domain, but the fact that line integrals encode ordered history. They retain information about traversal, orientation, and accumulation in a way that local quantities cannot. This property is shared by gauge holonomy and gravitational time dilation, despite their differing local geometric origins.
+
+A particularly instructive comparison is provided by gravitational lensing and the Aharonov--Bohm effect, as they place the derivative-order mismatch in sharp observational relief. In gravitational lensing, a massive body curves spacetime so as to admit two distinct classical geodesics connecting source to observer. Along each geodesic the connection $\Gamma^\mu_{\nu\rho}$ governs the accumulation of proper time, and the resulting difference in arrival times---the Shapiro time delay~\cite{Shapiro1964}---is experimentally measurable. The observable is a line integral of a connection-governed quantity, and the existence of two paths is itself a consequence of nonzero curvature: the mass--energy distribution bends geodesics so that more than one solution to the geodesic equation exists.
+
+The Aharonov--Bohm effect presents a sharply contrasting structure~\cite{AharonovBohm1959}. Two paths enclose a solenoid in a region where $F_{\mu\nu} = 0$ everywhere along the paths themselves, yet the line integral $\oint A_\mu\, dx^\mu$ is nonzero, and experimentally confirmed interference fringes appear. The phase difference is topological: it cannot be attributed to any local field strength encountered along either path.
+
+These two cases share the same observational architecture---a comparison of line integrals along distinct paths yields the physically accessible quantity---yet they differ in a precise and theoretically significant way. In gravitational lensing, the path multiplicity and the phase difference both originate in the local curvature generated by mass--energy; the observable is, in principle, reducible to local geometry accumulated along each geodesic. In the Aharonov--Bohm effect, the phase difference is irreducible to any local quantity along the paths: it is a global, topological property of the connection. The two cases thus exemplify the two sides of the derivative-order mismatch. Gravity encodes its observable effects in the connection, and those effects are locally generated by curvature. Gauge theory encodes its observable effects in the curvature, but the line integral of the connection can carry information that curvature alone does not.
+
+This contrast does not introduce tension into the present framework. On the contrary, it sharpens it. The derivative-order mismatch between gauge theory and gravity is precisely the statement that these two mechanisms---topological non-locality in gauge theory and geometric accumulation in gravity---are structurally distinct. What the line-integral observational layer makes visible is that both theories, despite their different local geometric organizations, converge on accumulated history as the primary experimentally accessible quantity. The observation layer is shared; the local structures beneath it differ by one derivative order.
+
+% ========================================
+% Section 7: Comparative Structure of Line-Integral Observables
+% ========================================
+\section{Comparative Structure of Line-Integral Observables}
+
+\justifying
+The preceding section established that the Shapiro time delay and the Aharonov--Bohm phase shift both arise as line-integral quantities. At first glance, this commonality might suggest that the two effects are simply different instances of the same underlying mechanism. They are not. Clarifying precisely how they differ is the purpose of this section.
+
+The central distinction concerns the origin of the observable quantity. In the Shapiro delay, the origin is local geometry: the metric is nontrivially curved along the path, and the proper time accumulates differently on each geodesic because the spacetime geometry itself differs along each route. In the Aharonov--Bohm effect, the origin is global topology: the magnetic field is zero everywhere along the electron paths, yet a phase difference appears because the vector potential winds around a region the electron never enters. These are structurally different situations, even though both are described by a line integral.
+
+% ----------------------------------------
+% Table 1: Comparative Structure of Line-Integral Observables
+% ----------------------------------------
+\begin{table}[h]
+\centering
+\textbf{Table 1. Comparative Structure of Line-Integral Observables}\\[6pt]
+\begin{tabularx}{\textwidth}{lXX}
+\toprule
+\textbf{Feature} & \textbf{Shapiro Delay (GR)} & \textbf{AB Effect (Gauge Theory)} \\[6pt]
+\midrule\\[-4pt]
+Field type & Gravitational metric $g_{\mu\nu}$ & Gauge connection $A_\mu$ \\[8pt]
+Local curvature along path & Non-zero (curvature region) & Can vanish along path ($F_{\mu\nu}=0$) \\[8pt]
+Observable & Proper time difference $\Delta\tau$ & Phase difference $\Delta\phi$ \\[8pt]
+Mathematical form & $\displaystyle\int_\gamma ds$ \quad (metric dependent) & $\displaystyle\oint A_\mu\,dx^\mu$ \\[12pt]
+Closed loop required & No (two open geodesics suffice) & Typically yes (open-path phase is gauge-dependent) \\[8pt]
+Local force & Present along each path & Absent in the path region \\[8pt]
+Origin of effect & Spacetime curvature (local geometry) & Global gauge structure (topology) \\[4pt]
+\bottomrule
+\end{tabularx}
+\caption{Comparison of the Shapiro delay and the Aharonov--Bohm effect as line-integral observables. Both require integrating a connection-type quantity along a path, yet their physical and geometric origins are fundamentally different.}
+\label{tab:comparison}
+\end{table}
+
+Table~\ref{tab:comparison} organizes these differences across three levels, each of which corresponds to a distinct aspect of why the two effects are not equivalent.
+
+\paragraph{Physical level: local force and its absence.}
+In the Shapiro delay, gravity acts on the light signal throughout its journey. The metric $g_{\mu\nu}$ is curved, and this curvature directly governs the geodesic via the Christoffel symbols $\Gamma^\mu_{\nu\rho}$. The time difference between two paths arises because the gravitational potential is different along each route---a fully local, step-by-step effect. In the Aharonov--Bohm effect, there is no force. The electron travels entirely through a field-free region ($\mathbf{B}=0$, $F_{\mu\nu}=0$), yet it acquires a phase difference. Nothing pushes or pulls the electron differently on the two sides; the effect is felt globally, not locally.
+
+\paragraph{Geometric level: local reducibility and its limits.}
+The Shapiro delay is, in principle, fully explainable from local information. If one knows the metric at every point along each geodesic, one can compute the proper time difference by integrating step by step. The Aharonov--Bohm phase cannot be explained this way. No local measurement along either path reveals the magnetic flux enclosed between them. Only the closed-loop integral $\oint A_\mu\,dx^\mu$ captures the relevant information, because the information is topological rather than geometric in the local sense.
+
+\paragraph{Observational level: a shared structure with an internal distinction.}
+Despite these differences, both observables share a common structural feature: neither is accessible from a single local measurement at a single point. Both require comparing two extended histories---two paths, two trajectories, two integrated records. This is precisely what it means to say that line integrals constitute a \emph{missing observational layer}: they capture information that exists between local measurements, in the accumulated record of traversal. The derivative-order mismatch between gauge theory and gravity does not disappear at this layer; rather, it reappears as a distinction \emph{within} the layer itself. The Shapiro delay belongs to the connection-based, curvature-generated class; the Aharonov--Bohm phase belongs to the topological, curvature-independent class.
+
+This distinction also sets the stage for a more precise question that remains open: the Aharonov--Bohm phase is intimately related to holonomy and Wilson loops, while the Shapiro delay is not. Whether a unified formal classification of line-integral observables can encompass both cases---without erasing the difference between them---is the future direction identified in Section~\ref{sec:conclusion}.
+
+% ========================================
+% Section 8: Position of the 0-Sphere Model
+% ========================================
+\section{Position of the 0-Sphere Model}
+
+\justifying
+Within this historical context, the 0-Sphere model does not revise the foundational equations of either gauge theory or general relativity. Rather, it articulates explicitly what remained implicit throughout their development: that physically accessible information is fundamentally associated with accumulated phase along finite histories.
+
+In this sense, the model occupies a position that was historically unavailable. It leverages the mature understanding of gauge holonomy and gravitational time dilation to place both within a single line-integral-based observational framework. In doing so, it clarifies how theories that assign physical meaning at different derivative orders can nonetheless be compared without forcing a unification of their geometric structures.
+
+% ========================================
+% Section 9: Conclusion
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+\justifying
+In this Supplement, we have revisited the historical development of gauge theory and general relativity from a specific and previously underemphasized viewpoint: the derivative order at which physical observables are associated with geometric objects.
+
+This comparison makes explicit a structural mismatch that is neither accidental nor problematic, but reflects distinct choices about where physical meaning is assigned within the geometric hierarchy.
+
+In this context, line integrals do not resolve or eliminate this derivative-order mismatch. Rather, they render it transparent by providing a common observational layer in which accumulated phase and history are directly accessible.
+
+By examining the trajectory from Einstein to Yang--Mills, we have shown that the distinction between connection-based and curvature-based physical interpretation was present from the outset, yet remained implicit. General relativity consistently assigned force-like significance to the connection, while gauge theory elevated curvature to the status of physical field strength. This difference was neither accidental nor contradictory, but it was never articulated as a structural principle.
+
+The central claim of this work is not that this mismatch should be eliminated or resolved. Rather, it should be recognized as a defining feature of how different theories organize their geometric and observational content.
+
+From this perspective, line integrals emerge as a missing observational layer. They provide a common language in which accumulated phase, history dependence, and holonomy can be discussed independently of whether curvature or connection plays the primary local role. Once this layer is made explicit, the derivative-order mismatch ceases to be conceptually problematic.
+
+Within this historical context, the 0-Sphere model does not propose a new unification of interactions. Instead, it occupies a position that was historically unavailable: it treats line integrals between finite points as the primary carriers of physical information, thereby accommodating both gauge-theoretic and gravitational phenomena within a single observational framework.
+
+The contribution of this Supplement is therefore interpretive rather than dynamical. By making explicit a structural distinction that remained implicit throughout the development of modern field theory, it clarifies why line-integral-based formulations are not artificial constructions, but natural continuations of ideas that were present, though unarticulated, from the beginning. In this sense, the derivative-order mismatch is not a flaw to be corrected, but a feature to be understood.
+
+A further conceptual clarification remains open. While line integrals appear naturally in both gauge theory and gravity, the present discussion has focused on their observational role rather than on their formal classification within existing geometric constructs such as holonomy or Wilson loops. A precise comparison between the line-integral observational layer articulated here and established notions of holonomy constitutes an important direction for future work. Such an analysis would clarify whether the present framework represents a reinterpretation of known structures or a genuinely distinct organizational principle within field theory.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+This work was conducted independently by the author. No external collaborations or community discussions contributed directly to the development of the ideas presented here. During preparation, large language models were used solely for assistance in textual organization and clarity. All physical interpretations, judgments, and conclusions remain entirely the responsibility of the author.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamura18067760}
+S.~Hanamura, ``Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18067760}{https://doi.org/10.5281/zenodo.18067760}
+
+\bibitem{hanamura18135855}
+S.~Hanamura, ``From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18135855}{https://doi.org/10.5281/zenodo.18135855}
+
+\bibitem{hanamura18203433}
+S.~Hanamura, ``Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov--Bohm Effect, Berry Phase, and Wilson Loops,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{https://doi.org/10.5281/zenodo.18203433}
+
+\bibitem{Einstein1916}
+A.~Einstein,
+``The Foundation of the General Theory of Relativity,''
+\textit{Annalen der Physik} \textbf{49}, 769 (1916).
+
+\bibitem{Weyl1918}
+H.~Weyl,
+``Gravitation und Elektrizit\"at,''
+\textit{Sitzungsberichte der Preussischen Akademie der Wissenschaften} (1918).
+
+\bibitem{Cartan1923}
+\'E.~Cartan,
+``Sur les vari\'et\'es \`a connexion affine et la th\'eorie de la relativit\'e g\'en\'eralis\'ee,''
+\textit{Annales Scientifiques de l'\'Ecole Normale Sup\'erieure} \textbf{40}, 325 (1923).
+
+\bibitem{YangMills1954}
+C.~N.~Yang and R.~L.~Mills,
+``Conservation of Isotopic Spin and Isotopic Gauge Invariance,''
+\textit{Physical Review} \textbf{96}, 191 (1954).
+
+\bibitem{AharonovBohm1959}
+Y.~Aharonov and D.~Bohm,
+``Significance of Electromagnetic Potentials in the Quantum Theory,''
+\textit{Physical Review} \textbf{115}, 485 (1959).
+
+\bibitem{Shapiro1964}
+I.~I.~Shapiro,
+``Fourth Test of General Relativity,''
+\textit{Physical Review Letters} \textbf{13}, 789 (1964).
+
+\end{thebibliography}
+
+% ========================================
+% End of Document
+% ========================================
+\end{document}

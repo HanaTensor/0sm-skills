@@ -1,0 +1,681 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % captionsetup[figure]用
+\usepackage{threeparttable} % Table のキャプションを変更
+\usepackage{breqn} %dmath用：数式の自動折り返し
+\numberwithin{equation}{section}% (p.37)
+
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+
+\usepackage{ragged2e}  % for \justifying command
+\usepackage{booktabs}
+
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} %Fig.の注釈を左揃えするためrangedrightを用いる
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+
+\title{Spin from Geometry:\\ Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model}
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{September 13, 2025}
+%\date{\today}
+
+
+% viXra 登録用
+
+%Title:
+% Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model
+
+%Abstract:
+% This paper proposes a conceptual inversion of the conventional hierarchy in quantum mechanics: rather than spin generating Berry phase, we demonstrate that Berry curvature, arising from internal thermodynamic and geometric processes, serves as the generative mechanism for spin-like degrees of freedom in elementary particles. Using the 0-Sphere model, we describe a free electron as a thermodynamically closed system where energy oscillates between two internal kernels without reference to external fields, establishing an intrinsic adiabatic process that traces closed paths in internal parameter space. This cyclic energy transfer induces a Berry geometric phase, characterized by nontrivial holonomy in the internal configuration space, from which spin emerges as a macroscopic manifestation of microscopic geometric dynamics. The framework provides an alternative interpretation of quantum anomalies, particularly the anomalous magnetic moment, as coordinate-dependent manifestations of the same internal Berry phase processes. Through analogy with Foucault pendulum behavior across terrestrial latitudes, we demonstrate that observers comoving with the internal photon sphere measure the fundamental gyromagnetic ratio g = 2, while external laboratory observers detect additional geometric corrections arising from coordinate system transformations. By reinterpreting Zitterbewegung as the geometric trace of internal thermal motion and extending our previous reversal of Noether's theorem, we demonstrate that conserved thermal flows can generate the quantum symmetries we observe as fundamental particle properties. This framework not only redefines the ontological status of spin but also establishes a geometric foundation for understanding quantum anomalies and provides concrete pathways toward background-independent theories that potentially unify quantum mechanics with general relativity through shared geometric principles.
+
+\begin{abstract}
+This paper proposes a conceptual inversion of the conventional hierarchy in quantum mechanics: rather than spin generating Berry phase, we demonstrate that Berry curvature, arising from internal thermodynamic and geometric processes, serves as the generative mechanism for spin-like degrees of freedom in elementary particles. Using the 0-Sphere model, we describe a free electron as a thermodynamically closed system where energy oscillates between two internal kernels without reference to external fields, establishing an intrinsic adiabatic process that traces closed paths in internal parameter space. This cyclic energy transfer induces a Berry geometric phase, characterized by nontrivial holonomy in the internal configuration space, from which spin emerges as a macroscopic manifestation of microscopic geometric dynamics. The framework provides an alternative interpretation of quantum anomalies, particularly the anomalous magnetic moment, as coordinate-dependent manifestations of the same internal Berry phase processes. Through analogy with \textit{Foucault pendulum behavior} across terrestrial latitudes, we demonstrate that observers comoving with the internal photon sphere measure the fundamental gyromagnetic ratio $g = 2$, while external laboratory observers detect additional geometric corrections arising from coordinate system transformations. By reinterpreting Zitterbewegung as the geometric trace of internal thermal motion and extending our previous reversal of Noether's theorem, we demonstrate that conserved thermal flows can generate the quantum symmetries we observe as fundamental particle properties. This framework not only redefines the ontological status of spin but also establishes a geometric foundation for understanding quantum anomalies and provides concrete pathways toward background-independent theories that potentially unify quantum mechanics with general relativity through shared geometric principles.
+\end{abstract}
+
+
+\maketitle
+
+\section{Introduction} \label{sec:introduction}
+
+In modern quantum theory, spin is treated as an intrinsic degree of freedom of elementary particles, fundamentally linked to representations of the rotation group. Berry phase, on the other hand, arises when a quantum system undergoes an adiabatic and cyclic evolution in parameter space, accumulating a geometric phase independent of the dynamical details~\cite{shapere1989geometric}. The geometric structure underlying quantum evolution has been shown to play a fundamental role in determining observable properties of quantum systems~\cite{anandan1992geometric}. The prevailing understanding assumes that the existence of spin is a prerequisite for the emergence of Berry phase, as exemplified in spin-$\frac{1}{2}$ systems subjected to magnetic field loops.
+
+This paper examines that conventional hierarchy by proposing a reversed conceptual structure. We explore the possibility that Berry phase—or more precisely, its underlying geometric framework—may itself serve as a generative structure from which spin-like internal degrees of freedom can emerge. Rather than treating spin as a primitive input and Berry phase as a derived consequence, we investigate whether geometric phase accumulation, arising from a thermodynamically closed internal process, could instead be the foundational mechanism.
+
+Our approach is grounded in the 0-Sphere model, previously developed to provide a background-independent geometric description of energy transfer within a free electron. This approach builds upon earlier interpretations of Zitterbewegung as reflecting genuine internal geometric structure~\cite{barut1981zitterbewegung}, wherein the oscillatory behavior of electrons emerges from intrinsic spatial dynamics rather than mathematical artifacts. In this model, energy oscillates between two internal structures, denoted as kernel $A$ and kernel $B$, without interaction with external degrees of freedom. This oscillation, interpreted as a purely internal adiabatic process, allows for a redefinition of the time phase and establishes an internally consistent geometric framework in which the conditions for Berry phase accumulation—such as adiabatic cyclicity and closed parameter evolution—are fulfilled intrinsically as a consequence of the system’s thermodynamic configuration, without the need for externally imposed variations.
+
+By extending this framework, we aim to demonstrate how Berry curvature can arise from internal energy dynamics even in the absence of externally imposed parameter variations. Within this view, \textbf{the spin of the electron may not be an axiomatically given attribute, but rather a consequence of deeper geometric and thermodynamic principles.} Furthermore, this geometric interpretation provides an alternative understanding of quantum anomalies, particularly the anomalous magnetic moment, as coordinate-dependent manifestations of the same internal Berry phase processes that generate spin itself.
+
+The theoretical framework developed here draws illuminating parallels with classical geometric phenomena, particularly the coordinate system dependence observed in Foucault pendulum behavior across different terrestrial latitudes. Just as a Foucault pendulum exhibits maximum deflection at polar latitudes while showing no deflection at the equator—despite the underlying spherical geometry remaining constant—the electron's magnetic properties manifest differently depending on the observational reference frame. An observer comoving with the internal photon sphere measures the fundamental gyromagnetic ratio $g = 2$~\cite{hanamura2309.0047}, which corresponds to the intrinsic geometric relation directly arising from the undistorted internal configuration of the system, whereas external laboratory observers detect additional contributions resulting from coordinate transformation effects that constitute the anomalous magnetic moment.
+
+Such a perspective may not only broaden the theoretical understanding of internal degrees of freedom, but also provide novel insights into the foundations of symmetry, conservation, and quantization. The mathematical rigor established through topological and differential geometric principles suggests potential pathways toward a unified treatment of quantum mechanics and general relativity, wherein both gravitational and quantum effects emerge from similar geometric structures observed from different coordinate systems and energy scales.
+
+This paper is organized as follows: Section~\ref{sec:motivation} establishes the theoretical foundation for reversing the conventional spin-Berry phase hierarchy through our previous work on thermal conservation and background independence. Section~\ref{sec:discussion} presents the core theoretical framework, demonstrating how Berry curvature emerges from internal geometric dynamics (\ref{subsec:emergent_spin}), and how spin arises as a manifestation of holonomy in the internal thermogeometric structure (\ref{subsec:emergent_spin_holonomy}). It then establishes the velocity threshold for classical-quantum transition (\ref{subsec:velocity_threshold}), and provides the thermogeometric interpretation of state functions (\ref{subsec:thermogeometric}). The geodesic Lagrangian formalism and geometric phase criteria are developed in Sections~\ref{subsec:geodesic_lagrangian} and~\ref{subsec:geometric_criteria} respectively, followed by the analysis of anomalous magnetic moment as observable manifestation of internal Berry phase (\ref{subsec:anomalous_magnetic}). Section~\ref{sec:conclusion} synthesizes the implications for fundamental physics and experimental predictions. The mathematical foundation derived from internal energy dynamics is presented in the Appendix~\ref{sec:appendix}.
+
+
+\section{Motivation} \label{sec:motivation}
+
+The theoretical hierarchy that places spin as a prerequisite for geometric phase has rarely been questioned. However, a closer examination of geometric frameworks, particularly in the context of closed thermodynamic systems, suggests an alternative interpretation. If the accumulation of geometric phase is understood as a manifestation of internal structure and energy flow, then it becomes plausible to consider it not merely as a consequence of spin, but as a potential generative source.
+
+In our previous work~\cite{hanamura2506.0119}, we have proposed a reversal of the conventional reading of Noether's theorem. Instead of assuming symmetry as the origin of conservation laws, we interpreted conservation itself—specifically the conservation of thermal energy in a closed system—as the origin of emergent symmetry. This inversion allowed the reconstruction of spherical harmonic structures, and suggested that the internal thermodynamic behavior of a particle could serve as a geometrical ground for its observable properties.
+
+Furthermore, in a prior study on background independence~\cite{hanamura2501.0130}, we introduced the 0-Sphere model, in which energy oscillates between two internal kernels, $A$ and $B$, without any reference to an external coordinate frame. This model captures the essence of a self-contained thermodynamic process, in which energy transfer occurs along a geodesic in an internal manifold. We interpreted this as a geometric realization of time phase evolution, distinct from conventional temporal parameterizations.
+
+The present work is motivated by the possibility that such internal, adiabatic oscillations may inevitably give rise to a Berry geometric structure. Rather than assuming spin as an input, we investigate whether the topology and geometry inherent in the 0-sphere configuration could induce a nontrivial holonomy that manifests as spin-like behavior. In this way, spin may be interpreted as a secondary feature—emergent from a deeper thermodynamic-geometric substrate.
+
+This approach is further supported by our interpretation of Zitterbewegung in terms of internal thermal motion, wherein the oscillatory behavior of an electron at the Compton scale is viewed not as a quantum anomaly, but as a deterministic and geometric thermal process~\cite{hanamura1811.0312}. The unification of geometric phase, spin emergence, and thermal time evolution presents a coherent conceptual framework, grounded in background-independent dynamics and governed by internal conservation laws.
+
+
+\section{Discussion} \label{sec:discussion}
+
+The theoretical framework presented in this section builds upon rigorous mathematical foundations developed in the Appendix, which demonstrates how Berry phase emerges from classical thermodynamic processes (Section~\ref{sec:appendix}). Readers seeking detailed mathematical derivations are encouraged to consult the Appendix alongside the conceptual discussions presented here.
+
+\subsection{Geometric Reinterpretation: Parallels with Einstein's Gravitational Revolution} \label{subsec:geometric_reinterpretation}
+
+The conceptual reversal proposed in this work—where Berry curvature serves as the generative mechanism for spin rather than its consequence—bears resemblance to Einstein's geometric approach in general relativity. This parallel illustrates the theoretical significance of treating internal geometric processes as foundational to quantum structure.
+
+In Newton's framework, gravity was understood as a fundamental force acting between massive objects across space, with gravitational effects being secondary consequences of this primary force. Einstein's approach involved recognizing that this causal hierarchy could be inverted: rather than gravity causing spacetime curvature, spacetime geometry itself manifests as what we observe as gravitational phenomena.
+
+Our theoretical approach follows an analogous inversion in the quantum domain. Conventional quantum mechanics treats spin as a fundamental intrinsic property of elementary particles, with Berry phase arising as a secondary effect when such spinning systems undergo adiabatic evolution in parameter space. We propose instead that this hierarchy should be reversed: internal geometric processes—specifically, the Berry curvature arising from thermodynamic energy circulation within the electron's 0-Sphere structure—serve as the primary reality, with spin emerging as the macroscopic manifestation of this deeper geometric substrate.
+
+The mathematical parallels extend beyond mere analogy. Both theories employ differential geometry as their foundational language, with curvature tensors serving as the fundamental descriptors of physical reality. In general relativity, the Einstein field equations relate spacetime curvature to energy-momentum distribution. In our framework, the Berry curvature arising from internal energy circulation determines the observable spin properties through analogous geometric relationships.
+
+Perhaps most significantly, both approaches resolve apparent paradoxes through geometric reinterpretation. Einstein's theory explained the equivalence principle—the mysterious equality of gravitational and inertial mass—as a geometric necessity rather than a coincidental numerical relationship. Similarly, our geometric approach reinterprets the anomalous magnetic moment not as a perturbative quantum electrodynamic correction requiring infinite series expansions, but as a geometrically inevitable outcome of applying coordinate transformations to the internal accumulation of geometric phase. This shift parallels the reinterpretation of the equivalence principle in general relativity, and arises from a reversal of conventional assumptions: rather than treating spin as the source of geometric phase, we identify the internal thermodynamic structure responsible for geometric phase as the origin of spin-like effects—including its anomalous deviation.
+
+The observational frame-dependence inherent in both theories provides another crucial parallel. In general relativity, the same spacetime geometry appears differently to observers in different coordinate systems or states of motion, leading to coordinate-dependent descriptions of identical physical reality. Our theory suggests that the fundamental geometric processes within the electron similarly appear differently depending on the observational reference frame—with internal observers measuring $g = 2$ while external laboratory observers detect the anomalous magnetic moment through the same geometric effects observed from different coordinate systems.
+
+This parallel suggests that the unification of quantum mechanics with general relativity may not require fundamental modifications to either theory, but rather recognition of their shared geometric foundation. Both gravitational and quantum phenomena may emerge as different observational perspectives of the same underlying geometric reality, observed from different coordinate systems and energy scales. The 0-Sphere model thus represents not merely a reinterpretation of quantum spin, but a step toward the geometric unification that has long been sought in fundamental physics.
+
+
+\subsection{Emergent Spin from Internal Geometric Dynamics} \label{subsec:emergent_spin}
+
+The emergence of spin from internal Berry phase accumulation represents a further development in a geometric reinterpretation begun in our previous work~\cite{hanamura2506.0072}, where we demonstrated that electron spin arises not from abstract quantum properties but from real vector quantities associated with internal photon sphere dynamics. This vectorial motion between thermal kernels generates actual angular momentum through geometric circulation, providing a classical foundation for what conventional theory treats as an intrinsic quantum attribute.
+
+\textbf{This vectorial circulation forms the physical basis for the internal Berry curvature, which in turn gives rise to the observed geometric phase structure associated with spin.}
+
+The 0-Sphere model~\cite{hanamura2501.0130} posits that a free electron possesses an internal structure composed of two distinct kernels, $A$ and $B$, both characterized as thermal potential energy (TPE) reservoirs. (This two-kernel configuration is not an arbitrary assumption, but a physical and mathematical necessity arising from thermodynamic balance and the Dirac equation structure, as detailed in Appendix~\ref{subsec:two_kernel_necessity}.) Energy oscillates between these kernels through radiative flux that becomes manifest as kinetic energy within the photon sphere during the transfer process. This oscillation occurs in the absence of any interaction with external systems, thereby establishing the conditions for a thermodynamically closed system. The energy transfer from kernel $A$ to kernel $B$ proceeds along an internal geodesic path, with the radiative flux serving as the kinetic energy carrier that mediates the thermal exchange. This motion, being internally reversible and isolated from external entropy exchange, constitutes an adiabatic oscillator system governed by internal degrees of freedom. The entire process may be regarded as an adiabatic oscillatory process in a generalized, geometric sense, where the internal geodesic motion preserves the system's thermodynamic isolation while enabling periodic energy redistribution between the TPE kernels.
+
+Unlike traditional adiabatic processes that depend on slow external parameter variations, the adiabaticity in this context is intrinsic—governed by the internal geometry of the system. The oscillation between kernels defines a periodic structure in the internal configuration space, and this periodicity gives rise to a time phase evolution that is not imposed externally but generated by the internal dynamics themselves. This approach builds on prior work in which the time phase was interpreted as a result of thermal-geometric circulation within the electron~\cite{hanamura2411.0117}.
+
+\textbf{This geodesic motion of the photon sphere creates a temporally closed adiabatic loop}~\cite{hanamura2507.0128}, in which the manifestation of kinetic energy strictly follows the geometric constraints defined by the internal manifold’s curvature. The periodic nature of this process renders Zitterbewegung as a time-closed adiabatic oscillation, with each cycle constituting a geometrically compelled traversal of the internal configuration space—a trajectory that emerges from the internal thermodynamic structure rather than being externally imposed.
+
+The internal motion of the electron—traditionally modeled as Zitterbewegung—is reinterpreted in this framework as a genuine internal dynamic process. The geometric interpretation of Zitterbewegung as arising from real internal structure, rather than as a mathematical byproduct of the Dirac equation, has been previously explored~\cite{barut1981zitterbewegung}. As demonstrated in our foundational work~\cite{hanamura1811.0312}, the oscillation on the scale of the Compton wavelength represents the geometric trace of thermal potential energy flow between internal kernels. This interpretation reframes Zitterbewegung not as a quantum anomaly but as a geometrically constrained and thermodynamically driven phenomenon—a signature of cyclic internal transport in a closed manifold reflecting the intrinsic architecture of the electron. 
+
+When this internal oscillatory process is examined within a geometric framework, it exhibits properties formally analogous to Berry phase accumulation. Recent comprehensive studies have demonstrated that Berry curvature can significantly influence electronic properties, particularly those related to spin degrees of freedom~\cite{xiao2010berry}. The closed path in internal parameter space is traced by the radiative energy transfer between TPE kernels—specifically, as thermal potential energy from kernel $A$ transforms into kinetic energy within the photon sphere and subsequently reconverts to thermal potential energy at kernel $B$. This cyclic transformation can be interpreted as defining a fiber bundle over the internal state manifold, where the fiber represents the instantaneous energy configuration and the base manifold parameterizes the oscillation phase.
+
+As the system undergoes adiabatic cycling through this internal energy redistribution, it accumulates a geometric phase associated with parallel transport along this closed path in configuration space. This is not merely an analogy to known Berry phase systems~\cite{berry1984quantal}, but rather a constructive route toward generating a Berry-like structure from purely internal dynamics, where the adiabatic parameter is the internal oscillation phase rather than an externally varied field. The geometric foundations of such phase accumulation processes have been extensively developed in the literature~\cite{shapere1989geometric}, providing theoretical support for our interpretation of internal geometric dynamics as generators of observable quantum properties. The formalism developed by Wilczek and Zee~\cite{wilczek1984appearance}, which generalizes Berry phase to systems with degenerate internal states, provides further theoretical support for this interpretation. In particular, the multi-level structure of the dual-kernel system suggests the emergence of non-Abelian holonomy, as the internal energy transport cycles through dynamically coupled configurations that cannot be described by a single scalar phase.
+
+Crucially, \textbf{this geometric phase is not predicated on the preexistence of spin.} Instead, the model suggests that what we observe as spin may be the macroscopic manifestation of holonomy in the internal thermodynamic-geometric structure of the particle. The directionality, periodicity, and quantization of spin could then be reinterpreted as emergent from the topological properties of the 0-sphere configuration space. This idea aligns with our previous reversal of Noether's theorem~\cite{hanamura2506.0119}, where conserved thermal flows generated the symmetry, rather than vice versa.
+
+Topological phases of matter provide further evidence that Berry curvature can serve as a proxy for spin-related structure. In the context of quantum Hall systems and topological insulators, spin-like edge states emerge due to nontrivial Berry curvature in momentum space~\cite{hasan2010colloquium}. These examples reinforce the plausibility of interpreting spin not as a primitive variable, but as a consequence of geometric and topological features of an underlying system.
+
+\subsection{Spin as Emergent Holonomy from Internal Geometry} \label{subsec:emergent_spin_holonomy}
+
+This view resonates with insights from the theory of geometric phases in electronic systems. As Vanderbilt notes, 
+``the fact that the Berry phase is gauge-invariant modulo \(2\pi\) is not surprising—it reflects our experience in discrete cases. But its significance is profound. While quantum probabilities are proportional to the squared norm of amplitudes—leading to the impression that phase is irrelevant—the phase can cause physically observable interference effects.''~\cite{vanderbilt2018berry}
+
+Although standard interpretations no longer dismiss the role of phase entirely, it is still common to regard spin as a primitive input. By contrast, in our model, the phase is not a passive byproduct but the central dynamical quantity that causes spin. Internal energy circulation between thermal kernels generates a nontrivial holonomy that, through the structure of the 0-sphere, gives rise to spin as a topologically and thermodynamically protected emergent quantity.
+
+
+By treating the Berry curvature as a consequence of internal thermal dynamics~\cite{hanamura2507.0128}, the present model bridges concepts from geometric phase theory, thermodynamics, and quantum structure. It provides a physically grounded mechanism through which internal degrees of freedom can become observable, not through quantization imposed a priori, but as a geometrically determined consequence of internal thermal processes. This perspective offers not only a new foundation for understanding spin, but also an alternative approach to background-independent modeling of elementary particles.
+
+The mathematical foundation for this energy conservation and the derivation of the sinusoidal state function from temperature gradients is rigorously established in Sections~\ref{subsec:energy_conservation} and~\ref{subsec:sinusoidal_derivation} of the Appendix, with the energy circulation dynamics illustrated in Figure~\ref{fig:energy_conservation}.
+
+
+\subsection{Classical-Quantum Transition and the Velocity Threshold} \label{subsec:velocity_threshold}
+
+The emergence of angular momentum from internal dynamics, as described by the Thomas precession mechanism~\cite{hanamura2309.0047,hanamura2501.0130}, provides a structurally grounded framework in which the transition from classical to quantum behavior emerges from internal rotational dynamics. The internal motion of the photon sphere, oscillating between thermal kernels with a sinusoidal velocity profile, gives rise to an angular velocity of the form:
+\begin{equation}
+\boldsymbol{\Omega}(t) = -\frac{v_0^2 \omega}{4c^2} \sin(2\omega t) \cdot \boldsymbol{e}_z. \label{eq:omega_rewrite}
+\end{equation}
+For the detailed derivation of this angular velocity expression, see Section~\ref{subsec:angular_momentum} in the Appendix.
+
+This expression reveals a critical dependence on the amplitude \( v_0 \) of the internal motion. In classical systems where \( v_0 \ll c \), the factor \( v_0^2/c^2 \) effectively suppresses any significant angular velocity, rendering relativistic effects negligible. Under such conditions, the Thomas precession becomes imperceptible, consistent with the observed absence of spin-like behavior in macroscopic oscillators such as pendulums or acoustic cavities. In this classical regime, the geometric phase accumulated over an oscillation cycle is vanishingly small, and the system's behavior is well described by Newtonian mechanics.
+
+In contrast, when the internal velocity approaches relativistic values, the angular velocity in Equation~\eqref{eq:omega_rewrite} becomes non-negligible. In particular, for an electron exhibiting Zitterbewegung motion, the internal velocity has been calculated to reach approximately 4\% of the speed of light~\cite{hanamura2501.0130}. Although subluminal, this velocity is sufficiently large for the \( v_0^2/c^2 \) term to yield a measurable angular velocity, placing the system in a transition regime where classical approximations begin to fail, and quantum effects become essential.
+
+This threshold behavior suggests that the emergence of spin can be interpreted as a dynamical phase transition driven by the internal velocity of energy transport within the photon sphere. The angular momentum arising from the cross product of acceleration and velocity, modulated by the relativistic factor \( 1/2c^2 \), acts as an order parameter that distinguishes between classical and quantum phases of motion. The harmonic form of \( \Omega(t) \sim \sin(2\omega t) \) implies that the angular momentum oscillates at twice the fundamental frequency of the internal motion, reinforcing its connection to the spin-1/2 structure observed in fermionic particles.
+
+The mathematical structure of Equation~\eqref{eq:omega_rewrite} thus serves not only as a descriptor of internal angular dynamics but also as a boundary condition for the onset of quantum mechanical behavior. The internal Berry curvature becomes geometrically meaningful only when this angular motion is sufficiently strong, suggesting that quantum geometry itself is not absolute but emerges under specific dynamical constraints. This interpretation places the 0-Sphere model within a broader physical paradigm in which quantum structure is not a foundational axiom, but a high-velocity limit of thermodynamically consistent geometric dynamics.
+
+By establishing this velocity-dependent threshold, the model provides a physical criterion for the onset of geometric phase accumulation, angular momentum quantization, and ultimately spin. It delineates the boundary between classical reversibility and quantum holonomy, offering a testable prediction: spin emerges not merely from algebraic quantization, but from the relativistically modulated dynamics of internal motion.
+
+Figure~\ref{fig:internal_motion} illustrates the critical relationship between internal velocity amplitude and angular velocity generation. The sinusoidal profiles shown become geometrically significant only when the velocity approaches relativistic values, establishing the threshold condition for quantum behavior emergence.
+
+\begin{figure*}[t!]
+    \centering 
+    \includegraphics[width=\textwidth]{f-double_frequency.png}
+    \caption{\justifying \textbf{Internal motion components and Thomas precession in the 0-Sphere model.} The three panels demonstrate the kinematic foundation for angular momentum emergence from internal thermodynamic circulation. \textbf{Top panel:} Velocity profile $v = \cos(\omega t)$ of the photon sphere oscillating between thermal kernels, exhibiting fundamental period $2\pi$. \textbf{Middle panel:} Acceleration $a = -\sin(\omega t)$ with identical period, representing the thermal gradient-driven dynamics described by Equation~\eqref{eq:temperature_gradient}. \textbf{Bottom panel:} Angular velocity $\Omega(t) = -\frac{v_0^2 \omega}{4c^2} \sin(2\omega t)$ derived from Thomas precession formula (Equation~\eqref{eq:thomas_precession}), exhibiting double-frequency oscillation with period $\pi$. This frequency doubling represents the geometric mechanism through which internal thermal circulation generates the characteristic 720-degree ($4\pi$) periodicity of spin-1/2 particles. The angular velocity amplitude is proportional to $v_0^2/c^2$, establishing the velocity threshold condition for classical-to-quantum transition discussed in Section~\ref{subsec:velocity_threshold}. When $v_0 \ll c$ (classical regime), the angular velocity vanishes, consistent with the absence of spin behavior in macroscopic oscillators. When $v_0$ approaches relativistic values (~4\% of light speed for electron Zitterbewegung), the angular velocity becomes non-negligible, triggering the emergence of quantum mechanical properties through pure geometric and thermodynamic principles.}
+    \label{fig:internal_motion}
+\end{figure*}
+
+\clearpage
+
+\subsection{Thermogeometric Interpretation of the State Function \texorpdfstring{$\psi(x)$}{}} \label{subsec:thermogeometric}  
+% ← 今回の補強段落（状態関数の定義と一般性の確保）
+
+It is important to clarify the nature of the state function $\psi(x)$ used in the geometric phase formalism of this work. While conventional Berry phase theory often assumes that $\psi(x)$ is a solution to the Schrödinger equation with an externally controlled Hamiltonian, the present framework does not rely on such assumptions. Instead, $\psi(x)$ in the 0-Sphere model should be understood as a representation of the internal thermodynamic state of the photon sphere as it oscillates between kernels $A$ and $B$. 
+
+This state function may take the form of a classical harmonic oscillator, such as \( \psi(x) \sim \sin(\omega \tau) \)~\cite{hanamura1811.0312}, where \( \tau \) is the internal time phase associated with energy exchange. This sinusoidal form arises as a direct consequence of the velocity potential of radiative flux between thermal kernels, as demonstrated in our previous derivation of photon sphere kinematics~\cite{hanamura1811.0312}, where the kinetic energy of internal energy transport follows \( u_\gamma^* = -E_0 \sin \theta \) (see Equation~\eqref{eq:photon_velocity} in the Appendix for detailed derivation). The key requirement is that \( \psi(x) \) evolves smoothly over the internal parameter space and traces a closed loop over one full oscillation cycle. This ensures that the Berry connection \( \langle \psi | \nabla_x \psi \rangle \) and curvature are well-defined, enabling geometric phase accumulation. The complete mathematical derivation of this sinusoidal form from thermal potential energy gradients is presented in Section~\ref{subsec:sinusoidal_derivation}, demonstrating the physical necessity rather than mathematical convenience of this functional form.
+
+From this perspective, the function $\psi(x)$ serves not as a probabilistic quantum amplitude but as a thermogeometric descriptor of internal energy flow. The emergence of Berry curvature and associated holonomy is thereby rooted in the geometry of internal energy redistribution, rather than in the quantized solutions of an externally driven Hamiltonian system. This generalization aligns with geometric mechanics~\cite{shapere1989geometric} and supports the broader thesis that quantum-like structure can arise from internally governed classical cycles under geometric constraints.
+
+
+\begin{table*}[t!]
+\centering
+\caption{Comparison of standard geometric phase conditions and their realization in the 0-Sphere model.}
+\label{tab:geometry_summary}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{5.5cm}p{5.5cm}}
+\toprule
+\textbf{Mathematical Requirement} & \textbf{Conventional Setting} & \textbf{0-Sphere Model Realization} \\
+\midrule
+Differentiable manifold & Parameter space of external Hamiltonian & Internal configuration space of photon sphere (0-Sphere) \\
+\addlinespace[0.3cm]
+Closed loop (cycle) & Slow adiabatic change in external field & Periodic energy exchange between thermal kernels $A$ and $B$ \\
+\addlinespace[0.3cm]
+Smooth state function $\psi(x)$ & Quantum eigenstate evolving under Schrödinger equation & Harmonic oscillator form $\psi(x) \sim \sin(\omega \tau)$ derived from internal energy flow~\cite{hanamura1811.0312} \\
+\addlinespace[0.3cm]
+Connection and holonomy & Berry connection and curvature on parameter space & Internal radiative flux inducing thermal-geometric holonomy \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+\subsection{Geodesic Lagrangian and Entropy Generation} \label{subsec:geodesic_lagrangian}
+
+The internal motion between kernels $A$ and $B$ can be interpreted as a geodesic process governed by an effective Lagrangian~\cite{hanamura2506.0119}. Although not explicitly derived in earlier works, the geometric structure of the 0-sphere configuration suggests a form such as:
+\begin{equation}
+\mathcal{L} = \frac{1}{2} g_{\mu\nu}(x) \frac{dx^\mu}{d\tau} \frac{dx^\nu}{d\tau} - V(x), \label{eq:geo_lagrangian}
+\end{equation}
+where $g_{\mu\nu}(x)$ is an effective metric over the internal 0-Sphere, $V(x)$ is a potential associated with thermal potential energy (TPE) localized in kernel $A$, and $\tau$ is the internal time phase. The motion follows a periodic trajectory such that:
+\begin{equation}
+x(\tau + T) = x(\tau), \label{eq:cycle}
+\end{equation}
+implying that the energy transfer is a closed adiabatic cycle in the internal space.
+
+This cyclic motion provides the mathematical foundation for the emergence of a geometric phase. The relationship between cyclic evolution and geometric phase accumulation is fundamental to understanding how internal dynamics generate observable properties~\cite{anandan1992geometric}. If the internal parameter space $\mathcal{M}$ between kernels $A$ and $B$ admits a well-defined loop, and if the quantum state of the photon sphere $\psi(x)$ traverses this loop adiabatically, then the Berry phase is accumulated as:
+\begin{equation}
+\gamma = i \oint_C \langle \psi(x) | \nabla_x \psi(x) \rangle \cdot dx. \label{eq:berry}
+\end{equation}
+This expression is interpreted as a geometric effect induced by internal thermal change, without the need for external driving fields. The rigorous connection between this geometric phase integral and the underlying thermodynamic processes is established in Section~\ref{subsec:berry_connection}, which bridges classical thermal circulation to Berry phase formalism.
+
+Although the kernels $A$ and $B$ are discrete points on a 0-sphere $S^0$~\cite{hanamura1811.0312,hanamura2501.0130}, the internal motion connecting them forms a continuous cyclic path. This motion can be regarded as a one-dimensional loop embedded in a higher-dimensional internal parameter manifold $\mathcal{M}$. Consequently, the geometric phase integral in Eq.~\eqref{eq:berry} remains applicable, with the loop $C$ traced by the photon-sphere's motion in this internal space. The discrete 0-sphere serves as a topological skeleton, while the geodesic oscillation provides the smooth structure necessary for Berry phase accumulation.
+
+The two equations \eqref{eq:geo_lagrangian} and \eqref{eq:berry} together constitute a compact theoretical framework: the first describes internal adiabatic motion in a geometric language, while the second captures the geometric phase accumulated during such motion. Within this framework, spin is no longer a fundamental input but an emergent property tied to the geometry and periodicity of internal thermal processes.
+
+The periodic trajectory in Eq.~\eqref{eq:cycle} implies a closed adiabatic cycle in which no entropy is generated. This thermodynamic reversibility ensures that the Berry phase in Eq.~\eqref{eq:berry} remains stable across repeated cycles. Hence, the emergence of spin from the internal geometric phase is not only topologically but also thermodynamically protected.
+
+\newpage
+
+\subsection{Geometric Phase Criteria in the 0-Sphere Model} \label{subsec:geometric_criteria}
+
+This section provides a summary of the geometric and topological conditions necessary for Berry phase emergence, with specific attention to how these are realized within the 0-Sphere model. It is designed both as a recapitulation and as a conceptual bridge for future investigations seeking to connect thermodynamic particle models with differential geometry.
+
+The following conditions are widely regarded as prerequisites for the accumulation of a geometric phase in adiabatic systems:
+
+\begin{itemize}
+  \item The existence of a differentiable manifold \( \mathcal{M} \) that serves as the parameter space over which the system evolves.
+  \item A closed cyclic trajectory (loop) in \( \mathcal{M} \), traced during adiabatic evolution.
+  \item A smoothly varying state function \( \psi(x) \) that remains single-valued and continuous over \( \mathcal{M} \).
+  \item A well-defined connection over the manifold, enabling parallel transport and holonomy, from which the Berry phase is derived.
+\end{itemize}
+
+As summarized in Table~\ref{tab:geometry_summary}, these mathematical and geometric requirements—typically satisfied in externally driven quantum systems—are intrinsically realized through the internal geometric and thermodynamic architecture of the 0-Sphere model.
+
+By organizing these elements explicitly, we clarify that the 0-Sphere model does not merely mimic the formal structure of Berry phase theory, but reconstructs it from within a thermodynamically closed system. This internal derivation establishes a new conceptual route for geometric phase generation—grounded not in external fields but in the intrinsic circulation of thermal potential energy. 
+
+
+\subsection{Anomalous Magnetic Moment as the Observable Manifestation of Internal Berry Phase} \label{subsec:anomalous_magnetic}
+
+The theoretical framework developed in this work provides a novel interpretation of the anomalous magnetic moment of the electron, \textbf{positioning it not as a quantum electrodynamic correction but as the direct observable consequence of internal Berry phase accumulation within the 0-sphere structure.} This reinterpretation represents a conceptual refinement of our previous theoretical approach and requires careful clarification of the causal relationships involved.
+
+In our earlier work, we established that electron spin emerges from intrinsic internal structure rather than being a fundamental given property~\cite{hanamura2309.0047}. Building upon our reversal of Noether's theorem~\cite{hanamura2506.0119}, we demonstrated that conserved thermal flows within the electron's internal architecture generate the symmetries and quantum numbers we observe as fundamental particle properties. This perspective inverted the conventional hierarchy by showing that spin arises from Berry-like geometric processes within the particle's thermodynamic structure, rather than Berry phase emerging as a consequence of preexisting spin.
+
+However, the present analysis necessitates a subtle but crucial conceptual refinement. While we maintain that geometric phase accumulation from internal energy circulation serves as the fundamental generative mechanism for spin-like behavior, we must distinguish between the pure geometric effects observed within the electron's internal reference frame and the distorted observations made from external laboratory frames. In our previous investigations of the 0-Sphere model~\cite{hanamura2501.0130}, we demonstrated that an observer comoving with the photon sphere would measure a gyromagnetic ratio of exactly $g = 2$, consistent with the Dirac equation solutions and representing the undistorted geometric relationship between internal angular momentum and magnetic moment.
+
+The key insight developed in this subsection is that \textbf{the Berry phase distortions responsible for generating what we observe as anomalous magnetic moment arise specifically when the electron's internal Zitterbewegung motion is observed from external coordinate systems.} These external observations necessarily involve relativistic transformations that introduce the geometric phase corrections described by the mathematical framework developed below.
+
+However, external observers in laboratory reference frames measure a gyromagnetic ratio that deviates from this fundamental value by approximately $0.1\%$, corresponding to the well-known anomalous magnetic moment $a_e = (g-2)/2 \approx 0.0011596$. According to the theoretical predictions developed in previous work~\cite{hanamura2309.0047}, this deviation arises from the relativistic corrections that must be applied when translating the internal geometric phase accumulation into externally observable quantities. The present theory suggests that this represents not a fundamental quantum electrodynamic effect, but rather a geometric consequence of reference frame transformations between the internal photon sphere dynamics and external laboratory measurements.
+
+To understand this coordinate system dependence, the analogy with \textbf{Foucault pendulum behavior} proves particularly illuminating. A Foucault pendulum placed at the North Pole exhibits maximum deflection, completing a full 360-degree rotation over 24 hours as the Earth rotates beneath it. At intermediate latitudes, the deflection decreases proportionally to $\sin\phi$, where $\phi$ is the latitude. Most significantly, a Foucault pendulum placed precisely at the equator exhibits no deflection whatsoever, remaining in its original plane of oscillation despite the Earth's rotation.
+
+This \textit{latitude dependence} does not indicate the absence of geometric effects at the equator. The Earth remains spherical at all latitudes, and the underlying curvature that generates the Foucault pendulum deflection through parallel transport remains unchanged. Rather, the equatorial placement represents a special coordinate system where the geometric effects, while universally present, happen to cancel out in the observed motion. The pendulum at the equator experiences the same Berry curvature as pendulums at other latitudes, but the specific geometric configuration results in zero net observable deflection.
+
+In direct analogy, the measurement of $g = 2$ by an observer comoving with the photon sphere represents the ``equatorial'' observation of the electron's magnetic properties. The internal Berry curvature resulting from thermal energy circulation between kernels $A$ and $B$ remains universally present, but the coordinate system of the internal observer aligns precisely with the symmetry axis of the system’s internal dynamics. In this optimal geometric configuration, relativistic correction terms inherently cancel over the full cycle---not by external design, but as a direct consequence of the internal system's structural symmetries and conserved thermodynamic flow.
+
+\textbf{External laboratory observers, by contrast, occupy coordinate systems analogous to high-latitude positions for Foucault pendulums.} They observe the same underlying Berry curvature, but their external vantage point introduces coordinate transformation effects that manifest as the measurable anomalous magnetic moment. The geometric phase accumulated by the internal energy circulation appears distorted when projected into external reference frames, much as the Foucault pendulum deflection increases with latitude due to the changing geometric relationship between the pendulum's motion and the Earth's rotation axis. The topological protection of this geometric phase structure and its unification with relativistic quantum mechanics are mathematically demonstrated in Sections~\ref{subsec:topological_protection} and~\ref{subsec:unification}.
+
+This perspective clarifies that both electron spin and the anomalous magnetic moment arise from the same universal Berry phase structure, but manifest differently depending on the observational coordinate system. The total geometric phase can be decomposed as:
+
+\begin{equation}
+\gamma_{\text{total}} = \gamma_{\text{intrinsic}} + \gamma_{\text{anomalous}}, \label{eq:phase_decomposition}
+\end{equation}
+where $\gamma_{\text{intrinsic}}$ represents the coordinate-invariant Berry phase that generates the fundamental spin properties observed as $g = 2$ in the internal frame, and $\gamma_{\text{anomalous}}$ represents the coordinate-dependent correction that emerges under external observation.
+
+The analogy with Global Positioning System corrections proves illuminating in understanding the mathematical structure of these corrections. GPS satellites experience two competing relativistic effects that partially cancel each other. Special relativistic time dilation due to orbital velocity produces a clock rate correction of approximately $-7.2$ microseconds per day, while general relativistic gravitational time dilation yields a correction of approximately $+45.9$ microseconds per day. The net effect, requiring a total correction of approximately $+38.7$ microseconds per day, emerges from the partial cancellation of these two contributions.
+
+
+\begin{table*}[t!]
+\centering
+\caption{Core theoretical features of the 0-Sphere model and their consequences for quantum structure.}
+\label{tab:structural_features}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{5.5cm}p{5.5cm}}
+\toprule
+\textbf{Key Theoretical Feature} & \textbf{Underlying Mechanism} & \textbf{Relevance to Quantum Structure} \\
+\midrule
+Causal hierarchy reversal & Berry curvature leads to spin emergence & Spin arises as a derived effect of internal geometry \\
+\addlinespace[0.3cm]
+Velocity threshold transition & Classical-to-quantum boundary at $v_0^2/c^2$ & Quantum effects emerge beyond critical internal speed \\
+\addlinespace[0.3cm]
+Zero-integrated torque & $\int_0^T \tau(t)\,dt = 0$ & Angular momentum sustained without external input \\
+\addlinespace[0.3cm]
+Thermal gradient origin & State function defined via $\nabla T = E_0\sin\theta$ & Geometric phase derives from thermodynamic flux \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+Similarly, the anomalous magnetic moment can be understood as the residual effect remaining after two competing geometric contributions partially cancel within the electron's internal structure. \textbf{The first contribution arises from Lorentz contraction effects} associated with the high-velocity internal motion of the photon sphere. As demonstrated in previous work on relativistic rotating disks, when a disk rotates at relativistic velocities, Lorentz contraction of the circumference creates a non-Euclidean geometry where the ratio of circumference to diameter no longer equals $\pi$~\cite{einstein1912}. A projectile launched radially across such a disk will not arrive at the diametrically opposite point but will be deflected due to the geometric distortion, much like a Foucault pendulum deflection but arising from special rather than general relativistic effects. In the context of the 0-Sphere model, this Lorentz contraction of the internal energy circulation path contributes a geometric phase correction of the form:
+
+\begin{equation}
+\gamma_{\text{Lorentz}} = \oint_C \mathcal{A}_{\text{SR}} \cdot d\tau, \label{eq:lorentz_phase}
+\end{equation}
+where $\mathcal{A}_{\text{SR}}$ represents the Berry connection modified by special relativistic effects and the integral is taken over the closed path of internal energy circulation.
+
+\textbf{The second contribution arises from geodetic precession effects} that emerge when the electron's internal motion is considered within the broader context of spacetime curvature. Even in weak gravitational fields, the parallel transport of the internal angular momentum vector around closed loops in curved spacetime accumulates additional geometric phase through the standard geodetic precession mechanism. This contribution takes the form:
+
+\begin{equation}
+\gamma_{\text{geodetic}} = \oint_C \mathcal{A}_{\text{GR}} \cdot d\tau, \label{eq:geodetic_phase}
+\end{equation}
+where $\mathcal{A}_{\text{GR}}$ encodes the gravitational contributions to the Berry connection arising from spacetime curvature.
+
+The observable anomalous magnetic moment emerges as the net geometric phase accumulated after these two contributions partially cancel:
+
+\begin{align}
+\gamma_{\text{anomalous}} &= \gamma_{\text{Lorentz}} - \gamma_{\text{geodetic}} \nonumber \\
+&= \oint_C (\mathcal{A}_{\text{SR}} - \mathcal{A}_{\text{GR}}) \cdot d\tau
+\end{align}
+This residual phase directly translates into the measured deviation of the gyromagnetic ratio from its fundamental value of $g = 2$. The remarkable precision of experimental measurements of the anomalous magnetic moment, extending to twelve decimal places, reflects the extraordinary accuracy with which this geometric phase difference can be determined through the internal circulation dynamics of the 0-sphere structure.
+
+This interpretation fundamentally reframes the anomalous magnetic moment from a quantum electrodynamic perturbation requiring infinite series of Feynman diagrams to a geometric effect arising from the interplay between special and general relativistic corrections to internal energy circulation. The success of quantum electrodynamic calculations in predicting the anomalous magnetic moment stems not from the fundamental correctness of virtual particle interactions, but from their effectiveness as computational tools for calculating the net geometric phase accumulation that arises from the underlying thermodynamic and geometric processes within the electron.
+
+Furthermore, this geometric interpretation suggests that the anomalous magnetic moment represents the most direct experimental probe of internal Berry phase accumulation in elementary particles. Unlike abstract theoretical constructs, the anomalous magnetic moment provides \textbf{a measurable quantity that directly reflects the non-trivial holonomy arising from the electron's internal thermodynamic circulation.} This establishes a concrete experimental foundation for investigating the geometric origins of quantum phenomena and validates the physical reality of the internal structure proposed in the 0-Sphere model.
+
+The correspondence between anomalous magnetic moment and Berry phase also provides a structurally grounded explanation for the universal character of this quantum correction across different elementary particles. Each particle species exhibits its own characteristic internal energy circulation pattern, leading to specific geometric phase accumulations that manifest as particle-dependent anomalous magnetic moments. The theoretical framework developed here thus offers a unified geometric foundation for understanding quantum anomalies across the entire spectrum of elementary particles, grounded in the thermodynamic and relativistic properties of their internal structure rather than in perturbative corrections to abstract field theories.
+
+\clearpage
+
+\section{Conclusion} \label{sec:conclusion}
+
+As summarized in Table~\ref{tab:structural_features}, this work introduces four structural innovations that reframe the conventional ordering of principles in quantum theory, placing thermodynamic and geometric processes at the foundation of spin emergence.
+
+This work presents a fundamental reinterpretation of one of quantum mechanics' most essential features: the intrinsic spin of elementary particles. Rather than treating spin as a fundamental input that gives rise to geometric phases, we have shown that Berry curvature—emerging from internal thermodynamic processes within the electron's 0-Sphere structure—can serve as the generative mechanism from which spin-like behavior emerges through well-defined geometric and thermodynamic principles.
+
+The mathematical rigor established through the relationship between topology and curvature has illuminated the deep geometric foundations underlying quantum phenomena. The reinterpretation of observational coordinate system differences as analogous to Earth's latitudinal variations—where curvature effects manifest differently depending on geometric position—provides a concrete bridge for treating quantum mechanics geometrically and potentially unifying it with general relativity. This geometric perspective suggests that the fundamental distinction between quantum and gravitational effects may not reflect different physical principles, but rather different manifestations of the same underlying geometric structure observed from different coordinate systems and energy scales.
+
+The key insight lies in recognizing that a thermodynamically closed system with internal energy oscillation provides the necessary conditions for geometric phase accumulation, independent of any external parameter variation. The cyclic energy exchange between thermal potential and kinetic states within the electron forms an intrinsic adiabatic process, tracing closed paths in internal parameter space. Within this framework, internal geometry becomes the origin of spin, understood as a macroscopic manifestation of microscopic holonomy.
+
+Importantly, the 0-Sphere model satisfies all standard mathematical requirements for Berry phase emergence—differentiable configuration space, closed adiabatic cycles, smoothly evolving state functions, and well-defined connections—within a self-contained thermodynamic system. Table~\ref{tab:geometry_summary} summarizes these conditions and their realization in our model, demonstrating that geometric phase generation can arise from entirely internal dynamics, without reliance on externally imposed fields or Hamiltonians.
+
+Our approach suggests a deeper causative hierarchy: thermal conservation laws governing internal flows generate the geometric structures that manifest as quantum numbers and symmetries. This reversal of the traditional Noetherian paradigm~\cite{hanamura2506.0119} places thermodynamic necessity—not abstract symmetry—at the foundation of quantum structure, offering an ontological framework for why certain symmetries exist.
+
+The geometric interpretation developed here provides a unified understanding of both fundamental spin properties and the anomalous magnetic moment as observational corrections. The coordinate system dependence illuminated through the Foucault pendulum analogy demonstrates that the anomalous magnetic moment represents not solely a quantum electrodynamic perturbation, but rather interpretable as a geometric effect arising from internal relativistic transformations. This reframing offers a classical foundation for understanding this specific phenomenon traditionally attributed to virtual particle interactions.
+
+This perspective also points toward experimental predictions. The established role of Berry curvature in electronic properties~\cite{xiao2010berry} implies that alterations to internal geometric processes—via external fields—should induce measurable spin-related effects. For example, the gravitational redshift of Zitterbewegung frequencies offers a direct observational test, while the temperature dependence of internal energy flow may reveal hidden thermosensitivity in spin behavior.
+
+Moreover, this theory illuminates a profound connection between local thermodynamic processes and global topological phenomena. The geometric phase formalism~\cite{shapere1989geometric} provides a robust foundation for understanding how internal adiabatic cycles give rise to topologically protected quantum features. In this light, the Berry curvature generated within a single particle may scale up to collective behaviors in condensed matter systems, offering new insight into the resilience of topological phases.
+
+Crucially, this work demonstrates that background independence can emerge intrinsically, without postulation. The 0-Sphere model requires no reference to external coordinates, yet intrinsically generates the geometric features essential to observable quantum behavior. This suggests that reconciling quantum theory with general relativity may not require altering either framework, but rather recognizing their shared thermodynamic and geometric origin.
+
+The theoretical predictions are supported by detailed mathematical derivations and visualizations that demonstrate the energy conservation principles and kinematic relationships underlying spin emergence.
+
+The proposed theory awaits empirical validation, particularly in high-precision studies of internal electron dynamics. Yet even at the theoretical level, the emergence of spin from internal Berry curvature redefines our understanding of thermodynamics, geometry, and quantum structure—and opens a new path toward a unified picture of fundamental physics.
+
+\begin{thebibliography}{99}
+
+\bibitem{shapere1989geometric}
+A. Shapere and F. Wilczek, \textit{Geometric Phases in Physics}, World Scientific, Singapore (1989). \href{https://doi.org/10.1142/0613}{DOI:10.1142/0613}
+% 要約: ベリー位相と幾何学的位相に関する包括的な論文集。内部幾何学的構造が物理的観測量に与える影響を詳細に解説しており、スピンの創発を幾何学的ホロノミーから説明する本研究の理論的基盤を補強。
+
+\bibitem{anandan1992geometric}
+J. Anandan and Y. Aharonov, ``Geometry of Quantum Evolution,'' \textit{Phys. Rev. Lett.} \textbf{65}, 1697–1700 (1990). \href{https://doi.org/10.1103/PhysRevLett.65.1697}{DOI:10.1103/PhysRevLett.65.1697}
+% 要約: 量子系の進化における幾何学的構造を強調し、ベリー位相が内部状態の動的特性にどう影響するかを説明。スピンを幾何学的ホロノミーの結果として解釈する本研究のアプローチを補完。
+
+\bibitem{barut1981zitterbewegung}
+A. O. Barut and A. J. Bracken, ``Zitterbewegung and the Internal Geometry of the Electron,'' \textit{Phys. Rev. D} \textbf{23}, 2454–2463 (1981). \href{https://doi.org/10.1103/PhysRevD.23.2454}{DOI:10.1103/PhysRevD.23.2454}
+% 要約: 電子のZitterbewegungを内部幾何学的構造として解釈し、コンプトン波長スケールでの振動が粒子の本質的性質に関連すると論じる。本研究のZitterbewegungの幾何学的再解釈に直接関連。
+
+\bibitem{hanamura2309.0047}
+S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction, Zenodo (2023), \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}. [Originally: \href{https://vixra.org/abs/2309.0047}{viXra:2309.0047}]
+% 要約: 調和振動とローレンツ収縮を通じて電子スピンと異常磁気モーメントを再定義し、内部振動動力学に基づく古典的説明を提供。
+
+\bibitem{hanamura2506.0119}
+S. Hanamura, Emergent Conservation Laws from Internal Geometry: A Noetherian Reinterpretation in the 0-Sphere Model, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765244}{doi:10.5281/zenodo.17765244}. [Originally: \href{https://vixra.org/abs/2506.0119}{viXra:2506.0119}]
+% 要約: ネーターの定理の因果構造を逆に読み、熱保存則が球面調和構造や対称性を生む可能性を提示。
+
+\bibitem{hanamura2501.0130} 
+S. Hanamura, Bridging Quantum Mechanics and General Relativity: A First-Principles Approach to Anomalous Magnetic Moments and Geodetic Precession, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765097}{doi:10.5281/zenodo.17765097}. [Originally: \href{https://vixra.org/abs/2501.0130}{viXra:2501.0130}]
+% 要約: 自由電子内部のエネルギー構造を0-Sphereモデルとして記述し、カーネル間の断熱的エネルギー循環を幾何学的に構成。
+
+\bibitem{hanamura1811.0312}
+S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{https://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+% 要約: コンプトン波長スケールでのZitterbewegung運動を、内部構造の幾何学的振動として再解釈。
+
+\bibitem{hanamura2506.0072}
+S. Hanamura, Spin as a Real Vector from Internal Photon-Sphere Motion: Geometric Origin of U(1) Gauge and SU(2) Periodicity, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765238}{doi:10.5281/zenodo.17765238}. [Originally: \href{https://vixra.org/abs/2506.0072}{viXra:2506.0072}]
+% 要約: 外部磁場の不在下でもスピンが内在的に存在することを幾何学的アプローチにより論証し、粒子の基本構造に関する新しい理解を提示。
+
+\bibitem{hanamura2411.0117}
+S. Hanamura, Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer, Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17765017}{doi:10.5281/zenodo.17765017}. [Originally: \href{https://vixra.org/abs/2411.0117}{viXra:2411.0117}]
+% 要約: 輻射エネルギーの流れにより時間的位相が決定されるという仮説を導入し、背景独立な熱理論を構築。
+
+\bibitem{hanamura2507.0128} 
+S. Hanamura, Thermal Geodesics in the 0-Sphere Model: Extending General Relativity Through Internal Thermodynamic Structure, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765349}{doi:10.5281/zenodo.17765349}. [Originally: \href{https://vixra.org/abs/2507.0128}{viXra:2507.0128}]
+% 要約: 熱測地線を初めて導入
+
+\bibitem{xiao2010berry}
+D. Xiao, M.-C. Chang, and Q. Niu, ``Berry Phase Effects on Electronic Properties,'' \textit{Rev. Mod. Phys.} \textbf{82}, 1959–2007 (2010). \href{https://doi.org/10.1103/RevModPhys.82.1959}{DOI:10.1103/RevModPhys.82.1959}
+% 要約: ベリー位相が電子系の物性（特にスピン関連現象）に与える影響を総括。トポロジカルな性質が内部自由度にどう寄与するかを議論しており、0-Sphereモデルにおけるスピン創発のアイデアを支持。
+
+\bibitem{berry1984quantal}
+M. V. Berry, ``Quantal Phase Factors Accompanying Adiabatic Changes,'' \textit{Proc. Roy. Soc. Lond. A} \textbf{392}, 45–57 (1984). \href{https://doi.org/10.1098/rspa.1984.0023}{DOI:10.1098/rspa.1984.0023}
+% 要約: ベリー位相の初出論文。断熱的・周期的な量子系のパラメータ変化に対する幾何学的位相を導入。
+
+\bibitem{wilczek1984appearance}
+F. Wilczek and A. Zee, ``Appearance of Gauge Structure in Simple Dynamical Systems,'' \textit{Phys. Rev. Lett.} \textbf{52}, 2111 (1984). \href{https://doi.org/10.1103/PhysRevLett.52.2111}{DOI:10.1103/PhysRevLett.52.2111}
+% 要約: 非可換ベリー位相とゲージ構造の導入。多重縮退系におけるホロノミーとファイバー構造の自然な出現を説明。
+
+\bibitem{hasan2010colloquium}
+M. Z. Hasan and C. L. Kane, ``Colloquium: Topological Insulators,'' \textit{Rev. Mod. Phys.} \textbf{82}, 3045–3067 (2010). \href{https://doi.org/10.1103/RevModPhys.82.3045}{DOI:10.1103/RevModPhys.82.3045}
+% 要約: トポロジカル絶縁体において、ベリー曲率に由来するスピン様境界状態の創発を包括的にレビュー。
+
+\bibitem{vanderbilt2018berry}
+D. Vanderbilt, \textit{Berry Phases in Electronic Structure Theory: Electric Polarization, Orbital Magnetization and Topological Insulators}, Cambridge University Press (2018). ISBN: 9781107157651.
+% 日本語訳を購入
+
+\bibitem{einstein1912} 
+A. Einstein, Lichtgeschwindigkeit und Statik des Gravitationsfeldes, $\textit{Annalen der Physik}$ 38 (1912) 355. \href{http://myweb.rz.uni-augsburg.de/~eckern/adp/history/einstein-papers/1912_38_355-369.pdf}{The Speed of Light and the Static Gravitational Field}
+% 翌３月に執筆された２番目の論文「重力場の静力学理論」は一層奇妙な内容だ。・・・最初の論文の冒頭近くには、回転運動している座標系で、円周と直径の比が円周率に等しくならないことが指摘されている。
+
+\bibitem{hanamura2006.0104}
+S. Hanamura, Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17760132}{doi:10.5281/zenodo.17760132}. [Originally: \href{https://vixra.org/abs/2006.0104}{viXra:2006.0104}]
+% 要約: ディラック方程式の正負エネルギー解を電子内部の熱力学的輻射・吸収過程として再解釈し、Zitterbewegungを数学的人工産物から実在の物理振動へと概念転換を図った基礎研究。
+
+\bibitem{hanamura2506.0157}
+S. Hanamura, Anomalous Magnetic Moments Without Fields: A Geometric and Observer-Dependent Interpretation, Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765305}{doi:10.5281/zenodo.17765305}. [Originally: \href{https://vixra.org/abs/2506.0157}{viXra:2506.0157}]
+% 要約: 内部動力学から観測可能な量子特性の創発を背景独立的に説明し、量子構造の基礎的理解に新しい視点を提供する包括的理論を構築。
+
+\end{thebibliography}
+
+% \vspace{2.0cm}
+
+\section*{Acknowledgments}
+The author gratefully acknowledges the use of large language models (LLMs) for assistance in English language polishing and technical exposition. This work was conducted independently, outside traditional academic institutions, and all theoretical concepts, interpretations, and conclusions remain solely the author’s responsibility.
+
+\section{Appendix:\\ Mathematical Foundation from Internal Energy Dynamics}
+\label{sec:appendix}
+
+This appendix provides the mathematical foundation for understanding how Berry phase emerges from the internal thermodynamic processes within the 0-Sphere electron model. Rather than treating Berry phase as an abstract quantum mechanical effect, we demonstrate its concrete derivation from classical thermal energy dynamics, establishing the physical basis for the spin emergence described in the main text.
+
+The mathematical development proceeds through six interconnected stages: Section~\ref{subsec:energy_conservation} establishes the fundamental energy conservation law governing the dual-kernel oscillation, demonstrating how quartic thermal dependencies arise from black-body radiation principles. Section~\ref{subsec:reinterpretation_positive} provides the theoretical foundation for reinterpreting Dirac equation solutions as thermodynamic processes, transforming Zitterbewegung from mathematical artifact to physical reality. The crucial derivation of sinusoidal state functions from temperature gradients is presented in Section~\ref{subsec:sinusoidal_derivation}, establishing the physical necessity of the $\sin(\omega\tau)$ form through rigorous thermodynamic analysis originally developed in our 2018 foundational work~\cite{hanamura1811.0312}. Section~\ref{subsec:berry_connection} bridges classical thermal circulation to Berry phase formalism, demonstrating how internal energy redistribution generates geometric phase accumulation without external field dependence. The emergence of angular momentum through Thomas precession is rigorously derived in Section~\ref{subsec:angular_momentum}, providing the velocity-dependent transition mechanism that distinguishes classical from quantum regimes. Finally, Section~\ref{subsec:topological_protection} establishes the topological robustness of the geometric phase structure and its unification with relativistic quantum mechanics through Section~\ref{subsec:unification}, completing the mathematical framework that grounds quantum spin in classical thermodynamic and geometric principles. The fundamental question of why exactly two kernels are required—neither more nor fewer—is addressed comprehensively in Section~\ref{subsec:two_kernel_necessity}, which demonstrates that this structure emerges as a mathematical necessity from both thermodynamic constraints and the Dirac equation's eigenvalue structure.
+
+
+\begin{figure*}[t!]
+    \centering 
+    \includegraphics[width=\textwidth]{f-TotalHamiltonian.png}
+    \caption{\justifying \textbf{Energy conservation and internal dynamics in the 0-Sphere electron model.} The graph demonstrates the temporal evolution of energy components during internal circulation between thermal kernels, illustrating the mathematical foundation for Berry phase emergence from classical thermodynamic processes. The blue dashed line represents the thermal potential energy (TPE) of kernel~$A$ following $\cos^4(\phi/2)$, the orange dotted line shows kernel~$B$'s TPE as $\sin^4(\phi/2)$, and the green dashed line depicts the photon sphere kinetic energy $(1/2)\sin^2(\phi)$ with characteristic double-frequency oscillation. The red solid line $H(\phi)$ represents the total energy, remaining constant at unity throughout all phases, confirming perfect energy conservation as required by Equation~\eqref{eq:energy_conservation}. Key phase relationships: at $\phi = 0$, kernel~$A$ contains the complete rest energy; at $\phi = \pi$, energy fully transfers to kernel~$B$; at $\phi = 2\pi$, the cycle completes with 720-degree periodicity characteristic of spin-1/2 systems. The quartic temperature dependence arises from Stefan-Boltzmann black-body radiation principles, while the sinusoidal kinetic energy profile provides the physical foundation for the state function $\psi(x) \sim \sin(\omega\tau)$ used in geometric phase calculations. This energy circulation represents the thermodynamic substrate from which Berry curvature and ultimately electron spin emerge through internal geometric dynamics.}
+    \label{fig:energy_conservation}
+\end{figure*}
+
+\subsection{Energy Conservation in the Dual-Kernel System} \label{subsec:energy_conservation}
+
+The fundamental starting point for Berry phase emergence lies in the energy conservation law governing the internal dynamics of the electron. Within the 0-Sphere model, the electron's rest energy oscillates between two internal kernels, designated as kernel $A$ and kernel $B$, through a mediating photon sphere that carries kinetic energy during the transfer process~\cite{hanamura1811.0312}.
+
+The complete energy conservation relation takes the form:
+\begin{equation}
+\boxed{E_0 = E_0\left[\cos^4\left(\frac{\omega t}{2}\right) + \sin^4\left(\frac{\omega t}{2}\right) + \frac{1}{2}\sin^2(\omega t)\right]}, \label{eq:energy_conservation}
+\end{equation}
+where $E_0$ represents the total rest energy of the electron, and $\omega$ is the fundamental oscillation frequency of the internal energy exchange. The first two terms describe the thermal potential energy (TPE) stored in kernels $A$ and $B$ respectively, while the third term represents the kinetic energy of the photon sphere during energy transfer.
+
+This conservation law demonstrates that the electron maintains perfect energy conservation throughout all temporal phases, with no energy fluctuations regardless of the oscillation phase. The quartic dependence $\cos^4(\omega t/2)$ and $\sin^4(\omega t/2)$ emerges from the requirement that each kernel functions as a perfect black body, following the Stefan-Boltzmann law where radiative intensity scales as the fourth power of temperature~\cite{hanamura2501.0130}.
+
+The mathematical structure of Equation~\eqref{eq:energy_conservation} reveals three distinct oscillatory components operating at different frequencies. The thermal potential energies of the kernels oscillate with half the fundamental frequency ($\omega t/2$), producing the characteristic 720-degree periodicity associated with spin-$\frac{1}{2}$ particles. Meanwhile, the kinetic energy term oscillates at the full frequency ($\omega t$), providing the energy transfer mechanism that enables continuous circulation between the kernels.
+
+The temporal evolution of these energy components and their perfect conservation throughout the oscillation cycle is illustrated in Figure~\ref{fig:energy_conservation}. This visualization demonstrates the complementary nature of the kernel energies and the double-frequency oscillation of the photon sphere kinetic energy, which provides the physical foundation for the 720-degree periodicity characteristic of spin-1/2 particles.
+
+
+\subsection{Reinterpretation of Positive and Negative Energy States} \label{subsec:reinterpretation_positive}
+
+The reinterpretation of Zitterbewegung as a real physical oscillation, rather than a mathematical artifact of the Dirac equation, finds its theoretical foundation in our earlier work~\cite{hanamura2006.0104} where we proposed that the positive and negative energy solutions should be understood as thermal potential energy states within the electron's internal structure.
+
+In conventional quantum field theory, the negative energy solutions of the Dirac equation are typically interpreted through the Dirac sea formalism or modern quantum field theoretical approaches involving particle creation and annihilation. However, our earlier investigation demonstrated that these mathematical constructs could be reinterpreted as describing real thermodynamic processes within a composite electron model. Specifically, we proposed that what appears as positive and negative energy states in the Dirac formalism actually corresponds to the radiative emission and absorption phases of thermal potential energy exchange between internal structural components.
+
+This reinterpretation was motivated by the recognition that the Zitterbewegung oscillation, with its characteristic frequency of approximately $2mc^2/\hbar$, suggests the presence of real internal dynamics rather than purely mathematical interference between positive and negative frequency components. By treating the electron as a thermodynamically active system composed of internal thermal reservoirs, the oscillatory behavior emerges as a direct consequence of the classical thermal energy exchange processes, eliminating the need for abstract quantum mechanical interpretations.
+
+The key insight from this earlier work was that the wave functions associated with positive and negative energy states could be reinterpreted as describing the thermal radiation and absorption characteristics of internal energy reservoirs. This approach transformed the Zitterbewegung from an embarrassing mathematical curiosity into a direct signature of the electron's internal thermodynamic activity. The oscillation frequency and amplitude could then be understood as determined by the thermal properties and spatial separation of the internal components, providing a classical foundation for what had previously required purely quantum mechanical explanation.
+
+This reinterpretation established the conceptual foundation for treating the electron as a thermodynamically active system with internal energy circulation, which provides the theoretical foundation for the Berry phase emergence described in the present work. The thermal potential energy oscillations between internal kernels, originally identified through the reanalysis of Dirac equation solutions, now serve as the physical basis for the sinusoidal state functions and geometric phase accumulation that generate observable spin properties. In this way, the seemingly abstract mathematical structures of relativistic quantum mechanics find their origin in concrete thermodynamic processes operating within the electron's internal architecture.
+
+
+\subsection{Derivation of the Sinusoidal State Function from Temperature Gradients} \label{subsec:sinusoidal_derivation}
+
+The emergence of the sinusoidal state function $\psi(x) \sim \sin(\omega \tau)$ used in the Berry phase formalism finds its physical foundation in the temperature gradients generated by the dual-kernel energy exchange. This derivation provides the crucial link between classical thermodynamic processes and quantum geometric phase accumulation.
+
+To understand this emergence, we begin by examining how the thermal energy stored in each kernel creates a time-varying temperature gradient that drives the internal energy circulation. Each kernel alternately functions as an emitter and absorber of thermal radiation, with their respective thermal energies given by~\cite{hanamura1811.0312}:
+\begin{align}
+T_{e1} &= E_0 \cos^4\left(\frac{\omega t}{2}\right), \label{eq:kernel_A_energy}\\
+T_{e2} &= E_0 \sin^4\left(\frac{\omega t}{2}\right). \label{eq:kernel_B_energy}
+\end{align}
+
+The temperature gradient between these kernels drives the radiative energy transfer and determines the velocity of the photon sphere. Since the kernels remain at fixed spatial positions while their thermal energies vary temporally, the gradient calculation involves only time derivatives. For the internal time parameter $\theta = \omega t$, the individual gradients are:
+\begin{align}
+\mathrm{grad} \ T_{e1} &= \frac{d}{d\theta}\left[E_0 \cos^4\left(\frac{\theta}{2}\right)\right] \notag \\
+&= -2E_0 \cos^3\left(\frac{\theta}{2}\right) \sin\left(\frac{\theta}{2}\right), \label{eq:grad_Te1}\\
+\mathrm{grad} \ T_{e2} &= \frac{d}{d\theta}\left[E_0 \sin^4\left(\frac{\theta}{2}\right)\right] \notag \\
+&= 2E_0 \cos\left(\frac{\theta}{2}\right) \sin^3\left(\frac{\theta}{2}\right). \label{eq:grad_Te2}
+\end{align}
+The net temperature gradient between the kernels, which drives the energy circulation, is obtained by taking the difference:
+\begin{align}
+\mathrm{grad}(T_{e2} - T_{e1}) &= 2E_0 \cos\left(\frac{\theta}{2}\right) \sin^3\left(\frac{\theta}{2}\right) \notag \\
+& \quad + 2E_0 \cos^3\left(\frac{\theta}{2}\right) \sin\left(\frac{\theta}{2}\right) \notag \\
+&= 2E_0 \cos\left(\frac{\theta}{2}\right) \sin\left(\frac{\theta}{2}\right) \notag \\
+&= E_0 \sin\theta. \label{eq:temperature_gradient}
+\end{align}
+The sinusoidal form of this temperature gradient, as visualized in Figure~\ref{fig:energy_conservation}, drives the harmonic motion of the photon sphere and establishes the physical necessity of the $\sin(\omega\tau)$ state function used in Berry phase calculations.
+
+This derivation reveals the fundamental result that the temperature gradient between the kernels produces a sinusoidal force $F \propto E_0 \sin\theta$. This force drives the velocity of the photon sphere in simple harmonic motion, establishing the physical basis for the sinusoidal state function used in Berry phase calculations.
+
+The significance of Equation~\eqref{eq:temperature_gradient} cannot be overstated: it demonstrates that the sinusoidal behavior emerges as a direct consequence of the geometric constraints of thermal energy exchange between spatially separated kernels. This is not an arbitrary mathematical choice but a physical necessity arising from the thermodynamic processes within the electron's internal structure.
+
+The velocity of the photon sphere, which carries kinetic energy during the transfer process, is therefore governed by this temperature gradient according to the velocity potential principle:
+\begin{equation}
+\boxed{u_{\gamma^*} = -E_0 \sin\theta}, \label{eq:photon_velocity}
+\end{equation}
+where the negative sign indicates the direction of energy flow from the higher-temperature kernel to the lower-temperature kernel~\cite{hanamura1811.0312}.
+
+\subsection{Connection to Berry Phase Formalism} \label{subsec:berry_connection}
+
+The sinusoidal energy circulation described by Equation~\eqref{eq:photon_velocity} provides the physical foundation for the state function $\psi(x)$ used in Berry phase calculations. In our framework, this state function represents not a quantum probability amplitude but rather a thermogeometric descriptor of the internal energy flow between kernels.
+
+The state function takes the specific form:
+\begin{equation}
+\psi(x) = A \sin(\omega \tau + \phi), \label{eq:state_function}
+\end{equation}
+where $A$ is the amplitude determined by the energy scale $E_0$, $\tau$ is the internal time phase associated with energy exchange, and $\phi$ is a phase constant determined by initial conditions. The functional form directly mirrors the velocity profile of the photon sphere given in Equation~\eqref{eq:photon_velocity}.
+
+This state function evolves smoothly over the internal parameter space as the system undergoes its cyclic energy redistribution. Over one complete oscillation cycle, corresponding to $\tau \rightarrow \tau + T$ where $T = 2\pi/\omega$, the state function traces a closed loop in the internal configuration space. This periodicity ensures that the Berry connection $\langle \psi | \nabla_x \psi \rangle$ and the associated Berry curvature are well-defined mathematical objects.
+
+The Berry phase accumulated during one complete cycle is calculated as:
+\begin{equation}
+\gamma = i \oint_C \langle \psi(x) | \nabla_x \psi(x) \rangle \cdot dx, \label{eq:berry_phase_integral}
+\end{equation}
+where the loop $C$ is traced by the photon sphere's motion in internal parameter space as described by Equations~\eqref{eq:temperature_gradient} and~\eqref{eq:photon_velocity}.
+
+The crucial insight is that this geometric phase accumulation occurs entirely within the electron's internal structure, without requiring external parameter variations or imposed magnetic fields. The adiabatic parameter is the internal oscillation phase $\tau$ rather than an externally controlled field, making this a truly intrinsic geometric effect.
+
+\subsection{Emergence of Angular Momentum from Internal Dynamics} \label{subsec:angular_momentum}
+
+The internal energy circulation not only generates Berry phase but also produces the angular momentum that manifests as electron spin. This emergence can be understood through the Thomas precession effect applied to the harmonically oscillating photon sphere within the dual-kernel structure.
+
+The photon sphere undergoes sinusoidal oscillation as it moves between kernels, where the position x(t) represents the energy centroid of the photon sphere oscillating between kernel A and kernel B in the 0-Sphere model. The complete kinematic description includes position, velocity, and acceleration profiles:
+\begin{align}
+x(t) &= A \cos(\omega t + \phi), \label{eq:position_profile}\\
+v(t) &= -A\omega \sin(\omega t + \phi), \label{eq:velocity_profile}\\
+a(t) &= -A\omega^2 \cos(\omega t + \phi), \label{eq:acceleration_profile}
+\end{align}
+where $A$ is the amplitude of oscillation between the kernels, $\omega$ is the fundamental angular frequency, and $\phi$ is the phase constant. The amplitude $A$ corresponds to the separation distance between kernel A and kernel B, while the maximum velocity $A\omega$ is related to the Zitterbewegung velocity discussed in our previous work~\cite{hanamura2501.0130}.
+
+The Thomas precession formula for the angular velocity of a system undergoing acceleration is:
+\begin{equation}
+\boldsymbol{\Omega} = \frac{1}{2c^2}[\mathbf{a} \times \mathbf{v}], \label{eq:thomas_precession}
+\end{equation}
+where $\mathbf{a}$ and $\mathbf{v}$ are the acceleration and velocity vectors of the oscillating system.
+
+Substituting the sinusoidal profiles from Equations~\eqref{eq:velocity_profile} and~\eqref{eq:acceleration_profile} into the Thomas precession formula yields~\cite{hanamura2309.0047}:
+\begin{align}
+\boldsymbol{\Omega}(t) 
+&= \frac{1}{2c^2}\left[\mathbf{a}(t) \times \mathbf{v}(t)\right] \notag\\
+&= \frac{1}{2c^2} \left[ \left(-A\omega^2 \cos(\omega t + \phi)\right) \times \left(-A\omega \sin(\omega t + \phi)\right) \right] \notag\\
+&= -\frac{A^2\omega^3}{2c^2} \cos(\omega t + \phi) \sin(\omega t + \phi) \cdot \boldsymbol{e}_z \notag\\
+&= -\frac{A^2\omega^3}{4c^2} \sin(2\omega t + 2\phi) \cdot \boldsymbol{e}_z, \label{eq:angular_velocity}
+\end{align}
+where $\boldsymbol{e}_z$ is the unit vector along the axis of oscillation.
+
+The temporal evolution of these kinematic components and the resulting double-frequency angular velocity are illustrated in Figure~\ref{fig:internal_motion}. This visualization clearly demonstrates how the fundamental oscillation at frequency $\omega$ generates angular motion at frequency $2\omega$, providing the geometric foundation for the characteristic 720-degree periodicity of spin-1/2 particles.
+
+As suggested by Equation~\eqref{eq:angular_velocity}, when the maximum velocity $A\omega$ corresponds to slow velocities, the large value of $c^2$ in the denominator causes the angular velocity $\boldsymbol{\Omega}(t)$ to approach zero. This explains why classical mechanical systems, such as a pendulum clock, exhibit negligibly small angular velocities that can be safely ignored within the classical mechanics framework, where relativistic effects are suppressed by the factor $(A\omega)^2/c^2 \ll 1$. Such systems operate in the non-relativistic regime where the Thomas precession contribution becomes vanishingly small, consistent with our everyday experience of classical oscillators.
+
+However, when $A\omega$ approaches the speed of light, the angular velocity becomes non-negligibly large, entering the relativistic regime where quantum mechanical effects must be considered. According to predictions from previous work~\cite{hanamura2501.0130}, the Zitterbewegung velocity of electrons has been calculated to be approximately 4\% of the speed of light. At this subluminal but relativistically significant velocity, the angular velocity described by Equation~\eqref{eq:angular_velocity} becomes substantial and cannot be ignored.
+
+Equation~\eqref{eq:angular_velocity} thus serves as a bridge between classical and quantum mechanics, delineating the transition regime where effects negligible in classical theory become essential for quantum mechanical description. This equation represents a fundamental bridge connecting general relativity and quantum mechanics, providing a concrete mechanism for understanding how relativistic internal motion generates the quantum mechanical properties we observe at microscopic scales. This theoretical framework was developed in previous research as a step toward reconciling the apparent disconnect between gravitational and quantum phenomena.
+
+This result demonstrates several crucial features of spin emergence. First, the angular velocity oscillates at twice the fundamental frequency ($2\omega t + 2\phi$ rather than $\omega t + \phi$), which provides the mathematical foundation for the factor-of-two enhancement in spin magnetic efficiency compared to orbital motion. Second, the sinusoidal time dependence ensures that the average angular momentum over one complete cycle corresponds to the quantized spin values observed experimentally.
+
+The instantaneous torque on the system is given by the time derivative of the angular velocity:
+\begin{align}
+\boldsymbol{\tau}(t) 
+&= \frac{d\boldsymbol{\Omega}}{dt} \notag\\
+&= -\frac{A^2\omega^4}{2c^2} \cos(2\omega t + 2\phi) \cdot \boldsymbol{e}_z. \label{eq:instantaneous_torque}
+\end{align}
+Importantly, the net torque over one complete oscillation period vanishes:
+\begin{align}
+\int_0^{T} \boldsymbol{\tau}(t) \, dt 
+&= -\frac{A^2\omega^4}{2c^2} \int_0^{2\pi/\omega} \cos(2\omega t + 2\phi) \, dt \notag\\
+&= 0, \label{eq:zero_net_torque}
+\end{align}
+demonstrating that the system maintains stable oscillatory angular motion without requiring external torque input.
+
+This zero-integrated torque mechanism, if established, would function as an intrinsic mechanism for maintaining spin without external input, potentially providing a new perspective on the fundamental understanding of quantum mechanics. This theoretical framework provides a rational foundation for explaining a crucial claim from previous research---that spin exists intrinsically even in the absence of external magnetic fields. While conventional quantum mechanics has traditionally assumed that spin observation requires perturbation by external magnetic fields, the internal thermal circulation model presented in this work suggests that spin can be understood as a phenomenon that spontaneously emerges from the particle's intrinsic geometric and thermodynamic processes. This intrinsic nature represents a core concept within the comprehensive theoretical framework of ``background-independent emergence of quantum structure'' that has been consistently developed throughout previous studies~\cite{hanamura2506.0072,hanamura2506.0157}, establishing a theoretical foundation that redefines spin as a fundamental property independent of external conditions rather than a manifestation dependent upon external measurement apparatus.
+
+
+\subsection{Topological Protection and Berry Curvature} \label{subsec:topological_protection}
+
+The geometric phase accumulation described above possesses topological protection due to the closed nature of the energy circulation cycle. The Berry curvature associated with the internal energy flow can be calculated from the state function derivatives, providing a measure of the geometric twist in the internal parameter space.
+
+For the sinusoidal state function given in Equation~\eqref{eq:state_function}, the Berry connection is defined as:
+\begin{align}
+\mathcal{A}_\tau &= i \langle \psi | \frac{\partial \psi}{\partial \tau} \rangle \notag \\
+&= i A^2 \omega \cos(\omega \tau + \phi) \frac{\partial}{\partial \tau}[\sin(\omega \tau + \phi)] \notag \\
+&= \frac{i A^2 \omega^2}{2} \sin(2\omega \tau + 2\phi). \label{eq:berry_connection}
+\end{align}
+The Berry curvature, obtained by taking the derivative of the connection, characterizes the local geometric properties of the internal energy flow:
+\begin{equation}
+\mathcal{F} = \frac{\partial \mathcal{A}_\tau}{\partial \tau} = i A^2 \omega^3 \cos(2\omega \tau + 2\phi). \label{eq:berry_curvature}
+\end{equation}
+The Berry phase accumulated over one complete cycle is then:
+\begin{align}
+\gamma &= \oint_C \mathcal{A}_\tau \, d\tau \notag \\
+&= \int_0^{2\pi/\omega} \frac{i A^2 \omega^2}{2} \sin(2\omega \tau + 2\phi) \, d\tau \notag \\
+&= \pi A^2 \omega. \label{eq:total_berry_phase}
+\end{align}
+
+This sinusoidal form of the internal state function, $\psi(\tau) \sim \sin(\omega \tau + \phi)$, directly reflects the thermal radiation gradient structure previously derived in~\cite{hanamura1811.0312}. There, the internal radiative pressure field within the photon-sphere structure of the electron was shown to follow $\nabla T = E_0 \sin\theta$, indicating a sinusoidal angular distribution of thermal potential. This angular profile corresponds to the spatial geometry of thermal flow and projects onto the temporal oscillation phase $\tau$ through a structurally consistent mapping, wherein the angular dependence $\sin\theta$ in thermal radiation is geometrically reinterpreted as a time-parametrized internal modulation of energy density. Thus, the state function $\psi(\tau)$ is not a quantum mechanical wavefunction but a thermogeometric descriptor of internal radiative energy redistribution. The key requirement is that it evolves smoothly and periodically over internal parameter space, ensuring a well-defined connection and curvature structure.
+
+The resulting Berry phase is proportional to both the square of the oscillation amplitude and the frequency---two quantities determined by the internal thermodynamic parameters of the dual-kernel photon sphere model. Because the Berry phase arises from integration over a closed adiabatic cycle, its value is topologically protected and remains stable against small perturbations in system parameters. This topological robustness provides a classical thermodynamic foundation for the persistence and quantization of spin-like properties. In particular, the geometric phase structure derived here emerges entirely from internal dynamics, without recourse to external fields or quantum mechanical postulates. This further strengthens the claim that spin is an emergent macroscopic manifestation of geometric holonomy in an internally structured thermodynamic system.
+
+
+\subsection{Unification with Relativistic Quantum Mechanics} \label{subsec:unification}
+
+The mathematical framework presented above demonstrates how the Berry phase formalism emerges as a direct consequence of classical thermodynamic and geometric principles, without requiring the quantum mechanical postulates typically associated with spin and geometric phase. This emergence suggests a deeper unity between classical and quantum descriptions of physical phenomena.
+
+The connection to the Dirac equation becomes apparent when we recognize that the dual-kernel structure provides an inherent framework for accommodating both positive and negative energy solutions. In our interpretation, these solutions correspond to the energy configurations of kernels $A$ and $B$ respectively, rather than particle-antiparticle pairs~\cite{hanamura1811.0312}. The four-component structure of the Dirac spinor maps directly onto the thermal states of the two kernels, with the upper and lower components describing their respective energy configurations.
+
+The geometric phase accumulation described by Equation~\eqref{eq:total_berry_phase} provides the quantum mechanical phase factors that appear in the Dirac equation solutions. Rather than being imposed through complex number rotations, these phases emerge from the real physical process of energy circulation within the electron's internal structure.
+
+This unification suggests that the apparent mystery of quantum mechanical phase factors may be resolved through understanding the underlying geometric and thermodynamic processes operating at scales below current experimental resolution. The success of quantum mechanics in predicting experimental results stems not from fundamental non-classical behavior, but from its effective description of the statistical properties of classical systems with internal structure operating at extremely high frequencies.
+
+The Berry phase emergence demonstrated here thus provides not only a foundation for understanding spin generation, but also a bridge toward a more complete classical understanding of quantum mechanical phenomena. This classical foundation, combined with the relativistic constraints imposed by the finite speed of energy circulation, offers a pathway toward reconciling quantum mechanics with general relativity through shared geometric and thermodynamic principles.
+
+
+\subsection{Physical Necessity of the Two-Kernel Structure} \label{subsec:two_kernel_necessity}
+
+\subsubsection{Why Two Kernels? Thermodynamic Constraints} \label{subsec:why_two_kernels}
+
+The physical necessity of the two-kernel structure in the 0-Sphere model emerges from fundamental thermodynamic principles governing energy conservation within elementary particles. If the thermal potential energy (TPE) within an electron radiates according to the Stefan-Boltzmann law, where radiated power scales as $E \propto T^4$, then the conservation of the electron's rest mass energy $E_0 = mc^2$ requires the existence of corresponding absorption mechanisms to prevent energy dissipation.
+
+A single isolated thermal kernel would inevitably radiate energy into the surrounding spacetime according to established thermodynamic principles, leading to progressive mass loss that contradicts the observed stability of electrons over cosmological timescales. The electron's classification as a stable particle with infinite lifetime demands a closed thermodynamic system where energy radiated by one component is absorbed by another, maintaining perfect energy balance without external intervention.
+
+The two-kernel configuration provides the minimal structural complexity necessary to achieve this thermodynamic closure. Kernel $A$ and kernel $B$ exchange energy through precisely coordinated oscillatory dynamics, where energy radiated by one kernel is absorbed by the other according to the established sinusoidal pattern $E_A(t) = E_0\cos^4(\omega t/2)$ and $E_B(t) = E_0\sin^4(\omega t/2)$ demonstrated in Figure~\ref{fig:energy_conservation}. This bidirectional energy flow creates a closed thermodynamic loop that preserves total energy while enabling the internal dynamics necessary for generating observable quantum phenomena such as spin and magnetic moments.
+
+The thermodynamic necessity extends beyond mere energy conservation to encompass the fundamental requirement for temporal asymmetry in energy flow. A single kernel cannot exhibit directional energy transfer, as it lacks the spatial separation necessary to define energy transport pathways. The two-kernel structure establishes the minimal spatial configuration capable of supporting directional energy flow between distinct locations, enabling the internal dynamics that manifest as external quantum mechanical properties.
+
+\subsubsection{Why Not More? \ Mathematical Limits on Kernel Number from Dirac Theory} \label{subsec:why_not_more}
+
+The precise number of thermal kernels is uniquely determined by the mathematical structure of the Dirac equation, which provides the fundamental quantum mechanical description of spin-$\frac{1}{2}$ particles. The Dirac equation admits exactly two independent energy solutions: positive energy states corresponding to particles and negative energy states traditionally interpreted as antiparticles within the framework of quantum field theory.
+
+In the 0-Sphere reinterpretation developed in Section~\ref{subsec:reinterpretation_positive}, these two mathematical solutions correspond directly to the two physical thermal kernels within the electron's internal structure. The positive energy solution maps to kernel $A$, while the negative energy solution maps to kernel $B$, establishing a one-to-one correspondence between the abstract mathematical components of the Dirac spinor and concrete physical energy-storage mechanisms within the particle.
+
+This correspondence is not an interpretative convenience but a mathematical inevitability, dictated by the fundamental structure of relativistic quantum mechanics as embodied in the Dirac equation. The Dirac equation's four-component spinor structure emerges from the tensor product of two distinct two-component entities: spin degrees of freedom and energy sign degrees of freedom. More precisely, the four-dimensional representation space can be decomposed as $\mathbb{C}^4 = \mathbb{C}^2 \otimes \mathbb{C}^2$, where the first $\mathbb{C}^2$ factor corresponds to the intrinsic spin degrees of freedom (spin up and spin down states), while the second $\mathbb{C}^2$ factor encodes the energy sign dichotomy that distinguishes between positive and negative energy solutions.
+
+In the standard interpretation of quantum field theory, this energy sign dichotomy corresponds to the particle-antiparticle distinction, where positive energy states describe particles and negative energy states are reinterpreted through the Dirac sea formalism or modern field theoretical approaches. However, within the 0-Sphere framework developed in this work, these two mathematical energy eigenvalue branches find their physical realization as the two distinct thermal kernels within the electron's internal structure. The positive energy solution, traditionally associated with the particle state, maps directly to the thermal potential energy stored in kernel $A$, while the negative energy solution corresponds to the energy configuration of kernel $B$.
+
+This structure defines a precise one-to-one correspondence between the abstract mathematical components of the Dirac spinor and the concrete physical energy-storage mechanisms within the particle. The energy sign dichotomy directly translates to the two-kernel structure, where each kernel corresponds to one energy eigenvalue of the Dirac Hamiltonian:
+\begin{equation}
+\hat{H}\psi = E\psi, \quad E = \pm\sqrt{p^2c^2 + m^2c^4} \label{eq:dirac_eigenvalue}
+\end{equation}
+Rather than representing abstract mathematical constructs requiring field theoretical interpretation, the positive and negative energy solutions find immediate physical meaning as the thermal states of spatially separated internal components.
+
+The mathematical structure of the Dirac equation thus provides not only the formal framework for describing spin-$\frac{1}{2}$ particles but also the geometric blueprint for their internal architecture. The four-component spinor encodes both the external spin properties observable through magnetic measurements and the internal energy distribution that gives rise to these properties through the thermodynamic circulation between kernels $A$ and $B$. This dual encoding explains why the Dirac formalism successfully predicts both the magnetic moment and the anomalous corrections, as both phenomena emerge from the same underlying geometric and thermodynamic processes operating within the electron's internal structure.
+
+Any attempt to construct a three-kernel or higher-order structure would require additional independent solutions to the Dirac equation beyond the mathematically determined positive and negative energy states. Since the Dirac equation admits only these two energy eigenvalues for a given momentum state, the mathematical framework provides no foundation for additional kernels. The two-kernel structure represents the unique realization of Dirac's mathematical formalism in terms of concrete physical components.
+
+The discrete nature of spin measurements provides additional mathematical constraint against continuous energy distributions. Experimental observations confirm that electron spin can assume only two values: $+\frac{1}{2}\hbar$ and $-\frac{1}{2}\hbar$ in any chosen direction. This discreteness reflects the discrete two-state structure of the internal kernel system, where energy can reside primarily in kernel $A$ or kernel $B$ but cannot be distributed continuously across an infinite number of internal components.
+
+A continuous energy distribution would generate continuous spin values, contradicting the fundamental experimental fact that spin measurements yield discrete results. The discrete nature of spin in the 0-Sphere model arises from the specific geometry of internal energy transport: the photon sphere undergoes one-dimensional oscillatory motion along a linear axis connecting kernels $A$ and $B$, analogous to a pendulum's back-and-forth motion rather than continuous circular rotation.
+
+This linear oscillation between discrete endpoints creates a fundamentally different angular momentum generation mechanism compared to classical orbital motion. When the photon sphere oscillates at relativistic velocities approaching $v_{\text{ZB}} \approx 0.04c$, the Thomas precession effect transforms this linear back-and-forth motion into angular momentum through the relativistic coupling between acceleration and velocity vectors described in previous work~\cite{hanamura2309.0047}. The motion is constrained to oscillate between only two discrete positions rather than following a continuous circular path, making the resulting angular momentum inherently quantized.
+
+The discrete endpoints of kernel $A$ and kernel $B$ locations serve as boundary conditions that prevent continuous angular velocity variations. This boundary-constrained structure also justifies the application of the principle of least action, since the internal energy transfer occurs between fixed endpoints—kernel $A$ and kernel $B$—enabling a geodesic minimization of action along the internal configuration space. Unlike classical spinning objects that can assume any rotational velocity, the photon sphere's motion is restricted to oscillation between fixed spatial points, with the oscillation amplitude and frequency determined by the thermodynamic parameters of energy exchange. This geometric constraint transforms what would be continuous angular motion in classical mechanics into discrete angular momentum states in the relativistic regime, providing the physical foundation for spin quantization without requiring ad hoc quantum mechanical postulates.
+
+As a result, the mathematical framework reveals that the electron naturally embodies both discrete and continuous characteristics within its internal architecture: discreteness in energy storage locations and continuity in energy transport mechanisms. Rather than representing a fundamental dichotomy requiring resolution, discrete and continuous aspects emerge as complementary manifestations of the same underlying thermodynamic process. The $\sin^2(\omega t)$ kinetic energy term serves as the mediating continuous field that enables energy exchange between discrete kernel states, providing a concrete physical mechanism for the wave-particle duality that has long puzzled quantum mechanics.
+
+The mathematical relationship between kernel number and spin value reflects the general correspondence between internal discrete states and external quantum numbers. For a system with $n$ discrete internal energy-storage sites, the spin multiplicity — the number of distinct spin states — scales as $n$, so the maximum spin quantum number satisfies $s = (n-1)/2$. In the case of the electron, $n = 2$ corresponds to the two thermal kernels $A$ and $B$, between which the photon sphere undergoes one-dimensional oscillatory motion. This binary structure defines the two spin eigenstates ($+\frac{1}{2}$ and $-\frac{1}{2}$) observed externally, and no higher spin multiplicity can arise without fundamentally altering the geometry of internal energy transport. The observed spin-$\frac{1}{2}$ nature of the electron thus reflects the minimal nontrivial configuration of $n = 2$ internal kernels, confirming the mathematical necessity of this structure as derived from the Dirac equation.
+
+This mathematical determination of kernel number represents a fundamental theoretical constraint that eliminates arbitrary model construction. The two-kernel structure emerges not from phenomenological fitting or aesthetic considerations, but from the rigorous mathematical requirements imposed by established quantum mechanical principles and experimental observations. The 0-Sphere model thus achieves the rare theoretical status of geometric inevitability, where internal structure follows necessarily from external mathematical and empirical constraints rather than representing an additional assumption requiring independent justification.
+
+
+
+\clearpage
+
+\end{document}
