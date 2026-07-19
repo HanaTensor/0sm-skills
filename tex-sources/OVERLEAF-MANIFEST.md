@@ -22,7 +22,7 @@
 
 ## 特記事項
 
-- **旧 99-1「Rethinking Particles as Spacetime Oscillators (Research Summary)」は採番せず破棄(2026-07-19)** — コーパスと全面重複のため(User 承認)。**#65 以降(#66, #67 含む)は通常の通番として今後の論文に使用する(欠番にしない)**。`tex-sources/65–67/` は将来用の空スキャフォールド。#65 = The 0-Sphere Model: A Structural Overview(未収蔵)。
+- **旧 99-1「Rethinking Particles as Spacetime Oscillators (Research Summary)」は採番せず破棄(2026-07-19)** — コーパスと全面重複のため(User 承認)。**#65 以降(#66, #67 含む)は通常の通番として今後の論文に使用する(欠番にしない)**。#65 = The 0-Sphere Model: A Structural Overview — 2026-07-19 改訂完了・`65/main.tex` 設置済み(#1–#64 対応・DOI 最新化・tectonic コンパイル検証済・**Zenodo 未寄託**)。#66–67 は将来用の空スキャフォールド。
 - **off-series/solar-neutrino-dna-recoils/** — Overleaf 名「28-1 Solar Neutrino–Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans」。目録 #28(G/c² 次元整合)とは別物の系列外論文(生物物理)。番号衝突のため未採番のまま退避。採番は User 判断待ち。
 - 目録(index.md)の 63 論文 #1–#64(#16 欠番)は全て Overleaf 原本が揃った。
 
