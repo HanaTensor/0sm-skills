@@ -42,9 +42,13 @@
 | ☐ | 29 | [zenodo.org/records/18067760](https://zenodo.org/records/18067760) | 2026-07-19 規約統一・コンパイル検証済み |
 | ☐ | 31 | [zenodo.org/records/18203433](https://zenodo.org/records/18203433) | 2026-07-19 規約統一・コンパイル検証済み |
 | ☐ | 32 | [zenodo.org/records/18275142](https://zenodo.org/records/18275142) | 2026-07-19 規約統一・コンパイル検証済み |
-| ☐ | 33 | [zenodo.org/records/18356895](https://zenodo.org/records/18356895) | 2026-07-19 規約統一・コンパイル検証済み。**main.tex に加え fig_thermal.tex / fig_TotalHamiltonian.tex も同梱すること**(\input 参照) |
+| ☐ | 33 | [zenodo.org/records/18356895](https://zenodo.org/records/18356895) | 2026-07-19 規約統一・コンパイル検証済み。**3 ファイル同梱**: [main.tex](https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/tex-sources/33/main.tex) + [fig_thermal.tex](https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/tex-sources/33/fig_thermal.tex) + [fig_TotalHamiltonian.tex](https://raw.githubusercontent.com/HanaTensor/0sm-skills/main/tex-sources/33/fig_TotalHamiltonian.tex)(main.tex が \input 参照。いずれも英訳清書済み・組合せでコンパイル検証済み) |
 | ☐ | 49 | [zenodo.org/records/19393391](https://zenodo.org/records/19393391) | 2026-07-19 スキル清書・コンパイル検証済み |
 | ☐ | 63 | [zenodo.org/records/20767589](https://zenodo.org/records/20767589) | 2026-07-19 スキル清書・コンパイル検証済み |
+
+## 複数ファイル論文の注意
+
+- `\input` 依存があるのは全 64 論文中 **#33 のみ**(2026-07-19 全数掃引で確認)。他は main.tex 単体で完結。
 
 ## 対象外
 
