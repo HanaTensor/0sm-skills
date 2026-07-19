@@ -1,0 +1,969 @@
+
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue,
+urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % captionsetup[figure]用
+\usepackage{threeparttable} % Table のキャプションを変更
+\usepackage{listings} % LaTeXにソースコードを"美しく"貼る方法
+\numberwithin{equation}{section}% (p.37)
+
+
+\begin{document}
+\captionsetup[figure]{labelfont={bf},name={Fig.},labelsep=period}
+\captionsetup[table]{labelfont={bf},name={Table.},labelsep=period}
+
+
+    \title{A Model of an Electron Including Two Perfect Black Bodies}
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+\date{November 20, 2018; revised March 9, 2019}
+        \begin{abstract}
+            This paper modifies two significant points of existing quantum electrodynamics. First, the image of a virtual photon is replaced with a real one, i.e., till date, we consider virtual photon as being capable of exchanging its energy between two particles along with self interaction, and that it is a transient fluctuation. We shall change this definition such that what we call ``an electron'' would include two bare electrons and these two would interact within a real photon. The virtual photon in this study is the same as the real photon which is not to observe, but difference from traditional virtual photon because the re-imaged virtual photon would exist continuously not temporally. Second, it is assumed that the bare electron is a perfect black body. To meet the constraints of charge conservation, a virtual photon must include two bare electrons. There is a temperature gradient between the two because the two particles alternate between behaving as emitters and absorbers. The proposed study extends this model by considering that an electron comprises two blinking bare electrons and at least one real photon by exchanging the energies within the three. Consequently, we attempt to create an electron model that exhibits spinor behavior by setting and modifying a trigonometric function which could periodically achieve the value of zero-point energy.
+        \end{abstract}
+    \maketitle
+
+
+%            = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+
+    One of the reasons to generate the ultraviolet divergence is self-energy. In quantum electrodynamics (QED),  it is considered that an electron has self-energy due to the interaction within itself or between a surrounding field. Superstring theory and renormalization theory have been developed to avoid the difficulties associated with divergent amplitudes in the perturbation theory.
+
+    In general, the problem of ultraviolet divergence occurs while calculating integral of the amplitudes and propagators while interacting with its self-energy. In other words, a virtual photon with a short wavelength causes this divergence. There exist some formulas for calculating the self-energy. These formulas include the radius of an electron ($r_{0}$) in its denominator. To make $r_{0}$ shorter ($r_{0} \rightarrow 0$), its total value approaches $\infty$ because $r_{0}$ stays in the formula's denominator, as depicted in Fig. \ref{f2_an_electron_QED}.
+        
+    Infinity was caused by the interaction of an electron within itself, as shown in Fig. \ref{f2_an_electron_QED}. If a model wherein the distance between a particle before and after the interaction ``non-zero'' is developed, the divergence could be avoided to some extent. From this viewpoint, we treat three particles with a certain relation with each other as one free electron's vibration.
+        
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1.0]{f2_an_electron_QED.eps}
+                \caption{Self-energy diagram in QED and that in the modified model. Both diagrams (a) and (b) show the same example of ``an electron.'' The intention of transparency at regular intervals with the blue and green lines will be explained in Section \ref{The_necessity_of_the_paring_oscillator}.}
+            \label{f2_an_electron_QED}
+        \end{figure}
+
+    Herein, we propose a model which would avoid the electron's interaction of electron within itself. To restrict the interaction range, we do not consider the interaction between the surrounding field and the particle owing to the limitation of thermodynamics.
+    
+    Comparing a system that is interacting within itself to an isolated system is possible. On the contrary, we compare a system interacting within itself and with the surrounding field to a closed system. In this study, we have focused only on the isolated system.
+
+
+
+
+%            = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:METHODS}METHODS}
+
+    We begin to investigate modeling of an electron by considering energy conservative harmonic oscillators, which defined trigonometric functions that periodically achieve zero-point energy. This oscillator model is different from the classical harmonic oscillator because it includes three terms of oscillators. We will find these three terms obtain two spinor and one vector particle according to these phases (\ref{Energy_conservation_and_zero-point_energy}). Then, we would recognize a system as a whole particle include three oscillators by considering three particles. We shall call the system an electron.
+    
+    The first two particles are bare electrons as perfect black bodies and the second one is the virtual photon. By having a certain relation among these three particles, it seems successful to get rid of the ``zero distance'' of interacting by itself. The two bare electrons apart from a distance of Compton wavelength presumably. A time course of these three particles would help us explain the particle oscillation in a better manner by rearranging the swing of the virtual photon between the two bare electrons.
+
+    To maintain the energy conservation and to generate energy which vibrates the particle, we consider the two bare electrons as a perfect black body. Despite significant experimental efforts, a perfect black body \cite{Planck} has not yet been found in nature \cite{Zu-Po Yang}. This study, not only proves that an electron is a perfect black body but assumes that this is the case and build upon this assumption to contribute to a flourishing branch of  physics. It is natural to think that the perspective of an electron is not a perfect black body. Nevertheless, remarking our view of the electron's inner structure allows us to imagine this elementary particle as consisting of thermodynamic oscillators.
+        
+    An internal structure for the electron is suggested. It is assumed that an electron consists of two bare electrons with both being black bodies. This reorganization constitutes a new image of the electron. These two bare electrons exchange thermal energy in the form of radiation through virtual photons. This is possible because those two bare electrons are inside of the virtual photon. The two black bodies exchange thermal energy through the virtual photon as a real photon.
+
+    Since this study mentions that the individual particles have a moment of appearing two bare electrons of thermal energy within one virtual photon. In this model, we would recognize the particle that two bare electrons within the virtual photon as an individual electron.
+        
+    Hence, we shall distinguish an electron as an individual particle from a bare electron or two bare electrons within a virtual photon. In this study, the word ``an/the electron'' shall be used a synthesis particle of a virtual photon including one or two bare electrons. We shall distinguish between ``an/the electron'' and ``a/the bare electron'' (See Fig. \ref{f2_an_electron.eps}).
+
+    An electron's structure is as follows. First, consider there is a tiny thermal source in the center. This thermal spot, named bare electron in this study, can be moved by radiation, however, it stops time and fixes it in the center of the electron. Next, consider a real photon that surrounds the bare electron. This real photon has an electromagnetic interaction with the bare electron. Since the system is isolated, this real photon with Compton wavelength is unobservable from the outside. So, it can be said to be a virtual photon at that point.
+
+    While the two black bodies emit and absorb thermal energy, they do not do so in an equal proportion owing to phase lag between cosine and sine powered four, as shown in Section  \ref{Applying_the_first_law_of_thermodynamics}. By allocating sine and cosine function for emitter and absorber with Fig. \ref{f3_cos^4_cos^3} in Section \ref{An_electron_contains_black_bodies}, respectively, seems to work in this model well. The total energy does not change because this model uses an isolated system. By arranging the energy conservation according to Classical Dynamics, we assigned a pair of bare electrons to the sine and cosine functions.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f2_an_electron.eps}
+                \caption{Image of an/the electron in this study.}
+            \label{f2_an_electron.eps}
+        \end{figure}
+        
+    On studying the sum of its thermal energy and time-dependent changing value, we found that it alone does not satisfy the law of conservation of energy. This phenomenon will be explained with Fig. \ref{f3_E1+E2+gamma} in Section \ref{Applying_the_first_law_of_thermodynamics}. To ensure that energy is conserved, the difference in the total thermal energy by phase shall be transported by the virtual photon in the form of kinetic energy.
+
+    However, in this electron model, we reinterpret this energy-absorption process by as follows: the energy radiated from the emitter would absorbed by the absorber. Since, the value of these two types of energy would not be equal, if the value of the emittance energy is larger than that of absorbance, the excess energy would absorbed by the virtual photon through the conversion of thermal energy into kinetic energy. Furthermore, this model would make the mass of an electron substitutable from $off \ mass \ shell$ to $on \ mass \ shell$ by the following method: a) consider a bare electron thermal spot as potential energy and b) real photon, which we already have recognized as a virtual photon, is considered as having actual fluid-like existence.
+
+    It will be shown that the virtual photon moves in space with its velocity changing from zero to maximum in a manner similar to a harmonic oscillator. The velocity is generated from the energy released by the velocity potential. The temperature gradient forms this potential. This gradient, in turn, arises from the energy difference between the two bare electrons.
+    
+    These two bare electrons shall exist in a spatially separated position based on the Pauli Exclusion principle, therefore these bare electrons as the thermal potential energy compose a scalar field which could be stated by the temperature gradient (\ref{Temperature_gradient}). This study postulate that the scalar field has velocity potential (\ref{Velocity_Potential}) and that the centering force captured the virtual photon would move along with the scalar field by having a value of velocity. This study shows that the velocity potential changes with time; the changing velocity of the virtual photon is described by the velocity potential as shown in Eq.(\ref{e3_simple_harmonic_motion_-sin}), which shows that the virtual photon has non-zero mass.
+
+    Summarizing, this electron model would be able to exclude of the effect of self-energy interaction. As shown in Section \ref{The_necessity_of_the_paring_oscillator}, the two black bodies exchange their emitter/absorber states by phase. We study the effect of self-energy interaction in this model. If a bare electron interacts through self-energy, then the bare electron would be in both, the absorber and emitter phases simultaneously; because the electron emits energy, it should be absorb energy simultaneously.
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:MODELING}MODELING}
+
+
+\subsection{Energy conservation and zero-point energy}  \label{Energy_conservation_and_zero-point_energy}  
+
+
+    In this subsection, we investigate the development of a new model based on the law of conservation of energy and study it under a Classical Dynamics (CD) frame of reference. In CD, mechanical energy is calculated as the sum of potential energy and kinetic energy:
+    
+        \begin{align}
+            E_{CD}
+                &= K_{CD} + U_{CD}    \notag \\
+                &= \frac{1}{2} m \omega_{0}^{2} A^{2} \left( \cos^{2} (\omega_{0} t + \delta) + \sin^{2}(\omega_{0} t +\delta) \right)    \notag \\
+                &= \frac{1}{2} m \omega_{0}^{2} A^{2}
+                \ .
+        \end{align}
+
+    \noindent
+    where $A \omega_{0}$ is the initial velocity. These processes are shown in Fig. \ref{f3_kinetic_energy}.
+
+    Let us consider an electron that is at the ground state of an ideal harmonic oscillator. The total energy of the electron is $E_{0}$ for $h \nu$. We modify the energy conservation equation in CD to the following equation:
+
+        \begin{equation}
+            E_{0} = E_{\mathrm{A}} + E_{\mathrm{B}}
+            \ ,
+            \label{e3_EA+EB}
+        \end{equation}
+
+    \noindent
+    where $E_{0}$ = $h \nu$ is total energy of an electron in the isolated system. $E_{\mathrm{A}}$ and $E_{\mathrm{B}}$ each represent an as yet unidentified type of energy.
+    
+    We utilize a new equation to introduce lead zero-point energy into this system; the temporal change of the energy of $E_{\mathrm{B}}$ can be described by the following equation:
+
+        \begin{equation}
+            E_{\mathrm{B}} = \frac{1}{2} \ E_{0} \ \sin^{2} (\omega t)
+            \ .
+            \label{e3_EA_=_1/2_E0_sin^2}
+        \end{equation}
+
+    Eq. (\ref{e3_EA_=_1/2_E0_sin^2}) indicates another method for introducing zero-point energy; this method uses thermodynamics. This study considered an isolated system; therefore, we could set this system as the ground state. Under such a circumstance, it would be appropriate to substitute $E_{0}$ for $h\nu$ in Eq. (\ref{e3_1/2_E_sin^2}):
+        
+        \begin{equation}
+            \begin{split}
+                E_{0} - E_{\mathrm{B}} 
+                    &=  E_{0} \left(1 - \frac{1}{2} \ \sin^{2} (\omega t) \right) \\
+                    &=  h\nu \left(1 - \frac{1}{2} \ \sin^{2} (\omega t) \right)
+                    \ .
+                    \label{e3_1/2_E_sin^2}
+            \end{split}
+        \end{equation}
+
+        \begin{figure}[h!]
+            \centering
+             \includegraphics[scale=1.0]{f3_kinetic_energy.eps}
+                \caption{Energy conservation during a harmonic oscillation in CD.}
+            \label{f3_kinetic_energy}
+        \end{figure}
+
+    The electron in this system could take a value of $1/2 h \nu$, 
+
+        \begin{equation}
+            \frac{1}{2} \ h\nu \leq E_{0} - E_{\mathrm{B}} = E_{\mathrm{A}} \leq h\nu
+            \ .
+        \end{equation}
+
+    In the phase $\mathrm{sin}^{2} (\omega t) = 1$ in Eq. (\ref{e3_1/2_E_sin^2}), $E_{\mathrm{A}}$ takes the minimum value 
+
+        \begin{equation}
+            E_{\mathrm{A}} = \frac{1}{2} \ h\nu
+            \ .
+            \label{e3_B_min}
+        \end{equation}
+
+    Considering $E_{\mathrm{B}}$ and modifying it
+
+        \begin{equation}
+            \begin{split}
+                E_{\mathrm{B}}
+                    &= \frac{1}{2} \ E_{0} \ \sin^{2} (\omega t) \\
+                    &= \frac{1}{2} \ E_{0} \left( 1 - \cos^{2} (\omega t) \right) \\
+                    &= E_{0} - E_{0} \left( \frac{1}{2} + \frac{1}{2} \cos^{2} (\omega t) \right) \\
+                    &= E_{0} - E_{0} \left( \frac{1}{4} + \frac{1}{2} \cos (\omega t) + \frac{1}{4} \cos^{2} (\omega t) \right) \\
+                    &\quad - E_{0} \left( \frac{1}{4} - \frac{1}{2} \cos (\omega t) + \frac{1}{4} \cos^{2} (\omega t) \right) \\
+                    &= E_{0} - E_{0} \left( \left( \frac{1 + \cos \left( \omega t \right)}{2} \right)^{2} + \left( \frac{1 - \cos \left( \omega t \right)}{2} \right)^{2} \right) \\
+                    &= E_{0} - \left( E_{0} \cos^{4}  \left( \frac{\omega t}{2} \right) + E_{0} \sin^{4} \left( \frac{\omega t}{2} \right) \right)
+                    \ .
+                \label{e3_EA}
+            \end{split}
+        \end{equation}
+
+    Comparing the results thus obtained with that in Eq. (\ref{e3_EA+EB}), we find that the sum of second and the third terms on the right side of Eq. (\ref{e3_EA}) is equal to $E_{\mathrm{A}}$. We obtain the corresponding expression through substitution:
+
+        \begin{equation}
+            \begin{split}
+                E_{\mathrm{A}}
+                    &= E_{0} - E_{\mathrm{B}} \\
+                    &= E_{0} \cos^{4}  \left( \frac{\omega t}{2} \right) + E_{0} \sin^{4} \left( \frac{\omega t}{2} \right)
+                    \ .
+                    \label{e3_EB=E0+EA}
+            \end{split}
+        \end{equation}
+
+    Assuming $E_{A}=E_{A1}+E_{A2}$, we allot the first term of the right side of Eq. (\ref{e3_EB=E0+EA}) to $E_{A1}$, and the second term of the right side Eq. (\ref{e3_EB=E0+EA}) to $E_{A2}$. So far, we have acquired three oscillators that may be described as follows:
+
+        \begin{equation}
+            (Oscillator \ 1): E_{\mathrm{A1}} = E_{0} \ \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right)
+            ,
+            \label{e3_Osc_1}
+        \end{equation}
+
+        \begin{equation}
+            \ (Oscillator \ 2): E_{\mathrm{A2}} = E_{0} \ \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) 
+            \label{e3_Osc_2}
+            ,
+        \end{equation}
+
+        \begin{equation}
+            \ \ (Oscillator \ 3): E_{\mathrm{B}} = \frac{1}{2} \ E_{0} \ \mathrm{sin}^{2} (\omega t)
+            \ .
+            \label{e3_Osc_3}
+        \end{equation}
+
+    In the following subsection, we determine the relationship between three oscillators.
+
+
+
+
+\subsection{Applying the first law of thermodynamics}
+\label{Applying_the_first_law_of_thermodynamics}    
+
+
+    Traditionally, a harmonic oscillator has two kinds of energy, kinetic and potential energy. In this model, we used thermal energy instead of potential energy. We use the first law of thermodynamics as a special case for considering internal energy: ``An isolated system does not allow for passage of matter or energy into or out of the system'' \cite{David Ball}.
+        
+    Let us focus our attention on an electron model composed of one virtual photon and two spinors of bare electrons as an ``isolated system.'' That is, the electron does not allow the spinors to leave or to pass energy outside of the photon.
+    
+    The first law is expressed using the total amounts of work, $ w $, and thermal energy, $ q $:
+    
+        \begin{equation}
+            U = \ q \ + \ w
+            \ .
+            \label{e3_U=q+w}
+        \end{equation}
+
+    ``If energy cannot move in or out, then the total energy $ U $ of the system does not change'' \cite{David Ball}. This isolated system is ``adiabatic'' with respect to the surroundings. However, the inside is not adiabatic, because two differential-phase spinors are present. In this situation, $ q \neq 0 $. Let us apply the isolated system assumption to this electron model. Thermal energy, $ q $, is equal to $T$, giving us
+ 
+        \begin{equation}
+            U = \ T \ + \ w
+            \ .
+            \label{e3_U=T+w}
+        \end{equation}
+
+    However, this model does not deal with pair production from two-photon interaction. The virtual photon does not vanish with the passage of time. 
+
+    We interpret the above formula as follows:
+
+        \begin{equation}
+            \left( E_{\mathrm{total}} \right) = \left( E_{\mathrm{potential \ energy}} \right) + \left( E_{\mathrm{kinetic \ energy}} \right)
+            \ .
+            \label{e3_E_total^2_04}
+        \end{equation}
+
+    In this study, we shall consider the bare electron's thermal energy as potential energy in the following manner: 
+
+        \begin{equation}
+            \left( E_{\mathrm{total}} \right) = \left( E_{\mathrm{thermal \ energy}} \right) + \left( E_{\mathrm{kinetic \ energy}} \right)
+            \ .
+            \label{e3_E_total^2_05}
+        \end{equation}
+
+    We shall pay attention to whether the virtual photon maintains this relation while obeying energy conservation throughout quantum oscillations. In other words, we examine an interaction by real photons without considering the virtual-photon cloud around an electron. We proceed to explore further connection between the above equations and the first law of thermodynamics as shown below:
+
+        \begin{equation}
+            \left( E_{\mathrm{total}} \right) = \left( E_{\mathrm{bare \ electron}} \right) + \left( E_{\mathrm{virtual \ photon}} \right)
+            \ .
+            \label{e3_E_total^2_06}
+        \end{equation}
+
+
+    This conclusion could make the model simply distinguishable. Bare electrons absorb thermal energy, whereas the photon carries kinetic energy. Let us apply these roles to Eq. (\ref{e3_U=T+w});  we have $U_{\mathrm{isolated \ system}}$,
+
+        \begin{equation}
+            \begin{split}
+                \left( E_{\mathrm{total}} \right)
+                    &= \left( U_{\mathrm{isolated \ system}} \right) \\
+                    &= \ {T_{\mathrm{P.E.}}} \ + \ \mathrm{\gamma}^{*}_\mathrm{K.E.}
+                    \ .
+            \end{split}
+        \end{equation}
+
+    \noindent
+    where ${T_{\mathrm{P.E.}}}$ is thermal potential energy and $\mathrm{\gamma}^{*}_\mathrm{K.E.}$ is the kinetic energy of the virtual photon.
+
+    Moreover, the bare electron would possess thermal energy and not kinetic energy because, as mentioned previously, the bare electron would appear and disappear at the same point. A material point of the bare electron has no sense of continuous spatial moving velocity.
+
+    However, the rest mass of an electron is expressed in joules. Similarly, a bare electron has bare energy, and we express its energy using in the unit kelvin (K) to emphasize modeling the quiescent energy of electrons in the category of thermodynamics.
+
+        \begin{equation}
+            T_{\mathrm{0(time=0)}} \ (\mathrm{K}) = m_{0} \ (\mathrm{eV})
+            \ ,
+        \end{equation}
+
+    \noindent
+    where $m_{0}$ is the particle's rest mass, $\mathrm{eV}$ is electron volt unit.
+
+    As mentioned in subsection \ref{Energy_conservation_and_zero-point_energy} in Eqs. (\ref{e3_Osc_1} to \ref{e3_Osc_3}), we obtain the energies of the three oscillators using the concept of classical energy conservation. Here, we assume oscillator 1 would be a vector particle because it has $\omega t$ phase. As well as oscillator 1, assume oscillator 2 and 3 would be spinor particles because they have $\omega t / 2$ phase. So, let us allot the energies of these oscillators to the energy of a virtual photon, $\gamma^{*}_\mathrm{K.E.}$, and the energies of bare electrons, $E_\mathrm{e1}$ and $E_\mathrm{e2}$, as shown in Eqs. (\ref{e3_Osc_1} to \ref{e3_Osc_3}). The relationship between these oscillators and the total energy in the isolated system, $E_\mathrm{0}$ for $h \nu$, is shown in Fig \ref{f3_E1+E2+gamma}. We obtain the following:
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 1): T_{e1} 
+                    & \equiv E_{\mathrm{A1}} \\
+                    &= E_{0} \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{e3_Osc_1_PE}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 2): T_{e2} 
+                    & \equiv E_{\mathrm{A2}} \\
+                    &= E_{0} \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{e3_Osc_2_PE}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                \ \ (Oscillator \ 3):  \gamma^{*}_\mathrm{K.E.}
+                    & \equiv E_{\mathrm{B}} \\
+                    &= \frac{1}{2} \ E_{0} \ \mathrm{sin}^{2} (\omega t)
+                    \ .
+                \label{e3_Osc_3_KE}  
+            \end{split}
+        \end{equation}
+
+    Maintaining energy conservation through time-dependent oscillations, the abovementioned equations could be arranged as follows.
+
+        \begin{equation}
+            \begin{split}
+                E_{0}
+                    &= E_{\mathrm{A}} + E_{\mathrm{B}} \\
+                    &= E_{\mathrm{A1}} + E_{\mathrm{A2}} + E_{\mathrm{B}} \\
+                    &= \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega t) \right) \\
+                    &= T_{\mathrm{e1}} + T_{\mathrm{e2}} + \gamma^{*}_\mathrm{K.E.}
+                    \ .
+            \end{split}
+            \label{e3_E=E1+E2+gamma}
+        \end{equation}
+
+    In order to proceed further, we would be able to generate another CD-based harmonic oscillation model which maintains energy conservation through the simultaneous use of three oscillators. These relationships are shown in Fig. \ref{f3_E1+E2+gamma}.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_E1+E2+gamma.eps}
+                \caption{Energy conservation during the harmonic oscillation of three particles as presented in CD. Blue and green lines show a pair of bare electrons; Yellow line shows the energy of the virtual photon.}
+            \label{f3_E1+E2+gamma}
+        \end{figure}
+
+
+
+\subsection{An electron contains black bodies}
+\label{An_electron_contains_black_bodies}
+
+
+    In this subsection, I interpret the bare electron as a black body.
+
+    To simplify the model, we assume the following.
+
+    \begin{quote}
+        Assumption 1: A bare electron is a perfect blackbody and radiates its energy harmonically through time-dependent oscillation. 
+    \end{quote}
+                
+    We postulate this black body oscillates time dependently, according to an arbitrarily chosen cosine function:
+
+        \begin{equation}
+            T_\mathrm{e1} = E_{\mathrm{0}} \cos^{4} \left( \frac{ \omega t}{2} \right)
+        \end{equation}
+
+
+    There is no element $\cos(k x)$ in the above equation, because we assumed the bare electron to have a fixed position and not to oscillate back and forth in space. This immovability is shown using the delta function: 
+        
+        \begin{equation}
+            T_\mathrm{e1} = \int_{\mathrm{all \ space}}^{} E_{0} \cos^{4}  \left( \frac{\omega t}{2} \right) \ \delta^{3}(\bm{r}-\bm{a})dxdydz
+            \ .
+            \label{e3_delta_and_electron_position}
+        \end{equation}
+
+    The aforementioned equation indicates a thermal spot that time-dependently exhibits a change in its thermal energy magnified by the fourth power of cosine at the fixed position $\bm{a}$.
+
+    To simplify the model, assume one-dimensional coordinates and set the center of the bare electron at ($x=0$). The change of energy of the bare electron with respect to time is shown in Fig. \ref{f3_delta_function}.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_delta_function.eps}
+                \caption{Plots of $ T_{e1} = E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) $, which is the change in the energy waveform with a bare electron at location $x = 0$. }
+            \label{f3_delta_function}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_cos^4_cos^3.eps}
+                \caption{Plots of $\cos^{4}( \frac{\omega t}{2} )$ and $ -2 \cos^{3} ( \frac{\omega t}{2} ) \sin ( \frac{\omega t}{2} )$ }
+            \label{f3_cos^4_cos^3}
+        \end{figure}
+        
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_cos^4_sin^4.eps}
+                \caption{Plots of $T_{\mathrm{e1}}$ = $E_{0} \cos^{4}(\frac{\omega t}{2})$ (blue) and $T_{\mathrm{e2}}$ = $E_{0} \sin^{4}(\frac{\omega t}{2})$ (green) with $E_{0} = 1$.}
+            \label{f3_cos^4_sin^4}
+        \end{figure}
+
+    Figure \ref{f3_delta_function} shows that the bare electron black body has two phases. One is absorbing and the other is emitting. $\cos^{4} \omega t /2$ is classified into two phase by reference to Fig. \ref{f3_cos^4_cos^3}. As a bare electron is a spinor, the same curve is observed when plotting  $f(\theta /2)=\cos^{4} \omega t /2$ or $E_{0} \cos^{4}  \omega t /2$ with $E_{0} = 1$.
+
+    Except stationary points on $f(\theta /2)=\cos^{4} \omega t /2$, if $f'(\theta /2) = -2 \cos^{3} (\omega t /2) \sin ( \omega t /2)$ were minus, while $ 0 < \omega t /2 < \pi $ in Fig. \ref{f3_cos^4_cos^3}, the energy of the black body is decreasing. This is the emittance phase. On the contrary, if $f'(\theta/2) = -2 \cos^{3} (\omega t /2) \sin (\omega t /2)$ were positive, the energy of the black body would continue to increase. This is the absorption phase.
+
+
+
+\subsection{The necessity of the paring oscillator}
+\label{The_necessity_of_the_paring_oscillator}
+
+
+    According to Figs \ref{f3_delta_function} and \ref{f3_cos^4_cos^3}, the bare electron energy is zero when $ \theta /2 = \pi $. If the bare electron vanished at $ \theta /2 = \pi $, this would allow a virtual photon without a bare electron to exist, contradicting charge conservation, since photons cannot carry any electric charge.
+        
+    To maintain the charge conservation, we take in another bare electron. These two electrons act as both emitters and absorbers in turn. To meet the requirements for simultaneous emission and absorption, assign $T_{e1}$ in Eq. (\ref{e3_Osc_1_PE}) and $T_{e2}$ (\ref{e3_Osc_2_PE}) which have different phases, to each.
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 1): T_{\mathrm{e1}}
+                    &= E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) , \\
+                (Oscillator \ 2): T_{\mathrm{e2}}
+                    &= E_{0} \sin^{4} \left( \frac{\omega t}{2} \right)
+                    .
+            \label{e3_Oscillators_Te1_Te2}
+            \end{split}
+        \end{equation}
+
+    Set the two electrons as paired oscillators with $T_{\mathrm{e1}}$ = $E_{0} \cos^{4} \omega t /2$ and $T_{\mathrm{e2}}$ = $E_{0} \sin^{4} \omega t /2$. Plug 1 into $T_\mathrm{e}$, and take a look at Fig. \ref{f3_cos^4_sin^4}.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_an_electron.eps}
+                \caption{An electron and its inner structure}
+            \label{f3_an_electron}
+        \end{figure}
+
+    While $0<\omega t /2<\pi$ in Fig. \ref{f3_cos^4_sin^4}, one of the bare electrons $T_{\mathrm{e1}}$, is in the emitter phase. On the other hand, $T_{\mathrm{e2}}$ is in the absorber phase.  $T_{\mathrm{e1}}$ emits energy by radiation, which is in turn absorbed by $T_{\mathrm{e2}}$. Moreover, these radiation exchanges can occur within the virtual photon. Radiated energy propagates via electromagnetic waves, thereby reinforcing these exchanges.
+
+    It is important that the absorber does not always absorb all the thermal energy that is simultaneously emitted by the emitter. The unabsorbed difference between the emitter and the absorber is absorbed by the virtual photon as kinetic energy, and it becomes the energy obtained by the virtual photon. The unabsorbed difference in thermal energy is the energy used to drive the virtual photon. This point will be mentioned in the subsection \ref{Velocity_Potential}.
+
+
+
+
+\subsection{Modification of a virtual photon}
+
+
+    In this section, we will design a free electron that comprises three particles: one virtual photon and two bare electrons. Suppose a magnetic field of magnitude $\mathcal{H}=\bm{0}$. Therefore, there is no potential energy except thermal potential energy of the bare electrons. Furthermore, for the purposes of this electron model, change the concept of a virtual photon into a real one. In this paper, the term ``a virtual photon'' shall be used to describe a real photon captured by a bare electron with a force represented by the coupling constant of $\alpha$ shown in Fig. {\ref{f3_an_electron}}.
+
+    To push the model forward, let us make another assumption.
+         
+    \begin{quote}
+        Assumption 2: Reinterpret a virtual photon as a real photon captured by the central force of a bare electron.
+    \end{quote}
+
+    Therefore, the virtual photon captured by the electromagnetic force does not emit any electromagnetic radiation and has no oscillation at this moment. By this logic, a virtual photon can be replaced by a real photon spread over a certain length. Still a bare electron has radius $<4.3^{-19}$m \cite{ZEUS Collaboration}.
+        
+    Thus, term virtual photon should be modified in such a way that it refers to a real photon captured by the bare electron, which exists all the time.
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_two_delta_functions.eps}
+                \caption{Plots of the bare electrons apart from one another.}
+            \label{f3_two_delta_functions}
+        \end{figure}
+        
+    To clarify this free electron model, I explain that only the bare electron has potential energy in a subsequent section. That is, the virtual photon has all kinetic energy and the bare electron has all potential energy.
+
+
+
+
+\subsection{The Interval between the Two Bare Electrons}
+
+    
+    The second bare electron acting as absorber would emerge on the edge of the virtual photon, because the two bare electrons exert repulsive forces. Both the first and second bare electrons as well as a virtual photon would consist of an electron as classically recognized.
+        
+    To simplify the model, regard the virtual photon as a sphere with radius of the Compton wavelength. Furthermore, restrict the bare electrons $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$, which are condensed matter of thermal energy, to appear and disappear at the same point respectively.
+
+    To investigate the relationship between the photon and the two bare electrons, divide the bare electron $T_\mathrm{e}$ in Eq. (\ref{e3_delta_and_electron_position}) into Eq.  (\ref{e3_delta_and_electron_position_cos}), with initial value $x=+a$, and Eq.  (\ref{e3_delta_and_electron_position_sin}), with initial value $x=-a$:
+        
+        \begin{equation}
+            T_\mathrm{e1} = \int_{\mathrm{all \ space}}^{} E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) \ \delta(x-a)dx
+            \ ,
+            \label{e3_delta_and_electron_position_cos}
+        \end{equation}
+        
+        \begin{equation}
+            T_\mathrm{e2} = \int_{\mathrm{all \ space}}^{} E_{0} \sin^{4} \left( \frac{\omega t}{2} \right) \ \delta(x+a)dx
+            \ .
+            \label{e3_delta_and_electron_position_sin}
+        \end{equation}
+
+    Figure \ref{f3_two_delta_functions} is a three-dimensional perspective based on Fig. \ref{f3_cos^4_sin^4}. The light green circle at $x=-a$ indicates the outer frame. That means that the paring oscillator, $T_\mathrm{e2}$, does not have any thermal energy at $t=0$. $T_\mathrm{e1}$ has all thermal energy in the system at $t=0$.
+
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:DISCUSSIONS}DISCUSSIONS}
+
+
+\subsection{Velocity potential}
+\label{Velocity_Potential}
+
+    
+    In this section, we examine how the virtual photon is captured by the bare electron to move and work in the isolated system. Our expected image is that of a simple harmonic oscillator as shown in Fig. \ref{f3_animation.eps}.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_animation.eps}
+                \caption{Schematic of the manner in which a virtual photon can be moved as a simple harmonic oscillator with the emergence and disappearance of bare electrons at fixed points $x=a$ and $x=-a$. The two bare electrons would not change their respective spatial positions, and only the thermal energies of both the bare electrons are observed to change with time.}
+            \label{f3_animation.eps}
+        \end{figure}
+        
+    Before looking into the motion by phase, let us check the two fixed states of the positional relationship between the virtual photon and a pair of two oscillators.
+        
+    These two states have two phases. One comes from $\cos^{4} \omega t /2 = 1$ and the other comes from $\sin^{4} \omega t /2 = 1$. For $\cos^{4} \omega t /2 = 1$, for example, at $t=0$, the center of the virtual photon stays at $x=a$ in Fig. \ref{f3_two_delta_functions_with_photon}.
+
+    Here, we add a new assumption.
+
+    \begin{quote}
+        Assumption 3: The central force belonging to the two bare electrons moves along the temperature gradient.
+    \end{quote}        
+        
+    Assume that the virtual photon moves along with the vector field. In other words, the central force arising from the two bare electrons moves along with the velocity potential.
+
+    On the basis of the above assumption, the virtual photon captured by the central force of the electron also moves along the temperature gradient.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_two_delta_functions_with_photon.eps}
+                \caption{The position of the virtual photon at $t=0$. Bare electrons at two points, $-a$ and $a$, are separated by a distance of $2a$.}
+            \label{f3_two_delta_functions_with_photon}
+        \end{figure}
+        
+    Previously, the virtual photon has been discussed in terms of heat conduction. Henceforth, the virtual photon will be modeled in terms of velocity potential.
+
+
+    We consider an isolated system, which is energy conservative and has a field of conservative force. In such a field, the potential can be calculated by grad $\phi$. Further, the temperature gradient that is considered is the scalar potential,which can generate the velocity potential.
+
+    To advance this model, it is important to find a relation between the virtual photon and velocity potential generated by a temperature difference between $T_\mathrm{e1}$ and $T_\mathrm{e2}$.
+
+    However, two conditions should be satisfied to use the velocity potential:
+    
+        \begin{itemize}
+            \item The flow of the fluid should be irrotational.
+            \item The fluid should be a perfect fluid.
+        \end{itemize}
+
+    Let us check the first condition; the virtual photon moves along with the $\textit{x}$-axis, so
+    
+        \begin{equation}
+            \bm{\omega}_{\mathrm{vorticity}} = \frac{\partial v}{\partial x} - \frac{\partial u}{\partial y} = 0
+            \ ,
+        \end{equation}
+            
+    or
+
+        \begin{equation}
+            \bm{\omega}_{\mathrm{vorticity}} = \mathrm{rot} ( \mathrm{grad} \ (T_{\mathrm{e2}} - T_{\mathrm{e1}})) = 0
+            \ ,
+            \label{e3_vorticity_zero}
+        \end{equation}
+        
+    \noindent
+    meaning that a specific velocity potential exists because of the vorticity being zero.
+        
+    Let us now check the second condition. Here, we postulate that the virtual photon is a perfect fluid, and will discuss this topic section \ref{The_virtual_photon_as_perfect_fluid} on page \pageref{The_virtual_photon_as_perfect_fluid}. Thus, it can be treated as a perfect fluid.
+
+    As the virtual photon in this system satisfied the first and the second conditions, we could further proceed with modeling. In other words, it is important to clarify how the virtual photon behaves on a one-dimensional velocity potential. It would be possible that the temperature gradient generates this velocity potential.
+
+        \begin{equation}
+            \bm{u} = \mathrm{grad} \phi
+            \ .
+            \label{e3_grad_phi}
+        \end{equation}
+
+    As a result, there is a room to put the virtual photon into the temperature gradient between $T_{e1}$ and $T_{e2}$.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_3D_temp_grad_^3.eps}
+                \caption{Relation between the temperature gradients and bare electrons in three dimensions depending on the phase of the electrons.}
+            \label{f3_3D_temp_grad_^3}
+        \end{figure}
+        
+
+
+\subsection{Temperature gradient}
+\label{Temperature_gradient}
+
+    In this section, we consider the temporal variation in the temperature gradient. The temperature gradient between the two bare electrons is calculated as
+
+
+        \begin{equation}
+            \mathrm{grad} \ T_{\mathrm{e}} = \mathrm{grad} \ (T_{\mathrm{e2}} - T_{\mathrm{e1}})
+            \ .
+             \label{e3_k_grad_Te2-Te1}                
+        \end{equation}
+
+    Substitute the energies of the two thermal oscillators Eq. (\ref{e3_Oscillators_Te1_Te2}) into Eq. (\ref{e3_k_grad_Te2-Te1}), and calculate the temperature gradient. This is done not only to calculate the temperature gradient but also the temporal change in the temperature gradient in Eqs. (\ref{e3_gradT_e1}) and (\ref{e3_gradT_e2}). Since the values of thermal energy at both thermal spots vary with time, the temperature gradient changes with time. Let the previous $\omega t$ is $\theta$,
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e1}}
+                &= \frac{d}{d \theta} \left( E_{0} \cos^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &= - 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e1}
+        \end{align}
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e2}} 
+                &= \frac{d}{d \theta} \left( E_{0} \sin^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &=   2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e2}
+        \end{align}        
+        
+    $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ include only time derivative terms; their space derivatives are zero, because the bare electrons do not change in position with time. That is,
+
+        \begin{align}
+            \mathrm{grad} \ (T_{\mathrm{e2}} - T_{\mathrm{e1}})
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right) \notag \\
+                & \quad + 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= E_{0} \sin \theta
+                \ .
+            \label{e3_simple_harmonic_motion}
+        \end{align}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_gradTe2-gradTe1.eps}
+                \caption{Plots of $\bm{u_{{\gamma}^{*}}}$ and two temperature gradients of the spinors, obtained by replacing $E_{0}$ in Eqs. (\ref{e3_gradT_e1}) - (\ref{e3_simple_harmonic_motion}) with 1.}
+            \label{f3_gradTe1-gradTe2}
+        \end{figure}
+
+    Equation (\ref{e3_simple_harmonic_motion}) shows that the temperature gradient between $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ produces a force $\bm{\mathrm{F}}$. The force drives the velocity of the virtual photon along with simple harmonic motion. On the basis of the above assumption, the virtual photon swing back and force spatially between the two bare electrons.
+
+    Therefore, we can insert the above conclusion into Eq. (\ref{e3_grad_phi}) and calculate the virtual photon's velocity, $\bm{u_{{\gamma}^{*}}}$, as follows:
+
+        \begin{equation}
+            \bm{u_{{\gamma}^{*}}} = - E_{0} \sin \theta
+            \ .
+            \label{e3_simple_harmonic_motion_-sin}
+        \end{equation}
+
+    Equation (\ref{e3_simple_harmonic_motion_-sin}) helps us to obtain an insight that the velocity of the virtual photon as a vector particle $\theta$ exhibits a simple harmonic oscillation of a sine function generated by the temperature gradient of spinor particle ($\theta / 2$).
+    
+    Note that in this subsection we continue discussing the three oscillators Eqs. (\ref{e3_Osc_1} -- \ref{e3_Osc_3}) using $\theta$ instead of $\omega t$. To obtain Eq.  (\ref{e3_simple_harmonic_motion_-sin}), we differentiated Eqs. (\ref{e3_gradT_e1} -- \ref{e3_simple_harmonic_motion}) with $\theta$ instead of $t$. If we continue to calculate Eq. (\ref{e3_gradT_e1}) with respect to $\omega t$ and differentiating with $t$, the final product obtained from Eq. (\ref{e3_simple_harmonic_motion}) is $\mathrm{grad} \ (T_\mathrm{e2} - T_\mathrm{e1}) = E_{0} \omega \sin(\omega t)$.
+    
+    Where, $\omega$ represent the amplitude of a simple harmonic oscillator. Therefore, electrons with high energy behave as oscillators having large spatial amplitude in classical dynamics \cite{Feynman}.
+    
+    In other words, in this model, higher the energy of the particle, longer is the spatial oscillation of the virtual photon. However, there is no theoretical explanation about the consistency of the point where electrons with high energy shorten the Compton wavelength.
+    
+    Therefore, the interpretation of the relation between quantum energy amplitude and the amplitude of the energy of the classical oscillator is still unclear. The relations between the magnitude of the gradient and the value of the amplitude including the angular velocity and validity of expression of the angular velocity would need further study.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_hydrostatic_equilibrium.eps}
+                \caption{Two spheres and the central force}
+            \label{f3_hydrostatic_equilibrium}
+        \end{figure}
+
+
+
+
+\subsection{The virtual photon as perfect fluid}
+\label{The_virtual_photon_as_perfect_fluid}    
+
+    Previously, this electron model regards the virtual photon as a perfect fluid in subsection \ref{Velocity_Potential}. To clarify our image of a captured virtual photon, we use a concept of ``hydrostatic equilibrium'' from fluid mechanics.
+
+        
+    Gravity points toward the center of the Sun. Similarly, the electromagnetic force points toward the center of an electron. Gravity is balanced by a pressure-gradient force in the Sun. Further, the inner structure of an electron is comparable with the balancing of the Sun as a self-gravitating gas sphere in Fig. \ref{f3_hydrostatic_equilibrium}.
+        
+    Polytropes are considered to be a type of fluid. The equation of the state of a polytropic fluid can be stated using a perfect fluid. Generally, the gas of the Sun would be considered to be polytropes. Using the polytrophic equation (see Appendix \ref{Hydrostatic_Equilibrium}), such polytropes can be regarded as perfect fluids.
+
+    If the virtual photon of the electron had viscosity, the electron could not exist continuously because of damped oscillation. As far as the moving behavior, this condition is equal to the under-damped spring-mass system with $\zeta < 1$, where $\zeta$ is the damping ratio.
+        
+    For example, suppose
+        
+        \begin{equation}
+            \zeta = e^{-t}
+            \ ,
+        \end{equation}
+            
+    then the oscillation of the virtual photon is
+        
+        \begin{equation}
+            \begin{split}
+                \lim_{t \to \infty} \zeta \gamma^{*}_{\mathrm{K.E.}}
+                &= \lim_{t \to \infty} e^{-t} \   \gamma^{*}_{\mathrm{K.E.}} \\
+                &= 0
+                \ .
+                \label{e4_KE_equal_zero}
+            \end{split}
+        \end{equation}
+
+    The photon comprising a viscous fluid causes a viscous flow, changing its kinetic energy into thermal energy. As we assume this model to be in an "isolated system" in the Introduction, there is no room to escape its kinetic energy outside the system in itself. Finally, the photon would cease to oscillate, because of the vanishing of its kinetic energy Eq. (\ref{e4_KE_equal_zero}). Under this circumstance, the bare electrons absorb all kinetic energy that the virtual photon initially possess and the temperature gradient disappears or equal to zero permanently, and the zero-kinetic energy of the two bare electrons becomes zero. That would be against quantum fluctuation because only the virtual photon could carry kinetic energy, which would be resource energy of quantum fluctuation.
+        
+    In this paper, the category ``perfect fluid'' comprises all fluids that lack viscosity. That is, both compressible and incompressible fluids can be perfect. Were we to treat only the incompressible fluids, this would lead to an inconsistency.
+        
+    Interaction between thermal and kinetic energy is essential in this electron model, because the interaction between the two kinds of energy drives the virtual photon along with the harmonic oscillator. 
+
+    Moreover, no conditions on the pressure of the virtual photon could be shown in this paper. For an incompressible fluid, the pressure of the virtual photon $p_{\gamma *}$ in thermodynamics ($p = p (T, \rho)$) is
+        
+        \begin{equation}
+            p_{\gamma *} = p (T_{e1}, T_{e2}, \rho_{\gamma *})
+            \ .
+        \end{equation}
+
+    Both the Sun and an electron model in this study exhibit similarity because both of them do not have a definite surface on its sphere. The Sun is a condensed gas body and do not have clear surface.
+
+    Furthermore, no equations that describe the hydrostatic equilibrium of the electron are presented in this study. In addition, the image of the virtual photon is quite simple and obvious. This aspect will be studied as a part of future research.
+
+
+
+
+\subsection{Value of emissivity}
+
+    In the previous section, it was assumed that a bare electron acts as a perfect black body. Because of this principle, virtual photons behave like spatial simple harmonic oscillators (Figs. \ref{f3_gradTe1-gradTe2} and \ref{f3_extension_bloch_01}). What happens if the emissivity of the bare electron is less than 1? The temperature of the bare electron decreases with each repeated absorption $ C $. Consider two emittance and absorption cycles per $\mathrm{2 \pi}$, each with a frequency $f$
+        
+        \begin{equation}
+            \begin{split}
+                C 
+                    &= 2 f t \\
+                    &= 2 \left( \frac{\omega}{2 \pi} \right) t \\
+                        &= \frac{\omega t}{\pi}
+                        \ .
+            \end{split}
+        \end{equation}
+            
+    $C$ is the number of times radiation is emitted from a black body. However, let us set the emissivity of the bare electron, $\epsilon$. When $0 < \epsilon < 1$, the energy of $T_{1}$ can be calculated as
+
+        \begin{equation}
+            \begin{split}
+                \lim_{t \to \infty} E_{\mathrm{e1}}
+                    &= \lim_{t \to \infty} \epsilon ^C \ E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) \\
+                    &= \lim_{t \to \infty} \epsilon^{\left( \frac{\omega t}{\pi} \right)} \ E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) \\
+                    &= 0
+                    \ .
+            \end{split}
+        \end{equation}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_bloch_like_01.eps}
+                \caption{(a) Behavior of the virtual photon as a spatial simple harmonic oscillator while the two bare electrons act as emitters and absorbers. (b) Plots of given up or down spins on the phase differential.}
+            \label{f3_extension_bloch_01}
+        \end{figure}
+
+    This equation implies that the energy of the bare electron decreases with every absorption in proportion with the value of the emissivity ($\epsilon$).
+    The energy of $T_{2}$ is derived using the same method as that given above:
+
+        \begin{equation}
+            \begin{split}
+                \lim_{t \to \infty} E_{\mathrm{e2}}
+                    &= \lim_{t \to \infty} \epsilon^{C} \ E_{0} \sin^{4} \left( \frac{\omega t}{2} \right) \\
+                    &= \lim_{t \to \infty} \epsilon^{\left( \frac{\omega t}{\pi} \right)} \ E_{0} \sin^{4} \left( \frac{\omega t}{2} \right) \\
+                    &= 0
+                    \ .
+            \end{split}
+        \end{equation}
+
+
+
+    These two equations show that the two oscillators behave as if they are damped, and would finally cease to oscillate; this implies that the energy of the bare electrons will decrease with time and eventually reach zero. Considering the isolated system, the total energy of the whole electron, $E_\mathrm{0}$, is unchangeable:
+        
+        \begin{equation}
+            E_{0} = \lim_{t \to \infty} E_{\mathrm{e1}} + \lim_{t \to \infty} E_{\mathrm{e2}} + \gamma^{*}_\mathrm{K.E.}
+            \ ,
+        \end{equation}
+        
+    so
+        
+        \begin{equation}
+            \begin{split}
+                \gamma^{*}_{\mathrm{K.E.}}
+                    &= E_{0} - \left( \lim_{t \to \infty} E_{\mathrm{e1}} + \lim_{t \to \infty} E_{\mathrm{e2}} \right) \\
+                    &= E_{0}
+                    \ .
+                \label{e4_gamma_Ee}
+            \end{split}
+        \end{equation}
+
+    Equation (\ref{e4_gamma_Ee}) indicates that the final outcome is a photon because the total energy of the virtual photon, $\gamma^{*}_\mathrm{K.E.}$, is ultimately the total energy of the electron $E_{0}$. In other words, the phenomenon whereby two oscillators vanish without any positrons and change the electron's entire mass-energy into a real photon conflicts with charge conservation. Consequently, the emissivity has to be 1 for charge conservation to be maintained.
+
+
+
+\subsection{Finding Spinors and Superposition in this electron model}
+\label{Finding_spinors_and_superposition_in_this_electron_Model}
+
+
+    Let us review equation (\ref{e3_E=E1+E2+gamma}) in the previous subsection \ref{Applying_the_first_law_of_thermodynamics},
+
+        \begin{equation}
+            \begin{split}
+                E_{0}
+                    &= \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega t) \right) \\
+                    &= T_{\mathrm{e1}} + T_{\mathrm{e2}} + \gamma^{*}_\mathrm{K.E.}
+                    \ .
+            \end{split}
+            \label{e3_E=E1+E2+gamma_again}
+        \end{equation}
+
+    Since $\gamma^{*}_{\mathrm{K.E.}} = \frac{1}{2} E_{0} \mathrm{sin}^{2} (\omega t)$ represents the kinetic energy of a vector particle, and $T_{\mathrm{e1}} = E_{0} \mathrm{cos}^{4} \left ( \frac{\omega t}{2} \right)$ and $T_{\mathrm{e2}} = E_{0} \mathrm{sin}^{4} \left ( \frac{\omega t}{2} \right)$ represent the thermal energies of the spinor particles, this isolated system includes two finishing degrees within one cycle, $2\pi$ and $4\pi$.
+
+    This could enable us to understand the specific behavior that is exhibited by spinors under rotations. To ensure a symmetric operation, spinors require a 720-degree rotation; to explain this phenomenon in an easy-to-understand manner, we consider Dirac’s Belt Trick or Plate Trick and other such methods. Further, this electron model would be able to comprehensively explain the inclusion of both 360-degree rotation with a vector particle and 720-degree rotation with spinor particles.
+
+    Let us observe Fig. \ref{f3_extension_bloch_01} on page \pageref{f3_extension_bloch_01}. Note that a yellow line has been added in Fig. \ref{f3_two_delta_functions_with_photon}  on page \pageref{f3_two_delta_functions_with_photon}. It depicts the locus of the virtual photon. Furthermore, the line exhibits a cosine curve on a plane comprising the $x$ and $t$-axes. The radius of the virtual photon can be considered to be double the width of the spatial amplitude, $2A$. This length is observed to be equal to $2a$ on the $x$-axis.
+
+    Using the concept of phase rotation, it is helpful for us to not only recognize the relationship between the phase differential of the bare electron and the virtual photon in Fig. \ref{f3_extension_bloch_02}. (d) on page \pageref{f3_extension_bloch_02} but also build a new concept of the superposition of spins. Here, we use $\mathrm{\theta}$ instead of $\mathrm{\omega t}$, and define the ``up'' and ``down'' spins of the $T_{\mathrm{e2 \ spin}}$ :
+    
+        \begin{equation}
+            \begin{split}
+                T_{\mathrm{e2 \ spin}} \equiv \ \mid \uparrow \rangle : 0 \pi < \theta < 2\pi \\
+                T_{\mathrm{e2 \ spin}} \equiv \ \mid \downarrow \rangle : 2 \pi < \theta < 4\pi
+            \end{split}
+            \label{e3_spin_Te2}
+        \end{equation}
+
+    Similarly,
+
+        \begin{equation}
+            \begin{split}
+                T_{\mathrm{e1 \ spin}} \equiv \ \mid \uparrow \rangle : 0\pi \leq \theta < \ \pi \\
+                T_{\mathrm{e1 \ spin}} \equiv \ \mid \downarrow \rangle : \ \pi < \theta < 3\pi \\
+                T_{\mathrm{e1 \ spin}} \equiv \ \mid \uparrow \rangle : 3\pi < \theta \leq 4\pi
+            \end{split}
+            \label{e3_spin_Te1}
+        \end{equation}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_bloch_like_02.eps}
+                \caption{(c) A representation of the 720-degree rotation performed on two-pair of bare electrons. (d) A representation of the 360-degree rotation performed on a virtual photon as a vector particle. (e) Correspondence of the up or down spin and spatial position of the virtual photon that exhibits in-phase variation. Note that the diameter of the virtual photon is not drawn in proportion with the diameter of bare electrons.}
+            \label{f3_extension_bloch_02}
+        \end{figure}
+
+    On the right side of the defined equality in Eqs. (\ref{e3_spin_Te2}) and (\ref{e3_spin_Te1}), there is an inequality with no equal sign. For example, $T_{\mathrm{e1 \ spin}}$ in $\pi < \theta < 3\pi$ in Eq. (\ref{e3_spin_Te1}), neither of the two inequalities has an equal sign. The lack of an equal sign indicates that the thermal energy of $T_{\mathrm{e2}}$ and the kinetic energy $\gamma^{*}_{\mathrm{K.E.}}$ are equal to zero, and the entire energy contained in this system is $T_{\mathrm{e1 \ spin}}$; therefore, its spin is clearly defined as ``up'' or ``down'' depending on the status of another bare electron. Because only one thermal spot, $T_{\mathrm{e1}}$, is uniquely defined as ``down'' in $2\pi$ as shown in Fig. \ref{f3_extension_bloch_01}. (a) and Fig. \ref{f3_extension_bloch_02}. (e), this electron is no longer in superposition, which is the state of having mixed ``up'' and ``down'' spins.
+
+    
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_bloch_like_03_v2.eps}
+                \caption{(f) The two coordinate axes applying the Bloch sphere for representation of the pure state. The dotted purple line is an example of the phase $\theta = 3\pi /2 $. (g) Appearance of one-state spin and two-state of superposition alternately as mentioned in Eqs. (\ref{e3_spin_Te1_Te2}) and (\ref{e3_spin_Te1_Te2_fixed}).
+                }
+            \label{f3_extension_bloch_03}
+        \end{figure}
+    
+    Let us study the difference between the presence and absence of the equal sign. We shall distinguish both by using a concept of superposition. In Eq. \ref{e3_EB=E0+EA} in subsection \ref{Energy_conservation_and_zero-point_energy}, we recognized that the total thermal energy; $E_{\mathrm{A}} = E_{0} \cos^{4} \theta / 2 + E_{0} \sin^{4} \theta /2 $. $E_{\mathrm{A}}$ is represented by the sum of the two functions in a linear order. This equation is considered to be one of superposition i.e., in this circumstance, the electron which has two spinors of bare electrons, each of them can achieve either states of $\mid \uparrow \rangle$ and $\mid \downarrow \rangle$ elements of spins because the functions $E_{0} \cos^{4} \theta /2 $ and $E_{0} \sin^{4} \theta /2 $ represented the two bare electrons' status which could each be defined by the spin states ``up'' and ``down.'' 
+    
+    Comprehensively, both $E_{0} \cos^{4} \theta / 2 $ and $E_{0} \sin^{4}  \theta / 2 $ would have a state of either $\mid \uparrow \rangle$ or $\mid \downarrow \rangle$. In particular, the state of two spins which is represented in $E_{0} \cos^{4} \theta /2 $ and $E_{0} \sin^{4} \theta /2 $ can take four possible combinations inside the electron: $\mid \uparrow \uparrow \rangle$, $\mid \uparrow \downarrow \rangle$, $\mid \downarrow \uparrow \rangle$, and $\mid \downarrow \downarrow \rangle$. Elaborating, consider the phase $ \theta = 3\pi /2 $. In that phase, $\cos^{4} \theta / 2 = \cos^{4} 3\pi /4 $ has ``down:$\mid \downarrow \rangle$'' spin. On the other hand, $\sin^{4} \theta / 2 = \sin^{4} 3 \pi /4 $ has ``up:$\mid \uparrow \rangle$'' spin, which has been shown through the dotted violet line in Fig. \ref{f3_extension_bloch_03}.
+        
+    Hence, an electron that comprises two spinor states, which can be defined as $\mid T_{\mathrm{e1 \ spin}}, T_{\mathrm{e2 \ spin}} \rangle$, could be denoted as: $\mid \uparrow \uparrow \rangle$, $\mid \uparrow \downarrow \rangle$, $\mid \downarrow \uparrow \rangle$, and $\mid \downarrow \downarrow \rangle$ except in the phase; $\theta = n \pi, (n= 0,1,2,3,...,n)$. An expression using two arrows, such as $\mid \uparrow  \downarrow \rangle$, could denote an isolated system as one whole electron.
+
+    For example, $\mid \downarrow  \uparrow \rangle$ indicates that one electron has thermal energy $T_{\mathrm{e1}}$ which has ``down:$\mid \downarrow \rangle$'' spin, whereas $T_{\mathrm{e2}}$ has ``up:$\mid \uparrow \rangle$'' spin.
+
+    This system includes both kind of spins, $T_{\mathrm{e1 \ spin}}$ and $T_{\mathrm{e2 \ spin}}$. The state of an electron expressed as $\mid \uparrow \downarrow \rangle$ is a spin-mixed state:$\mid \uparrow \rangle : T_{\mathrm{e1 \ spin}}$ has ``up'' spin, whereas $\mid \downarrow \rangle : T_{\mathrm{e2 \ spin}}$ has ``down'' spin. We could suggest the following: the superposition in the phase-dependence of $\mid T_{\mathrm{e1 \ spin}}, T_{\mathrm{e2 \ spin}} \rangle$ by generalizing the angle of circulation at every $(4n+0)\pi$,
+
+        \begin{equation}
+            \begin{split}
+                \mid \uparrow  \uparrow \rangle : (4n+0) \pi < \theta < (4n+1)\pi \ , \\
+                \mid \downarrow \uparrow \rangle : (4n+1)\pi < \theta < (4n+2)\pi \ , \\
+                \mid \downarrow \downarrow \rangle : (4n+2)\pi < \theta < (4n+3)\pi \ , \\
+                \mid \uparrow \downarrow \rangle : (4n+3)\pi < \theta < (4n+4)\pi \ , \\
+                (n=0,1,2,3,...,n)
+                \ .
+            \end{split}
+            \label{e3_spin_Te1_Te2}
+        \end{equation}
+
+    In particular, the spin is uniquely determined ``up'' or ``down'' in the phase as follows. Since the thermal energy of either of the pairs $T_{\mathrm{e1}}$ or $T_{\mathrm{e2}}$ would be equal to zero in the phase as follows:
+
+        \begin{equation}
+            \begin{split}
+                (T_{\mathrm{e1 \ spin}} = \ \mid \uparrow  \rangle , \ T_{\mathrm{e2}} = 0) : \theta = (4n+0) \pi , \\
+                (T_{\mathrm{e2 \ spin}} = \ \mid \uparrow  \rangle, \ T_{\mathrm{e1}} = 0)  : \theta = (4n+1) \pi , \\
+                (T_{\mathrm{e1 \ spin}} = \ \mid \downarrow  \rangle , \ T_{\mathrm{e2}} = 0) : \theta = (4n+2) \pi , \\
+                (T_{\mathrm{e2 \ spin}} = \ \mid \downarrow  \rangle, \ T_{\mathrm{e1}} = 0)  : \theta = (4n+3) \pi , \\
+                (n=0,1,2,3,...,n)
+                \ .
+            \end{split}
+            \label{e3_spin_Te1_Te2_fixed}
+        \end{equation}
+
+    The states of electrons described in Eq. (\ref{e3_spin_Te1_Te2_fixed}) would indicate us that an electron has four kind of specific phases throughout changing its phase, on which the spin would be uniquely determined.
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+%Insert space for margin layout.
+
+        %\begin{figure}[h!]
+            %\centering
+            %\includegraphics[scale=0.4]{f4_space.eps}
+                %\caption{}
+                %\label{}
+        %\end{figure}
+
+
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+    Till date, an electron is a spinor particle. This study provides more significant image of the particle that the electron would comprise two spinor states. Additionally, these two spinors states cannot exist simultaneously in the same space ($r_{0} \neq 0$) as mentioned in section \ref{sec:INTRODUCTION} because of the Pauli Exclusion principle; if they could exist simultaneously in the same space, the virtual photon would neither oscillate spatially nor achieve the value of zero-point energy in the system.
+
+    One of the features of this research is that the kinetic and potential energy are clearly separated along with each particle. A bare electron should be regarded as a thermal spot with limited thermal energy; i.e., the total energy of the free electron in this isolated system would be the summation of the virtual photon's kinetic energy, and the bare electron's thermal energy. 
+
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\begin{thebibliography}{99}
+    \bibitem{Planck} M. Planck, The Theory of Heat Radiation; Dover Publication, Inc.: New York, (1912)
+    \bibitem{Zu-Po Yang} Zu-Po Yang et al, Nano letters 8, 446--451 (2008). %“Experimental Observation of an Extremely Dark Material Made By a Low-Density Nanotube Array”.
+    \bibitem{ZEUS Collaboration} ZEUS Collaboration et al, \href{https://arxiv.org/abs/1604.01280}{arXiv:1604.01280v1} (2016) %Limits on the effective quark radius from inclusive ep scattering at HERA 
+    \bibitem{David Ball} David W. Ball, Physical Chemistry 2E, Wadsworth Cengage Learning, (2015)
+    %\bibitem{John Howell} John R. Howell, Thermal Radiation Heat Transfer 6E, CRC Press, (2016)  % p.3
+    \bibitem{Bradley Carroll} Bradley W. Carroll and Dale A. Ostlie, An Introduction to Modern Astrophysics 2E, Cambridge University Press, (2017)  % p.287
+    \bibitem{Feynman} R. P. Feynman and A.R. Hibbs, Quantum Mechanics and Path Integrals (McGraw-Hill, New York, 1965).
+
+\end{thebibliography}
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{Appendix}
+\label{Appendix}
+
+\subsection{Hydrostatic Equilibrium}
+\label{Hydrostatic_Equilibrium}
+
+    A method to determine the internal structures of the stars is well established. First, we calculate the stellar radius using the $hydrostatic \ equilibrium \ equation$ \cite{Bradley Carroll} from  fluid dynamics as follows:
+        
+        \begin{equation}
+            \frac{d P}{d r} = -G \frac{M_{r} \rho}{r^{2}}
+            \ .
+            \label{e3_hydrostatic_equilibrium_equation}
+        \end{equation}
+
+    This equation yields the $Lane$-$Emden \ equation$, Eq. (\ref{e3_Lane-Emden_equation}).
+        
+        \begin{equation}
+            \frac{d}{d r} \left( \frac{r^{2}}{\rho} \frac{d P}{d r} \right) = -G \frac{d M_{r}}{d r}
+            \label{e3_Lane-Emden_equation}
+        \end{equation}
+
+    The pressure $P$ is related to the density as
+        
+        \begin{equation}
+            P = K \rho^{1 + \frac{1}{n}}
+            \ ,
+            \label{e3_polytropic_equation}
+        \end{equation}
+        
+    \noindent
+    which is known as the $polytrophic \ equation$, where $K$ is a constant.  The final two equations belong to the field of astrophysics.
+
+
+
+\end{document}

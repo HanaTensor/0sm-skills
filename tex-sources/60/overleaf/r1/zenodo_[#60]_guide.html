@@ -1,0 +1,767 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>ê_x への三段昇格 — 0-Sphere Model 補助資料</title>
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  body {
+    background: #f8f8f8;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-size: 13px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  .page {
+    background: white;
+    max-width: 1400px;
+    margin: 0 auto;
+    padding: 60px 80px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* ── Header ── */
+  .header {
+    border-bottom: 2px solid #000;
+    padding-bottom: 25px;
+    margin-bottom: 50px;
+  }
+  .header h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: #000;
+    letter-spacing: -0.5px;
+    margin-bottom: 8px;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: #555;
+    margin-bottom: 10px;
+  }
+  .header .meta {
+    display: flex;
+    justify-content: space-between;
+    font-size: 11px;
+    color: #999;
+    margin-top: 10px;
+  }
+
+  /* ── Section title ── */
+  .section-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: #000;
+    border-bottom: 1px solid #ddd;
+    padding-bottom: 8px;
+    margin-bottom: 22px;
+  }
+
+  /* ── Grid ── */
+  .grid-2 {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 28px;
+    margin-bottom: 50px;
+  }
+  .full-width {
+    margin-bottom: 50px;
+  }
+
+  /* ── Paper card ── */
+  .paper-card {
+    border: 1px solid #ddd;
+    padding: 0;
+    overflow: hidden;
+  }
+  .paper-card-header {
+    background: #003d82;
+    color: white;
+    padding: 14px 18px;
+  }
+  .paper-card-header .paper-num {
+    font-size: 22px;
+    font-weight: 700;
+    line-height: 1;
+  }
+  .paper-card-header .paper-tag {
+    font-size: 11px;
+    opacity: 0.8;
+    margin-top: 4px;
+  }
+  .paper-card-body {
+    padding: 18px;
+  }
+  .paper-card-body .paper-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: #000;
+    margin-bottom: 10px;
+    line-height: 1.4;
+  }
+  .paper-card-body .paper-claim {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.6;
+    margin-bottom: 12px;
+  }
+  .paper-card-body .paper-verdict {
+    background: #f5f7fa;
+    border-left: 3px solid #003d82;
+    padding: 8px 12px;
+    font-size: 12px;
+    color: #003d82;
+    font-weight: 600;
+  }
+
+  /* ── Arrow connector ── */
+  .arrow-row {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    gap: 16px;
+    margin-bottom: 50px;
+  }
+  .arrow-step {
+    flex: 1;
+    text-align: center;
+  }
+  .arrow-box {
+    background: #003d82;
+    color: white;
+    padding: 18px 14px;
+    font-size: 12px;
+    font-weight: 600;
+    line-height: 1.5;
+    min-height: 100px;
+    display: flex;
+    flex-direction: column;
+    justify-content: center;
+  }
+  .arrow-box .step-num {
+    font-size: 20px;
+    font-weight: 700;
+    margin-bottom: 6px;
+  }
+  .arrow-connector {
+    font-size: 28px;
+    color: #003d82;
+    font-weight: 700;
+    flex-shrink: 0;
+  }
+
+  /* ── Triangle diagram ── */
+  .triangle-wrapper {
+    display: flex;
+    gap: 40px;
+    align-items: flex-start;
+    margin-bottom: 50px;
+  }
+  .triangle-svg-box {
+    flex: 0 0 380px;
+  }
+  .triangle-legend {
+    flex: 1;
+  }
+  .triangle-legend .legend-item {
+    display: flex;
+    gap: 14px;
+    margin-bottom: 20px;
+    align-items: flex-start;
+  }
+  .legend-dot {
+    width: 14px;
+    height: 14px;
+    border-radius: 50%;
+    background: #003d82;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .legend-dot.open {
+    background: white;
+    border: 2px solid #003d82;
+  }
+  .legend-text strong {
+    display: block;
+    font-size: 13px;
+    color: #000;
+    margin-bottom: 3px;
+  }
+  .legend-text span {
+    font-size: 12px;
+    color: #555;
+    line-height: 1.5;
+  }
+  .status-badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 7px;
+    border-radius: 2px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .status-badge.established {
+    background: #003d82;
+    color: white;
+  }
+  .status-badge.open {
+    background: #f5f5f5;
+    border: 1px solid #003d82;
+    color: #003d82;
+  }
+
+  /* ── Data table ── */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 25px;
+    font-size: 12px;
+  }
+  .data-table th {
+    background: #003d82;
+    color: white;
+    padding: 11px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid #003d82;
+  }
+  .data-table td {
+    padding: 11px 14px;
+    border: 1px solid #ddd;
+    color: #333;
+    vertical-align: top;
+    line-height: 1.5;
+  }
+  .data-table tr:nth-child(even) td {
+    background: #f9f9f9;
+  }
+  .data-table .center { text-align: center; }
+
+  /* ── Analogy box ── */
+  .analogy-box {
+    background: #f5f7fa;
+    border: 1px solid #e0e6f0;
+    border-left: 4px solid #003d82;
+    padding: 18px 22px;
+    margin-bottom: 20px;
+  }
+  .analogy-box .analogy-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 14px;
+    font-weight: 700;
+    color: #003d82;
+    margin-bottom: 10px;
+  }
+  .analogy-box p {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.7;
+  }
+
+  /* ── Key metric ── */
+  .metric-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 20px;
+    margin-bottom: 40px;
+  }
+  .metric-box {
+    background: #f5f5f5;
+    border: 1px solid #ddd;
+    padding: 22px;
+    text-align: center;
+  }
+  .metric-num {
+    font-size: 42px;
+    font-weight: 700;
+    color: #003d82;
+    line-height: 1;
+    margin-bottom: 8px;
+  }
+  .metric-label {
+    font-size: 11px;
+    font-weight: 700;
+    color: #666;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    margin-bottom: 6px;
+  }
+  .metric-sub {
+    font-size: 11px;
+    color: #999;
+  }
+
+  /* ── Implication list ── */
+  .impl-list {
+    list-style: none;
+    margin-bottom: 30px;
+  }
+  .impl-list li {
+    padding: 12px 16px;
+    border-left: 3px solid #003d82;
+    margin-bottom: 10px;
+    background: #f9f9f9;
+    font-size: 12px;
+    line-height: 1.6;
+  }
+  .impl-list li strong {
+    color: #000;
+    display: block;
+    margin-bottom: 3px;
+    font-size: 13px;
+  }
+
+  /* ── Open task box ── */
+  .task-row {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 16px;
+    margin-bottom: 40px;
+  }
+  .task-item {
+    border: 1px solid #ddd;
+    padding: 14px 16px;
+    background: white;
+  }
+  .task-item .task-num {
+    font-size: 11px;
+    font-weight: 700;
+    color: #003d82;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 6px;
+  }
+  .task-item .task-body {
+    font-size: 12px;
+    color: #333;
+    line-height: 1.6;
+  }
+
+  /* ── Footer ── */
+  .footer {
+    border-top: 1px solid #ddd;
+    padding-top: 20px;
+    display: flex;
+    justify-content: space-between;
+    font-size: 10px;
+    color: #999;
+    margin-top: 50px;
+  }
+
+  /* ── Print ── */
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; padding: 30px 40px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+  <!-- ── HEADER ── -->
+  <div class="header">
+    <h1>ê<sub>x</sub> への三段昇格<br>
+    <span style="font-size:20px; font-weight:400;">— 重力方向の同定が「類比」から「幾何学的定理」へ</span></h1>
+    <div class="subtitle">0-Sphere Model 補助資料 ／ Papers #52 · #58 · #60 の統合ガイド</div>
+    <div class="meta">
+      <span>対象読者：0-Sphere Model 入門者・シリーズ参照者</span>
+      <span>関連論文：#52（DOI: 10.5281/zenodo.19583032）· #58 · #60</span>
+      <span>作成：2026-04 ／ Satoshi Hanamura</span>
+    </div>
+  </div>
+
+  <!-- ── METRIC SUMMARY ── -->
+  <div class="metric-row">
+    <div class="metric-box">
+      <div class="metric-num">3</div>
+      <div class="metric-label">論証の段階</div>
+      <div class="metric-sub">類比 → 動力学 → 幾何学</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">1</div>
+      <div class="metric-label">示されていること</div>
+      <div class="metric-sub">ê_x が重力方向である理由</div>
+    </div>
+    <div class="metric-box">
+      <div class="metric-num">3</div>
+      <div class="metric-label">三角形の頂点</div>
+      <div class="metric-sub">Berry · Synge · Bonnet–Myers</div>
+    </div>
+  </div>
+
+  <!-- ── WHAT IS THE QUESTION ── -->
+  <div class="full-width">
+    <div class="section-title">問い ── なぜ重力は ê_x 方向なのか</div>
+    <div class="grid-2">
+      <div>
+        <div class="analogy-box">
+          <div class="analogy-title">0-Sphere Model のヘリカル軌跡（論文 #51）</div>
+          <p>電子の内部光子球は 3 次元らせん軌道を描く。速度方向（longitudinal）は <strong>ê_x</strong>、加速度方向（transverse）は <strong>ê_y</strong>、Thomas 歳差の方向は <strong>ê_z = ê_x × ê_y</strong> である。論文 #52 はこの三方向を「重力・電磁気・スピン」の三セクターに対応づけた。しかし、なぜ <em>ê_x</em> が重力なのか？ この問いへの回答が三段階にわたって積み上げられてきた。</p>
+        </div>
+      </div>
+      <div>
+        <div class="analogy-box">
+          <div class="analogy-title">弦の波速アナロジー（論文 #52 より）</div>
+          <p>弦の波速 <em>v = √(T/μ)</em> において、張力 T と線密度 μ が打ち消し合うのは「偶然」ではない。両者が<strong>同一の物理的対象（弦）</strong>に属するからである。0-Sphere Model でも同じ論理が働く：重力エネルギー収集スケールとサイクルレートが同一の幾何学的対象（ZB 軸 ê）に由来するから、Compton 波長 λ_C が打ち消される。この「同一起源」の議論が三段階で深化する。</p>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── THREE-STEP ARGUMENT ── -->
+  <div class="full-width">
+    <div class="section-title">三段論証 ── 一つの主張が三つの根拠を得る</div>
+    <div class="grid-3">
+
+      <div class="paper-card">
+        <div class="paper-card-header">
+          <div class="paper-num">#52</div>
+          <div class="paper-tag">Structural Proposal · 2026-04-18</div>
+        </div>
+        <div class="paper-card-body">
+          <div class="paper-title">Geometric Origin of the Weak Equivalence Principle in the 0-Sphere Model</div>
+          <div class="paper-claim">
+            <strong>主張：</strong>ê_x（速度方向）が重力セクターである。<br><br>
+            <strong>根拠：</strong>メトロノームの類比。メトロノームは振れる方向と並行に隣の振り子へ同期する（縦方向カップリング）。電磁気は Yagi アンテナのように横方向（ê_y）に放射する。この「並行か、横か」の違いが重力と電磁気を区別する。<br><br>
+            <strong>付随する結果：</strong>λ_C 消去定理（Theorem 2.1）によって弱等価原理を F = m_e g β_ZB として構造的に導出。β_ZB ≈ 0.04 はフリーパラメータなし。
+          </div>
+          <div class="paper-verdict">第一段：ê_x → 重力（類比）</div>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-card-header">
+          <div class="paper-num">#58</div>
+          <div class="paper-tag">Structural Proposal · 2026-04</div>
+        </div>
+        <div class="paper-card-body">
+          <div class="paper-title">Spin-2 Structure of the Gravitational Mediator: Phase-Stable Pair Emission</div>
+          <div class="paper-claim">
+            <strong>主張：</strong>ê_x が重力セクターであることに力学的根拠を与える。<br><br>
+            <strong>根拠：</strong>Thomas 角速度 Ω_T ∝ sin(2θ) は θ = π/2 と θ = 3π/2 の二点でピークに達する。この二点はちょうど ê_x 方向の速度がゼロになる「折り返し点（turning point）」である。ここで噴射が起きる——つまり ê_x で速度がゼロになる瞬間こそが放出タイミングである。<br><br>
+            <strong>付随する結果：</strong>二噴射の偏極テンソルが h_μν ∝ ε₁_μ ε₂_ν + ε₁_ν ε₂_μ（rank-2 対称テンソル）。四重極モーメントが Q_ij ∝ cos(ω_ZB t)（GR 四重極公式と一致）。
+          </div>
+          <div class="paper-verdict">第二段：ê_x → 重力（動力学的根拠）</div>
+        </div>
+      </div>
+
+      <div class="paper-card">
+        <div class="paper-card-header">
+          <div class="paper-num">#60</div>
+          <div class="paper-tag">Structural Proposal · 2026-04</div>
+        </div>
+        <div class="paper-card-body">
+          <div class="paper-title">The Berry–Synge–Bonnet–Myers Triangle: Structural Conditions for Unification</div>
+          <div class="paper-claim">
+            <strong>主張：</strong>ê_x が重力セクターであることに幾何学的根拠を与える。<br><br>
+            <strong>根拠：</strong>#48（Berry 接続・ホロノミー）・#51（Synge 世界関数・計量創発）・#51（Bonnet–Myers 閉込め）の三つを「三角形」として定式化する。三角形が閉じれば、Berry 曲率 F_μν と Riemann テンソル R^ρ_{σμν} が同定され、ゲージと重力が単一の位相蓄積汎関数から分岐することが示される。ê_x 方向への積分（位相蓄積の伝播軸）がその分岐点となる。<br><br>
+            <strong>付随する結果：</strong>#56 の open tasks O3・O4 を統合的に定式化。Weinberg–Witten 定理の構造的排除の根拠を与える。
+          </div>
+          <div class="paper-verdict">第三段：ê_x → 重力（幾何学的根拠）</div>
+        </div>
+      </div>
+
+    </div>
+  </div>
+
+  <!-- ── ARROW PROGRESSION ── -->
+  <div class="full-width">
+    <div class="section-title">論証の昇格プロセス</div>
+    <div class="arrow-row">
+      <div class="arrow-step">
+        <div class="arrow-box" style="background:#555;">
+          <div class="step-num">#52</div>
+          <div>ê_x → 重力</div>
+          <div style="font-size:11px; opacity:0.8; margin-top:6px;">「メトロノームがそう示す」<br>（類比）</div>
+        </div>
+      </div>
+      <div class="arrow-connector">→</div>
+      <div class="arrow-step">
+        <div class="arrow-box" style="background:#003d82;">
+          <div class="step-num">#58</div>
+          <div>ê_x → 重力</div>
+          <div style="font-size:11px; opacity:0.8; margin-top:6px;">「折り返し点での噴射がそう示す」<br>（力学的事実）</div>
+        </div>
+      </div>
+      <div class="arrow-connector">→</div>
+      <div class="arrow-step">
+        <div class="arrow-box" style="background:#001f42;">
+          <div class="step-num">#60</div>
+          <div>ê_x → 重力</div>
+          <div style="font-size:11px; opacity:0.8; margin-top:6px;">「Berry 曲率 = Riemann テンソルの<br>同定条件がそう示す」（幾何学）</div>
+        </div>
+      </div>
+      <div class="arrow-connector">→</div>
+      <div class="arrow-step">
+        <div class="arrow-box" style="background:#f5f5f5; border: 2px dashed #003d82; color:#003d82;">
+          <div class="step-num" style="font-size:16px;">次の論文</div>
+          <div style="font-size:11px; margin-top:6px;">三角形を閉じる<br>（証明）</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── TRIANGLE STRUCTURE ── -->
+  <div class="full-width">
+    <div class="section-title">Berry–Synge–Bonnet–Myers の三角形とは</div>
+    <div class="triangle-wrapper">
+      <div class="triangle-svg-box">
+        <svg viewBox="0 0 380 340" xmlns="http://www.w3.org/2000/svg" style="width:100%;">
+          <!-- Background -->
+          <rect width="380" height="340" fill="#fafafa" rx="4"/>
+
+          <!-- Triangle edges (dashed = open task) -->
+          <!-- Edge A→B (left side, open) -->
+          <line x1="70" y1="280" x2="190" y2="60" stroke="#003d82" stroke-width="2" stroke-dasharray="8,5"/>
+          <!-- Edge B→C (right side, open) -->
+          <line x1="190" y1="60" x2="310" y2="280" stroke="#003d82" stroke-width="2" stroke-dasharray="8,5"/>
+          <!-- Edge A→C (bottom, open, bold = most important) -->
+          <line x1="70" y1="280" x2="310" y2="280" stroke="#003d82" stroke-width="3" stroke-dasharray="8,5"/>
+
+          <!-- Vertex A: Berry (bottom-left) -->
+          <circle cx="70" cy="280" r="36" fill="#003d82"/>
+          <text x="70" y="275" text-anchor="middle" fill="white" font-family="Times New Roman" font-size="13" font-weight="bold">Vertex A</text>
+          <text x="70" y="291" text-anchor="middle" fill="white" font-family="Helvetica Neue, Arial" font-size="10">Berry</text>
+          <text x="70" y="304" text-anchor="middle" fill="#aac" font-family="Helvetica Neue, Arial" font-size="9">U(1) ホロノミー</text>
+
+          <!-- Vertex B: Synge (top) -->
+          <circle cx="190" cy="60" r="36" fill="#003d82"/>
+          <text x="190" y="55" text-anchor="middle" fill="white" font-family="Times New Roman" font-size="13" font-weight="bold">Vertex B</text>
+          <text x="190" y="71" text-anchor="middle" fill="white" font-family="Helvetica Neue, Arial" font-size="10">Synge</text>
+          <text x="190" y="84" text-anchor="middle" fill="#aac" font-family="Helvetica Neue, Arial" font-size="9">計量 g_μν 創発</text>
+
+          <!-- Vertex C: Bonnet-Myers (bottom-right) -->
+          <circle cx="310" cy="280" r="36" fill="#003d82"/>
+          <text x="310" y="275" text-anchor="middle" fill="white" font-family="Times New Roman" font-size="13" font-weight="bold">Vertex C</text>
+          <text x="310" y="291" text-anchor="middle" fill="white" font-family="Helvetica Neue, Arial" font-size="10">Bonnet–Myers</text>
+          <text x="310" y="304" text-anchor="middle" fill="#aac" font-family="Helvetica Neue, Arial" font-size="9">コンパクト閉込め</text>
+
+          <!-- Edge labels -->
+          <text x="115" y="160" text-anchor="middle" fill="#003d82" font-family="Helvetica Neue, Arial" font-size="10" font-weight="600">Edge A→B</text>
+          <text x="115" y="173" text-anchor="middle" fill="#555" font-family="Helvetica Neue, Arial" font-size="9">接続が汎関数を生成</text>
+
+          <text x="265" y="160" text-anchor="middle" fill="#003d82" font-family="Helvetica Neue, Arial" font-size="10" font-weight="600">Edge B→C</text>
+          <text x="265" y="173" text-anchor="middle" fill="#555" font-family="Helvetica Neue, Arial" font-size="9">計量が正曲率を持つ</text>
+
+          <text x="190" y="265" text-anchor="middle" fill="#003d82" font-family="Helvetica Neue, Arial" font-size="11" font-weight="700">Edge A→C（閉包条件）</text>
+          <text x="190" y="278" text-anchor="middle" fill="#001f42" font-family="Helvetica Neue, Arial" font-size="10">F_μν ↔ R^ρ_{σμν}</text>
+
+          <!-- Status labels -->
+          <text x="70" y="325" text-anchor="middle" fill="#003d82" font-family="Helvetica Neue, Arial" font-size="9" font-weight="700">■ 確立済み</text>
+          <text x="190" y="107" text-anchor="middle" fill="#003d82" font-family="Helvetica Neue, Arial" font-size="9" font-weight="700">■ 確立済み</text>
+          <text x="310" y="325" text-anchor="middle" fill="#003d82" font-family="Helvetica Neue, Arial" font-size="9" font-weight="700">■ 確立済み</text>
+
+          <!-- Dashed = open legend -->
+          <line x1="20" y1="20" x2="50" y2="20" stroke="#003d82" stroke-width="2" stroke-dasharray="6,4"/>
+          <text x="56" y="24" fill="#555" font-family="Helvetica Neue, Arial" font-size="9">= open task（未解決）</text>
+        </svg>
+      </div>
+
+      <div class="triangle-legend">
+        <div class="legend-item">
+          <div class="legend-dot"></div>
+          <div class="legend-text">
+            <strong>Vertex A — Berry 接続・U(1) ホロノミー <span class="status-badge established">確立</span></strong>
+            <span>論文 #48 で確立。内部位相 θ に対して Berry 接続 A_θ = (1/2)cosθ を計算し、ホロノミー γ = π を位相的に保護された不変量として証明した（Theorem IV.2）。g_CM = 2 は公理でなく定理。</span>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot"></div>
+          <div class="legend-text">
+            <strong>Vertex B — Synge 世界関数・計量創発 <span class="status-badge established">確立（平坦空間）</span></strong>
+            <span>論文 #51 で確立。位相蓄積汎関数 S(x_A,x_B) = ∫A_μ dx^μ を Synge 世界関数として同定。g_μν = ∂_A∂_B S_s から平坦空間では η_μν を確認。曲がった空間への拡張は open task。</span>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot"></div>
+          <div class="legend-text">
+            <strong>Vertex C — Bonnet–Myers 閉込め <span class="status-badge established">確立</span></strong>
+            <span>論文 #51 で確立。光子球の正 Ricci 曲率 Ric ≥ K ~ λ_C⁻² から Bonnet–Myers 定理によって diam ≤ πλ_C を導出。閉込め領域 D が定理として確立（仮定から格上げ）。</span>
+          </div>
+        </div>
+        <div class="legend-item">
+          <div class="legend-dot open"></div>
+          <div class="legend-text">
+            <strong>Edge A→C — F_μν ↔ R^ρ_{σμν} の同定 <span class="status-badge open">Open Task iii</span></strong>
+            <span>Bonnet–Myers 有界領域上で Berry 曲率と Riemann テンソルが同定される条件を満たすことを示す。これが三角形の「閉包条件」であり、達成されればゲージと重力が単一の汎関数から統一的に導出される。</span>
+          </div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── ROLE TABLE ── -->
+  <div class="full-width">
+    <div class="section-title">各論文の役割と達成内容</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:8%">論文</th>
+          <th style="width:25%">主な問い</th>
+          <th style="width:27%">確立した結果</th>
+          <th style="width:20%">ê_x への貢献</th>
+          <th style="width:20%">残された課題</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>#52</strong></td>
+          <td>なぜ全ての粒子は同じ重力加速度を受けるのか（弱等価原理）</td>
+          <td>λ_C 消去定理：F = m_e g β_ZB をフリーパラメータなしで導出。β_ZB ≈ 0.04 は a_e から決まる。WEP は幾何学的恒等式</td>
+          <td>ê_x = 重力セクター（メトロノーム類比による）</td>
+          <td>β_ZB → 1 の回復（open task iv）。類比の幾何学的根拠</td>
+        </tr>
+        <tr>
+          <td><strong>#58</strong></td>
+          <td>なぜ重力媒介子はスピン-2 なのか（#49 の open task vi）</td>
+          <td>sin(2θ) の π 周期性 → 1 ZB サイクルで 2 回噴射 → h_μν が rank-2 対称テンソル。四重極モーメントが ω_ZB で振動（GR 四重極公式と一致）</td>
+          <td>ê_x の turning point で噴射が起きる（力学的事実）</td>
+          <td>ヘリシティ-2 波動関数の明示的構成（open task I）。G の導出（open task II）</td>
+        </tr>
+        <tr>
+          <td><strong>#60</strong></td>
+          <td>Berry 曲率 F_μν と Riemann テンソル R^ρ_{σμν} は同定できるか</td>
+          <td>Berry–Synge–Bonnet–Myers 三角形の定式化。三頂点（確立済み）と三辺（open tasks）の明示。Proposition：#58 の rank-2 結果が Edge A→C を必要条件として要求する</td>
+          <td>ê_x 方向への位相積分が計量とゲージ両方の起源（幾何学的根拠の定式化）</td>
+          <td>三辺 (i)(ii)(iii) の証明。Newton 定数 G の導出（open task v）</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── COMPARISON TABLE ── -->
+  <div class="full-width">
+    <div class="section-title">既存の統一理論との比較 ── 何が新しいか</div>
+    <table class="data-table">
+      <thead>
+        <tr>
+          <th style="width:20%">理論</th>
+          <th style="width:25%">ゲージ場の起源</th>
+          <th style="width:25%">計量の起源</th>
+          <th style="width:30%">0-Sphere との本質的違い</th>
+        </tr>
+      </thead>
+      <tbody>
+        <tr>
+          <td><strong>Kaluza–Klein</strong><br><span style="font-size:11px; color:#666;">1921/1926</span></td>
+          <td>余剰次元を圧縮したときの U(1) ゲージ場</td>
+          <td>5 次元計量から 4 次元計量を取り出す</td>
+          <td><strong>背景時空が固定。</strong>計量は出発点であり創発でない</td>
+        </tr>
+        <tr>
+          <td><strong>BF 重力</strong><br><span style="font-size:11px; color:#666;">Plebanski 1977</span></td>
+          <td>Lorentz 接続の曲率 F^IJ</td>
+          <td>F^IJ を場の方程式で Riemann テンソルと同定</td>
+          <td><strong>固定されたトポロジカル背景が必要。</strong>内部位相汎関数を持たない</td>
+        </tr>
+        <tr>
+          <td><strong>Ryu–Takayanagi</strong><br><span style="font-size:11px; color:#666;">2006</span></td>
+          <td>境界 CFT の相関関数がゲージ構造を与える</td>
+          <td>bulk の面積（エントロピー汎関数）から計量</td>
+          <td><strong>ホログラフィック双対性が必要。</strong>単一粒子モデルでない</td>
+        </tr>
+        <tr>
+          <td><strong>0-Sphere（本論文）</strong><br><span style="font-size:11px; color:#666;">#60</span></td>
+          <td>内部 ZB 動力学の Berry 接続 A_μ</td>
+          <td>同じ A_μ の積分から創発：g_μν = ∂_A∂_B S_s</td>
+          <td><strong>背景時空なし。</strong>ゲージも計量も単一の内部位相汎関数 S(x_A,x_B) から創発</td>
+        </tr>
+      </tbody>
+    </table>
+  </div>
+
+  <!-- ── IMPLICATIONS ── -->
+  <div class="grid-2">
+    <div>
+      <div class="section-title">三角形が閉じたときの帰結</div>
+      <ul class="impl-list">
+        <li>
+          <strong>ゲージと重力の幾何学的統一</strong>
+          Berry 曲率 F_μν と Riemann テンソル R^ρ_{σμν} が同定され、ゲージ（電磁気）と重力が単一の位相蓄積汎関数 S(x_A,x_B) から分岐することが示される。
+        </li>
+        <li>
+          <strong>ê_x → 重力 の証明完結</strong>
+          #52（類比）→ #58（動力学）→ #60（幾何学）の三段論証が完結し、ê_x 方向が重力セクターである理由が幾何学定理として確立される。
+        </li>
+        <li>
+          <strong>Newton 定数 G の導出</strong>
+          #58 の四重極放射式 P_GW ∝ G/5c⁵ から、G を電子内部パラメータ（E₀、λ_C、ω_ZB）の関数として導出できる可能性が開ける。
+        </li>
+        <li>
+          <strong>Weinberg–Witten 定理の構造的排除</strong>
+          背景時空が存在しない（計量が創発）ため、同定理の仮定（固定 Minkowski 背景）が成立せず、スピン-2 複合粒子の制約が適用されない。
+        </li>
+      </ul>
+    </div>
+    <div>
+      <div class="section-title">Open Tasks 一覧（#60 より）</div>
+      <div class="task-row">
+        <div class="task-item">
+          <div class="task-num">Open Task (i)</div>
+          <div class="task-body">Berry 接続の時空拡張<br>A_θ(θ) → A_μ(x) の明示的計算。ヘリカル軌跡 θ = ω_ZB τ を通じた Lorentz 1-形式への変換。</div>
+        </div>
+        <div class="task-item">
+          <div class="task-num">Open Task (ii)</div>
+          <div class="task-body">計量の Ricci 曲率確認<br>∂_A∂_B S_s の4次展開（DeWitt–Hadamard）から Ric ≥ K ~ λ_C⁻² を示す。Bonnet–Myers を内部起源で導出。</div>
+        </div>
+        <div class="task-item">
+          <div class="task-num">Open Task (iii)</div>
+          <div class="task-body">Edge A→C の同定（閉包条件）<br>Bonnet–Myers 有界領域上で F_μν = ε_μνρσ R^ρσ_{αβ} n^α n^β を示す。BF 理論との対比。</div>
+        </div>
+        <div class="task-item">
+          <div class="task-num">Open Task (iv)–(v)</div>
+          <div class="task-body">ヘリシティ分解・G の導出<br>F_μν の自己双対分解が #58 の rank-2 テンソルと整合するか確認。G を内部パラメータから導出。</div>
+        </div>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── READING GUIDE ── -->
+  <div class="full-width">
+    <div class="section-title">入門読者への読み方ガイド</div>
+    <div class="grid-3">
+      <div class="analogy-box">
+        <div class="analogy-title">第一ステップ：λ_C 消去の直感</div>
+        <p>論文 #52 の第 2 節「dual role of ê」を読む。「弦の波速 v = √(T/μ) は T と μ が偶然消えるのではなく、両者が同じ弦に属するから」という類比を把握する。これが WEP の構造的根拠の直感的核心である。</p>
+      </div>
+      <div class="analogy-box">
+        <div class="analogy-title">第二ステップ：turning point の物理</div>
+        <p>論文 #58 の表「The two ejection events per ZB cycle」を見る。θ = π/2 と θ = 3π/2 がなぜ特別かを、速度 cos(θ) がゼロになる点（折り返し点）として理解する。そこで噴射が起きる——この事実が ê_x への力学的根拠である。</p>
+      </div>
+      <div class="analogy-box">
+        <div class="analogy-title">第三ステップ：三角形の俯瞰</div>
+        <p>論文 #60 の表「The Berry–Synge–Bonnet–Myers triangle」を見る。三頂点がすべて「確立済み」であることを確認し、三辺がすべて「open task」であることを確認する。どの辺を先に解くべきかの順序（task i → ii → iii）が結論部に明示されている。</p>
+      </div>
+    </div>
+  </div>
+
+  <!-- ── FOOTER ── -->
+  <div class="footer">
+    <div>
+      <strong>論文番号：</strong>#52（DOI: 10.5281/zenodo.19583032） · #58（DOI pending） · #60（DOI pending）<br>
+      <strong>シリーズ：</strong>0-Sphere Model（2018–2026、全 60 論文）· Zenodo community: satoshi-hanamura-papers
+    </div>
+    <div style="text-align:right;">
+      <strong>作成：</strong>Satoshi Hanamura · hana.tensor@gmail.com<br>
+      <strong>作成日：</strong>2026-04 · Supplementary Guide SG-0060
+    </div>
+  </div>
+
+</div>
+</body>
+</html>

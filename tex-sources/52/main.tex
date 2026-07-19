@@ -1,0 +1,905 @@
+% #52 DOI: 10.5281/zenodo.19583032
+
+% ========================================
+% #52: Geometric Origin of the Weak Equivalence Principle
+%      in the 0-Sphere Model
+% ========================================
+%
+% SERIES CONTEXT
+%
+% -------------------------------------------------------------
+% This paper (#52) is part of the 0-Sphere model series (2018–).
+% It is a Structural Proposal whose primary result is a structural
+% derivation of the weak equivalence principle via the λ_C
+% cancellation theorem, and whose secondary results are a directional
+% classification of the three fundamental interaction types and the
+% identification of the deterministic ZB axis drift as the single-
+% particle mechanism for gravitational coupling.
+%
+% Dependencies (logical order):
+%
+%   #1  (hanamura01) — foundational energy identity
+%              E_0 = cos^4(θ/2) + sin^4(θ/2) + (1/2)sin^2(θ)
+%   #10 (hanamura10) — v_ZB ≈ 0.04047c derived from a_e via γ=1+a
+%   #19 (hanamura19) — Thomas angular velocity vector form:
+%              Ω_T(t) = -(v₀²ω/4c²)sin(2ωt)·ê_z
+%   #26 (hanamura26) — Berry phase → spin; γ_intrinsic = π
+%   #33 (hanamura33) — geometrical confinement; rest mass and ZB
+%   #34 (hanamura34) — emergent gravitational dynamics (metronome)
+%   #38 (hanamura38) — g=2 as phase-topological invariant; EPR
+%   #47 (hanamura47) — AMM as rotational Lorentz contraction
+%              DOI: 10.5281/zenodo.19120057
+%   #49 (hanamura49) — photon-sphere ejection mechanism; Tomonaga;
+%              Thomas precession; UV cutoff
+%              DOI: 10.5281/zenodo.19393391
+%   #50 (hanamura50) — angular momentum from scalar oscillation;
+%              chirality χ = sign(da/dt); 4 Dirac components
+%   #51 (hanamura51) — helical trajectory; two velocity scales;
+%              metric emergence via Synge world function
+%
+% PRIMARY NEW RESULT IN #52:
+%   The λ_C cancellation theorem: the Compton wavelength cancels
+%   exactly from the gravitational force derivation because the ZB
+%   axis vector ê governs both the energy-collection scale
+%   (δE ∝ λ_C(ê·ĝ)) and the cycle rate (ω_ZB/2π = v_ZB/λ_C).
+%   This common geometric origin makes the cancellation structural,
+%   not algebraic, and yields F ∝ m_e g for a single particle with
+%   no free parameters — a structural derivation of the WEP.
+%
+% SECONDARY NEW RESULTS IN #52:
+%   (i)   Directional decomposition: v ∥ ê_x → gravity,
+%         a ∥ ê_y → EM radiation, v×a ∥ ê_z → Thomas precession/spin.
+%   (ii)  Distinction between the orthogonality of cos⁴/sin⁴ in
+%         internal phase space and the orthogonality of v,a in
+%         physical 3-space: related by a causal chain, not identical.
+%   (iii) Deterministic ZB axis drift from anomalous magnetic moment
+%         a_e: the helical trajectory does not close (g ≠ 2 externally),
+%         causing the ZB axis ê to precess deterministically each cycle.
+%
+% OPEN TASKS RECORDED IN #52:
+%   (i)   Full derivation of dê/dτ from first principles.
+%   (ii)  Quantitative coupling constant ratio (gravity/EM ≈ 10⁻⁴²).
+%   (iii) Direction bifurcation mechanism (what splits ê_x from ê_y).
+%   (iv)  Origin of the β_ZB = v_ZB/c coefficient: the derivation
+%         yields F = m_e g β_ZB with β_ZB ≈ 0.04; the mechanism by
+%         which the full Newtonian F = m_e g is recovered is an open
+%         task for subsequent work.
+%   (v)   Bell's inequality in the context of the deterministic
+%         hidden-variable program (deferred to subsequent work).
+%
+% METHODOLOGICAL NOTE:
+%   This paper is explicitly a Structural Proposal. Results labeled
+%   'established' follow from prior papers in the series. Results
+%   labeled 'proposal' are new structural claims supported by
+%   physical argument and dimensional consistency. The distinction
+%   is maintained throughout.
+%
+% ========================================
+
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+\definecolor{mcknav}{RGB}{0,51,114}
+\definecolor{mckbg}{RGB}{235,241,250}
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
+\lstset{style=pythonstyle}
+\newcommand{\iphase}{\theta}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\hodge}{\star}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+\newcommand{\betaZB}{\beta_{\mathrm{ZB}}}
+\newcommand{\vZB}{v_{\mathrm{ZB}}}
+\newcommand{\OmT}{\boldsymbol{\Omega}_T}
+\newcommand{\anom}{a_{\mathrm{e}}}
+\newcommand{\ehat}[1]{\hat{e}_{#1}}
+
+% ========================================
+\begin{document}
+% ========================================
+
+\title{Geometric Origin of the Weak Equivalence Principle in the 0-Sphere Model:\\
+Force Classification and the $\lambdaC$ Cancellation Theorem in the Helical Geometry}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{April 16, 2026}
+
+% ========================================
+% Abstract
+% ========================================
+\begin{abstract}
+Why do all bodies fall with the same gravitational acceleration, regardless of their mass?
+This is the content of the weak equivalence principle (WEP), which Newton accepted as an empirical fact, Einstein elevated to a fundamental axiom of general relativity, and which has since resisted structural explanation from within any microscopic theory.
+The present paper proposes a structural derivation of the WEP within the 0-Sphere model.
+
+The central result is the \emph{$\lambdaC$ cancellation theorem}: in the derivation of the gravitational force on a single electron, the Compton wavelength $\lambdaC = \hbar/(m_e c)$ appears in the numerator through the gravitational energy asymmetry $\delta E \propto m_e g\,\lambdaC\,(\hat{e}\cdot\hat{g})$ and in the denominator through the ZB cycle rate $\omZB/2\pi = \vZB/\lambdaC$, and cancels exactly, leaving $F = m_e g\,\betaZB$ with $\betaZB = \vZB/c \approx 0.04$ a free-parameter-free prediction determined entirely by the anomalous magnetic moment~\cite{hanamura10}.
+The cancellation is not algebraic coincidence but a structural consequence of the fact that both factors are governed by the same geometric object: the ZB axis unit vector $\hat{e}$, which simultaneously sets the internal lever arm for gravitational energy collection and the rate at which that collection occurs.
+A precise analogy is the wave speed on a stretched string $v = \sqrt{T/\mu}$, where the tension $T$ and linear density $\mu$ cancel in the ratio not by coincidence but because both belong to the same physical object.
+The WEP --- the universality of free fall across all particle masses --- follows as a geometric identity: changing $m_e$ changes $\lambdaC$, but the change cancels because $\lambdaC$ mediates both the energy scale and the time scale symmetrically.
+This constitutes a structural explanation of why $m_i = m_g$, without postulating their equality.
+The coefficient $\betaZB \approx 0.04$ is a quantitative prediction of the model; the mechanism by which the full Newtonian $F = m_e g$ is recovered is recorded as an open task.
+
+The $\lambdaC$ cancellation theorem rests on three supporting results that the paper also establishes.
+First, the derivation applies to a single hydrogen atom without ensemble averaging, consistent with Einstein's realist program: the hidden variables $(\iphase, \hat{e})$ are real and definite, and the gravitational coupling is a property of the individual particle.
+Second, the deterministic ZB axis drift arising from the anomalous magnetic moment $\anom \neq 0$ provides the single-particle scanning mechanism by which $\hat{e}$ converges toward alignment with $\hat{g}$, enabling the turning-point asymmetry that drives the gravitational coupling.
+Third, the three coordinate directions of the photon-sphere helix carry three physically distinct interaction types: the velocity direction $\ehat{x}$ (longitudinal coupling, gravitational sector), the acceleration direction $\ehat{y}$ (transverse radiation, electromagnetic sector), and the cross-product direction $\ehat{z} = \ehat{x}\times\ehat{y}$ (Thomas precession, spinorial sector).
+This paper is a Structural Proposal; the directional decomposition and the full recovery of $F = m_e g$ are recorded as open tasks.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+% ========================================
+
+Galileo's observation that bodies of different masses fall at the same rate is one of the oldest empirical facts in physics, and one of the deepest puzzles in the foundations of mechanics.
+Newton formalized it as the equality of inertial mass $m_i$ (the ``resistance to being pushed'') and gravitational mass $m_g$ (the ``responsiveness to gravity''), verified experimentally to precision $|m_i - m_g|/m \lesssim 10^{-13}$ by the E\"{o}tv\"{o}s experiment and its successors.
+Einstein elevated this equality to a fundamental axiom of general relativity --- the weak equivalence principle (WEP) --- and used it as the conceptual seed from which curved spacetime geometry grows.
+Yet neither Newton nor Einstein explained \emph{why} $m_i = m_g$: the equality is the empirical bedrock, not the theoretical output.
+The present paper proposes a structural derivation of the WEP within the 0-Sphere model, identifying the geometric mechanism by which inertial and gravitational mass must be equal for any particle whose internal dynamics shares the architecture of the 0-Sphere electron.
+
+The derivation rests on what we call the \emph{$\lambdaC$ cancellation theorem} (Section~\ref{sec:cancel}): the Compton wavelength $\lambdaC = \hbar/(m_e c)$, which sets the scale of the electron's internal structure, cancels exactly from the gravitational force formula because it appears symmetrically in the energy-collection numerator and the cycle-rate denominator, both of which are governed by the same geometric object --- the ZB axis unit vector $\hat{e}$.
+The force that results, $F = m_e g\,\betaZB$, is proportional to $m_e$ without any additional coupling constant, because the $\lambdaC$ dependence that might break this proportionality is eliminated by the shared geometric origin of the two factors.
+The WEP --- the universality of free fall --- is the direct consequence.
+
+This programme extends the 0-Sphere series in a specific direction.
+Paper~\cite{hanamura49} identified the photon-sphere ejection mechanism as the gravitational mediator.
+Paper~\cite{hanamura51} established the helical trajectory with two independent velocity scales and proposed the spacetime metric as the second functional derivative of the phase accumulation functional.
+The present paper uses the helical geometry of Paper~\cite{hanamura51} as the geometric arena in which the $\lambdaC$ cancellation theorem is derived, and identifies the three coordinate directions of the helix with three fundamental interaction types, with the gravitational sector ($\ehat{x}$ direction) providing the physical setting for the cancellation argument.
+
+\paragraph{Methodological note.}
+This paper is explicitly a \emph{Structural Proposal}.
+Results labeled \emph{established} follow from prior papers in the series with complete derivations.
+Results labeled \emph{proposal} are new structural claims supported by physical argument and dimensional consistency but whose full quantitative proof is recorded as an open task.
+The distinction is maintained throughout, and the open tasks are listed explicitly in Section~\ref{sec:open}.
+
+\paragraph{Einstein's realist program.}
+A consistent theme of this paper is the deterministic interpretation of the ZB dynamics.
+We work throughout in the Lagrangian (single-particle) framework: \textbf{the electron is a single definite object whose ZB axis $\hat{e}(t)$ has a determinate value at each instant, and the gravitational coupling is derived for that single particle without statistical averaging.}
+This is consistent with the deterministic program that Einstein advocated~\cite{einstein1935} and that the 0-Sphere series has pursued since Paper~\cite{hanamura05}: quantum-mechanical probabilities are epistemic, arising from the observer's ignorance of the hidden variables $(\iphase, \hat{e})$, not from any fundamental indeterminism in nature.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Structural analogy between the string wave speed and the $\lambdaC$ cancellation}}
+\label{tab:analogy}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{5.5cm}p{6.5cm}}
+\toprule
+\textbf{Feature} & \textbf{String wave speed $v = \sqrt{T/\mu}$} & \textbf{0-Sphere $\lambdaC$ cancellation} \\
+\midrule
+Common origin of the two factors
+& The string itself: both $T$ and $\mu$ are properties of the same physical object
+& The ZB axis $\hat{e}$: both the lever arm and the cycle rate are governed by the same geometric object \\
+\addlinespace[0.3cm]
+Parameter that structures the ratio
+& Material parameters $T$, $\mu$; vary across strings but always appear in the ratio $\sqrt{T/\mu}$
+& $\lambdaC = \hbar/(m_e c)$; varies with mass but always cancels in the ratio $\delta E / \Delta t_\mathrm{cycle}$ \\
+\addlinespace[0.3cm]
+Result of the ratio
+& Wave speed $v$: a universal relationship independent of how $T$ and $\mu$ individually vary
+& Force $F = m_e g\,\betaZB$: a relationship proportional to $m_e$ independent of $\lambdaC$ \\
+\addlinespace[0.3cm]
+Physical content of the universality
+& Strings of different materials obey the same wave equation; the ratio is structural, not coincidental
+& Particles of different masses fall with the same acceleration; the cancellation is structural, not coincidental \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The analogy is structural, not quantitative. In the string case, $T$ and $\mu$ combine to give $v$; in the 0-Sphere case, $\lambdaC$ cancels entirely. The shared feature is that in both cases the relationship between the two factors is determined by a single underlying object (the string; the axis $\hat{e}$), making the resulting formula universal rather than parameter-dependent.
+\end{minipage}
+\end{table*}
+
+% ========================================
+\section{The $\lambdaC$ Cancellation Theorem and the\\Geometric Origin of the Weak Equivalence Principle}
+\label{sec:cancel}
+% ========================================
+
+% ----------------------------------------
+\subsection{The weak equivalence principle as a structural puzzle}
+\label{subsec:wep_puzzle}
+% ----------------------------------------
+
+The weak equivalence principle states that all bodies, regardless of their internal composition or mass, fall with the same gravitational acceleration in a uniform field.
+In Newtonian mechanics this is expressed as the equality of inertial mass $m_i$ and gravitational mass $m_g$:
+\begin{equation}
+m_i \ddot{x} = m_g g
+\;\;\Longrightarrow\;\;
+\ddot{x} = \frac{m_g}{m_i}\,g = g \quad\text{(if }m_i = m_g\text{)}.
+\label{eq:wep_newton}
+\end{equation}
+Conceptually, $m_i$ measures resistance to acceleration, while $m_g$ measures coupling strength to the gravitational field; they are a priori distinct.
+Any attempt to explain the WEP from within a microscopic theory must answer the question: what internal structural feature forces $m_i/m_g = 1$?
+
+In the 0-Sphere framework, the answer is not that $m_i$ and $m_g$ are separately shown to be equal, but that the microscopic derivation of the gravitational force produces a result proportional to $m_e$ for any value of $m_e$ and any value of $\lambdaC = \hbar/(m_e c)$.
+The mechanism by which this occurs --- the symmetric appearance and exact cancellation of $\lambdaC$ --- is the content of the theorem in this section.
+
+% ----------------------------------------
+\subsection{The dual role of the ZB axis vector}
+\label{subsec:dual_role}
+% ----------------------------------------
+
+The photon sphere oscillates between Kernel~A and Kernel~B along the ZB axis defined by the unit vector $\hat{e}$.
+In a gravitational field $\mathbf{g} = -g\,\hat{g}$, the vector $\hat{e}$ plays two physically distinct roles simultaneously, and it is this double role that is the geometric origin of the $\lambdaC$ cancellation.
+
+\paragraph{Role I: Internal lever arm (the energy-collection scale).}
+The separation between the two turning points of the ZB oscillation along the direction $\hat{g}$ is $\Delta x = \lambdaC\,(\hat{e}\cdot\hat{g})$.
+The gravitational potential energy difference between the two turning points is therefore:
+\begin{equation}
+\delta E \;=\; m_e\,g\,\lambdaC\,(\hat{e}\cdot\hat{g}).
+\label{eq:dE}
+\end{equation}
+Here $\lambdaC$ appears as the physical size of the internal ``energy collector'': it sets the spatial scale over which the gravitational potential varies within one ZB cycle.
+A heavier particle has a smaller $\lambdaC$ and therefore samples a smaller potential difference per cycle.
+
+\paragraph{Role II: Internal clock rate (the cycle-rate scale).}
+The ZB oscillation frequency $\omZB = \vZB/\lambdaC$ determines the rate at which the photon sphere cycles between Kernel~A and Kernel~B.
+The cycle rate --- the number of A$\to$B traversals per unit time --- is:
+\begin{equation}
+\frac{\omZB}{2\pi} \;=\; \frac{\vZB}{\lambdaC}.
+\label{eq:cycle_rate}
+\end{equation}
+Here $\lambdaC$ appears in the denominator: a heavier particle has a smaller $\lambdaC$ and therefore oscillates faster.
+
+Both roles are governed by the same unit vector $\hat{e}$: it defines the axis along which the separation $\lambdaC$ serves as the lever arm (Role~I), and it is the same axis whose length $\lambdaC$ sets the traversal distance that determines the cycle rate (Role~II).
+The two appearances of $\lambdaC$ are not independent; they share a common geometric origin in $\hat{e}$.
+
+% ----------------------------------------
+\subsection{Derivation of the force and the cancellation}
+\label{subsec:derivation}
+% ----------------------------------------
+
+The asymmetric turning-point energies in a gravitational field (derived in Section~\ref{sec:gravity}) produce a net downward momentum transfer per ZB cycle:
+\begin{equation}
+\delta p_\mathrm{net} \;=\; \frac{\delta E}{c} \;=\; \frac{m_e\,g\,\lambdaC}{c}\,(\hat{e}\cdot\hat{g}).
+\label{eq:dp_net}
+\end{equation}
+The net gravitational force is the product of this momentum transfer and the cycle rate:
+\begin{align}
+F
+&\;=\; \delta p_\mathrm{net} \;\times\; \frac{\omZB}{2\pi}
+\notag\\
+&\;=\; \frac{m_e\,g\,\lambdaC}{c} \;\times\; \frac{\vZB}{\lambdaC}
+\notag\\
+&\;=\; \frac{m_e\,g\,\vZB}{c} \;=\; m_e\,g\,\betaZB.
+\label{eq:F_cancel}
+\end{align}
+The Compton wavelength $\lambdaC$ cancels exactly between the numerator (Role~I: energy collection) and the denominator (Role~II: cycle rate).
+The result $F = m_e g\,\betaZB$ is independent of $\lambdaC$ and depends only on $m_e$, $g$, and the dimensionless ratio $\betaZB = \vZB/c \approx 0.04$, which is itself determined entirely by the anomalous magnetic moment $\anom$ with no free parameters~\cite{hanamura10}.
+
+% ----------------------------------------
+\subsection{Why the cancellation is structural, not algebraic}
+\label{subsec:structural}
+% ----------------------------------------
+
+The computation above shows that $\lambdaC$ cancels algebraically.
+The deeper question is whether this cancellation is accidental or necessary.
+The answer is that it is necessary, because the two appearances of $\lambdaC$ share a common geometric origin.
+
+To make this precise, consider a stretched string.
+The wave speed on a string is $v = \sqrt{T/\mu}$, where $T$ is the tension and $\mu$ is the linear mass density.
+Both $T$ and $\mu$ vary widely across different strings, and on a given string they can be changed by stretching or loading it.
+Yet the formula $v = \sqrt{T/\mu}$ has a universal form: the string's own material parameters appear in a ratio that yields the wave speed.
+The reason this ratio takes a specific universal form is not that $T$ and $\mu$ happen to cancel --- they do not cancel; they combine to give $v$ --- but that both parameters describe the same physical object: the string.
+The string is the common origin that structures the relationship between $T$ and $\mu$.
+
+In the present derivation, $\lambdaC$ plays the analogous role to the string's material parameters.
+It is not independent: it is set by the mass $m_e$ through $\lambdaC = \hbar/(m_e c)$.
+When it appears in the energy-collection numerator (Role~I), it does so because $\hat{e}$ defines the lever arm whose physical length is $\lambdaC$.
+When it appears in the cycle-rate denominator (Role~II), it does so because $\hat{e}$ defines the traversal axis whose length is again $\lambdaC$.
+Both appearances are determined by the same geometric object $\hat{e}$.
+The cancellation is not accidental; it is the algebraic signature of this shared geometric origin.
+The structural analogy between the string wave speed and the $\lambdaC$ cancellation is collected in Table~\ref{tab:analogy}.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Status of the $\lambdaC$ cancellation argument}}
+\label{tab:status}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{2.5cm}p{8.0cm}}
+\toprule
+\textbf{Claim} & \textbf{Status} & \textbf{Basis} \\
+\midrule
+$F \propto m_e g$: gravitational acceleration independent of mass (WEP)
+& \checkmark\ Established
+& $\lambdaC$ cancels by structural argument (Theorem~\ref{thm:cancel}); no free parameters \\
+\addlinespace[0.3cm]
+$\betaZB = \vZB/c \approx 0.04$ as a free-parameter-free prediction
+& \checkmark\ Established
+& $\betaZB$ derived from $\anom$ via $\gamma = 1 + \anom$~\cite{hanamura10,hanamura47} \\
+\addlinespace[0.3cm]
+$\betaZB = 1$ (full Newtonian $F = m_e g$)
+& $\blacksquare$\ Open task
+& Requires treatment of precession cone geometry (open task iv, §~\ref{sec:open}) \\
+\addlinespace[0.3cm]
+$\lambdaC$ cancellation is structural, not algebraic
+& \checkmark\ Established
+& Both appearances of $\lambdaC$ governed by same geometric object $\hat{e}$ (§~\ref{subsec:structural}) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Status grades: \checkmark\ established within the current derivation. $\blacksquare$\ open task: well-posed but not yet proved. The established results constitute a structural derivation of the WEP; the open task concerns the numerical coefficient, not the universality of free fall.
+\end{minipage}
+\end{table*}
+
+% ----------------------------------------
+\subsection{The weak equivalence principle as a geometric identity}
+\label{subsec:wep_identity}
+% ----------------------------------------
+
+The cancellation of $\lambdaC$ from Eq.~\eqref{eq:F_cancel} has a direct physical interpretation.
+Consider two particles of different masses $m_1$ and $m_2$ in the same gravitational field $g$.
+Each has its own Compton wavelength $\lambdaC^{(i)} = \hbar/(m_i c)$.
+The gravitational force on particle $i$ is $F_i = m_i g\,\betaZB$ (assuming the same $\betaZB$ for both, as $\betaZB$ is determined by $\anom$ which is an internal geometric ratio independent of mass~\cite{hanamura47}).
+The gravitational acceleration of each particle is:
+\begin{equation}
+\ddot{x}_i \;=\; \frac{F_i}{m_i} \;=\; g\,\betaZB,
+\label{eq:wep_derived}
+\end{equation}
+which is the same for all particles regardless of $m_i$.
+This is precisely the WEP.
+
+The WEP emerges here not as an assumed equality $m_i = m_g$ but as the consequence of the $\lambdaC$ cancellation: because $\lambdaC \propto 1/m$ and $\lambdaC$ cancels from the force formula, the gravitational acceleration is automatically independent of mass.
+The ``mystery'' of why the resistance to being pushed (encoded in $m_i$, which sets $\lambdaC$) is exactly equal to the gravitational coupling strength (encoded in $m_g$) is resolved: both properties are determined by the same internal length scale $\lambdaC$, which cancels from the ratio $F/m$ by the geometric identity of Role~I and Role~II.
+
+We therefore state the central result of this paper as follows.
+
+\begin{theorem}[$\lambdaC$ Cancellation and WEP]
+\label{thm:cancel}
+Within the 0-Sphere model, the gravitational force on a single particle is
+\begin{equation}
+F \;=\; m_e\,g\,\betaZB,
+\label{eq:F_theorem}
+\end{equation}
+where $\betaZB = \vZB/c$ is a dimensionless ratio determined entirely by the anomalous magnetic moment $\anom$~\cite{hanamura10}, and $\lambdaC$ does not appear.
+The gravitational acceleration $\ddot{x} = g\,\betaZB$ is independent of particle mass.
+The cancellation of $\lambdaC$ is a structural consequence of the fact that the ZB axis vector $\hat{e}$ simultaneously governs the gravitational energy-collection scale (Role~I) and the ZB cycle rate (Role~II).
+\end{theorem}
+
+% ----------------------------------------
+\subsection{What is established and what is not}
+\label{subsec:scope}
+% ----------------------------------------
+
+Theorem~\ref{thm:cancel} establishes a specific result and leaves a specific gap, and both must be stated precisely.
+
+\textit{What is established.}
+The universality of free fall --- the independence of gravitational acceleration from particle mass --- is derived structurally from the $\lambdaC$ cancellation.
+This is the geometric content of the WEP.
+No free parameters appear: $\betaZB$ is determined by $\anom$ via the internal geometry of the 0-Sphere electron~\cite{hanamura10,hanamura47}, and $\lambdaC$ cancels by the shared-origin argument of Section~\ref{subsec:structural}.
+
+\textit{What is not established.}
+The coefficient $\betaZB \approx 0.04$ in Eq.~\eqref{eq:F_theorem} is not equal to unity.
+The full Newtonian result $F = m_e g$ requires the recovery of $\betaZB \to 1$, which depends on the geometry of the precession cone traversed by $\hat{e}$ under the deterministic ZB axis drift (Section~\ref{sec:gravity}).
+This recovery is recorded as open task~(iv) in Section~\ref{sec:open}.
+The present paper establishes the proportionality $F \propto m_e g$ (the WEP) as a structural theorem; the numerical coefficient is an open problem.
+The status of each individual claim is summarized in Table~\ref{tab:status}.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Directional decomposition of force types in the 0-Sphere helical geometry}}
+\label{tab:directional}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{3.5cm}p{4.5cm}p{4.0cm}}
+\toprule
+\textbf{Direction} & \textbf{Kinematic role} & \textbf{Physical analogy} & \textbf{Force sector} \\
+\midrule
+$\ehat{x}$ (velocity)
+& Longitudinal propagation
+& Metronome: coupling parallel to oscillation~\cite{hanamura34}
+& Gravity (proposal); $\lambdaC$ cancellation operates here \\
+\addlinespace[0.3cm]
+$\ehat{y}$ (acceleration)
+& Transverse oscillation
+& Yagi antenna: radiation perpendicular to driven element
+& Electromagnetism (proposal) \\
+\addlinespace[0.3cm]
+$\ehat{z} = \ehat{x}\times\ehat{y}$ (Thomas precession)
+& Spinorial precession
+& $\OmT \propto \mathbf{v}\times\mathbf{a}$ (established~\cite{hanamura19})
+& Spin / AMM (established) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The $\ehat{z}$ assignment is established from prior papers (\cite{hanamura19,hanamura47,hanamura48}). The $\ehat{x}$ and $\ehat{y}$ assignments are structural proposals; full quantitative derivation of the coupling constants and the direction-bifurcation mechanism are open tasks recorded in Section~\ref{sec:open}. The $\ehat{x}$ direction is the arena in which the $\lambdaC$ cancellation theorem (Section~\ref{sec:cancel}) operates; identifying $\ehat{x}$ with the gravitational sector is the structural claim that connects the direction decomposition to the WEP derivation.
+\end{minipage}
+\end{table*}
+
+% ========================================
+\section{Two Orthogonalities: A Necessary Distinction}
+\label{sec:orthogonality}
+% ========================================
+
+Before developing the directional framework that identifies the gravitational sector with the $\ehat{x}$ direction (Section~\ref{sec:directional}), a terminological distinction must be established that is easy to overlook but essential to the logical integrity of the argument.
+
+\subsection{Internal phase-space orthogonality}
+\label{subsec:internal_ortho}
+
+The two-kernel system consists of a pair of spinorial particles whose thermal potential energies are~\cite{hanamura01}:
+\begin{align}
+Te_1 &= E_0\cos^4\!\!\left(\frac{\iphase}{2}\right), \label{eq:Te1}\\
+Te_2 &= E_0\sin^4\!\!\left(\frac{\iphase}{2}\right). \label{eq:Te2}
+\end{align}
+The functions $\cos^4(\iphase/2)$ and $\sin^4(\iphase/2)$ are orthogonal in the $L^2[0,2\pi]$ sense: $\int_0^{2\pi}\cos^4(\iphase/2)\sin^4(\iphase/2)\,d\iphase = 0$. This orthogonality lives in the \emph{internal phase space} $\iphase \in [0, 2\pi)$, an abstract configuration space parametrizing the energy partition between the two kernels. It has no direct geometric meaning in physical three-dimensional space.
+
+\subsection{Physical-space orthogonality}
+\label{subsec:physical_ortho}
+
+The orthogonality of $\mathbf{v}(t) \parallel \ehat{x}$ and $\mathbf{a}(t) \parallel \ehat{y}$ in the helical geometry of Paper~\cite{hanamura51} is a statement about physical three-dimensional space. It arises from the arc-curvature of the A$\to$B thermal geodesic, as established in Paper~\cite{hanamura49}: the velocity lies along the tangential direction of the arc, while the acceleration lies along the curvature (normal) direction, perpendicular to the tangent in physical space.
+
+\subsection{Causal chain connecting the two orthogonalities}
+\label{subsec:causal_chain}
+
+The two orthogonalities are \emph{not} the same, but they are causally connected:
+\begin{align}
+&\underbrace{\cos^4, \sin^4 \text{ (phase-space, spinor pair)}}_{\text{internal orthogonality}}
+\notag\\
+&\quad\longrightarrow\;
+\text{radiation gradient } F(\iphase) = E_0\sin\iphase
+\notag\\
+&\quad\longrightarrow\;
+\text{photon sphere driven along thermal geodesic}
+\notag\\
+&\quad\longrightarrow\;
+\text{arc-curvature of geodesic (established in \cite{hanamura49})}
+\notag\\
+&\quad\longrightarrow\;
+\underbrace{\mathbf{v}\perp\mathbf{a} \text{ (physical 3-space)}}_{\text{physical orthogonality}}.
+\label{eq:causal_chain}
+\end{align}
+The causal origin is the spinor-pair structure of the two kernels, which generates the radiation gradient. The physical orthogonality of $\mathbf{v}$ and $\mathbf{a}$ is the \emph{consequence} of this causal chain, mediated by the geodesic geometry. Conflating the two orthogonalities would be a category error. The quantitative derivation of why the geodesic curves remains open task~(viii) of Paper~\cite{hanamura49}.
+
+% ========================================
+\section{Directional Decomposition: Three Directions, Three Forces}
+\label{sec:directional}
+% ========================================
+
+The helical geometry of Paper~\cite{hanamura51} provides a natural decomposition of the photon-sphere dynamics into three physically distinct directions. The $\lambdaC$ cancellation theorem of Section~\ref{sec:cancel} is formulated in the gravitational sector ($\ehat{x}$); the present section identifies all three sectors and positions the gravitational one in its geometric context.
+
+The helical trajectory introduces a coordinate frame:
+\begin{align}
+\mathbf{v}(t) &= v_0\cos(\omZB t)\,\ehat{x}, \label{eq:v_helix}\\
+\mathbf{a}(t) &= -v_0\omZB\sin(\omZB t)\,\ehat{y}, \label{eq:a_helix}\\
+\OmT(\iphase) &= -\frac{v_0^2\omZB}{4c^2}\sin(2\iphase)\,\ehat{z}. \label{eq:OmT_helix}
+\end{align}
+
+\subsection{The three directions and their physical roles}
+
+\paragraph{The $\ehat{x}$ direction (velocity, longitudinal, gravitational sector).}
+The velocity $\mathbf{v}(t) = v_0\cos(\omZB t)\,\ehat{x}$ defines the propagation axis of the helix and the direction of the ZB oscillation. The $\lambdaC$ cancellation theorem (Section~\ref{sec:cancel}) operates in this direction: the lever arm $\delta E \propto \lambdaC\,(\hat{e}\cdot\hat{g})$ and the cycle rate $\omZB/2\pi = \vZB/\lambdaC$ are both projections onto $\ehat{x}$. In the metronome analogy of Paper~\cite{hanamura34}, gravitational synchronization couples neighboring subsystems along their common propagation direction: the coupling is \emph{parallel} to the oscillation direction. We identify this longitudinal, co-directional coupling as the geometric signature of the gravitational sector.
+
+\paragraph{The $\ehat{y}$ direction (acceleration, transverse, electromagnetic sector).}
+The acceleration $\mathbf{a}(t) = -v_0\omZB\sin(\omZB t)\,\ehat{y}$ is perpendicular to the propagation axis. In classical electrodynamics (Larmor radiation), an accelerating charge radiates perpendicularly to the acceleration vector. For acceleration along $\ehat{y}$, the radiation propagates in the $\ehat{x}$-$\ehat{z}$ plane with the electric field polarized along $\ehat{y}$, precisely the structure of a dipole antenna: the driven element vibrates along the antenna axis, and the electromagnetic wave propagates transversely. We propose that the $\ehat{y}$ oscillation direction is the geometric origin of the electromagnetic sector.
+
+\paragraph{The $\ehat{z}$ direction (Thomas precession, spinorial sector).}
+The Thomas angular velocity $\OmT(\iphase) \propto \sin(2\iphase)\,\ehat{z}$ points along $\ehat{z} = \ehat{x}\times\ehat{y}$, the direction of the cross product of velocity and acceleration. The Thomas precession~\cite{thomas1926} in the $\ehat{z}$ direction generates the spin angular momentum and the anomalous magnetic moment~\cite{hanamura19,hanamura47}; the associated Berry phase~\cite{hanamura26,berry1984} confirms the geometric origin of spin, and the full $g=2$ structure is established in Papers~\cite{hanamura38,hanamura48}.
+
+The three-way correspondence is summarized in Table~\ref{tab:directional}.
+
+\subsection{The antenna and metronome analogies}
+
+The Yagi--Uda antenna and the dipole antenna illustrate the $\ehat{y}$ electromagnetic sector: the current in the driven element is parallel to the antenna axis, while the emitted wave propagates perpendicularly. For a dipole element along $\ehat{y}$:
+\begin{align}
+\mathbf{J}(\mathbf{r}, t) &\parallel \ehat{y} \quad \text{(current direction = accel.\ direction)},\notag\\
+\mathbf{E}_\mathrm{rad}(\mathbf{r}, t) &\parallel \ehat{y} \quad \text{(electric field polarization)},\notag\\
+\hat{k} &\perp \ehat{y} \quad \text{(propagation direction $\perp$ to current)}.
+\end{align}
+The metronome synchronization of Paper~\cite{hanamura34} illustrates the $\ehat{x}$ gravitational sector: two metronomes on a shared platform synchronize through vibrations \emph{parallel} to the pendulum swing direction. The perpendicular vs.\ parallel nature of the coupling is the geometric origin of the electromagnetic vs.\ gravitational distinction in this framework.
+
+\subsection{Connection to the derivative-order programme}
+
+Paper~\cite{hanamura51} proposed that the single phase-history functional $\mathcal{S}(x_A, x_B)$ bifurcates into two force types depending on the direction of differentiation: path deformation yields the Berry curvature $\mathcal{F}_{\mu\nu}$ (gauge sector), while endpoint variation yields the metric $g_{\mu\nu}$ (gravitational sector). The directional decomposition of the present paper provides the geometric counterpart of this algebraic bifurcation: the $\ehat{y}$ direction (transverse oscillation, EM) corresponds to path deformation, while the $\ehat{x}$ direction (longitudinal propagation, gravity) corresponds to endpoint variation.
+Paper~\cite{hanamura40} identified the derivative-order mismatch between gauge theory (force at the curvature level) and general relativity (force at the connection level) as a structural feature of the two frameworks; the $\ehat{x}$/$\ehat{y}$ directional split now provides a physical location for this mismatch within the helical geometry.
+
+% ========================================
+\section{Deterministic ZB Axis Drift and the Single-Particle Derivation}
+\label{sec:gravity}
+% ========================================
+
+Section~\ref{sec:cancel} derived the $\lambdaC$ cancellation theorem under the assumption that the ZB axis $\hat{e}$ has a definite orientation relative to $\hat{g}$.
+The present section derives the single-particle mechanism by which $\hat{e}$ acquires and maintains a gravitational bias, without ensemble averaging.
+
+\subsection{The Lagrangian viewpoint}
+\label{subsec:lagrangian}
+
+We work in the \emph{Lagrangian} (single-particle) framework throughout. In the Eulerian (field-theoretic) framework, the gravitational force is described by a field $\mathbf{g}(\mathbf{r})$ acting on a fluid element at position $\mathbf{r}$, and $F = mg$ typically invokes ensemble averages over particle ensembles. In the Lagrangian framework, a single particle has a definite trajectory and a definite internal state $(\iphase(t), \hat{e}(t))$ at each instant. No averaging is required; the gravitational coupling is a property of the individual particle's dynamics. The hidden variables $(\iphase, \hat{e})$ are real and definite; the probabilistic character of quantum mechanics is epistemic, arising from the observer's ignorance of these variables.
+
+\subsection{The anomalous magnetic moment closes the ZB orbit imperfectly}
+\label{subsec:orbit_drift}
+
+The internal observer (co-rotating with the photon sphere) measures $g_\mathrm{int} = 2$ and sees a perfectly periodic ZB orbit~\cite{hanamura51}. The external observer (laboratory frame) measures $g_\mathrm{ext} = 2(1 + \anom)$ due to the Lorentz contraction of the helical trajectory~\cite{hanamura47}. This Lorentz contraction causes the ZB orbit to \emph{not close}: the trajectory advances by $\Delta\phi = 2\pi\anom$ per ZB cycle, so the axis $\hat{e}$ precesses by this angle each cycle. The precession is deterministic and is entirely determined by $\anom$. We write this drift as:
+\begin{equation}
+\Delta\hat{e}\big|_\mathrm{cycle} = R(\ehat{z},\, 2\pi\anom)\,\hat{e} - \hat{e},
+\label{eq:axis_drift}
+\end{equation}
+where $R(\ehat{z}, \alpha)$ denotes rotation by angle $\alpha$ about $\ehat{z}$. Since $\anom \approx 1.16\times10^{-3}$, the drift per cycle is $|\Delta\hat{e}| \approx 7.3\times10^{-3}$ rad, small but non-zero, and over many cycles $\hat{e}(t)$ executes a slow, deterministic precession.
+
+\subsection{Turning-point asymmetry in a gravitational field}
+\label{subsec:turning_point}
+
+In a gravitational field $g$ directed along $-\hat{g}$, the photon sphere reaches its turning point at two positions separated by $\sim\lambdaC/2$ in the $\hat{g}$ direction. The turning-point kinetic energy is~\cite{hanamura46,hanamura49} $E_\mathrm{turn} = E_0/2$. In the presence of gravity, the turning-point energy acquires an asymmetric correction:
+\begin{align}
+E_\mathrm{turn}^\downarrow &= \frac{E_0}{2} + m_e g \frac{\lambdaC}{2}(\hat{e}\cdot\hat{g}), \label{eq:turn_down}\\
+E_\mathrm{turn}^\uparrow &= \frac{E_0}{2} - m_e g \frac{\lambdaC}{2}(\hat{e}\cdot\hat{g}). \label{eq:turn_up}
+\end{align}
+The downward turning point exceeds the ejection threshold~\cite{hanamura49} by a larger amount, producing an asymmetry in the ejection probability: the photon sphere is more likely to eject a fragment in the $-\hat{g}$ direction (toward Earth).
+
+\subsection{Net momentum transfer and the $\lambdaC$ cancellation (full derivation)}
+\label{subsec:Fmg}
+
+The energy asymmetry $\delta E = E_\mathrm{turn}^\downarrow - E_\mathrm{turn}^\uparrow = m_e g \lambdaC (\hat{e}\cdot\hat{g})$ yields a net downward momentum transfer per cycle:
+\begin{equation}
+\delta p_\mathrm{net} = \frac{\delta E}{c} = \frac{m_e g \lambdaC}{c}\,(\hat{e}\cdot\hat{g}).
+\label{eq:delta_p}
+\end{equation}
+Multiplying by the cycle rate $\omZB/(2\pi) = \vZB/\lambdaC$ gives the force of Eq.~\eqref{eq:F_cancel}, confirming the derivation of Section~\ref{sec:cancel} from first principles.
+
+\paragraph{The $\hat{e}$ dual role in the full derivation.}
+In Eq.~\eqref{eq:turn_down}--\eqref{eq:turn_up}, the factor $(\hat{e}\cdot\hat{g})$ mediates the projection of the gravitational field onto the internal lever arm.
+In the cycle rate $\omZB/2\pi = \vZB/\lambdaC$, the same $\lambdaC$ that appeared as lever arm appears again in the denominator.
+Since $\lambdaC$ is the length of the ZB oscillation axis --- the axis defined by $\hat{e}$ --- its appearance in both numerator and denominator is a direct consequence of $\hat{e}$ governing both roles simultaneously.
+This is the full derivation that underlies the structural argument of Section~\ref{subsec:structural}.
+
+\subsection{No statistical averaging required}
+\label{subsec:no_average}
+
+The derivation above applies to a single hydrogen atom with a definite ZB axis $\hat{e}(t)$ at each instant. The deterministic drift of $\hat{e}$ (Section~\ref{subsec:orbit_drift}) ensures that over many cycles the axis sweeps through a well-defined precession cone. The net gravitational force accumulates as a deterministic sum over these cycles, not as a statistical average over an ensemble. The Eulerian (field-theoretic) description of gravity as acting on a fluid element with density $\rho$ at position $\mathbf{r}$ is a coarse-grained approximation of this single-particle description, valid when many particles occupy the same fluid element.
+
+% ========================================
+\section{Connection to the Established Results of the Series}
+\label{sec:connections}
+% ========================================
+
+\subsection{Connection to Paper \#49: ejection mechanism and gravitational mediator}
+\label{subsec:p49}
+
+Paper~\cite{hanamura49} established that the photon-sphere ejection at $\iphase = \pi/2$ (where $E_\mathrm{ph}$ peaks at $E_0/2$) constitutes the gravitational mediator. The turning-point asymmetry of Section~\ref{subsec:turning_point} provides the \emph{direction-selecting mechanism} for that ejection: the same threshold $E_0/2$ is reached asymmetrically in the two directions, biasing the ejection toward the gravitational direction. The ejection mechanism of \cite{hanamura49} and the $\lambdaC$ cancellation of Section~\ref{sec:cancel} are complementary aspects of the same process: one establishes the existence of the gravitational mediator, the other derives the force law and its universality.
+
+\subsection{Connection to Paper \#50: chirality and the electromagnetic sector}
+\label{subsec:p50}
+
+Paper~\cite{hanamura50} established that the chirality $\chi = \mathrm{sign}(da/dt)$ is a Lorentz-invariant topological binary and that the electron and positron are distinguished by the forward and backward geodesic traversal. In the directional decomposition of the present paper, the $\ehat{y}$ direction (acceleration) governs the electromagnetic sector. The chirality $\chi$ controls the sign of the acceleration: for $\chi = +1$, $\mathbf{a}(t) = -v_0\omZB\sin(\omZB t)\,\ehat{y}$, while for $\chi = -1$, the sign is reversed, corresponding to the reversal of electric field polarization in the emitted electromagnetic radiation.
+
+\subsection{Connection to Paper \#51: metric emergence and the gravitational sector}
+\label{subsec:p51}
+
+Paper~\cite{hanamura51} proposed that the spacetime metric emerges as the second functional derivative of the phase accumulation functional $\mathcal{S}(x_A, x_B)$~\cite{synge1960}. The phase accumulation is an integral along the $\ehat{x}$ direction (the propagation axis of the helix). The gravitational sector identified in the present paper ($\ehat{x}$ direction) is therefore consistent with the metric-emergence proposal of \cite{hanamura51}: the metric encodes the geometry of phase accumulation along the propagation axis, which is the direction in which the $\lambdaC$ cancellation operates.
+The legitimacy of $\mathcal{S}(x_A, x_B)$ as a two-point functional under the locality requirement of general relativity is secured in Paper~\cite{hanamura51} via Synge's reconstruction theorem and the uniqueness of the thermal geodesic established by the Bonnet--Myers bound; the present paper inherits that result without re-derivation.
+
+% ========================================
+\section{Open Tasks}
+\label{sec:open}
+% ========================================
+
+The following open tasks are recorded explicitly, following the methodological convention of the series.
+
+\begin{enumerate}[label=(\roman*)]
+\item \textbf{Full derivation of $d\hat{e}/d\tau$.} The deterministic axis drift of Eq.~\eqref{eq:axis_drift} is established as a structural consequence of $g_\mathrm{ext} \neq 2$. A first-principles derivation of the full differential equation $d\hat{e}/d\tau = f(\iphase, \hat{e}, \anom)$ from the thermal geodesic dynamics is an open task.
+\item \textbf{Quantitative coupling constant ratio.} The ratio $F_\mathrm{gravity}/F_\mathrm{EM} \approx 10^{-42}$ is not explained by the present framework. This ratio would require quantifying both the $\ehat{x}$ (gravitational) and $\ehat{y}$ (electromagnetic) ejection cross-sections.
+\item \textbf{Direction-bifurcation mechanism.} What determines whether a given ejection event contributes to the gravitational sector ($\ehat{x}$) or the electromagnetic sector ($\ehat{y}$)? The present paper identifies the two sectors by analogy (metronome vs.\ antenna) but does not derive the bifurcation from the 0-Sphere internal dynamics.
+\item \textbf{Origin of the $\betaZB$ coefficient.} The derivation of Section~\ref{sec:cancel} yields $F = m_e g\,\betaZB$ with $\betaZB = \vZB/c \approx 0.04$, a prediction that follows from the anomalous magnetic moment with no free parameters~\cite{hanamura10}. The mechanism by which the full Newtonian result $F = m_e g$ is recovered from this intermediate result is an open task.
+\item \textbf{Bell's inequality.} The identification of $(\iphase, \hat{e})$ as hidden variables raises the question of Bell's theorem~\cite{bell1964}. The 0-Sphere model is non-local in the sense that the thermal geodesic spans a Compton-scale distance; whether this non-locality is sufficient to evade Bell's inequality is deferred to subsequent work.
+\end{enumerate}
+
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ========================================
+
+The central result of this paper is the $\lambdaC$ cancellation theorem (Section~\ref{sec:cancel}, Theorem~\ref{thm:cancel}): within the 0-Sphere model, the Compton wavelength $\lambdaC = \hbar/(m_e c)$ cancels exactly from the gravitational force formula because the ZB axis vector $\hat{e}$ simultaneously governs the gravitational energy-collection scale (Role~I: $\delta E \propto \lambdaC\,(\hat{e}\cdot\hat{g})$) and the ZB cycle rate (Role~II: $\omZB/2\pi = \vZB/\lambdaC$).
+The cancellation is structural --- a consequence of the shared geometric origin of the two factors in $\hat{e}$ --- rather than algebraic coincidence, in the same sense that the universality of the string wave speed formula $v = \sqrt{T/\mu}$ reflects the shared physical origin of $T$ and $\mu$ in the string itself.
+The result $F = m_e g\,\betaZB$ is independent of $\lambdaC$ and proportional to $m_e$ for any particle mass, constituting a structural derivation of the weak equivalence principle: the universality of free fall is not a postulate but a geometric identity arising from the dual role of $\hat{e}$.
+
+Three supporting results accompany the theorem.
+The deterministic ZB axis drift (Section~\ref{sec:gravity}), driven by $\anom \neq 0$, provides the single-particle mechanism by which $\hat{e}$ converges toward alignment with $\hat{g}$ without ensemble averaging, answering the question that Einstein's deterministic program left open.
+The directional decomposition (Section~\ref{sec:directional}) identifies the gravitational sector ($\ehat{x}$) as the arena in which the $\lambdaC$ cancellation operates, and proposes the electromagnetic ($\ehat{y}$) and spinorial ($\ehat{z}$) sectors as the two remaining projections of the helical geometry.
+The terminological distinction between the internal phase-space orthogonality and the physical-space orthogonality (Section~\ref{sec:orthogonality}) prevents a category error that would otherwise conflate two geometrically distinct structures.
+
+The paper is a Structural Proposal.
+The $\lambdaC$ cancellation theorem and the universality of free fall are established; the coefficient $\betaZB \approx 0.04$ is a free-parameter-free prediction of the model; and the mechanism recovering the full Newtonian $F = m_e g$ is recorded as an open task.
+
+\paragraph{A new dynamic principle: the anomalous magnetic moment as the condition for environmental responsiveness.}
+The results of this paper suggest a broader physical principle.
+In any theory that models the electron as a structured internal oscillator, the condition $\anom = 0$ produces a system that is geometrically self-consistent but environmentally isolated: it loops forever in its own internal rut, unable to sense or respond to external fields.
+The condition $\anom \neq 0$ breaks this isolation.
+It converts the oscillator from a rigid, closed system into an adaptive one whose internal axis scans the orientation space each cycle and converges deterministically toward the energy minimum imposed by the environment.
+\textbf{Matter interacts with the universe not despite the anomalous magnetic moment but because of it.}
+The $\lambdaC$ cancellation theorem shows that this adaptive response respects the WEP: the universality of free fall is built into the geometry of the interaction, not added as a separate assumption.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+% [1] First cited in abstract (v_ZB, beta_ZB from a_e)
+\bibitem{hanamura10} S.~Hanamura, ``Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction,'' Zenodo (2023). \href{https://doi.org/10.5281/zenodo.17764997}{10.5281/zenodo.17764997}
+
+% [2] First cited in §1 (gravitational mediator)
+\bibitem{hanamura49} S.~Hanamura, ``Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{10.5281/zenodo.19393391}
+
+% [3] First cited in §1 (helical trajectory)
+\bibitem{hanamura51} S.~Hanamura, ``Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19489126}{10.5281/zenodo.19489126}
+
+% [4] First cited in §1 (Einstein realist program)
+\bibitem{einstein1935} A.~Einstein, B.~Podolsky, and N.~Rosen, ``Can Quantum-Mechanical Description of Physical Reality Be Considered Complete?'' Phys.\ Rev.\ \textbf{47}, 777 (1935).
+
+% [5] First cited in §1 (realist program series)
+\bibitem{hanamura05} S.~Hanamura, ``Transition Theory from Uncertain to Causal Basis,'' Zenodo (2019). \href{https://doi.org/10.5281/zenodo.17759726}{10.5281/zenodo.17759726}
+
+% [6] First cited in §2 (lever arm geometry, AMM from internal structure)
+\bibitem{hanamura47} S.~Hanamura, ``Rotational Lorentz Contraction as Geometric Origin of AMM: Structural Correspondence with Muon Lifetime,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19120057}{10.5281/zenodo.19120057}
+
+% [7] First cited in §3 (foundational energy identity)
+\bibitem{hanamura01} S.~Hanamura, ``A Model of an Electron Including Two Perfect Black Bodies,'' Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}
+
+% [8] First cited in §4 (metronome / gravitational synchronization)
+\bibitem{hanamura34} S.~Hanamura, ``Geometrical Confinement: Emergent Gravitational Dynamics,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18437010}{10.5281/zenodo.18437010}
+
+% [9] First cited in §4 (Thomas precession direction)
+\bibitem{thomas1926} L.~H.~Thomas, ``The Motion of the Spinning Electron,'' Nature \textbf{117}, 514 (1926).
+
+% [10] First cited in §4 (Thomas angular velocity vector)
+\bibitem{hanamura19} S.~Hanamura, ``Spin as a Real Vector: Geometric Origin of U(1) Gauge and SU(2) Periodicity,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765238}{10.5281/zenodo.17765238}
+
+% [11] First cited in §4 (Berry phase / spin)
+\bibitem{hanamura26} S.~Hanamura, ``Spin from Geometry: Emergence of Spin via Internal Berry Phase,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765409}{10.5281/zenodo.17765409}
+
+% [12] First cited in §4 (Berry phase original)
+\bibitem{berry1984} M.~V.~Berry, ``Quantal Phase Factors Accompanying Adiabatic Changes,'' Proc.\ R.\ Soc.\ London A \textbf{392}, 45 (1984).
+
+% [13] First cited in §4 (g=2 phase-topological)
+\bibitem{hanamura38} S.~Hanamura, ``Geometric Phase Structure: Dual DOF within $2\pi$ Periodicity,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18718174}{10.5281/zenodo.18718174}
+
+% [14] First cited in §4 (g=2 U(1) fiber bundle)
+\bibitem{hanamura48} S.~Hanamura, ``Geometric Origin of $g=2$ in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19227518}{10.5281/zenodo.19227518}
+
+% [15] First cited in §4 (derivative-order mismatch)
+\bibitem{hanamura40} S.~Hanamura, ``On the Derivative-Order Mismatch Between Gauge Theory and Gravity,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18736670}{10.5281/zenodo.18736670}
+
+% [16] First cited in §5 (turning-point energy, energy floor)
+\bibitem{hanamura46} S.~Hanamura, ``Geometric Origin of the One-Half Factor: Thermal PE Floor and Zero-Point Energy,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19010945}{10.5281/zenodo.19010945}
+
+% [17] First cited in §6 (angular momentum, chirality)
+\bibitem{hanamura50} S.~Hanamura, ``Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19482145}{10.5281/zenodo.19482145}
+
+% [18] First cited in §6 (Synge world function)
+\bibitem{synge1960} J.~L.~Synge, \textit{Relativity: The General Theory} (North-Holland, Amsterdam, 1960).
+
+% [19] First cited in §7 (Bell's theorem)
+\bibitem{bell1964} J.~S.~Bell, ``On the Einstein Podolsky Rosen Paradox,'' Physics \textbf{1}, 195 (1964).
+
+% [20] First cited in Appendix A (static geometric structure; ZB confinement)
+\bibitem{hanamura33} S.~Hanamura, ``Geometrical Confinement: Rest Mass and Zitterbewegung,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18356895}{10.5281/zenodo.18356895}
+
+% [21] First cited in Appendix C (Conway's Game of Life)
+\bibitem{gardner1970} M.~Gardner, ``Mathematical Games: The fantastic combinations of John Conway's new solitaire game `Life','' Sci.\ Am.\ \textbf{223}(4), 120 (1970).
+
+% [22] First cited in Appendix C (de Broglie-Bohm deterministic program)
+\bibitem{bohm1952} D.~Bohm, ``A Suggested Interpretation of the Quantum Theory in Terms of `Hidden' Variables,'' Phys.\ Rev.\ \textbf{85}, 166 (1952).
+
+% [23] First cited in Appendix D (Weinberg-Witten theorem)
+\bibitem{WeinbergWitten1980} S.~Weinberg and E.~Witten, ``Limits on Massless Particles,'' Phys.\ Lett.\ B \textbf{96}, 59 (1980).
+
+\end{thebibliography}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Comparison between the Ising spin and the 0-Sphere ZB axis as degrees of freedom responding to an external field}}
+\label{tab:ising_vs_0sphere}
+\renewcommand{\arraystretch}{1.6}
+\begin{tabular}{p{3.5cm}p{5.5cm}p{6.5cm}}
+\toprule
+ & \textbf{Ising spin $\sigma_i$} & \textbf{0-Sphere ZB axis $\hat{e}$} \\
+\midrule
+Degree of freedom
+& Binary: $\sigma_i = \pm 1$
+& Continuous: $\hat{e} \in S^2$ \\
+\addlinespace[0.3cm]
+Response to external field $H$ / $g$
+& Probabilistic: $P(\sigma_i=+1) > 1/2$
+& Deterministic: $\hat{e}$ drifts toward $\hat{g}$ each cycle \\
+\addlinespace[0.3cm]
+Mechanism at single-particle level
+& None: stochastic Metropolis or Glauber flip
+& $\anom \neq 0$ enables scanning; $F(\iphase)$ biases drift \\
+\addlinespace[0.3cm]
+``Field-following'' at $t$ for one particle
+& Not guaranteed; may point against field
+& Guaranteed by deterministic causal chain~\eqref{eq:causal_chain_prop} \\
+\addlinespace[0.3cm]
+Role of statistics
+& Essential: $M>0$ is a statement about the ensemble
+& Epistemic only: ignorance of $(\iphase,\hat{e})$ \\
+\addlinespace[0.3cm]
+WEP (universality of free fall)
+& Requires ensemble average; not derived for single particle
+& Derived for single particle via $\lambdaC$ cancellation (Theorem~\ref{thm:cancel}) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The Ising model has no single-particle steering mechanism; the 0-Sphere model identifies $\anom \neq 0$ as exactly such a mechanism. The bottom row is new to the present paper: the WEP is not available in the Ising framework as a single-particle statement, but it is derived in the 0-Sphere framework as the structural consequence of the $\lambdaC$ cancellation.
+\end{minipage}
+\end{table*}
+
+% ========================================
+\appendix
+\section{Conceptual Origin of the Equivalence Principle:\\
+         The $\hat{e}$ Dual Role and the $\lambdaC$ Cancellation}
+\label{app:EP_origin}
+% ========================================
+
+To provide a pedagogical entry point for readers approaching the $\lambdaC$ cancellation theorem for the first time, this Appendix recasts the argument of Section~\ref{sec:cancel} in a more elementary language, tracing the historical question and making the dual role of $\hat{e}$ explicit through a step-by-step account.
+
+\subsection{The historical problem}
+
+In standard Newtonian mechanics, the equality $m_i = m_g$ is an empirical coincidence: inertial mass (the ``hardness'' of an object to being pushed) and gravitational mass (the ``strength'' of its coupling to gravity) are defined by different physical operations and happen to be equal to precision $10^{-13}$. When one assigns an internal length scale $\lambdaC = \hbar/(m_e c)$ to a particle, a scalability problem arises: if the gravitational interaction depends on the particle's internal scale, the force should in principle depend on $\lambdaC$, and particles of different masses should fall at different rates. The 0-Sphere model resolves this problem not by ignoring the internal scale but by showing that it cancels.
+
+\subsection{The two roles of $\hat{e}$}
+
+The resolution lies in the vector $\hat{e}$ playing two roles simultaneously:
+
+\paragraph{(i) Internal lever arm.} The vector $\hat{e}$ defines the separation between Kernel~A and Kernel~B. The gravitational potential energy difference between the two turning points is $\delta E = m_e g\,\lambdaC\,(\hat{e}\cdot\hat{g})$, where $\lambdaC$ enters as the physical size of the internal ``energy collector.'' The larger $\lambdaC$, the larger the potential sampled per ZB cycle.
+
+\paragraph{(ii) Internal clock rate.} The ZB frequency $\omZB = \vZB/\lambdaC$~\cite{hanamura33} is inversely proportional to $\lambdaC$: a larger $\lambdaC$ means a slower oscillation, hence a smaller number of ZB cycles per unit time. The larger $\lambdaC$, the slower the clock.
+
+The force is energy per cycle divided by time per cycle:
+\begin{equation}
+F \;\sim\; \frac{\delta E}{\Delta t_\mathrm{cycle}} \;\sim\; \frac{m_e g\,\lambdaC\,(\hat{e}\cdot\hat{g})}{\lambdaC/\vZB} \;=\; m_e g\,\frac{\vZB}{c}\cdot c\,(\hat{e}\cdot\hat{g}).
+\label{eq:F_app}
+\end{equation}
+The $\lambdaC$ in the numerator (energy collected per cycle) and the $\lambdaC$ in the denominator (time per cycle) cancel exactly, because both are determined by the same vector $\hat{e}$ defining the same oscillation axis.
+
+\begin{quote}
+\textit{The $\lambdaC$ cancellation is geometric, not algebraic: it occurs because the internal length that determines how much gravitational energy is sampled per cycle is the same length that sets the rate of sampling. Both are determined by $\hat{e}$.}
+\end{quote}
+
+\subsection{Summary: the equivalence principle as a geometric identity}
+
+The result $F = m_e g\,\betaZB$ reveals that the gravitational coupling is governed by the dimensionless ratio $\betaZB = \vZB/c \approx 0.04$, determined entirely by $\anom$~\cite{hanamura10}, and not by $\lambdaC$.
+\begin{enumerate}[label=(\roman*), leftmargin=2em]
+\item Changing the particle's mass changes $\lambdaC$, but $\lambdaC$ appears symmetrically in numerator and denominator and cancels. The force remains proportional to $m_e g$.
+\item No independent ``gravitational coupling constant'' appears.
+\item The Weak Equivalence Principle is not an independent postulate but a \emph{geometric identity}: it holds because every electron has the same $\betaZB$ (the same internal geometry), and because the $\lambdaC$ scale cancels by the dual-role mechanism of $\hat{e}$ for any electron regardless of its mass.
+\end{enumerate}
+The equivalence principle is demoted from an independent postulate to a consequence of the dual geometric role of $\hat{e}$.
+
+% ========================================
+\section{Dynamic Convergence of the ZB Axis:\\
+         The Anomalous Magnetic Moment as a Scanning Mechanism}
+\label{app:dynamic_convergence}
+% ========================================
+
+Appendix~\ref{app:EP_origin} explained \emph{why} $\lambdaC$ cancels once the axis $\hat{e}$ is aligned with the gravitational field. A deeper question remains: \emph{how} does a single particle, without any statistical ensemble, arrive at the correct axis orientation? This Appendix identifies $\anom$ as the physical mechanism that makes dynamic convergence possible.
+
+\subsection{Why $\anom \neq 0$ is necessary: the scanning mechanism}
+
+Consider the limiting case $\anom = 0$. In this limit, the ZB trajectory closes perfectly after each cycle: the axis $\hat{e}$ returns to exactly the same orientation it had at the start. The electron is locked into the same internal \emph{rut} indefinitely---a rigid oscillator that loops forever in its own track, deaf to the geometry of the surrounding universe.
+
+Now restore $\anom \neq 0$. The ZB trajectory \textbf{no longer closes}: each cycle shifts the axis by $\Delta\phi = 2\pi\anom$, and $\hat{e}$ sweeps continuously through a range of orientations. In the presence of a gravitational field $\mathbf{g}$, the turning-point energy asymmetry of Eqs.~\eqref{eq:turn_down}--\eqref{eq:turn_up} creates a direction-dependent energy difference $\delta E(\hat{e}) \propto (\hat{e}\cdot\hat{g})$, and the radiation gradient $F(\iphase) = E_0\sin\iphase$ acts as a restoring potential in the $\hat{e}$-space, biasing the next cycle's initial conditions toward the orientation that maximizes the energy asymmetry. Over successive cycles, \textbf{this bias accumulates deterministically}. The electron changes from a \emph{hard stone} to a \emph{soft antenna}.
+
+\paragraph{Reinterpretation of ``anomalous.''}
+In the Standard Model, $\anom$ is a computational correction. Within the 0-Sphere framework, \textbf{it is the essential tolerance that allows a particle to interact with the surrounding universe.} Without it, matter would be a collection of isolated rigid oscillators incapable of responding to gravity or electromagnetic fields. With $\anom \neq 0$, each electron carries the very mechanism by which it senses and responds to the macroscopic world.
+
+\begin{proposition}[Dynamic Convergence of the ZB Axis]
+\label{prop:dynamic_convergence}
+The anomalous magnetic moment $\anom$ ensures that the ZB trajectory is non-closing, producing a deterministic precession of the ZB axis $\hat{e}$ by $\Delta\phi = 2\pi\anom$ per cycle. In the presence of an external gravitational field $\mathbf{g}$, the radiation gradient $F(\iphase) = E_0\sin\iphase$ biases this precession toward the local energy minimum, i.e., toward the orientation $\hat{e} \parallel \hat{g}$ that maximizes the turning-point asymmetry $\delta E \propto (\hat{e}\cdot\hat{g})$. This process is not statistical but a \emph{deterministic relaxation} of a single particle's internal dynamics: the hidden variables $(\iphase, \hat{e})$ evolve under the closed causal chain
+\begin{equation}
+(\iphase_n, \hat{e}_n) \;\xrightarrow{F(\iphase)\text{ and }\delta E(\hat{e})}\; (\iphase_{n+1}, \hat{e}_{n+1}),
+\label{eq:causal_chain_prop}
+\end{equation}
+with no stochastic element, until $\hat{e}$ converges to the energy-minimum orientation.
+\end{proposition}
+
+The gravitational coupling $F = m_e g\,\betaZB$ is the macroscopic manifestation of this microscopic deterministic relaxation, combined with the $\lambdaC$ cancellation that ensures the coupling is universal across all particle masses.
+
+% ========================================
+\section{Why ``Waiting for Statistics'' Is Insufficient:\\
+         The Ising Model as a Contrast Case}
+\label{app:ising}
+% ========================================
+
+This Appendix makes precise what ``waiting for statistics'' means, using the Ising model as a concrete contrast case, and explains exactly where the 0-Sphere approach departs from the statistical paradigm.
+
+The Ising model places spins $\sigma_i = \pm 1$ on a lattice. In the presence of an external magnetic field $H > 0$, the Hamiltonian is
+\begin{equation}
+\mathcal{H} = -J\sum_{\langle i,j\rangle}\sigma_i\sigma_j - H\sum_i\sigma_i.
+\label{eq:ising}
+\end{equation}
+At thermal equilibrium the magnetization per spin is $M = \langle\sigma_i\rangle_{\mathrm{eq}} > 0$. The field $H$ does not \emph{force} $\sigma_i$ to be $+1$; it only shifts the \emph{probability} $P(\sigma_i=+1) > 1/2$.
+
+\begin{quote}
+\textit{``Waiting for statistics'' means: the response of the system to the external field is a property of the ensemble or the long-time average, not of any individual degree of freedom at any individual instant.}
+\end{quote}
+
+The individual spin has no mechanism that \emph{steers} it toward the field direction. In particular, the Ising model cannot derive the WEP for a single particle: the universality of free fall requires that the result $F/m = g\,\betaZB$ hold for every individual particle, not just on average over an ensemble. The 0-Sphere model, via the $\lambdaC$ cancellation theorem and the deterministic axis drift, provides exactly this: a result that holds for one particle at each cycle, without any ensemble averaging.
+The structural differences between the two frameworks are collected in Table~\ref{tab:ising_vs_0sphere}.
+
+\subsection{A cellular automaton analogy: Conway's Game of Life}
+\label{subsec:gol}
+
+In Conway's Game of Life~\cite{gardner1970}, each cell's next state is determined solely by the states of its eight nearest neighbors, with no central controller. The global pattern emerges from local deterministic rules. The 0-Sphere scanning mechanism shares this Game-of-Life architecture: the next internal state $(\iphase_{n+1}, \hat{e}_{n+1})$ is determined entirely by $(\iphase_n, \hat{e}_n)$ and the local radiation gradient, with no ensemble, no probability distribution, and no central controller.
+
+The departure: in the Game of Life, the survival rules are fixed constants. In the 0-Sphere model, the turning-point energy asymmetry $\delta E(\hat{e}) \propto (\hat{e}\cdot\hat{g})$ modifies the effective rule table each cycle, steering $\hat{e}$ toward alignment. The anomalous magnetic moment $\anom$ plays the role of the ``neighborhood size'': $\anom = 0$ isolates the electron from its environment; $\anom \neq 0$ opens the neighborhood and enables directed convergence. \textbf{The scanning mechanism ($\anom \neq 0$) is universal; the external field determines which direction the scan converges to.}
+
+\subsection{What this does not claim}
+
+\begin{enumerate}[label=(\roman*), leftmargin=2em]
+\item It does not claim to reproduce all predictions of quantum statistical mechanics from the single-particle dynamics alone.
+\item It does not claim that Bell's inequality~\cite{bell1964} is violated by a local hidden-variable theory. As noted in open task~(v) of Section~\ref{sec:open}, the non-locality inherent in the thermal geodesic may or may not be sufficient to evade Bell's theorem; this question is deferred.
+\item It does not claim that the coefficient $\betaZB \approx 0.04$ is equal to unity. The full recovery of the Newtonian result $F = m_e g$ is recorded as open task~(iv) of Section~\ref{sec:open}.
+\end{enumerate}
+
+What it does claim is more limited but non-trivial: \textbf{there exists a deterministic internal mechanism --- the $\anom$-driven scanning of the ZB axis $\hat{e}$ and the radiation-gradient-mediated convergence toward the energy minimum --- by which a single electron responds to a gravitational field without requiring statistical averaging, in the spirit of the de~Broglie--Bohm deterministic program~\cite{bohm1952}, and the resulting force $F = m_e g\,\betaZB$ satisfies the WEP (universality of free fall) via the $\lambdaC$ cancellation theorem.}
+
+% ========================================
+\section{The Weinberg--Witten Theorem and the Spin-2 Assignment}
+\label{app:WW}
+% ========================================
+
+\subsection{Statement and relevance}
+
+Weinberg and Witten~\cite{WeinbergWitten1980} proved that in any Lorentz-covariant quantum field theory possessing a conserved, gauge-invariant stress-energy tensor $T^{\mu\nu}$, no massless particle of spin greater than one can be a composite of massless particles. Applied to a massless spin-2 mediator, the theorem implies that such a particle cannot be a bound state of massless spin-1 photons within any theory satisfying the theorem's hypotheses.
+
+The directional decomposition of the present paper identifies the $\ehat{x}$-sector photon-sphere fragment as a spin-2 gravitational mediator, whose spin-2 nature derives from the $T = \pi$ periodicity of the Thomas angular velocity $\OmT$ (Paper~\#48~\cite{hanamura48}). This appendix records whether and how the Weinberg--Witten theorem applies to this identification.
+
+\subsection{The theorem's hypotheses and their status in the 0-Sphere framework}
+
+\textit{Assumption~(i): Poincar\'{e}-covariant conserved $T^{\mu\nu}$.} The theorem requires the theory to operate on a fixed Minkowski background with a well-defined global Poincar\'{e} symmetry. In the 0-Sphere framework, the spacetime metric $g_{\mu\nu}$ is not a background structure but an emergent quantity, proposed in Paper~\cite{hanamura51} as the coincidence limit of mixed second derivatives of the phase accumulation functional $\mathcal{S}(x_A, x_B)$. Since the 0-Sphere metric emerges from internal phase dynamics, the theorem's premise of a fixed Minkowski background is not established; whether a well-defined $T^{\mu\nu}$ can be constructed in an emergent-metric setting is an open question.
+
+\textit{Assumption~(ii): Asymptotic S-matrix state.} The theorem applies to particles defined as asymptotic states in the Fock space of a perturbative field theory. The photon-sphere fragment identified in Paper~\cite{hanamura49} as the gravitational mediator is a Compton-scale geometric structure whose propagation is described by the line-integral ontology of the 0-Sphere series, not by perturbative scattering amplitudes. Whether a photon-sphere fragment can be promoted to a free asymptotic Fock-space state is not established within the current framework.
+
+\subsection{Honest assessment}
+
+The conclusion of this appendix is not that the Weinberg--Witten theorem is evaded, but that its applicability is non-trivial: the theorem's hypotheses are formulated for a class of theories that the 0-Sphere framework does not straightforwardly inhabit. This constitutes a potential structural escape route, not a proof of evasion; a rigorous determination requires mapping the 0-Sphere constructs onto the theorem's assumptions, which is beyond the present scope. Furthermore, the spin-2 assignment of Paper~\cite{hanamura48} remains a phenomenological correspondence rather than a derivation; the rank-2 tensor proof is recorded as an open task in Papers~\cite{hanamura48,hanamura49}.
+
+\clearpage
+
+\end{document}

@@ -1,0 +1,259 @@
+================================================================================
+ZENODO RELATIONS FILE
+From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws
+DOI: 10.5281/zenodo.18135855 (v2, March 1, 2026)
+================================================================================
+
+================================================================================
+SUMMARY
+================================================================================
+
+Relation type          | Count | Unique DOIs
+-----------------------|-------|------------
+Cites                  |  14   |  14
+Is new version of      |   1   |   1
+Continues              |   3   |   3
+Is supplement to       |   1   |   1
+References             |   3   |   3
+Requires               |   2   |   2
+Is part of             |   1   |   1
+-----------------------|-------|------------
+TOTAL                  |  25   |  18
+
+================================================================================
+[1] Cites  (formal citation via bibitem)
+================================================================================
+
+DOI: (no Zenodo DOI)
+  Title: A. Einstein, "Die Feldgleichungen der Gravitation" (1915)
+  Note: Classic reference -- no DOI available
+
+DOI: (no Zenodo DOI)
+  Title: Misner, Thorne, Wheeler, "Gravitation" (1973)
+  Note: Standard textbook -- no DOI available
+
+DOI: (no Zenodo DOI)
+  Title: R. M. Wald, "General Relativity" (1984)
+  Note: Standard textbook -- no DOI available
+
+DOI: 10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung,
+         Geodesic Paths, and Proper Time Through Radiative Energy Transfer
+
+DOI: (no Zenodo DOI)
+  Title: A. Einstein, "The Meaning of Relativity" (1922)
+  Note: Princeton University Press -- no DOI available
+
+DOI: (no Zenodo DOI)
+  Title: H. Weyl, "Gravitation und Elektrizitat" (1918)
+  Note: Historical -- no DOI available
+
+DOI: (no Zenodo DOI)
+  Title: E. Cartan, "Sur une generalisation de la notion de courbure de
+         Riemann" (1922)
+  Note: Historical -- no DOI available
+
+DOI: (no Zenodo DOI)
+  Title: A. Palatini, "Deduzione invariantiva..." (1919)
+  Note: Historical -- no DOI available
+
+DOI: (no Zenodo DOI)
+  Title: A. Ashtekar, "New variables for classical and quantum gravity" (1986)
+  Note: Phys. Rev. Lett. -- no Zenodo DOI
+
+DOI: 10.5281/zenodo.18064535
+  Title: A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry
+
+DOI: (no Zenodo DOI)
+  Title: E. C. G. Stueckelberg, "Remarque a propos de la creation de paires"
+         (1941)
+  Note: Helv. Phys. Acta -- no Zenodo DOI
+
+DOI: 10.5281/zenodo.17765349
+  Title: Thermal Geodesics in the 0-Sphere Model: Extending General Relativity
+         through Internal Thermodynamic Structure
+
+DOI: (no Zenodo DOI)
+  Title: L. H. Thomas, "The motion of the spinning electron" (1926)
+  Note: Nature -- no Zenodo DOI
+
+DOI: (no Zenodo DOI)
+  Title: J. D. Jackson, "Classical Electrodynamics" (1999)
+  Note: Standard textbook -- no DOI available
+
+DOI: 10.5281/zenodo.17982104
+  Title: Challenging the Uncertainty Principle: A Deterministic Interpretation
+         of Measurement and Reality
+
+DOI: 10.5281/zenodo.17765136
+  Title: From Clock Synchronization to Electromagnetism: A Realist Construction
+         of U(1) Gauge Theory
+
+DOI: (no Zenodo DOI)
+  Title: J. J. Sakurai and J. Napolitano, "Modern Quantum Mechanics" (2017)
+  Note: Standard textbook -- no DOI available
+
+DOI: (no Zenodo DOI)
+  Title: M. Nakahara, "Geometry, Topology and Physics" (2003)
+  Note: Standard textbook -- no DOI available
+
+DOI: 10.5281/zenodo.17765244
+  Title: A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry
+         (second Zenodo entry)
+
+DOI: 10.5281/zenodo.17765200
+  Title: Time-Dependent Mass in the 0-Sphere Model: A Hamiltonian Approach to
+         Thermal Modulation
+
+DOI: (no Zenodo DOI)
+  Title: M. V. Berry, "Quantal phase factors accompanying adiabatic changes"
+         (1984)
+  Note: Proc. R. Soc. Lond. A -- no Zenodo DOI
+
+================================================================================
+[2] Is new version of
+================================================================================
+
+DOI: 10.5281/zenodo.18135855  (v1, January 3, 2026)
+  Title: From Curvature to Connection: Revisiting the Geometric Origin of
+         Conservation Laws (original version)
+  Note: This v2 is a direct update. Zenodo version management should link
+        automatically; confirm via "Is new version of" in Related works UI.
+
+================================================================================
+[3] Continues
+================================================================================
+
+DOI: 10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation along Thermal
+         Geodesics
+  Reason: This paper extends the thermal geodesic phase-accumulation framework
+          introduced in that work to the problem of conservation law emergence.
+
+DOI: 10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics: A Unified
+         Principle Behind the Aharonov-Bohm Effect, Berry Phase, and Wilson
+         Loops
+  Reason: The present paper applies the line-integral-as-observable principle
+          to gravitational conservation, continuing the argument of that work.
+
+DOI: 10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model
+  Reason: The thermal geodesic and phase-accumulation framework used here
+          was first established in that paper. This work continues its
+          application to conservation laws.
+
+================================================================================
+[4] Is supplement to
+================================================================================
+
+DOI: 10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics
+  Reason: The present paper provides the gravitational conservation-law
+          application that completes the interpretive scope of the line-
+          integral trilogy. It serves as a conceptual supplement to that work.
+
+================================================================================
+[5] References  (thematic and conceptual reference)
+================================================================================
+
+DOI: 10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation along Thermal
+         Geodesics
+  Reason: Direct thematic companion -- spinorial phase accumulation framework
+          is the geometric foundation of the conservation argument here.
+  Note: Also listed under Continues; both Relations apply.
+
+DOI: 10.5281/zenodo.18203433
+  Title: Line Integrals as Fundamental Observables in Physics
+  Reason: Establishes the unified line-integral principle applied here.
+  Note: Also listed under Continues and Is supplement to.
+
+DOI: 10.5281/zenodo.18064535
+  Title: A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry
+  Reason: Cited in text; also provides the Noetherian inversion perspective
+          complementary to the conservation-law emergence argument here.
+
+================================================================================
+[6] Requires  (prerequisite papers for understanding this work)
+================================================================================
+
+DOI: 10.5281/zenodo.17765017
+  Title: Quantum Oscillations in the 0-Sphere Model
+  Reason: Introduces the thermal geodesic, the energy conservation identity,
+          and the two-kernel structure. Reading this paper is necessary to
+          understand the 0-Sphere model sections.
+
+DOI: 10.5281/zenodo.17765349
+  Title: Thermal Geodesics in the 0-Sphere Model
+  Reason: First derivation of the thermal geodesic equation used in
+          Section 4 of this paper. Required for understanding Eq. (4.1).
+
+================================================================================
+[7] Is part of  (series membership)
+================================================================================
+
+DOI: 10.5281/zenodo.18067760
+  Title: Geometric Structure of Spinorial Phase Accumulation along Thermal
+         Geodesics (first paper of the Line Integral Trilogy)
+  Reason: The present paper is part of the Line Integral Trilogy series,
+          of which zenodo.18067760 is the first entry. Designating the
+          trilogy anchor as the "parent" clarifies series membership.
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+Relations to be added to the Zenodo records of the papers listed below
+================================================================================
+
+Target: DOI 10.5281/zenodo.18067760
+  (Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics)
+  Recommended additions:
+    Is continued by    -> 10.5281/zenodo.18135855 (this paper, v2)
+    Is supplemented by -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.18203433
+  (Line Integrals as Fundamental Observables in Physics)
+  Recommended additions:
+    Is continued by    -> 10.5281/zenodo.18135855 (this paper, v2)
+    Has supplement     -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.17765017
+  (Quantum Oscillations in the 0-Sphere Model)
+  Recommended additions:
+    Is continued by    -> 10.5281/zenodo.18135855 (this paper, v2)
+    Is required by     -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.17765349
+  (Thermal Geodesics in the 0-Sphere Model)
+  Recommended additions:
+    Is required by     -> 10.5281/zenodo.18135855 (this paper, v2)
+    Is cited by        -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.18064535
+  (A Noetherian Inversion)
+  Recommended additions:
+    Is cited by        -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.17982104
+  (Challenging the Uncertainty Principle)
+  Recommended additions:
+    Is cited by        -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.17765136
+  (From Clock Synchronization to Electromagnetism)
+  Recommended additions:
+    Is cited by        -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.17765200
+  (Time-Dependent Mass in the 0-Sphere Model)
+  Recommended additions:
+    Is cited by        -> 10.5281/zenodo.18135855 (this paper, v2)
+
+Target: DOI 10.5281/zenodo.17765244
+  (A Noetherian Inversion, second Zenodo entry)
+  Recommended additions:
+    Is cited by        -> 10.5281/zenodo.18135855 (this paper, v2)
+
+================================================================================
+END OF ZENODO RELATIONS FILE
+================================================================================

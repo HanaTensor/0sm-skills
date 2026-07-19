@@ -1,0 +1,643 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % captionsetup[figure]用
+\usepackage{threeparttable} % Table のキャプションを変更
+\usepackage{breqn} %dmath用：数式の自動折り返し
+\usepackage{dcolumn}
+\numberwithin{equation}{section}% (p.37)
+
+% prevent hyphenation
+\hyphenpenalty=10000\relax
+\exhyphenpenalty=10000\relax
+\sloppy
+
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} %Fig.の注釈を左揃えするためrangedrightを用いる
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+    \title{Redefining Electron Spin and Anomalous Magnetic Moment \\ Through Harmonic Oscillation and Lorentz Contraction}
+
+    %\title{Spin Angular Momentum Explained by the Classical Quantum Model}
+    
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+    % \date{\today}
+    \date{June 8, 2024}
+    
+    \begin{abstract}
+
+% 本論文では新しいスピン角運動量のイメージを提起した。従来のスピンのイメージでは、軸の歳差運動は電子が加速度を持ち、その加速度が一定であるという仮定に基づいている。本研究では、まず電子を調和振動子とみなして加速度が正弦関数で表される場合を考える。このときトーマス歳差の外積に２倍角が現れ、円周の半分で空間１周分の角速度が得られることを確認する。さらに一つの電子が時間推移によってアップスピンとダウンスピンの双方を取り得る演算結果を示す。次に、円周の長さが回転軸方向にローレンツ収縮した場合を考える。アインシュタインは回転する座標系では円周と直径の比が円周率にならないと指摘した。本研究ではローレンツ収縮が磁気異常能率が生じる原因と推論した。異常な磁気効率は、回転角運動量のローレンツ収縮とみなされる。その結果、コンプトン波長での電子の振動は、光速の約4％と計算される。さらに一般相対性理論のシュワルツシルト半径をモデルに適用して電子の大きさを予言する。
+
+    %(GPT)
+    This paper proposes a new perspective on spin angular momentum. Traditionally, electron spin precession is based on the assumption of uniform circular motion. In this study, we model the acceleration as a simple harmonic oscillator and the precession as a sinusoidal function. This approach reveals a double angle in the outer product of the Thomas precession and demonstrates that half the circumference of a photon yields an angular velocity equivalent to one rotation. Additionally, we show that a single electron can exhibit both up and down spins depending on the time transition. We further explore the effect of Lorentz contraction on the circumference in the direction of the axis of rotation. Einstein noted that in a rotating coordinate system, the ratio of circumference to diameter deviates from $\pi$. We propose that this Lorentz contraction accounts for the anomalous magnetic moment. By treating the anomalous magnetic moment as a Lorentz contraction of rotational angular momentum, we calculate the stationary free electron's average trembling motion velocity within Compton wavelengths to be approximately four percent of the speed of light. Moreover, we include considerations from general relativity, using the Schwarzschild radius to predict the electron's size.
+
+    %(Ver1&2) This paper proposes a new picture of spin angular momentum. In the conventional picture of spin, the precession of the axis is based on the assumption that the electron has an acceleration. In this study we first consider the case where the acceleration is expressed as a simple harmonic oscillator and the precession as a sinusoidal function. In this case, a double angle appears in the outer product of the Thomas precession, confirming that an angular velocity of one revolution of space can be obtained with half the circumference of the circle. It also shows the results of operations in which a single electron can take both up and down spin depending on the time transition. Next we consider the case of Lorentz contraction of the circumference in the direction of the axis of rotation. Einstein pointed out that in a rotating coordinate system the ratio of circumference to diameter is not pi. This study propose that the Lorentz contraction is the cause of the anomalous magnetic moment. The anomalous magnetic moment is regarded as a Lorentz contraction of the rotational angular momentum. As a result, the average oscillation velocity of the electron within Compton wavelengths is calculated to be about four percent of the speed of light. Furthermore, the Schwarzschild radius on general relativity included in the scope of the consideration to predict the size of the electron.
+    \end{abstract}
+    \maketitle
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+% スピンが駒の歳差運動をするという描像はトーマスの業績から派生した議論による影響が大きい。本研究は時代を遡り1925年の議論に別の視点でスピンが角運動量を有する論拠を提示する。
+% 古典的な電子論が棄却された一つの理由はローレンツが指摘した。その指摘では自転角運動量をもつには非常に早い回転が必要で、電子表面の速度は光速の１０倍になるというものであった。
+
+The depiction of spin as the precession of a piece was largely influenced by arguments derived from Thomas's brilliant work \cite{Thomas}. In this study, a new spin image will be proposed from a different perspective from conventional spin. In 1925, Uhlenbeck and Goudsmit wrote a paper \cite{Uhlenbeck} on rotating electronic images. One reason for the dismissal of the classical electron theory was noted by Lorenz. He pointed out that very fast rotation was required to have a rotation angular momentum and that the speed of the electron surface was ten times the speed of light.
+
+% 現在に至るまでスピンの詳細な発生理由は明確になっていない。素粒子物理学の教科書ではスピンを表現するときに回転しているコマの歳差運動の絵で説明される場合が多い。本研究では、スピンが回転運動によってイメージされる前の時代に遡って、スピンの描像に古典的な側面から議論を行う。
+
+Till date, the detailed reasons for the emergence of spin have not been clarified. In physics textbooks, spin is often described by a picture of the precessional motion of a rotating piece when describing spin. In this study, we discuss the classical aspects of the spin picture, going back to the time before spin was imaged by rotational motion.
+
+    \begin{figure}[h!]
+        \centering 
+        \includegraphics[scale=0.18]{Angular_v.png}
+            \caption{Point mass observed in the laboratory coordinate system. The blue dots move from $+a$ to $-a$ with different accelerations. ({\bf a}) As the point mass passes through the origin of the coordinate axes in uniform linear motion ($a=0$), the angular momentum, $\Omega$, is zero. ({\bf b}) According to Thomas's study, the angular momentum does not have a zero value when the point mass passes through the origin of the coordinate axes in accelerated motion.}
+            \label{f_Angular_v}
+    \end{figure}
+
+
+
+In 1945 Nobel Lecture, Pauli mentioned,
+
+% 電子のスピン量子数は1/2に等しく、磁気モーメントと機械角モーメントの商は、スピンに対して電子の通常の軌道の2倍の値を持つと仮定するだけで、異常ゼーマン効果を理解できるようになった。それ以来、排他原理はスピンの概念と密接に結びついている。当初、古典力学的な性格から、私はこの考え方の正しさを強く疑っていたが、二重項分裂の大きさに関するトーマスの計算7によって、私は最終的にこの考え方に改宗した。
+
+\begin{quote}
+    ``... The gap was filled by Uhlenbeck and Goudsmit's idea of electron spin, which made it possible to understand the anomalous Zeeman effect simply by assuming that the spin quantum number of one electron is equal to 1/2 and that the quotient of the magnetic moment to the mechanical angular moment has for the spin a value twice as large as for the ordinary orbit of the electron. Since that time, the exclusion principle has been closely connected with the idea of spin. Although at first I strongly doubted the correctness of this idea because of its classical-mechanical character, I was finally converted to it by Thomas' calculations on the magnitude of doublet splitting. \cite{Pauli}''
+    
+\end{quote}
+
+% laboratory coordinate system：実験室座標系
+% uniform linear motion：等速直線運動
+
+
+
+% パウリは古典論的物理学に基づいた量子力学を否定しなかった。我々は時代を１９２５年まで遡る。古典論に基づいたスピン画像を再度製作し直す。
+
+
+% 付録の式(e3_simple_harmonic_motion})の結果が示すように、2点間を移動する電子の振る舞いは単純な正弦関数で記述できる。すなわち、電子に対する単純調和振動を持つ仮想光子の中心運動エネルギーは、単純な正弦関数で記述できる。この研究では、等速円運動をするスピントップのイメージは捨てられた。その代わりに、調和振動子を座標軸上に置き、その角加速度を考慮した。電子は一様な加速度運動ではなく、正弦関数で表される加速度を持つと仮定し、これまでにない全く新しいスピンのイメージを提供した。
+
+Pauli did not reject quantum mechanics based on the classical manner. We shall go back in time to 1925 and re-produce spin images based on classical quantum theory. The behaviour of an electron travelling between two kernels can be described by a simple sinusoidal function, as shown by the results in Eq. (\ref{e3_simple_harmonic_motion}) in the Appendix. That is, the central kinetic energy of the virtual photon with simple harmonic oscillation for an electron can be described by a simple sinusoidal function.
+
+Herein, the image of a spinning top with precession in uniform circular motion has been discarded. We abandon the diagram ({\bf a}) shown on Fig. \ref{f_Angular_v} and seek a new spin image within the diagram ({\bf b}). Instead, the harmonic oscillator has been placed on the coordinate axis and its angular acceleration has been considered. The electron is not assumed to be in uniformly accelerated motion, but to have an acceleration represented by a sinusoidal function, giving a completely new spin picture that has never been seen before.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{The Acceleration of the Electron could not be constant}
+
+\subsection{Review the Thomas precession}
+
+% 本研究ではトーマス理論で一定の加速度（a＝f）という仮定をしない。電子の加速度は変化している。電子は等速直線運動をせずに固有の速度で運動しており、この速度はサイン関数で表現できた。速度v=sinで表現されるならば加速度はその微分であるa=cosで表される。本研究では、はじめにトーマスの業績を振り返り、（a=f 一定値）ではなくa=sinをトーマス歳差の式に代入した。
+
+To make this idea quantitative, this study does not make the assumption of constant acceleration $(a: acceraration = f: fource)$ in Thomas theory. The acceleration of the electrons can be changing. The electron does not travel in an uniform linear motion but with an intrinsic velocity, which could be expressed by a sinusoidal function. If the velocity ${\boldsymbol v}$ is expressed by ${\boldsymbol v} = \mathrm{cos}\theta$, the acceleration is expressed by its derivative, ${\boldsymbol a} = - \mathrm{sin}\theta$. In this study, at the beginning, we reviewed Thomas's work and substituted ${\boldsymbol a} = -\mathrm{sin}\theta$ instead of constant value $({\boldsymbol a} = {\boldsymbol f})$ into the Thomas precession. 
+
+
+% そもそもスピンが歳差運動と関連づけられた背景から議論を始める。相対性理論では電子が等速運動をしているならばその電子の運動を記述する座標系はローレンツ変換で算出できる。しかし、電子が加速度運動をしているならば、この電子を記述する座標系の軸を実験室系から観測すると軸が回転することを計算によって導いた。トーマスは原点を持ち電子と一緒に平行移動する座標系の軸を実験室系で観測すると以下の方程式Aという角速度で回転していると論文で発表した。
+
+The discussion begins with the background of the association of spin with precessional motion. In relativity, if the electron is in uniform linear motion, the coordinate system describing the electron's motion can be calculated by Lorentz transformation. However, if the electron is in an accelerated motion, it is calculated that the axis of the coordinate system describing this electron rotates when observed from the laboratory system. Thomas wrote in his paper that the axes of a coordinate system with an origin and translating with the electrons are observed in a laboratory system to rotate with the following angular velocity as in Eq. (\ref{Thomas_Eq1}),
+
+\begin{equation}
+    {\bf \Omega}=\frac{1}{2 c^2}[{\boldsymbol a} \times {\boldsymbol v}],
+    \label{Thomas_Eq1}
+\end{equation}
+
+\noindent where ${\boldsymbol a}$ is the acceleration of the electron and ${\boldsymbol v}$ is the velocity of the electron. Note that in Eq. (\ref{Thomas_Eq1}), the approximation $(\beta = 1 - v^2/c^2 \fallingdotseq 1)$ is set in Lorenz transformation. Equation (\ref{Thomas_Eq1}) can also be applied to the general case where the particles are not in uniform circular motion. As the particles are in uniform circular motion, the following equation is obtained,
+
+
+\begin{equation}
+    {\Omega}= - \frac{1}{2} \frac{v^2}{c^2} \omega_{\mathrm{const}}.
+    \label{Thomas_Eq2}
+\end{equation}
+
+The spin image in precession that we now recall comes from Eq. (\ref{Thomas_Eq2}). The angular velocity $\Omega$ obtained is a constant proportional to $\omega_{\mathrm{const}}$. In this study, however, we will not consider the issue using Eq. (\ref{Thomas_Eq2}), but rather equation (\ref{Thomas_Eq1}).
+
+
+\subsection{Assuming a simple harmonic oscillation instead of uniform circular motion}
+
+% 本節は本研究の革新部分である。軌道角運動量がhbarを単位に量子化されるのは１周すれば元に戻るという空間の性質を反映した。角運動量と磁気モーメントの関係によれば、角運動量がhbar/2と半分になれば、磁気モーメントもmu_b/2になるはずである。しかしスピン角運動量は角運動量がhbar/2であるにも関わらず、その磁気モーメントはmu_bに等しい。つまりスピンの回転は軌道の回転に比べ２倍効率的に磁場を生成でき、２倍の感度で磁場に応答する。この性質は３次元空間で観測される円電流に基づく理論では説明できなかった。
+
+% この矛盾点についてトーマス歳差による観点から考察を加えよう。電子モデルは電子の移動がサイン関数で表現された。その研究は0-Sphere電子モデルと表現された。この電子モデルでは電子のポテンシャルサーマルエネルギーは輻射と吸収がセットとなり電子の運動を描写した。PTEは一部が運動エネルギーとなり光子を動かす動力ともなった。この光子がこの研究モデルでは極めて単純なサイン関数で表現できた。
+
+This section is the innovative part of this study. The quantisation of the orbital angular momentum into units of $\hbar$ reflects the nature of space, which returns to its original state after one rotation. According to the relationship between angular momentum and magnetic moment, if the angular momentum is halved to $\hbar/2$, the magnetic moment should also be $\mu_e/2$. However, the magnetic moment of the spin angular momentum is equal to $\mu_e$, even though the angular momentum is $\hbar/2$. This means that spin rotation can generate magnetic fields twice as efficiently as orbital rotation and responds to magnetic fields with twice the sensitivity. This property could not be explained by theories based on circular currents observed in three-dimensional space.
+
+Consider this discrepancy from the perspective of the Thomas precession. Equation (\ref{e3_simple_harmonic_motion}) forms an important basis for this paper. The traveling of the virtual photon, ${\gamma^{*}}$, is represented by a sinusoidal function (cf. Eq. (\ref{e3_simple_harmonic_motion}) and see yellow line on Fig. \ref{f_appendix1}). The study was described as the 0-Sphere electron model. In this electron model, the thermal potential  energy (TPE) of the electron is a set of radiation and absorption, which describes the motion of the electron; the TPE changes partly kinetic energy, which drives the photon. The motion of the photon could be represented by a very simple sinusoidal function in this research model. First, we let the two values as follows;
+
+    \begin{equation}
+        \begin{split}
+            (Verocity): v_{\gamma^{*}}
+                &= \mathrm{cos}\omega t , \\
+            (Acceraration): a_{\gamma^{*}}
+                &= - \mathrm{sin}\omega t
+                .
+        \label{v_and_a}
+        \end{split}
+    \end{equation}
+
+Substitute Eq. (\ref{v_and_a}) into Eq. (\ref{Thomas_Eq1}) then,
+
+    \begin{equation}
+        \begin{split}
+            {\bf \Omega} 
+                &= \frac{1}{2 c^2}[{\boldsymbol a_{\gamma^{*}}} \times {\boldsymbol v_{\gamma^{*}}} ]  \\
+                &= \frac{1}{2 c^2} [ -\mathrm{sin}\omega t \times \mathrm{cos}\omega t ] \\
+                &= \frac{1}{2 c^2} \cdot \left( - \frac{1}{2} \mathrm{sin}2\omega t \right)
+                .
+        \label{omega_sin}
+        \end{split}
+    \end{equation}
+
+% 上記の考察から極めて重要な結果が得られた。すなわちcosとsinの外積を計算するとsin(2t)が現れる。本式が２倍の角速度が求められる根拠である。単振動の変位と速度と周期はωtのサイクルをもつのに対して角速度は２ωtのサイクルをもつことがわかった。単振動の１周期は角速度で決まる。トーマス歳差を用いた角速度は変位の半分の周期を持つ。
+
+% 上式の検討結果により、スピン角運動量がプランク定数の半分の値に量子化される根拠が得られた。
+
+The above discussion yields an extremely important result. Namely, when the outer product of cosine and sine is calculated, $-\frac{1}{2}$sin$2\omega t$ appears. Equation (\ref{omega_sin}) is the basis for obtaining a doubled angular velocity cycle. It was found that the displacement, velocity and period of a single oscillation have a cycle of $\omega t$, whereas the angular velocity has a cycle of $2\omega t$. One wave period of single oscillation is determined by the angular velocity. The angular velocity with Thomas precession has a period of half the displacement.
+
+The results of the study of the above equation provide a basis for the quantisation of the spin angular momentum to a value half the Planck constant.
+
+
+% 方程式４はさらに重要な結論を我々に提供した。すなわちsinが−１から１の範囲の値をとることから、ひとつの電子の角速度は時間的な推移の範囲で正値も負値もとりえることだ。この結果は方程式２からは導き出されない。これまでの量子力学ではスピンはアップスピンとダウンスピンの混合状態と説明されてきた。電子は時間推移によりアップスピンとダウンスピンを繰り返すと方程式４は示す。
+
+Equation (\ref{omega_sin}) provides us with a further important conclusion. The angular velocity of an electron can take both positive and negative values over a range of time transitions, since sine takes values in the range from $-1$ to $1$. This result does not follow from Eq. (\ref{Thomas_Eq2}). In conventional quantum mechanics, spin has been described as quantum superposition of up-spin and down-spin states. Equation (\ref{omega_sin}) indicates that the electron repeats up-spin and down-spin with time transitions.
+
+\section{Lorentz contraction causing the anomalous magnetic moment}
+
+\subsection{Associating the anomalous magnetic moment with Lorentz contraction}
+
+% 本セクションでは応用として電子の異常磁気能率の説明をする。アインシュタインは１９１２年に出版した論文で次の指摘をした。回転座標系では円周と直径の比がユークリッド幾何学とは異なる。例えば、光速に近い速度で回転する自転車の車輪を想像しよう。輪に沿った方向にはローレンツ変換により長さが縮小するのに対して外周から中心に向かうスポークの方向へはローレンツ収縮は生じない。
+
+% 目標は回転性のローレンツ変換を利用して、空間の１回転である２piがローレンツ収縮の影響を受けると２piより短い周期になると考える。そして、ローレンツ収縮の影響を受けた１回転は２piより短くなるため、その差を異常磁気能率と本研究では解釈する。
+
+% これまでの議論の結果から、加速度運動をする電子が光速に比べて著しく遅い場合は、方程式Aにより１周期が２piから１piへと半減した。これは軌道の回転に比べて２倍効率的に磁場を生成できる根拠となった。
+
+% トーマスは座標軸の並行な移動について研究した。彼によれば軸の並行な移動とは各瞬間ごとにその瞬間での軸が無限小時間が経過した軸と並行になっていると結論づけた。トーマスはこの計算をローレンツ変換を用いた。物体が等速直線運動の時は、特殊ローレンツ変換を用いて座標変換ができ、それは非回転性である。一方、トーマスが角運動量について検証したローレンツ変換は回転性の変換であった。
+
+% 先述したとおり、電子の加速度は光速に比べて十分遅いという仮定のもと、トーマス歳差は駒が回転する描像が創出されたであろう。これまで、原子の中の電子を想定するとその電子の動きは光速に比べて遥かに遅く、ローレンツ収縮の影響を受けないと仮定されてきた。
+
+% ここで我々はこの仮定に疑義を唱えよう。すなわち電子の振動速度はローレンツ収縮を無視できないほど速いと。0-Sphere電子モデルでは電子は２極に現れた。サーマルポテンシャルエネルギー（TPE)が輻射される点と吸収される点である。これらは空間的に離散的に位置している。そして著者の論文Aではこの距離が自由電子の場合コンプトン波長の距離でエネルギーの往復をしていると考えた。自由電子が一方向に動く場合でも、このモデルはその移動の様子を表現できる。そして重要なのは、0-Sphere電子モデルでは電子は等速直線運動をしない。その動きはサイン関数で表現される加速度を有する運動であると計算された。
+
+% 電子は空間的に離散的に移動しており、その移動の間はTPEが運動エネルギーに転化し、そのエネルギーを仮想光子が伝達するのが0-Sphereモデルの主張するところである。したがって、本研究の応用として重要な帰結は次の通りとなる。すなわち、0-Sphere電子モデルによって描写される電子の振動はサイン関数で表現されており、移動は光速度以下となる。直感的にあり得るとしても、サイン関数の最高速度の時に光速度で仮想光子が移動したと仮定しても、加速度が変化するのであるから、全体的に点aから点-aへ空間的に電子が移動する速度は平均して光速度以下となるのは明らかである。
+
+% この論文では、電子を取り巻く仮想光子が半円を描いてエネルギー伝達をするイメージを推奨しない。図２は概略図である。単純調和振動子としての電子は直線的に振動を繰り返す。仮想光子は最短距離の直線で旅行するだろう。
+
+% 本セクションではこれまで実験で得られた異常磁気能率の値から回転性ローレンツ変換に基づいて点aから点-aへ空間的に電子が移動する平均速度を算出してみた。その結果は光速度の約0.048倍となった。以下に、その計算を詳述する。
+
+This section describes the anomalous magnetic moment of electrons as an application. Einstein made the following point in a paper published in 1912 \cite{Einstein}. Namely, in the rotational coordinate system the ratio of circumference to diameter differs from that in Euclidean geometry. For example, imagine a bicycle wheel circumference spinning at close to the speed of light. In the direction along the rim sidewall, the Lorentz transformation causes a length contraction, whereas no Lorentz contraction occurs in the direction of the tangential spokes from the periphery towards the centre.
+
+In this section, the goal is to use the Lorentz transformation of rotationality to consider that one rotation of space, $2\pi$, becomes shorter than $2\pi$ when affected by Lorentz contraction as shown in Fig. \ref{f_Lorents}.  Then, since one rotation affected by Lorentz contraction becomes shorter than $2\pi$, the difference is interpreted as anomalous magnetic moment in this study.
+
+The results of the previous discussions showed that if an electron in accelerated motion is significantly slower than the speed of light $(\beta = 1 - v^2/c^2 \fallingdotseq 1)$, one period is halved from $2 \pi$ to $1 \pi$ on the basis of Eq. (\ref{omega_sin}). This provided a basis for generating a magnetic field twice as efficiently as orbital rotation.
+
+Thomas studied parallel infinitesimal displacement of coordinate axes. He concluded that parallel displacement of axes means that at any instant the axis at that instant is parallel to the axis after an infinitesimal amount of time. Thomas used the Lorentz transformation to make this calculation. When an object is in uniform linear motion, a coordinate transformation can be performed using the special Lorentz transformation, which is non-rotational. On the other hand, the Lorentz transformation that Thomas verified for angular momentum was a rotational transformation.
+
+
+    \begin{figure}[h!]
+        \centering 
+        \includegraphics[scale=0.18]{Lorents.png}
+            \caption{Presence of rotational Lorentz contraction. Presence of rotational Lorentz contraction. To be precise, rotation should be regarded as the motion of a point through the origin, as shown in Fig. \ref{f_Angular_v}. However here it is shown as a circumference for visual clarity. ({\bf a}) Lorenz contraction was applied to rotational coordinates. If the electrons are travelling significantly slower than the speed of light, the rotational Lorentz contraction can be neglected. $(\beta = 1 - v^2/c^2 \fallingdotseq 1)$ ({\bf b}) Lorentz contraction cannot be ignored when the speed of electrons travelling approaches the speed of light. Therefore, the length of the $\pi$ circumference shrinks. This contraction is considered to be the cause of the anomalous magnetic moment.}
+            \label{f_Lorents}
+    \end{figure}
+
+Under the assumption that the acceleration of electrons is sufficiently slow compared to the speed of light, the Thomas precession would have created a picture of the piece rotating. It has been assumed that electrons in an atom move much slower than the speed of light and are not affected by Lorentz contraction.
+
+We would like to consider this assumption. This could mean that the oscillation period of the electron is so fast that the Lorentz contraction cannot be ignored. The purpose of this study is to reconsider this assumption. In the 0-Sphere electron model, an electron travels with two kernels. At these two spatially distant kernels, thermal Potential Energy (TPE) radiates and absorbs respectively. These kernels are spatially discrete. In the author's paper \cite{Hanamura1}, this distance was assumed to be the Compton wavelength for a free electron (cf. Fig. \ref{f_appendix1}). Even if the free electron moves in one direction, this model can describe its movement. And importantly, in the 0-Sphere electron model, electrons do not move in a uniform linear motion. Its motion was assumed to be traveling with acceleration expressed as a sinusoidal function.
+
+According to the 0-Sphere model, the electron is traveling discretely in space \cite{Hanamura2}. The model claimed that during its movement, the TPE is converted to kinetic energy, which is transferred by the virtual photon. Therefore, an important consequence of the application of this study is as follows. That is, the oscillation of the electron described by the model is represented by a sinusoidal function, and the transfer is below the speed of light. Even if it is intuitively possible, assuming that the hypothetical photon moved at the speed of light at the highest speed of the sinusoidal function, it is clear that the overall speed of the electron moving spatially from point $+a$ to point $-a$ (cf. Fig. \ref{f_appendix1}) is on average less than the speed of light, since the acceleration varies.
+
+Note that this study does not recommend having an image of a virtual photon surrounding an electron in a semicircle for energy transfer. Figure \ref{f_Lorents} is a schematic diagram. The electron as a simple harmonic oscillator would oscillate linearly. Similarly, the virtual photons would travel in a straight line with the shortest path. See Appendix \ref{What is the 0-sphere} for the shortest linear path.
+
+In this section, we calculated the average speed of electrons moving spatially from point $+a$ to point $-a$ based on the rotational Lorentz transformation from the values of the anomalous magnetic moment obtained in our experiments. See Appendix Fig. \ref{f_appendix1} for two points, $+a$ and $-a$. The result was about 0.04047 times the speed of light. The methods and the results are referred to in the following chapters.
+
+
+
+\subsection{Average velocity of electron micro-oscillation}
+
+% a^IAM_e = 0.00115052403
+% a^exp_e = 0.00115965218059
+
+The difference is the anomalous magnetic moment, denoted $a$ and defined as,
+
+    \begin{equation}
+        {\displaystyle a={\frac {g-2}{2}}} .
+        \label{III.1}
+    \end{equation}
+
+% この定義式が２で除算されていることからわかるように我々は１周２piの円周ではなく１piの円周がローレンツ収縮によって何割短くなるかを検討すべきである。
+
+As can be seen from the fact that this defining equation is divided by 2, we should consider the fraction of the circumference of $1\pi$ that is shortened by Lorentz contraction, not the circumference of $2\pi$ per circumference.
+
+
+
+The current experimental value and uncertainty is \cite{Fan},
+
+    \begin{equation} %wikiよりコピペした式が以下の通り
+          {\displaystyle a^{\text{exp}}_{\text{e}}=0.001\,159\,652\,180\,59\,(13)} .
+          \label{}
+    \end{equation}
+
+% 電子と一緒に動く座標系の棒の長さをL0、電子が動いている様子を実験室系から見たときの棒の長さLをとすると、両者の間には次の関係が成り立つ。
+
+Let $L_0$ be the length of a bar in the coordinate system moving with the electrons and $L$ be the length of the bar when the moving electrons are viewed from the laboratory system, the following relationship holds between the two. Lorentz contraction is expressed by the following equation,
+
+
+    \begin{equation}
+        L = L_0 \sqrt{1 - \frac{v^2}{c^2}} .
+    \end{equation}
+
+% 方程式omega_sinによると加速度cosで動く角運動量がsin2で表された。スピンの回転は軌道の回転に比べて２倍効率的に磁場を生成できる有力な根拠となった。これは、シータが２シータに変わったためであった。
+
+% 言い換えれば、磁場を生成するのに空間的に３６０度回転しなくとも、その半分の１８０度で磁場が生成できると解釈した。本研究では異常磁気能率はこの１８０度をさらに少ない角度で磁場を生成していると考える。すなわち、１８０度という角度が回転性のローレンツ収縮をして、１８０度よりも短い角度で磁場を生成できると解釈し直すのである。上記の見方によると、ローレンツ収縮と異常磁気能率の関係性を表す方程式は、
+
+According to Eq. (\ref{omega_sin}), the angular momentum moving with acceleration $\mathrm{-sin}\theta$ was expressed by $\mathrm{sin}2\theta$. This is a strong evidence that spin rotation can generate a magnetic field twice as efficiently as orbital rotation. This was due to the change from $\theta$ to $2\theta$.
+% (edited: cos -> -sin, Sep 12 2023)
+
+In other words, the interpretation was that instead of having to rotate 360 degrees in space to generate a magnetic field, one half of that, 180 degrees, could be used to generate a magnetic field. In this study, we can consider that the anomalous magnetic moment generates the magnetic field at an angle even less than 180 degrees. That is, we reinterpret the 180-degree angle as a rotational Lorentz contraction that can generate a magnetic field at an angle shorter than 180 degrees (Fig. \ref{f_Lorents}).
+
+According to the above view, the equation since expresses the relationship between Lorentz contraction and anomalous magnetic moment,
+
+    \begin{equation}
+        \frac{L}{L_0} = \frac{1}{1 + a^{\text{exp}}_{\text{e}}} .
+        \label{III.4}
+    \end{equation}
+
+
+% Root Mean Square value（二乗平均平方根値への修正）2023/09/13
+% 我々は方程式４をさらに修正する。
+
+% 平均速度を求めようとしているためにAの二乗平均平方根値をとる。RMSを乗ずるのは交流電圧の最大電圧と実効電圧が異なる理由に似ている。つまり、調和振動子が常に変化する加速度を生じているため、ローレンツ収縮もその長さは変動を受ける。したがって電子の移動平均速度を求めるためには、異常磁気モーメントを実効値に変換して計算すべきであろう。
+
+We further modify Eq. (\ref{III.4}). We take the root-mean-square (RMS) value of $a^{\text{exp}}_{\text{e}}$ because we are trying to find the average velocity; multiplying by the RMS is similar to the reason why the maximum and effective voltages of an AC voltage are different. In other words, the Lorentz contraction is also subject to fluctuations in its length because the harmonic oscillator would constantly produce varying accelerations. Therefore, in order to determine the average speed of the electron motion, the anomalous magnetic moment should probably be converted to an RMS value. The revised formula is;
+
+    \begin{equation}
+        \frac{L}{L_0} = \frac{1}{1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}}} .
+        \label{III.5}
+    \end{equation}
+
+% この修正された発想の根拠には異常磁気能率の値は調和振動子がもたらす加速度の最高値によって計算されていると捉えるからである。この発想が正しいかはさらなる観測結果によって裏づけられるであろう。
+
+The rationale for this modified idea is that the value of the anomalous magnetic efficiency might be calculated from the highest value of the acceleration caused by the harmonic oscillator. Further observations will confirm the correctness of this idea.
+
+Furthermore, from the following relationship,
+
+    \begin{equation}
+        \frac{L}{L_0} = \sqrt{1 - \frac{v^2}{c^2}} .
+    \end{equation}
+
+From these two equations, we obtained,
+
+    \begin{equation}
+        \sqrt{1 - \frac{v^2}{c^2}} = \frac{1}{1 + \frac{1}{\sqrt{2}} a^{\text{exp}}_{\text{e}}}  .
+        \label{III.7}
+    \end{equation}
+
+% ここで導かれた方程式Aは次章で一般相対性理論を考慮して方程式Bへと修正されることを付け加えておく。
+
+It should be noted that Eq. (\ref{III.7}) derived here will be modified to Eq. (\ref{IV.2}) in the next chapter to take account of general relativity.
+
+% aに実験で得られた異常磁気能率を代入しvを求めると、
+
+Substituting the anomalous magnetic moment obtained experimentally for $a^{\text{exp}}_{\text{e}}$, $\beta^2 = (v/{c})^2$ is obtained,
+
+
+    \begin{equation}
+        \beta^2 = (\frac{v_{\gamma^{*}}}{c})^2 = 0.00163798087
+    % edited Sep 12 2023    = 0.00231822854
+    % edited Sep 13 2023    = 0.00231527623
+    \end{equation}
+
+    \begin{equation}
+        v_{\text{electron}}^{\gamma^{*}} \fallingdotseq 0.04047197635 \times c .
+    % edited: Sep 12, 2023, 0.00481428668
+    % 重要なミス！これでは４％ではなく0.4%になる(2023/09/12)
+    % edited Sep 13 2023    = 0.04811731736
+        \label{III.9}
+    \end{equation}
+
+
+With this beta value, the average speed was calculated to be approximately 12,133 km/s. For reference, we can compare the values of the muon with the results of Eq. (\ref{III.9}). 
+
+Combining the beta implications of the above equation with the 0-Sphere electron model yields the following consequence. This means that the energy of the electron is moving from point $+a$ to point $-a$ with an average 0.04047 times the speed of light. Applying this result, the wavelength of this electron is also extended from Compton's wavelength by the factor of 0.04047. The modified frequency is calculated as follows,
+
+
+    \begin{equation}
+        \begin{split}
+            \nu_{\mathrm{electron}} 
+                &= \frac{\beta c}{\lambda_{\mathrm{compton}}}  \\
+                &= 0.04047 \times 299792458 \div 2.42631\times10^{-12} \\
+                &= 5.007057 \times 10^{18} \mathrm{(Hz)}
+                .
+        \label{nu_electron}
+        \end{split}
+    \end{equation}
+
+
+% この振動数はエックス線に相当する。元来、コンプトン波長から導き出される振動数は1.2-10-19である。本稿で異常磁気能率を回転性のローレンツ収縮に依拠する検討から計算すると電子の振動数は5.996-10-18である。
+
+ The above frequency could be equivalent to that of X-rays. Originally, the frequency derived from Compton wavelengths was $1.24\times10^{20}$. The modified electron frequency is $5.007057\times10^{18}$ when the anomalous magnetic moment is calculated from a consideration that relies on the Lorentz contraction of rotationality in this paper.
+
+%  電子のコンプトン波長 2.42631023867(73)×10−12 m
+
+% \subsection{Fine Structure Constant}
+
+% The speed of an electron orbiting the classical model of an atom is about 1/137 the speed of light. Or the electron travels at 1/137 the maximum speed allowed in nature.
+
+
+
+% しかし角運動量が連続値であるのに実際の観測結果では上向スピンと下向きスピンであるという意見には次のような解釈がある。すなわちバネを縮めてその先端に球を置く装置を想像する。縮めたバネを抑えていた指を離すとバネは伸びて球が発射されるだろう。この発射されるタイミングはバネの加速度が減少するタイミングである。球がバネを離れるタイミングは連続的ではない。これを仮想光子が電子から離れるタイミングと考える。
+
+% 電子スピンが離散的に観測されるのもこのバネと球の関係と解釈できる。バネが熱勾配に球が運動エネルギーを有する仮想光子にそれぞれ対応する。単純振動子では一往復の間に加速度が減速する位置はバネを水平に置いたときは右と左の2度あるだけである。1周期に2回生じる加速度が減速するタイミングが上向スピンと下向きスピンの観測に対応すると考えられる。同様に仮想光子が実際光子として電子から外に飛び出すタイミングは一周期に2度あると考えられる。
+
+% それゆえに電子の内部で生じる熱勾配から受ける仮想光子の加速度が最大になる時の速度は方程式4によって与えられる。この速度はRMSバリューを適用しない光速比で与えられる。この発想はまた紫外発散の問題を解決するための大きな進歩となろう。
+
+
+However, the opinion that the angular momentum is a continuous value but the actual observations are of upward and downward spin has the following interpretation. Namely, imagine a device in which a spring is retracted and a sphere is placed at its end. When the finger holding the retracted spring is released, the spring will extend and the ball will be launched. The timing of this launch is when the acceleration of the spring decreases. The timing at which the ball leaves the spring is not continuous. Consider this as the timing at which the virtual photon leaves the electron.
+
+The discrete observation of electron spin can be interpreted as this spring/sphere relationship. The spring corresponds to the thermal gradient and the sphere to the virtual photon with kinetic energy. In a simple oscillator, the position at which the acceleration is slowed down during a round trip occurs only twice, once to the right and once to the left, if the spring is placed horizontally; the time at which the acceleration is slowed down, which occurs twice in a cycle, can be regarded as corresponding to the observation of upward and downward spin. Equivalently, the timing at which a virtual photon is ejected out of the electron as an actual photon is considered to be twice per cycle, i.e., when the value of ${\bf \Omega}$ is at its maximum in the Eq. (\ref{omega_sin}).
+
+Hence, the velocity at which the acceleration of the virtual photon undergoes maximum acceleration from the thermal gradient produced inside the electron can be given by Eq. (\ref{III.4}). See Appendix \ref{Thermal energy gradient caused by two spinors} Eq. (\ref{e3_simple_harmonic_motion}) for the thermal energy gradient created in an electron. This velocity is given by the light speed ratio without the RMS value applied. This idea would be a major step forward in solving the problem of ultraviolet divergence in quantum field theory.
+
+
+
+\section{General relativity's geodetic effect on electron spin}
+\subsection{Considering geodetic precession applying Schwarzschild metrology}
+
+
+% 前節で得られた結果に加えて我々はさらに一般相対性理論の影響を考慮する。すなわち重力である。よく知られているように量子力学と重力を統合する理論の生成はこれまで試みられてきた。それは量子重力論と呼ばれる。この試みがなかなか成就しないのは重力場と量子場を関連づける試みがうまくいっていないからだ。これはひとえに連続した数値をとる場が持つ特性のためである。前節までは古典的なモデリングで電子のスピンを解析してきた。本節では一般相対性理論の測地的歳差の概念を電子スピンに導入する。付言すると重力の量子化は本論文の範囲を超えている。
+
+In addition to the results obtained in the previous section we further consider the influence of general relativity. Namely, gravity. As is well known, attempts have been made to generate a theory that integrates quantum mechanics and gravity. It is called quantum gravity theory. The reason why this attempt has not been fulfilled is that attempts to relate the gravitational field to the quantum field have not been successful. This is due to the properties of the fields, which take on continuous values.
+
+The geodesic and frame-dragging effect predicted by general relativity has been successfully and accurately confirmed by NASA's Gravity Probe B satellite. GP-B final experimental results were announced on May 4, 2011 \cite{NASA}. This chapter attempts to apply the geodesic effect to electron spin. Note that the quantisation of gravity is beyond the scope of this paper.
+
+Up to the previous section, electron spin has been analysed using classical models. In this section, the concept of geodesic precession of general relativity is applied to electron spin. To calculate the geodetic precession on electron spin, we refer to the following geodetic precession equation already found \cite{Hartle},
+
+
+
+\begin{equation}
+    \Delta \phi_{\mathrm{geodetic}} = 2 \pi \left[ 1 - \left( 1 - \frac{3M}{R} \right)^{1/2} \right] \mathrm{(per \ orbit)},
+    \label{IV.1}
+\end{equation}
+
+\noindent where $M$ is mass and $R$ is the Schwarzschild radius.
+
+
+% 上式は単位がラジアンで表記されている。我々は電子の異常磁気能率を考察している。我々は方程式３１を基にして議論を進めている。すなわち円の半周を１単位と見なしている。これは円の半周を１単位としている。したがって、上式に２piを掛けない値を用いる。議論を進めるためにMに電子の質量をRに電子半径を代入する。
+
+Equation (\ref{IV.1}) is expressed in units of radians. As considering the anomalous magnetic efficiency of the electron, we should consider half the circumference of a circle to be a unit. Based on our discussion of Eq. (\ref{III.1}), we use the value of the above equation without multiplying it by $2 \pi$,
+
+\begin{equation}
+    \frac{L}{L_0} = \frac{1}{1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}} - \frac{\Delta \phi_{\mathrm{geodetic}}}{2 \pi}} .
+    \label{IV.2}
+\end{equation}
+
+% 電子の大きさは現在のところ確定されていない。電子半径の上限は、2006年にハーバード・スミソニアン天体物理学センターの研究者たちによって測定された。それは2006年の実験による上限値ではAである。表1は、電子の大きさを仮定して電子の微細振動速度をシミュレーションした結果である。つまり、方程式１と方程式２より下記の方程式を得て表１を作成した。
+
+The size of the electrons is not currently determined. Observation of a single electron in a Penning trap suggests the upper limit of the particle's radius to be $1.0 \times 10^{-22}$ meters \cite{Dehmelt}. That means the following equation (\ref{IV.3}) is obtained from Eqs. (\ref{IV.1}) and (\ref{IV.2}) to calculate Table \ref{table_1}.  Substitute the mass of the electron for $m_{\mathrm{electron}}$ and the radius of the electron for $r_{\mathrm{electron}}$, the result is,
+
+\begin{equation}
+    \left. % スラッシュを大きくする構文 \left. A \middle/ B \right.
+    \frac{L}{L_0} = 1
+    \middle/
+    \left( {1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}} - \left[ 1 - \left( 1 - \frac{3 m_{\mathrm{electron}}}{r_{\mathrm{electron}}} \right)^{1/2} \right]} \right).
+    \right.
+    \label{IV.3}
+\end{equation}
+
+\begin{center}
+    \begin{threeparttable}
+        \caption{The velocity and the radius of an electron}
+        \label{table_1}
+        \tabcolsep = 3.5mm  % 横幅を増やす
+        \renewcommand\arraystretch{1.2} % 縦幅を割合分だけ増やす
+        \begin{tabular}{ccc}
+            \hline
+        $ r_{\mathrm{electron}} {\mathrm{(m)}}$ & $\Delta \phi_{\mathrm{geodetic}}/{2 \pi}$ & $ v_{\text{electron}}^{\gamma^{*}} / c$ \\       \hline
+        $1 \times 10^{-22}$ & $1.3670000 \times 10^{-8}$ & 0.040471633 \\ 
+        $1 \times 10^{-23}$ & $1.3665000 \times 10^{-7}$ & 0.040468601 \\ 
+        $1 \times 10^{-24}$ & $1.3664100 \times 10^{-6}$ & 0.040438275 \\ 
+        $1 \times 10^{-25}$ & $1.3664170 \times 10^{-5}$ & 0.040133758 \\ 
+        $1 \times 10^{-26}$ & $1.3666501 \times 10^{-4}$ & 0.036949906 \\ 
+            \hline
+        \end{tabular}
+    \end{threeparttable}
+\end{center}
+
+% どちらか一方の値が測定されれば、他方が計算できる。表１は電子半径が決定されれば電子が旅行する平均速度が算出できるということを意味する。例えばVの光速比率が0.0400と測定されれば電子の半径は１０exp-25から10exp-26の間にある。
+
+Once one of the values is measured, the other can be calculated. Table \ref{table_1} shows that once the electron radius has been determined, the average speed at which electrons travel can be calculated. For example, if the speed-of-light ratio of $ v_{\text{electron}}^{\gamma^{*}} $ is measured to be 0.0400$c$, the radius of the electron would be between $1.0 \times 10^{-25}$(m) and $1.0 \times 10^{-26}$(m).
+
+% 本説の結論は電子の大きさを算出するがそのためには変数２つの実験結果が公開されるのを待たねばならない。すなわち１０−２２乗以下の電子の大きさを検出できるさらなる強力な測定装置の開発と電子の微振動の速さを測定する技術である。電子の半径Eと電子の微細振動速度の平均値Vが実験で計測できれば上記の方程式の結果の妥当性が明らかになるだろう。
+
+The conclusion of this theory is to calculate the size of the electron kernel, but for this we have to wait for the results of the two variable experiment. The first is the development of more powerful measuring instruments capable of detecting electron magnitudes below $1.0 \times 10^{-22}$(m), and the second is a technique for measuring the velocity of micro-oscillation of an electron. The validity of the results of the above equations would be verified if the radius, $r_{\mathrm{electron}}$, of the electron and the value of its average traveling velocity, $ v_{\text{electron}}^{\gamma^{*}} $, could be measured experimentally.
+
+
+\section{Conclusion}
+
+% 私たちは、電子が自転するというイメージを捨て、電子が振動子として2点間を往復することでスピンが発生するという見方を提示した。従来のスピンは円運動をベースにイメージされていたが、本研究では単振動に置き換えた。質点が原点を通過して2点間を移動するとき、等速直線運動であれば角運動量は発生しない。しかし、電子が2点間を往復する場合、その仮定は否定され、2点間で加速運動が発生する。
+
+% 本論文では3つの大きな成果を達成した。一つは古典的な駒の歳差運動の基盤を撤回した。この歳差運動は電子が等加速度運動をしていると仮定されて生じた描像である。本論文では等加速度運動の視点を見直した。代わりに電子は振動子であることから三角関数で表記される速度と加速度をトーマス理論に適合させた。その結果、因子1/2が算出された。これは空間的な１回転で発生する磁気が半分の効率で生み出されることを意味した。
+
+% もう一つは電子の異常磁気能率が回転性ローレンツ収縮により発生しているのではないかという問題提起である。実験で測定された異常磁気能率をもとに計算すると、電子の振動は光速の約４パーセントの平均速度で旅行を繰り返しているとわかった。
+
+We discarded the image of the electron spinning on its own axis and offered the view that spin occurs when it moves back and forth between two kernels in an electron as an simple harmonic oscillator. Whereas spin has traditionally been thought of as a uniform circular motion, in this study it is replaced by a simple harmonic motion. When a point of mass passes through the origin and moves between two kernels, no angular momentum is generated if the motion is uniformly linear. However, when an electron moves back and forth between two kernels, this assumption is negated and accelerated motion occurs between the two kernels.
+
+Three important results were achieved in this work. The first was the withdrawal of the classical basis for the motion of the piece. This precessional motion is a picture that results from the assumption that the electrons are in uniformly accelerated motion. In this paper, the perspective of uniformly accelerated motion is reviewed. Instead, the electron is an oscillator, and the velocity and acceleration, described by trigonometric functions, are adapted to Thomas's theory. As a result, a factor of 1/2 was calculated in the Eq. (\ref{omega_sin}). This means that it is twice as efficient as the magnetism generated by rotation in space.
+% (edited: half -> twice, Sep 25 2023)
+
+The second issue raised was whether the anomalous magnetic moment of the electron could be caused by a rotational Lorentz contraction. Calculations based on the experimentally measured anomalous magnetic moment showed that the oscillations of the electrons repeatedly travel at an average speed of about four percent of the speed of light.
+
+% 電子が２点間の加速度運動であることは、著者が記した論文（引用）で、0-Sphereモデルの帰結として得られた。そこでは熱エネルギーが２点間を輻射と吸収で移動するとき、運動エネルギーはシンプルなサイン波で表現できたからだ。この電子モデルはエネルギー保存則を満たしていた。言い換えれば、２点間を移動する電子の運動エネルギーの重心、あるいは輻射と吸収の熱エネルギーが構成するエネルギー勾配が振り子の往復運動として表現できた。0-Sphereモデルのこの成功を本研究では応用した。このとき電子は等速円運動でなくともスピンを有する。
+
+The micro-oscillation of an electron would be in accelerated motion between two kernels. That was obtained as a consequence of the 0-Sphere model in the paper by the author \cite{Hanamura1}. To put it bluntly, the model would allow an electron to behave like an inchworm. Its footprints are discrete as the inchworm moves.
+
+There, when thermal energy was transferred between two kernels by radiation and absorption, the kinetic energy could be represented by a simple sinusoidal function. The electron model obeyed the law of conservation of energy. The centroid of the kinetic energy of the electron moving between the two kernels, or the energy gradient formed by the thermal energy of radiation and absorption, could be represented as the reciprocating motion of a simple harmonic oscillator. In this behaviour, the electrons have spin even though they do not move in a uniform circular motion.
+
+% さらに我々の成果としてローレレンツ収縮に加えて一般相対性理論の歳差運動により電子振動速度を補正した。この試みにより電子の大きさを予測できた。
+
+And the third, in addition to the Lorentz contraction, we have corrected each electron's traveling velocity for the geodetic precession of general relativity. This attempt allowed us to predict the size of the electrons.
+
+% 一つの電子の中にはブラックホールとホワイトホールが一対を成しているイメージをこのモデルは提供する。そしてそれぞれの役割が周期的に反転する。なぜならば一つの電子が調和振動子としてエネルギーの旅行を繰り返すかについて0-Sphereモデルは１つの電子の中でエネルギー体が輻射と吸収を繰り返しているからとモデリングしたからだ。ここでは0-Sphereモデルにシュワルツシルト半径を導入して議論を進める。議論は電子という素粒子には相性の悪い一般相対性理論の概念を適用する方向へ進む。我々は電子の半径を計算する過程をしらべた。
+
+The 0-Sphere model provides that within a single electron, it is like a pair of black holes and white holes. Furthermore, their respective functions are periodically reversed. The model shows how an electron repeatedly travels as a harmonic oscillator because the energy bodies in an electron repeatedly radiate and absorb its energy. However, the Schwarzschild radius could be introduced to the model for further discussion. The discussion has been continued with the application of the concept of general relativity, which is incompatible with the elementary particle, the electron. We examined and provided the process of predicting the radius of the electron.
+
+% エネルギーを輻射する側の電子をホワイトホールとみなし、吸収する側の電子をブラックホールとみなした。これまでのところ大きさが確定していない電子半径にブラックホールに比肩される大きさがあると仮定して議論を進めた。そこで算出された電子の半径の妥当性は今後の実験機器の発展を待たねばならない。
+
+The emitting side kernel in the electron could be considered a white hole, and the one on the absorbing side could be considered a black hole. The discussion is based on the assumption that the electron radius, whose size has not yet been determined, would be comparable to that of a black hole. The validity of the calculated  average velocity of the electron micro-oscillation and the radius of the electron will have to await further development of the experimental reports.
+
+
+
+% 等速円運動 uniform circular motion
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\begin{thebibliography}{99}
+
+    % トーマス因子（スピンはめぐる 朝永 p.43）
+    \bibitem{Thomas} L. H. Thomas, The Motion of the Spinning Electron, $\textit{Nature}$, $\textbf{117}$ (1926), 514; $\textit{Philosoph Mag.,}$ 3 (1927), 1. \href{https://www.nature.com/articles/117514a0}{https://doi.org/10.1038/117514a0}
+    
+    % 自由電子と回転（スピンはめぐる 朝永 p.43 論文名はp.276）
+    \bibitem{Uhlenbeck} G. E. Uhlenbeck, S. A. Goudsmit, Spinning Electrons and the Structure of Spectra, $\textit{Naturwissenschaften}$, $\textbf{13}$ (1925), 953; $\textit{Nature}$, $\textbf{117}$ (1926), 264. \href{http://www.ffn.ub.es/luisnavarro/nuevo_maletin/Uhlenbeck_Goudsmit_1927.pdf}{https://doi.org/10.1038/117264a0}
+
+    % パウリ 1945年ノーベル賞受賞講演（スピンはめぐる 朝永 p.48）
+    \bibitem{Pauli} W. Pauli, Exclusion principle and quantum mechanics Nobel Lecture, December 13, (1946) \href{https://www.nobelprize.org/uploads/2018/06/pauli-lecture.pdf}{Wolfgang Pauli Nobel Prize lecture 1945}
+
+    % 翌３月に執筆された２番目の論文「重力場の静力学理論」...
+    \bibitem{Einstein} A. Einstein, Lichtgeschwindigkeit und Statik des Gravitationsfeldes, $\textit{Annalen der Physik}$ 38 (1912) 355. \href{http://myweb.rz.uni-augsburg.de/~eckern/adp/history/einstein-papers/1912_38_355-369.pdf}{The Speed of Light and the Static Gravitational Field}
+
+    \bibitem{Hanamura1} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+
+    \bibitem{Hanamura2} S. Hanamura, Correspondence Between a 0-Sphere and the Electron Model, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17759908}{doi:10.5281/zenodo.17759908}. [Originally: \href{https://vixra.org/abs/2001.0610}{viXra:2001.0610}]
+
+    \bibitem{Fan} X. Fan, T. G. Myers, B. A. D. Sukra, G. Gabrielse, Measurement of the Electron Magnetic Moment, $\textit{Phys. Rev. Lett.}$ $\textbf{130}$ no.7, 071801 \href{https://arxiv.org/abs/2209.13084}{arXiv:2209.13084} (2023)
+
+    % 自由電子（スピンはめぐる 朝永 p.37）
+
+    \bibitem{NASA} ``GP-B STATUS UPDATE — May 4, 2011''. Gravity Probe B. NASA and Stanford University. NASA Headquarters Science Update/Press Conference. \href{http://einstein.stanford.edu/highlights/status1.html}{GP-B STATUS UPDATE — May 4, 2011} (2011)
+
+    \bibitem{Hartle} James B. Hartle, \textit{GRAVITY -- An Introduction to Einstein's General Relativity --}, p.302, Cambridge University Press (2021)
+
+    \bibitem{Dehmelt} Dehmelt, H., A Single Atomic Particle Forever Floating at Rest in Free Space: New Value for Electron Radius, $\textit{Physica Scripta}$. $\textbf{T22}$: 102--110, \href{https://iopscience.iop.org/article/10.1088/0031-8949/1988/T22/016}{doi:10.1088/0031-8949/1988/T22/016} (1988)
+
+% 高速微細振動
+% Schrödinger, E "Über die kräftefreie Bewegung in der relativistischen Quantenmechanik", Sitz.Preuss.Akad.Wiss. Phys.-Math. Kl. $\textbf{24}$, 418-428 (1930)
+
+\end{thebibliography}
+
+\clearpage
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{Appendix}
+\label{Appendix}
+
+
+\subsection{An electron’s structure in this study}
+\label{An electron’s structure in this study}
+
+        In the 0-Sphere electron model, an electron's structure is assumed as follows. First, consider there is a tiny thermal source in the center. This thermal spot, named $\textit{the bare electron}$ or $\textit{the spinor}$ or $\textit{the kernel}$ in author's previous papers already submitted, can be moved by radiation, however, it stops time and fixes it in the center of the electron. Next, consider a real photon that surrounds the bare electron, $\textit{the kernel}$. This real photon has an electromagnetic interaction with the bare electron.
+
+        The concept of virtual photons has not changed since mentioned on paper \cite{Hanamura1}. The photons surrounding the two thermal sources exchanging energy with each other are real photons. Because the photon is connected to the thermal spot by the electromagnetic force, this photon does not emit energy to the external system and cannot be observed. In this paper, one electron is regarded as a closed system in thermodynamics, and this paper is not expanded to the interaction with other electrons.
+        
+        From this viewpoint, this real photon may be called a virtual photon. However, the virtual photons used in the past are particles that are temporarily generated during an interaction, and the meaning of the virtual photons in this paper is very different in that they do not satisfy the energy conservation law.
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=0.20]{f_appendix2.png}
+                \caption{Behavior of the virtual photon as a spatial simple harmonic oscillator while the two kernels behave as emitters and absorbers. The blue and green dots are two kernels inside one electron. Since the equation of $ Kernel1 + Kernel2 + \gamma^{*}_{\mathrm{Kinetic.E}} = E_{\mathrm{_0}} $, the sum of the thermal potential energy (TPE) of the two kernels and the kinetic energy of the virtual photon is constant. The energy conservation law is preserved. See paper \cite{Hanamura1} for details.}
+            \label{f_appendix1}
+        \end{figure}
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f1_0-Sphere.png}
+                \caption{$(\bm{\mathrm{a}})$ a 0-sphere $(\bm{\mathrm{b}})$ a 1-sphere. The 0-sphere consists of two points. In this paper, it illustrated in the blue and green dots. These spots named and mentioned $\textit{the bare electrons}$ or $\textit{the two spinors}$ in author's previous papers. In this paper, these blue and green dots are mentioned as $\textit{the kernels}$.}
+            \label{f1_0-Sphere}
+        \end{figure}
+
+
+\subsection{What is the 0-sphere}
+\label{What is the 0-sphere}
+
+    A 0-sphere is a pair of points and has no area. The general form of 0-sphere is represented as $n$-sphere.
+
+    In this subsection, we will review the electronic model with the 0-sphere. A 0-sphere is a pair of points at the ends of a one-dimensional line segment. A 1-sphere is a circle as shown in Fig. \ref{f1_0-Sphere} $(\bm{\mathrm{a}}, \bm{\mathrm{b}})$. Alternatively, the 0-sphere is indicate an intersection of a straight line and a circle put on the same plane. In other words, by expanding a two-dimensional circle into three dimensions, the 0-sphere is an intersection points with a straight line passing through a hollow sphere.
+
+    In this paper, the Lorenz contraction and the geodetic precession are explained by semicircles. In reality, however, light travels by the shortest path, the virtual photon would travel the shortest distance between the blue and green points.
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=0.21]{geodetic.png}
+                \caption{``Geodetic precession. This is a schematic view of the equatorial plane of a $\textit{nonrotating}$ spherical body. A gyroscope orbits in a circle of Schwarzschild coordinate radius $R$. At the start of one orbit at $t$ = 0, its spin is oriented in the radial direction. At the completion of one orbit, its spin has been rotated by an angle $\Delta \phi_{\mathrm{geodetic}}$ in the direction of orbital motion in a time $P = 2 \pi / \Omega$.'' See \cite{Hartle} for details.}
+            \label{f_Geodetic}
+        \end{figure}
+
+       
+\subsection{Thermal energy gradient caused by two kernels}
+\label{Thermal energy gradient caused by two spinors}
+
+    The Appendix quotes from the paper \cite{Hanamura1} on how the energy gradient arises from two kernels. To maintain the law of conservation of energy, we take each of the two kernels or bare electrons as a thermal potential energy. These two kernels act as both emitters and absorbers in turn. To meet the requirements for simultaneous emission and absorption, assign $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$ as follows; 
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 1): T_{\mathrm{e1}}
+                    &= E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) , \\
+                (Oscillator \ 2): T_{\mathrm{e2}}
+                    &= E_{0} \sin^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+            \label{e3_Oscillators_Te1_Te2}
+            \end{split}
+        \end{equation}
+
+
+    \noindent where $E_{0}$ is the ground state of quantised energy. Set the two electrons as paired oscillators with $T_{\mathrm{e1}}$ = $E_{0} \cos^{4} \omega t /2$ and $T_{\mathrm{e2}}$ = $E_{0} \sin^{4} \omega t /2$. The temperature gradient between the two kernels is calculated as,
+
+    \begin{equation}
+            \mathrm{grad} \ T_{\mathrm{e}} = \mathrm{grad} \ ( T_{\mathrm{e2}} - T_{\mathrm{e1}} )
+            \ .
+            \label{e3_k_grad_Te2-Te1}
+    \end{equation}
+
+    Since the values of thermal energy at both thermal kernels vary with time, the temperature gradient changes with time. Let the previous $\omega t$ is $\theta$,
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e1}}
+                &= \frac{d}{d \theta} \left( E_{0} \cos^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &= - 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e1}
+        \end{align}
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e2}}
+                &= \frac{d}{d \theta} \left( E_{0} \sin^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &=   2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e2}
+        \end{align}        
+ 
+
+    $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ include only time derivative terms; their space derivatives are zero, because the kernels do not change in position with time. That is,
+
+        \begin{align}
+            \mathrm{grad} \ (T_{\mathrm{e2}} - T_{\mathrm{e1}})
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right) \notag \\
+                & \quad + 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= E_{0} \sin \theta
+                \ .
+            \label{e3_simple_harmonic_motion}
+        \end{align}
+
+
+    Equation (\ref{e3_simple_harmonic_motion}) shows that the temperature gradient between $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ produces a force $\bm{\mathrm{F}}$. The force drives the velocity of the virtual photon along with simple harmonic motion. On the basis of the above assumption, the virtual photon swing back and force spatially between the two kernels.
+    
+    Interaction between thermal and kinetic energy is essential in the 0-Sphere electron model, because the interaction between the two kinds of energy, i.e., the thermal potential energy of the spinors and the kinetic energy of the virtual photon, drives the virtual photon along with the harmonic oscillator. See yellow line on Fig. \ref{f_appendix1}.
+
+
+\subsection{Geodetic precession}
+\label{Geodetic precession}
+
+``Suppose at the start of an orbit the observer orients the gyro in a direction in the equatorial plane (say in the direction of a distant star). General relativity predicts that on completion of an orbit, the gyro will generally point in a different direction making an angle $\Delta \phi_{\mathrm{geodetic}}$ with the starting one. That change in direction is called $\textit{geodetic precession}$ and its illustrated schematically in Fig. \ref{f_Geodetic}.'' \cite{Hartle}.
+
+
+The spin comes back after one orbit rotated by an angle,
+\begin{equation}
+    \Delta \phi_{\mathrm{geodetic}} = 2 \pi \left[ 1 - \left( 1 - \frac{3M}{R} \right)^{1/2} \right] \mathrm{(per \ orbit)},
+    \label{Eq_Geodetic}
+\end{equation}
+
+\noindent in the direction of motion, as illustrated in Fig. \ref{f_Geodetic}.
+
+\clearpage
+
+\end{document}

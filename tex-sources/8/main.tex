@@ -1,0 +1,540 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % captionsetup[figure]用
+\usepackage{threeparttable} % Table のキャプションを変更
+\usepackage{breqn} %dmath用：数式の自動折り返し
+\numberwithin{equation}{section}% (p.37)
+
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} %Fig.の注釈を左揃えするためrangedrightを用いる
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+% 電子陽電子対消滅の熱振動と非弾性衝突による考察
+    \title{Consideration of electron-positron pair annihilation \\ by thermal oscillations and an inelastic collision}
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+    \date{July 4, 2021}
+%    \date{\today}
+        \begin{abstract}
+
+% (20210729削除）従来の花村の研究ではこれまで0-Sphereモデルは一つの電子の説明に限定されていた。今回の研究では電子に加えて陽電子について論じる。そして0-Sphereモデルで採用した電子の位相を陽電子にも適用して、電子と陽電子が対消滅をする現象を描写する。
+
+% (20210729削除）In this paper, we will apply electron-positron pair annihilation to the newly proposed 0-sphere electron model. In Hanamura's research from 2018 to 2020, the 0-sphere model has been limited to the explanation of one electron. In this study, we will discuss a positron in addition to an electron. Then, the phase of the electron adopted in the 0-sphere model would be applied to the positron, and the phenomenon that the electron and the positron undergo pair annihilation could be described.
+
+% この論文では電子陽電子消滅後に発生する光子の中には電子と陽電子を構成する熱ポテンシャルエネルギーの源が均等に分かれる現象を論ずる。その結果、光子の中には電子と陽電子を構成する熱点がそれぞれ一つずつ含まれており一つの系を構成する描像が浮かび上がる。電子と陽電子の位相をリーマン面上に適切に配置すると２つのドメインが交錯する点でこの消滅が生じると予測できる。電子内部は熱素の輻射と放射が行われるモデルを活用すると、電子陽電子消滅は非弾性衝突を時間的に反対方向から観測した現象に喩えられる。さらに電子内部の熱輻射による単振動が陽電子のそれと相殺することによって電子と陽電子は質量を失い光子に姿を変えるという論理を展開する。
+
+In this paper, we discuss the phenomenon that in the photons generated after electron-positron annihilation, the sources of thermal potential energy that make up the electrons and positrons are equally divided. As a result, the photon contains one thermal point each for the electron and positron, and a picture of a single system emerges. This annihilation could be predicted to occur at the point where the two domains intersect if the electron and positron phases are properly aligned on the Riemann surface. Taking advantage of the model in which the interior of the electron radiates and radiates thermophores, the electron-positron annihilation could be likened to an inelastic collision observed from opposite directions in time. In addition, we consider that the oscillation caused by thermal radiation inside the electron cancels out that of the positron, causing the electron and positron to lose mass and transform into a photon.
+
+
+        \end{abstract}
+    \maketitle
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+
+% 0-Sphere電子モデルは花村が2018年秋に発表した論文に記されている。その論文では一般的に電子はこれまで測定されていない内部構造を有しているとした。0-Sphere電子モデルでは実際の光子の内部に一つの熱スポットが存在していると考えていた。この一つの熱スポットは輻射によって光子内部の別の点に移動し、熱スポットが熱エネルギーの輻射と吸収を繰り返す現象を電子の振動と捉えてきた
+
+The 0-sphere electron model was described in a paper first posted by Hanamura in the fall of 2018 \cite{Hanamura1} \cite{Hanamura2}. The paper generally stated that an electron have an internal structure that has not been measured so far. The 0-sphere electron model assumed that there was a single thermal spot inside the real photon. This thermal spot travels to another point inside the real photon by radiation, and the repeated radiation and absorption of thermal energy by the thermal spot has been regarded as electron oscillation.
+
+% このモデルが有する特徴は電子は粒子と波動の二重性を無理なく表現できること。さらには二つの熱素は離れて熱エネルギーを交換しているため、相互作用の距離間隔が無限大でない。したがって相互作用で発散の困難が紫外線側で生じないモデルであった。
+
+The feature of this model was that electrons could reasonably express wave–particle duality. Furthermore, the distance interval of the interaction is not infinite because the two thermal spots are exchanging thermal energy away from each other. Therefore, the model did not cause divergence difficulties on the UV side due to the interaction.
+
+Positrons are antiparticles of electrons that were theoretically predicted by Dirac in 1930 and discovered by Anderson in 1933 \cite{O.E.Mogensen}. The following is an overview of annihilation.
+
+    \begin{quote}
+        ``
+        In particle physics, {\it annihilation} is the process that occurs when a subatomic particle collides with its respective antiparticle to produce other particles, such as an electron colliding with a positron to produce two photons. The total energy and momentum of the initial pair are conserved in the process and distributed among a set of other particles in the final state \cite{wiki_Annihilation}.
+        ''
+    \end{quote}
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_betadecay.png}
+            \caption{Naturally occurring electron-positron annihilation as a result of beta plus decay. Image source: \cite{wiki_Annihilation}} 
+        \label{f8_betadecay}
+    \end{figure}
+
+% 電子陽電子対消滅は例えばベータプラス崩壊によって引き起こされる。本稿では図１の左側に描かれた電子と陽電子が衝突する様子を0-sphere モデルで説明を試みた。
+
+Electron-positron annihilation is caused, for example, by beta-plus decay. In this paper, we try to explain the collision between electron and positron depicted on the left side of Fig. \ref{f8_betadecay} using the 0-sphere model.
+
+% 電子陽電子対消滅を0-sphereモデルで説明するためには電子と陽子の位相が重要となる。結論から言えばこれら２粒子の位相条件が整っていないと電子陽電子対消滅が生じ得ないことが本稿の研究で明らかになる。
+
+In order to explain the electron-positron annihilation with the 0-sphere model, the phase of the electron and proton is important. In conclusion, this paper will show that electron-positron annihilation cannot occur unless the phase conditions of these two particles are met.
+
+% 図１を我々は注意深く見るとベータプラス崩壊から生じた陽電子はあちこちにさんざいする電子にぶつかった後に対消滅を生じていることを観察できる。
+
+If we look carefully at Figure 1, we can observe that the positrons from beta-plus decay are annihilated after hitting various electrons here and there.
+
+% 電子と陽電子は電荷が正反対であり双方の粒子の間には引力が働くはずである。それであれば電子はすぐに陽電子と衝突して光子を生じさせる現象になるはずである。
+
+Electrons and positrons have opposite charges and there should be an attractive force between both particles. If this is the case, the electron should immediately collide with the positron to produce a photon.
+
+% 従来、対消滅の条件としては電子と陽電子が衝突して光子となるためのエネルギーに閾値を超えなければならない。例えば陽電子が物質に入射すると，原子核や電子と衝突を繰り返し熱化され，電子と対消滅できる。
+
+Conventionally, the condition for annihilation is that a threshold must be exceeded in energy for an electron and positron to collide and become a photon. For example, when a positron is incident on a material, it repeatedly collides with the nucleus and electrons and is thermalized to annihilate the electrons.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f_e_phase.eps}
+            \caption{A schematic of the manner in which a virtual photon can be moved as a simple harmonic oscillator with the emergence and disappearance of bare electrons at the fixed points $x=a$ and $x=-a$ \cite{Hanamura2}. (a) Spinor 1 retains all of the thermal potential energy. (b) Spinor 1 radiates thermal energy to Spinor 2. (c) Spinor 2 finishes receiving all of the thermal potential energy.} 
+        \label{f_e_phase}
+    \end{figure}
+
+
+% 本稿を読み進めると、熱化され十分なエネルギーを有した電子であっても、位相条件を満たさない電子と陽電子はパウリの排他原理に基づいて衝突しないことが明確になってゆく。なお以下の議論ではスピノルと熱素を区別しない前提とする。
+
+As you read through this paper, it becomes clear that electrons and positrons that do not satisfy the phase conditions do not collide with each other, even if they are thermalized and have sufficient energy, based on Pauli's exclusion principle. In the following discussion, it has assumed that spinors and thermal spots are not distinguished.
+
+
+% この電子モデルの表現力に着目して本稿では１粒子モデルから２粒子モデルへと拡張を試みた。２粒子モデルとして電子陽電子対消滅を説明した。
+
+This paper attempted to extend it from a single-particle model to a two-particle model due to focusing on the expressive possibility of this electron model. The electron-positron pair annihilation is explained as the two-particle model.
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:METHODS}METHODS}
+
+\subsection{Review of the previous work}
+\label{Review of the previous work}
+
+
+Referring to Fig. \ref{f_e_phase}, the two bare electrons are two spinors 1 and 2 represented by the blue and green dots, respectively \cite{Hanamura1}. The open circles express the thermal potential energy, which has a zero value. The arrows within the yellow circles (b) and (d) have two meanings: the direction in which the real photon is moving, and the direction to which the thermal potential energy is radiated between the two spinor particles (i.e., the blue and green dots) \cite{Hanamura3}.
+
+
+% 図２の振動の様子をリーマン面上に表現し直したのが図３である。我々が日常目にするA rotating phasorは１サイクルが2πである。図３ではスピノールの挙動を俯瞰しやすくするために１サイクルが４πのrotating phasorを描画した。１サイクルが２πのrotating phasorは横軸をバネに吊るされた錘の空間的位置を表現し縦軸はその系が有する運動エネルギーを表現した。
+
+Figure \ref{f8_phase1} shows the oscillation in Fig. \ref{f_e_phase} re-expressed on the Riemann surface. A rotating phasor, which we see every day, has a cycle of 2$\pi$. In Fig. \ref{f_e_phase}, a rotating phasor with a cycle of 4$\pi$ is drawn to give a bird's-eye view of the behavior of spinors, where the horizontal axis of the rotating phasor with a cycle of 2$\pi$ represents the spatial position of the weight suspended by the spring, and the vertical axis represents the kinetic energy of the system.
+
+% それに対し１サイクルが4πのrotatingphasorを0-sphereモデルに採用すると、縦軸はスピノル粒子１の横軸はスピノル粒子２の挙動をそれぞれ表現できた。留意すべき点は横軸の上に存在する青点すなわちスピノル粒子１が正値から負値に移動したからといってスピノル粒子が空間的に連続的に移動しているわけではないことだ。スピノル粒子１が横軸で表される値はそれ自身が有するサーマル・ポテンシャル・エネルギーである。
+
+On the other hand, when the rotating phasor with 4$\pi$ per cycle was adopted for the 0-sphere model, the vertical axis represented the behavior of spinor particle 1 and the horizontal axis represented the behavior of spinor particle 2. It should be noted that just because the blue dot on the horizontal axis, i.e., spinor 1, moves from a positive value to a negative value, it does not mean that the spinor particles are moving continuously in space. The value of spinor 1 represented by the horizontal axis is its own thermal potential energy.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_phase1.png}
+            \caption{(a) The electron phase of the 0-sphere model on a translucent Riemann surface. One cycle requires a 720-degree rotation. (b) A 720-degree unit circle: The spin-up and spin-down are switched when the electron phase is 1 $1/2\pi$ and 3 $1/2\pi$, as depicted by the shaded dotted line.} 
+        \label{f8_phase1}
+    \end{figure}
+
+
+% 図３においてz軸はスピン状態を表現します。値が０より多ければスピンアップであり、値が０より小さければスピンダウンの状態を示します。y軸は実光子の運動エネルギーを表現します。値が０より大きければ実光子の運動エネルギーは正のエネルギーをとり、値が０より小さければ負のエネルギーとなります。
+
+The $z$-axis represents the spin state in Fig. \ref{f_e_phase}(a) . The y-axis represents the kinetic energy of a real photon. The $y$-axis represents the kinetic energy of a real photon, where a value greater than zero indicates a positive energy and a value less than zero indicates a negative energy.
+
+
+
+% 位相０πの時にはある一つの電子内に含まれるスピノル粒子１が系の全てのサーマル・ポテンシャル・エネルギーを有している。熱点であり質量の源となる。位相０πからπのサイクルでスピノル粒子１は全ての熱エネルギーを空間的に離れた光子内部の一点に輻射完了する。スピノル粒子１のサーマル・ポテンシャル・エネルギーは横軸の原点では位相πにおいて０値である。
+
+At phase 0$\pi$, the spinor 1 contained in one electron has all the thermal potential energy of the system. It is the heat point and the source of mass. In the phase 0$\pi$ to $\pi$ cycle, the spinor particle 1 completes the radiation of all the thermal energy to a point inside the photon that is spatially distant. The thermal potential energy of spinor 1 is zero value at phase $\pi$ at the origin of the horizontal axis.
+
+
+% 図２の青丸と緑丸はサーマル・ポテンシャル・エネルギーの含有に応じて透明度を変更して描かれた。(a) 位相が０πのときは青点の不透明度は100パーセントである。電子内部での系がもつすべてのサーマル・ポテンシャル・エネルギーを青点で表されたスピノル粒子１が含有するからだ。(c) すべてのサーマル・ポテンシャル・エネルギーが青点から緑点に移動した位相πでは緑丸の不透明度を１００パーセントとした。このときスピノル１の不透明度を０パーセントに設定すると点が見えなくなってしまうため青円で描画した。
+
+The blue and green dots in Fig. \ref{f_e_phase} were drawn with different transparency levels depending on the thermal potential energy content. As the phase is 0$\pi$, (a), the opacity of the blue point is 100 percent, because the spinor particle 1, represented by the blue dot, contains all the thermal potential energy of the system in the electron. The opacity of the green circle is set to 100 percent for the phase $\pi$, (c), where all the thermal potential energy has moved from the blue dot to the green dot. If the opacity of spinor 1 was set to 0 percent, the point would not be visible, so it was drawn as a blue circle.
+
+% (b) 位相が1/2πのときは系内のサーマル・ポテンシャル・エネルギーを均等にとるので不透明度を５０パーセントで描いている。スピノル粒子１と２のサーマル・ポテンシャル・エネルギーの合計が常に保存するのではない。数式２−１から判断できるように、位相に応じてサーマル・ポテンシャル・エネルギーは運動エネルギーに転化する現象を忘れてはならない。この運動エネルギーがひとつの電子を取り囲むように存在する光子が振動する根元力となっているからだ。
+
+As the phase is 1/2$\pi$, (b), the thermal potential energy in the system is evenly distributed, so the opacity is set to 50 percent. The sum of the thermal potential energies of spinors 1 and 2 is not always conserved. As can be judged from Eq. \ref{e_E=E1+E2+gamma} below, we should not forget that the thermal potential energy is converted to kinetic energy depending on the phase. This is because this kinetic energy is the fundamental force that causes the photons surrounding a single electron to oscillate.
+
+
+
+
+\subsection{Discovered the law of conservation of energy inside an electron system}
+\label{Discovered the law of conservation of energy inside the electron}
+
+
+% 図２と図３に戻ろう。サーマル・ポテンシャル・エネルギーを交換するスピノル１とスピノル２の挙動を図３のa 720-degree rotating phasorに沿って例示する。
+
+Get back to Fig. \ref{f_e_phase} and Fig. \ref{f8_phase1}. The behavior of spinor 1 and spinor 2 exchanging thermal potential energy is illustrated along a 720-degree rotating phasor in Fig. \ref{f8_phase1}.
+
+% スピン１粒子の光子とスピン1/2粒子の電子が整合性を有して振動する様子が示された。スピンの概念によって我々は電子の熱素が輻射と吸収を繰り返すサイクルが２つ必要であること。その必要性はスピンのアップとダウンによるものであること。さらに720度の回転している間にスピン１を有する光子は空間的に２往復することを示した。
+
+Those two figures showed how a spin-1 particle photon and a spin-1/2 particle electron oscillate in a consistent manner. With the concept of spin, we know that the thermophores of electrons need two cycles of radiation and absorption. This necessity is due to the up and down spins. In addition, we could show that a photon with spin-1 makes two spatial round trips during a rotation of 720 degrees.
+
+% われわれが得た電子モデルでのエネルギー保存の法則は下記の等式で表現された。左辺の３項は左からそれぞれスピノル粒子１、スピノル粒子２、光子を表現する。式II-1はいかなる位相においても電子内部の運動エネルギーとサーマル・ポテンシャル・エネルギーの総和が一定になることを示す。
+
+The law of conservation of energy in our electron model is expressed by the following equation \cite{Hanamura1}. This equation includes the terms of three transducers, where each oscillator preserves its kinetic and potential energies. The formula is;
+
+    \begin{equation}
+        \begin{split}
+            E_{0}
+            &= \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega t) \right)
+            ,
+        \end{split}
+        \label{e_E=E1+E2+gamma}
+    \end{equation}
+
+\noindent
+where $E_{0}$ is the total initial energy of a single electron particle. The three terms on the left-hand side represent, from left to right, spinor particle 1, spinor particle 2, and photon, respectively. Equation \ref{e_E=E1+E2+gamma} shows that the sum of the internal kinetic energy and thermal potential energy of the electron is constant at any phase.
+
+
+% ディラック方程式を解くと正と負の両方のエネルギー値が解法(solution)となりました。現在では正のエネルギーは電子を表し、負のエネルギーは陽電子を表すとされています。0-sphereモデルでは一つの電子の中に二つの熱スポットがあり、一方は熱エネルギーを輻射してもう一方は熱エネルギーを吸収しています。
+
+Solving the Dirac equation resulted in both positive and negative energy values as its solutions. In the 0-sphere model, there are two thermal spots in one electron, one radiating thermal energy and the other absorbing thermal energy.
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_FeynmanDiagram.png}
+            \caption{A Feynman diagram showing the mutual annihilation of a bound state electron positron pair into two photons. The electrons and positrons were regarded as counter-rotating phasors for the purpose of followed discussion. Image source: \cite{wiki_Annihilation}} 
+        \label{f8_FeynmanDiagram}
+            % 電子と陽電子をCounter-rotating phasors (A Student' Guide to Waves, D.Fleisch, p.39)と見做して本議論を進めた。
+    \end{figure}
+
+
+% このサイクルが交互に行われる時、実光子は二つの熱スポットの間を往復運動します。したがって一つの電子モデルの中に運動エネルギーが正と負の両方をとる位相がありうるわけです。
+
+Given this cycle alternates, a real photon moves back and forth between the two thermal spots. Therefore, there could be a phase where the kinetic energy is both positive and negative values in the one-electron behavior. (See ``Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron \cite{Hanamura5}'' for details.)
+
+
+
+
+\subsection{Set up two requirements}
+\label{Set up two requirements}
+
+
+% それでは0-sphereモデルでは陽電子をどのように表したら良いのでしょうか。この研究では陽電子を表現するためにファインマンダイヤグラムを活用します。
+
+How should we represent the positron in the 0-sphere model? In this study, we will use the Feynman diagram to represent the positron.
+
+
+% ファインマンダイヤグラムでは陽電子を表現するために矢印の向きを電子とは逆方向に取りました。このことは時間軸に対して正と負の方向です。そこでこの研究では電子を時計回りの位相を取るとし、陽電子を反時計回りの位相をとると想定します。
+
+In the Feynman diagram, the direction of the arrow is opposite to that of the electron in order to represent the positron. This is a positive and negative direction with respect to the time axis. For this study, we will assume that the electron is in clockwise phase and the positron is in counterclockwise phase.
+
+% 電子と陽電子の初期位相を決定するためにパウリの排他原理にのっとります。一つのスピンアップ状態の電子を想起するともう一つの陽電子はスピンダウン状態と決まります。
+
+To determine the initial phase of the electron and positron, we will follow Pauli's exclusion principle. If we recall one electron in the spin-up state, the other positron is assumed to be in the spin-down state.
+
+% これら上記の２つの要件をまとめると0-sphereモデルが電子陽電子対消滅を無矛盾で説明するためには少なくとも下記の２件を満たさなければならない。
+
+Putting these two requirements together, the 0-sphere model must satisfy at least the following two conditions in order to explain electron-positron annihilation in a consistent manner.
+
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_random1.png}
+            \caption{(a) An electron moving from the positive coordinate of the x-axis to the negative value. The electrons are moving from right to left. (b) A positron moving from the negative coordinate of the y-axis in the direction of the positive value. The positron is moving from left to right. (c) The movement of the electron and positron is transcribed on the same screen. The electron and positron annihilate at the origin.} 
+        \label{f8_random1}
+            % (a) x軸の正座標から負値の方向へ移動する電子の様子。電子は右から左へ移動している。
+            % (b) y軸の負座標から正値の方向へ移動する陽電子の様子。陽電子は左から右へ移動している。
+            % (c) 電子と陽電子の動きを同一画面に転写した絵図。原点で電子と陽電子が対消滅する。
+    \end{figure}
+    
+
+    \begin{itemize}
+        \item That electrons and positrons take opposite phases in time (Feynman diagram).
+        \item When an electron and a positron move spatially and collide, their spins are opposite to each other (Pauli exclusion principle).
+        % （項目１）電子と陽電子は時間的に逆向きの位相を取ること（ファインマン図）。
+        % （項目２）電子と陽電子が空間的に移動して衝突するときはお互いのスピンは逆向きであること（パウリの排他原理）。
+    \end{itemize}
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:DISCUSSION}DISCUSSION}
+
+
+    \begin{figure}[h!]
+        \centering
+        \includegraphics[scale=1.0]{f8_phase2.png}
+            \caption{An electron and a positron rotate around the 720-degree unit circle as counter-rotating phasors. $D_{0}$ is the domain of the Riemann surface with $-1/2 \pi \leq \omega t \leq 3/2 \pi $ and $D_{1}$ is $ 3/2 \pi \leq \omega t \leq 7/2 \pi $, respectively. (a) The electron phase of the 0-sphere model on a translucent Riemann surface. One cycle requires a 720-degree rotation. (b) The spin-up and spin-down are switched when the electron phase is 1 $1/2\pi$ and 3 $1/2\pi$, as depicted by the shaded dotted line.} 
+        \label{f8_phase2}
+            % 電子と陽電子はcounter-rotating phasorsとして単位円を回転する
+    \end{figure}
+
+
+
+
+\subsection{Determination of the initial phase of an electron and a positron}
+\label{Determination of the initial phase of an electron and a positron}
+
+
+% ファインマンダイヤグラムでは電子と陽子は時間軸に反対向きの矢を有している。図４に描画した通りy軸の上方向へ時間が経過する。青丸内に表示された電子の移動は上向きであるのに対し陽電子は右下方向の矢を有している。陽電子の時間に対して逆向きに矢の頭を向けている原理を0-sphereモデルに適用してみる。
+
+In the Feynman diagram, electrons and protons have arrows pointing in opposite directions on the time axis. Time passes in the upward direction on the y-axis as drawn in Fig. \ref{f8_FeynmanDiagram}. The electron in the blue circle moves upward, while the positron has an arrow pointing downward. Apply the principle of the positron's arrow head pointing in the opposite direction to time to the 0-sphere model.
+
+% 電子と陽電子が衝突する際に図５の状況を想定する。図２(a)では一つの電子の熱素が一次元空間上の座標aに位置しており塗りつぶされた青丸で描かれている。
+
+We assume the situation shown in Fig. \ref{f8_random1} when an electron and a positron collide. In Fig. \ref{f_e_phase}(a), a thermal spot of the electron were located at coordinate $+a$ in one-dimensional space and was depicted by filled blue circle.
+
+% 一方で陽電子は空間座標が-aのところに熱素が存在している状態を想定する。図５（b）これらの電子と陽電子は次の瞬間に図５（c）のように移動しようと仮定する。
+
+On the other hand, the positron is assumed to be in a state where the thermophores exist at the spatial coordinate $-a$. Figure \ref{f8_random1}(b). Assume that these electrons and positrons are going to move as shown in Fig. \ref{f8_random1}(c) in the next instant.
+
+% このとき注意すべきは0-sphereモデルは+aから-aへと電子が移動する場合、固定化した物体が連続的に移動するのではなく、光子の中で熱素が輻射により+aの位置座標から放出され-aの位置座標で熱素に復元される様子を想起することが大切である。
+
+It is important to note that in the 0-sphere model, when the electrons move from $+a$ to $-a$, it is not the case of a fixed object moving continuously, but the thermal spot in the photons are emitted from the $+a$ coordinate by radiation and are restored to the thermal spot at the $-a$ coordinate.
+
+% 図５（c）では空間座標の+aから-aの間で電子と陽電子が共存するように見える。このとき両者のスピン状態はアップとダウンであるためにパウリの排他原理により共存できる。
+
+In Fig. \ref{f8_random1}(c), electrons and positrons appear to coexist between the spatial coordinates of $+a$ and $-a$. In this case, their spin states are up and down, so they can coexist according to Pauli's exclusion principle.
+
+% 図４(c)に描写されているとおり電子と陽電子は運動量をそれぞれpとq有している。
+
+As depicted in Fig. \ref{f8_FeynmanDiagram}(c), the electron and the positron have momentum $p$ and $q$, respectively. 
+
+% 以上で列挙したファインマンダイヤグラムでのルールとパウリの排他原理に無矛盾である初期位相と位相回転の方向を図６で示した。電子と陽電子が時間軸に対してそれぞれ反対の向きに進む様子を図３(b)に適用した結果は図６(b)で示される。
+
+The initial phase and the direction of phase rotation, which are consistent with the rules in the Feynman diagram enumerated above and Pauli's exclusion principle, are shown in Fig. \ref{f8_phase2}. The result of applying Fig. \ref{f8_phase1}(b) to the electron and positron moving in opposite directions relative to the time axis is shown in Fig. \ref{f8_phase2}(b).
+
+% 留意すべき点は電子は左に向かう運動エネルギーpを有し陽電子は右に向かう運動エネルギーqを有するから、青い点と赤い点が逆方向に回転するのではないことである。図５と図６を相互に参照して図の意味するところを読み取ろうとすると誤解を招く。
+
+It should be noted that the blue point and the red point do not rotate in opposite directions because the electron has kinetic energy $p$ toward the left and the positron has kinetic energy $q$ toward the right. It could be misleading to cross-reference Figs. \ref{f8_random1} and \ref{f8_phase2} and try to decipher the meaning of the figures.
+
+% 従来から投稿してきた0-phereモデルではふたつの熱素が空間的に離れた距離を有して熱エネルギーを輻射し吸収する。この輻射と吸収により電子は空間的に移動すると論じた。この移動は往復運動であっても良いし一定方向に進み続けても良いと0-sphereモデルでは許容する。その議論の結果が量子ランダムウォークに繋がった(Hanamura4)。
+
+In the previously submitted 0-sphere model, double thermal spot radiates and absorbs thermal energy at a spatially separated distance. It is argued that electrons move spatially due to this radiation and absorption. The 0-sphere model allows this movement to be either a reciprocating motion or a continuous movement in a fixed direction. The result of this discussion led to quantum random walks \cite{Hanamura4} \cite{J.Kempe}.
+
+% 原点で２つの粒子が同一空間上に無矛盾で位置できるように、パウリの排他原理を適用したため対消滅の直前のスピンはお互いに異なっている。
+
+The spins just before annihilation are different from each other because Pauli's exclusion principle was applied so that the two particles can be located in the same space without contradiction at the origin. (Fig. \ref{f8_random1} (c))
+
+
+
+\subsection{Annihilation of thermal spots with different initial phases}
+\label{Annihilation of thermal spots with different initial phases}
+
+% 0-sphereモデルにおける電子内部に存在すると仮定されてきた二つの熱素が以下の単振動の関数式で表されると定義する。
+
+The two thermophores, which have been assumed to exist inside the electron in the 0-sphere model, are defined as the following functional equation of simple harmonic oscillation:
+
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 1): S_{e1}^{-} 
+                    & \equiv \mathrm{cos} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{e3_def_osc_1}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 2): S_{e2}^{-}
+                    & \equiv \mathrm{sin} \left( \frac{\omega t}{2} \right)
+                    .
+                \label{e3_def_osc_2}
+            \end{split}
+        \end{equation}
+
+
+% 陽電子は電子と位相がπだけずれていたので下記の式となる。
+
+Since the positron was out of phase with the electron by -$\pi$ or 3$\pi$, the following equations are obtained.
+
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 3): S_{e3}^{+} 
+                    & \equiv \mathrm{cos} \left( - \frac{\omega t}{2} - \pi \right)
+                    ,
+                \label{e3_def_osc_3}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Spinor \ Oscillator \ 4): S_{e4}^{+}
+                    & \equiv \mathrm{sin} \left( - \frac{\omega t}{2} - \pi \right)
+                    .
+                \label{e3_def_osc_4}
+            \end{split}
+        \end{equation}
+
+
+% 簡略化のために角速度は電子と陽電子で同じ値ωtを取ると仮定した。
+
+For simplicity, the angular velocity was assumed to take the same value $\omega t$ for electron and positron.
+
+% 上記の定義式で示されるように電子陽電子対消滅を議論するためには４つの熱粒子を想定する必要がある。電子陽電子が衝突する際に硬い物質がぶつかるのではない。二つのスピノールがそれぞれ熱輻射と吸収をしている。この輻射-吸収で一対となるスピノールが２組合わさる様子は下記の式で表現できるだろう。
+
+In order to discuss electron-positron annihilation as shown in the above defining equations from (\ref{e3_def_osc_1}) to (\ref{e3_def_osc_4}), it is necessary to assume four thermal particles, $S_{e1}^{-}, S_{e2}^{-}, S_{e3}^{+}, S_{e4}^{+}$. When electrons and positrons collide, they do not collide with hard materials. The two spinors are doing the thermal radiation and absorption respectively. The following equation describes how two pairs of spinors are combined in those two radiation-absorption process, $S_{total}$. 
+
+
+        \begin{equation}
+            \begin{split}
+                S_{total} 
+                &= S_{e1}^{-} + S_{e2}^{-} + S_{e3}^{+} + S_{e4}^{+} \\
+                &= \mathrm{cos} \left( \frac{\omega t}{2} \right) +  \mathrm{sin} \left( \frac{\omega t}{2} \right) \\
+                &\quad + \mathrm{cos} \left( - \frac{\omega t}{2} - \pi \right) + \mathrm{sin} \left( - \frac{\omega t}{2} - \pi \right)
+%                &= \mathrm{cos} \left( \frac{\omega t}{2} \right) +  \mathrm{sin} \left( \frac{\omega t}{2} \right) - \mathrm{cos} \left( - \frac{\omega t}{2} \right) - \mathrm{sin} \left( - \frac{\omega t}{2} \right) \\
+%                &= 0
+                .
+                \label{e3_Osc_Total}
+            \end{split}
+        \end{equation}
+
+
+
+% θが3πの時に上式の値は下記のように０となる。
+
+When $\omega t$ is 3 $\pi$, the value of the above equation becomes zero value as shown below.
+
+        \begin{equation}
+            \begin{split}
+                S_{total(\omega t = 3\pi)} 
+                &= S_{e1}^{-} + S_{e2}^{-} + S_{e3}^{+} + S_{e4}^{+} \\
+                &= \mathrm{cos} \left( \frac{3}{2} \pi \right) +  \mathrm{sin} \left( \frac{3}{2} \pi \right) \\
+                &\quad + \mathrm{cos} \left( \frac{5}{2} \pi \right) + \mathrm{sin} \left( \frac{5}{2} \pi \right) \\
+                &= 0
+                .
+                \label{e3_Osc_Total}
+            \end{split}
+        \end{equation}
+
+% 位相θが3πの時に電子の熱輻射の方向と陽電子の熱輻射の方向が正反対となり、電子と陽電子の熱輻射エネルギーが相殺されると考えられる。この位相はリーマン面で解析接続を考慮した時、D0とドメインD1の接続点に等しい。
+
+When the phase $\omega t$ is $3\pi$, the direction of the thermal radiation of the electron and that of the positron become opposite, and the thermal radiation energy of the electron and positron are considered to cancel out. This phase is equal to the connection point between the two domains ($D_{0} \cap D_{1}$) when the analytical connection is considered in the Riemann surface.
+
+% 式（３ー５）が意味するところを解釈すると、４つのスピノルが熱輻射と吸収サイクルを終了している。全ての熱エネルギーが運動エネルギーに変換されそれを光子が受け取ることである。全てのサーマル・ポテンシャル・エネルギーが運動エネルギーに転嫁されるということは質量を失うこと。質量がエネルギーに転嫁される現象を鋭い洞察眼で見抜いたアインシュタインの特殊相対性理論との関連性が窺える。
+
+The interpretation of what Eq. (\ref{e3_Osc_Total}) means is that the four spinors have completed the thermal radiation and absorption cycle. It means that all the thermal energy is converted into kinetic energy, which is received by the photon. The fact that all thermal potential energy is transferred to kinetic energy means that it loses mass. This could be related to Einstein's special theory of relativity, in which he had a keen insight into the phenomenon of the transfer of mass to energy.
+
+% (20210730削除）式５が０になるためには４つのスピノルを全て和算するだけでなく、電子と陽電子からそれぞれ一組ずつ合計二つのスピノルの組み合わせを見出すことによってもそれらの合計値は０となる。
+% In order for Eq. (\ref{e3_Osc_Total}) to be zero, not only do we have to sum all four spinors, but we also have to find a combination of two spinors, one from each electron and positron, so that their total value is zero.
+
+% この考察から得られる重要な帰結がある。それは対消滅の後正反対の向きに飛び散る二つの光子はそれぞれに電子と陽電子から得られたスピノルの一対組を内包していること。0-sphereモデルでは電子も陽電子もそれぞれ最低一つの光子により構成されていると仮定しているため衝突後に二つの光子が出現することに矛盾は生じない。
+
+There is an important consequence to be shown from this discussion. The two photons that scatter in opposite directions after annihilation each contain a pair of spinors derived from an electron and a positron. The 0-sphere model assumes that both electrons and positrons are composed of at least one photon each, so there is no inconsistency in the appearance of two photons after a collision \cite{Hanamura1}.
+
+
+
+\subsection{Viewing annihilation from the perspective of inelastic collisions}
+\label{Viewing annihilation from the perspective of inelastic collisions}
+
+%（20210730追加）電子陽電子対消滅は非弾性衝突を可逆的に観察した振る舞いに置き換えて理解できるだろう。２つの粘土の塊を相対する方向から衝突させた時、粘土は一塊になって運動を停止する。この現象は粘土の運動エネルギーが熱エネルギーなどに転嫁したためであり、運動エネルギーそのものの合計値は保存しない。
+
+Electron-positron annihilation can be understood as the opposite behavior of an inelastic collision: when two lumps of clay are collided from opposite directions, they become one lump and stop moving. This phenomenon is due to the transfer of kinetic energy of the clay to thermal energy, etc., and the total kinetic energy itself is not conserved.
+
+%（20210730追加）反対に二つの光子を衝突させて電子と陽電子を生成する過程は、非弾性衝突と言えるだろう。すなわち運動エネルギーの衝突によって熱エネルギーを生成し始める過程へと系が移行するからである。
+
+On the contrary, the process of colliding two photons to produce an electron and a positron can be called an inelastic collision. In other words, the collision of kinetic energy shifts the system to the process of generating oscillation of the thermal potential energy.
+
+%（20210730追加）同様に0-sphereモデルでは電子が内部で周期的に熱輻射を繰り返していることを鑑みれば、電子と陽電子が衝突することによって熱ポテンシャルエネルギーの振幅がゼロ値となって熱輻射を停止するとみなす。
+
+Similarly, in the 0-sphere model, considering the assumption that an electron is periodically emitting thermal radiation internally, the amplitude of thermal potential energy becomes zero when electrons and positrons collide, and thermal radiation halts.
+
+
+
+% 二つの光子γ１とγ２は
+
+% These two photons $\gamma_{1}$ and $\gamma_{2}$ could be summarised as;
+
+%         \begin{equation}
+%             \begin{split}
+%                 \gamma_{1}
+%                 &= S_{e1}^{-} + S_{e3}^{+} \\
+%                 &= \mathrm{cos} \left( \frac{\omega t}{2} \right) + \mathrm{cos} \left( \frac{\omega t}{2} - \pi \right) \\
+%                 &= 0
+%                 ,
+%                 \label{e3_Osc13_Total}
+%             \end{split}
+%         \end{equation}
+
+%         \begin{equation}
+%             \begin{split}
+%                 \gamma_{2}
+%                 &= S_{e2}^{-} + S_{e4}^{+} \\
+%                 &= \mathrm{sin} \left( \frac{\omega t}{2} \right) +  \mathrm{sin} \left( \frac{\omega t}{2} - \pi \right) \\
+%                 &= 0
+%                 .
+%                 \label{e3_Osc24_Total}
+%             \end{split}
+%         \end{equation}
+
+% スピノルの輻射と吸収サイクルの時間は単位円にそって移動するrotating phasorで示されることを考慮すれば、対消滅の反応時間を計算できることが判明するだろう。
+
+% Equations (\ref{e3_Osc13_Total}) and (\ref{e3_Osc24_Total}) have turned out that the reaction time of annihilation might be calculated by taking into account that the time of spinor radiation and absorption cycles is indicated by the rotating phasor moving along the unit circle.
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+% 以上の議論によって我々はいくつかの重要な帰結を導くことができた。
+
+The above discussion has led us to several important conclusions:
+
+    \begin{itemize}
+        \item The collision of electrons and positrons requires two sets of spinors with thermal radiation and absorption systems.
+        \item The spinor phases of the electron and positron follow opposite directions on the unit circle.
+        \item The spinors of the electron and positron can coexist in the same place during the collision because they satisfy Pauli's exclusion principle.
+        \item Electrons and positrons collide at the point of intersection of the two planes of the Riemann surface. This is equal to the connection point between the two domains ($D_{0} \cap D_{1}$) when the analytic connection is considered on the Riemann surface.
+        \item The photon number is conserved before and after the collision.
+        \item The two photons after the collision contain one spinor particle each from the electron and positron.
+        %（項目１）電子と陽電子の衝突は熱輻射と吸収をする系を持つ二組のスピノルが必要となる。
+        %（項目２）電子と陽電子のスピノル位相は単位円上で逆方向に沿って進む。
+        %（項目３）衝突の際は電子と陽電子のスピノルがパウリの排他原理を満たしているため同一場所に共存できる。
+        %（項目４）電子と陽電子はリーマン面の二つの平面が交差する点を含んで衝突する。これはリーマン面で解析接続を考慮した時ドメインD0とドメインD1の接続点に等しい。
+        %（項目５）その衝突前と後で光子数は保存する。　（20210730追記）
+        %（項目６）衝突後の二つの光子は電子と陽電子からそれぞれ一つずつのスピノル粒子を内包する。
+    \end{itemize}
+
+
+% 本稿では意図的に数式を記載することを控えた。それはできるだけ多くの読者に本稿に目を通してもらいたいという思いからである。花村が過去に投稿した研究論文は数式での検討が記載されている。本稿のもう一つの意義として、それらの論文の総括をして論文たちの包括性に意味を持たせる働きを本稿でしている。
+
+We intentionally refrained from including mathematical expressions in this paper. The reason for this is that we want as many readers as possible to read through this paper. The research papers that Hanamura has contributed to in the past have been written with mathematical formulas. Another aim of this paper is to summarize those papers and to give meaning to their comprehensiveness.
+
+
+% 本研究ではパウリの排他原理を電子と陽電子にそのまま適用した。電子と陽電子が対消滅する際にもパウリの排他原理が成立しているかどうかは明確ではない。電子と陽電子の対称性より両者が対消滅する際は同じスピンであるかもしれない。したがって電子と陽電子にパウリの排他原理をそのまま適用する本稿は仮定に基づいた理論的な結論を導いたに過ぎない。
+
+In this study, Pauli's exclusion principle was directly applied to electrons and positrons. It is not clear whether the Pauli exclusion principle also holds for the annihilation of electrons and positrons. Because of the symmetry of the electron and positron, they may have the same spin when they annihilate. Therefore, the application of the Pauli exclusion principle to electrons and positrons in this paper is only a theoretical conclusion based on assumptions.
+
+% そのような仮定に立脚した議論の脆さを含みながらも、対消滅の概念にファインマンダイヤグラムの理論を応用したところに本研究の意義があるだろう。従来の素粒子の概念では電子は粒子と波動の二重性の概念を有するだけにとどまっていた。それに対し本稿では波について位相を明確に導入して議論を進めている。このような議論を展開できたのは0-sphere電子モデルが有するスピノル粒子の明確な位相の導入である。
+
+The significance of this study would lie in the application of the theory of Feynman diagrams to the concept of pairwise annihilation, despite the fragility of the argument based on such an assumption. In the conventional concept of elementary particles, the electron has only the duality of particle and wave. In this paper, on the other hand, the phase of the wave is clearly introduced and discussed by introducing the phase of the spinor particle in the 0-sphere electron model \cite{Hanamura1} \cite{Hanamura2}.
+
+% 本研究では下記のように電子陽電子対消滅から質量のない光子が生じる現象を捉えた。スピノル粒子は振動を停止、つまり熱輻射と吸収をしないスピノル粒子となる。光子が質量を有しないのはスピノルである熱点が有したサーマル・ポテンシャル・エネルギーが全て運動エネルギーに転嫁したから。
+
+In this study, we captured the phenomenon of massless photons from electron-positron annihilation, as following sentences. The spinors cease to oscillate, i.e., they become spinors without thermal radiation and absorption. The photon has no mass because all the thermal potential energy of the spinor thermal point and its flow has been transferred to kinetic energy.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\begin{thebibliography}{99}
+    \bibitem{Hanamura1} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+    
+    \bibitem{Hanamura2} S. Hanamura, Correspondence Between a 0-Sphere and the Electron Model, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17759908}{doi:10.5281/zenodo.17759908}. [Originally: \href{https://vixra.org/abs/2001.0610}{viXra:2001.0610}]
+    
+    \bibitem{O.E.Mogensen} Ole Erik Mogensen, \textit{Positron Annihilation in Chemistry}, pp. 5-6, Springer-Verlag, 1995.
+    
+    \bibitem{wiki_Annihilation} "Antimatter". Lawrence Berkeley National Laboratory,  \href{https://en.wikipedia.org/wiki/Annihilation#cite_note-Particleadventure.org-2}{Annihilation, Wikipedia}, 2008.
+    
+    \bibitem{Hanamura3} S. Hanamura, Uniquely Distinguishing an Electron's Spin from Two Quantum States via Riemann Surface Guidance, Zenodo (2019), \href{https://doi.org/10.5281/zenodo.17759634}{doi:10.5281/zenodo.17759634}. [Originally: \href{https://vixra.org/abs/1903.0541}{viXra:1903.0541}]
+    
+    \bibitem{J.Kempe} Julia Kempe, Quantum random walks - an introductory overview, Contemporary Physics, Vol. 44 (4), p.307-327, \href{https://arxiv.org/pdf/quant-ph/0303081.pdf}{arXiv:quant-ph/0303081}, 2003.
+    
+    \bibitem{Hanamura4} S. Hanamura, Transition Theory of An Electron Traveling from Uncertain to Causal Basis, Zenodo (2019), \href{https://doi.org/10.5281/zenodo.17759726}{doi:10.5281/zenodo.17759726}. [Originally: \href{https://vixra.org/abs/1909.0432}{viXra:1909.0432}]
+    
+    \bibitem{Hanamura5} S. Hanamura, Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17760132}{doi:10.5281/zenodo.17760132}. [Originally: \href{https://vixra.org/abs/2006.0104}{viXra:2006.0104}]
+% 参考資料
+    %（20210719追加）時空の幾何学 Springer 森北出版　p.80 完全非弾性衝突
+    
+\end{thebibliography}
+
+
+\end{document}

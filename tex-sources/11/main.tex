@@ -1,0 +1,1349 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % captionsetup[figure]用
+\usepackage{threeparttable} % Table のキャプションを変更
+\usepackage{breqn} %dmath用：数式の自動折り返し
+\numberwithin{equation}{section}% (p.37)
+
+% prevent hyphenation
+\hyphenpenalty=10000\relax
+\exhyphenpenalty=10000\relax
+\sloppy
+
+
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} %Fig.の注釈を左揃えするためrangedrightを用いる
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+
+\title{Quantum Oscillations in the 0-Sphere Model:
+Bridging Zitterbewegung,\\ Geodesic Paths, and Proper Time Through Radiative Energy Transfer}
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+    \date{November 17, 2024}
+    %\date{\today}
+
+\begin{abstract}
+This paper explores the extension of free electron behavior to general relativity through a closed algebraic Hamiltonian description of electron micro-oscillations. The author's research, which predicted the anomalous magnetic moment of electrons from first principles using closed algebraic equations, for a single electron oscillator, the time difference between rest and laboratory frames can be explained through the anomalous magnetic moment, providing a concrete mechanism for reconciling quantum and relativistic time concepts. The framework unifies seemingly disparate physical principles - energy conservation, geometric structure, and proper time - while offering an exact mathematical description of quantum phenomena that suggests a natural path toward bridging quantum mechanics and general relativity without requiring modifications to Einstein's theory. We present a detailed analysis of how an electron, when moving from point $A$ to $B$, completely converts its mass energy into kinetic energy and subsequently reconverts it to mass energy at point $B$. Our analysis reveals that Snell's law governs these microscopic electron motions; this applicability of Snell's law naturally leads to the principle of least action, enabling us to demonstrate that electrons undergo micro-oscillations along geodesic paths. While conventional quantum theory, based on field theory, has struggled to reconcile its inherent absolute time with the relative time of relativity theory, our proposed 0-Sphere model represents individual quantum particles as micro-oscillators through closed algebraic equations. This enables the incorporation of both rest-frame and laboratory-frame time scales, as the model does not rely on the absolute time of field theory.
+\end{abstract}
+
+\maketitle
+
+
+
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+Quantum mechanical systems exhibiting geometric phases have long provided profound insights into the fundamental nature of particle dynamics and field interactions~\cite{berry1984, wilczek1984, bohm2003, aharonov1959}. This paper presents a comprehensive analysis and synthesis of the author's previous work on electron behavior~\cite{hanamura2018, hanamura2020, hanamura2023}, focusing on deeper implications of the trigonometric Hamiltonian system we discovered. While no new equations are introduced, we demonstrate how this established mathematical framework offers novel insights into the connection between quantum mechanics and general relativity. We will discuss the results of the author's research. In this research, instead of the conventional perturbation-theory-based method for calculating the anomalous magnetic moment of electrons, we use a closed algebraic equation to predict the value of the anomalous magnetic moment using first-principles calculations.
+
+A fundamental challenge in quantum mechanics has been the reconciliation of wave-particle duality with a clear physical picture of electron motion~\cite{dirac1928, bjorken1965, holstein1990}. Our 0-Sphere electron model addresses this challenge through a specific quantum evolution mechanism where an electron's thermal potential energy (TPE) undergoes transformations between two fixed points, governed by Snell's law and the principle of least action. This geometric framework is captured by our previously established Hamiltonian~\cite{hanamura2018}:
+
+\begin{equation}
+    H = \cos^4\left(\frac{\omega t}{2}\right) + \sin^4\left(\frac{\omega t}{2}\right) + \frac{1}{2}\sin^2\left(\omega t\right) = 1.
+    \label{eq:hamiltonian}
+\end{equation}
+
+In this model, the electron's particle nature is represented by discrete TPE localization points, while its wave nature manifests through the continuous oscillation of the photon sphere. The fixed points serve as boundary conditions for the action integral, providing a unique determination of the electron's path through space-time~\cite{misner1973}. This framework naturally accommodates quantum mechanical principles while offering a clear physical mechanism for wave-particle duality~\cite{weinberg1995}.
+
+The significance of this formulation extends beyond its mathematical structure. By demonstrating that electron motion follows geodesic paths guided by the principle of least action, our framework suggests a natural bridge between quantum mechanics and general relativity. This connection emerges through the application of Snell's law to microscopic electron motions, leading to the principle of least action and consequently to geodesic paths.
+
+Our approach combines analytical methods from quantum mechanics~\cite{griffiths2018}, differential geometry~\cite{shapere1989}, and the principle of least action to provide a comprehensive understanding of the system's behavior. Through this analysis, we demonstrate how the apparent paradoxes of quantum mechanics can be resolved through a geometric framework that preserves both energy conservation and quantum mechanical principles.
+
+The remainder of this paper is organized as follows. Section II presents a detailed mathematical formulation of our Hamiltonian system and its physical foundation through the geometric phase and the sum of time derivatives of the Hamiltonian in thermal potential energy dynamics. Section III explores the implications of our model through four key aspects: a reconsideration of an electron's physical properties, the convergence between Zitterbewegung and TPE radiation gradients, the connection to the Stefan-Boltzmann law, and the incorporation of proper time into quantum mechanics. We also discuss the limitations of our current framework regarding macroscopic electron behavior and the Lagrangian formulation. The paper concludes with Section IV, summarizing our findings and discussing their implications for unifying quantum mechanics and general relativity.
+
+
+\section{\label{sec:Newly Discovered Equations}Newly Discovered Equations by the Author}
+This section introduces the equations that the author has previously researched, describing the inherent geometric behavior of electrons. The following equations may serve as a basis for fundamentally re-examining particle physics, which has relied on perturbation theory.
+First, according to Eq. (\ref{eq:hamiltonian}), if the energy possessed by a single free electron is denoted as $E_{0}$, this electron oscillates according to a geometrically closed algebraic equation. The oscillating description by phase is provided by the following equation:
+\begin{equation}
+E_{0} = \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega t) \right).
+\label{eq:new1}
+\end{equation}
+The radiation gradient obtained by Eq. (\ref{eq:new1}) yields the following equation, which is responsible for the mechanism that converts the mass portion created by a free electron itself into kinetic energy. This will be explained in more detail in the following sections.
+\begin{equation}
+\mathrm{grad} \ (E_{\mathrm{A}}(t) - E_{\mathrm{B}}(t)) = \sin \theta.
+\label{eq:new2}
+\end{equation}
+Equation (\ref{eq:new2}), as detailed in Appendix \ref{Thermal energy gradient caused by two spinors},  depicts a very clean oscillation - a sine wave. This mass gradient allows the kinetic energy of a single free electron to be expressed in classical theory with the position of its center of mass as follows:
+\begin{equation}
+    \begin{split}
+    (\mathrm{Position}):  x
+    &= \mathrm{sin}(\omega t) , \\
+    (\mathrm{Velocity}): v
+    &= \mathrm{cos}(\omega t) , \\
+    (\mathrm{Acceleration}): a
+    &= - \mathrm{sin}(\omega t)
+    .
+    \label{eq:new3}
+    \end{split}
+\end{equation}
+Equation (\ref{eq:new3}), as detailed in Appendix \ref{sec:Assuming a simple},  provides an image of an electron exchanging radiation energy on a straight line between two points, rather than in circular motion. This overturned the concept that has been common in quantum mechanics that the angular momentum of electron spin arises from circular motion. To reconsider the characteristics of electron spin angular momentum, the paper~\cite{hanamura2023} re-examined the equation provided by Thomas, who offered a model that imparts angular momentum to electrons, and reconsidered the definition of spin angular momentum, going back to the era of quantum mechanics in 1925. Thomas stated that even on a straight line, if an object performs accelerated motion, it possesses angular momentum~\cite{Thomas}.
+
+Therefore, when an object undergoes accelerated motion between two points, it has angular momentum even if it passes through the origin. The author deepened the consideration of this point, which has not been emphasized much in quantum mechanics so far. As a result, it was derived from the above closed algebraic equation that a free electron possesses the spin angular momentum expressed by the following equation, which is an extension of Thomas's consideration.
+\begin{equation}
+{\bf \Omega} = \frac{1}{2 c^2} \cdot \left( - \frac{1}{2} \mathrm{sin}2\omega t \right),
+\label{eq:new4}
+\end{equation}
+Equation (\ref{eq:new4}), as detailed in Appendix \ref{sec:Assuming a simple}, does not contradict the knowledge and experimental results obtained from quantum mechanics regarding the angular momentum of electron spin. The characteristics of this point will be examined in detail in the following sections. Furthermore, based on the consideration of these equations, the author predicted that the anomalous magnetic moment of the electron is caused by Zitterbewegung , see Appendix \ref{sec:Position Expectation Value} in detail.
+
+According to this consideration, the electron oscillates at a velocity close to the speed of light due to Zitterbewegung, and the influence of the theory of relativity cannot be ignored. The author considered that the anomalous magnetic moment of the electron arises from Zitterbewegung. As a result of observing the electron from the observational system shown in the theory of relativity, which observes the electron from outside the electron, the following equation was obtained:
+\begin{equation}
+\frac{L}{L_0} = \frac{1}{1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}}} .
+\label{eq:new5}
+\end{equation}
+Equation (\ref{eq:new5}), as detailed in Appendix \ref{sec:Average velocity of}, is an equation that connects the anomalous magnetic moment of the electron and the Lorentz transformation of the special theory of relativity. This is also an unprecedented equation whose validity was predicted by the author. What this equation shows is that it is seeking the average velocity of the fine oscillation of the electron due to Zitterbewegung. By substituting the value of the anomalous magnetic moment of the electron, which has been precisely observed so far, into this equation, the author predicted that the average velocity of Zitterbewegung is about four percent of the speed of light. This result has not yet been observed experimentally.
+
+Furthermore, focusing on the fact that the above discussion and equations are calculation formulas from first principles using closed algebraic equations, the following consideration was obtained from the knowledge that an equation for calculating the anomalous magnetic moment of the electron from first principles was obtained. In other words, the anomalous magnetic moment of the electron is caused by the precession of the electron, and its observed value will be influenced not only by the special theory of relativity but also by the general theory of relativity. In general relativity, Riemannian geometry is used to describe the curvature of spacetime, while in quantum mechanics, Hilbert space is used to treat states probabilistically. The following equation proposes a starting point for handling quantum mechanics in continuous spacetime. By incorporating the effects of both special and general relativistic precession into the Lorentz transformation, this equation provides a geometric connection between quantum mechanics and general relativity.
+\begin{equation}
+\frac{L}{L_0} = \frac{1}{1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}} - \frac{\Delta \phi{\mathrm{geodetic}}}{2 \pi}} .
+\label{eq:new6}
+\end{equation}
+\noindent where the term $a^{\text{exp}}_{\text{e}}$ represents the observed value of the anomalous magnetic moment of the electron. The term $\Delta \phi{\mathrm{geodetic}}$ requires the input of the electron radius $r_{\mathrm{electron}}$ and the electron mass $m_{\mathrm{electron}}$. The term $\Delta \phi_{\mathrm{geodetic}}$ is the formula to calculate the precession due to general relativity, which is already widely disseminated. Among the necessary values, $a^{\text{exp}}_{\text{e}}$ and the mass of one electron $m_{\mathrm{electron}}$ have already been observed. One of the distinctive predictions of this research is the assumption that the electron is not a point, but has a finite size. In the future, if the size of the electron is actually measured, it will tremendously enhance the logical reinforcement of this equation.
+
+Equation (\ref{eq:new6}), as detailed in Appendix \ref{sec:General relativity's geodetic},  is an equation born from the Lorentz transformation, taking into account the effects of precession due to the special theory of relativity and the general theory of relativity. The denominator on the right-hand side of Eq. (\ref{eq:new6}) contains two terms that indicate the effects of each precession. The value of the observed anomalous magnetic moment is substituted for the term that affects the precession due to the special theory of relativity. Furthermore, the term that takes into account the influence of the general theory of relativity, that is, the term with a negative sign in the denominator on the right-hand side, geometrically connects quantum mechanics and the general theory of relativity.
+
+The purpose of this paper is to carefully express and put together the research results that have been submitted as papers so far, based on the consideration by the author mentioned above that the anomalous magnetic moment of the electron can be calculated from first principles by the closed geometric algebraic equation of the electron.
+
+
+
+\section{\label{sec:Geometric Phase and}Geometric Phase and Minimal Action in Thermal Potential Energy Dynamics}
+\subsection{\label{sec:Historical Development and}Historical Development and Mathematical Framework of the 0-Sphere Model}
+
+The mathematical framework presented in this paper builds upon a series of investigations~\cite{hanamura2018, hanamura2020, hanamura2023} that have established a novel approach to understanding electron dynamics. Through these studies, we discovered that electron behavior could be described by a closed algebraic system composed of trigonometric functions, representing a significant departure from traditional quantum mechanical descriptions.
+
+The development of the 0-Sphere model began with the observation that electron motion might be understood through the interplay of discrete thermal potential energy (TPE) states and continuous field evolution. Our previous work~\cite{hanamura2018} introduced the fundamental Hamiltonian:
+
+\begin{equation}
+    H = \cos^4\left(\frac{\omega t}{2}\right) + \sin^4\left(\frac{\omega t}{2}\right) + \frac{1}{2}\sin^2\left(\omega t\right) = 1.
+    \label{eq:hamiltonian_review}
+\end{equation}
+
+Equation (\ref{eq:hamiltonian_review}) is visualized in Fig. \ref{f-total-hamiltonian}. The figure clearly shows several key features: the complementary oscillation of the two TPE terms ($\cos^4(\phi/2)$ and $\sin^4(\phi/2)$) with a period of 4$\pi$, the double-frequency oscillation of the kinetic energy term $(1/2)\sin^2(\phi)$ with a period of 2$\pi$, and most importantly, their sum maintaining a constant value of unity throughout the entire cycle, demonstrating exact energy conservation.
+
+This elegant algebraic equation successfully describes the temporal phase evolution of electrons while maintaining strict energy conservation. The mathematical beauty of this formulation lies in its ability to represent quantum phase transitions without requiring the virtual energy fluctuations typically incorporated into conventional theories to account for quantum uncertainties. By expressing electron dynamics through these trigonometric functions, we have developed a model that naturally preserves energy conservation throughout all phase changes, eliminating the need for virtual energy fluctuation terms commonly introduced in traditional quantum mechanical approaches.
+
+\begin{figure}[t]
+    \centering 
+    \includegraphics[scale=0.22]{f-total-hamiltonian.png}
+    \caption{Visualization of the total Hamiltonian function for the 0-Sphere model. The graph depicts the time evolution of various trigonometric terms that contribute to the Hamiltonian, including the complementary oscillations of the thermal potential energy (TPE) terms $\cos^4(\phi/2)$ and $\sin^4(\phi/2)$, the double-frequency oscillation of the kinetic energy term $(1/2)\sin^2(\phi)$, and their sum, which remains constant at a value of 1, demonstrating exact energy conservation throughout the entire cycle with a period of $4\pi$.}
+    \label{f-total-hamiltonian}
+\end{figure}
+
+This Hamiltonian emerged not from theoretical postulates but from careful analysis of energy conservation in quantum systems. The half-angle terms reflect the spinorial nature of electron states, while the full-angle term represents the bosonic contribution of the mediating field. This mathematical structure naturally incorporates the fundamental spin-1/2 character of electrons, where a 4$\pi$ rotation is required to return to the initial state~\cite{dirac1928}.
+
+Subsequent research~\cite{hanamura2018, hanamura2020, hanamura2023} established several key discoveries about electron behavior:
+\begin{itemize}
+    \item The existence of thermal potential energy at two distinct locations, generating thermal radiation gradients through their simultaneous presence
+    \item The interpretation of the anomalous magnetic moment as a consequence of circumferential Lorentz contraction
+    \item The geometric interpretation of the anomalous magnetic moment through the model's structure
+    \item The Zitterbewegung predicted by the Dirac equation is thought to correspond to the back-and-forth motion of electrons described by the 0-Sphere model
+    \item The anomalous magnetic moment arises from electron precession due to relativistic effects
+    \item The anomalous magnetic moment requires consideration of both special and general relativistic effects
+    \item The electron radius can be predicted when accounting for precession effects in general relativity
+\end{itemize}
+
+Building upon these established results, the present work develops new theoretical insights:
+\begin{itemize}
+    \item The relationship between TPE transfer and Snell's law, leading to a natural emergence of the principle of least action
+    \item The emergence of geodesic paths from energy conservation principles
+    \item The incorporation of proper time through fixed TPE points, providing a bridge to general relativity
+\end{itemize}
+
+The mathematical structure of this model is particularly noteworthy for single-electron dynamics. Our framework, while utilizing established equations, reveals new physical interpretations and connections between quantum mechanics and general relativity. The present work focuses on exploring these deeper physical implications, especially regarding the unification of quantum mechanical and relativistic principles through the geometric properties of electron motion.
+
+\subsection{\label{sec:Physical Realization of}Physical Realization of Quantum States}
+
+In this study, we proceed based on insights derived from the thermal potential energy (TPE) and kinetic energy revealed by the 0-Sphere model. Let us outline our approach at the outset. We begin by examining energy conservation through Eq. (\ref{eq:energy_partition}), verifying that its time derivative vanishes. The 0-Sphere model then suggests radiative energy transfer between two TPE points. From this, we deduce that energy transfer must follow Snell's law. This implies that when all energy is initially localized at point $A$ (t = 0), it must completely transform into radiative energy. The path of this energy transfer differs fundamentally from traditional quantum mechanical path integral approaches; instead, energy is transmitted along a single, shortest path between points $A$ and $B$, following Snell's law.
+
+Furthermore, since the electron's total energy moves from point $A$ to point $B$ following Snell's law, we can apply the principle of geodesics from general relativity to understand the distance l between these points. Thus, we establish here our research milestone: demonstrating that a single electron's traveling involves energy transport along geodesic paths. This framework anticipates a bridge between quantum theory and general relativity.
+
+The 0-Sphere electron model provides a concrete physical realization of quantum mechanical behavior through the interplay of discrete TPE states and continuous field evolution~\cite{hanamura2018}. At any given moment, the electron's state is described by:
+
+\begin{equation}
+    \begin{split}
+        E_{\mathrm{A}}(t) &= E_0\cos^4\left(\frac{\omega t}{2}\right) \quad \text{(TPE at point $A$)}, \\
+        E_{\mathrm{B}}(t) &= E_0\sin^4\left(\frac{\omega t}{2}\right) \quad \text{(TPE at point $B$)}, \\
+        E_{\mathrm{K}}(t) &= \frac{E_0}{2}\sin^2(\omega t) \quad \text{(Photon sphere kinetic energy)}.
+    \end{split}
+    \label{eq:energy_distribution}
+\end{equation}
+
+This distribution represents a fundamental advance in our understanding of quantum motion~\cite{shapere1989}. Like an inchworm's movement, which combines discrete foot placements with continuous body deformation, the electron's motion unifies discrete quantum states with continuous field evolution.
+
+
+Building upon our previous work~\cite{hanamura2018, hanamura2023}, we discovered a remarkable equation that describes the quantum behavior of an electron in classical terms while maintaining energy conservation. This fundamental equation demonstrates the partitioning of total energy $E_0$ into distinct components:
+
+\begin{equation}
+\begin{split}
+E_{0} &= E_{0} \left( \cos^{4} \left( \frac{\omega t}{2} \right) + \sin^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \sin^{2} (\omega t) \right) \\
+      &= E_{\mathrm{A}}(t) + E_{\mathrm{B}}(t)
+      + E_{\mathrm{K}}(t),
+\end{split}
+\label{eq:energy_partition}
+\end{equation}
+
+\noindent where $E_{\mathrm{A}}(t)$ and $E_{\mathrm{B}}(t)$ represent the thermal potential energies of two bare electron states, and $E_{\mathrm{K}}(t)$ corresponds to the kinetic energy of a mediating virtual photon~\cite{hanamura2018}. This equation reveals a profound connection between classical energy conservation and quantum mechanical behavior, manifesting through the interplay of half-angle terms (reflecting spinor nature) and full-angle terms (representing bosonic contributions). The mathematical structure of this equation, particularly its maintenance of energy conservation while exhibiting periodic behavior, forms the foundation for our present investigation into the geometric aspects of quantum systems~\cite{shapere1989}.
+
+As shown in Eq. (\ref{eq:hamiltonian}), our system is described by a unique Hamiltonian that emerges from the consideration of energy conservation in a quantum mechanical context~\cite{weinberg1995}. This Hamiltonian arises from a careful consideration of energy partitioning in a closed quantum system, where the total energy $E_0$ is conserved and equals unity in our normalized units. The structure of this Hamiltonian reflects a fundamental decomposition of the system's energy into three distinct components, each representing a different physical aspect of the quantum system.
+
+The first two terms in Eq. (\ref{eq:hamiltonian}), $\cos^4\left(\frac{\omega t}{2}\right)$ and $\sin^4\left(\frac{\omega t}{2}\right)$, correspond to the thermal potential energy states of two bare electrons, denoted as $E_{\mathrm{A}}(t)$ and $E_{\mathrm{B}}(t)$ respectively. While this term was previously denoted as $T_{e1}$ and $T_{e2}$ in our earlier works~\cite{hanamura2018, hanamura2020, hanamura2023}. The half-angle dependence ($\omega t/2$) in these terms is particularly significant as it reflects the spinor nature of the electron states~\cite{dirac1928}. This mathematical structure naturally incorporates the fundamental spin-1/2 character of electrons, where a $4\pi$ rotation is required to return to the initial state.
+
+The third term in Eq. (\ref{eq:hamiltonian}), $\frac{1}{2}\sin^2\left(\omega t\right)$, represents the kinetic energy term $E_{\mathrm{K}}(t)$. While this term was previously denoted as $\gamma^*_{K.E.}$ in our earlier works~\cite{hanamura2018, hanamura2020, hanamura2023}, both notations describe the same physical quantity: the kinetic energy of the virtual photon mediating the interaction. In this paper, we adopt the notation $E_{\mathrm{K}}(t)$ for consistency with our energy distribution formalism.
+
+The full-angle dependence ($\omega t$) in this term is characteristic of vector bosons, distinguishing it from the spinor contributions. This term emerges from the quantum electrodynamic nature of the system, where virtual photon gas mediate the electromagnetic interaction between the bare electron states.
+
+The unity on the right-hand side of Eq. (\ref{eq:hamiltonian}) represents the total conserved energy $E_0$, normalized to one. This conservation is not merely a mathematical constraint but reflects the fundamental physical principle that in an isolated system, the total energy remains constant despite the dynamic exchange between its various forms.
+
+
+\subsection{\label{sec:Time Evolution Analysis}Time Evolution Analysis of the Quantum Hamiltonian System}
+
+For now, let us proceed to deepen our understanding of the Hamiltonian by examining the time derivative of Eq. (\ref{eq:energy_partition}) in the next subsection.
+The Hamiltonian of our system, given by Eq. (\ref{eq:hamiltonian}):
+\begin{equation}
+    H = \cos^4\left(\frac{\omega t}{2}\right) + \sin^4\left(\frac{\omega t}{2}\right) + \frac{1}{2}\sin^2(\omega t) = 1.
+\end{equation}
+exhibits strict conservation, as demonstrated by its vanishing time derivative~\cite{hanamura2023}. This conservation law is fundamental to understanding the system's dynamics.
+
+
+The quantum Hamiltonian system described in Eq. (\ref{eq:energy_partition}) exhibits three distinct contributions to the total energy, each representing different physical aspects of the electron-photon interaction. Figure \ref{f-total-hamiltonian} illustrates how these components evolve over time while maintaining constant total energy.
+
+
+The total Hamiltonian shown by the solid line, remains constant at unity throughout the evolution, demonstrating the conservation of energy in the system. This conservation is not merely a mathematical constraint but reflects a fundamental physical principle of isolated quantum systems.
+The spinorial nature of the electron is represented by two terms: $\cos^4\left(\frac{\omega t}{2}\right)$ (dashed line) and $\sin^4\left(\frac{\omega t}{2}\right)$ (dotted line). These terms exhibit the characteristic half-angle dependence that is a signature of spin-1/2 particles. The half-angle dependence requires a 4$\pi$ rotation for the system to return to its initial state, which is a fundamental property of fermionic systems.
+
+The third component, $\frac{1}{2}\sin^2\left(\omega t\right)$ (dash-dotted line), represents the bosonic contribution arising from virtual photon mediation in the electromagnetic interaction. This term shows full-angle dependence, distinguishing it from the spinorial terms and reflecting its vector boson character.
+
+
+The time evolution of these components demonstrates the intricate interplay between the spinorial and bosonic aspects of the quantum system. Over a complete 4$\pi$ cycle, we observe how the spinorial terms smoothly exchange energy while the bosonic term modulates with twice the frequency, yet the total energy remains invariant. This behavior illustrates the fundamental relationship between electron spin and electromagnetic interaction in quantum electrodynamics.
+
+
+
+At the initial time t = 0, the energy configuration is particularly noteworthy:
+\begin{equation}
+    \begin{split}
+        \cos^4(0) &= 1 \\
+        \sin^4(0) &= 0 \\
+        \sin^2(0) &= 0
+    \end{split}
+    \label{eq:initial_condition}
+\end{equation}
+
+This initial condition represents a state where all thermal potential energy (TPE) is localized at point A, manifesting as a mass-equivalent point particle~\cite{hanamura2018}. This localization is not merely a mathematical convenience but reflects the fundamental nature of the electron's thermal potential energy state.
+
+
+Taking the time derivative of the Hamiltonian shown in Eq. (\ref{eq:energy_partition}), we analyze each term separately. The detailed calculation reveals the intricate mathematical structure underlying our system's dynamics, particularly the interplay between spinorial and bosonic degrees of freedom~\cite{wilczek1984}.
+
+For the first term, representing one component of the spinorial contribution:
+\begin{equation}
+    \begin{split}
+        \frac{d}{dt}\left[\cos^4\left(\frac{\omega t}{2}\right)\right] &= 4\cos^3\left(\frac{\omega t}{2}\right) \cdot \left(-\sin\left(\frac{\omega t}{2}\right)\right) \cdot \frac{\omega}{2} \\
+        &= -2\omega\cos^3\left(\frac{\omega t}{2}\right)\sin\left(\frac{\omega t}{2}\right) \\
+        &= -\frac{\omega}{2}(1 + \cos(\omega t))\sin(\omega t) \\
+        &= -\frac{\omega}{2}\sin(\omega t) - \frac{\omega}{2}\cos(\omega t)\sin(\omega t).
+    \end{split}
+    \label{eq:term1}
+\end{equation}
+This term exhibits the characteristic half-angle dependence reflecting the spinorial nature of the electron state~\cite{hanamura2023}. The transformation to full-angle expressions through the double-angle formulas reveals how this spinorial component contributes to the overall dynamics.
+
+For the second spinorial component:
+\begin{equation}
+    \begin{split}
+        \frac{d}{dt}\left[\sin^4\left(\frac{\omega t}{2}\right)\right] &= 4\sin^3\left(\frac{\omega t}{2}\right) \cdot \cos\left(\frac{\omega t}{2}\right) \cdot \frac{\omega}{2} \\
+        &= 2\omega\sin^3\left(\frac{\omega t}{2}\right)\cos\left(\frac{\omega t}{2}\right) \\
+        &= \frac{\omega}{2}(1 - \cos(\omega t))\sin(\omega t) \\
+        &= \frac{\omega}{2}\sin(\omega t) - \frac{\omega}{2}\cos(\omega t)\sin(\omega t).
+    \end{split}
+    \label{eq:term2}
+\end{equation}
+This complementary term shows how the second spinorial component balances the first, maintaining the system's symmetry while contributing to the geometric structure of the evolution.
+
+For the bosonic contribution:
+\begin{equation}
+    \begin{split}
+        \frac{d}{dt}\left[\frac{1}{2}\sin^2(\omega t)\right] &= \omega\sin(\omega t)\cos(\omega t).
+    \end{split}
+    \label{eq:term3}
+\end{equation}
+This term, involving only full-angle expressions, represents the bosonic component of our system, specifically the virtual photon mediating the interaction~\cite{hanamura2018}.
+
+In deriving these expressions, we make use of the following double-angle formulas, which bridge the spinorial and bosonic descriptions:
+%\begin{equation}
+%    \sin(\omega t) = 2\sin\left(\frac{\omega t}{2}\right)\cos\left(\frac{\omega t}{2}\right).
+%    \label{eq:double_angle1}
+%\end{equation}
+\begin{equation}
+    \cos^2\left(\frac{\omega t}{2}\right) = \frac{1 + \cos(\omega t)}{2}.
+    \label{eq:double_angle2}
+\end{equation}
+\begin{equation}
+    \sin^2\left(\frac{\omega t}{2}\right) = \frac{1 - \cos(\omega t)}{2}.
+    \label{eq:double_angle3}
+\end{equation}
+
+When we combine all terms, a remarkable cancellation occurs:
+\begin{equation}
+    \begin{split}
+        \frac{dH}{dt} &= -\frac{\omega}{2}\cos(\omega t)\sin(\omega t) - \frac{\omega}{2}\cos(\omega t)\sin(\omega t) \\
+        &\qquad + \omega\sin(\omega t)\cos(\omega t) \\
+        &= \left(-\frac{\omega}{2} - \frac{\omega}{2} + \omega\right)\sin(\omega t)\cos(\omega t) \\
+        &= 0.
+    \end{split}
+    \label{eq:final_derivative}
+\end{equation}
+
+This exact cancellation to zero is not merely a mathematical coincidence but reflects a deep physical principle: the conservation of energy in our quantum system~\cite{weinberg1995}. However, the path to this conservation, involving the intricate balance between spinorial and bosonic terms, reveals the geometric richness of our system's evolution~\cite{shapere1989}.
+
+The analysis demonstrates how the system maintains constant energy while potentially exhibiting nontrivial geometric phases in its evolution~\cite{berry1984}. The half-angle terms, characteristic of spin-1/2 particles, suggest that even though the energy remains constant, the quantum state may acquire geometric phases as it evolves. This is reminiscent of the geometric phases in quantum mechanics, where a state can acquire a phase factor even when the energy is conserved.
+
+The appearance of both half-angle and full-angle terms in our Hamiltonian, and their precise cancellation in the time derivative, suggests a fundamental relationship between energy conservation and the geometric structure of quantum evolution~\cite{wilczek1984}. This relationship becomes particularly relevant when considering the topological aspects of spin-1/2 systems, where a 4$\pi$ rotation is required to return to the initial state, even though the energy remains constant throughout the rotation.
+
+
+
+\section{\label{sec:Discussion}Discussion}
+
+\subsection{\label{sec:Reconsideration of Electron's}Reconsideration of Electron's Physical Properties}
+
+In this study, we have analyzed electron motion governed by Snell's law. Our findings necessitate the reconsideration of several established concepts regarding electrons, specifically concerning two fundamental assumptions:
+
+\begin{itemize}
+    \item The electron as a point particle
+    \item The infinite lifetime of electrons
+\end{itemize}
+
+Furthermore, particle physics has traditionally held that electrons have infinite lifetime. While this paper agrees that electrons do not decay into other elementary particles, the 0-Sphere model suggests a more nuanced understanding of electron temporality. Expanding upon the conventional view of electron oscillation, our model indicates that the electron's state undergoes continuous phase changes in time. Crucially, we find that electrons repeatedly undergo creation and annihilation over extremely short time intervals. An electron at point $A$ must convert its very substance into light energy to execute its microscopic oscillation to point $B$. Whether this process constitutes a ``lifetime'' depends on how we define particle lifetime in elementary particle physics. At this stage, we refrain from challenging the definition of electron's eternal existence.
+
+    \begin{figure}[t]
+        \centering 
+        \includegraphics[scale=0.18]{Angular_v.png}
+            \caption{Point mass observed in the laboratory coordinate system. The blue dots move from $+a$ to $-a$ with different accelerations. ({\bf a}) As the point mass passes through the origin of the coordinate axes in uniform linear motion ($a=0$), the angular momentum, $\Omega$, is zero. ({\bf b}) According to Thomas's study, the angular momentum does not have a zero value when the point mass passes through the origin of the coordinate axes in accelerated motion.}
+            \label{f_Angular_v}
+    \end{figure}
+
+One anticipated criticism might be: ``How can a point particle, which is considered dimensionless in particle physics, 'dissolve' and convert its TPE into kinetic energy according to temporal variations?'' To address this, we propose that electrons possess finite size. This is admittedly a bold hypothesis, given that current particle physics treats electrons as dimensionless points without internal structure. In classical mechanics, rigid bodies are conceived as objects that cannot deform under any conditions. Moreover, as noted in~\cite{landau_fields}, the theory of relativity generally precludes the existence of rigid bodies. It is well known that if an electron possessed finite extent, classical rotational motion would result in equatorial velocities exceeding the speed of light, contradicting special relativity.
+
+Regarding this point, the author's previous work~\cite{hanamura2023} suggested that electrons might have finite diameter. A significant achievement of that paper was the prediction that the electron's anomalous magnetic moment arises from Lorentz transformation in the circumferential direction. To elaborate, when assuming an electron as a rigid body in rotational motion, the total circumference observed by a stationary observer becomes shorter than the circle's length and unequal to 2$\pi$. This has historically hindered the development of considerations regarding particle circular motion and Lorentz transformations. However, through our research and current paper's explanation, we have already submitted that even for electrons assumed to have finite extent, Lorentz contraction arguments can be developed without requiring rigid body rotation, provided the energy moves along a straight line.
+
+A crucial point in this paper is the reconsideration of Thomas's principle. An important aspect previously overlooked in Thomas's principle is his finding that when a point mass at coordinate point a on the x-axis moves to point $-a$, this point mass exhibits angular velocity from the observer's perspective during accelerated linear motion.
+
+Let us apply Thomas's research findings to geodesics derived from the 0-Sphere model. While the radiation and absorption of electron TPE between two points is linear, the center of mass of the photon sphere due to kinetic energy is given by $\frac{1}{2}\sin^2\left(\omega t\right)$ (Eq. \ref{eq:energy_distribution}). Applying this geometric energy transfer to Thomas's research, an external observer of the electron would observe angular velocity and Lorentz contraction effects as the electron exchanges radiation energy linearly between points A and B. See Appendix \ref{sec:Average velocity of} Eq. (\ref{III.4})
+
+\begin{equation}
+    \frac{L}{L_0} = \frac{1}{1 + a^{\text{exp}}_{\text{e}}},
+    \label{III.4}
+\end{equation}
+
+\noindent where $a^{\text{exp}}_{\text{e}}$ is the constant defining the observed anomalous magnetic moment.
+
+This leads to the following equation (Note: derivation details added to Appendix):
+
+\begin{equation}
+    \sqrt{1 - \frac{v^2}{c^2}} = \frac{1}{1 + \frac{1}{\sqrt{2}} a^{\text{exp}}_{\text{e}}}.
+    \label{III.7}
+\end{equation}
+
+Traditionally, the electron's anomalous magnetic moment exceeding Dirac's predicted value of $g=2$ has been traditionally attributed to QED effects~\cite{kinoshita2010, schwinger1948}. We revise this understanding, concluding that the deviation from exactly $g=2$ results from external observation of the electron. Expanding upon points not fully articulated in our previous paper~\cite{hanamura2023}, we propose that if magnetic moment measurements were made from the electron's own frame of reference, the observer would not experience Lorentz contraction effects, yielding exactly $g=2$ as predicted by the Dirac equation. Conversely, measurements from an external reference frame—i.e., actual measuring instruments constructed by real observers—would show an anomalous magnetic moment affected by Lorentz contraction. Our previous paper provided specific numerical predictions to verify this hypothesis.
+
+If the deviation from 2 in the electron's anomalous magnetic moment arises from Lorentz contraction, the velocity of electron's fine oscillation, while remaining below the speed of light as predicted by the Dirac equation, would be:
+
+\begin{equation}
+    \beta^2 = (\frac{v_{\gamma^{*}}}{c})^2 = 0.00163798087
+\end{equation}
+
+where $v_{\gamma^{*}}/c$ represents the virtual photon sphere from our previous papers, equivalent to $E_{\mathrm{K}}(t)$ in the current paper.
+
+This value predicts electron motion at approximately four percent of the speed of light. Currently, subtle electron oscillations are beginning to be experimentally observed. We anticipate that future precise measurements of electron Zitterbewegung will validate this prediction.
+
+
+\subsection{\label{sec:Convergence of Zitterbewgung}Convergence of Zitterbewegung and TPE Radiation}
+
+The interference term in the Dirac equation gives rise to the Zitterbewegung, an interpretation shared by the 0-Sphere model. See Appendix \ref{sec:Position Expectation Value} ``Oscillatory Term'' in detail. While traditional theory attributes Zitterbewegung to positron-electron interference \cite{barut1981, hestenes1990}, the 0-Sphere model reframes it as a photon sphere moving along the radiation flow between kernels $A$ and $B$.
+The Dirac equation's prediction of negative mass ($-m$) has long challenged physicists' understanding. Conventional theory associates positive mass ($+m$) and negative mass ($-m$) with electrons and positrons respectively.
+
+However, this interpretation warrants reconsideration, as both electrons and positrons should possess positive mass ($m > 0$). Developing a new perspective on elementary particle theory requires a more coherent interpretation of these positive and negative mass states.
+Our research resolves this paradox by modeling mass through thermal potential energy (TPE). In this framework, TPE—the source of mass—undergoes cycles of radiation and absorption based on phase $\phi(t)$. This model distinguishes between two states: one where the kernel's TPE increases over time ($\frac{dE}{dt} > 0$), and another where it decreases ($\frac{dE}{dt} < 0$). Consequently, the positive and negative masses predicted by the Dirac equation can be understood as different states coexisting within a single electron, expressed as:
+\begin{equation}
+m_{\text{eff}}(t) = m_0\left(\frac{dE}{dt}\right)/\left|\frac{dE}{dt}\right|.
+\end{equation}
+This equation describes how the effective mass of the electron oscillates between positive and negative values depending on whether the TPE is increasing or decreasing.
+
+When TPE increases, the effective mass becomes positive ($+m_0$), and when TPE decreases, it becomes negative ($-m_0$), revealing that these opposite mass states are manifestations of the same electron's energy dynamics rather than distinct particle-antiparticle pairs. Here, $m_{\text{eff}}(t)$ represents the time-dependent effective mass of the electron, $m_0$ is the electron's rest mass, $dE/dt$ is the rate of change of TPE, and $|dE/dt|$ is its absolute value, with their ratio yielding either $+1$ or $-1$ to determine the sign of the effective mass.
+
+Furthermore, in examining the quantum oscillations of electrons, a remarkable coincidence emerges between two seemingly distinct phenomena: the sinusoidal wave pattern derived from Zitterbewegung and the radiation gradient of thermal potential energy (TPE) predicted by the 0-Sphere model. The Zitterbewegung effect, first identified by Schrödinger as a rapid trembling motion of electrons, produces quantum fluctuations that can be mathematically expressed as a sine wave.
+
+Our analysis suggests that this quantum trembling may be fundamentally equivalent to the sinusoidal radiation gradient arising from TPE exchange in the 0-Sphere model. This potential unification offers a novel perspective on the physical nature of quantum oscillations and provides a concrete mechanism for the mysterious trembling motion of electrons.
+
+The fundamental affinity between the Dirac equation and the 0-Sphere model lies in their shared four degrees of freedom. The first of these is spin, where both frameworks accommodate the up and down spin states. However, a crucial distinction emerges in the interpretation of the remaining degrees of freedom. In the conventional understanding of the Dirac equation, these additional degrees manifest as electron and positron states, an interpretation that has become widely accepted in the physics community. In contrast, the 0-Sphere model posits these degrees of freedom as two distinct kernels - kernel A and kernel B - positioned at the initial point A and terminal point B respectively. This alternative interpretation was first anticipated in the author's previous work~\cite{hanamura2020}, suggesting a fundamentally different perspective on the nature of electron states.
+
+The radiative gradient between points A and B can be determined by calculating the time derivatives of TPE at both points and taking their difference, as detailed in Appendix \ref{Thermal energy gradient caused by two spinors}. The calculation yields a remarkably simple form for the radiative gradient:
+
+        \begin{align}
+            \mathrm{grad} \ (E_{\mathrm{B}}(t) - E_{\mathrm{A}}(t))
+                &= E_{0} \sin(t)
+                \ .
+            \label{e3_simple_harmonic_motion}
+        \end{align}
+
+This sinusoidal form of the radiative gradient, derived from the fundamental properties of TPE exchange in the 0-Sphere model, bears a striking resemblance to the oscillatory behavior predicted by Zitterbewegung. The emergence of this mathematical concordance suggests a deeper physical connection between these seemingly distinct quantum phenomena.
+
+Drawing from these insights, the author previously predicted in~\cite{hanamura2023} that while the electron's micro-oscillations have not yet been directly observed, the average velocity of these oscillations between points A and B should be approximately four percent of the speed of light. This specific prediction offers a crucial opportunity for experimental verification of the 0-Sphere model. If future precision measurements of electron Zitterbewegung confirm this predicted velocity, it would provide compelling experimental support for both the model and the theoretical framework presented here. Such experimental validation would not only strengthen our understanding of electron micro-oscillations but also substantiate the proposed equivalence between Zitterbewegung and TPE radiation gradients in the 0-Sphere model.
+
+
+\subsection{\label{sec:Stefan-Boltzmann Law and}Stefan-Boltzmann Law and Four Degrees of Freedom}
+
+The representation of electron mass-energy through temporal $\cos^4$ and $\sin^4$ functions has a profound physical interpretation rooted in the Stefan-Boltzmann law, which states that the total energy radiated by a black body is proportional to the fourth power of its temperature. This connection between TPE and radiative energy flow reveals a fundamental aspect of the 0-Sphere model: the thermal radiation from TPE follows the same mathematical structure as black body radiation described by the Stefan-Boltzmann law \cite{landau_statistical, feynman1972}.
+
+The Stefan-Boltzmann law can be expressed mathematically as:
+
+\begin{equation}
+    I = \sigma T^4,
+\end{equation}
+
+\noindent where $I$ is the total radiant heat energy, $T$ is the absolute temperature, and $\sigma$ is the Stefan–Boltzmann constant. This equation directly relates the radiant heat energy to the fourth power of the black body's temperature, much like how the electron mass-energy in the 0-Sphere model is represented by $\cos^4$ and $\sin^4$ temporal functions.
+
+Furthermore, the fourth-power terms in TPE oscillations suggest an intriguing relationship with the four degrees of freedom in quantum mechanics. For each kernel (A and B), there exist two possible spin states (up and down), resulting in four distinct quantum states. The $\cos^4$ and $\sin^4$ terms in our model indicate that all these states contribute equivalently to the radiative energy flow. This mathematical structure leads to a novel interpretation of the four degrees of freedom inherent in the Dirac equation: all four states generate identical contributions to the radiative flux, unifying them through their thermal radiation properties.
+
+In other words, this means that the thermal potential energy, which has two degrees of freedom representing the two starting and end points, $E_{\mathrm{A}}(t)$ and $E_{\mathrm{B}}(t)$, and two degrees of freedom representing the spin, can be expressed in four terms: $+\sqrt{1}$, $-\sqrt{1}$, $+\sqrt{i}$, and $-\sqrt{i}$. However, it is important to note that this ``Temperature'' includes the degrees of freedom associated with spin. Since the thermal radiation potential is the same for each term, when they are raised to the fourth power according to the Stefan-Boltzmann law, they all become unity and can be interchanged.
+
+This interpretation provides a new perspective on the relationship between quantum states and thermal radiation, suggesting that the fundamental four-fold structure of the Dirac equation might be intimately connected to the fourth-power relationship in black body radiation. This connection between quantum degrees of freedom and thermal radiation laws offers another bridge between quantum mechanics and classical thermodynamics through the 0-Sphere model's framework.
+
+
+\subsection{\label{sec:Electron Dynamics in}Electron Dynamics in Stationary and Observer Frames: Beyond Absolute Time in Quantum Physics}
+
+\subsubsection{\label{sec:Limitations of Absolute}Limitations of Absolute Time in Quantum Mechanics}
+
+The Schrödinger equation, while foundational to quantum mechanics, inherently treats time as an absolute parameter—a singular, uniform quantity that flows identically for all observers. This absoluteness stands in stark contrast to the relativistic understanding of time, where proper time varies with the observer's frame of reference~\cite{fock1937}. The equation's Newtonian heritage becomes evident in its inability to account for relativistic effects or spacetime curvature, fundamentally limiting its capacity to describe proper time effects in quantum systems.
+
+This limitation becomes particularly significant when examining electron dynamics. Our analysis of the $g-2$ factor reveals that a complete understanding of electron behavior necessitates consideration of both rest and laboratory frames, much as in relativistic systems. Specifically, while the magnetic moment precisely equals 2 in the electron's rest frame, as predicted by the Dirac equation, we observe deviations from this value—the anomalous magnetic moment—in the laboratory frame due to Lorentz contraction effects. This frame dependence suggests that quantum theory must transcend its traditional foundation in absolute time~\cite{briggs2015, pauli1981}.
+
+If this goal is achieved, we can calculate the anomalous magnetic moment from the oscillation speed of Zitterbewegung on a first-principles basis, rather than relying on QED perturbation theory. This first-principles approach was first proposed in~\cite{hanamura2023}. The key to this advancement lies in recognizing that electron dynamics must be analyzed through the dual lens of stationary and observer systems, a perspective that naturally bridges quantum mechanical and relativistic descriptions.
+
+\subsubsection{\label{sec:Geometric Structure of}Geometric Structure of the 0-Sphere Model}
+
+The 0-Sphere model offers a novel framework for understanding electron dynamics through its unique geometric and energetic structure. Our system comprises a two-point manifold with an energy-mediating field~\cite{wilczek1984}, exhibiting the 4$\pi$ rotation characteristic of spin-1/2 particles~\cite{dirac1928}. This geometry is fundamentally characterized by two distinct points:
+
+\begin{itemize}
+    \item Point $A$: Represented by the $\cos^4(\frac{\omega t}{2})$ term, serving as the initial TPE location
+    \item Point $B$: Represented by the $\sin^4(\frac{\omega t}{2})$ term, serving as the final TPE location
+\end{itemize}
+
+Within this framework, the thermal potential energy (TPE) follows a precise mathematical distribution between these points:
+\begin{equation}
+    \begin{split}
+        E_{\mathrm{A}}(t) &= E_0\cos^4\left(\frac{\omega t}{2}\right) \quad \text{at point $A$}, \\
+        E_{\mathrm{B}}(t) &= E_0\sin^4\left(\frac{\omega t}{2}\right) \quad \text{at point $B$}.
+    \end{split}
+    \label{eq:tpe_distribution}
+\end{equation}
+
+The dynamic behavior of this system exhibits a remarkable temporal structure. When an electron's TPE converts to radiative energy during its transit from point $A$ to point $B$, the TPE exists as localized kernel states at both endpoints. At these points, there is no spatial movement over time, effectively rendering the kernels at a standstill. This constraint condition, required by the minimum action principle, determines both the starting and ending points of the electron's path.
+
+The system's evolution is governed by strict energy conservation, expressed mathematically as:
+\begin{equation}
+    \frac{dH}{dt} = 0,
+    \label{eq:energy_conservation}
+\end{equation}
+ensuring that the oscillation occurs within a closed system. This conservation law, combined with the specific form of TPE distribution, creates a unique framework where discrete quantum states are connected through continuous field evolution. The total energy remains constant while allowing for dynamic exchange between the two points, demonstrating how quantum mechanical principles manifest in the dynamics of thermal potential energy~\cite{hanamura2023}.
+
+\subsubsection{\label{sec:Radiation-Mediated Dynamics and}Radiation-Mediated Dynamics and Geodesic Motion}
+
+The dynamic evolution of our system reveals a profound connection between quantum mechanical behavior and classical geometric principles. Our model's verification has demonstrated that the electron's micro-oscillation between points $A$ and $B$ is mediated by radiative energy, and this energy transfer mechanism naturally incorporates Snell's law:
+\begin{equation}
+\frac{\sin \theta_A}{\sin \theta_B} = \frac{v_A}{v_B} \equiv n_{A\rightarrow B}
+\label{eq:snells_law}
+\end{equation}
+where $v_A$ and $v_B$ are the wave velocities in mediums $A$ and $B$ respectively, $\theta_A$ and $\theta_B$ are the corresponding angles of incidence and refraction, and $n_{A\rightarrow B}$ represents the relative refractive index.
+
+This adherence to Snell's law reveals a deeper geometric structure in the electron's motion. The photon sphere, moving along the radiation gradient from point $A$ to point $B$, follows the geodesic of smooth spacetime. This geometric behavior allows us to employ the formalism of geodesic equations, traditionally used in general relativity~\cite{dewitt1975, birrell1984}. The motion can be derived from the action integral:
+\begin{equation}
+S = \int_{A}^{B} \mathrm{d}s
+\label{eq:action_integral}
+\end{equation}
+which leads naturally to the geodesic equation:
+\begin{equation}
+    \frac{\mathrm{d}^2 x^\beta}{\mathrm{d}\tau^2} + \Gamma^\beta_{\alpha\nu}\frac{\mathrm{d}x^\alpha}{\mathrm{d}\tau}\frac{\mathrm{d}x^\nu}{\mathrm{d}\tau} = 0
+    \label{eq:geodesic_equation}
+\end{equation}
+
+This mathematical progression—from Snell's law through the action integral to the geodesic equation—provides a coherent framework for understanding the electron's motion. The radiation-mediated energy transfer between points $A$ and $B$ follows the path of least action, as determined by these geometric principles. This formulation elegantly unifies several key concepts:
+
+\begin{enumerate}
+\item The discrete nature of TPE states at points $A$ and $B$
+\item The continuous evolution of the radiation field between these points
+\item The geometric principles governing the path of energy transfer
+\item The preservation of total energy during the oscillation
+\end{enumerate}
+
+This framework demonstrates how quantum behavior naturally emerges from geometric principles, providing a bridge between quantum mechanical descriptions and classical geometric concepts. The adherence to Snell's law in the radiation-mediated energy transfer ensures that the path taken between the fixed points $A$ and $B$ is indeed the path of least action, fundamentally connecting quantum behavior with classical geometric principles.
+
+
+\subsubsection{\label{sec:Proper Time Emergence}Proper Time Emergence in the 0-Sphere Model}
+
+This dual temporal nature in our model provides a quantum mechanical analog of relativistic proper time. The effective time experienced in the system manifests differently depending on whether we consider the electron's internal state (stationary system) or its laboratory observation (observer system). This distinction is fundamental: while an imaginary observer within the photon sphere would experience the electron in its rest frame, we can only observe the electron's micro-oscillations from the laboratory frame.
+
+This system-observer duality becomes particularly evident in the behavior of the magnetic moment. In the stationary system, where we theoretically consider the electron's internal state, the g-factor maintains its canonical value ($g = 2$) as predicted by the Dirac equation. However, in our laboratory observations, we necessarily measure $g \neq 2$. This discrepancy, manifesting as the anomalous magnetic moment, arises not from any inherent irregularity but from our inevitable position as external observers. 
+
+Our theoretical framework leads to a specific prediction that bridges these perspectives: the electron's micro-oscillations occur at approximately four percent of the speed of light~\cite{hanamura2023}. This prediction is particularly significant as it:
+
+\begin{itemize}
+    \item Quantifies the relationship between internal and external observations
+    \item Provides a measurable consequence of proper time effects in quantum systems
+    \item Offers a concrete path for experimental verification of our dual-system interpretation
+\end{itemize}
+
+This natural emergence of proper time in our model transcends the absolute time limitation of the Schrödinger equation, demonstrating how quantum systems can inherently accommodate both internal and external temporal perspectives. Unlike traditional approaches that struggle to reconcile quantum mechanics with proper time, the 0-Sphere model naturally incorporates this duality through its geometric structure and energy dynamics.
+
+\subsubsection{\label{sec:Bridging Quantum and}Bridging Quantum and Relativistic Phenomena}
+
+Building on this natural accommodation of dual temporal perspectives, our framework reveals even broader implications for fundamental physics. The 0-Sphere model provides three fundamental bridges between seemingly disparate aspects of physics:
+
+First, it establishes a natural connection between quantum mechanics and general relativity at the single-electron level. While the TPE values $E_{\mathrm{A}}(t)$ and $E_{\mathrm{B}}(t)$ undergo temporal variations at their respective positions, these positions themselves remain fixed in space. These fixed initial and terminal points serve as natural boundary conditions for calculating the action integral in accordance with the principle of least action. The spatial fixity of points $A$ and $B$ not only provides well-defined constraints for the action principle but also ensures that the geodesic path between these points is uniquely determined through Snell's law.
+
+A crucial aspect of this framework is that the radiation gradient between points $A$ and $B$ manifests as a scalar potential. This scalar nature is fundamental to our theory as it remains invariant under coordinate transformations, maintaining the same value in both the stationary and observer systems. This invariance provides a robust foundation for connecting quantum and relativistic descriptions, as the scalar potential serves as a bridge between the discrete quantum states at points $A$ and $B$ and the continuous radiation field between them.
+
+Second, our model demonstrates how a quantum particle exhibits both discrete and continuous behaviors simultaneously. The discrete nature manifests in the localized TPE states at points $A$ and $B$, while the continuous aspect appears in the radiation-mediated energy transfer between these points. This duality offers a resolution to the long-standing wave-particle paradox: the particle-like behavior corresponds to the discrete TPE states, while the wave-like behavior emerges from the continuous radiation field evolution.
+
+Looking forward, this theoretical framework opens several promising avenues for future investigation:
+
+\begin{itemize}
+    \item The potential extension of the model to multi-electron systems
+    \item Applications to other quantum phenomena where proper time effects may be significant
+    \item Development of new experimental techniques for measuring micro-oscillation velocities
+    \item Exploration of implications for quantum computing, particularly in understanding decoherence
+\end{itemize}
+
+Ultimately, the 0-Sphere model suggests that the apparent conflict between quantum mechanics and relativity may be resolved not through the subordination of one theory to the other, but through a deeper understanding of how proper time manifests in quantum systems. This perspective offers new insights into the nature of quantum phenomena and provides a concrete framework for exploring the intersection of quantum and relativistic effects at the most fundamental level.
+
+\subsection{\label{sec:Limitation 1}Limitations 1: The randomness of electron vibrations on a macroscopic scale}
+
+While our framework provides a complete description of electron motion from point $A$ to point $B$, it is important to acknowledge its current limitations and future challenges. The distance between points $A$ and $B$ in our model is assumed to be on the order of the Compton wavelength, consistent with our previous work~\cite{hanamura2018}. This assumption is physically justified, as it corresponds to the scale at which the electron's TPE can be fully converted to radiative energy. However, the critical question of how the electron selects its next destination (point $C$) remains under investigation.
+
+Several considerations are necessary for extending our framework beyond the $A$-to-$B$ transition. First, we must account for the influence of surrounding electric and magnetic fields. This requires careful examination of whether these influences are best described through classical field theory or through a more detailed analysis of photon flows around the electron. Just as a radiation gradient drives the photon sphere's motion between points $A$ and $B$, the surrounding electromagnetic fields likely create significant energy gradients that influence the electron's subsequent motion.
+
+In situations where field influences are weak or where surrounding photon energies are very small, we anticipate that the selection of point $C$ may become probabilistic. This behavior could be mathematically modeled using Wiener processes, suggesting that the electron's trajectory beyond point $B$ might exhibit characteristics of Brownian motion. While the path from $A$ to $B$ follows Snell's principle and satisfies the principle of least action, the complete trajectory including point $C$ would likely display continuous but highly irregular, zigzag patterns.
+
+This leads to an interesting mathematical property: while the electron's motion between points $A$ and $B$ is differentiable and amenable to geometric analysis (as demonstrated in this paper), the overall path including subsequent points would likely be non-differentiable, similar to Brownian motion paths. This limitation of our current framework points to the need for a more comprehensive theory that can bridge the deterministic, geometric description of individual segments with the potentially stochastic nature of longer-term electron trajectories~\cite{hanamura2023}.
+
+However, in cases where magnetic and electric fields are strong, or when the photon flow surrounding the electron is energetically sufficient to suppress random behavior, we expect the electron's motion to remain differentiable at both microscopic and macroscopic scales. Under such conditions, the electron's trajectory between points $A$, $B$, and $C$ would likely be approximable as a differentiable path, maintaining the geometric character of our current $A$-to-$B$ analysis.
+
+
+\subsection{\label{sec:Limitation 2}Limitation 2: Construction and Effectiveness of Lagrangian}
+
+The principle of least action governs the path of energy transfer between points $A$ and $B$~\cite{misner1973}:
+
+\begin{equation}
+    \delta S = \delta \int_{A}^{B} L dt = 0.
+    \label{eq:least_action_principle}
+\end{equation}
+
+This principle manifests physically through the photon sphere's oscillation, which provides a continuous connection between the discrete TPE states. The oscillation represents the actual geometric path in spacetime, analogous to the continuous body of the inchworm connecting its discrete foot positions.
+
+
+The system's evolution between points $A$ and $B$ is governed by the principle of least action~\cite{misner1973}. The spinorial nature of the wavefunctions, manifested in the half-angle terms $\frac{\omega t}{2}$, plays a crucial role in this evolution. The action integral takes the form:
+
+\begin{equation}
+    S = \int_{t_1}^{t_2} L dt = \int_{t_1}^{t_2} (T - V) dt,
+    \label{eq:action}
+\end{equation}
+where $T$ represents the kinetic energy of the virtual photon ($\frac{1}{2}\sin^2(\omega t)$) and $V$ represents the potential energy distribution between points $A$ and $B$.
+
+The author is currently investigating the Lagrangian formulation for the 0-Sphere model, as the potential energy is not simply the sum of $E_{\mathrm{A}}(t)$ and $E_{\mathrm{B}}(t)$. In this model, the TPE drives the kinetic energy oscillation. As shown in Eq. (\ref{e3_simple_harmonic_motion}) in the Appendix, our model's potential energy is derived from the time derivative and difference calculation of TPE between two points. This represents a significant departure from conventional potential energies, such as gravitational potential or spring-mass systems, where the potential is determined by a single position. The oscillatory behavior emerges naturally from this principle, as the system seeks the path of least action while maintaining energy conservation~\cite{shapere1989}. This oscillation is fundamentally different from classical harmonic motion, as it involves the quantum mechanical transfer of TPE between discrete points through a continuous field.
+ Whether a consistent formulation can be achieved by using
+\begin{equation}
+    V = E_{\mathrm{A}}(t) - E_{\mathrm{B}}(t),
+\end{equation}
+\noindent in the general Lagrangian equation (\ref{eq:action}) remains a topic for future investigation. 
+
+These limitations and considerations, while highlighting areas for future investigation, do not diminish the fundamental advances achieved through our framework. Let us now summarize our findings and their implications for the future development of quantum theory.
+
+
+\subsection{\label{sec:Limitation 3}Limitations 3:
+Implications for Quantum Entanglement, Zero-Point Energy, and Connections to BCS Theory Assumptions}
+
+The 0-Sphere model is used in this section to explore the geometric meaning of Cooper pairs in superconductivity theory. This paper has not addressed the duality of electron spin or the origin of the electron's magnetic properties, as the author's ideas on these topics are still under development. However, further research in this area, combined with the comprehensive integration of the 0-Sphere model and the equations presented in this paper, may lead to deeper insights into quantum entanglement and zero-point energy.
+
+To briefly explain the current state of this research, quantum entanglement is considered by examining two electrons. One electron is located at starting point $A$ at time $t=0$, while the other electron is located at starting point $B$ at time $t=0$. As time progresses, each electron generates a radiation flow due to thermal radiation, with one flow directed from point $A$ to point $B$ and the other from point $B$ to point $A$. In this scenario, the radiation gradients, symbolized by sine waves, cancel each other out, resulting in a net gradient of zero.
+The sum of the gradients of the potential energies of the two electrons facing each other can be understood by combining it with Eq.~\eqref{e3_simple_harmonic_motion} as follows:
+\begin{align}
+\mathrm{grad} \ (E_{\mathrm{Be1}}(t) - E_{\mathrm{Ae1}}(t)) + \mathrm{grad} \ (E_{\mathrm{Ae2}}(t) - E_{\mathrm{Be2}}(t))
+&= 0.
+\label{eq:BCS grad}
+\end{align}
+The first grad term in the left-hand side represents the radiation gradient generated by the first electron, $e_1$, while the other grad term represents the radiation gradient generated by the second electron, $e_2$. This sum represents the cancellation of the positive and negative sine waves, indicating that the time derivative of the radiative flux is zero.
+
+This result is equivalent to one of the assumptions of BCS theory \cite{BCS1957}, which states that ``the center-of-mass momentum of a Cooper pair is zero,'' suggesting that the 0-Sphere model may provide a new perspective on the mechanisms underlying Cooper pair formation. This new perspective is provided by the geometrical representation through closed algebraic equations.
+
+As research in this area progresses, it may shed light on the fundamental nature of quantum entanglement, zero-point energy, and the relationship between the 0-Sphere model and established theories of superconductivity. Future work will focus on further developing these ideas and exploring their implications for our understanding of quantum phenomena and the electron's intrinsic properties.
+
+
+\subsection{\label{sec:Potential Application to}Potential Application to the Muon Anomalous Magnetic Moment}
+The equations introduced in this paper, which express the anomalous magnetic moment using closed algebraic equations from first principles, may have further applications. One such potential application is in resolving the significant discrepancy between the standard model prediction and the observed value of the muon anomalous magnetic moment, also known as the muon $g-2$ problem.
+The muon anomalous magnetic moment, like that of the electron, represents the deviation of the muon's magnetic moment from the value predicted by the Dirac equation. Recent experimental measurements of the muon $g-2$ at Fermilab have shown a significant discrepancy with the standard model prediction, with a statistical significance of over four standard deviations~\cite{muon_g-2_2021}. This discrepancy has generated significant interest in the particle physics community, as it may hint at the existence of new physics beyond the standard model.
+
+The equations presented in this research have connected the electron's anomalous magnetic moment with general relativity. The author believes that these first-principles equations may not be limited to electrons and could potentially predict the value of the muon anomalous magnetic moment through first-principles calculations. However, to apply the 0-Sphere model for predicting the theoretical value of the muon $g-2$, two unknown quantities must be obtained experimentally. The first is the average oscillation velocity of the muon due to Zitterbewegung.
+
+The second is to experimentally confirm that the elementary particle muon, which has been traditionally considered a point particle, has a non-zero finite size. These experimental challenges are similar to those encountered when considering the electron's anomalous magnetic moment in this paper.
+If the average velocity of the muon's Zitterbewegung and its finite size can be measured experimentally, the theoretical framework presented in this paper can be applied to muons. This would enable the calculation of the theoretical prediction of the muon's anomalous magnetic moment from first principles, which can then be compared with the experimental value and the prediction of the standard model. Such a comparison would be significant in verifying the effectiveness and generality of the theoretical framework presented in this paper.
+
+However, it is important to note that this potential application is speculative at this stage and requires further theoretical and experimental work. The adaptation of our equations to the muon system may not be straightforward and could require significant modifications. Moreover, the experimental measurements required are technically very challenging and require further advancements in experimental techniques.
+
+Despite these challenges, the potential application of our framework to the muon $g-2$ problem represents an exciting avenue for future research. It could provide new insights into the nature of the muon and potentially reveal new physics beyond the standard model. As such, it is a promising direction for further investigation and collaboration between theorists and experimentalists in the field of particle physics.
+
+
+
+\section{\label{sec:Conclusion}Conclusion}
+
+In this paper, we have presented a revolutionary approach to understanding electron dynamics through the 0-Sphere electron model, described by a unique Hamiltonian system that provides an exact, closed-form solution~\cite{hanamura2018, hanamura2023}. Based on our preceding analysis, we conclude that electrons described by the 0-Sphere Electron Model determine their trajectories according to Snell's law, thereby preserving energy conservation. Our key contribution lies in the discovery of a complete algebraic description of electron behavior, as introduced in Eq.~(\ref{eq:hamiltonian}), which unifies discrete quantum states and continuous field evolution in a fundamentally new way.
+
+Most profoundly, our work suggests a new path toward reconciling quantum mechanics and general relativity~\cite{wheeler1957}. Unlike traditional approaches that attempt to modify general relativity to accommodate quantum effects, our framework demonstrates that properly understood quantum systems can naturally align with relativistic principles through radiation-mediated energy transfer. This alignment is particularly evident in our treatment of the anomalous magnetic moment, which emerges naturally from Lorentz transformation effects. In our companion paper~\cite{hanamura2023}, we present specific predictions for this effect: the observation of Zitterbewegung velocity would lead to predictions of the anomalous magnetic moment as a precession motion. The paper provides detailed calculations of precession corrections derived from both special and general relativity using first-principles calculations—employing the same principles used in GPS corrections. Readers are encouraged to review this complementary work for a complete understanding of these predictions.
+
+The equations we have discovered demonstrate several remarkable properties that set them apart from conventional quantum mechanical descriptions~\cite{shapere1989}:
+\begin{itemize}
+\item Exact energy conservation proven through the vanishing time derivative of the Hamiltonian
+\item Natural emergence of oscillatory behavior through the principle of least action
+\item Direct connection between quantum phenomena and relativistic effects through radiation-mediated energy transfer
+\end{itemize}
+
+Looking forward, this work opens several promising directions for future research:
+\begin{itemize}
+\item Experimental verification of the predicted Zitterbewegung velocity and its relationship to the anomalous magnetic moment
+\item Extension of this non-perturbative framework to other fundamental particles and their interactions
+\item Development of experimental tests to verify the predicted radiation-mediated energy transfer mechanism
+\item Investigation of multi-particle systems within this exact algebraic framework
+\item Application of our first-principles approach to other quantum-relativistic phenomena
+\end{itemize}
+
+Our contribution thus extends beyond a mere mathematical description of electron behavior; it provides a concrete path toward understanding how quantum systems can be described exactly, how they naturally incorporate relativistic principles, and how the apparent conflicts between quantum mechanics and general relativity might be resolved through proper understanding of energy transfer mechanisms~\cite{misner1973}. The synthesis of quantum and relativistic effects in our model, particularly evident in our treatment of the anomalous magnetic moment, suggests that the unification of quantum mechanics and gravity may require not the modification of existing theories, but rather a deeper understanding of how they are already connected through the fundamental principles of radiation and least action.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+
+
+\begin{thebibliography}{99}
+
+\bibitem{berry1984}
+Berry, M. V.,
+\textit{Quantal phase factors accompanying adiabatic changes},
+Proceedings of the Royal Society of London A,
+\textbf{392}, 45-57 (1984).
+\href{https://doi.org/10.1098/rspa.1984.0023}{doi:10.1098/rspa.1984.0023}
+
+\bibitem{wilczek1984}
+Wilczek, F. \& Zee, A.,
+\textit{Appearance of gauge structure in simple dynamical systems},
+Physical Review Letters,
+\textbf{52}, 2111 (1984).
+\href{https://doi.org/10.1103/PhysRevLett.52.2111}{doi:10.1103/PhysRevLett.52.2111}
+
+\bibitem{bohm2003}
+Bohm, A., Mostafazadeh, A., Koizumi, H., Niu, Q. \& Zwanziger, J.,
+\textit{The Geometric Phase in Quantum Systems},
+Springer, Berlin (2003).
+\href{https://doi.org/10.1007/978-3-662-10333-3}{doi:10.1007/978-3-662-10333-3}
+
+\bibitem{aharonov1959}
+Aharonov, Y. \& Bohm, D.,
+\textit{Significance of Electromagnetic Potentials in the Quantum Theory},
+Physical Review,
+\textbf{115}, 485-491 (1959).
+\href{https://doi.org/10.1103/PhysRev.115.485}{doi:10.1103/PhysRev.115.485}
+
+\bibitem{hanamura2018} 
+S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+
+\bibitem{hanamura2020} 
+S. Hanamura, Coexistence Positive and Negative-Energy States in the Dirac Equation with One Electron, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17760132}{doi:10.5281/zenodo.17760132}. [Originally: \href{https://vixra.org/abs/2006.0104}{viXra:2006.0104}]
+
+\bibitem{hanamura2023} 
+S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction, Zenodo (2023), \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}. [Originally: \href{https://vixra.org/abs/2309.0047}{viXra:2309.0047}]
+
+\bibitem{dirac1928}
+Dirac, P. A. M.,
+\textit{The quantum theory of the electron},
+Proceedings of the Royal Society of London A,
+\textbf{117}, 610-624 (1928).
+\href{https://doi.org/10.1098/rspa.1928.0023}{doi:10.1098/rspa.1928.0023}
+
+\bibitem{bjorken1965}
+Bjorken, J. D. \& Drell, S. D.,
+\textit{Relativistic Quantum Mechanics},
+McGraw-Hill, New York (1965).
+
+\bibitem{holstein1990}
+Holstein, B. R.,
+\textit{Topics in Advanced Quantum Mechanics},
+Addison-Wesley, New York (1990).
+
+\bibitem{misner1973}
+Misner, C. W., Thorne, K. S. \& Wheeler, J. A.,
+\textit{Gravitation},
+W. H. Freeman, San Francisco (1973).
+
+\bibitem{weinberg1995}
+Weinberg, S.,
+\textit{The Quantum Theory of Fields, Volume 1: Foundations},
+Cambridge University Press, Cambridge (1995).
+\href{https://doi.org/10.1017/CBO9781139644167}{doi:10.1017/CBO9781139644167}
+
+\bibitem{griffiths2018}
+Griffiths, D. J. \& Schroeter, D. F.,
+\textit{Introduction to Quantum Mechanics},
+Cambridge University Press, Cambridge, 3rd edition (2018).
+\href{https://doi.org/10.1017/9781316995433}{doi:10.1017/9781316995433}
+
+\bibitem{shapere1989}
+Shapere, A. \& Wilczek, F.,
+\textit{Geometric Phases in Physics},
+World Scientific, Singapore (1989).
+\href{https://doi.org/10.1142/0613}{doi:10.1142/0613}
+
+\bibitem{Thomas}
+L. H. Thomas,
+\textit{The Motion of the Spinning Electron},
+Nature, \textbf{117} (1926), 514;
+Philosophical Magazine, 3 (1927), 1.
+\href{https://doi.org/10.1038/117514a0}{doi:10.1038/117514a0}
+
+\bibitem{wheeler1957}    
+Wheeler, J. A.,
+\textit{On the Nature of Quantum Geometrodynamics},
+Annals of Physics,
+\textbf{2}, 604-614 (1957).
+\href{https://doi.org/10.1016/0003-4916(57)90050-7}{doi:10.1016/0003-4916(57)90050-7}
+
+\bibitem{landau_fields}
+Landau, L. D. \& Lifshitz, E. M.,
+\textit{The Classical Theory of Fields, Fourth Revised English Edition: Volume 2 (Course of Theoretical Physics Series)},
+Pergamon Press, Oxford (1975).
+\href{https://doi.org/10.1016/C2009-0-14608-1}{doi:10.1016/C2009-0-14608-1}
+
+\bibitem{barut1981}
+Barut, A. O. \& Bracken, A. J.,
+\textit{Zitterbewegung and the internal geometry of the electron},
+Physical Review D,
+\textbf{23}, 2454 (1981).
+\href{https://doi.org/10.1103/PhysRevD.23.2454}{doi:10.1103/PhysRevD.23.2454}
+
+\bibitem{hestenes1990}
+Hestenes, D.,
+\href{https://davidhestenes.net/geocalc/pdf/ZBW_I_QM.pdf}{\textit{The Zitterbewegung Interpretation of Quantum Mechanics}},
+Foundations of Physics, 
+\textbf{20}, 1213-1232 (1990).
+\href{https://doi.org/10.1007/BF01889466}{doi:10.1007/BF01889466}
+
+\bibitem{briggs2015}
+Briggs, J. S.,
+\textit{Quantum flows in phase space: The proper time and classical limit of quantum mechanics},
+Physical Review A,
+\textbf{91}, 052119 (2015).
+\href{https://doi.org/10.1103/PhysRevA.91.052119}{doi:10.1103/PhysRevA.91.052119}
+
+\bibitem{pauli1981}
+Pauli, W.,
+\textit{Theory of Relativity},
+Dover Publications, New York (1981).
+
+\bibitem{kinoshita2010}
+Kinoshita, T.,
+\textit{Quantum Electrodynamics},
+World Scientific, Singapore (2010).
+\href{https://doi.org/10.1142/7598}{doi:10.1142/7598}
+
+\bibitem{schwinger1948}
+Schwinger, J.,
+\textit{On Quantum-Electrodynamics and the Magnetic Moment of the Electron},
+Physical Review,
+\textbf{73}, 416 (1948).
+\href{https://doi.org/10.1103/PhysRev.73.416}{doi:10.1103/PhysRev.73.416}
+
+\bibitem{landau_statistical}
+Landau, L. D. \& Lifshitz, E. M.,
+\textit{Statistical Physics, Part 1},
+Pergamon Press, Oxford (1980).
+\href{https://doi.org/10.1016/C2009-0-24487-4}{doi:10.1016/C2009-0-24487-4}
+
+\bibitem{feynman1972}
+Feynman, R. P.,
+\textit{Statistical Mechanics: A Set of Lectures},
+Benjamin/Cummings, Reading (1972).
+
+\bibitem{fock1937}
+Fock, V.,
+\href{http://www.neo-classical-physics.info/uploads/3/4/3/6/34363841/fock_-_wkb_and_dirac.pdf}{\textit{Proper time in classical and quantum mechanics}},
+Zeitschrift für Physik,
+\textbf{12}, 404-425 (1937).
+
+\bibitem{dewitt1975}
+DeWitt, B. S.,
+\textit{Quantum field theory in curved spacetime},
+Physics Reports,
+\textbf{19}, 295-357 (1975).
+\href{https://doi.org/10.1016/0370-1573(75)90051-4}{doi:10.1016/0370-1573(75)90051-4}
+
+\bibitem{birrell1984}
+Birrell, N. D. \& Davies, P. C. W.,
+\textit{Quantum Fields in Curved Space},
+Cambridge University Press, Cambridge (1984).
+\href{https://doi.org/10.1017/CBO9780511622632}{doi:10.1017/CBO9780511622632}
+
+\bibitem{BCS1957}
+Bardeen, J., Cooper, L. N., and Schrieffer, J. R. \href{https://journals.aps.org/pr/abstract/10.1103/PhysRev.108.1175}{\textit{Theory of Superconductivity}}, Phys. Rev., vol. 108, no. 5, pp. 1175-1204, 1957.
+
+\bibitem{muon_g-2_2021}
+Abi, B., Albahri, T., Al-Kilani, S. et al.,
+\textit{Measurement of the Positive Muon Anomalous Magnetic Moment to 0.46 ppm},
+Phys. Rev. Lett. \textbf{126}, 141801 (2021).
+\href{https://doi.org/10.1103/PhysRevLett.126.141801}{doi:10.1103/PhysRevLett.126.141801}
+
+\bibitem{Fan}
+Fan, X., Myers, T. G., Sukra, B. A. D. \& Gabrielse, G.,
+\textit{Measurement of the Electron Magnetic Moment},
+Phys. Rev. Lett. \textbf{130}, no.7, 071801 \href{https://arxiv.org/abs/2209.13084}{arXiv:2209.13084} (2023).
+\href{https://doi.org/10.1103/PhysRevLett.130.071801}{doi:10.1103/PhysRevLett.130.071801}
+
+\bibitem{Hartle}
+James B. Hartle,
+\textit{GRAVITY -- An Introduction to Einstein's General Relativity --}, p.302,
+Cambridge University Press (2021).
+\href{https://doi.org/10.1017/9781316995457}{doi:10.1017/9781316995457}
+
+\bibitem{NASA}
+``GP-B STATUS UPDATE — May 4, 2011''. Gravity Probe B. NASA and Stanford University. NASA Headquarters Science Update/Press Conference. \href{http://einstein.stanford.edu/highlights/status1.html}{GP-B STATUS UPDATE — May 4, 2011} (2011)
+
+\bibitem{Dehmelt}
+Dehmelt, H.,
+A Single Atomic Particle Forever Floating at Rest in Free Space: New Value for Electron Radius,
+$\textit{Physica Scripta}$. $\textbf{T22}$: 102--110,
+\href{https://iopscience.iop.org/article/10.1088/0031-8949/1988/T22/016}{doi:10.1088/0031-8949/1988/T22/016} (1988)
+
+\end{thebibliography}
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:Appendix}Appendix}
+
+\subsection{\label{sec:An electron's structure}An electron’s structure in this study}
+
+In the 0-Sphere electron model~\cite{hanamura2018}, an electron's structure is assumed as follows. First, consider there is a tiny thermal source in the center. This thermal spot, named $\textit{the bare electron}$ or $\textit{the spinor}$ or $\textit{the kernel}$ in author's previous papers already submitted, can be moved by radiation, however, it stops time and fixes it in the center of the electron. Next, consider a real photon that surrounds the bare electron, $\textit{the kernel}$. This real photon has an electromagnetic interaction with the bare electron.
+
+The concept of virtual photons has not changed since mentioned on paper~\cite{hanamura2018, hanamura2023}. The photons surrounding the two thermal sources exchanging energy with each other are real photons. Because the photon is connected to the thermal spot by the electromagnetic force, this photon does not emit energy to the external system and cannot be observed. In this paper, one electron is regarded as a closed system in thermodynamics, and this paper is not expanded to the interaction with other electrons.
+
+From this viewpoint, this real photon may be called a virtual photon. However, the virtual photons used in the past are particles that are temporarily generated during an interaction, and the meaning of the virtual photons in this paper is very different in that they do not satisfy the energy conservation law.
+
+
+
+\subsection{\label{sec:What is the}What is the 0-sphere}
+
+A 0-sphere is a pair of points and has no area. The general form of 0-sphere is represented as $n$-sphere~\cite{misner1973}.
+
+In this subsection, we will review the electronic model with the 0-sphere. A 0-sphere is a pair of points at the ends of a one-dimensional line segment. A 1-sphere is a circle as shown in Fig. \ref{f1_0-Sphere} $(\bm{\mathrm{a}}, \bm{\mathrm{b}})$. Alternatively, the 0-sphere is indicate an intersection of a straight line and a circle put on the same plane. In other words, by expanding a two-dimensional circle into three dimensions, the 0-sphere is an intersection points with a straight line passing through a hollow sphere.
+
+\begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=0.20]{f_appendix2.png}
+                \caption{Behavior of the virtual photon as a spatial simple harmonic oscillator while the two kernels behave as emitters and absorbers. The blue and green dots are two kernels inside one electron. Since the equation of $ Kernel1 + Kernel2 + \gamma^{*}_{\mathrm{Kinetic.E}} = E_{\mathrm{_0}} $, the sum of the thermal potential energy (TPE) of the two kernels and the kinetic energy of the virtual photon is constant. The energy conservation law is preserved. See paper~\cite{hanamura2018} for details.}
+            \label{f_appendix1}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f1_0-Sphere.png}
+                \caption{$(\bm{\mathrm{a}})$ a 0-sphere $(\bm{\mathrm{b}})$ a 1-sphere. The 0-sphere consists of two points. In this paper, it illustrated in the blue and green dots. These spots named and mentioned $\textit{the bare electrons}$ or $\textit{the two spinors}$ in author's previous papers. In this paper, these blue and green dots are mentioned as $\textit{the kernels}$.}
+            \label{f1_0-Sphere}
+        \end{figure}
+
+In this paper, the Lorenz contraction and the geodetic precession are explained by semicircles. In reality, however, light travels by the shortest path~\cite{misner1973}, the virtual photon would travel the shortest distance between the blue and green points.
+
+
+\subsection{Thermal energy gradient caused by two kernels}
+\label{Thermal energy gradient caused by two spinors}
+
+The Appendix quotes from the paper~\cite{hanamura2018, hanamura2023} on how the energy gradient arises from two kernels. To maintain the law of conservation of energy, we take each of the two kernels or bare electrons as a thermal potential energy. These two kernels act as both emitters and absorbers in turn. To meet the requirements for simultaneous emission and absorption, assign $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$ as follows~\cite{hanamura2018}; 
+
+\begin{equation}
+            \begin{split}
+                (Oscillator \ 1): T_{\mathrm{e1}}
+                    &= E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) , \\
+                (Oscillator \ 2): T_{\mathrm{e2}}
+                    &= E_{0} \sin^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+            \label{e3_Oscillators_Te1_Te2}
+            \end{split}
+        \end{equation}
+
+    \noindent where $E_{0}$ is the ground state of quantised energy~\cite{hanamura2023}. Set the two electrons as paired oscillators with $T_{\mathrm{e1}}$ = $E_{0} \cos^{4} \omega t /2$ and $T_{\mathrm{e2}}$ = $E_{0} \sin^{4} \omega t /2$. The temperature gradient between the two kernels is calculated as,
+
+    \begin{equation}
+            \mathrm{grad} \ T_{\mathrm{e}} = \mathrm{grad} \ ( T_{\mathrm{e2}} - T_{\mathrm{e1}} )
+            \ .
+            \label{e3_k_grad_Te2-Te1}
+    \end{equation}
+
+    Since the values of thermal energy at both thermal kernels vary with time, the temperature gradient changes with time. Let the previous $\omega t$ is $\theta$,
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e1}}
+                &= \frac{d}{d \theta} \left( E_{0} \cos^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &= - 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e1}
+        \end{align}
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e2}}
+                &= \frac{d}{d \theta} \left( E_{0} \sin^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &=   2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e2}
+        \end{align}        
+
+    $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ include only time derivative terms; their space derivatives are zero, because the kernels do not change in position with time. That is,
+
+        \begin{align}
+            \mathrm{grad} \ (T_{\mathrm{e2}} - T_{\mathrm{e1}})
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right) \notag \\
+                & \quad + 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= E_{0} \sin \theta
+                \ .
+            \label{e3_simple_harmonic_motion}
+        \end{align}
+
+    Equation (\ref{e3_simple_harmonic_motion}) shows that the temperature gradient between $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ produces a force $\bm{\mathrm{F}}$~\cite{hanamura2018}. The force drives the velocity of the virtual photon along with simple harmonic motion. On the basis of the above assumption, the virtual photon swing back and force spatially between the two kernels.
+    
+    Interaction between thermal and kinetic energy is essential in the 0-Sphere electron model, because the interaction between the two kinds of energy, i.e., the thermal potential energy of the spinors and the kinetic energy of the virtual photon, drives the virtual photon along with the harmonic oscillator. See yellow line on Fig. \ref{f_appendix1}.
+
+
+\subsection{\label{sec:The relationship between}The relationship between Lorentz contraction and anomalous magnetic moment} 
+
+The following is a reprint of excerpts from the author's paper~\cite{hanamura2023} that are useful for reading this paper .
+
+\subsubsection{\label{sec:Review the Thomas}Review the Thomas precession} 
+
+To make this idea quantitative, this study does not make the assumption of constant acceleration $(a: acceraration = f: fource)$ in Thomas theory. The acceleration of the electrons can be changing. The electron does not travel in an uniform linear motion but with an intrinsic velocity, which could be expressed by a sinusoidal function. If the velocity ${\boldsymbol v}$ is expressed by ${\boldsymbol v} = \mathrm{cos}\theta$, the acceleration is expressed by its derivative, ${\boldsymbol a} = - \mathrm{sin}\theta$. In this study, at the beginning, we reviewed Thomas's work and substituted ${\boldsymbol a} = -\mathrm{sin}\theta$ instead of constant value $({\boldsymbol a} = {\boldsymbol f})$ into the Thomas precession. 
+
+The discussion begins with the background of the association of spin with precessional motion. In relativity, if the electron is in uniform linear motion, the coordinate system describing the electron's motion can be calculated by Lorentz transformation. However, if the electron is in an accelerated motion, it is calculated that the axis of the coordinate system describing this electron rotates when observed from the laboratory system. Thomas wrote in his paper that the axes of a coordinate system with an origin and translating with the electrons are observed in a laboratory system to rotate with the following angular velocity as in Eq. (\ref{Thomas_Eq1}),
+
+\begin{equation}
+    {\bf \Omega}=\frac{1}{2 c^2}[{\boldsymbol a} \times {\boldsymbol v}],
+    \label{Thomas_Eq1}
+\end{equation}
+
+\noindent where ${\boldsymbol a}$ is the acceleration of the electron and ${\boldsymbol v}$ is the velocity of the electron. Note that in Eq. (\ref{Thomas_Eq1}), the approximation $(\beta = 1 - v^2/c^2 \fallingdotseq 1)$ is set in Lorenz transformation. Equation (\ref{Thomas_Eq1}) can also be applied to the general case where the particles are not in uniform circular motion. As the particles are in uniform circular motion, the following equation is obtained,
+
+\begin{equation}
+    {\Omega}= - \frac{1}{2} \frac{v^2}{c^2} \omega_{\mathrm{const}}.
+    \label{Thomas_Eq2}
+\end{equation}
+
+The spin image in precession that we now recall comes from Eq. (\ref{Thomas_Eq2}). The angular velocity $\Omega$ obtained is a constant proportional to $\omega_{\mathrm{const}}$. In this study, however, we will not consider the issue using Eq. (\ref{Thomas_Eq2}), but rather equation (\ref{Thomas_Eq1}).
+
+
+\subsubsection{\label{sec:Assuming a simple}Assuming a simple harmonic oscillation instead of uniform circular motion}
+
+This section is the innovative part of this study. The quantisation of the orbital angular momentum into units of $\hbar$ reflects the nature of space, which returns to its original state after one rotation. According to the relationship between angular momentum and magnetic moment, if the angular momentum is halved to $\hbar/2$, the magnetic moment should also be $\mu_e/2$. However, the magnetic moment of the spin angular momentum is equal to $\mu_e$, even though the angular momentum is $\hbar/2$. This means that spin rotation can generate magnetic fields twice as efficiently as orbital rotation and responds to magnetic fields with twice the sensitivity. This property could not be explained by theories based on circular currents observed in three-dimensional space.
+
+Consider this discrepancy from the perspective of the Thomas precession. Equation (\ref{e3_simple_harmonic_motion}) forms an important basis for this paper. The traveling of the virtual photon, ${\gamma^{*}}$, is represented by a sinusoidal function (cf. Eq. (\ref{e3_simple_harmonic_motion}) and see yellow line on Fig. \ref{f_appendix1}). The study was described as the 0-Sphere electron model. In this electron model, the thermal potential  energy (TPE) of the electron is a set of radiation and absorption, which describes the motion of the electron; the TPE changes partly kinetic energy, which drives the photon. The motion of the photon could be represented by a very simple sinusoidal function in this research model. First, we let the two values as follows;
+
+    \begin{equation}
+        \begin{split}
+            (Verocity): v_{\gamma^{*}}
+                &= \mathrm{cos}\omega t , \\
+            (Acceraration): a_{\gamma^{*}}
+                &= - \mathrm{sin}\omega t
+                .
+        \label{v_and_a}
+        \end{split}
+    \end{equation}
+
+Substitute Eq. (\ref{v_and_a}) into Eq. (\ref{Thomas_Eq1}) then,
+
+    \begin{equation}
+        \begin{split}
+            {\bf \Omega} 
+                &= \frac{1}{2 c^2}[{\boldsymbol a_{\gamma^{*}}} \times {\boldsymbol v_{\gamma^{*}}} ]  \\
+                &= \frac{1}{2 c^2} [ -\mathrm{sin}\omega t \times \mathrm{cos}\omega t ] \\
+                &= \frac{1}{2 c^2} \cdot \left( - \frac{1}{2} \mathrm{sin}2\omega t \right)
+                .
+        \label{omega_sin}
+        \end{split}
+    \end{equation}
+
+The above discussion yields an extremely important result. Namely, when the outer product of cosine and sine is calculated, $-\frac{1}{2}$sin$2\omega t$ appears. Equation (\ref{omega_sin}) is the basis for obtaining a doubled angular velocity cycle. It was found that the displacement, velocity and period of a single oscillation have a cycle of $\omega t$, whereas the angular velocity has a cycle of $2\omega t$. One wave period of single oscillation is determined by the angular velocity. The angular velocity with Thomas precession has a period of half the displacement.
+
+The results of the study of the above equation provide a basis for the quantisation of the spin angular momentum to a value half the Planck constant.
+
+Equation (\ref{omega_sin}) provides us with a further important conclusion. The angular velocity of an electron can take both positive and negative values over a range of time transitions, since sine takes values in the range from $-1$ to $1$. This result does not follow from Eq. (\ref{Thomas_Eq2}). In conventional quantum mechanics, spin has been described as quantum superposition of up-spin and down-spin states. Equation (\ref{omega_sin}) indicates that the electron repeats up-spin and down-spin with time transitions.
+
+
+\subsubsection{\label{sec:Average velocity of}Average velocity of electron micro-oscillation}
+
+The difference is the anomalous magnetic moment, denoted $a$ and defined as,
+
+    \begin{equation}
+        {\displaystyle a={\frac {g-2}{2}}} .
+        \label{III.1}
+    \end{equation}
+
+As can be seen from the fact that this defining equation is divided by 2, we should consider the fraction of the circumference of $1\pi$ that is shortened by Lorentz contraction, not the circumference of $2\pi$ per circumference.
+
+    \begin{figure}[t]
+        \centering 
+        \includegraphics[scale=0.18]{f-Lorents.png}
+            \caption{Presence of rotational Lorentz contraction. Presence of rotational Lorentz contraction. To be precise, rotation should be regarded as the motion of a point through the origin, as shown in Fig. \ref{f_Angular_v}. However here it is shown as a circumference for visual clarity. ({\bf a}) Lorenz contraction was applied to rotational coordinates. If the electrons are travelling significantly slower than the speed of light, the rotational Lorentz contraction can be neglected. $(\beta = 1 - v^2/c^2 \fallingdotseq 1)$ ({\bf b}) Lorentz contraction cannot be ignored when the speed of electrons travelling approaches the speed of light. Therefore, the length of the $\pi$ circumference shrinks. This contraction is considered to be the cause of the anomalous magnetic moment.}
+            \label{f-Lorents}
+    \end{figure}
+
+The current experimental value and uncertainty is~\cite{Fan},
+
+    \begin{equation} %wikiよりコピペした式が以下の通り
+          {\displaystyle a^{\text{exp}}_{\text{e}}=0.001\,159\,652\,180\,59\,(13)} .
+          \label{}
+    \end{equation}
+
+Let $L_0$ be the length of a bar in the coordinate system moving with the electrons and $L$ be the length of the bar when the moving electrons are viewed from the laboratory system, the following relationship holds between the two. Lorentz contraction is expressed by the following equation,
+
+    \begin{equation}
+        L = L_0 \sqrt{1 - \frac{v^2}{c^2}} .
+    \end{equation}
+
+According to Eq. (\ref{omega_sin}), the angular momentum moving with acceleration $\mathrm{-sin}\theta$ was expressed by $\mathrm{sin}2\theta$. This is a strong evidence that spin rotation can generate a magnetic field twice as efficiently as orbital rotation. This was due to the change from $\theta$ to $2\theta$.
+
+In other words, the interpretation was that instead of having to rotate 360 degrees in space to generate a magnetic field, one half of that, 180 degrees, could be used to generate a magnetic field. In this study, we can consider that the anomalous magnetic moment generates the magnetic field at an angle even less than 180 degrees. That is, we reinterpret the 180-degree angle as a rotational Lorentz contraction that can generate a magnetic field at an angle shorter than 180 degrees (Fig. \ref{f-Lorents}).
+
+According to the above view, the equation since expresses the relationship between Lorentz contraction and anomalous magnetic moment,
+
+    \begin{equation}
+        \frac{L}{L_0} = \frac{1}{1 + a^{\text{exp}}_{\text{e}}} .
+        \label{III.4}
+    \end{equation}
+
+We further modify Eq. (\ref{III.4}). We take the root-mean-square (RMS) value of $a^{\text{exp}}_{\text{e}}$ because we are trying to find the average velocity; multiplying by the RMS is similar to the reason why the maximum and effective voltages of an AC voltage are different. In other words, the Lorentz contraction is also subject to fluctuations in its length because the harmonic oscillator would constantly produce varying accelerations. Therefore, in order to determine the average speed of the electron motion, the anomalous magnetic moment should probably be converted to an RMS value. The revised formula is;
+
+    \begin{equation}
+        \frac{L}{L_0} = \frac{1}{1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}}} .
+        \label{III.5}
+    \end{equation}
+
+The rationale for this modified idea is that the value of the anomalous magnetic efficiency might be calculated from the highest value of the acceleration caused by the harmonic oscillator. Further observations will confirm the correctness of this idea.
+
+Furthermore, from the following relationship,
+
+    \begin{equation}
+        \frac{L}{L_0} = \sqrt{1 - \frac{v^2}{c^2}} .
+    \end{equation}
+
+From these two equations, we obtained,
+
+    \begin{equation}
+        \sqrt{1 - \frac{v^2}{c^2}} = \frac{1}{1 + \frac{1}{\sqrt{2}} a^{\text{exp}}_{\text{e}}}  .
+        \label{III.7}
+    \end{equation}
+
+It should be noted that Eq. (\ref{III.7}) derived here will be modified to Eq. (\ref{IV.2}) in the next chapter to take account of general relativity.
+
+Substituting the anomalous magnetic moment obtained experimentally for $a^{\text{exp}}_{\text{e}}$, $\beta^2 = (v/{c})^2$ is obtained,
+
+    \begin{equation}
+        \beta^2 = (\frac{v_{\gamma^{*}}}{c})^2 = 0.00163798087
+    \end{equation}
+
+    \begin{equation}
+        v_{\text{electron}}^{\gamma^{*}} \fallingdotseq 0.04047197635 \times c .
+        \label{III.9}
+    \end{equation}
+
+With this beta value, the average speed was calculated to be approximately 12,133 km/s. For reference, we can compare the values of the muon with the results of Eq. (\ref{III.9}). 
+
+Combining the beta implications of the above equation with the 0-Sphere electron model yields the following consequence. This means that the energy of the electron is moving from point $+a$ to point $-a$ with an average 0.04047 times the speed of light.
+
+
+\subsection{\label{sec:Geodetic precession}{Geodetic precession}}
+
+``Suppose at the start of an orbit the observer orients the gyro in a direction in the equatorial plane (say in the direction of a distant star). General relativity predicts that on completion of an orbit, the gyro will generally point in a different direction making an angle $\Delta \phi_{\mathrm{geodetic}}$ with the starting one. That change in direction is called $\textit{geodetic precession}$ and its illustrated schematically in Fig. \ref{f-geodetic}.'' \cite{Hartle}.
+
+        \begin{figure}[t]
+            \centering 
+            \includegraphics[scale=0.21]{f-geodetic.png}
+                \caption{``Geodetic precession. This is a schematic view of the equatorial plane of a $\textit{nonrotating}$ spherical body. A gyroscope orbits in a circle of Schwarzschild coordinate radius $R$. At the start of one orbit at $t$ = 0, its spin is oriented in the radial direction. At the completion of one orbit, its spin has been rotated by an angle $\Delta \phi_{\mathrm{geodetic}}$ in the direction of orbital motion in a time $P = 2 \pi / \Omega$.'' See \cite{Hartle} for details.}
+            \label{f-geodetic}
+        \end{figure}
+
+
+The spin comes back after one orbit rotated by an angle,
+\begin{equation}
+    \Delta \phi_{\mathrm{geodetic}} = 2 \pi \left[ 1 - \left( 1 - \frac{3M}{R} \right)^{1/2} \right] \mathrm{(per \ orbit)},
+    \label{Eq_Geodetic}
+\end{equation}
+
+\noindent in the direction of motion, as illustrated in Fig. \ref{f-geodetic}.
+
+
+\subsection{\label{sec:General relativity's geodetic}General relativity's geodetic effect on electron spin}
+
+In addition to the results obtained in the previous section we further consider the influence of general relativity. Namely, gravity. As is well known, attempts have been made to generate a theory that integrates quantum mechanics and gravity. It is called quantum gravity theory. The reason why this attempt has not been fulfilled is that attempts to relate the gravitational field to the quantum field have not been successful. This is due to the properties of the fields, which take on continuous values.
+
+The geodesic and frame-dragging effect predicted by general relativity has been successfully and accurately confirmed by NASA's Gravity Probe B satellite. GP-B final experimental results were announced on May 4, 2011~\cite{NASA}. This chapter attempts to apply the geodesic effect to electron spin. Note that the quantisation of gravity is beyond the scope of this paper.
+
+Up to the previous section, electron spin has been analysed using classical models. In this section, the concept of geodesic precession of general relativity is applied to electron spin. To calculate the geodetic precession on electron spin, we refer to the following geodetic precession equation already found~\cite{Hartle},
+
+\begin{equation}
+    \Delta \phi_{\mathrm{geodetic}} = 2 \pi \left[ 1 - \left( 1 - \frac{3M}{R} \right)^{1/2} \right] \mathrm{(per \ orbit)},
+    \label{IV.1}
+\end{equation}
+
+\noindent where $M$ is mass and $R$ is the Schwarzschild radius.
+
+Equation (\ref{IV.1}) is expressed in units of radians. As considering the anomalous magnetic efficiency of the electron, we should consider half the circumference of a circle to be a unit. Based on our discussion of Eq. (\ref{III.1}), we use the value of the above equation without multiplying it by $2 \pi$,
+
+\begin{equation}
+    \frac{L}{L_0} = \frac{1}{1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}} - \frac{\Delta \phi_{\mathrm{geodetic}}}{2 \pi}} .
+    \label{IV.2}
+\end{equation}
+
+The size of the electrons is not currently determined. Observation of a single electron in a Penning trap suggests the upper limit of the particle's radius to be $1.0 \times 10^{-22}$ meters~\cite{Dehmelt}. That means the following equation (\ref{IV.3}) is obtained from Eqs. (\ref{IV.1}) and (\ref{IV.2}) to calculate Table \ref{table_1}.  Substitute the mass of the electron for $m_{\mathrm{electron}}$ and the radius of the electron for $r_{\mathrm{electron}}$, the result is,
+
+\begin{equation}
+    \left. % スラッシュを大きくする構文 \left. A \middle/ B \right.
+    \frac{L}{L_0} = 1
+    \middle/
+    \left( {1 + \frac{1}{\sqrt{2}}a^{\text{exp}}_{\text{e}} - \left[ 1 - \left( 1 - \frac{3 m_{\mathrm{electron}}}{r_{\mathrm{electron}}} \right)^{1/2} \right]} \right).
+    \right.
+    \label{IV.3}
+\end{equation}
+
+
+Once one of the values is measured, the other can be calculated. Table \ref{table_1} shows that once the electron radius has been determined, the average speed at which electrons travel can be calculated. For example, if the speed-of-light ratio of $ v_{\text{electron}}^{\gamma^{*}} $ is measured to be 0.0400$c$, the radius of the electron would be between $1.0 \times 10^{-25}$(m) and $1.0 \times 10^{-26}$(m).
+
+\begin{center}
+    \begin{threeparttable}
+        \caption{The velocity and the radius of an electron}
+        \label{table_1}
+        \tabcolsep = 3.5mm  % 横幅を増やす
+        \renewcommand\arraystretch{1.2} % 縦幅を割合分だけ増やす
+        \begin{tabular}{ccc}
+            \hline
+        $ r_{\mathrm{electron}} {\mathrm{(m)}}$ & $\Delta \phi_{\mathrm{geodetic}}/{2 \pi}$ & $ v_{\text{electron}}^{\gamma^{*}} / c$ \\       \hline
+        $1 \times 10^{-22}$ & $1.3670000 \times 10^{-8}$ & 0.040471633 \\ 
+        $1 \times 10^{-23}$ & $1.3665000 \times 10^{-7}$ & 0.040468601 \\ 
+        $1 \times 10^{-24}$ & $1.3664100 \times 10^{-6}$ & 0.040438275 \\ 
+        $1 \times 10^{-25}$ & $1.3664170 \times 10^{-5}$ & 0.040133758 \\ 
+        $1 \times 10^{-26}$ & $1.3666501 \times 10^{-4}$ & 0.036949906 \\ 
+            \hline
+        \end{tabular}
+    \end{threeparttable}
+\end{center}
+
+The conclusion of this theory is to calculate the size of the electron kernel, but for this we have to wait for the results of the two variable experiment. The first is the development of more powerful measuring instruments capable of detecting electron magnitudes below $1.0 \times 10^{-22}$(m), and the second is a technique for measuring the velocity of micro-oscillation of an electron. The validity of the results of the above equations would be verified if the radius, $r_{\mathrm{electron}}$, of the electron and the value of its average traveling velocity, $ v_{\text{electron}}^{\gamma^{*}} $, could be measured experimentally.
+
+
+
+\subsection{\label{sec:Dirac's Zitterbewegung}Dirac's Zitterbewegung}
+
+Zitterbewegung, a phenomenon arising from the interference between positive and negative energy states in the Dirac equation, is a rapid oscillatory motion of elementary particles that obey relativistic quantum mechanics. This appendix explores the mathematical formulation and key characteristics of Zitterbewegung.
+
+Dirac fully agreed with Schrödinger’s observation, writing in his 1933 Nobel lecture:
+
+“The variables also give rise to some rather unexpected phenomena concerning the motion of the electron. These have been fully worked out by Schrödinger. It is found that an electron which seems to us to be moving slowly, must actually have a very high frequency oscillatory motion of small amplitude superposed on the regular motion which appears to us. As a result of this oscillatory motion, the velocity of the electron at any time equals the velocity of light. This is a prediction which cannot be directly verified by experiment, since the frequency of the oscillatory motion is so high and its amplitude is so small. But one must believe in this consequence of the theory, since other consequences of the theory which are inseparably bound up with this one, such as the law of scattering of light by an electron, are confirmed by experiment.” Dirac (1933, p322)
+
+“The well-known Zitterbewegung may be looked upon as a circular motion about the direction of the electron spin with radius equal to the Compton wavelength* × 1/2$\pi$ of the electron. The intrinsic spin of the electron may be looked upon as the orbital angular momentum of this motion. The current produced by the Zitterbewegung is seen to give rise to the intrinsic magnetic moment of the electron.” – in Hestenes 2008
+[* The Compton wavelength of a particle is the same as the wavelength of a photon with equivalent energy.]
+
+
+\subsubsection{\label{sec:The Dirac Equation}The Dirac Equation and its Solutions}
+
+To begin with, the time-dependent Dirac equation is given by:
+
+\begin{equation}
+    i\hbar\frac{\partial\psi}{\partial t} = (c\boldsymbol{\alpha}\cdot\mathbf{p} + \beta mc^2)\psi .
+\end{equation}
+
+Here, $\psi$ is the wave function represented as a four-component spinor, $\boldsymbol{\alpha}$ and $\beta$ are the Dirac matrices, $c$ is the speed of light, $\mathbf{p}$ is the momentum operator, and $m$ is the mass of the particle. For a free particle, we can write a plane wave solution:
+
+\begin{equation}
+    \psi(\mathbf{x},t) = u(\mathbf{p}) \exp\left(i(\mathbf{p}\cdot\mathbf{x} - Et)/\hbar\right).
+\end{equation}
+
+\noindent where $u(\mathbf{p})$ is a four-component spinor, $E$ is the energy, and $\mathbf{p}$ is the momentum.
+
+The Dirac equation yields solutions encompassing both positive and negative energy states, reflecting the intrinsic symmetry between particles and antiparticles in relativistic quantum theory.
+
+\subsubsection{\label{sec:Trigonometric Representation}Trigonometric Representation}
+
+To elucidate the wave-like nature of these solutions, we can express them in terms of trigonometric functions using Euler's formula:
+
+\begin{equation}
+    \exp\left(i\frac{\mathbf{p}\cdot\mathbf{x} - Et}{\hbar}\right) = \cos\left(\frac{\mathbf{p}\cdot\mathbf{x} - Et}{\hbar}\right) + i \sin\left(\frac{\mathbf{p}\cdot\mathbf{x} - Et}{\hbar}\right) .
+\end{equation}
+
+This trigonometric form illuminates several key aspects of the wave function:
+
+\begin{enumerate}
+    \item The cosine term represents the real part, corresponding to the wave's amplitude.
+    \item The sine term, multiplied by the imaginary unit $i$, represents the imaginary part, indicating the wave's phase.
+    \item The argument $(\mathbf{p}\cdot\mathbf{x} - Et)/\hbar$ determines the wave's spatial and temporal periodicity.
+\end{enumerate}
+
+\subsubsection{\label{sec:Simplified Zitterbewegung Expression}Simplified Zitterbewegung Expression}
+
+Zitterbewegung can be expressed as a sinusoidal function in time. For an electron, the motion can be approximated as:
+
+\begin{equation}
+    \psi(t) = \psi_0 \sin(\omega t + \phi),
+\end{equation}
+
+\noindent where:
+\begin{itemize}
+    \item $\psi(t)$ represents the amplitude of the oscillatory motion at time $t$,
+    \item $\psi_0$ is the amplitude of the oscillation,
+    \item $\omega$ is the angular frequency of the oscillation,
+    \item $\phi$ is the phase of the oscillation.
+\end{itemize}
+
+In terms of the relativistic energy of the electron, the angular frequency $\omega$ is:
+
+\begin{equation}
+    \omega = \frac{E_{\text{rest}}}{\hbar},
+\end{equation}
+
+\noindent where $E_{\text{rest}} = mc^2$ is the rest energy of the electron, $m$ is the electron mass, and $c$ is the speed of light.
+
+Therefore, the Zitterbewegung can be written as:
+
+\begin{equation}
+    \psi(t) \approx \psi_0 \sin\left(\frac{mc^2}{\hbar} t + \phi\right).
+\end{equation}
+
+
+\subsubsection{\label{sec:Position Expectation Value}Position Expectation Value}
+
+A more comprehensive representation of Zitterbewegung can be given through the position expectation value:
+
+\begin{equation}
+    \langle x \rangle(t) \approx x_0 + \frac{c\mathbf{p}}{E}t + \frac{\hbar c^2}{2E} \sin\left(\frac{2Et}{\hbar}\right) .
+\end{equation}
+
+The notation $\langle x \rangle(t)$ represents the expectation value of position as a function of time in quantum mechanics, where:
+
+\begin{itemize}
+    \item Observables like position are represented by operators.
+    \item The angle brackets $\langle \rangle$ denote the expectation value, which is the average value of many measurements of an observable if they were to be performed on identically prepared systems.
+    \item $x$ inside the brackets refers to the position operator.
+    \item $(t)$ indicates that this expectation value is a function of time.
+\end{itemize}
+
+This equation describes how the average position of a particle (like an electron) evolves over time, consisting of:
+
+\begin{enumerate}
+    \item Initial Position Term : $x_0$ \\
+        This term represents the initial position of the particle at $t=0$.
+    \item Drift Term : $\frac{c\mathbf{p}}{E}t$ \\
+        This term accounts for the average relativistic motion of the particle due to its momentum $p$, where $c$ is the speed of light and $E$ is the total energy of the particle. This term represents the classical drift of the particle.
+    \item Oscillatory Term : $\frac{\hbar c^2}{2E}\sin\left(\frac{2Et}{\hbar}\right)$ \\
+        This term describes the oscillatory motion (Zitterbewegung) with amplitude $\frac{\hbar c^2}{2E}$ and angular frequency $\frac{2E}{\hbar}$.
+\end{enumerate}
+
+\subsubsection{\label{sec:haracteristics of Zitterbewegung}Characteristics of Zitterbewegung}
+
+The Zitterbewegung representation encapsulates several key features:
+
+\begin{itemize}
+    \item \textbf{Amplitude}: On the order of the Compton wavelength ($\lambda = \frac{\hbar}{mc}$), approximately $10^{-13}$ meters for an electron.
+    
+    \item \textbf{Frequency}: The angular frequency $\omega = \frac{2E}{\hbar}$, which for a particle at rest is approximately $\frac{2mc^2}{\hbar}$, corresponding to about $10^{21}$ Hz for an electron.
+    
+    \item \textbf{Relativistic Nature}: The presence of $c$ (speed of light) in the amplitude and $E$ (total energy including rest mass) in the frequency indicates that Zitterbewegung is a relativistic effect.
+    
+    \item \textbf{Quantum Interpretation}: This oscillation can be thought of as a quantum effect where the particle rapidly switches between different spin states due to the interference of positive and negative energy solutions of the Dirac equation.
+\end{itemize}
+
+This formulation shows that the particle's average position isn't just moving uniformly, but also has a rapid oscillatory component due to the Zitterbewegung effect predicted by the Dirac equation.
+
+
+\section*{Acknowledgments}
+This work builds upon the author's previously discovered equations and theoretical framework of the 0-Sphere electron model. The author acknowledges the assistance of LLM, an AI research assistant, whose contributions were specifically limited to technical aspects of the manuscript preparation. The AI system was utilized primarily for proofreading and editorial refinement of the text, formatting mathematical equations in LaTeX, verifying calculus operations (similar to using Mathematica), and providing suggestions for paragraph organization.
+
+The equations, theoretical concepts, and physical interpretations presented in this paper were developed independently by the author through previous research~\cite{hanamura2018, hanamura2020, hanamura2023}. The AI's role was confined to helping structure the presentation of these pre-existing ideas and ensuring mathematical accuracy in the derivative calculations, particularly in the detailed analysis of the Hamiltonian's time evolution.
+
+The author appreciates this technical support, which has helped in presenting the theoretical framework in a clear and mathematically precise manner, while maintaining the integrity of the original research concepts and findings.
+
+\end{document}
+
+
+1. **量子力学の基礎理論**
+- [bjorken1965] Bjorken, J. D. & Drell, S. D. "Relativistic Quantum Mechanics"
+  - 相対論的量子力学の標準的な教科書
+  - 電子の波動関数と相対論的効果の関係を詳細に論じている
+  - 本論文の理論的基盤の妥当性を支持
+
+- [holstein1990] Holstein, B. R. "Topics in Advanced Quantum Mechanics"
+  - 量子力学における先進的なトピックスを扱う
+  - 特にスピンと角運動量の取り扱いに関する重要な知見を提供
+  - 本論文の量子状態の解釈に理論的支持を与える
+
+2. **幾何学的位相とポテンシャル**
+- [bohm2003] Bohm, A. et al. "The Geometric Phase in Quantum Systems"
+  - 量子系における幾何学的位相の包括的な理論書
+  - TPEの位相変化の理論的枠組みを提供
+  - 本論文の幾何学的解釈の正当性を裏付け
+
+- [aharonov1959] Aharonov, Y. & Bohm, D. "Significance of Electromagnetic Potentials..."
+  - 量子力学におけるポテンシャルの重要性を示した画期的論文
+  - スカラーポテンシャルの物理的意味の理解に貢献
+  - 本論文のTPE概念の理論的基礎を強化
+
+3. **固有時間と相対論**
+- [briggs2015] Briggs, J. S. "Quantum flows in phase space..."
+  - 量子力学における固有時間の概念を詳細に分析
+  - 位相空間での量子流の記述を提供
+  - 本論文の時間概念の拡張に理論的支持を与える
+
+- [pauli1981] Pauli, W. "Theory of Relativity"
+  - 相対論の古典的教科書
+  - 固有時間の概念の標準的な解釈を提供
+  - 本論文の相対論的側面の正当性を裏付け
+
+4. **電磁気学と量子電磁力学**
+- [kinoshita2010] Kinoshita, T. "Quantum Electrodynamics"
+  - QEDの詳細な理論的展開を提供
+  - 異常磁気モーメントの標準的な解釈を示す
+  - 本論文の新解釈との比較対照を可能にする
+
+- [schwinger1948] Schwinger, J. "On Quantum-Electrodynamics..."
+  - 異常磁気モーメントの最初の理論的説明
+  - QEDによる計算手法の基礎を確立
+  - 本論文の歴史的文脈を提供
+
+5. **熱力学と統計力学**
+- [landau1980] Landau, L. D. & Lifshitz, E. M. "Statistical Physics"
+  - 統計物理学の基礎理論を提供
+  - 熱力学的概念の量子論的解釈を示す
+  - 本論文のTPE概念の熱力学的基礎を強化
+
+- [feynman1972] Feynman, R. P. "Statistical Mechanics"
+  - 統計力学の革新的なアプローチを提示
+  - 量子系の統計的性質の理解に貢献
+  - 本論文の熱力学的解釈の妥当性を支持
+
+6. **量子重力と場の理論**
+- [dewitt1975] DeWitt, B. S. "Quantum field theory in curved spacetime"
+  - 曲がった時空における量子場の理論を展開
+  - 量子効果と重力の相互作用の理解に貢献
+  - 本論文の一般相対論的拡張の基礎を提供
+
+- [birrell1984] Birrell, N. D. & Davies, P. C. W. "Quantum Fields in Curved Space"
+  - 曲がった空間での量子場の振る舞いを詳細に分析
+  - 量子効果と重力場の相互作用を体系的に論じる
+  - 本論文の理論的枠組みの妥当性を強化

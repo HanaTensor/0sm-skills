@@ -1,0 +1,87 @@
+# Overleaf Sources Manifest
+
+> Imported: 2026-07-19 | Source: Overleaf 全プロジェクト一括エクスポート「Overleaf Projects (67 items)」
+
+## 配置規約
+
+- `tex-sources/NN/overleaf/rK/` — 論文 #NN の Overleaf 原本(zip プレフィクス `NN-K` の K がリビジョン)。ファイルは無加工で格納。
+- `tex-sources/NN/main.tex`(トップ)は **Zenodo 清書版が正典**。清書版が存在しなかった番号(#1–12, #46, #51–64, #67)には Overleaf 版 main.tex を昇格コピーした(原文精読 URL の 404 回避)。#51 は最新の r2 を昇格。
+- 複数リビジョン保有: #30 (r1, r2), #51 (r1: 図版含む全量 / r2: main.tex のみ)。
+
+## 特記事項
+
+- **#67 (REV-02)** — 旧 Overleaf 名「99-1 Rethinking Particles as Spacetime Oscillators (Research Summary)」。99 番は廃止し #67 として保存(2026-07-19 User 指示)。2025-04-13 時点(#1–#14 期)の研究総括。REV-01 = #65「The 0-Sphere Model: A Structural Overview」(本エクスポートには未収録)。#65・#66 の実体は未確定。
+- **off-series/solar-neutrino-dna-recoils/** — Overleaf 名「28-1 Solar Neutrino–Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans」。目録 #28(G/c² 次元整合)とは別物の系列外論文(生物物理)。番号衝突のため未採番のまま退避。採番は User 判断待ち。
+- 目録(index.md)の 63 論文 #1–#64(#16 欠番)は全て Overleaf 原本が揃った。
+
+## 対応表(Overleaf プロジェクト → 配置先)
+
+| zip | Overleaf プロジェクト名 | 配置先 |
+|---|---|---|
+| 1-4 | A Model of an Eletron Including Two Perfect Black Bodies (v4) | `1/overleaf/r4/` |
+| 2-4 | A New Representation of Spin Angular Momentum (v4) | `2/overleaf/r4/` |
+| 3-1 | Distinguishing of an electron's spin uniquely from two quantum states with Riemann surface guidance (v2) | `3/overleaf/r1/` |
+| 4-2 | Perfect Contrast cannot be obtained in the Electron Double-Slit Experiment | `4/overleaf/r2/` |
+| 5-1 | Transition Theory of An ElectronTraveling from Uncertain to Causal Basis (v1) | `5/overleaf/r1/` |
+| 6-3 | Correspondence between 0-Sphere and the Electron Model | `6/overleaf/r3/` |
+| 7-2 | Coexistence positive and negative-energy states in the Dirac equation with one electron | `7/overleaf/r2/` |
+| 8-2 | Consideration of electron-positron pair annihilation by thermal oscillations and an inelastic collision | `8/overleaf/r2/` |
+| 9-1 | Beyond the Standard Model: Neutrino Oscillations and the Search for New Physics | `9/overleaf/r1/` |
+| 10-3 | Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction | `10/overleaf/r3/` |
+| 11-1 | Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer | `11/overleaf/r1/` |
+| 12-1 | Radiation-Mediated Quantum Tunneling: A Zitterbewegung Perspective | `12/overleaf/r1/` |
+| 13-1 | Unified Spin Dynamics: From Pseudovector Nature to Relativistic Constraints | `13/overleaf/r1/` |
+| 14-1 | Bridging Quantum Mechanics and General Relativity: A First-Principles Approach | `14/overleaf/r1/` |
+| 15-1 | Spin-Induced Inertial Resistance in Electrons: A Gyroscopic Interpretation Based on General Relativity | `15/overleaf/r1/` |
+| 17-1 | From Clock Synchronization to Electromagnetism: A Realist Construction of U(1) Gauge Theory | `17/overleaf/r1/` |
+| 18-1 | Time-Dependent Mass in the 0-Sphere Model:  A Hamiltonian Approach to Thermal Modulation | `18/overleaf/r1/` |
+| 19-1 | Spin as a Real Vector from Internal Photon-Sphere Motion: Geometric Origin of U(1) Gauge and SU(2) Periodicity | `19/overleaf/r1/` |
+| 20-1 | Emergent Conservation Laws from Internal Geometry: A Noetherian Reinterpretation in the 0-Sphere Model | `20/overleaf/r1/` |
+| 21-1 | Anomalous Magnetic Moments Without Fields: A Geometric and Observer-Dependent Interpretation | `21/overleaf/r1/` |
+| 22-1 | Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model | `22/overleaf/r1/` |
+| 23-1 | From Zero-Sphere to Emergent Spacetime: A Minimalist Background-Independent Framework for Temporal and Spatial Genesis | `23/overleaf/r1/` |
+| 24-1 | Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure | `24/overleaf/r1/` |
+| 25-1 | A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry | `25/overleaf/r1/` |
+| 26-1 | Spin from Geometry: Emergence of Spin via Internal Berry Phase in the 0-Sphere Electron Model | `26/overleaf/r1/` |
+| 27-2 | Challenging the Uncertainty Principle: A Deterministic Interpretation of Measurement and Reality in Quantum Mechanics | `27/overleaf/r2/` |
+| 28-1 | A Supplementary Correction to the 0-Sphere Model: Dimensional Consistency of G and c² | `28/overleaf/r1/` |
+| 28-1 | Solar Neutrino--Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans | `off-series/solar-neutrino-dna-recoils/` |
+| 29-1 | Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics | `29/overleaf/r1/` |
+| 30-1 | From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws | `30/overleaf/r1/` |
+| 30-2 | From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws | `30/overleaf/r2/` |
+| 31-1 | Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov–Bohm Effect, Berry Phase, and Wilson Loops | `31/overleaf/r1/` |
+| 32-1 | Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology: The 0-Sphere Model Perspective | `32/overleaf/r1/` |
+| 33-1 | Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass and Zitterbewegung | `33/overleaf/r1/` |
+| 34-1 | 34-1　Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass, Zitterbewegung, and Gravitational-Like | `34/overleaf/r1/` |
+| 35-1 | Detailed Exposition of the 0-Sphere Model Framework for Gravitational-Like Phenomena | `35/overleaf/r1/` |
+| 36-1 | On the Non-Perturbative Nature of the 0-Sphere Model and the Fine-Structure Constant: A Supplement on Non-Perturbative Features | `36/overleaf/r1/` |
+| 37-1 | Reinterpreting Gravitational Potential Energy as an Internal Line-Integral Quantity in the 0-Sphere Model | `37/overleaf/r1/` |
+| 38-1 | Electron Interference from Internal Geometry:  Two-Kernel SU(2) Structure, Quartic Energy Flow, and an Intrinsic Visibility Limit | `38/overleaf/r1/` |
+| 39-1 | On Vacuum Energy, Integral Ontology, and the Cosmological Constant Supplementary Note on the Logical Status of Λ in the 0-Sphere Model | `39/overleaf/r1/` |
+| 40-1 | On the Derivative-Order Mismatch Between Gauge Theory and Gravity: A Supplement on Curvature, Connection, and Physical Correspondence | `40/overleaf/r1/` |
+| 41-1 | A Note on Derivative Hierarchy in Gauge Theory and Gravity: A Historical Supplement on Connection, Curvature, and Line-Integral Observables | `41/overleaf/r1/` |
+| 42-1 | On the Non-Perturbative Nature of the 0-Sphere Model and Magnetic Monopole Absence: A Supplement on Conceptual Analysis | `42/overleaf/r1/` |
+| 43-1 | On Observer-Dependent Torsion, Zitterbewegung, and Phase Accumulation: A Supplement on SU(2) Teleparallel Geometry and Conceptual Implications | `43/overleaf/r1/` |
+| 44-1 | On Internal Energy Stabilization, Charge Localization, and Superradiant Rephasing | `44/overleaf/r1/` |
+| 45-1 | Open-Path Spinorial Transport in the 0-Sphere Model and the Status of Torsion: Holonomy Sufficiency and the Possibility of Emergent Semigroup | `45/overleaf/r1/` |
+| 46-1 | Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor and the Zero-Point Energy in the 0-Sphere Model (CF Note) | `46/overleaf/r1/` |
+| 47-1 | Rotational Lorentz Contraction as the Geometric Origin of the Anomalous Magnetic Moment: A Structural Correspondence with the Muon Lifetime Probl | `47/overleaf/r1/` |
+| 48-1 | Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition | `48/overleaf/r1/` |
+| 49-1 | Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model | `49/overleaf/r1/` |
+| 50-1 | Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model | `50/overleaf/r1/` |
+| 51-1 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | `51/overleaf/r1/` |
+| 51-2 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | `51/overleaf/r2/` |
+| 52-1 | Directional Decomposition of Force Types in the 0-Sphere Helical Geometry: Gravity, Electromagnetism, and Spin as Three Projections of a Single | `52/overleaf/r1/` |
+| 53-1 | From Gravitational Mediation to the Emergence of Spacetime: A Conceptual and Mathematical Supplement to Papers #49, #50, and #51 | `53/overleaf/r1/` |
+| 54-1 | Maxwell Electrodynamics as a Derived Low-Energy Limit of the 0-Sphere Line-Integral Ontology | `54/overleaf/r1/` |
+| 55-1 | Four Functions of the Open Wilson Line in the 0-Sphere Model: Phase-History Carrier, Gauge Localization, Holonomy Composition, and Boundary Data | `55/overleaf/r1/` |
+| 56-1 | The Framework Boundary: How Local-Field and Directed-Path Descriptions Diverge in the 0-Sphere Model —with Application to Microscopic Time Revers | `56/overleaf/r1/` |
+| 57-1 | Spherical Harmonic Imprinting and the Physical Identity of Phase Information: Microscopic Mechanism of Gravitational Coupling in the 0-Sphere Mod | `57/overleaf/r1/` |
+| 58-1 | Spin-2 Structure of the Gravitational Mediator: Phase-Stable Pair Emission and Quadrupole Radiation in the 0-Sphere Model | `58/overleaf/r1/` |
+| 59-1 | Proton-Trapped Electron as the Generator of Spin-2 Gravitational Radiation: Coulomb Confinement, ZB Axis Locking, and the Separation of Gravitati | `59/overleaf/r1/` |
+| 60-1 | The Berry–Synge–Bonnet–Myers Triangle: Structural Conditions for the Unification of Gauge and Gravitational Sectors in the 0-Sphere Model | `60/overleaf/r1/` |
+| 61-1 | Application of the γ-Equation to the Proton: A Parameter-Free Hadronic Mass Scale | `61/overleaf/r1/` |
+| 62-1 | The Bridge Equation γ = 1 + a from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Squ | `62/overleaf/r1/` |
+| 63-1 | From Line Integral to Covariant Derivative: A Reader’s Map of the Bridge from the 0-Sphere Model to Riemannian Curvature | `63/overleaf/r1/` |
+| 64-1 | The Square Root of the Hyperspherical Laplacian: A Geometric Foundation for Spin Two-Valuedness on S³ in the 0-Sphere Model | `64/overleaf/r1/` |
+| 99-1 | Rethinking Particles as Spacetime Oscillators: (Research Summary) | `67/overleaf/r1/` |

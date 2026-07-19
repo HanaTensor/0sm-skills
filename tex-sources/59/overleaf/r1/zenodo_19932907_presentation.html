@@ -1,0 +1,1105 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>0-Sphere Model — Series Overview & Bird's Eye View</title>
+<link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.css">
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/katex.min.js"></script>
+<script defer src="https://cdn.jsdelivr.net/npm/katex@0.16.11/dist/contrib/auto-render.min.js"
+  onload="renderMathInElement(document.body, {
+    delimiters: [
+      {left: '$$', right: '$$', display: true},
+      {left: '$', right: '$', display: false}
+    ]
+  });"></script>
+<style>
+  @import url('https://fonts.googleapis.com/css2?family=Noto+Sans+JP:wght@300;400;500;600;700&display=swap');
+
+  :root {
+    --primary-blue: #003d82;
+    --bg-page: #f8f8f8;
+    --bg-card: #f5f5f5;
+    --bg-table-alt: #f9f9f9;
+    --bg-insight: #f5f7fa;
+    --text-heading: #000;
+    --text-body: #333;
+    --text-secondary: #555;
+    --text-tertiary: #666;
+    --text-meta: #999;
+    --border-strong: #000;
+    --border-primary: #ddd;
+    --border-light: #e8e8e8;
+    --accent-dark: #333;
+    --thread-blue: #003d82;
+    --thread-green: #1a6b3a;
+    --thread-purple: #5b2d8e;
+    --thread-orange: #b85c00;
+    --thread-red: #a01e1e;
+    --thread-teal: #0d6e6e;
+    --bg-blue: #f0f4fa;
+    --bg-green: #eef7f0;
+    --bg-purple: #f3eef9;
+    --bg-orange: #fdf3e3;
+    --bg-warning: #fff8e6;
+    --bg-teal: #e8f5f5;
+  }
+
+  * { margin: 0; padding: 0; box-sizing: border-box; }
+
+  body {
+    font-family: 'Helvetica Neue', Arial, 'Noto Sans JP', sans-serif;
+    background: var(--bg-page);
+    color: var(--text-body);
+    font-size: 13px;
+    line-height: 1.7;
+    -webkit-font-smoothing: antialiased;
+  }
+
+  .page {
+    background: white;
+    max-width: 1400px;
+    margin: 20px auto;
+    padding: 60px 80px;
+    box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+  }
+
+  /* HEADER */
+  .header {
+    border-bottom: 2px solid var(--border-strong);
+    padding-bottom: 25px;
+    margin-bottom: 50px;
+  }
+  .header h1 {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 30px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 8px;
+    letter-spacing: -0.5px;
+    line-height: 1.25;
+  }
+  .header .subtitle {
+    font-size: 14px;
+    color: var(--text-tertiary);
+    font-weight: 400;
+    margin-bottom: 4px;
+  }
+  .header .meta {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 10px;
+    font-size: 11px;
+    color: var(--text-meta);
+  }
+
+  /* SECTION TITLES */
+  .section-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 18px;
+    margin-top: 10px;
+    border-bottom: 1px solid var(--border-primary);
+    padding-bottom: 8px;
+  }
+  .section-title .section-num {
+    color: var(--primary-blue);
+    font-size: 14px;
+    font-family: 'Helvetica Neue', Arial, sans-serif;
+    font-weight: 600;
+    margin-right: 8px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .subsection-title {
+    font-family: 'Times New Roman', Times, serif;
+    font-size: 15px;
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 12px;
+    margin-top: 4px;
+  }
+
+  /* GRID */
+  .grid-layout {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-bottom: 50px;
+  }
+  .grid-3 {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    gap: 24px;
+    margin-bottom: 40px;
+  }
+  .full-width { margin-bottom: 50px; }
+
+  /* METRICS */
+  .metrics-row {
+    display: grid;
+    grid-template-columns: repeat(5, 1fr);
+    gap: 16px;
+    margin-bottom: 50px;
+  }
+  .key-metric {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    padding: 20px 12px;
+    text-align: center;
+  }
+  .metric-number {
+    font-size: 38px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    line-height: 1;
+    margin-bottom: 8px;
+    font-family: 'Times New Roman', serif;
+  }
+  .metric-label {
+    font-size: 10px;
+    color: var(--text-tertiary);
+    font-weight: 600;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+  }
+  .metric-sublabel {
+    font-size: 10px;
+    color: var(--text-meta);
+    margin-top: 4px;
+  }
+
+  /* DATA TABLES */
+  .data-table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-bottom: 20px;
+    font-size: 12.5px;
+  }
+  .data-table th {
+    background: var(--primary-blue);
+    color: white;
+    padding: 10px 14px;
+    text-align: left;
+    font-weight: 600;
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    border: 1px solid var(--primary-blue);
+  }
+  .data-table td {
+    padding: 10px 14px;
+    border: 1px solid var(--border-primary);
+    color: var(--text-body);
+    vertical-align: top;
+  }
+  .data-table tr:nth-child(even) { background: var(--bg-table-alt); }
+  .data-table .number { text-align: right; font-weight: 600; color: var(--text-heading); }
+  .data-table .center { text-align: center; }
+  .data-table .done { color: var(--thread-green); font-weight: 700; }
+  .data-table .open { color: var(--thread-red); font-weight: 700; }
+
+  /* THREAD BOXES */
+  .thread-box {
+    border-left: 4px solid;
+    padding: 14px 18px;
+    margin-bottom: 14px;
+    font-size: 13px;
+  }
+  .thread-box.blue   { border-color: var(--thread-blue);   background: var(--bg-blue); }
+  .thread-box.green  { border-color: var(--thread-green);  background: var(--bg-green); }
+  .thread-box.purple { border-color: var(--thread-purple); background: var(--bg-purple); }
+  .thread-box.orange { border-color: var(--thread-orange); background: var(--bg-orange); }
+  .thread-box.red    { border-color: var(--thread-red);    background: var(--bg-warning); }
+  .thread-box.teal   { border-color: var(--thread-teal);   background: var(--bg-teal); }
+  .thread-box .box-title {
+    font-weight: 700;
+    margin-bottom: 6px;
+    font-size: 13px;
+  }
+  .thread-box.blue   .box-title { color: var(--thread-blue); }
+  .thread-box.green  .box-title { color: var(--thread-green); }
+  .thread-box.purple .box-title { color: var(--thread-purple); }
+  .thread-box.orange .box-title { color: var(--thread-orange); }
+  .thread-box.red    .box-title { color: var(--thread-red); }
+  .thread-box.teal   .box-title { color: var(--thread-teal); }
+
+  /* CHAIN */
+  .chain-container {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    gap: 0;
+    margin-bottom: 30px;
+  }
+  .chain-node {
+    border: 2px solid;
+    border-radius: 4px;
+    padding: 12px 18px;
+    width: 100%;
+    font-size: 12.5px;
+    line-height: 1.6;
+  }
+  .chain-node .chain-tag {
+    font-weight: 700;
+    font-size: 13px;
+    margin-bottom: 4px;
+  }
+  .chain-node .chain-result { font-style: italic; color: var(--text-secondary); }
+  .chain-node .chain-open { color: var(--thread-red); font-style: italic; font-size: 11.5px; margin-top: 4px; }
+  .chain-arrow {
+    width: 2px;
+    height: 20px;
+    background: var(--accent-dark);
+    position: relative;
+  }
+  .chain-arrow::after {
+    content: '';
+    position: absolute;
+    bottom: -4px;
+    left: -4px;
+    width: 0; height: 0;
+    border-left: 5px solid transparent;
+    border-right: 5px solid transparent;
+    border-top: 6px solid var(--accent-dark);
+  }
+
+  /* EQUATION BOX */
+  .eq-box {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    border-left: 4px solid var(--primary-blue);
+    padding: 14px 20px;
+    margin: 14px 0;
+    text-align: center;
+    overflow-x: auto;
+  }
+  .eq-label {
+    font-size: 10px;
+    color: var(--text-meta);
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    font-weight: 600;
+    text-align: left;
+  }
+
+  /* INSIGHT BOX */
+  .insight-box {
+    background: var(--bg-insight);
+    border: 1px solid var(--border-primary);
+    padding: 16px 22px;
+    margin: 14px 0;
+    font-size: 13px;
+  }
+  .insight-box .insight-title {
+    font-weight: 700;
+    color: var(--primary-blue);
+    font-size: 11px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+  }
+
+  /* STEP LIST */
+  .step-list { counter-reset: step-counter; list-style: none; padding: 0; margin-bottom: 16px; }
+  .step-list li {
+    counter-increment: step-counter;
+    padding: 9px 12px 9px 44px;
+    position: relative;
+    margin-bottom: 5px;
+    border-left: 2px solid var(--border-light);
+    font-size: 12.5px;
+  }
+  .step-list li::before {
+    content: counter(step-counter);
+    position: absolute;
+    left: 9px;
+    top: 9px;
+    width: 22px; height: 22px;
+    background: var(--primary-blue);
+    color: white;
+    border-radius: 50%;
+    text-align: center;
+    line-height: 22px;
+    font-size: 10px;
+    font-weight: 700;
+  }
+  .step-list li strong { color: var(--text-heading); }
+
+  /* VS COLUMNS */
+  .vs-container {
+    display: grid;
+    grid-template-columns: 1fr auto 1fr;
+    gap: 0;
+    margin: 14px 0;
+    align-items: start;
+  }
+  .vs-col {
+    padding: 14px 16px;
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    font-size: 12.5px;
+  }
+  .vs-col .vs-label {
+    font-weight: 700;
+    font-size: 10px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-bottom: 8px;
+    color: var(--text-meta);
+  }
+  .vs-divider {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 18px;
+    font-weight: 700;
+    color: var(--primary-blue);
+    padding: 0 8px;
+    min-height: 60px;
+  }
+
+  /* PAPER CARD */
+  .paper-card {
+    border: 1px solid var(--border-primary);
+    padding: 14px 16px;
+    margin-bottom: 14px;
+    font-size: 12.5px;
+    position: relative;
+  }
+  .paper-card .paper-num {
+    display: inline-block;
+    background: var(--primary-blue);
+    color: white;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    margin-bottom: 6px;
+    letter-spacing: 0.5px;
+  }
+  .paper-card .paper-title {
+    font-weight: 700;
+    color: var(--text-heading);
+    margin-bottom: 4px;
+    font-size: 12.5px;
+  }
+  .paper-card .paper-claim {
+    color: var(--text-secondary);
+    font-size: 12px;
+  }
+  .paper-card .paper-doi {
+    color: var(--text-meta);
+    font-size: 11px;
+    margin-top: 4px;
+  }
+
+  /* CHECK ITEM */
+  .check-item { margin-bottom: 4px; font-size: 12.5px; }
+  .check-item .done { color: var(--thread-green); font-weight: 700; }
+  .check-item .open { color: var(--thread-red); font-weight: 700; }
+
+  /* MAP: paper relationship diagram */
+  .map-container {
+    background: var(--bg-card);
+    border: 1px solid var(--border-primary);
+    padding: 24px;
+    margin-bottom: 30px;
+    overflow-x: auto;
+  }
+
+  /* PAGE BREAK */
+  .page-break {
+    border-top: 1px solid var(--border-light);
+    margin: 50px 0;
+  }
+
+  /* FOOTER */
+  .footer {
+    margin-top: 50px;
+    padding-top: 18px;
+    border-top: 1px solid var(--border-strong);
+    font-size: 10px;
+    color: var(--text-meta);
+    display: flex;
+    justify-content: space-between;
+  }
+
+  /* MATH */
+  .katex { font-size: 1.05em; }
+  .eq-box .katex { font-size: 1.15em; }
+
+  /* FRAMEWORK BADGE */
+  .badge {
+    display: inline-block;
+    font-size: 10px;
+    font-weight: 700;
+    padding: 2px 8px;
+    text-transform: uppercase;
+    letter-spacing: 0.5px;
+    margin-left: 6px;
+    vertical-align: middle;
+  }
+  .badge-blue   { background: var(--thread-blue);   color: white; }
+  .badge-green  { background: var(--thread-green);  color: white; }
+  .badge-purple { background: var(--thread-purple); color: white; }
+  .badge-orange { background: var(--thread-orange); color: white; }
+  .badge-teal   { background: var(--thread-teal);   color: white; }
+  .badge-grey   { background: #888; color: white; }
+
+  @media (max-width: 900px) {
+    .page { padding: 30px 20px; }
+    .grid-layout { grid-template-columns: 1fr; gap: 24px; }
+    .grid-3 { grid-template-columns: 1fr; }
+    .metrics-row { grid-template-columns: 1fr 1fr; }
+    .header h1 { font-size: 22px; }
+    .vs-container { grid-template-columns: 1fr; }
+  }
+
+  @media print {
+    body { background: white; }
+    .page { box-shadow: none; margin: 0; padding: 40px 50px; }
+    .page-break { page-break-before: always; border: none; margin: 0; padding-top: 30px; }
+  }
+</style>
+</head>
+<body>
+<div class="page">
+
+<!-- ═══════════ HEADER ═══════════ -->
+<div class="header">
+  <h1>The 0-Sphere Model — Series Overview &amp; Bird's Eye View</h1>
+  <div class="subtitle">A Conceptual Guide to the Research Programme: From the Hamiltonian Identity to Gravitational Radiation, Chirality, and the Arrow of Time</div>
+  <div class="meta">
+    <span>Satoshi Hanamura &nbsp;|&nbsp; hana.tensor@gmail.com</span>
+    <span>Papers #01 – #59 &nbsp;|&nbsp; Zenodo Series (2018 – 2026)</span>
+    <span>May 2026</span>
+  </div>
+</div>
+
+<!-- ═══════════ §0 EXECUTIVE SUMMARY ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 0</span> Central Thesis</div>
+  <div class="insight-box">
+    <div class="insight-title">One-Sentence Summary</div>
+    The electron contains an internal two-kernel architecture whose geometric dynamics — encoded in a single Hamiltonian identity — give rise, without free parameters, to spin, the anomalous magnetic moment, Zitterbewegung, the arrow of time, gravitational radiation, and the spacetime metric.
+  </div>
+
+  <div class="grid-layout" style="margin-top:24px;">
+    <div>
+      <p style="margin-bottom:12px;">The 0-Sphere Model is an independent research programme begun in 2018. Its central claim is that the electron is not a point particle but a <strong>two-kernel system</strong>: two thermodynamic "black-body" kernels (A and B) connected by an oscillating photon sphere. The entire programme is derived from a single Hamiltonian identity — an algebraic energy-conservation constraint — without introducing new fields, new particles, or free parameters.</p>
+      <p>Two characteristics distinguish this framework from mainstream approaches: (1) it is <em>non-perturbative</em> — the geometry is exact, not an expansion; (2) it employs a <em>directed-path (line-integral) ontology</em> — the primary physical observables are phase accumulations along trajectories, not field values at points.</p>
+    </div>
+    <div>
+      <div class="thread-box blue">
+        <div class="box-title">What the Model Derives (Selection)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;Spin $s = 1/2$ from internal Berry phase (#26, #48)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;$g = 2$ as geometric theorem via U(1) bundle (#48)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;$a_e$ from Lorentz contraction of helical arc (#10, #47)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;Zero-point energy $\tfrac{1}{2}\hbar\omega$ from AM-GM floor (#46)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;Arrow of time from topological chirality (#56)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;Spacetime metric from phase accumulation functional (#51)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;WEP as $\lambda_C$-cancellation identity (#52)</div>
+        <div class="check-item"><span class="done">&#10003;</span> &nbsp;Gravitational mediator as photon-sphere fragment (#49)</div>
+        <div class="check-item"><span class="open">&#9675;</span> &nbsp;Newton's constant $G$ from pair emission rate (#58)</div>
+        <div class="check-item"><span class="open">&#9675;</span> &nbsp;Rank-2 tensor proof for spin-2 character (#58)</div>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §1 THE FOUNDATIONAL EQUATION ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 1</span> The Foundational Equation — Everything Starts Here</div>
+</div>
+
+<div class="grid-layout">
+  <div>
+    <p style="margin-bottom:12px;">All results in the 0-Sphere programme are derived from a single algebraic identity introduced in Paper #01 (2018). It distributes the total internal energy $E_0$ among three components:</p>
+
+    <div class="eq-box">
+      <div class="eq-label">Hamiltonian Identity (Paper #01)</div>
+      $$E_0 = \underbrace{E_0\cos^4\!\!\left(\frac{\theta}{2}\right)}_{Te_1\;(\text{Kernel A})} + \underbrace{E_0\sin^4\!\!\left(\frac{\theta}{2}\right)}_{Te_2\;(\text{Kernel B})} + \underbrace{\frac{E_0}{2}\sin^2\!\theta}_{E_\mathrm{ph}\;(\text{photon sphere KE})}$$
+    </div>
+
+    <p style="margin-bottom:10px;">Here $\theta = \omega\tau$ is the internal phase (proper time), advancing monotonically. The three components satisfy $E_0 \equiv 1$ for all $\theta$ — a topological identity, not a dynamic equilibrium.</p>
+
+    <div class="eq-box">
+      <div class="eq-label">AM-GM Floor (Paper #46)</div>
+      $$Te_1 + Te_2 = E_0\!\left[\cos^4\!\tfrac{\theta}{2} + \sin^4\!\tfrac{\theta}{2}\right] \geq \frac{E_0}{2}$$
+    </div>
+    <p>The kernel pair always retains at least $E_0/2$ — the geometric zero-point energy. This floor is the origin of $\tfrac{1}{2}\hbar\omega$ in quantum mechanics, derived algebraically rather than from Heisenberg uncertainty.</p>
+  </div>
+
+  <div>
+    <div class="subsection-title">What the Identity Controls</div>
+    <table class="data-table">
+      <thead>
+        <tr><th>Property</th><th>Source in the Identity</th><th>Paper</th></tr>
+      </thead>
+      <tbody>
+        <tr><td>Zero-point energy $\tfrac{1}{2}\hbar\omega$</td><td>AM-GM floor on $\cos^4 + \sin^4$</td><td>#46</td></tr>
+        <tr><td>Ejection threshold $E_0/2$</td><td>Max of $E_\mathrm{ph}(\pi/2) = E_0/2$</td><td>#49</td></tr>
+        <tr><td>NESS structure</td><td>$E_0 \equiv 1$ = active steady state, not equilibrium</td><td>#56</td></tr>
+        <tr><td>Phase stability of pair</td><td>Boundary reset at $\theta = n\pi$: $E_\mathrm{kernel}=E_0$ (100%)</td><td>#58</td></tr>
+        <tr><td>Magnetic monopole absence</td><td>Single/paired asymmetry of KE vs.\ PE terms</td><td>#42</td></tr>
+        <tr><td>Quadrupole selection rule</td><td>Paired spatial terms generate irreducible quadrupole</td><td>#59</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box">
+      <div class="insight-title">Active NESS Gateway (Paper #56, extending #49)</div>
+      The identity $E_0 \equiv 1$ is not a passive algebraic wall. It controls the <em>sole external-interaction channel</em>: at $n=0$ (ground state), the Thomas-precession stress exactly saturates the $E_0/2$ floor — threshold met but not exceeded — and no fragment is released. At $n \geq 1$, the surplus permits ejection $n \to n-1$, actively restoring the ground-state NESS. The identity is a dynamical gateway, not merely a constraint.
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §2 THE FRAMEWORK BOUNDARY ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 2</span> The Framework Boundary — The Central Conceptual Choice</div>
+  <p style="margin-bottom:18px;">The entire series is built on a single prior choice: <strong>which quantities carry primary physical information?</strong> Two mutually exclusive answers define two frameworks. The 0-Sphere programme belongs firmly to the directed-path framework.</p>
+</div>
+
+<div class="vs-container" style="margin-bottom:30px;">
+  <div class="vs-col">
+    <div class="vs-label">Local-Field Framework (Standard)</div>
+    <strong>Primary quantity:</strong> field value $\phi(x)$ at spacetime point $x$<br><br>
+    <strong>Observables:</strong> functions of local field values at specific instants<br><br>
+    <strong>Global/topological properties:</strong> secondary — derived from local values<br><br>
+    <strong>Reading of $\sum_k\sin(4b_k)=0$:</strong><br>
+    Internal modes exert zero net torque $\Rightarrow$ modes decouple $\Rightarrow$ internal structure is unobservable<br><br>
+    <strong>Arrow of time:</strong> assumes microscopic reversibility; derives irreversibility statistically (Boltzmann) or cosmologically (Penrose)
+  </div>
+  <div class="vs-divider">&#8800;</div>
+  <div class="vs-col">
+    <div class="vs-label">Directed-Path (Line-Integral) Framework — 0-Sphere Programme</div>
+    <strong>Primary quantity:</strong> phase $\Phi(\gamma) = \int_\gamma \omega$ along directed path $\gamma$ <span class="badge badge-blue">#31</span><br><br>
+    <strong>Observables:</strong> accumulated phase along physically realized trajectories<br><br>
+    <strong>Local field values:</strong> secondary — infinitesimal densities from which $\Phi$ is assembled<br><br>
+    <strong>Reading of $\sum_k\sin(4b_k)=0$:</strong><br>
+    Zero net torque $\Rightarrow$ chirality $\chi = \mathrm{sign}(da/dt)$ is <em>protected</em> from mode disruption $\Rightarrow$ thermal geodesic carries stable directed history <span class="badge badge-blue">#56</span><br><br>
+    <strong>Arrow of time:</strong> denies microscopic reversibility at single-particle level; chirality $\chi$ is topologically protected
+  </div>
+</div>
+
+<div class="grid-layout">
+  <div>
+    <div class="thread-box blue">
+      <div class="box-title">Empirical Anchor: The Aharonov-Bohm Effect</div>
+      Inside the solenoid: $\mathbf{B} = 0$ identically.<br>
+      Yet the electron acquires $\Phi = (e/\hbar)\oint\mathbf{A}\cdot d\mathbf{l} \neq 0$, measurable as interference.<br>
+      <strong>Local-field framework:</strong> $\Phi$ is an artifact of the gauge potential — not physically real.<br>
+      <strong>Directed-path framework:</strong> $\Phi$ is the primary observable; that $\mathbf{B}=0$ along the path is irrelevant.
+    </div>
+    <p style="margin-top:10px;">Wilson loops (gauge theory) and Berry phases (quantum mechanics) are further instances of the same class of directed-path observables invisible to local descriptions. <span class="badge badge-blue">#31</span></p>
+
+    <div class="thread-box green" style="margin-top:14px;">
+      <div class="box-title">Historical Analogy: Particle Methods in Fluid Mechanics</div>
+      Eulerian CFD (field values at fixed grid points) cannot easily capture free surfaces, spray, interfacial discontinuities.<br>
+      Particle methods (SPH, MPS) follow fluid elements along trajectories — a Lagrangian viewpoint — and make these phenomena accessible.<br><br>
+      <strong>The 0-Sphere framework stands on the same side as particle methods: histories accumulated along trajectories, not field values at points.</strong> <span class="badge badge-blue">#55</span>
+    </div>
+  </div>
+
+  <div>
+    <div class="subsection-title">The Zero Integral Torque Identity as Branching Point <span class="badge badge-blue">#56</span></div>
+    <div class="eq-box">
+      <div class="eq-label">Zero Integral Torque Identity (Paper #50)</div>
+      $$\sum_{k=0}^{n-1}\sin(4b_k) = 0 \quad (b_k = k\pi/n,\; n\geq 2)$$
+    </div>
+    <p style="margin-bottom:10px;">This identity is a Fourier cancellation. Its physical interpretation depends entirely on the framework:</p>
+    <table class="data-table">
+      <thead>
+        <tr><th></th><th>Local-field reading</th><th>Directed-path reading</th></tr>
+      </thead>
+      <tbody>
+        <tr><td><strong>Meaning</strong></td><td>Internal modes decouple from global phase $a$ — internal structure unobservable</td><td>Mode ensemble exerts zero net torque — chirality $\chi$ is <em>protected</em> from disruption</td></tr>
+        <tr><td><strong>Conclusion</strong></td><td>Internal structure may be ignored</td><td>Thermal geodesic carries topologically stable directed history</td></tr>
+        <tr><td><strong>Arrow of time</strong></td><td>Invisible</td><td>Encoded in sign of $da/dt$</td></tr>
+      </tbody>
+    </table>
+    <div class="insight-box" style="margin-top:12px;">
+      <div class="insight-title">The Branching Point Principle</div>
+      The same identity $\sum_k\sin(4b_k)=0$ is simultaneously a <em>decoupling certificate</em> (local-field) and a <em>topological protection certificate</em> (directed-path). Both readings are mathematically correct. The divergence lies in the prior question each framework brings: <em>what kind of physical information matters?</em>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §3 PAPER CHAIN ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 3</span> The Logic of the Series — Key Paper Chain</div>
+</div>
+
+<div class="grid-layout">
+  <div>
+    <div class="subsection-title">Thread A: Geometry, Topology, and the Arrow of Time</div>
+
+    <div class="chain-container">
+      <div class="chain-node" style="border-color:var(--accent-dark); background:var(--bg-card);">
+        <div class="chain-tag" style="color:var(--accent-dark);">#01 — Foundation (2018)</div>
+        Two-kernel electron model. Hamiltonian identity $E_0 = Te_1 + Te_2 + E_\mathrm{ph}$. Stefan-Boltzmann coupling.
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-blue); background:var(--bg-blue);">
+        <div class="chain-tag" style="color:var(--thread-blue);">#31 — Line Integrals as Primary Observables</div>
+        <span class="chain-result">Unified principle: AB effect, Berry phase, Wilson loops all arise from $\int_\gamma\omega$. Local tensors are secondary descriptors.</span>
+        <div class="chain-open">Opens: Programme of replacing $\phi(x)$ with directed path histories as primary physics.</div>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-blue); background:var(--bg-blue);">
+        <div class="chain-tag" style="color:var(--thread-blue);">#45 — Holonomy Sufficiency &amp; Torsion Status</div>
+        <span class="chain-result">SU(2) holonomy from $4\pi$ periodicity and ordered-path constraint is sufficient for directed transport; torsion is not a logical necessity.</span>
+        <div class="chain-open">Opens: Is the spinorial arc-length directed (semigroup) rather than invertible (group)?</div>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-purple); background:var(--bg-purple);">
+        <div class="chain-tag" style="color:var(--thread-purple);">#48 — U(1) Fiber Bundle &amp; $g=2$ as Theorem</div>
+        <span class="chain-result">$2\pi$ periodicity of $E_\mathrm{ph}$ → principal U(1) bundle → Berry holonomy $\gamma_\mathrm{intrinsic}=\pi$ → $g_\mathrm{CM}=2$ (proved, not assumed). Lorentz boost → $g_\mathrm{lab}=2(1+a_e)$.</span>
+        <div class="chain-open">Opens: Spin-2 candidate from $\pi$-periodicity of $\Omega_T$; forward derivation of $v_\mathrm{ZB}$ independent of $a_e$.</div>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-green); background:var(--bg-green);">
+        <div class="chain-tag" style="color:var(--thread-green);">#50 — Rotation from Scalar Oscillation</div>
+        <span class="chain-result">Chirality $\chi=\mathrm{sign}(da/dt)$ is Lorentz-invariant topological binary. Phase-staggered oscillators → AM-GM centroid $r_\mathrm{cm}=1/2$. Zero integral torque identity.</span>
+        <div class="chain-open">Opens: Full topological protection of $\chi$; arrow of time.</div>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-red); background:var(--bg-warning);">
+        <div class="chain-tag" style="color:var(--thread-red);">#56 — Arrow of Time (New)</div>
+        <span class="chain-result">Microscopic irreversibility at single-particle level. $\chi$ is topologically protected: $\chi=0$ excluded, time-reversed state dynamically unreachable. $E_0\equiv 1$ is an active NESS gateway. Zero integral torque = branching point between frameworks.</span>
+        <div class="chain-open">Opens: Many-body extension; $\chi$ of positron ($\chi=-1$) circular polarization asymmetry.</div>
+      </div>
+    </div>
+  </div>
+
+  <div>
+    <div class="subsection-title">Thread B: Wilson Line and Metric Emergence</div>
+
+    <div class="chain-container">
+      <div class="chain-node" style="border-color:var(--thread-purple); background:var(--bg-purple);">
+        <div class="chain-tag" style="color:var(--thread-purple);">#51 — Helical Trajectory &amp; Spacetime Metric</div>
+        <span class="chain-result">Two velocity scales: $v_\mathrm{ZB}\approx 0.04c$ (transverse), $v_\mathrm{pitch}\sim c$ (axial). Bonnet-Myers → confinement $\mathcal{D}$ as theorem. Phase functional $\mathcal{S}(x_A,x_B)\leftrightarrow$ Synge world function → $g_{\mu\nu}$ emerges.</span>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-purple); background:var(--bg-purple);">
+        <div class="chain-tag" style="color:var(--thread-purple);">#55 — Four Functions of the Open Wilson Line (New)</div>
+        <span class="chain-result">$\mathcal{W}[A\to A']$ simultaneously: (i) phase-history carrier, (ii) gauge localization at endpoints, (iii) holonomy composition, (iv) boundary data → Maxwell sector (path variation) + metric sector (endpoint variation).</span>
+        <div class="chain-open">Opens: Wilson-line action principle; non-Abelian SU(2) extension; curved-space Synge completion.</div>
+      </div>
+    </div>
+
+    <div class="subsection-title" style="margin-top:20px;">Thread C: Gravitational Physics</div>
+
+    <div class="chain-container">
+      <div class="chain-node" style="border-color:var(--thread-orange); background:var(--bg-orange);">
+        <div class="chain-tag" style="color:var(--thread-orange);">#49 — Photon-Sphere Fragmentation as Gravitational Mediator</div>
+        <span class="chain-result">Ejection at $\theta=\pi/2$: $E_\mathrm{ph}(\pi/2)=E_0/2=E_\mathrm{bind}$. Fragment carries $\hbar\omega$ and $\pi$-periodic $\Omega_T$ phase structure. $n=0$: no ejection (NESS sealed). $n\geq1$: de-excitation $n\to n-1$.</span>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-orange); background:var(--bg-orange);">
+        <div class="chain-tag" style="color:var(--thread-orange);">#57 — $Y_\ell^m$ Imprinting &amp; GR Extension (New)</div>
+        <span class="chain-result">$\nu_\mathrm{ZB}^\mathrm{local}$ imprinted on photon sphere as $Y_\ell^m$ mode. Metronome analogy elevated to physical mechanism. GR extension: $a_e^\mathrm{local}=a_e^\mathrm{flat}(1-2\Phi)$. Prediction: $\delta a_e\approx 6\times10^{-13}$ at GPS altitude.</span>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-orange); background:var(--bg-orange);">
+        <div class="chain-tag" style="color:var(--thread-orange);">#58 — Spin-2 Structure of Gravitational Mediator (New)</div>
+        <span class="chain-result">$\pi$-periodicity of $\Omega_T$ → two ejection events per ZB cycle ($\theta=\pi/2$ and $3\pi/2$). Phase-stable pair → symmetric rank-2 polarization tensor. Quadrupole moment $Q_{ij}\propto\cos(\omega_\mathrm{ZB}t)$ → matches GR quadrupole formula.</span>
+      </div>
+      <div class="chain-arrow"></div>
+      <div class="chain-node" style="border-color:var(--thread-orange); background:var(--bg-orange);">
+        <div class="chain-tag" style="color:var(--thread-orange);">#59 — Proton-Trapped Electron as Gravitational Antenna (New)</div>
+        <span class="chain-result">Free electron: ZB axis precesses (period $T_\mathrm{prec}\approx5\times10^{-16}$s) → quadrupole averages to zero. Proton Coulomb well: axis locking → directed $Q_{ij}$. Hydrogen atom = minimal gravitational antenna. Endpoint variation → $g_{\mu\nu}$ (Prop. 4.2).</span>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §4 KEY EQUATIONS ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 4</span> Key Equations at a Glance</div>
+</div>
+
+<div class="grid-3">
+  <div>
+    <div class="thread-box blue">
+      <div class="box-title">Chirality &amp; Arrow of Time <span class="badge badge-blue">#56</span></div>
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Chirality (Lorentz-invariant)</div>
+      $$\chi \equiv \mathrm{sign}\!\left(\frac{da}{dt}\right) \in \{+1, -1\}$$
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Topological Protection</div>
+      $$\chi = 0\;\text{excluded from physical state space}$$
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Time Reversal</div>
+      $$\mathcal{T}: \chi \to -\chi,\quad\text{but reversed state unreachable}$$
+    </div>
+    <p style="font-size:12px; color:var(--text-secondary); margin-top:6px;">The time-reversed state is not just improbable (Boltzmann) or cosmologically forbidden (Penrose) — it is <em>dynamically unreachable</em> within the physical state space.</p>
+  </div>
+
+  <div>
+    <div class="thread-box purple">
+      <div class="box-title">Wilson Line &amp; Metric Emergence <span class="badge badge-purple">#51</span> <span class="badge badge-purple">#55</span></div>
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Phase Accumulation Functional</div>
+      $$\mathcal{W}[A\to A'] = \int_A^{A'} \Pi \equiv \mathcal{S}(x_A, x_B)$$
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Metric Emergence (Synge Reconstruction)</div>
+      $$g_{\mu\nu}(x) = \left.\partial_{A\mu}\partial_{B\nu}\,\mathcal{S}_s(x_A,x_B)\right|_{x_A=x_B=x}$$
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Dual Sector Bifurcation <span style="font-weight:400;">(#55, #59)</span></div>
+      $$\delta_\mathrm{path}\,\mathcal{S} \;\to\; F_{\mu\nu}\;(\text{EM}),\quad \delta_\mathrm{endpoint}\,\mathcal{S} \;\to\; g_{\mu\nu}\;(\text{gravity})$$
+    </div>
+    <p style="font-size:12px; color:var(--text-secondary); margin-top:6px;">Path deformation at fixed endpoints → electromagnetic curvature. Endpoint variation at fixed path → spacetime metric.</p>
+  </div>
+
+  <div>
+    <div class="thread-box orange">
+      <div class="box-title">Gravitational Radiation <span class="badge badge-orange">#49</span> <span class="badge badge-orange">#58</span></div>
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Thomas Angular Velocity</div>
+      $$\boldsymbol{\Omega}_T(\theta) = -\frac{v_\mathrm{ZB}^2\,\omega_\mathrm{ZB}}{4c^2}\sin(2\theta)\,\hat{e}_z$$
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Ejection Threshold</div>
+      $$E_\mathrm{ph}(\pi/2) = E_\mathrm{ph}(3\pi/2) = \frac{E_0}{2} = E_\mathrm{bind}$$
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">Quadrupole Moment (H-atom)</div>
+      $$Q_{ij}(t) \propto \cos(\omega_\mathrm{ZB}\,t)\;\hat{r}_i\hat{r}_j$$
+    </div>
+    <div class="eq-box">
+      <div class="eq-label">GW Power (standard formula)</div>
+      $$P_\mathrm{GW} \propto \left\langle\dddot{Q}_{ij}\dddot{Q}^{ij}\right\rangle$$
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §5 PAPER MAP ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 5</span> Paper Dependency Map — Key Papers in This Guide</div>
+</div>
+
+<table class="data-table" style="margin-bottom:30px;">
+  <thead>
+    <tr>
+      <th style="width:7%">#</th>
+      <th style="width:28%">Title (abbreviated)</th>
+      <th style="width:20%">Central Claim</th>
+      <th style="width:18%">Cites</th>
+      <th style="width:14%">Cited by</th>
+      <th style="width:13%">Status</th>
+    </tr>
+  </thead>
+  <tbody>
+    <tr>
+      <td class="center"><strong>#01</strong></td>
+      <td>Two Perfect Black Bodies</td>
+      <td>Hamiltonian identity; Stefan-Boltzmann coupling</td>
+      <td>—</td>
+      <td>#31, #45–#59 (all)</td>
+      <td class="done">DOI established</td>
+    </tr>
+    <tr>
+      <td class="center"><strong>#31</strong></td>
+      <td>Line Integrals as Primary Observables</td>
+      <td>AB, Berry, Wilson loops unified by $\int_\gamma\omega$</td>
+      <td>#01</td>
+      <td>#55, #56, #57</td>
+      <td class="done">DOI established</td>
+    </tr>
+    <tr>
+      <td class="center"><strong>#45</strong></td>
+      <td>Open-Path Spinorial Transport &amp; Torsion Status</td>
+      <td>SU(2) holonomy sufficient; torsion not necessary</td>
+      <td>#01, #31, #29</td>
+      <td>#56, #58</td>
+      <td class="done">DOI established</td>
+    </tr>
+    <tr>
+      <td class="center"><strong>#48</strong></td>
+      <td>Geometric Origin of $g=2$; U(1) Bundle</td>
+      <td>Berry holonomy $\gamma=\pi$ → $g_\mathrm{CM}=2$ (theorem)</td>
+      <td>#01, #19, #26</td>
+      <td>#49, #50, #56, #57, #58</td>
+      <td class="done">DOI established</td>
+    </tr>
+    <tr>
+      <td class="center"><strong>#49</strong></td>
+      <td>Photon-Sphere Fragmentation</td>
+      <td>Ejection at $\theta=\pi/2$; ZPE floor; UV cutoff</td>
+      <td>#01, #33, #46, #48</td>
+      <td>#56, #57, #58, #59</td>
+      <td class="done">DOI established</td>
+    </tr>
+    <tr>
+      <td class="center"><strong>#50</strong></td>
+      <td>Rotation from Scalar Oscillation</td>
+      <td>Chirality $\chi$; zero integral torque; $r_\mathrm{cm}=1/2$</td>
+      <td>#01, #48, #49</td>
+      <td>#56, #58</td>
+      <td class="done">DOI established</td>
+    </tr>
+    <tr>
+      <td class="center"><strong>#51</strong></td>
+      <td>Helical Trajectory &amp; Metric Emergence</td>
+      <td>$\mathcal{S}\leftrightarrow$ Synge $\sigma$ → $g_{\mu\nu}$ emerges</td>
+      <td>#01, #33, #50</td>
+      <td>#55, #59</td>
+      <td class="done">DOI established</td>
+    </tr>
+    <tr style="background:var(--bg-blue);">
+      <td class="center"><strong>#55</strong></td>
+      <td>Four Functions of Open Wilson Line</td>
+      <td>$\mathcal{W}[A\to A']$: history / gauge / holonomy / dual sector</td>
+      <td>#31, #51, #29, #43</td>
+      <td>#56, #57, #59</td>
+      <td class="open">DOI Pending</td>
+    </tr>
+    <tr style="background:var(--bg-warning);">
+      <td class="center"><strong>#56</strong></td>
+      <td>Arrow of Time; Topological Chirality</td>
+      <td>$\chi$ topologically protected; time-reversed state unreachable</td>
+      <td>#31, #45, #48, #49, #50, #55</td>
+      <td>#57, #58, #59</td>
+      <td class="open">DOI Pending</td>
+    </tr>
+    <tr style="background:var(--bg-orange);">
+      <td class="center"><strong>#57</strong></td>
+      <td>$Y_\ell^m$ Imprinting; GR Extension</td>
+      <td>$\nu_\mathrm{ZB}^\mathrm{local}$ imprinted on photon sphere; $\delta a_e$ prediction</td>
+      <td>#34, #48, #49, #31, #55, #56</td>
+      <td>#58, #59</td>
+      <td class="open">DOI Pending</td>
+    </tr>
+    <tr style="background:var(--bg-orange);">
+      <td class="center"><strong>#58</strong></td>
+      <td>Spin-2 Structure of Gravitational Mediator</td>
+      <td>Phase-stable pair → rank-2 tensor; quadrupole matches GR</td>
+      <td>#48, #49, #50, #45, #56</td>
+      <td>#59</td>
+      <td class="open">DOI Pending</td>
+    </tr>
+    <tr style="background:var(--bg-orange);">
+      <td class="center"><strong>#59</strong></td>
+      <td>Proton-Trapped Electron as Gravitational Antenna</td>
+      <td>Coulomb axis locking; endpoint variation → $g_{\mu\nu}$; H-atom = gravitational antenna</td>
+      <td>#49, #51, #55, #56, #57, #58</td>
+      <td>—</td>
+      <td class="open">DOI Pending</td>
+    </tr>
+  </tbody>
+</table>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §6 THREE COMPARISON APPROACHES ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 6</span> Comparison with Standard Approaches to Key Problems</div>
+</div>
+
+<div class="grid-layout">
+  <div>
+    <div class="subsection-title">Arrow of Time <span class="badge badge-blue">#56</span></div>
+    <table class="data-table">
+      <thead><tr><th>Approach</th><th>Source of Arrow</th><th>Microscopic Rev.</th><th>Scale</th></tr></thead>
+      <tbody>
+        <tr>
+          <td>Boltzmann H-theorem</td>
+          <td>Statistical coarse-graining</td>
+          <td>Assumed (Loschmidt objection)</td>
+          <td>$\sim10^{23}$ particles</td>
+        </tr>
+        <tr>
+          <td>Penrose cosmology</td>
+          <td>Low Weyl curvature at Big Bang</td>
+          <td>Assumed at particle level</td>
+          <td>Cosmological</td>
+        </tr>
+        <tr style="background:var(--bg-blue);">
+          <td><strong>0-Sphere #56</strong></td>
+          <td>Topological protection of $\chi$</td>
+          <td><strong>Denied</strong> — time-reversed state unreachable</td>
+          <td>Single electron</td>
+        </tr>
+      </tbody>
+    </table>
+
+    <div class="subsection-title" style="margin-top:20px;">Zero-Point Energy <span class="badge badge-orange">#46</span> <span class="badge badge-orange">#49</span></div>
+    <table class="data-table">
+      <thead><tr><th>Origin</th><th>Mechanism</th><th>Character</th></tr></thead>
+      <tbody>
+        <tr><td>Standard QM</td><td>Heisenberg: $\Delta x\cdot\Delta p\geq\hbar/2$</td><td>Probabilistic; inexhaustible</td></tr>
+        <tr style="background:var(--bg-orange);">
+          <td><strong>0-Sphere</strong></td>
+          <td>AM-GM: $\cos^4+\sin^4\geq1/2$</td>
+          <td>Deterministic; algebraic floor = ejection threshold</td>
+        </tr>
+      </tbody>
+    </table>
+    <p style="font-size:12px; color:var(--text-secondary); margin-top:4px;">Both yield $\tfrac{1}{2}\hbar\omega$ numerically. The 0-Sphere value is <em>not</em> a quantum fluctuation but a geometric constraint of the two-kernel architecture.</p>
+  </div>
+
+  <div>
+    <div class="subsection-title">Gravitational Radiation — Spin-2 Origin <span class="badge badge-orange">#58</span></div>
+    <table class="data-table">
+      <thead><tr><th>Aspect</th><th>Standard (Graviton)</th><th>0-Sphere #58</th></tr></thead>
+      <tbody>
+        <tr><td>Identity of mediator</td><td>New elementary particle (spin-2 boson)</td><td>Phase-stable pair of photon-sphere fragments</td></tr>
+        <tr><td>Spin-2 origin</td><td>Imposed by Lorentz invariance of massless rank-2 field</td><td>$\pi$-periodicity of $\sin(2\theta)$ → two events → rank-2 tensor</td></tr>
+        <tr><td>New DOF?</td><td>Yes — graviton</td><td>No — electromagnetic DOF only</td></tr>
+        <tr><td>Coupling constant</td><td>$\kappa = \sqrt{8\pi G}$ (set by hand)</td><td>Suppressed by ejection efficiency $\varepsilon_2\varepsilon_3\sim10^{-5}$ (#34)</td></tr>
+        <tr><td>Cosmological constant</td><td>Vacuum loops → problem</td><td>$n=0$ emits nothing; ZPE inert (#49, #58)</td></tr>
+      </tbody>
+    </table>
+
+    <div class="insight-box" style="margin-top:14px;">
+      <div class="insight-title">The Three-Axis Decomposition (#52, #59)</div>
+      The helical trajectory defines three orthogonal sectors:
+      $\hat{e}_x$ (velocity, longitudinal) → <strong>gravitational sector</strong> — endpoint variation, $g_{\mu\nu}$<br>
+      $\hat{e}_y$ (acceleration, transverse) → <strong>electromagnetic sector</strong> — path deformation, $F_{\mu\nu}$<br>
+      $\hat{e}_z = \hat{e}_x\times\hat{e}_y$ → <strong>spinorial sector</strong> — Thomas precession, Berry phase<br><br>
+      The decoupling of $\hat{e}_x$ and $\hat{e}_y$ channels is a consequence of internal helical geometry, not a postulate — and is the microscopic origin of gravitational waves passing through ordinary matter with negligible attenuation.
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §7 OPEN PROBLEMS MAP ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 7</span> Open Problems — Current Frontier</div>
+</div>
+
+<div class="grid-layout">
+  <div>
+    <div class="subsection-title">Foundational / Mathematical</div>
+    <div class="thread-box red">
+      <div class="box-title">Rank-2 Tensor Proof for Spin-2 (#48, #49, #58)</div>
+      The $\pi$-periodic $\Omega_T$ numerically corresponds to spin-2 via $s=2\pi/\pi=2$ and the phase-stable pair forms a rank-2 polarization tensor. A rigorous Lorentz-group decomposition showing that the trace-free symmetric part carries helicity $\pm2$ exclusively has not been completed. The SU(2) holonomy framework of #45 is the proposed geometric setting.
+    </div>
+    <div class="thread-box red">
+      <div class="box-title">Many-Body Extension of Arrow of Time (#56)</div>
+      Single-electron chirality protection is established. Whether electromagnetic coupling between electrons preserves individual topological protection, and how bosonic fields (photons, phonons) without definite $\chi$ generate a macroscopic temporal direction, requires analysis.
+    </div>
+    <div class="thread-box red">
+      <div class="box-title">Directed Arc-Length Question (#45)</div>
+      Is the spinorial arc-length $L_\mathrm{spin}(A,B)$ a scalar (group structure, invertible) or a directed quantity (semigroup, $L(A,B)+L(B,A)\neq0$)? Only the latter would force geometric torsion. No mechanism currently identified requires this departure from standard Lie group fiber bundles.
+    </div>
+  </div>
+
+  <div>
+    <div class="subsection-title">Quantitative / Experimental</div>
+    <div class="thread-box orange">
+      <div class="box-title">Newton's Constant from Pair Emission Rate (#58)</div>
+      Inverting $P_\mathrm{GW} \propto \langle\dddot{Q}_{ij}\dddot{Q}^{ij}\rangle$ to extract $G$ from the 0-Sphere internal electron geometry would constitute the first derivation of Newton's constant from electron structure. Requires: quantitative pair emission cross-section, complete rank-2 proof.
+    </div>
+    <div class="thread-box orange">
+      <div class="box-title">Off-Resonance $Y_\ell^m$ Absorption — Problem A (#57)</div>
+      Standard QED requires a resonance condition. The 0-Sphere framework reframes this: in the directed-path framework, absorption is trajectory-to-trajectory phase matching, not pointwise coupling — eliminating the resonance condition conceptually. A quantitative description (detuning bandwidth, absorption cross-section) is not yet established.
+    </div>
+    <div class="thread-box orange">
+      <div class="box-title">$\delta a_e \approx 6\times10^{-13}$ at GPS Altitude (#57)</div>
+      The GR extension $a_e^\mathrm{local}=a_e^\mathrm{flat}(1-2\Phi)$ predicts a measurable variation of the anomalous magnetic moment with gravitational potential. Within a factor of six of current Penning trap sensitivity. Free-electron vs. bound-electron correction unresolved.
+    </div>
+    <div class="thread-box green">
+      <div class="box-title">Axis-Locking Timescale (#59)</div>
+      Proposition 3.1 states locking occurs within a small number of ZB cycles; the exact number requires solving $d\hat{e}/d\tau=f(\theta,\hat{e},\delta E_\mathrm{Coulomb})$ with an explicit Coulomb potential — the same open task as #52 item (I).
+    </div>
+  </div>
+</div>
+
+<div class="page-break"></div>
+
+<!-- ═══════════ §8 HOW TO READ THE SERIES ═══════════ -->
+<div class="full-width">
+  <div class="section-title"><span class="section-num">§ 8</span> How to Engage with the Series — Suggested Reading Paths</div>
+</div>
+
+<div class="grid-3">
+  <div>
+    <div class="thread-box blue">
+      <div class="box-title">Path A: The Conceptual Framework</div>
+      For a reader who wants to understand the foundational <em>philosophical</em> shift.
+    </div>
+    <ol class="step-list">
+      <li><strong>#31</strong> — Why line integrals are primary observables (AB, Berry, Wilson)</li>
+      <li><strong>#56 §2</strong> — The two frameworks and their divergence at the zero integral torque identity</li>
+      <li><strong>#55 §VI</strong> — Lagrangian vs. Eulerian: why the Wilson line is primary</li>
+      <li><strong>#56 §3</strong> — Topological protection of chirality as arrow of time</li>
+    </ol>
+    <div class="eq-box">
+      <div class="eq-label">The Framework Boundary (Paper #56)</div>
+      $$\underbrace{\sum_{k=0}^{n-1}\sin(4b_k)=0}_{\text{same identity}}
+      \begin{cases}
+      \xrightarrow{\text{local-field}} & \text{internal modes unobservable}\\[4pt]
+      \xrightarrow{\text{directed-path}} & \chi\text{ topologically protected}
+      \end{cases}$$
+    </div>
+  </div>
+
+  <div>
+    <div class="thread-box orange">
+      <div class="box-title">Path B: Gravitational Physics</div>
+      For a reader focused on how gravity emerges from the model.
+    </div>
+    <ol class="step-list">
+      <li><strong>#49</strong> — Ejection mechanism: the gravitational mediator is a photon-sphere fragment</li>
+      <li><strong>#51</strong> — Metric emergence from the phase functional (Synge reconstruction)</li>
+      <li><strong>#58</strong> — Spin-2 from phase-stable pair; quadrupole matches GR formula</li>
+      <li><strong>#57</strong> — How frequency information is encoded and transmitted ($Y_\ell^m$ imprinting)</li>
+      <li><strong>#59</strong> — Why the hydrogen atom, not the free electron, is the gravitational antenna</li>
+    </ol>
+    <div class="insight-box" style="margin-top:10px;">
+      <div class="insight-title">Key Conceptual Sequence</div>
+      Ejection → Transmission → Spin-2 structure → Directionality → Antenna system
+    </div>
+  </div>
+
+  <div>
+    <div class="thread-box purple">
+      <div class="box-title">Path C: Mathematics &amp; Topology</div>
+      For a reader with a background in differential geometry or gauge theory.
+    </div>
+    <ol class="step-list">
+      <li><strong>#48</strong> — U(1) principal bundle from $2\pi$ periodicity; Berry holonomy $\gamma=\pi$ → $g=2$</li>
+      <li><strong>#45</strong> — SU(2) holonomy sufficiency; torsion analysis; open-path vs. loop transport</li>
+      <li><strong>#55</strong> — Four functions of the open Wilson line; gauge localization; dual sector data</li>
+      <li><strong>#51</strong> — Bonnet-Myers confinement; Synge world function; metric as coincidence limit</li>
+    </ol>
+    <div class="eq-box" style="margin-top:10px;">
+      <div class="eq-label">Gauge Localization (#55)</div>
+      $$\mathcal{W}[A\to A'] \;\to\; \mathcal{W}[A\to A'] + \chi(\mathbf{r}_{A'}) - \chi(\mathbf{r}_A)$$
+    </div>
+    <p style="font-size:12px; color:var(--text-secondary); margin-top:6px;">Full gauge freedom collapses to a two-point boundary structure — the U(1) gauge group emerges from the topology of the two-point source $S^0$.</p>
+  </div>
+</div>
+
+<!-- ═══════════ FOOTER ═══════════ -->
+<div class="footer">
+  <span>0-Sphere Model Series Overview &nbsp;|&nbsp; Satoshi Hanamura &nbsp;|&nbsp; hana.tensor@gmail.com</span>
+  <span>Papers #01 – #59 &nbsp;|&nbsp; Zenodo (2018 – 2026)</span>
+  <span>Compiled May 2026</span>
+</div>
+
+</div><!-- .page -->
+</body>
+</html>

@@ -1,0 +1,102 @@
+\documentclass[
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % captionsetup[figure]用
+\usepackage{threeparttable} % Table のキャプションを変更
+\numberwithin{equation}{section}% (p.37)
+
+
+\begin{document}
+
+\captionsetup[figure]{justification=raggedright,
+    labelfont={bf},name={Fig.},labelsep=period}
+\captionsetup[table]{justification=center,
+    labelfont={bf},name={Table.},labelsep=period}
+
+
+    \title{Correspondence between a 0-Sphere and the Electron Model}
+        \author{Satoshi Hanamura}
+        %\email{hana.tensor@gmail.com}
+        %\thanks{A footnote to the article title}
+        %\date{\today}
+        \date{March 8, 2020}
+        \begin{abstract}
+            This study describes the significance of a 0-sphere on the behavior of electrons. The 0-sphere is suitable for representing the positions of the two bare electrons which mentioned in the previous study. It was a model that two bare electrons emit thermal potential energy on one side and absorb the energy in another side. An electron travels by cyclically repeating both of the radiation and absorption. The position coordinates of these two bare electrons could be represented by the 0-sphere.
+            
+        \end{abstract}
+    \maketitle
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+    The concept of a 0-sphere is very useful for explaining new electronic models \cite{Hanamura}. The 0-sphere represents two points where the circumference and the diameter intersect. These two points correspond to the positions of two spinor particles that are components of electrons.
+
+    The 0-sphere has its use in embedding a one-dimensional point in a two-dimensional representation called a circle. Understanding the 0-sphere makes it possible to express the phenomenon in which two spinor particles within one electron move discretely.
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+%\section{\label{sec:MOTIVATION}MOTIVATION}
+
+\section{What is the 0-sphere}
+
+    A 0-sphere is a pair of points and has no area. The general form of 0-sphere is represented as $n$-sphere.
+
+
+    \begin{quote}
+        For any natural number n, an n-sphere of radius r is defined as the set of points in $(n + 1)$-dimensional Euclidean space that are at distance $a$ from some fixed point $O$, where $a$ may be any positive real number and where $O$ may be any point in $(n + 1)$-dimensional space. In particular:
+    \end{quote}
+    
+    \begin{itemize}
+        \item a 0-sphere is a pair of points $(O - a, O + a)$, and is the boundary of a line segment (1-ball).
+        \item a 1-sphere is a circle of radius $a$ centered at $o$, and is the boundary of a disk (2-ball).
+        \item a 2-sphere is an ordinary 3-dimensional sphere in 3-dimensional Euclidean space, and is the boundary of an ordinary ball (3-ball).
+        \item a 3-sphere is a sphere in 4-dimensional Euclidean space.
+    \end{itemize}
+
+
+
+
+\section{
+    \label{sec:Review the electron model with 0-sphere}Similarity to the Electron Model}
+
+    In this subsection, we will review the electronic model with the 0-sphere. A 0-sphere is a pair of points at the ends of a one-dimensional line segment. A 1-sphere is a circle as shown in Fig. \ref{f1_0-Sphere} $(\bm{\mathrm{a}}, \bm{\mathrm{b}})$. Alternatively, the 0-sphere is indicate an intersection of a straight line and a circle put on the same plane. In other words, by expanding a two-dimensional circle into three dimensions, the 0-sphere is an intersection points with a straight line passing through a hollow sphere.
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f1_0-Sphere.png}
+                \caption{$(\bm{\mathrm{a}})$ a 0-sphere $(\bm{\mathrm{b}})$ a 1-sphere}
+            \label{f1_0-Sphere}
+        \end{figure}
+
+    Previous studies have assumed that two bare electrons exist in one electron \cite{Hanamura}. The 0-sphere is convenient for defining the place where these two bare electrons exist.
+
+    The bare electron in this study assumed as a thermal potential energy. A pair of two thermal energy on two points could travel back and forth by a radiation. 
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+    It is possible to name the electron model mentioned previously as the 0-sphere electron model.
+    
+    In this study, the position of two spinors contained in an electron can be expressed using the 0-sphere. By extracting two one-dimensional points from the continuous concept of a point called a circle, a discrete representation is possible. As grasped in the previous study, these two spinor particles exist with repeated emission and absorption of the thermal energy. There are no other fermion particles between the two particles, and all the thermal energy is transmitted by radiation.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\begin{thebibliography}{99}
+    \bibitem{Hanamura} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), 
+    \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: 
+    \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+\end{thebibliography}
+
+\clearpage
+\end{document}

@@ -1,0 +1,941 @@
+% ========================================
+% #58: Spin-2 Structure of the Gravitational Mediator
+%   Phase-Stable Pair Emission and Quadrupole Radiation
+%   in the 0-Sphere Model
+%
+% DOI: 10.5281/zenodo.19932861
+%
+% SERIES CONTEXT
+% --------------
+% #59 DOI: 10.5281/zenodo.19932907
+% #60 DOI: 10.5281/zenodo.19932922
+% #61 DOI: 10.5281/zenodo.19934138
+% This paper addresses open task (vi) of Paper #49:
+%   "Rank-2 tensor proof for the ejected photon-sphere fragment
+%    (spin-2 gravitational mediator demonstration)."
+%
+% The central claim: the pi-periodicity of the Thomas angular velocity
+% Omega_T(theta) = -(v_ZB^2 * omega / 4c^2) sin(2*theta) * e_z
+% produces TWO ejection events per ZB cycle, separated by T_ZB/2.
+% These two events, emitted along e_x (longitudinal direction, #52),
+% form a PHASE-STABLE PAIR (not "coherent pair" in the conventional sense):
+% their phase relationship is guaranteed by the 4pi boundary condition
+% of Paper #1 (Hamiltonian turning points at theta = n*pi), not by
+% external phase locking. The combined angular momentum tensor is a
+% rank-2 symmetric object. This is the microscopic origin of the spin-2
+% character of the gravitational mediator.
+%
+% REVISION NOTE (2026-04-08):
+%   "Coherent pair" terminology replaced throughout.
+%   Phase stability is now grounded in the 4pi internal cycle boundary
+%   condition of Paper #1 (Section 3.2), not in an assumed external
+%   locking mechanism. Open Task (V) is resolved within this paper.
+%
+% DEPENDENCIES
+% #1  (hanamura01) -- energy identity; 4pi boundary condition; two-kernel architecture
+% #34 (hanamura34) -- metronome; gravitational coupling; quadrupole
+% #48 (hanamura48) -- g=2; pi-periodicity; spin-2 candidate Omega_T
+% #49 (hanamura49) -- ejection mechanism; theta=pi/2; open task (vi)
+% #50 (hanamura50) -- chirality chi=sign(da/dt); 4 Dirac components
+% #51 (hanamura51) -- helical trajectory; two velocity scales
+% #52 (hanamura52) -- directional decomposition: e_x -> gravity
+% #57 (hanamura57) -- Y_l^m imprinting; metronome principle elevated
+%                     (kinematic disanalogy preserved per #34)
+%
+% CLASSIFICATION: Structural Proposal
+%
+% NEW RESULTS IN #58:
+%  (i)  Identification of TWO ejection events per ZB cycle (at theta=pi/2
+%       and theta=3pi/2) as a structural consequence of sin(2*theta).
+%  (ii) Phase-stable pair structure: the two fragments carry equal momentum
+%       magnitude, opposite longitudinal phase, and symmetric polarization
+%       tensor -- a rank-2 symmetric object. Phase stability is grounded in
+%       the 4pi boundary condition of Paper #1 (Proposition 3.2).
+%  (iii) Quadrupole moment Q_ij(t) oscillates at omega_ZB,
+%        matching the GR quadrupole radiation formula.
+%  (iv)  The pi-periodicity unifies Thomas precession, ejection timing,
+%        and quadrupole oscillation under a single sin(2*theta) structure.
+%  (v)   Connection to #52: e_x (gravitational direction) is the emission
+%        axis of the phase-stable pair, establishing directional consistency.
+%  (vi)  Resolution of former Open Task (V): the phase stability condition
+%        is supplied by the 4pi boundary condition (Section 3.2), not
+%        by an externally imposed coherence mechanism.
+%
+% OPEN TASKS IN #58:
+%  (I)  Full rank-2 tensor proof with explicit polarization states
+%       (helicity-2 decomposition of the pair wave function).
+%  (II) Quantitative derivation of Newton's G from the pair emission rate.
+%  (III) Coupling constant ratio F_grav/F_EM ~ 10^{-42}: requires
+%        comparing pair-emission cross-section (spin-2 channel) with
+%        single-emission cross-section (spin-1 channel, e_y direction).
+%  (IV) Connection to #57's Y_l^m imprinting: does the spin-2 pair
+%       imprint as a l=2 spherical harmonic mode?
+% ========================================
+
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{enumitem}
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+
+% --- Custom Macros ---
+\newcommand{\iphase}{\theta}
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\vZB}{v_{\mathrm{ZB}}}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+\newcommand{\anom}{a_{\mathrm{e}}}
+\newcommand{\betaZB}{\beta_{\mathrm{ZB}}}
+\newcommand{\OmT}{\boldsymbol{\Omega}_T}
+\newcommand{\ehat}[1]{\hat{e}_{#1}}
+
+% ========================================
+\begin{document}
+% ========================================
+
+\title{Spin-2 Structure of the Gravitational Mediator:\\
+Phase-Stable Pair Emission and Quadrupole Radiation\\
+in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{May 16, 2026}
+
+% ========================================
+\begin{abstract}
+Paper~\#49 identified the photon-sphere fragment ejected at internal phase $\iphase = \pi/2$ as the gravitational mediator, and recorded the rank-2 tensor proof of its spin-2 character as open task~(vi).
+The present paper addresses that task by identifying a structural feature of the 0-Sphere dynamics that has not previously been exploited: the Thomas angular velocity $\OmT(\iphase) \propto \sin(2\iphase)\,\ehat{z}$ contains a factor of $\sin(2\iphase)$, which reaches its magnitude maximum at both $\iphase = \pi/2$ \emph{and} $\iphase = 3\pi/2$ within a single ZB cycle.
+This $\pi$-periodicity, established in Paper~\#48 and inherited by Papers~\#49--\#52, implies that each ZB cycle produces \emph{two} ejection events, separated by half a ZB period $T_\mathrm{ZB}/2$.
+We propose that these two events constitute a \textbf{phase-stable pair}: both fragments are emitted along the longitudinal direction $\ehat{x}$ (the gravitational sector direction of Paper~\#52), carry equal momentum magnitudes, and combine to form a symmetric rank-2 polarization tensor.
+The phase stability of the pair --- which ensures that the two events maintain a definite temporal relationship and do not desynchronize --- is grounded not in an externally imposed coherence mechanism but in the boundary conditions of the $4\pi$ internal cycle established in Paper~\#1~\cite{hanamura01}: at every turning point ($\iphase = n\pi$, $n \in \mathbb{Z}$), the photon-sphere kinetic energy vanishes and the full internal energy resides in a single kernel, resetting the internal phase to a thermodynamically definite eigenstate.
+The internal energy distribution between Kernels A and B oscillates at $\omZB$, generating a quadrupole moment $Q_{ij}(t) \propto \cos(\omZB t)\,\ehat{x}^i\ehat{x}^j$ whose third time derivative drives gravitational wave emission via the standard quadrupole formula $P_\mathrm{GW} \propto \langle\dddot{Q}_{ij}\dddot{Q}^{ij}\rangle$.
+This unified structure --- two ejection events per cycle, rank-2 polarization tensor, quadrupole frequency $\omZB$ --- constitutes a candidate microscopic mechanism for the spin-2 character of the gravitational mediator.
+The paper is a Structural Proposal; full rank-2 polarization-state decomposition and the quantitative derivation of Newton's constant from the pair emission rate are recorded as open tasks.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+% ========================================
+
+The 0-Sphere Model series has progressively constructed an account of gravitational coupling from internal electron dynamics.
+Paper~\#34~\cite{hanamura34} demonstrated that photon-mediated phase synchronization between neighboring 0-Sphere subsystems produces a gravitational-like acceleration.
+Paper~\#48~\cite{hanamura48} identified the Thomas angular velocity $\OmT \propto \sin(2\iphase)$ as a spin-2 candidate, noting its $\pi$-periodicity (period half that of the ZB oscillation) without providing an independent physical ejection mechanism.
+Paper~\#49~\cite{hanamura49} supplied that mechanism: the photon-sphere ejection at $\iphase = \pi/2$, where the kinetic energy $E_\mathrm{ph}(\pi/2) = E_0/2$ reaches the ejection threshold, identified the gravitational mediator as a specific ejected fragment.
+Paper~\#49 then recorded as open task~(vi): ``Rank-2 tensor proof for the ejected fragment (spin-2 demonstration).''
+
+The present paper provides a candidate resolution of open task~(vi).
+The key observation is that the $\pi$-periodicity of $\OmT$ already documented in Papers~\#48 and~\#49 implies the existence of a \emph{second} ejection event per ZB cycle, at $\iphase = 3\pi/2$, in addition to the event at $\iphase = \pi/2$.
+The two events are structurally symmetric: they are related by the half-period shift $\iphase \to \iphase + \pi$ under which $\sin(2\iphase) \to \sin(2\iphase)$ (same sign) and $\sin(\iphase) \to -\sin(\iphase)$ (opposite).
+The combination of the two ejected fragments forms a symmetric two-index object --- a rank-2 tensor --- whose oscillation frequency is $\omZB$, matching the quadrupole radiation formula of general relativity.
+
+\paragraph{Relation to Paper \#57.}
+Paper~\#57~\cite{hanamura57} addresses a complementary question: how the gravitational frequency information is encoded in the photon sphere as a $Y_\ell^m$ mode and transmitted to a receiving electron.
+The present paper addresses the prior question: \emph{why} the gravitational mediator is spin-2, i.e., what property of the emission process assigns it a rank-2 tensor character.
+The two papers are logically independent: Paper~\#57 requires only that a mediating photon-sphere fragment exists and carries frequency information; the present paper identifies the spin-2 structure of that fragment.
+The connection between the two --- whether the phase-stable pair of the present paper corresponds to the $\ell = 2$ mode of Paper~\#57 --- is recorded as open task~(IV).
+
+\paragraph{Relation to Paper \#52.}
+Paper~\#52~\cite{hanamura52} established the directional decomposition: the longitudinal direction $\ehat{x}$ (velocity direction of the helix) is the gravitational sector direction, identified by analogy with the metronome mechanism.
+The phase-stable pair of the present paper is emitted along $\ehat{x}$, providing a first-principles structural basis for the $\ehat{x}$ assignment of Paper~\#52 that goes beyond the metronome analogy.
+
+% ========================================
+\section{\texorpdfstring{The $\pi$-Periodicity of Thomas Precession and Its Consequences}{The pi-Periodicity of Thomas Precession and Its Consequences}}
+\label{sec:pi_period}
+% ========================================
+
+\subsection{\texorpdfstring{Established Result: $\sin(2\iphase)$ Structure of $\OmT$}{Established Result: sin(2theta) Structure of Omega_T}}
+
+The Thomas angular velocity~\cite{Thomas1926,Jackson1999} of the photon sphere, established in Paper~\#19~\cite{hanamura19} and central to Papers~\#48--\#52, is:
+\begin{equation}
+\OmT(\iphase) = -\frac{\vZB^2\,\omZB}{4c^2}\sin(2\iphase)\,\ehat{z},
+\label{eq:OmT}
+\end{equation}
+where $\iphase = \omZB t$ is the internal phase, $\vZB \approx 0.04c$ is the Zitterbewegung speed, and $\ehat{z} = \ehat{x}\times\ehat{y}$ is the Thomas precession axis~\cite{hanamura52}.
+
+The factor $\sin(2\iphase)$ has period $\pi$, half that of the ZB oscillation (period $2\pi$).
+Within one ZB cycle $\iphase \in [0, 2\pi)$, the function $|\OmT(\iphase)|$ reaches its maximum at two points:
+\begin{align}
+|\OmT(\iphase)|\ &\text{is maximal at:}
+\notag\\
+&\quad\iphase_1 = \frac{\pi}{2},\quad
+\iphase_2 = \frac{3\pi}{2}.
+\label{eq:two_maxima}
+\end{align}
+These are separated by exactly half a ZB period: $\Delta\iphase = \pi$, corresponding to $\Delta t = T_\mathrm{ZB}/2 = \pi/\omZB$.
+
+\subsection{Ejection Threshold and the Two Events}
+
+Paper~\#49 established that the photon-sphere kinetic energy profile is:
+\begin{equation}
+E_\mathrm{ph}(\iphase) = \frac{E_0}{2}\sin^2\iphase,
+\label{eq:eph}
+\end{equation}
+which reaches the ejection threshold $E_0/2$ at $\iphase = \pi/2$.
+Paper~\#49 identified this single event as the gravitational mediator.
+
+We now note that $E_\mathrm{ph}(\iphase) = E_0/2$ is reached at \emph{two} values of $\iphase$ per ZB cycle:
+\begin{equation}
+E_\mathrm{ph}(\pi/2) = E_\mathrm{ph}(3\pi/2) = \frac{E_0}{2}.
+\label{eq:two_thresholds}
+\end{equation}
+Both events occur at the same kinetic energy and therefore at the same ejection probability.
+At $\iphase_1 = \pi/2$ the photon sphere is traversing from Kernel~A toward Kernel~B;
+at $\iphase_2 = 3\pi/2$ it is returning from Kernel~B toward Kernel~A.
+The two events are therefore symmetric under the time-reversal $t \to t + T_\mathrm{ZB}/2$.
+
+The structure is summarized in Table~\ref{tab:two_events}.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The two ejection events per ZB cycle}}
+\label{tab:two_events}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{2.5cm}p{3.5cm}p{3.5cm}p{3.0cm}p{3.0cm}}
+\toprule
+\textbf{Event} & \textbf{Phase $\iphase$} & \textbf{Traversal direction} & \textbf{$\sin(2\iphase)$} & \textbf{$E_\mathrm{ph}$} \\
+\midrule
+1st ejection
+& $\pi/2$
+& A $\to$ B (forward)
+& $\sin(\pi) = 0$ (extremum)
+& $E_0/2$ (threshold) \\
+\addlinespace[0.3cm]
+2nd ejection
+& $3\pi/2$
+& B $\to$ A (return)
+& $\sin(3\pi) = 0$ (extremum)
+& $E_0/2$ (threshold) \\
+\addlinespace[0.3cm]
+Time separation
+& $\Delta\iphase = \pi$
+& Half a ZB period
+& Both at $|\OmT|$ node
+& Both at threshold \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Both ejection events occur at the same kinetic energy $E_0/2$, at the same magnitude of Thomas angular velocity (zero, at the extremum of $|\OmT|$), and separated by exactly half the ZB period. The symmetry of the two events under $\iphase \to \iphase + \pi$ is a structural consequence of the $\sin(2\iphase)$ periodicity established in Paper~\#48.
+\end{minipage}
+\end{table*}
+
+\subsection{Sign Analysis: Why Both Events Eject Along the Motion Axis (Forward and Backward)}
+
+At $\iphase_1 = \pi/2$ the photon sphere reaches a turning configuration along the motion axis $\ehat{x}$ ($\mathbf{v} \propto \cos(\pi/2)\,\ehat{x} = 0$) and the Thomas-precession-driven outward stress is directed along $+\ehat{x}$ (forward, in the A$\to$B traversal sense).
+At $\iphase_2 = 3\pi/2$ the configuration is mirrored ($\mathbf{v} \propto \cos(3\pi/2)\,\ehat{x} = 0$) and the stress is directed along $-\ehat{x}$ (backward, in the B$\to$A traversal sense).
+
+The two ejection events therefore lie on the \emph{same axis} ($\ehat{x}$, the gravitational direction of Paper~\#52) with \emph{opposite signs}: one forward, one backward along the motion direction.
+This forward-and-backward structure on the motion axis is what distinguishes the spin-2 (gravitational) channel from the spin-1 (electromagnetic) channel, which radiates transverse to the acceleration direction $\ehat{y}$ as in Larmor radiation~\cite{Jackson1999}.
+The two channels are therefore directionally orthogonal: the spin-2 pair is emitted along $\ehat{x}$ (velocity direction), and the spin-1 single quantum is emitted along $\ehat{y}$ (transverse to acceleration).
+
+The net linear (dipole) momentum of the pair along $\ehat{x}$ vanishes by sign cancellation between the forward and backward events, while the symmetric polarization tensor $h_{\mu\nu}$ (Section~\ref{sec:rank2}) is non-zero with principal axis along $\ehat{x}$.
+This is the geometric origin of the quadrupole moment of Section~\ref{sec:quadrupole}: it is not generated by a single forward-emission event but by the forward-backward pair structure within each ZB cycle.
+A heuristic picture: when an electron falls under gravity along $\ehat{x}$, the present mechanism predicts that the spin-2 quanta (candidate gravitons) are emitted along the motion axis, one forward and one backward per ZB cycle, with the cycle-averaged emission carrying the rank-2 polarization structure of the quadrupole.
+
+% ========================================
+
+% ========================================
+\section{Phase-Stable Pair Structure and Rank-2 Tensor Assignment}
+\label{sec:rank2}
+% ========================================
+
+\subsection{The Phase-Stable Pair: Structural Basis}
+
+We propose that the two ejection events per ZB cycle do not occur independently but form a \textbf{phase-stable pair}: the temporal relationship between the two fragments is fixed by the internal dynamics of the 0-Sphere, so their combined state must be analyzed as a single two-fragment quantum state.
+As shown in Section~\ref{subsec:4pi_58}, this phase stability arises from the boundary conditions of the $4\pi$ internal cycle established in Paper~\#1~\cite{hanamura01}, not from an externally imposed phase-locking mechanism.
+
+\begin{proposition}[Phase-Stable Pair as Rank-2 Object]
+\label{prop:rank2}
+Let fragment 1 be ejected at $\iphase_1 = \pi/2$ with four-momentum $p_1^\mu$ and polarization vector $\varepsilon_1^\mu$, and let fragment 2 be ejected at $\iphase_2 = 3\pi/2$ with four-momentum $p_2^\mu$ and polarization vector $\varepsilon_2^\mu$.
+Under the $\pi$-periodicity of the internal dynamics, $p_1^\mu$ and $p_2^\mu$ are related by the ZB half-period symmetry.
+The phase-stable pair state is characterized by the symmetric two-index object:
+\begin{equation}
+h_{\mu\nu} \;\propto\; \varepsilon_{1\mu}\,\varepsilon_{2\nu} + \varepsilon_{1\nu}\,\varepsilon_{2\mu},
+\label{eq:rank2_tensor}
+\end{equation}
+which transforms as a rank-2 symmetric tensor under the Lorentz group.
+This object has the helicity content of a spin-2 particle.
+\end{proposition}
+
+\noindent\textbf{Structural support for Proposition~\ref{prop:rank2}.}
+The polarization vector of a single spin-1 photon transforms under rotations as a vector (helicity $\pm 1$).
+The symmetric product $\varepsilon_\mu\varepsilon_\nu + \varepsilon_\nu\varepsilon_\mu$ transforms as a spin-2 object (helicity $\pm 2, \pm 1, 0$); the trace-free part $h_{\mu\nu} - \frac{1}{2}\eta_{\mu\nu} h^\alpha{}_\alpha$ carries only helicity $\pm 2$ --- the graviton polarization content~\cite{Wigner1939,FierzPauli1939,Weinberg1995}.
+The phase-stable pair of the 0-Sphere model produces exactly this structure through the combination of two spin-1 fragments.
+
+\textbf{Note.}
+Proposition~\ref{prop:rank2} is stated as a structural claim supported by the analogy with the decomposition of tensor products in the Lorentz group.
+The full explicit construction of the pair wave function and its decomposition into helicity eigenstates is recorded as open task~(I).
+
+\subsection{Phase Stability from the $4\pi$ Internal Cycle (Paper~\protect\#1)}
+\label{subsec:4pi_58}
+
+A critical question for any two-event structure is whether the phase relationship between the events is maintained across successive ZB cycles.
+If the phase between the two ejection events were to drift, the combined rank-2 tensor $h_{\mu\nu}$ of Eq.~\eqref{eq:rank2_tensor} would not represent a stable, well-defined quantum state, and the quadrupole moment of Section~\ref{sec:quadrupole} would not sustain a definite oscillation.
+
+The present paper grounds the phase stability of the pair in the boundary conditions of the $4\pi$ internal cycle established in Paper~\#1~\cite{hanamura01}.
+
+The central energy identity of Paper~\#1 distributes the total internal energy as:
+\begin{align}
+E_0 &= E_0\!\Bigl[
+\cos^4\!\!\left(\tfrac{\iphase}{2}\right)
++ \sin^4\!\!\left(\tfrac{\iphase}{2}\right)
+\notag\\
+&\phantom{{}= E_0\!\Bigl[}
++ \tfrac{1}{2}\sin^2\!\iphase
+\Bigr],
+\label{eq:energy_identity}
+\end{align}
+where the three terms represent, respectively, the thermal potential energy of Kernel~A, Kernel~B, and the kinetic energy of the photon sphere.
+
+A complete spinorial ZB cycle spans $4\pi$ in internal phase $\iphase$, consistent with the $4\pi$ periodicity of the electron's spinorial wavefunction.
+Within this $4\pi$ cycle, the photon sphere undergoes a forward traversal ($\iphase: 0 \to 2\pi$) and a return traversal ($\iphase: 2\pi \to 4\pi$).
+At the boundary points of each $2\pi$ traversal, the photon-sphere kinetic energy vanishes identically and the full internal energy resides in a single kernel:
+\begin{align}
+\iphase = 0,\, 2\pi,\, 4\pi:
+&\quad E_A = E_0\cos^4(0) = E_0,\notag\\
+&\quad E_B = 0 \quad (\text{Kernel A: 100\%}),\label{eq:boundary_A}\\
+\iphase = \pi,\, 3\pi:
+&\quad E_B = E_0\sin^4\!\!\left(\tfrac{\pi}{2}\right) = E_0,\notag\\
+&\quad E_A = 0 \quad (\text{Kernel B: 100\%}).\label{eq:boundary_B}
+\end{align}
+
+The two ejection events at $\iphase = \pi/2$ and $\iphase = 3\pi/2$ are each structurally bracketed by turning-point eigenstates:
+\begin{align}
+\text{Event 1 }(\iphase = \tfrac{\pi}{2}):
+&\quad \text{bracketed by}\notag\\
+&\qquad \iphase = 0\ (\text{Kernel A: 100\%})\notag\\
+&\qquad \text{and}\ \iphase = \pi\ (\text{Kernel B: 100\%}), \label{eq:bracket1}\\
+\text{Event 2 }(\iphase = \tfrac{3\pi}{2}):
+&\quad \text{bracketed by}\notag\\
+&\qquad \iphase = \pi\ (\text{Kernel B: 100\%})\notag\\
+&\qquad \text{and}\ \iphase = 2\pi\ (\text{Kernel A: 100\%}). \label{eq:bracket2}
+\end{align}
+The time from each turning-point eigenstate to the ejection event is fixed by the deterministic Hamiltonian dynamics at exactly $\pi/(2\omZB) = T_\mathrm{ZB}/4$.
+Because the boundary states are energy eigenstates of the Hamiltonian of Paper~\#1 --- not superpositions or coherent states --- the internal phase is reset to the same eigenstate at every half-period, regardless of the details of the intermediate trajectory.
+Consequently, the timing of both ejection events relative to their bracketing eigenstates is structurally fixed, and the temporal separation $\Delta t = T_\mathrm{ZB}/2$ between the two events cannot drift across successive ZB cycles.
+
+\begin{proposition}[$4\pi$ Boundary Condition as Phase Stabilizer]
+\label{prop:phase}
+The boundary conditions of the $4\pi$ spinorial cycle (Paper~\#1), which require the photon-sphere kinetic energy to vanish ($\gamma_{KE} = 0$) and the total energy to reside in a single kernel at every half-period ($\iphase = n\pi$), provide a structural phase re-normalization.
+The two ejection events at $\iphase = \pi/2$ and $\iphase = 3\pi/2$ are each fixed at a distance of $T_\mathrm{ZB}/4$ from their respective bracketing eigenstates, ensuring that their mutual temporal separation $\Delta t = T_\mathrm{ZB}/2$ is invariant across ZB cycles.
+No external phase-locking mechanism is required.
+\end{proposition}
+
+The conceptual distinction from conventional coherence is precise: conventional coherence requires the \emph{continuous preservation} of a phase alignment. The present mechanism provides phase stability through \emph{discrete renormalization} at each turning point --- the phase is reset to the same eigenstate at $\iphase = n\pi$ rather than being maintained continuously. The Appendix develops this distinction in detail.
+
+The structural role of the identity $E_0 \equiv 1$ in guaranteeing this reset is consistent with, and extends, the active confinement argument of Ref.~\cite{hanamura56}. That paper establishes that the Hamiltonian identity functions not merely as a passive algebraic barrier but as a dynamical gateway: the boundary condition $\gamma_{KE}=0$ at $\iphase = n\pi$ (the reset condition of Proposition~\ref{prop:phase}) is precisely the turning-point marginal equilibrium at which the ejection threshold is reached from below, preventing any escape from the internal dynamics and ensuring that the phase returns to the same eigenstate. The phase stability of the pair and the topological energy confinement of Ref.~\cite{hanamura56} are thus two manifestations of the same algebraic constraint.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Three manifestations of the $\pi$-periodicity in the 0-Sphere Model}}
+\label{tab:pi_period}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{4.5cm}p{4.5cm}p{3.0cm}}
+\toprule
+\textbf{Structure} & \textbf{Mathematical form} & \textbf{Physical meaning} & \textbf{Frequency} \\
+\midrule
+Thomas angular velocity
+& $\OmT \propto \sin(2\iphase)$
+& Spin-2 candidate; source of ejection stress (Paper~\#48)
+& $2\omZB$ \\
+\addlinespace[0.3cm]
+Ejection event timing
+& Two thresholds at $\iphase = \pi/2, 3\pi/2$
+& Two fragments per ZB cycle; phase-stable pair
+& $2\omZB$ \\
+\addlinespace[0.3cm]
+Quadrupole moment
+& $Q_{ij} \propto \cos(\omZB t)\,\ehat{x}^i\ehat{x}^j$
+& Third derivative oscillates at $\omZB$; power $\propto \omZB^6$
+& $\omZB$ ($\to 2\omZB$ in $\dddot{Q}$) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+All three structures trace to the same $\sin(2\iphase)$ factor in the Thomas angular velocity, established in Paper~\#48. The unification suggests that the $\pi$-periodicity is not a coincidence but a structural necessity of any model that derives spin-2 from a ZB-type oscillation.
+\end{minipage}
+\end{table*}
+
+\subsection{Chirality and the Pair}
+
+Paper~\#50~\cite{hanamura50} established that the chirality $\chi = \mathrm{sign}(da/dt)$ is a Lorentz-invariant binary distinguishing the electron ($\chi = +1$) from the positron ($\chi = -1$).
+For the phase-stable pair, the chirality of the two events is:
+\begin{align}
+\iphase_1 = \pi/2: &\quad da/dt = \omZB\cos(\pi/2) = 0
+\notag\\
+&\quad\text{(turning point: chirality sign not defined)}, \\
+\iphase_2 = 3\pi/2: &\quad da/dt = \omZB\cos(3\pi/2) = 0
+\notag\\
+&\quad\text{(turning point: chirality sign not defined).}
+\end{align}
+Both events occur precisely at the turning points of the phase, where $da/dt = 0$.
+This is the degenerate case excluded from the generic chirality argument of Paper~\#50, and its topological interpretation is developed in Ref.~\cite{hanamura56}: the state $\chi = 0$ (equivalently $da/dt = 0$) is physically inaccessible within the non-equilibrium steady state, yet the ejection events occur precisely at these degenerate turning points---a feature consistent with the gravitational mediator being its own antiparticle (as required for a graviton), since the mediator is emitted at the boundary between the two chirality sectors $\chi = \pm 1$.
+
+Note that these turning points at $\iphase = \pi/2$ and $3\pi/2$ are \emph{distinct} from the energy-eigenstate turning points at $\iphase = n\pi$ established in Proposition~\ref{prop:phase}: the chirality turning points are where $da/dt = 0$ (local extrema of $a(t)$), while the energy turning points are where $\gamma_{KE} = 0$ (energy concentration in one kernel).
+Both sets of turning points are structural consequences of the internal Hamiltonian of Paper~\#1.
+
+% ========================================
+\section{\texorpdfstring{Quadrupole Moment and the $\omZB$ Frequency}{Quadrupole Moment and the omega_ZB Frequency}}
+\label{sec:quadrupole}
+% ========================================
+
+\subsection{The Oscillating Quadrupole Moment of the Two-Kernel System}
+
+The internal energy distribution between Kernels~A and~B is:
+\begin{align}
+E_A(\iphase) &= E_0\cos^4\!\!\left(\frac{\iphase}{2}\right), \label{eq:EA}\\
+E_B(\iphase) &= E_0\sin^4\!\!\left(\frac{\iphase}{2}\right). \label{eq:EB}
+\end{align}
+The mass-energy asymmetry between the two kernels is:
+\begin{align}
+\Delta m(\iphase)
+&= \frac{E_A - E_B}{c^2}
+\notag\\
+&= \frac{E_0}{c^2}\!\left[
+\cos^4\!\!\left(\tfrac{\iphase}{2}\right)
+- \sin^4\!\!\left(\tfrac{\iphase}{2}\right)
+\right]
+\notag\\
+&= \frac{E_0}{c^2}\cos\iphase.
+\label{eq:mass_asymmetry}
+\end{align}
+
+The two kernels are separated along $\ehat{x}$ by the Compton-scale distance $\lambdaC$.
+The quadrupole moment tensor of the two-kernel system is:
+\begin{align}
+Q_{ij}(\iphase)
+&= \Delta m(\iphase)\cdot\lambdaC^2
+\left((\ehat{x})_i(\ehat{x})_j - \tfrac{1}{3}\delta_{ij}\right)
+\notag\\
+&= \frac{E_0\lambdaC^2}{c^2}\cos\iphase
+\left((\ehat{x})_i(\ehat{x})_j - \tfrac{1}{3}\delta_{ij}\right).
+\label{eq:Qij}
+\end{align}
+Taking $\iphase = \omZB t$:
+\begin{align}
+Q_{ij}(t)
+&= \frac{E_0\lambdaC^2}{c^2}\cos(\omZB t)
+\notag\\
+&\quad\cdot\left((\ehat{x})_i(\ehat{x})_j - \tfrac{1}{3}\delta_{ij}\right).
+\label{eq:Qij_t}
+\end{align}
+The phase stability of this oscillation --- which ensures that $Q_{ij}(t)$ does not drift or average to zero --- is guaranteed by the $4\pi$ boundary condition of Proposition~\ref{prop:phase}.
+
+\subsection{The Third Time Derivative and the Gravitational Wave Power}
+
+The classical general-relativistic quadrupole radiation formula for gravitational wave power is~\cite{Einstein1918,LandauLifshitz2,Maggiore2007}:
+\begin{equation}
+P_\mathrm{GW} = \frac{G}{5c^5}\left\langle\dddot{Q}_{ij}\dddot{Q}^{ij}\right\rangle,
+\label{eq:GW_power}
+\end{equation}
+where dots denote time derivatives.
+The third time derivative of Eq.~\eqref{eq:Qij_t}:
+\begin{align}
+\dddot{Q}_{ij}(t)
+&= \frac{E_0\lambdaC^2\omZB^3}{c^2}\sin(\omZB t)
+\notag\\
+&\quad\cdot\left((\ehat{x})_i(\ehat{x})_j - \tfrac{1}{3}\delta_{ij}\right).
+\label{eq:Qij_3dot}
+\end{align}
+Substituting into Eq.~\eqref{eq:GW_power} and time-averaging:
+\begin{align}
+P_\mathrm{GW}
+&= \frac{G}{5c^5}
+\cdot\frac{E_0^2\lambdaC^4\omZB^6}{c^4}
+\cdot\frac{1}{2}
+\notag\\
+&\quad\cdot\left|(\ehat{x})_i(\ehat{x})_j - \tfrac{1}{3}\delta_{ij}\right|^2.
+\label{eq:P_GW}
+\end{align}
+
+\subsection{\texorpdfstring{The $\omZB$ Frequency: Unification of Three Structures}{The omega_ZB Frequency: Unification of Three Structures}}
+
+A central structural feature of the present paper is the unification of three distinct $\pi$-periodic structures under the single frequency $\omZB$ (and its harmonic $2\omZB$), as already tabulated in Table~\ref{tab:pi_period} of Section~\ref{sec:rank2}: the Thomas angular velocity $\OmT \propto \sin(2\iphase)$, the timing of the two ejection events at $\iphase = \pi/2$ and $3\pi/2$, and the quadrupole moment $Q_{ij}(t) \propto \cos(\omZB t)$.
+The novel result of the present section is that this unification extends naturally to the gravitational wave power formula: the third time derivative in Eq.~\eqref{eq:GW_power} converts the $\omZB$ oscillation of $Q_{ij}$ into the $\omZB^6$ scaling of the radiated power $P_\mathrm{GW}$, matching the standard general-relativistic quadrupole formula~\cite{Maggiore2007}.
+The $\pi$-periodicity of $\OmT$ is therefore not an isolated kinematic curiosity but the single algebraic root from which the spin-2 character, the pair-emission timing, and the gravitational wave frequency content all follow.
+
+% ========================================
+\section{\texorpdfstring{Directional Consistency with Paper~\#52}{Directional Consistency with Paper 52}}
+\label{sec:directional}
+% ========================================
+
+Paper~\#52~\cite{hanamura52} proposed that the longitudinal direction $\ehat{x}$ (velocity direction of the helical trajectory) is the gravitational sector direction, based on the metronome analogy: gravitational coupling, like metronome synchronization, operates parallel to the oscillation direction.
+The phase-stable pair of the present paper provides a first-principles structural basis for this assignment that goes beyond the analogy.
+
+The $\ehat{x}$ direction is singled out not by postulate but by the turning-point structure of the ZB oscillation: the phase-stable pair is emitted at $\iphase = \pi/2$ and $\iphase = 3\pi/2$, exactly where the $\ehat{x}$ velocity component vanishes.
+This structural property of the $\ehat{x}$ direction --- it is the direction along which the photon sphere momentarily stops --- is what allows the outward Thomas-precession stress to culminate in an ejection rather than being continuously radiated.
+
+% ========================================
+\section{Quantitative Order-of-Magnitude Estimates}
+\label{sec:estimates}
+% ========================================
+
+\subsection{Gravitational Wave Power from a Single Electron}
+
+Using $E_0 \approx 20.7$~keV (Paper~\#46~\cite{hanamura46}), $\lambdaC = 2.43\times10^{-12}$~m, and $\omZB = \vZB/\lambdaC \approx 5.0\times10^{18}$~s$^{-1}$:
+\begin{align}
+P_\mathrm{GW} &\sim \frac{G}{5c^9}\,E_0^2\,\lambdaC^4\,\omZB^6
+\notag\\
+&\sim \frac{6.67\times10^{-11}}{5\times(3\times10^8)^9}
+\notag\\
+&\quad\times(3.3\times10^{-15})^2
+\times(2.43\times10^{-12})^4
+\times(5\times10^{18})^6
+\notag\\
+&\sim 10^{-70}\ \text{W}.
+\label{eq:P_num}
+\end{align}
+This is an extraordinarily small power --- many orders of magnitude below any observable level for a single electron.
+However, the estimate demonstrates the internal consistency of the framework: the gravitational wave power is finite and calculable from the 0-Sphere internal parameters without any additional free parameters.
+
+\subsection{Coupling Constant Ratio}
+
+The ratio of gravitational to electromagnetic coupling is, dimensionally:
+\begin{align}
+\frac{F_\mathrm{grav}}{F_\mathrm{EM}}
+&\sim \frac{P_\mathrm{GW}\,(\text{pair, spin-2})}{P_\mathrm{EM}\,(\text{single, spin-1})}
+\notag\\
+&\approx 10^{-42}.
+\label{eq:coupling_ratio}
+\end{align}
+The quantitative derivation of this ratio from the pair-emission cross-section versus the single-emission cross-section is recorded as open task~(III).
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Single emission vs.\ phase-stable pair: the spin-1 and spin-2 channels}}
+\label{tab:channels}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{3.5cm}p{4.5cm}p{3.5cm}}
+\toprule
+\textbf{Channel} & \textbf{Direction} & \textbf{Physical analogy (\#52)} & \textbf{Spin / Force} \\
+\midrule
+Single emission
+& $\ehat{y}$ (acceleration)
+& Yagi antenna: radiation $\perp$ to oscillation
+& Spin-1; electromagnetic \\
+\addlinespace[0.3cm]
+Phase-stable pair
+& $\ehat{x}$ (velocity)
+& Metronome: coupling $\parallel$ to oscillation
+& Spin-2; gravitational \\
+\addlinespace[0.3cm]
+Thomas precession
+& $\ehat{z} = \ehat{x}\times\ehat{y}$
+& $\OmT \propto \mathbf{v}\times\mathbf{a}$ (established, \#19)
+& Spin; magnetic moment \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The directional decomposition of Paper~\#52 assigns $\ehat{x}$ to gravity and $\ehat{y}$ to electromagnetism by analogy. The present paper provides a structural reason for the $\ehat{x}$ assignment: the phase-stable pair (spin-2, gravitational) is emitted at the turning points of the $\ehat{x}$ motion, where the $\ehat{x}$ velocity vanishes and the pair momentum is directed transversely. The single-emission channel (spin-1, electromagnetic) arises from the transverse $\ehat{y}$ acceleration (Larmor radiation).
+\end{minipage}
+\end{table*}
+
+% ========================================
+\section{\texorpdfstring{Connection to Paper~\#57}{Connection to Paper 57}}
+\label{sec:p57}
+% ========================================
+
+Paper~\#57~\cite{hanamura57} proposes that when an electron emits a photon, the local Zitterbewegung frequency $\nu_\mathrm{ZB}^\mathrm{local}$ is imprinted onto the photon sphere as a spherical harmonic excitation mode $Y_\ell^m$, and that the gravitational coupling arises from the frequency mismatch between emitter and receiver.
+
+The phase-stable pair of the present paper connects to this picture as follows.
+The quadrupole moment $Q_{ij}(t) \propto \cos(\omZB t)$ (Eq.~\eqref{eq:Qij_t}) has the angular symmetry of a $Y_2^0$ mode:
+\begin{equation}
+Y_2^0(\theta,\phi) \propto 3\cos^2\theta - 1,
+\label{eq:Y20}
+\end{equation}
+and the $(\ehat{x})_i(\ehat{x})_j - \frac{1}{3}\delta_{ij}$ structure of $Q_{ij}$ is exactly the traceless part of a rank-2 axisymmetric tensor --- the same tensor structure as $Y_2^0$ evaluated on the $\ehat{x}$ axis.
+
+\begin{proposition}[Candidate $\ell = 2$ Connection]
+\label{prop:ell2}
+The phase-stable pair emission of the present paper may correspond to the $\ell = 2$ spherical harmonic excitation mode of the photon sphere in Paper~\#57's imprinting mechanism.
+The symmetry argument: the pair carries a rank-2 symmetric traceless tensor polarization ($h_{\mu\nu}$, Eq.~\eqref{eq:rank2_tensor}), and the quadrupole moment has $Y_2^0$ angular symmetry.
+\end{proposition}
+
+The full verification of Proposition~\ref{prop:ell2} requires comparing the mode index $\ell = 2$ excitation energy in Paper~\#57's framework with the pair-emission energy $2 \times E_0/2 = E_0$ of the present paper.
+This is recorded as open task~(IV).
+
+% ========================================
+\section{Open Tasks}
+\label{sec:open}
+% ========================================
+
+The following open tasks are recorded explicitly.
+
+\begin{enumerate}[label=(\Roman*), leftmargin=2em]
+
+\item \textbf{Full rank-2 polarization-state decomposition.}
+Proposition~\ref{prop:rank2} states the phase-stable pair as a rank-2 symmetric tensor.
+A complete proof requires constructing the explicit helicity-2 wave function of the pair, decomposing it into Lorentz-group representations, and verifying that the trace-free symmetric part carries helicity $\pm 2$ exclusively.
+The geometric framework for this decomposition is the SU(2) holonomy structure of the 0-Sphere internal dynamics: Ref.~\cite{hanamura45} establishes that the $4\pi$ spinorial periodicity and the ordered-path constraint together imply a non-trivial SU(2) holonomy without requiring torsion, and that this holonomy is sufficient to account for the directed transport properties of the internal dynamics. The helicity-2 decomposition of the phase-stable pair should be carried out within this holonomy framework.
+
+\item \textbf{Quantitative derivation of Newton's constant $G$.}
+Equation~\eqref{eq:P_GW} expresses the gravitational wave power in terms of $E_0$, $\lambdaC$, and $\omZB$.
+Inverting this relation to extract $G$ from the pair emission rate would constitute a derivation of Newton's constant from the internal electron geometry --- the central unfulfilled goal of the 0-Sphere gravitational programme.
+
+\item \textbf{Coupling constant ratio $F_\mathrm{grav}/F_\mathrm{EM} \approx 10^{-42}$.}
+The ratio of gravitational to electromagnetic coupling requires quantifying both the pair-emission cross-section (spin-2, $\ehat{x}$ channel) and the single-emission cross-section (spin-1, $\ehat{y}$ channel).
+The $10^{42}$ suppression of gravity relative to electromagnetism must emerge from this comparison.
+
+\item \textbf{Connection to Paper~\#57's $\ell = 2$ mode.}
+Proposition~\ref{prop:ell2} proposes that the phase-stable pair corresponds to the $\ell = 2$ spherical harmonic excitation in Paper~\#57's imprinting framework.
+Verifying this would unify the spin-2 character (present paper) with the frequency-encoding mechanism (Paper~\#57) under a single structural picture.
+
+\end{enumerate}
+
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ========================================
+
+We have proposed a candidate resolution of open task~(vi) of Paper~\#49: the spin-2 character of the gravitational mediator in the 0-Sphere Model arises from a phase-stable pair of ejected photon-sphere fragments, one emitted at $\iphase = \pi/2$ and one at $\iphase = 3\pi/2$ per ZB cycle, whose combined polarization tensor is a rank-2 symmetric object.
+
+The $\pi$-periodicity of the Thomas angular velocity $\OmT(\iphase) \propto \sin(2\iphase)$, established in Papers~\#48--\#52, is the single structural source of three distinct physical features: the timing of the two ejection events, the rank-2 polarization tensor of their combined state, and the oscillation frequency $\omZB$ of the quadrupole moment --- which matches the classical general-relativistic quadrupole radiation formula.
+
+\textbf{The spin-2 character of the gravitational mediator is not an independent postulate of the 0-Sphere Model but a structural consequence of the $\sin(2\iphase)$ periodicity of the Thomas angular velocity.}
+This periodicity, which was identified as a spin-2 candidate in Paper~\#48 and provided with a physical ejection mechanism in Paper~\#49, is here shown to produce a phase-stable two-fragment state with the tensor structure of a graviton.
+
+The phase stability of the pair --- which ensures that the temporal separation $\Delta t = T_\mathrm{ZB}/2$ between the two events does not drift across successive ZB cycles --- is supplied not by an external phase-locking mechanism but by the boundary conditions of the $4\pi$ internal spinorial cycle established in Paper~\#1 (Proposition~\ref{prop:phase}): at every turning point $\iphase = n\pi$, the total internal energy is concentrated in a single kernel, resetting the internal phase to a definite eigenstate.
+This resolves the former open question (phase stability of the pair) within the present paper, without recourse to the concept of coherence in its conventional quantum-optical sense.
+The Appendix provides a detailed comparison of the conventional coherence framework with the $2\pi$ renormalization mechanism adopted here.
+
+The paper is a Structural Proposal.
+Open tasks~(I)--(IV) record the quantitative steps that would be required to elevate the phase-stable pair hypothesis to a proved theorem.
+The most significant of these is open task~(II): the derivation of Newton's constant from the 0-Sphere pair emission rate, which would constitute the first derivation of $G$ from internal electron dynamics.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamura01}
+S.~Hanamura, ``A Model of an Electron Including Two Perfect Black Bodies,''
+Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}
+
+\bibitem{hanamura34}
+S.~Hanamura, ``Geometrical Confinement: Emergent Gravitational Dynamics,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18437010}{10.5281/zenodo.18437010}
+
+\bibitem{hanamura48}
+S.~Hanamura, ``Geometric Origin of $g=2$ in the 0-Sphere Model:
+U(1) Fiber Bundle and Dual-Frame Phase Decomposition,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19227518}{10.5281/zenodo.19227518}
+
+\bibitem{hanamura49}
+S.~Hanamura, ``Photon-Sphere Fragmentation as a Gravitational Mediator:
+Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere Model,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19393391}{10.5281/zenodo.19393391}
+
+\bibitem{hanamura57}
+S.~Hanamura, ``Spherical Harmonic Imprinting and the Physical Identity of
+Phase Information: Microscopic Mechanism of Gravitational Coupling in the
+0-Sphere Model,'' Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19932176}{10.5281/zenodo.19932176}
+
+\bibitem{hanamura52}
+S.~Hanamura, ``Geometric Origin of the Weak Equivalence Principle in the
+0-Sphere Model: Force Classification and the $\lambda_C$ Cancellation
+Theorem in the Helical Geometry,'' Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19583032}{10.5281/zenodo.19583032}
+
+\bibitem{Thomas1926}
+L.~H.~Thomas, ``The Motion of the Spinning Electron,''
+Nature \textbf{117}, 514 (1926). \href{https://doi.org/10.1038/117514a0}{10.1038/117514a0}
+
+\bibitem{Jackson1999}
+J.~D.~Jackson, \textit{Classical Electrodynamics}, 3rd ed.,
+Wiley, New York (1999).
+
+\bibitem{hanamura19}
+S.~Hanamura, ``Spin as a Real Vector: Geometric Origin of U(1) Gauge
+and SU(2) Periodicity,'' Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765238}{10.5281/zenodo.17765238}
+
+\bibitem{Wigner1939}
+E.~P.~Wigner, ``On Unitary Representations of the Inhomogeneous Lorentz Group,''
+Ann.\ Math.\ \textbf{40}, 149--204 (1939). \href{https://doi.org/10.2307/1968551}{10.2307/1968551}
+
+\bibitem{FierzPauli1939}
+M.~Fierz and W.~Pauli, ``On Relativistic Wave Equations for Particles of
+Arbitrary Spin in an Electromagnetic Field,''
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{173}, 211--232 (1939).
+\href{https://doi.org/10.1098/rspa.1939.0140}{10.1098/rspa.1939.0140}
+
+\bibitem{Weinberg1995}
+S.~Weinberg, \textit{The Quantum Theory of Fields, Vol.~I: Foundations},
+Cambridge University Press, Cambridge (1995).
+
+\bibitem{hanamura56}
+S.~Hanamura,
+``The Framework Boundary: How Local-Field and Directed-Path Descriptions Diverge in the 0-Sphere Model,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19900974}{10.5281/zenodo.19900974}
+
+\bibitem{hanamura50}
+S.~Hanamura, ``Rotation from Scalar Oscillation: Emergence of Angular Momentum,
+Chirality, and Helicity in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19482145}{10.5281/zenodo.19482145}
+
+\bibitem{Einstein1918}
+A.~Einstein, ``\"{U}ber Gravitationswellen,''
+Sitzungsber.\ K\"{o}nigl.\ Preuss.\ Akad.\ Wiss.\ Berlin \textbf{1918}, 154--167 (1918).
+
+\bibitem{LandauLifshitz2}
+L.~D.~Landau and E.~M.~Lifshitz, \textit{The Classical Theory of Fields},
+4th rev.\ English ed., Course of Theoretical Physics Vol.~2,
+Butterworth-Heinemann, Oxford (1980), \S110.
+
+\bibitem{Maggiore2007}
+M.~Maggiore, \textit{Gravitational Waves: Theory and Experiments},
+Oxford University Press, Oxford (2007).
+
+\bibitem{hanamura46}
+S.~Hanamura, ``Geometric Origin of the One-Half Factor: Thermal PE Floor
+and Zero-Point Energy,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19010945}{10.5281/zenodo.19010945}
+
+\bibitem{hanamura45}
+S.~Hanamura,
+``Open-Path Spinorial Transport in the 0-Sphere Model and the Status of Torsion: Holonomy Sufficiency and the Possibility of Emergent Semigroup Geometry,''
+Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18950974}{10.5281/zenodo.18950974}
+
+\bibitem{Glauber1963}
+R.~J.~Glauber, ``Coherent and Incoherent States of the Radiation Field,''
+Phys.\ Rev.\ \textbf{131}, 2766--2788 (1963).
+\href{https://doi.org/10.1103/PhysRev.131.2766}{10.1103/PhysRev.131.2766}
+
+\end{thebibliography}
+
+% ========================================
+% APPENDIX
+% ========================================
+\appendix
+
+\section{On Phase Coherence and $2\pi$ Renormalization: Why the Conventional Framework Was Not Used}
+\label{app:coherence}
+
+\subsection{The Standard Meaning of Coherence}
+
+In conventional quantum mechanics and quantum optics, \emph{coherence}~\cite{Glauber1963} refers to the sustained alignment of phases across repeated or parallel processes, enabling stable interference.
+For a two-event structure such as the present pair, coherence would typically be imposed by requiring that the two emission events share a definite phase relationship maintained across many ZB cycles through an external preparation, a locking mechanism, or a specific quantum state encoding.
+
+A natural first approach to the spin-2 assignment of Section~\ref{sec:rank2} would therefore be to postulate that the two events form a \emph{coherent pair} in this conventional sense, and to ask what physical mechanism provides the locking.
+The original formulation of this paper included such a postulate; the present version replaces it with the $4\pi$ boundary condition argument of Section~\ref{subsec:4pi_58}.
+This appendix explains the reason for that replacement and argues that the boundary-condition mechanism is structurally stronger.
+
+\subsection{The Problem with Conventional Coherence in a Non-Closed-Trajectory Framework}
+
+The trajectory in the 0-Sphere Model is, by construction, \emph{non-closing}: the ZB axis precesses by $\Delta\phi = 2\pi\anom$ per cycle (Paper~\#52), so that the return path $B \to A'$ is not the inverse of the forward path $A \to B$.
+This non-closure is the physical mechanism that generates directional memory and anisotropy --- precisely the properties required for a non-zero quadrupole moment.
+
+Here lies the tension: conventional coherence requires \emph{phase accumulation and maintenance} across cycles, but phase accumulation in a non-closed trajectory leads to an indefinitely drifting phase offset.
+Postulating an external coherent-pair mechanism to counteract this drift would introduce a stabilizing structure not grounded in the 0-Sphere's existing equations of motion.
+
+The structural dilemma is:
+\begin{align}
+&\underbrace{\text{non-closed trajectory}}_{\text{source of anisotropy (needed)}}
+\notag\\
+&\quad\longleftrightarrow\;
+\underbrace{\text{phase accumulation}}_{\text{threat to stability (unwanted)}}.
+\label{eq:dilemma}
+\end{align}
+Coherence in the conventional sense resolves stability by \emph{maintaining} phase alignment, which is in tension with the non-closure that provides the anisotropy.
+
+\subsection{The $2\pi$ Renormalization as a Stronger Alternative}
+
+The resolution adopted in this paper replaces continuous phase preservation with a \emph{discrete phase renormalization} grounded in the energy identity of Paper~\#1~\cite{hanamura01}.
+At every half-period $\iphase = n\pi$, the photon-sphere kinetic energy vanishes identically and the system returns to a definite energy eigenstate:
+\begin{align}
+\gamma_{KE}(\iphase = n\pi) &= \tfrac{1}{2}E_0\sin^2(n\pi) = 0, \label{eq:KE_zero}\\
+E_\mathrm{kernel}(\iphase = n\pi) &= E_0 \quad \text{(one kernel, 100\%).} \label{eq:PE_full}
+\end{align}
+These states are energy eigenstates of the Hamiltonian of Paper~\#1: they are not superpositions or coherent states but fully determined thermodynamic configurations.
+The internal phase is therefore reset to the \emph{same eigenstate} at every $\iphase = n\pi$, regardless of the trajectory followed during the preceding traversal, and the two ejection events are each guaranteed to occur at a fixed distance $T_\mathrm{ZB}/4$ from their respective boundary eigenstates.
+
+The contrast between the two approaches is collected in Table~\ref{tab:coherence_vs_renorm}.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Coherence vs.\ $2\pi$ renormalization as phase stability mechanisms}}
+\label{tab:coherence_vs_renorm}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{5.5cm}p{6.5cm}}
+\toprule
+\textbf{Property} & \textbf{Coherence (conventional)} & \textbf{$2\pi$ renormalization (this work)} \\
+\midrule
+Mechanism
+& Continuous phase alignment
+& Discrete phase reset at $\iphase = n\pi$ \\
+\addlinespace[0.3cm]
+Origin
+& External locking or preparation
+& Internal Hamiltonian eigenstates (Paper~\#1) \\
+\addlinespace[0.3cm]
+Phase across cycles
+& Accumulated (persistent)
+& Reset (non-accumulating) \\
+\addlinespace[0.3cm]
+Compatibility with non-closed path
+& Tension: accumulation $\leftrightarrow$ non-closure
+& Compatible: eigenstate reset is path-independent \\
+\addlinespace[0.3cm]
+Stability mechanism
+& Interference among aligned phases
+& Impossibility of eigenstate drift \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The $2\pi$ renormalization mechanism avoids phase accumulation by exploiting the fixed-energy boundary conditions of the $4\pi$ internal cycle. Because the boundary states are energy eigenstates (not coherent superpositions), no external preparation or phase-locking device is required.
+\end{minipage}
+\end{table*}
+
+\subsection{Why This Replacement Is Internally Stronger}
+
+The $2\pi$ renormalization mechanism is preferable to conventional coherence in the 0-Sphere framework for three reasons:
+
+\paragraph{(i) Endogenous.}
+The boundary conditions $\gamma_{KE}(n\pi) = 0$ follow directly from the energy identity of Paper~\#1, which is the foundational equation of the entire 0-Sphere series.
+No additional structure beyond what is already present in the theory is required.
+
+\paragraph{(ii) Compatible with non-closure.}
+Because the phase reset occurs at fixed energy eigenstates rather than by tracking a running phase, it is insensitive to the drift $\Delta\phi = 2\pi\anom$ per cycle.
+The non-closed trajectory produces the directional anisotropy; the eigenstate boundary conditions prevent this anisotropy from desynchronizing.
+The two mechanisms are orthogonal in function.
+
+\paragraph{(iii) Topologically robust.}
+An energy eigenstate at a Hamiltonian turning point is not perturbed by small fluctuations in the intermediate trajectory: any path that begins and ends at $\gamma_{KE} = 0$ will return the system to the same energy eigenstate, regardless of path details.
+This provides a stronger stability guarantee than coherence, which can be degraded by dephasing.
+
+\subsection{Precise Statement}
+
+The central conceptual substitution of this paper is:
+\begin{quote}
+\emph{Coherence is not the alignment of phases from outside; it is the prevention of phase drift from within. The $2\pi$ renormalization via Hamiltonian boundary conditions (Paper~\#1) is a sufficient --- and, in the 0-Sphere framework, more natural --- mechanism for this non-accumulation, requiring no extrinsic phase-locking structure.}
+\end{quote}
+
+% ========================================
+\section{Quadrupole Tensor Notation: A Primer}
+\label{app:notation}
+% ========================================
+
+This appendix explains the tensor notation used in Section~\ref{sec:quadrupole} for readers who are new to quadrupole formalism.
+No prior knowledge of general relativity is assumed; only index notation and basic calculus are required.
+
+\subsection{Index Notation and the Unit Vector}
+
+A vector such as $\ehat{x} = (1, 0, 0)$ has three components.
+In index notation, $(\ehat{x})_i$ denotes the $i$-th component of $\ehat{x}$, where the index $i$ runs over $\{1, 2, 3\}$ (corresponding to $x$, $y$, $z$):
+\begin{equation}
+(\ehat{x})_1 = 1, \quad (\ehat{x})_2 = 0, \quad (\ehat{x})_3 = 0.
+\end{equation}
+The expression $(\ehat{x})_i(\ehat{x})_j$ is the \emph{outer product} of $\ehat{x}$ with itself.
+It is a $3\times 3$ matrix (a rank-2 tensor) whose $(i,j)$ entry equals $(\ehat{x})_i \cdot (\ehat{x})_j$:
+\begin{equation}
+(\ehat{x})_i(\ehat{x})_j =
+\begin{pmatrix} 1 & 0 & 0 \\ 0 & 0 & 0 \\ 0 & 0 & 0 \end{pmatrix}_{ij}.
+\end{equation}
+Only the $(1,1)$ entry is nonzero, reflecting that $\ehat{x}$ points entirely in the $x$-direction.
+
+\subsection{The Kronecker Delta and the Traceless Condition}
+
+The \emph{Kronecker delta} $\delta_{ij}$ is the identity matrix:
+\begin{equation}
+\delta_{ij} = \begin{cases} 1 & (i = j), \\ 0 & (i \neq j). \end{cases}
+\end{equation}
+Its role here is to enforce the \emph{traceless} condition.
+The \emph{trace} of a matrix $M_{ij}$ is the sum of diagonal entries: $\mathrm{tr}(M) = M_{11} + M_{22} + M_{33} = \sum_i M_{ii}$.
+For our outer product, $\mathrm{tr}\bigl[(\ehat{x})_i(\ehat{x})_j\bigr] = 1 + 0 + 0 = 1$.
+
+Physical quadrupole moments must be traceless (the trace part encodes a monopole, not a quadrupole).
+The traceless projection is obtained by subtracting $\frac{1}{3}\delta_{ij}$ times the trace:
+\begin{equation}
+\left[(\ehat{x})_i(\ehat{x})_j - \tfrac{1}{3}\delta_{ij}\right]_{ij}
+= \begin{pmatrix} \tfrac{2}{3} & 0 & 0 \\ 0 & -\tfrac{1}{3} & 0 \\ 0 & 0 & -\tfrac{1}{3} \end{pmatrix}.
+\end{equation}
+This matrix is symmetric ($M_{ij} = M_{ji}$) and traceless ($M_{11} + M_{22} + M_{33} = 0$): the two defining properties of a quadrupole tensor.
+
+\subsection{The Quadrupole Moment Tensor $Q_{ij}$}
+
+The quadrupole moment tensor of a mass distribution $\rho(\mathbf{r})$ is defined in classical mechanics as:
+\begin{equation}
+Q_{ij} = \int \rho(\mathbf{r})\left(r_i r_j - \tfrac{1}{3}r^2\delta_{ij}\right) d^3r.
+\end{equation}
+For the 0-Sphere two-kernel system, the mass distribution reduces to two point masses separated by $\lambdaC$ along $\ehat{x}$, with mass difference $\Delta m(\iphase)$.
+The integral collapses to:
+\begin{equation}
+Q_{ij}(\iphase) = \Delta m(\iphase)\cdot\lambdaC^2
+\left((\ehat{x})_i(\ehat{x})_j - \tfrac{1}{3}\delta_{ij}\right),
+\end{equation}
+where $\Delta m(\iphase) = (E_0/c^2)\cos\iphase$ is the mass-energy difference between Kernel~A and Kernel~B (Eq.~\eqref{eq:mass_asymmetry}).
+Physically, $Q_{ij}$ is large when the two kernels have very different energies (near $\iphase = 0$ or $\pi$) and zero when they are equal (near $\iphase = \pi/2$ or $3\pi/2$).
+
+\subsection{Einstein Summation and the Contraction $Q_{ij}Q^{ij}$}
+
+In the gravitational wave power formula, $\dddot{Q}_{ij}\dddot{Q}^{ij}$ involves a \emph{contraction} (summation over both indices):
+\begin{equation}
+\dddot{Q}_{ij}\dddot{Q}^{ij} \;\equiv\; \sum_{i=1}^{3}\sum_{j=1}^{3} \dddot{Q}_{ij}\,\dddot{Q}_{ij},
+\end{equation}
+where we use the \emph{Einstein summation convention}: repeated indices are summed without writing $\sum$.
+The raised-index form $Q^{ij} = Q_{ij}$ (in flat space) simply means the same matrix.
+The contraction $Q_{ij}Q^{ij}$ is therefore a single scalar number equal to the sum of squares of all nine components.
+
+\subsection{Dot Notation for Time Derivatives}
+
+Newton's dot notation is used for time derivatives.
+One dot denotes the first derivative, two dots the second, and three dots the third:
+\begin{align}
+\dot{Q}_{ij} &= \frac{d}{dt}Q_{ij}(t), \\
+\ddot{Q}_{ij} &= \frac{d^2}{dt^2}Q_{ij}(t), \\
+\dddot{Q}_{ij} &= \frac{d^3}{dt^3}Q_{ij}(t).
+\end{align}
+Since $Q_{ij}(t) \propto \cos(\omZB t)$, repeated differentiation produces factors of $\omZB$:
+\begin{equation}
+\dddot{Q}_{ij}(t) \propto \omZB^3\sin(\omZB t).
+\end{equation}
+The third derivative appears in the gravitational wave formula because gravitational radiation is driven by the \emph{rate of change of the rate of change of the momentum flux} --- analogous to how electromagnetic radiation is driven by acceleration (second derivative of position), but one order higher in the multipole expansion.
+
+\subsection{Time-Averaging and the Angle Brackets}
+
+The angle brackets $\langle\cdots\rangle$ denote a time average over one oscillation cycle.
+For a sinusoidal function:
+\begin{equation}
+\langle \sin^2(\omZB t) \rangle = \frac{1}{2}, \qquad \langle \cos^2(\omZB t) \rangle = \frac{1}{2}.
+\end{equation}
+Applying this to $\dddot{Q}_{ij}\dddot{Q}^{ij} \propto \omZB^6\sin^2(\omZB t)$:
+\begin{equation}
+\left\langle\dddot{Q}_{ij}\dddot{Q}^{ij}\right\rangle \propto \frac{\omZB^6}{2},
+\end{equation}
+which explains the factor of $1/2$ that appears in Eq.~\eqref{eq:P_GW}.
+The time average is taken because physical observables such as radiated power cannot resolve individual oscillation cycles at frequency $\omZB \approx 5\times10^{18}$~s$^{-1}$.
+
+\end{document}

@@ -1,0 +1,374 @@
+
+\documentclass[reprint,amsmath,amssymb,aps,]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,
+            filecolor=blue,urlcolor=blue]{hyperref}
+\usepackage{braket}
+\numberwithin{equation}{section}% (p.37)
+
+
+\begin{document}
+
+    \title{Uniquely Distinguishing an Electron's Spin \\
+            from Two Quantum States via Riemann Surface Guidance}
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+        %\thanks{A footnote to the article title}
+        \date{April 1, 2019}
+        %\date{\today}
+        \begin{abstract}
+        In this study, we will describe how one electron could consist of a two-state spin system on the basis of a previous study, wherein we obtained a model in which two spinor particles could exist in one electron. The previously reported electronic model used equations to show the energy conservation law of an electron system, which included two spinors. Herein, we will consider these two oscillators as two bases and will start the discussion from the viewpoint that one electron can be considered two-bitwise. For this purpose, we apply the two-bitwise system with a Riemann surface via an analytic continuation. This trial could explain the mixed state of up and down spin states. Furthermore, the two states in which the electron can be of either state can be selected as the disconnection of the analytic continuation of the complex analysis. To consider the magnetic gradient field which would have a force to disconnect the analytic continuation to separate the two domains, it is possible to explain how the spin is fixed in the abovementioned states.
+        
+        \end{abstract}
+    \maketitle
+
+%            = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+
+    Generally, it is difficult to form an imagine of spin-1/2 behaviour. Steven Hawking explained the rotation of particles with spins of 1, 2, and 1/2 using an analogy of rotating playing cards \cite{Hawking}. Spin-1 particles were compared to the ace of spades, a figure in which one can distinguish the upward and downward directions. A spin-1 particle is inverted upside down with a 180-degree rotation, and then it returns to its original position with a 360-degree rotation.
+    
+    Hawking compared spin-2 particles to the queen of hearts. Rotating the queen of hearts 90 degrees counterclockwise, the card can be turned sideways and distinguished from its initial state. If we rotate the queen 180 degrees, we will no longer be able to differentiate between the new position and the original position because the queen has two heads with vertical symmetry. Hawking also demonstrated the difficulty of particles of spin-1/2 behaviour in his book. For this, he did not use the front designs of the playing cards but instead turned the back of a playing card to show its mysterious behaviour.
+    
+    In this study, we visualize the spin duality using a Riemann surface and the black body model, which was explained in our previous study \cite{Hanamura}. In addition, we try to explain this phenomenon using the analytic continuation \cite{Needham} of a Riemann surface in which the direction of the spin is determined at the moment of measurement.
+
+
+
+
+
+%            = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:METHODS}METHODS}
+
+
+\subsection{\label{sec:Review of the previous work}Review of the previous work}
+
+    %enago済 In our previous study\cite{Hanamura}, we considered the bare electrons as two spinor oscillators contained in one electron, whose spins follow the superposition principle. %enago済
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_e_phase.eps}
+                \caption{A schematic of the manner in which a virtual photon can be moved as a simple harmonic oscillator with the emergence and disappearance of bare electrons at the fixed points $x=a$ and $x=-a$. The two bare electrons are two spinors 1 and 2 represented by the blue and green dots, respectively. The open circles express the thermal potential energy, which has a zero value. The arrows within the yellow circles (b) and (d) have two meanings: the direction in which the virtual photon is moving, and the direction to which the thermal potential energy is radiated between the two spinor particles (i.e., the blue and green dots).} 
+            \label{f_e_phase}
+        \end{figure}
+
+    In our previous study\cite{Hanamura}, we considered the bare electrons to be two spinor oscillators contained in one electron. This electron model obtains two bases of spin and results in a significantly different the electronic model compared to conventional electronic models. Hence, we obtain
+
+        \begin{equation}
+            \begin{split}
+                E_{0}
+                    &= \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\theta}{2} \right) + \mathrm{sin}^{4} \left( \frac{\theta}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} \theta \right)
+                    ,
+            \end{split}
+            \label{e_E=E1+E2+gamma}
+        \end{equation}
+
+    \noindent
+    where $\theta$ denotes the electron's phase $\omega t$.
+    
+    The first and the second terms on the right-hand side of the equation represent spinors 1 and 2, respectively, and the third term represents the virtual photon. Since the first and the second terms have the half-angle $\theta / 2$, which are performed as spinor particles, the range of $\theta / 2$ is required from $0\pi$ to $4\pi$ in order to rotate its one cycle, whereas, the third term, photon, can be restored from $0\pi$ to $2\pi$, and the previous two terms on the right-hand side require a 720-degree rotation. This is a relation corresponding to the character that a spinor particle requires a 720-degree for one cycle, and a vector particle rotates 360-degree to become one cycle as well.
+
+        \begin{equation}
+            \begin{split}
+                (Spinor 1): T_{\mathrm{e1}} \equiv E_{0} \cos^{4}{\left( \frac{\theta}{2} \right)}, \\
+                (Spinor 2): T_{\mathrm{e2}} \equiv E_{0} \sin^{4}{\left( \frac{\theta}{2} \right)}, \\
+                (Photon): \gamma_{\mathrm{K.E.}} \equiv \frac{1}{2} E_{0} \sin^{2}{\theta}.
+                \end{split}
+            \label{e_S1_S2_P}
+        \end{equation}
+
+    Figure 1 illustrates the change for each phase of the electronic model. Let the value of the particle's rest mass $m_{0}$ be one. The ratio of the thermal potential energy possessed by spinor 1 ($T_{\mathrm{e1}}$) spinor 2 ($T_{\mathrm{e2}}$) and the kinetic energy possessed by the virtual photon ($\gamma_{\mathrm{K.E.}}$) is as follows:
+
+        \begin{equation}
+            \begin{split}
+                (a) \ T_{e1} : T_{e2} : \gamma_{\mathrm{K.E.}} = 1 : 0 : 0 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (0\pi), \\
+                (b) \ T_{e1}: T_{e2} : \gamma_{\mathrm{K.E.}} = 1/4 : 1/4 : 1/2 \ \ \ \ \ \ \  (1/2 \pi), \\
+                (c) \ T_{e1} : T_{e2} : \gamma_{\mathrm{K.E.}} = 0 : 1 : 0 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (\pi), \\
+                (d) \ T_{e1} : T_{e2} : \gamma_{\mathrm{K.E.}} = 1/4 : 1/4 : 1/2 \ \ \ \ \ \ \ (3/2 \pi), \\
+                (e) \ T_{e1} : T_{e2} : \gamma_{\mathrm{K.E.}} = 1 : 0 : 0 \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ \ (2 \pi).
+            \end{split}
+        \end{equation}
+    
+    \
+
+    \
+    
+    In phase (a), $0 \pi$, spinor 1 occupies all the energy of the system in the electron. In phase (b), $3/2 \pi$, the ratio of energies is the same as in phase (d), $1/2 \pi$. However, the direction in which the virtual photon moves in phase (d) is opposite to that in phase (b). The energy of spinor 1 ($T_{\mathrm{e1}}$) that started radiating in phase (a) in Fig. \ref{f_e_phase} becomes the middle energy in the process of radiation in phase (b) and finishes radiating all its mass energy as thermal potential energy in phase (c). That is because $T_{\mathrm{e1}}$ in phase (c) has a value of zero.
+
+    Of particular note is that Eq. (\ref{e_E=E1+E2+gamma}) would contain zero point energy at every phase $\theta = 1/2 \pi$. For every phase $\theta = 1/2 \pi$, the virtual photon occupies half the energy of the electron's system.
+    
+    The energy ratio for each phase is obtained from Eq. (\ref{e_E=E1+E2+gamma}) which includes three oscillators. This equation is a mathematical expression that preserves the law of conservation of energy at any phase while the three particles oscillate. See the Appendix \ref{Appendix} and \cite{Hanamura} for details. If we let $E_{0} = m_{0}$, the system of the electron in the phase change can be represented as
+
+        \begin{equation}
+            \begin{split}
+                m_{0}
+                    &= \ m_{0} \left( \mathrm{cos}^{4} \left( \frac{\theta}{2} \right) + \mathrm{sin}^{4} \left( \frac{\theta}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} \theta \right)
+                    .
+            \end{split}
+            \label{e_E=E1+E2+gamma}
+        \end{equation}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_spin_4pi.eps}
+                \caption{(a) Two spinors as bare electrons at two points, -$a$ and $a$, are separated by a distance of $2a$. Each spinor can exchange thermal potential energy as the electron's mass energy via radiation and can be regarded as one organised oscillator. (b) A representation of the 720-degree rotation performed on a two-state spin. This figure is drawn with reference to the Bloch sphere. Two Bloch spheres are combined into one circle to represent each two spinor state. The horizontal axis $z_{1}$ indicates the direction of spinor 1, and the vertical axis $z_{2}$ indicates the direction of spinor 2. These two bases can represent the two-state system.}
+            \label{f_spin_4pi}
+        \end{figure}
+
+    In the conventional electronic model, the up spin and down spin are expressed as a single basis vector with respect to the dimension in one direction (i.e., the $z$-axis). This is a model with one-state spin in each electron. However, in the above electronic model, because two spinors are included in one electron, each spinor can have a unique base representing a spin. Therefore, there are two-state spins in each electron.
+    
+    The model assumes that each spinor (spinor 1 and spinor 2) independently has a basis of the ``up:$\ket{\uparrow}$'' spin and ``down:$\ket{\downarrow}$'' spin. These combinations $\ket{\mathrm{spinor1, spinor2}}$ which has same meaning of $\ket{T_{\mathrm{e1 \ spin}}, T_{\mathrm{e2 \ spin}}}$ mentioned in the previous study \cite{Hanamura} can be denoted as $\ket{\uparrow \uparrow}$, $\ket{\downarrow \uparrow }$, $\ket{\uparrow \downarrow}$, and $\ket{\downarrow \downarrow}$ to represent the spins in one electron.
+
+    One of the spinors becomes an emitter, and the other becomes an absorber depending on the electron's phase. Spinors 1 and 2 alternately exchange their thermal potential energy via radiation between phases $0\pi$ and $2\pi$, that is, phases (a) and (e), in one cycle. One emitter--absorber cycle is represented every $2\pi$ (i.e., $2\pi, 4\pi, 6\pi...$, etc.) (see the Appendix \ref{Appendix}, Fig. \ref{fz_cos^4_sin^4}).
+
+    Both spins and emitter--absorber cycle could have each single degree of freedom. In order to add one more degree-of-freedom to the one cycle $0\pi$ to $2\pi$, one cycle should be doubled and expanded to $4\pi$ (Fig. \ref{f_spin_4pi}).
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_Riemann_1.eps}
+                \caption{Transplant of the two-state spins to a Riemann surface according to Figs. \ref{f_spin_4pi} (a) and \ref{f_spin_4pi}(b). The phases of the two-state spins, $\ket{\uparrow \uparrow}$, $\ket{\downarrow \uparrow}$, $\ket{\uparrow \downarrow}$, and $\ket{\downarrow \downarrow}$, change every period $\pi$. There are four types of two-state spins $\ket{\uparrow \downarrow}$, and one cycle requires a 720-degree rotation.}
+            \label{f_Riemann_1}
+        \end{figure}
+
+
+\subsection{\label{sec:Transplant of two-state spins to Riemann surface}Transplant of the two-state spins to Riemann surface}
+
+    Referring to Fig. \ref{f_spin_4pi}, when the phase is something other than $n \pi$, the spin has four combinations of up and down. This is a combination that we have conventionally expressed as the spin state of two particles. There are two spinors in the electrons in this electronic model \cite{Hanamura}; therefore, four types of combinations occur. These combinations $\ket{T_{\mathrm{e1 \ spin}}, T_{\mathrm{e2 \ spin}}}$ can be denoted as $\ket{\uparrow \uparrow}$, $\ket{\uparrow \downarrow}$, $\ket{\downarrow \uparrow }$, and $\ket{\downarrow \downarrow}$, except in the phase $\omega t = n \pi (n= 0,1,2,3,...,n)$. We quote part of our previous study \cite{Hanamura} below.
+
+    \begin{quote}
+        
+    ``Hence, an electron that comprises two spinor states, which can be defined as $\ket{ T_{\mathrm{e1 \ spin}}, T_{\mathrm{e2 \ spin}} }$, could be denoted as: $\ket{\uparrow \uparrow}$, $\ket{\downarrow \uparrow}$, $\ket{\uparrow \downarrow}$, and $\ket{\downarrow \downarrow}$, except in the phase; $\theta = n \pi, (n= 0,1,2,3,...,n)$. An expression using two arrows, such as $\ket{\uparrow \downarrow}$, could denote an isolated system as one whole electron. For example, $\ket{\downarrow  \uparrow}$ indicates that one electron has thermal energy $T_{\mathrm{e1}}$ which has ``down:$\ket{\downarrow}$'' spin, whereas $T_{\mathrm{e2}}$ has ``up:$\ket{\uparrow}$'' spin.
+
+    This system includes both kind of spins, $T_{\mathrm{e1 \ spin}}$ and $T_{\mathrm{e2 \ spin}}$. The state of an electron expressed as $\ket{\uparrow \downarrow}$ is a spin-mixed state:$\ket{\uparrow} : T_{\mathrm{e1 \ spin}}$ has ``up'' spin, whereas $\ket{\downarrow} : T_{\mathrm{e2 \ spin}}$ has ``down'' spin. We could suggest the following: the superposition in the phase-dependence of $\ket{ T_{\mathrm{e1 \ spin}}, T_{\mathrm{e2 \ spin}} }$ by generalizing the angle of circulation at every $(4n+0)\pi$,
+
+        \begin{equation}
+            \begin{split}
+                \ket{\uparrow  \uparrow} : (4n+0) \pi < \theta < (4n+1)\pi \ , \\
+                \ket{\downarrow \uparrow} : (4n+1)\pi < \theta < (4n+2)\pi \ , \\
+                \ket{\downarrow \downarrow} : (4n+2)\pi < \theta < (4n+3)\pi \ , \\
+                \ket{\uparrow \downarrow} : (4n+3)\pi < \theta < (4n+4)\pi \ , \\
+                (n=0,1,2,3,...,n)
+                \ .''
+            \end{split}
+            \label{e_spin_Te1_Te2}
+        \end{equation}
+    
+    \end{quote}
+
+    In order to visually create easy-to-understand diagrams of a particle with spin 1/2, we will use a Riemann surface. Riemann surfaces deal with bivalent functions and are suitable for expressing the behavior of spinors. In our previous study, we mentioned ``spin states,'' where the phase changes from $0 \pi$ to $4 \pi$; it was assumed that the changes were analyzed on a Riemann surface and were connected implicitly as a complex plane.
+
+    If the electron are in the phase ranging from $0\pi$ to $4\pi$, these combinations $\ket{ T_{\mathrm{e1 \ spin}}, T_{\mathrm{e2 \ spin}} }$ force to take as ``$\ket{\uparrow \uparrow}$, $\ket{\downarrow \uparrow}$, $\ket{\uparrow \downarrow}$, and $\ket{\downarrow \downarrow}$ circulation'' cycle. As long as the spinors adopt the concept of the previous electronic model that takes one cycle at 720-degree, the electron would not be uniquely determined as up or down. We need to modify this view in (Eq. \ref{e_spin_Te1_Te2}) with a Riemann surface corresponding to two bases of the spinors shown in Fig. \ref{f_Riemann_1}.
+    
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_Riemann_2.eps}
+                \caption{(a) Connected: $D_{0} \cap D_{1} \neq \emptyset$. In order to represent the bivalent function of the spinors, we divided the spinor states into two domains ($D_{0}$ and $D_{1}$) and illustrated the value using the analytic continuation in two-dimensional $x- y$-planes. (b) Disconnected: $D_{0} \cap D_{1} = \emptyset$. These planes, $S^{\prime}_{\mathrm{I}}$ and $S^\prime_{\mathrm{II}}$, are separated from each other. These analysis figures show the case in which the two connected domains ($D_{0}$ and $D_{1}$) are separated by a magnetic field gradient or a measurement.}
+            \label{f_Riemann_2}
+        \end{figure}
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_Riemann_3.eps}
+                \caption{The meaning of each coordinate axis is given in Fig.\ref{f_Riemann_1}. The two spinors present on the x-axis are located at equidistant spatial coordinates (i.e., $+a$ and $-a$).  The meanings of the $z$-axes and $x$-axes reflect the electron model in our previous study; however, further consideration is necessary with respect to the validity of the $y$-axis:$\gamma^{*}_{\mathrm{K.E.}}$.}
+            \label{f_Riemann_3}
+        \end{figure}
+        
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:DISCUSSION}DISCUSSION}
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\subsection{\label{sec:Disconnecting an analytic continuation to identify the spin direction}Disconnecting an analytic continuation to identify the spin direction}
+
+
+    How should we consider the ``fixed spin'' state for an electron that is comprised of two spinor states? This subsection discusses this issue.
+    
+    Let us consider the Riemann surface for $w \rightarrow \sqrt{z}$. There are two domains: $D_{0}$ and $D_{1}$. An arbitrary point $(r, 0)$ in $D_{0}$ corresponds to a point on the $w$-plane. The argument $(r, 0)$ in $D_{1}$ is shifted by $\pi$ from the argument $w_{0}$. The domain of $D_{0}$ occupies $0\pi$ to $2\pi$, and the domain of $D_{1}$ occupies $2\pi$ to $4\pi$.
+
+    $T_{\mathrm{e1 \ spin}} = \ket{\uparrow}$ (blue up arrow) and $T_{\mathrm{e2 \ spin}} = \ket{\uparrow}$ (green up arrow) correspond to the domain $D_{0}$. Conversely, $T_{\mathrm{e1 \ spin}} = \ket{\downarrow}$ (blue down arrow) and the $T_{\mathrm{e2 \ spin}} = \ket{\downarrow}$ (green down arrow) correspond to the domain $D_{1}$, as shown in  Fig. \ref{f_Riemann_1}. These domains $D_{0}$ and $D_{1}$ correspond to planes I and II, respectively, shown in the Fig. \ref{f_Riemann_2} (a).
+
+    One feature of this study is that we assume that these domain separations occur when a magnetic field gradient is applied to the field. This assumption determines the electron's spin as being either up or down. Figure \ref{f_Riemann_2}(a) shows the behavior of these spinors according to the phase change. There is no magnetic field gradient in this system, and whether the electron spin is up or down is not fixed.
+
+    However, Fig. \ref{f_Riemann_2}(b) shows that if the bond that connects the two domains ($D_{0}$ and $D_{1}$) no longer exists, then the two connected domains will split into two. The connection between the two domains ($D_{0}$ and $D_{1}$) is lost because of a magnetic field gradient with a nonzero value. That is, it is not possible to swap the spins of the electrons from one domain to the other. At this time, the spin is determined to be either up or down. The timing at which the spin is fixed to either up or down depends on the gradient of the magnetic field applied to the electron. Additionally, it can be interpreted that analytic continuation, domains ($D_{0}$ and $D_{1}$) are reconnected to the particle which fixed spin status become mixed state again.
+
+    Due to the fact that, the yellow and purple lines can no longer be connected because they are alternate routes between spins from up to down and vice versa. Therefore, this state on plane $S_{\mathrm{I}}$ in Fig. \ref{f_Riemann_2}(a) no longer appears on plane $S^{\prime}_{\mathrm{I}}$ in Fig. \ref{f_Riemann_2}(b), and the red and purple circles appear instead of the previous yellow and brown lines.
+    
+    When this state is represented by a two-state spin system, it can be explained as follows: The two states of the yellow and purple lines disappear because the states with spin $\ket{\uparrow \downarrow}$ and spin $\ket{\downarrow \uparrow}$ disappear. Instead, both spinors 1 and 2 on plane $S_{\mathrm{I}}$ are in the ``up'' state, so even if there is a phase change, only state $\ket{\uparrow \uparrow}$ can exist. Likewise, in plane $S_{\mathrm{II}}$, there is a domain where only the ``down'' spin exists.
+    
+    The spin state can be determined by the disconnected planes $S_{\mathrm{I}}$ and $S_{\mathrm{II}}$. If the two domains ($D_{0}$ and $D_{1}$) are connected, there can be four quantum states: $\ket{\uparrow \uparrow}$, $\ket{\downarrow \uparrow}$ $\ket{\uparrow \downarrow}$, and $\ket{\downarrow \downarrow}$. Conversely, if the two domains ($D_{0}$ and $D_{1}$) are disconnected, only two quantum states ($\ket{\uparrow \uparrow}$ and $\ket{\downarrow \downarrow}$) are permitted instead of four.
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f_phase_space.eps}
+                \caption{$x$-axis: the position of the two spinors in the state restricted to the plane I$^{\prime}$. $y$-axis: $\gamma^{*}_{\mathrm{K.E.}}$ stands for the value of the kinetic energy of the virtual photon within an electron. The value of $\gamma^{*}_{\mathrm{K.E.}}$ take $1/2 \hbar \nu$ in phase $1/2 \pi$ according to phase (b), as shown in Appendix Fig. \ref{fz_cos^4_sin^4}. Note that the diameter of the virtual photon (the yellow-filled circles) is not drawn in proportion to the diameter of the electron.}
+            \label{f_phase_space}
+        \end{figure}
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\subsection{\label{sec:Proposing a meaning for the three axes of the Riemann surface}Proposing a meaning for the three axes of the Riemann surface}
+
+    The dimension shown in Fig. \ref{f_Riemann_3} indicates that the space is only in the $x$-axis, and the model represented by the Riemann surface is one spatial dimension. The value represented by this spatial dimension may be the position of the spinor and the virtual photon that reciprocates between the two spinors.
+
+    Figure \ref{f_phase_space} shows the total amount of energy of the bare electrons representing two spinors in one electron on the $y$-axis. On the $x$-axis, spinors 1 and 2 are represented at the positions $+a$ and $-a$, respectively. While spinors 1 and 2 exchange their thermal potential energy back and forth, the virtual photon acts as a vibrator, oscillating spinors 1 and 2 as the two end amplitudes of an oscillator due to the centering force of the bare electrons and the virtual photon. These conditions are the same as those discussed in our previous model \cite{Hanamura}.
+
+    For example, the electron at position $0\pi$ (a) spreads via the radius of the virtual photon to $-a$. Therefore, the thermal potential energy at $+a$ can be radiated to $-a$ via the virtual photon.
+    
+    In this case, the defined state of the ``up:$\ket{\uparrow \uparrow}$'' spin (red arrows and ellipse) remains over all phases because the domains $D_{0}$ and $D_{1}$ are disconnected.
+    
+    Figure \ref{f_phase_space} shows a particularly unusual chart because the form of the coordinates in which the energy is taken on both the horizontal and vertical axis, which is very similar to phase space in classical mechanics.
+    
+    Classical phase space cannot be applied to quantum mechanics because of the uncertainty principle (see the following equation).
+
+    \begin{equation}
+        \Delta x \cdot \Delta p \geq \frac{\hbar}{2}
+        .
+        \label{e_uncertainty}
+    \end{equation}
+
+    Here, we modify the interpretation of the model according to the uncertainty principle. So, far, we have assumed that the two spinors are present at $+a$ and $-a$ of the spatial coordinates. However, in reality, there exist quantum fluctuations and the two spinors never remain in a fixed space such as $+a$ and $-a$. This is an extremely simplified model condition.
+    
+    In actuality, the absorber spinor, spinor 2, can occur in any spatial direction within the radius of the virtual photon, which has the range within which it can receive radiative energy from the emitter. Therefore, this electronic model should incorporate the concept of random walk in possible further developments. The mechanism of quantum fluctuation, therefore, is left for future research.
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\subsection{\label{sec:LIMITATIONS}LIMITATIONS}
+    
+    Measuring the position of an electron involves using the interaction between a photon and the electron. According to this electronic model, when a virtual photon has its kinetic energy due to vibration, the two spinors obtain $1/2 \hbar \nu$ energy value in its system in phase $1/2 \pi$ and $3/2 \pi$, as shown in the Appendix Fig. \ref{fz_cos^4_sin^4}, i.e., the summation of the two spinors obtain a nonzero thermal potential energy value through whole phase.
+    
+    When the virtual photon is located at $+a$ or $-a$ and every $\pi$ phase in an integer phase, the kinetic energy of the virtual photon becomes zero in the electron model. Therefore, no virtual photon is detected in such integer-$\pi$ phases. The measurement of quantum mechanics has been discussed for a long time; however, this study does not go into depth and discuss quantum measurement.
+
+    When the electron's phase is in an integer-$\pi$, either spinor 1 or 2 possesses the all the potential thermal energy. Herein, we assumed that the two bare electrons emerge and keep staying in each fixed place $+a$ and $-a$, respectively (i.e., Figs. \ref{f_e_phase}, \ref{f_spin_4pi}(a), and \ref{f_phase_space}). However, because we do not know where the other spinor will appear in space, we do not know in which direction the virtual photon will travel next. Therefore, even if the position of spinor 1 is measurable, the direction of the momentum of the electron cannot be determined (i.e., the virtual photon's momentum), which is unlike classical dynamics.
+    
+    However, Fig. \ref{f_phase_space} does not contradict the principle of uncertainty because a scalar value of energy is adopted on the vertical axis instead of the momentum, which has a vector value.
+    
+    Regardless of $S_{\mathrm{I}}$ and $S_{\mathrm{II}}$ on $D_{0} \cap D_{1} \neq \emptyset$, or $S^{\prime}_{\mathrm{I}}$ and $S^{\prime}_{\mathrm{II}}$ on $D_{0} \cap D_{1} = \emptyset$, the positive value,
+    
+    \begin{equation}
+        \gamma^{*}_{\mathrm{K.E.}} = \frac{1}{2} \hbar \nu
+        ,
+    \end{equation}
+    
+    \noindent
+    on the phase (b) and negative value,
+
+    \begin{equation}
+        \gamma^{*}_{\mathrm{K.E.}} = - \frac{1}{2} \hbar \nu
+        ,
+    \end{equation}
+
+    \noindent
+    on the phase (d) come out as shown in Fig. \ref{f_phase_space}. Because the $y$-axis shown in Fig. \ref{f_phase_space} has been allocated to represent the kinetic energy of the virtual photon, there is a problem in that the value of energy becomes negative.
+
+    It is also conceivable that a Hermitian operator could shift the phase in Fig. \ref{f_phase_space}. Discussing this point requires further study. In addition, we did not address the mechanism itself of how a spin is generated in this paper. Further research is also required concerning the mechanism of domain disconnection.
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+    In this study, we utilized a previous electronic model containing two spinors in one electron. The two spinors can individually take ``up'' and ``down'' spins as two bases. Therefore, there are four combinations, that is, $\ket{\uparrow \uparrow}$, $\ket{\downarrow \uparrow}$ $\ket{\uparrow \downarrow}$, and $\ket{\downarrow \downarrow}$, within a single electron due to these two spinor bases. These phenomena can be obtained via the principle of superposition of the two bases. In this respect, one electron could be said to be two-bitwise.
+    
+    One electron is permitted to have four spin states: $\ket{\uparrow \uparrow}$, $\ket{\downarrow \uparrow}$ $\ket{\uparrow \downarrow}$, and $\ket{\downarrow \downarrow}$. These states result from the interpretation of a Riemann surface that has one cycle for each 720-degree rotation. In this study, we discussed the correspondence between the four spin states and the phases of the Riemann surface.
+    
+    Furthermore, an analysis of the spin revealed that one 720-degree rotation can be split into two pairs of 360-degree rotation cycle. For this purpose, an analytic continuation with the Riemann surface and two domains, $D_{0}$ and $D_{1}$, were used. The electron's spin is fixed when divided into two pairs of 360-degree rotations and the phase which the electron selects either the spin up:$D_{0}$ or the spin down:$D_{1}$ phase. Such disconnection would not permit the four combinations; instead, only two types of states ($\ket{\uparrow \uparrow}$ and $\ket{\downarrow \downarrow}$) would be permitted. States $\ket{\downarrow \uparrow}$ and $\ket{\uparrow \downarrow}$ can exist when domains $D_{0}$ and $D_{1}$ are connected as an analytic continuation of the complex planes.
+    
+    The two-bitwise state $\ket{\uparrow \uparrow}$ is attributed to domain $D_{0}$ and the other state $\ket{\downarrow \downarrow}$ is attributed to domain $D_{1}$. Because both bases are aligned, we regard the aligned direction states as electron spin up $\ket{\uparrow}$ and spin down $\ket{\downarrow}$, respectively. 
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\begin{thebibliography}{99}
+\bibitem{Hawking} Stephen Hawking, \textit{The Universe in a Nutshell} (Moonrunner Design Ltd. UK, p.48, 2001)
+
+\bibitem{Hanamura} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+
+\bibitem{Needham} Tristan Needham, \textit{Visual Complex Analysis}, Oxford University Press (1997)
+    %\bibitem{Gerlach} Gerlach, W. and Stern, O. Der experimentelle Nachweis der Richtungsquantelung im Magnetfeld. Z. Phys. 9, 349–352 (1922)
+    %\bibitem{David Ball} David W. Ball, Physical Chemistry 2E, Wadsworth Cengage Learning, (2015)
+
+\end{thebibliography}
+
+
+%\newpage
+\clearpage
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{Appendix}
+\label{Appendix}
+
+\subsection{Bare electrons as the emitter and the absorber}
+%\label{}
+
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{f3_cos^4_sin^4.eps}
+                \caption{Plots of the two oscillators, $T_{\mathrm{e1}}$ = $E_{0} \cos^{4}(\frac{\omega t}{2})$ (blue) and $T_{\mathrm{e2}}$ = $E_{0} \sin^{4}(\frac{\omega t}{2})$ (green), with $E_{0} = 1$.}
+            \label{fz_cos^4_sin^4}
+        \end{figure}
+
+        \begin{figure}[h!]
+            \centering
+            \includegraphics[scale=1.0]{fz_E1+E2+gamma.eps}
+                \caption{Energy conservation during the harmonic oscillation of the three particles as presented in classical dynamics. The blue and green lines show a pair of bare electrons, and the yellow line shows the energy of the virtual photon \cite{Hanamura}.}
+            \label{fz_cos^4_sin^4}
+        \end{figure}
+
+    In this paper, we follow the model of \cite{Hanamura} in that one electron consists of three particles. Two of these three particles are bare electrons, which are spinors. These are harmonic oscillators and take part in emitting and absorbing thermal potential energy. The absorber receives the emitter's energy at an assumed distance of the Compton wavelength. These two oscillators as spinor particles emit and absorb energy according to the fourth power of a trigonometric function, as shown Fig. \ref{fz_cos^4_sin^4}.
+
+    There is an insufficient phase length to express the spin from $0\pi$ to $2\pi$ in Fig. \ref{fz_cos^4_sin^4}. In order to add one degree of freedom to represent the spin, a period from $0\pi$ to $4\pi$, which is twice the currently given length, is required (see Fig. \ref{f_spin_4pi}).
+
+    The conservation of energy equation includes the terms of these three oscillators, where each oscillator preserves its kinetic and potential energies \cite{Hanamura}:
+
+        \begin{equation}
+            \begin{split}
+                E_{0}
+                    &= \ E_{0} \left( \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right) + \mathrm{sin}^{4} \left( \frac{\omega t}{2} \right) + \frac{1}{2} \mathrm{sin}^{2} (\omega t) \right)
+                    ,
+            \end{split}
+            \label{ez_E=E1+E2+gamma}
+        \end{equation}
+
+    \noindent
+    where $E_{0}$ is the total initial energy of a single electron particle. The oscillators are obtained as follows:
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 1):
+                T_{\mathrm{e1}} 
+                    & \equiv E_{0} \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{ez_Osc_2_PE}
+            \end{split}
+        \end{equation}
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 2): T_{\mathrm{e2}} 
+                    & \equiv E_{0} \mathrm{cos}^{4} \left( \frac{\omega t}{2} \right)
+                    ,
+                \label{ez_Osc_3_PE}
+            \end{split}
+        \end{equation}
+
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 3): \gamma^{*}_\mathrm{K.E.}
+                    & \equiv \frac{1}{2} \ E_{0} \ \mathrm{sin}^{2} (\omega t)
+                    .
+                \label{ez_Osc_1_KE}  
+            \end{split}
+        \end{equation}
+
+    Here, $\gamma^{*}_\mathrm{K.E.}$ is a constant equal to the kinetic energy of the virtual photon (treated as a vector particle). $\gamma^{*}_\mathrm{K.E.}$ can represent the conversion of thermal potential energy to kinetic energy, which is then transmitted. Similarly, $T_{\mathrm{e1}}$ and $T_{\mathrm{e2}}$ are the thermal potential energies of the two spinors representing the bare electrons.
+
+
+
+\end{document}

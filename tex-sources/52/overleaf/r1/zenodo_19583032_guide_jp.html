@@ -1,0 +1,447 @@
+<!DOCTYPE html>
+<html lang="ja">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>コンプトン波長のキャンセルと等価原理</title>
+<style>
+  * { box-sizing: border-box; margin: 0; padding: 0; }
+  body {
+    font-family: 'Georgia', serif;
+    font-size: 17px;
+    line-height: 1.8;
+    color: #1a1a1a;
+    background: #fafaf8;
+    padding: 0;
+  }
+  .cover {
+    background: #003d82;
+    color: white;
+    padding: 3.5rem 2.5rem 3rem;
+  }
+  .cover-label {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: rgba(255,255,255,0.6);
+    margin-bottom: 1.2rem;
+  }
+  .cover h1 {
+    font-size: 2rem;
+    font-weight: normal;
+    line-height: 1.3;
+    margin-bottom: 0.8rem;
+    max-width: 620px;
+  }
+  .cover-sub {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 14px;
+    color: rgba(255,255,255,0.75);
+    max-width: 560px;
+    line-height: 1.6;
+  }
+  .content {
+    max-width: 740px;
+    margin: 0 auto;
+    padding: 3rem 2rem 4rem;
+  }
+  h2 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 1.1rem;
+    font-weight: 600;
+    color: #003d82;
+    margin: 3rem 0 1rem;
+    padding-bottom: 0.4rem;
+    border-bottom: 2px solid #003d82;
+    letter-spacing: 0.02em;
+  }
+  h3 {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 0.95rem;
+    font-weight: 600;
+    color: #444;
+    margin: 2rem 0 0.6rem;
+    text-transform: uppercase;
+    letter-spacing: 0.08em;
+  }
+  p {
+    margin-bottom: 1.1rem;
+    color: #222;
+  }
+  .lead {
+    font-size: 1.1rem;
+    color: #333;
+    line-height: 1.9;
+    margin-bottom: 1.5rem;
+  }
+  .box {
+    border-left: 4px solid #003d82;
+    background: #f0f4fa;
+    padding: 1.2rem 1.4rem;
+    margin: 1.8rem 0;
+    border-radius: 0 6px 6px 0;
+  }
+  .box-label {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 10px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: #003d82;
+    margin-bottom: 0.6rem;
+    font-weight: 600;
+  }
+  .box p { margin-bottom: 0.5rem; color: #1a2a40; }
+  .box p:last-child { margin-bottom: 0; }
+  .box-green {
+    border-left-color: #1a6b3a;
+    background: #f0f8f2;
+  }
+  .box-green .box-label { color: #1a6b3a; }
+  .box-green p { color: #1a3a25; }
+  .box-amber {
+    border-left-color: #b05e00;
+    background: #fdf6ed;
+  }
+  .box-amber .box-label { color: #b05e00; }
+  .box-amber p { color: #3a2000; }
+  .math-block {
+    font-family: 'Georgia', serif;
+    font-size: 1.15rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    color: #111;
+    background: #f5f5f0;
+    padding: 1.1rem 1.4rem;
+    border-radius: 6px;
+    letter-spacing: 0.02em;
+    line-height: 2;
+  }
+  .math-inline {
+    font-family: 'Georgia', serif;
+    font-style: italic;
+    font-size: 1em;
+    color: #111;
+  }
+  .analogy-grid {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 1rem;
+    margin: 1.5rem 0;
+  }
+  .analogy-card {
+    border: 1px solid #ddd;
+    border-radius: 8px;
+    padding: 1.1rem 1.2rem;
+    background: white;
+  }
+  .analogy-card-title {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    font-weight: 600;
+    letter-spacing: 0.1em;
+    text-transform: uppercase;
+    color: #888;
+    margin-bottom: 0.6rem;
+  }
+  .analogy-card p { font-size: 15px; color: #333; margin-bottom: 0.4rem; }
+  .analogy-card p:last-child { margin-bottom: 0; }
+  .step-row {
+    display: flex;
+    align-items: flex-start;
+    gap: 1rem;
+    margin-bottom: 1.2rem;
+  }
+  .step-num {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 13px;
+    font-weight: 700;
+    color: white;
+    background: #003d82;
+    border-radius: 50%;
+    width: 26px;
+    height: 26px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    flex-shrink: 0;
+    margin-top: 2px;
+  }
+  .step-body { flex: 1; }
+  .step-body p { margin-bottom: 0.3rem; }
+  .key-eq {
+    font-family: 'Georgia', serif;
+    font-size: 1.4rem;
+    text-align: center;
+    color: #003d82;
+    margin: 2rem 0;
+    font-style: italic;
+    line-height: 2;
+  }
+  .cancel-demo {
+    font-family: 'Georgia', serif;
+    font-size: 1.1rem;
+    text-align: center;
+    margin: 1.5rem 0;
+    line-height: 2.4;
+    color: #111;
+  }
+  .cancel { text-decoration: line-through; color: #999; }
+  .remain { color: #003d82; font-weight: 600; }
+  .conclusion-box {
+    border: 2px solid #003d82;
+    border-radius: 8px;
+    padding: 1.6rem 1.8rem;
+    margin: 2.5rem 0;
+    background: white;
+  }
+  .conclusion-box .box-label { color: #003d82; margin-bottom: 0.8rem; }
+  .conclusion-box p { color: #1a1a1a; font-size: 1.02rem; }
+  table {
+    width: 100%;
+    border-collapse: collapse;
+    margin: 1.2rem 0;
+    font-size: 15px;
+  }
+  th {
+    background: #003d82;
+    color: white;
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-weight: 600;
+    font-size: 12px;
+    letter-spacing: 0.05em;
+    text-transform: uppercase;
+    text-align: left;
+    padding: 0.6rem 0.9rem;
+  }
+  td {
+    padding: 0.7rem 0.9rem;
+    border-bottom: 1px solid #e5e5e5;
+    color: #222;
+    vertical-align: top;
+  }
+  tr:last-child td { border-bottom: none; }
+  tr:nth-child(even) td { background: #f8f8f6; }
+  .footnote {
+    font-family: 'Helvetica Neue', Helvetica, Arial, sans-serif;
+    font-size: 12px;
+    color: #888;
+    border-top: 1px solid #ddd;
+    margin-top: 3rem;
+    padding-top: 1rem;
+    line-height: 1.6;
+  }
+  @media (max-width: 600px) {
+    .analogy-grid { grid-template-columns: 1fr; }
+    .cover { padding: 2.5rem 1.5rem 2rem; }
+    .cover h1 { font-size: 1.5rem; }
+    .content { padding: 2rem 1.2rem 3rem; }
+    .math-block { font-size: 1rem; }
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="cover-label">0-Sphere Model — 解説ノート</div>
+  <h1>コンプトン波長はなぜ消えるのか<br>——等価原理の幾何学的起源</h1>
+  <div class="cover-sub">Satoshi Hanamura (2026) · Paper #52 補足解説<br>対象：大学院生（修士・博士）および背景に関心を持つすべての読者</div>
+</div>
+
+<div class="content">
+
+  <p class="lead">
+    「なぜ重いものも軽いものも、同じ加速度で落ちるのか」——これはガリレオが斜塔の実験で確かめた問いです。アインシュタインはこれを等価原理として一般相対性理論の礎に置きました。しかし「なぜそうなのか」という構造的な理由は、これまで「実験が確かめた事実」以上の説明を持っていませんでした。
+  </p>
+  <p>
+    0-Sphere Model は、この問いに対して一つの幾何学的答えを提案します。それが<strong>コンプトン波長 <span class="math-inline">λ<sub>C</sub></span> のキャンセル構造</strong>です。このノートでは、その仕組みを順を追って丁寧に説明します。
+  </p>
+
+  <h2>1. まず「等価原理」の何が不思議なのか</h2>
+
+  <p>ニュートン力学では、力と加速度の関係は：</p>
+
+  <div class="math-block">F = m<sub>i</sub> · a　（慣性質量）</div>
+  <div class="math-block">F = m<sub>g</sub> · g　（重力質量）</div>
+
+  <p>
+    慣性質量 <span class="math-inline">m<sub>i</sub></span> は「動かしにくさ」、重力質量 <span class="math-inline">m<sub>g</sub></span> は「重力に引かれる強さ」です。これは<em>論理的には別の概念</em>です。なのに実験は <span class="math-inline">m<sub>i</sub> = m<sub>g</sub></span> を精度10<sup>−13</sup>以上で確認している。
+  </p>
+
+  <div class="box box-amber">
+    <div class="box-label">問い</div>
+    <p>なぜ「動かしにくさ」と「重力への応答の強さ」が、まったく同じ数値になるのか。これは偶然か、それとも何か深い理由があるのか。</p>
+  </div>
+
+  <p>アインシュタインはこれを公理として採用しました——「理由を問わず、実験が示す事実として前提する」と。0-Sphere Model はここに構造的な答えを試みます。</p>
+
+  <h2>2. 電子の内部構造：0-Sphere Model の出発点</h2>
+
+  <p>
+    0-Sphere Model では、電子はコンプトン波長 <span class="math-inline">λ<sub>C</sub> = ℏ/(m<sub>e</sub>c)</span> のスケールで二つの核（カーネルAとカーネルB）の間を往復する内部構造を持ちます。この往復運動が<strong>ツィッタービーベグング（Zitterbewegung, ZB）</strong>です。
+  </p>
+
+  <div class="box">
+    <div class="box-label">高校物理の類比</div>
+    <p>バネに繋がれた質点が振動する単純調和運動に似ています。電子の「バネ」は内部の放射勾配 <span class="math-inline">F(θ) = E<sub>0</sub> sin θ</span> です。</p>
+  </div>
+
+  <p>この往復に関して、二つの重要な量があります：</p>
+
+  <div class="step-row">
+    <div class="step-num">1</div>
+    <div class="step-body">
+      <p><strong>エネルギー収集量（1サイクルあたり）</strong></p>
+      <p>重力場の中で、カーネルAとカーネルBは高さが微妙に違う。その差 <span class="math-inline">Δx ∼ λ<sub>C</sub>/2</span> によるポテンシャルエネルギーの非対称性が、1サイクルあたりに収集されるエネルギーを決めます。</p>
+    </div>
+  </div>
+
+  <div class="step-row">
+    <div class="step-num">2</div>
+    <div class="step-body">
+      <p><strong>サイクルレート（1秒あたりの往復回数）</strong></p>
+      <p>電子がどのくらいの速さでA←→Bを往復するかは、ZB速度 <span class="math-inline">v<sub>ZB</sub> ≈ 0.04c</span> と往復距離 <span class="math-inline">λ<sub>C</sub></span> で決まります。</p>
+    </div>
+  </div>
+
+  <h2>3. 計算の流れ：力はどう出てくるか</h2>
+
+  <p>重力場 <span class="math-inline">g</span> の中で、ZB軸ベクトル <span class="math-inline">ê</span> が重力方向 <span class="math-inline">ĝ</span> と角度をなしているとき、ターニングポイントでのエネルギー非対称は：</p>
+
+  <div class="math-block">δE = m<sub>e</sub> g λ<sub>C</sub> (ê · ĝ)</div>
+
+  <p><span class="math-inline">λ<sub>C</sub></span> が「内部スケール」として分子に登場しました。一方、サイクルレートは：</p>
+
+  <div class="math-block">ω<sub>ZB</sub> / 2π = v<sub>ZB</sub> / λ<sub>C</sub></div>
+
+  <p><span class="math-inline">λ<sub>C</sub></span> が分母に登場します。力は「1サイクルあたりの運動量移送 × サイクルレート」なので：</p>
+
+  <div class="cancel-demo">
+    F = <span style="font-style:italic">δE/c</span> × <span style="font-style:italic">ω<sub>ZB</sub>/2π</span>
+    = (m<sub>e</sub> g <span class="cancel">λ<sub>C</sub></span> / c) × (v<sub>ZB</sub> / <span class="cancel">λ<sub>C</sub></span>)
+    = m<sub>e</sub> g <span class="remain">β<sub>ZB</sub></span>
+  </div>
+
+  <p><span class="math-inline">λ<sub>C</sub></span> が分子と分母で完全にキャンセルしました。残るのは無次元の比 <span class="math-inline">β<sub>ZB</sub> = v<sub>ZB</sub>/c ≈ 0.04</span> だけです。</p>
+
+  <div class="box box-green">
+    <div class="box-label">何が重要か</div>
+    <p><span class="math-inline">λ<sub>C</sub></span> は質量 <span class="math-inline">m</span> に依存します：<span class="math-inline">λ<sub>C</sub> = ℏ/(mc)</span>。電子とミューオン（約207倍重い）では <span class="math-inline">λ<sub>C</sub></span> は207倍異なります。しかし <span class="math-inline">λ<sub>C</sub></span> がキャンセルするので、力は <span class="math-inline">F ∝ m·g</span> という形に自動的になる——すべての粒子が同じ加速度で落ちます。</p>
+  </div>
+
+  <h2>4. なぜキャンセルするのか：幾何学的理由</h2>
+
+  <p>代数的に <span class="math-inline">λ<sub>C</sub></span> が消えることは計算で確かめられます。しかし、なぜそうなるかを理解するには一歩深く踏み込む必要があります。</p>
+
+  <p>答えは次の一点に集約されます：</p>
+
+  <div class="conclusion-box">
+    <div class="box-label">核心的な洞察</div>
+    <p>エネルギーを収集する「空間スケール」（<span class="math-inline">δE ∝ λ<sub>C</sub></span>）と、それを収集する「時間スケール」（サイクルレート <span class="math-inline">∝ 1/λ<sub>C</sub></span>）が、<strong>どちらも同一の幾何学的対象 <span class="math-inline">ê</span>（ZB軸ベクトル）によって決まっている</strong>。だから両者の比を取ると、共通のパラメータ <span class="math-inline">λ<sub>C</sub></span> が必然的に消える。</p>
+  </div>
+
+  <p>独立に設定された二つのパラメータがたまたま消えたのではありません。<em>同一の幾何学的起源</em>を持つから対称に現れ、比で消えるのです。</p>
+
+  <h3>弦の波速との類比</h3>
+
+  <p>これを直感的に理解するための例として、弦を伝わる波の速度を考えましょう：</p>
+
+  <div class="math-block"><em>v</em> = √(T / μ)</div>
+
+  <p><span class="math-inline">T</span>（張力）と <span class="math-inline">μ</span>（線密度）は、弦の材質や太さによって個別にさまざまな値をとります。細い鋼線と太いゴム紐では、両者はまったく異なります。</p>
+
+  <div class="analogy-grid">
+    <div class="analogy-card">
+      <div class="analogy-card-title">弦の例</div>
+      <p>T（張力）と μ（線密度）は、どちらも「この弦」というひとつの物理的対象のパラメータです。</p>
+      <p>その比 T/μ の平方根が波速になる——弦の固有のパラメータが比の中で整理されて消え、波速という普遍的な量が現れます。</p>
+    </div>
+    <div class="analogy-card">
+      <div class="analogy-card-title">0-Sphere の例</div>
+      <p>エネルギー収集のスケール（∝ λ<sub>C</sub>）とサイクルレート（∝ 1/λ<sub>C</sub>）は、どちらも「この電子」の内部構造のパラメータです。</p>
+      <p>その積（力 = エネルギー/時間）の中で λ<sub>C</sub> が整理されて消え、F ∝ m·g という普遍的な関係が現れます。</p>
+    </div>
+  </div>
+
+  <p>弦の例では、T と μ が同一の物理的弦に属するから比が普遍的になります。0-Sphere では、エネルギー収集とサイクルレートが同一のベクトル <span class="math-inline">ê</span> に属するから比が普遍的になる——同じ論理構造です。</p>
+
+  <h2>5. 何が証明されて、何が未解決か</h2>
+
+  <p>この段階で正直に整理しておくことが重要です：</p>
+
+  <table>
+    <tr>
+      <th>問い</th>
+      <th>状況</th>
+      <th>内容</th>
+    </tr>
+    <tr>
+      <td>なぜ重力加速度がすべての質量に対して同じか</td>
+      <td>✓ 構造的に説明された</td>
+      <td>λ<sub>C</sub> がキャンセルするので、質量に関わらず F/m = g · β<sub>ZB</sub> が成立する</td>
+    </tr>
+    <tr>
+      <td>なぜ β<sub>ZB</sub> = v<sub>ZB</sub>/c ≈ 0.04 という係数が残るのか</td>
+      <td>△ 予測値は導出済み、完全回収は未解決</td>
+      <td>β<sub>ZB</sub> は異常磁気モーメント a<sub>e</sub> から計算される自由パラメータなしの予測。F = m·g への完全な回収は次の課題</td>
+    </tr>
+    <tr>
+      <td>重力以外の力との統一</td>
+      <td>△ 提案段階</td>
+      <td>ê<sub>x</sub>→重力、ê<sub>y</sub>→電磁気の方向分解は構造的提案。定量的な分岐機構は未導出</td>
+    </tr>
+  </table>
+
+  <div class="box box-amber">
+    <div class="box-label">読者へ</div>
+    <p>「等価原理の幾何学的起源」は、自由落下の普遍性（なぜ質量によらないか）を説明する部分にあります。重力加速度の絶対値の完全な導出は別の課題として記録されています。これを混同しないことが、この理論を正確に評価するために重要です。</p>
+  </div>
+
+  <h2>6. 標準理論との比較</h2>
+
+  <p>等価原理に対する標準的な「回答」と、0-Sphere の立場を対比すると：</p>
+
+  <table>
+    <tr>
+      <th>立場</th>
+      <th>等価原理の扱い</th>
+      <th>限界</th>
+    </tr>
+    <tr>
+      <td>ニュートン力学</td>
+      <td>m<sub>i</sub> = m<sub>g</sub> を実験事実として前提</td>
+      <td>「なぜ」を問わない</td>
+    </tr>
+    <tr>
+      <td>一般相対性理論</td>
+      <td>等価原理を公理として採用し、理論の土台にする</td>
+      <td>起源を説明しない（公理は説明されない）</td>
+    </tr>
+    <tr>
+      <td>量子重力（各種）</td>
+      <td>等価原理の量子補正を計算する</td>
+      <td>起源への構造的説明はない</td>
+    </tr>
+    <tr>
+      <td>0-Sphere Model（#52）</td>
+      <td>λ<sub>C</sub> キャンセルによって F ∝ m·g が構造的に導出される</td>
+      <td>β<sub>ZB</sub> → 1 の完全回収は open task</td>
+    </tr>
+  </table>
+
+  <h2>7. まとめ：何を主張しているか</h2>
+
+  <div class="conclusion-box">
+    <div class="box-label">この理論が言っていること</div>
+    <p>等価原理——すべての粒子が質量によらず同じ加速度で重力に落ちる——は、偶然でも公理でもない。それは、電子の内部で「重力エネルギーを測るスケール」と「それを測る速さ」が、同一の幾何学的ベクトル <span class="math-inline">ê</span> によって決まっているという構造的事実の帰結である。</p>
+    <p style="margin-top: 0.8rem;">コンプトン波長 <span class="math-inline">λ<sub>C</sub></span> は質量に依存するが、その依存性が分子と分母で対称に現れて消えるため、力は質量に比例し、加速度は質量によらない。これは極限操作でも統計的平均でもなく、単一粒子に対して成立する幾何学的恒等式である。</p>
+  </div>
+
+  <div class="footnote">
+    <p>Satoshi Hanamura, "Directional Decomposition of Force Types in the 0-Sphere Helical Geometry," Zenodo (2026). Paper #52 of the 0-Sphere Model series.</p>
+    <p style="margin-top: 0.5rem;">この解説ノートは Paper #52 の補足として作成されました。数式の完全な導出は原論文の §4 および Appendix A を参照してください。</p>
+  </div>
+
+</div>
+</body>
+</html>

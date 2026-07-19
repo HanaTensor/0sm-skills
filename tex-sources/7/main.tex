@@ -1,0 +1,833 @@
+\documentclass[%
+ reprint,
+ amsmath,amssymb,
+ aps,
+]{revtex4-1}
+
+\usepackage{graphicx}% Include figure files
+\usepackage{dcolumn}% Align table columns on decimal point
+\usepackage{bm}% bold math
+\usepackage[dvipdfm,colorlinks=true,linkcolor=blue,filecolor=blue, urlcolor=blue]{hyperref}
+\usepackage{braket}
+\usepackage{caption} % captionsetup[figure]用
+\usepackage{threeparttable} % Table のキャプションを変更
+\usepackage{breqn} %dmath用：数式の自動折り返し
+\numberwithin{equation}{section}% (p.37)
+
+
+\begin{document}
+
+    \captionsetup[figure]{justification=raggedright,
+        labelfont={bf},name={Fig.},labelsep=period} %Fig.の注釈を左揃えするためrangedrightを用いる
+    \captionsetup[table]{
+        labelfont={bf},name={Table.},labelsep=period}
+
+
+    \title{Coexistence positive and negative-energy states \\ in the Dirac equation with one electron}
+    \author{Satoshi Hanamura}
+    \email{hana.tensor@gmail.com}
+    %\date{\today}
+    \date{July 5, 2020}
+        \begin{abstract}
+
+    Having solved the Dirac equation, we obtained the concept of a spinor. There are two solutions to the Dirac equation, one with positive-energy states and one with negative-energy states. Conventionally, these two positive and negative states have been interpreted and corresponded to electrons and positrons. This paper aims to represent that we interpret the positive and negative states of the Dirac equation as two spinor particles contained in one electron, and examine their validity. As a result, adapting the previous study (i.e., The 0-sphere Electron Model) to the Dirac equation's positive and negative solutions gave a new interpretation of the negative-energy status. The positive and negative states of mass correspond to a thermal potential energy's radiation and absorption, respectively. The positive and negative momentum states could be described based on the simple harmonics oscillation of the virtual photon's kinetic energy.
+
+%\交換可能について
+
+
+        \end{abstract}
+    \maketitle
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * *
+\section{\label{sec:INTRODUCTION}INTRODUCTION}
+
+
+
+
+    The problem of the negative-energy state in the Dirac equation was including two major problems.
+    
+    \begin{itemize}
+        \item What is the meaning of the negative mass?
+        \item What is the meaning of the negative momentum?
+    \end{itemize}
+
+    Regarding negative solutions, Dirac wrote as follows,
+    
+    \begin{quote}
+        ``In this way we are led to infer that the negative-energy solutions refer to the motion of a new kind of particle having the mass of an electron and the opposite charge. Such particles have been observed experimentally and are called {\it positrons}. We cannot, however, simply assert that the negative-energy solutions represent positrons, as this would make the dynamical relations all wrong. For instance, it is certainly not true that a positron has a negative kinetic energy. We must therefore establish the theory of the positrons on a somewhat different footing. We assume that {\it nearly all the negative-energy states are occupied}, with one electron in each state in accordance with the exclusion principle of Pauli. An unoccupied negative-energy state will now appear as something with a positive energy, since to make it disappear, i.e. to fill it up, we should have to add to it an electron with negative energy. We assume that {\it these unoccupied negative-energy states are the positrons}.''
+        \cite{Dirac1}
+    \end{quote}
+    
+    Dirac reconstructed the logic with negative energy as a positron with an opposite charge to an electron with a negative charge. As cited above ``For instance, it is certainly not true that a positron has a negative kinetic energy''. 
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f_11.png}
+                \caption{ Positive-energy and negative-energy states interpretations that this study aims at. The two spinor particles are classified into particles that increase energy and particles that decrease energy. $(\bm{\mathrm{a}})$ $T_{\mathrm{e1}}$ which is spinor particle 1 radiates its own thermal potential energy to $T_{\mathrm{e2}}$ which is spinor particle 2. $(\bm{\mathrm{b}})$ The thermal potential energy is emitted from $T_{\mathrm{e2}}$ to $T_{\mathrm{e1}}$. Both energy flows should be distinguished by the direction of emitting, and take positive and negative values for energy transfer. $T$ is an acronym for thermal potential energy.}
+            \label{f_11}
+        \end{figure}
+
+    
+    According to Dirac's study, particles with negative energies have been interpreted as antiparticles and particles that go backwards in time. Positrons have been discovered for this argument, and there seems to be no room for reexamination of the negative solution of the Dirac equation.
+
+    
+    In this study, we are not concerned with positrons. We propose a different interpretation from the conventional one in which negative energies are used as positrons. However, the concept of negative energy could be applied to the newly devised electronic model, and a completely new interpretation is given to negative energy.
+
+    Based on the previous electron model, i.e., the 0-sphere electron model \cite{Hanamura1} \cite{Hanamura6}, we saw that an electron was composed of two spinor particles and one gauge particle; a photon. (See Fig. \ref{f_22} ($\bm{\mathrm{d}}$), and Appendix \ref{Appendix} for details.)
+    
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:METHODS}METHODS}
+
+
+
+\subsection{
+    \label{sec:Review the Dirac equation}
+        Review the Dirac equation}
+
+
+    The wave function of the Dirac equation has two-component spinors, $\it \Psi^{(+)}$ and $\it \Psi^{(-)}$ traditionally. Let us consider the case where the electron is at rest and the momentum $ \bm{p} = \bm{0} $. As well known, Dirac equation has the following two wave function solutions as follows:
+
+        \begin{equation}
+            E \it\Psi^{(+)} = m c^{\mathrm{2}} \it\Psi^{(+)}
+            \\,
+            \label{e_Psy_1}
+        \end{equation}
+
+        \begin{equation}
+            E \it\Psi^{(-)} = - m c^{\mathrm{2}} \it\Psi^{(-)}
+            \\.
+            \label{e_Psy_2}
+        \end{equation}
+
+    Equation \ref{e_Psy_1} shows the electron at rest is $positive$-$energy$ states, while eqn \ref{e_Psy_2} shows the $negative$-$energy$ states. Both eqs \ref{e_Psy_1} and \ref{e_Psy_2} and two-components spinor states ``up'' and ``down'', (eqn \ref{e_Psy_3}).
+
+        \begin{align}
+            \it\Psi =
+                \left(
+                    \begin{array}{c}
+                        \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                    \end{array}
+                \right)
+            =
+                \left( 
+                    \begin{array}{c}
+                        \it\Psi^{(+)}_{\mathrm{u}} \\
+                        \it\Psi^{(+)}_{\mathrm{d}} \\
+                        \it\Psi^{(-)}_{\mathrm{d}} \\
+                        \it\Psi^{(-)}_{\mathrm{u}} \\
+                    \end{array}
+                \right) \
+                \label{e_Psy_3}
+        \end{align}
+
+
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f_22.png}
+                \caption{$(\bm{\mathrm{a}})$ Two solutions of traditional Dirac equation with wave functions. $(\bm{\mathrm{b}})$ A new interpretation of the wave functions' allocation in this study. We assigned two spinors to two wave functions instead of the particle and the antiparticle. $(\bm{\mathrm{c}})$ In the traditional interpretation of a particle and an antiparticle, two elementary particles are considered to arrange one wave function, ${\it{\Psi}}$. $(\bm{\mathrm{d}})$ In this research, the new electron model shall be applied. In the 0-sphere electron model, one electron has its inner structure and has two thermal spots in one electron. That is, one electron should be consisted of two spinor spots and more than one virtual photon.}
+            \label{f_22}
+        \end{figure}
+
+
+
+    Till date, we concluded that $\it \Psi^{(+)}$ is a two-component spinor representing a $particle$, while $\it \Psi^{(-)}$ is a two-component spinor representing an $antiparticle$ (eqn \ref{e_particle_1}). These are two-component objects because this equation describes spin-1/2 particles \cite{McMahon}.
+ 
+
+    However, the negative-states appeared in the Dirac equation in the matrix form:
+    
+        \begin{align}
+            E
+            \left( 
+                \begin{array}{c}
+                    \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                \end{array}
+            \right) \
+            =
+            \left(
+                \begin{array}{cc}
+                    m c^2 \bm{1} 
+                        & c \ \bm{\sigma} \cdot \bm{p} \\
+                    c \ \bm{\sigma} \cdot \bm{p}
+                        & - m c^2 \bm{1} \end{array}
+            \right)
+            \left(
+                \begin{array}{c}
+                    \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                \end{array}
+            \right)
+            \label{e_matrix_1}
+            .
+        \end{align}
+
+    representing two coupled equations for $\it \Psi^{(+)}$ and $\it \Psi^{(-)}$:
+    
+    \begin{equation}
+        \left( E - m c^{2} \right) \Psi^{(+)}
+        = c \ \bm{\sigma} \cdot \bm{p} \ \Psi^{(-)}
+        ,
+    \end{equation}
+    
+    \noindent
+    and
+
+    \begin{equation}
+        \left( E + m c^{2} \right) \Psi^{(-)}
+        = c \ \bm{\sigma} \cdot \bm{p} \ \Psi^{(+)} \\
+        ,
+    \end{equation}
+
+    \noindent
+    where $\Psi^{(+)}$ and $\Psi^{(-)}$ are two two-component spinors.
+    
+    Having omitted the solving process of following calculation, we obtain eqn \ref{e_E=p^2_1} as solutions in the Dirac equation. Negative values of energy are often explained the following equation:
+
+
+        \begin{equation}
+            E^{2} = |\bm{p}|^{2} c^{2} + m^{2} c^{4}
+            \label{e_E=p^2_1}
+            \\.
+        \end{equation}
+
+    Solve eqn \ref{e_E=p^2_1} for $E$, we see that the possible energies are
+
+        \begin{equation}
+            E = \pm \sqrt{ |\bm{p}|^{2} c^{2} + m^{2} c^{4} }
+            \label{e_E=p^2_2}
+            \\.
+        \end{equation}
+
+   
+    Dirac spinor considered wave function as;
+
+
+        \begin{align}
+            \it\Psi =
+                \left( 
+                    \begin{array}{c}
+                        \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                    \end{array}
+                \right) \
+            =
+                \left(
+                    \begin{array}{c}
+                        \mathrm{particle} \\ \mathrm{antiparticle}
+                    \end{array}
+                \right)
+                .
+        \label{e_particle_1}
+        \end{align}    
+
+    Let us consider eqn \ref{e_particle_1} replacing the particle properties as eqn \ref{e_particle_2}.
+
+        \begin{align}
+            \it\Psi =
+                \left( 
+                    \begin{array}{c}
+                        \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                    \end{array}
+                \right) \
+            =
+                \left(
+                    \begin{array}{c}
+                        \mathrm{spinor \ 1} \\ \mathrm{spinor \ 2}
+                    \end{array}
+                \right)
+                .
+        \label{e_particle_2}
+        \end{align}    
+
+    Spinor 1 and Spinor 2 were mentioned on the electron's structure modeled in previous studies. Both Spinor 1 and Spinor 2 are two thermal potential energies existing in the structure that we have postulated as one electron. In the previous study \cite{Hanamura1}, we abbreviated the both spinors as $T$e1 and $T$e2 (Fig. \ref{f_22}).
+    
+    In the following section, we will examine the relevance of considering the Dirac spinor as two spinor particles in one electron, by the hypothesis to replace particle and antiparticle with spinors 1 and 2, respectively.
+
+
+
+\subsection{
+    \label{sec:Applying the virtual photon's kinetic energy to the solution of Dirac equation}
+        Applying the virtual photon's kinetic energy to the solution of Dirac equation}
+
+
+    This purpose of this paper is to reinterpret the Dirac equation's negative-state solutions by using two spinor particles as a pair. In addition to this purpose, to find a reasonable interpretation of the positive-energy and the negative-energy states from a behaviour of energy exchange between the two spinor particles. 
+
+    The 0-sphere electron model provides a starting point for identifying negative-energy states. We first consider the Dirac equation when the momentum is zero, that is, $ \bm{p} = \bm{0} $. The state refers to the moment when the momentum of the virtual photon becomes zero in the 0-sphere electron model.
+    
+    This state is a specific phase where only one spinor particle exists with zero kinetic energy. The phase can be said that the thermal potential energy emitted from another spinor particle is completely absorbed the whole energy in the system as one electron. The momentum of the virtual photon becomes value zero at this phase.
+    
+    Having converting from the conventional momentum of free particles to the momentum of real photons surrounding two spinors, we can apply the meaning of $ \bm{p_{\gamma^{*}}} = \bm{0} $ to the phase of the 0-sphere electron model.
+
+
+    Equations \ref{e_particle_1} and \ref{e_particle_2} should be identified on the point of the different amounts of momentum used for Equations \ref{e_particle_1_1} and \ref{e_particle_2_1} shown as follows;
+
+    
+        \begin{align}
+            \it\Psi =
+                \left( 
+                    \begin{array}{c}
+                        \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                    \end{array}
+                \right) \
+            =
+                \left(
+                    \begin{array}{c}
+                        \mathrm{particle} \\ \mathrm{antiparticle}
+                    \end{array}
+                \right)
+                ,
+            \notag
+            \\
+            \mathrm{where} \ \ \ \ \ \ \bm{p} = \bm{0}
+            .
+        \label{e_particle_1_1}
+        \end{align}    
+
+
+
+        \begin{align}
+            \it\Psi =
+                \left( 
+                    \begin{array}{c}
+                        \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                    \end{array}
+                \right) \
+            =
+                \left(
+                    \begin{array}{c}
+                        \mathrm{spinor \ 1} \\ \mathrm{spinor \ 2}
+                    \end{array}
+                \right)
+                ,
+            \notag
+            \\
+            \mathrm{where} \ \ \ \bm{p_{\gamma^{*}}} = \bm{0}
+            .
+        \label{e_particle_2_1}
+        \end{align}    
+
+
+    In the 0-sphere electron model, conventional virtual photons were regarded as real photons. Since we assumed that this virtual photon has kinetic energy in the previous studies, we use the kinetic energy of the virtual photon $ \bm{p_{\gamma^{*}}} $ instead of the conventional momentum $\bm{p}$ in this paper.
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:XXXX}DISCUSSION}
+
+
+\subsection{
+    \label{sec:Interpretation of negative energy}
+        Interpretation of negative energy}
+
+
+    The point of this paper is to change the allocation of the wave function from eqn \ref{e_particle_1} to eqn \ref{e_particle_2}. The two spinors are the same as the two spinors in the previously submitted study \cite{Hanamura1}. The distinctive feature of the previous electron model is that the bare electron can obtain both radiation and absorption states depending on the phase of the electron.
+
+    In this subsection, we consider the case where the momentum is zero, that is, $ \bm{p} = \bm{0} $. Substituting $ \bm{p} = \bm{0} $ in equation \ref{e_matrix_1} gives,
+    
+        
+        \begin{align}
+            E
+            \left( 
+                \begin{array}{c}
+                    \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                \end{array}
+            \right) \
+            =
+            \left(
+                \begin{array}{cc}
+                    m c^2 \bm{1} 
+                        & c \ \bm{\sigma} \cdot \bm{p} \\
+                    c \ \bm{\sigma} \cdot \bm{p}
+                        & - m c^2 \bm{1} \end{array}
+            \right)
+            \left(
+                \begin{array}{c}
+                    \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                \end{array}
+            \right)
+            \notag
+            \\
+            =
+            \left(
+                \begin{array}{cc}
+                    m c^2 \bm{1} 
+                        & c \ \bm{\sigma} \cdot \bm{0} \\
+                    c \ \bm{\sigma} \cdot \bm{0}
+                        & - m c^2 \bm{1} \end{array}
+            \right)
+            \left(
+                \begin{array}{c}
+                    \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                \end{array}
+            \right)
+            \notag
+            \\
+            =
+            \left(
+                \begin{array}{cc}
+                    m c^2 \bm{1} 
+                        & \bm{0} \\
+                    \bm{0}
+                        & - m c^2 \bm{1} \end{array}
+            \right)
+            \left(
+                \begin{array}{c}
+                    \it\Psi^{(+)} \\ \it\Psi^{(-)}
+                \end{array}
+            \right)
+        .
+        \label{e_matrix_3}
+        \end{align}
+
+    The solution to this equation is \cite{Griffiths},
+
+
+
+        \begin{align}
+            \it\Psi^{(+)}_{\mathrm{u}}
+            =
+            \left( 
+                \begin{array}{c}
+                    1 \\
+                    0 \\
+                    0 \\
+                    0 \\
+                \end{array}
+            \right) \
+            , \ \ \
+            \it\Psi^{(+)}_{\mathrm{d}}
+            =
+            \left( 
+                \begin{array}{c}
+                    0 \\
+                    1 \\
+                    0 \\
+                    0 \\
+                \end{array}
+            \right) \
+            \notag
+            ,
+            \\
+            \it\Psi^{(-)}_{\mathrm{u}}
+            =
+            \left( 
+                \begin{array}{c}
+                    0 \\
+                    0 \\
+                    0 \\
+                    1 \\
+                \end{array}
+            \right) \
+            , \ \ \
+            \it\Psi^{(-)}_{\mathrm{d}}
+            =
+            \left( 
+                \begin{array}{c}
+                    0 \\
+                    0 \\
+                    1 \\
+                    0 \\
+                \end{array}
+            \right) \
+            .
+        \label{e_Psy_4}
+        \end{align}
+
+    Each eigenvalue is,
+
+        \begin{align}
+            \it\Psi^{(+)}_{\mathrm{u}} : E = m c \mathrm{^2}, \ \ \ \ \ \ \it\Psi^{(+)}_{\mathrm{d}} : E = m c \mathrm{^2}, \ \ %空白調整
+            \notag
+            \\
+            \it\Psi^{(-)}_{\mathrm{u}} : E = - m c \mathrm{^2}, \ \ \ \ \it\Psi^{(-)}_{\mathrm{d}} : E = - m c \mathrm{^2},
+        \label{e_Psy_5}
+        \end{align}
+
+
+    \noindent
+
+    respectively. The above formulas from eqn \ref{e_matrix_3} to eqn \ref{e_Psy_5} are described in textbooks of quantum field theory. Please refer to those textbooks for the way of derivation, for example \cite{J.J.Sakurai}.
+    
+    We now proceed to make changes to the momentum we describe. In eqn \ref{e_matrix_3}, $ \bm{p} = \bm{0} $ refers to free electrons in the quiescent state \cite{J.J.Sakurai}.
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f_23.png}
+                \caption{Schematic of the manner in which a virtual photon, $ \bm{p_{\gamma^{*}}} $, can be moved as a simple harmonic oscillator with the emergence and disappearance of bare electrons at fixed points $ x = a $ and $ x = - a $. The yellow arrows show the strength of the potential gradient caused by the difference between the two thermal potential energies. See Appendix for a mathematical explanation of how virtual photons do simple harmonic oscillation. The momentum $ \bm{p_{\gamma^{*}}} $ of the virtual photon takes both positive and negative values. (Reference: The momentum of a virtual photon is abbreviated as $ \bm{p_{\gamma^{*}}} $. In the previous paper \cite{Hanamura1}, the kinetic energy of the virtual photon was abbreviated as $ \gamma^{*}_{\mathrm{K.E.}} $.) }
+            \label{f_23}
+        \end{figure}
+
+
+    
+    However, in the 0-sphere electron model, the two spinor particles always exchange thermal potential energy with each other, and there is no quiescent state in the strict sense. In the past, the momentum of an electron has been calculated by the kinetic energy of the electron, but in the 0-sphere electron model, it is assumed that the kinetic energy is possessed by real photons that wrap around two spinor particles.
+
+    In paper \cite{Hanamura1}, the concept of the conventional virtual photon was completely changed. Virtual photons might not exist. We assumed that an electron contains real photons and is an invisible particle. The interaction between electrons is not inconsistent if the invisible real photons as virtual photon interact with each other. Invisible these real photons continue to exist, and the energy conservation law is always valid in that respect of the assumption of the model.
+
+    We verified in paper \cite{Hanamura1} that a potential energy gradient was generated by the difference in the two spinors and that the gradient oscillates with time. Fig. \ref{f_23} shows the simple harmonic oscillator with the emergence and disappearance of two spinors.
+
+
+    Based on these considerations, it is reasonable to replace the momentum generally accepted into the momentum of the virtual photon surrounding the two spinors, $ \bm{p_{\gamma^{*}}} $. Changing the momentum to be dealt with is one of the critical points on this paper. Because positive and negative momentum value could be discussed in the 0-sphere electron model. 
+
+
+
+
+
+
+\subsection{
+    \label{sec:Plane wave solution}
+        Plane-wave solution}
+        % traveling-wave solution 進行波解
+
+    Let us now turn to another aspect of plane wave solution for $ \bm{p_{\gamma^{*}}} \neq \bm{0} $. The following two are known as the solutions with respect to $ E = + \sqrt{ |\bm{p}|^{2} c^{2} + m^{2} c^{4} } $. On the positive energy conditions, the solutions to the Dirac equation are \cite{Griffiths};
+
+        \begin{align}
+            {\it\Psi^{(+)}_{\mathrm{u}}} (\bm{p})
+            = N
+            \left( 
+                \begin{array}{c}
+                    1 \\
+                    0 \\
+                    \frac{c ( p_3 )}{E + m c^{2}} \\
+                    \frac{c ( p_1 + i p_2 )}{E + m c^{2}} \\
+                \end{array}
+            \right)
+            , \ \ \
+            {\it\Psi^{(+)}_{\mathrm{d}}}  (\bm{p})
+            = N
+            \left( 
+                \begin{array}{c}
+                    0 \\
+                    1 \\
+                    \frac{c ( p_1 - i p_2 )}{E + m c^{2}} \\
+                    \frac{c ( - p_3 )}{E + m c^{2}}  \\
+                \end{array}
+            \right)
+            .
+        \label{e_Psy_6}
+        \end{align}
+
+    When $ E = - \sqrt{ |\bm{p}|^{2} c^{2} + m^{2} c^{4} } $, the negative solutions are;
+    
+
+
+        \begin{align}
+            {\it\Psi^{(-)}_{\mathrm{u}}} (\bm{p})
+            = N
+            \left( 
+                \begin{array}{c}
+                    - \frac{c ( p_1 - i p_2 )}{|E| + m c^{2}} \\
+                    \frac{c ( p_3 )}{|E| + m c^{2}}  \\
+                    0 \\
+                    1 \\
+                \end{array}
+            \right)
+            , \ \ \
+            {\it\Psi^{(-)}_{\mathrm{d}}}  (\bm{p})
+            = N
+            \left( 
+                \begin{array}{c}
+                    - \frac{c ( p_3 )}{|E| + m c^{2}} \\
+                    - \frac{c ( p_1 + i p_2 )}{|E| + m c^{2}} \\
+                    1 \\
+                    0 \\
+                \end{array}
+            \right)
+            .
+        \label{e_Psy_7}
+        \end{align}
+
+
+    Dirac had been pondering about the above negative energy solution eqn \ref{e_Psy_7}. Let's reset the coordinates so that the momentum $\bm{p}$ coincides with the $x$-axis and set $ p_2 = p_3 = 0 $. Then solution \ref{e_Psy_6} and solution \ref{e_Psy_7} are as follows.
+
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f_24.png}
+                \caption{ $(\bm{\mathrm{a}})$ The virtual photon moves from right $x = a$ to left $x = - a$. Its momentum $ \bm{p_{\gamma^{*}}} $ is negative value. $(\bm{\mathrm{b}})$ The virtual photon moves from left $x = - a$ to right $x = a$. Its momentum $ \bm{p_{\gamma^{*}}} $ is positive value.}
+            \label{f_24}
+        \end{figure}
+
+
+    
+    
+        \begin{align}
+            {\it\Psi^{(+)}_{\mathrm{u}}} (\bm{p})
+            = N
+            \left( 
+                \begin{array}{c}
+                    1 \\
+                    0 \\
+                    0 \\
+                    \frac{c ( p_1 ) }{E + m c^{2}} \\
+                \end{array}
+            \right)
+            , \ \ \
+            {\it\Psi^{(+)}_{\mathrm{d}}} (\bm{p})
+            = N
+            \left( 
+                \begin{array}{c}
+                    0 \\
+                    1 \\
+                    \frac{c ( p_1 ) }{E + m c^{2}} \\
+                    0  \\
+                \end{array}
+            \right)
+            ,
+            \notag
+            \\
+            \mathrm{where} \ \ \ p_2 = p_3 = 0
+            .
+        \label{e_Psy_8}
+        \end{align}
+
+
+        \begin{align}
+            {\it\Psi^{(-)}_{\mathrm{u}}} (\bm{p})
+            =
+            \left( 
+                \begin{array}{c}
+                    - \frac{c p_1 }{|E| + m c^{2}} \\
+                    0  \\
+                    0 \\
+                    1 \\
+                \end{array}
+            \right)
+            , \ \ \
+            {\it\Psi^{(-)}_{\mathrm{d}}} (\bm{p})
+            =
+            \left( 
+                \begin{array}{c}
+                    0 \\
+                    - \frac{c p_1 }{|E| + m c^{2}} \\
+                    1 \\
+                    0 \\
+                \end{array}
+            \right)
+            ,
+            \notag
+            \\
+            \mathrm{where} \ \ \ p_2 = p_3 = 0
+            .
+        \label{e_Psy_9}
+        \end{align}
+
+
+
+    When the energy $E$ changes from a positive solution (eqn \ref{e_Psy_8}) to a negative energy $E$ (eqn \ref{e_Psy_9}), the positive value of the momentum $p_1$ becomes negative.
+
+    Let us proceed to reconsider the solution of the above equations solved for momentum $\bm{p}$ as solved for momentum $\bm{p_{{\gamma}^{*}}}$. Accordingly, the solutions mentioned above can be interpreted as representing the kinetic energy of the virtual photon $\bm{p_{{\gamma}^{*}}}$ in the 0-sphere electron model.
+
+
+    Fig. \ref{f_24} shows the thermal potential energy gradient and the direction in which the virtual photon moves when the thermal potential energy is radiated from the one spinor. In these phases, $ \bm{p_{\gamma^{*}}} $ can be either positive or negative momentum value.
+
+    The virtual photon can take positive and negative momentum values depending on the phase. The 0-sphere electronic model successfully applies positive and negative momentum solutions to the Dirac equation's solutions.
+
+    Fig. \ref{f_25} is a phase diagram showing a state where $\bm{p_{\gamma^{*}}}$ replaced from $\bm{p}$ in this study can be zero. The blue and green dots indicate positions on two spinors, which radiate and absorb each energy according to their phase. This exchange of energy makes the real photon a simple harmonic oscillation behavior.
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f_25.png}
+                \caption{Four phases when the virtual photon, $ \bm{p_{\gamma^{*}}} = \bm{0} $ and plots of given up or down wave functions on the phase differential.  $ (\bm{\mathrm{a}}) $ A representation of the 720-degree rotation performed on two-pair of bare electrons. $ (\bm{\mathrm{b}}) $ A representation of the 360-degree rotation performed on a virtual photon as a vector particle. $ (\bm{\mathrm{c}}) $ Correspondence of the up or down wave function and spatial position of the virtual photon that exhibits in-phase variation.    }
+            \label{f_25}
+        \end{figure}
+
+
+
+    Note that the diameter of the virtual photon in Fig. \ref{f_25} was not drawn in proportion with the distance between the two spinors; the blue and the green dots. The virtual photon was drawn a little smaller. This is because the thermal potential energy of spinor emits the radiation only within the radius of the virtual photon.
+    
+    The momentum of the virtual photon $ \bm{p_{\gamma^{*}}} $ takes zero with the each phase $ n \pi \ ( n = 0, 1, 2 ,..., n) $ that ticked by.
+
+
+    However, when a phase is other than an integer $n$, i.e., $ n \pi \ ( n \neq 0, 1, 2 ,..., n) $, the non-zero momentum is the solution to the Dirac equation.
+
+    The positive and negative relationship between $m$ and $p$ changes depending on the phase. When $\bm{p_{\gamma^{*}}} \neq 0$, the relation between the positive/negative of $p$ and the change of thermal potential energy $m$ as follows;
+
+
+        \begin{equation}
+            \begin{split}
+                \frac{\partial m_{\mathrm{Te1}}}{\partial t} < 0 , \
+                \frac{\partial m_{\mathrm{Te2}}}{\partial t} > 0 , \
+                \bm{p_{\gamma^{*}}} < 0 \ \ \ \ \ \ \ \ \\
+                : (4n+0) \pi < \theta < (4n+1)\pi \ , \\
+                \frac{\partial m_{\mathrm{Te1}}}{\partial t} > 0 , \
+                \frac{\partial m_{\mathrm{Te2}}}{\partial t} < 0 , \
+                \bm{p_{\gamma^{*}}} > 0 \ \ \ \ \ \ \ \ \\
+                : (4n+1)\pi < \theta < (4n+2)\pi \ , \\
+                \frac{\partial m_{\mathrm{Te1}}}{\partial t} < 0 , \
+                \frac{\partial m_{\mathrm{Te2}}}{\partial t} > 0 , \
+                \bm{p_{\gamma^{*}}} < 0 \ \ \ \ \ \ \ \ \\
+                : (4n+2)\pi < \theta < (4n+3)\pi \ , \\
+                \frac{\partial m_{\mathrm{Te1}}}{\partial t} > 0 , \
+                \frac{\partial m_{\mathrm{Te2}}}{\partial t} < 0 , \
+                \bm{p_{\gamma^{*}}} > 0 \ \ \ \ \ \ \ \ \\
+                : (4n+3)\pi < \theta < (4n+4)\pi \ , \\
+                (n=0,1,2,3,...,n)
+                \ .
+            \end{split}
+            \label{e_mTe1_mTe2}
+        \end{equation}
+
+    Formulas \ref{e_mTe1_mTe2} are listed with reference to Fig. \ref{f_24}. Whether the spinor particle radiating thermal energy take a positive or a negative value shall be determined in future research based on, for example, creation and annihilation operators in quantum field theory and thermodynamics.
+    
+    In particular, Spinor 1 and Spinor 2; the thermal energy of either of the pairs $T_{\mathrm{e1}}$ or $T_{\mathrm{e2}}$ are commutative as well as the Dirac equation's positive/negative solutions. Because these two energies cannot be distinguished from each other in quantum mechanics.
+
+    Therefore, there is a point in this study that the positive and negative value reversals of mass and momentum do not occur in the conventional particle-antiparticle relation, but are caused in the phase-dependence of spinors exchanging energy in turn inside one electron.
+
+
+
+
+\subsection{
+    \label{sec:Limitation}
+        Limitation}
+
+    The discussion has not provided a full explanation and validity of the wave functions. We often use plane waves when solving the Dirac equation \cite{J.J.Sakurai}. There could be room to apply plane waves to the 0-sphere electronic model. Since, we sought the cause of virtual photon oscillation by the energy gradient obtained from two spinors. When these two spinor particles oscillate, they transfer their energy while radiating and absorbing their own thermal potential energy inside the photon. It is necessary to further discuss the validity of the energy transfer method by arranging it in a plane wave.
+    
+    Therefore, it cannot be said that the four wave function assignment shown in Fig. \ref{f_25} has sufficient mathematical validity. It has already seen in this study that the momentum of the plane wave and the momentum mentioned on the 0-sphere electron model are completely different concepts.
+
+    Furthermore, a new issue arose with the replacement from $\bm{p}$ to $\bm{p_{\gamma^{*}}}$. In other words, it is a problem that the time change of the mass $m$ that has a differential value should be taken into consideration mentioned in eqn \ref{e_Psy_8} and eqn \ref{e_Psy_9}. Since the value of mass $m$, which was assumed the thermal potential energy, repeats radiation and absorption in turn. The value $m$ changes depending on its phase in the 0-sphere electron model which was mentioned previously Fig. \ref{f_11}. The conditions of its application have not been rigorously discussed and shall await further research.
+
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{\label{sec:CONCLUSION}CONCLUSION}
+
+    Particles and antiparticles are needed to explain the solution of the Dirac equation by traditional interpretation. In this study, we do not need antiparticles to explain the negative solution of the Dirac equation.
+
+    The major result of this research is that the traditional interpretation of the Dirac equation's negative energy solution could be reorganized by using the 0-sphere electron model. The model has an assumption that one electron contains two spinor particles and more than one virtual photon. \\
+    
+    This study showed two points: \\
+    
+    1. Positive and negative mass solutions of the Dirac equation correspond to the emittance and absorption cycles of the two thermal potential energies in turn. \\
+
+    2. Positive and negative energy solutions of the Dirac equation correspond to the momentum obtained by the virtual photon surrounds the two spinors. \\
+
+    It is because the virtual photon was modeled to move in a single harmonic oscillation that its momentum can take either positive or negative value. In the 0-sphere electron model assumed that only the virtual photon in a system, i.e., one electron, could take kinetic energy. In contrast, the two spinors as heat spots cannot take kinetic energy but take thermal potential energy.
+
+    Since, we applied the concept of one electron composed of two spinor particles to the Dirac equation, the positive and negative momentum can be naturally obtained. It was applicable to the two states. These discussions studied on this paper led us to the conclusion that we do not have to eliminate the negative sign of the energy nor to consider reversing the time $ t \rightarrow - t$ with another interpretation.
+
+
+
+
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\begin{thebibliography}{99}
+    \bibitem{Dirac1} P. A. M. Dirac, \textit{The Principles of Quantum Mechanics} Fourth Ed., Oxford University Press, 1967.
+    
+    %\bibitem{Dirac2} P. A. M. Dirac. The Quantum Theory of the Electron. Proc. R. Soc. A 117 (778): 610-624. doi:10.1098 /rspa.1928.0023, (1928).
+    
+    \bibitem{McMahon} David McMahon, \textit{Quantum Field Theory Demystified}, p.101, McGraw-Hill, 2008.
+    
+    \bibitem{Hanamura1} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies, Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}. [Originally: \href{http://vixra.org/abs/1811.0312}{viXra:1811.0312}]
+    
+    \bibitem{Griffiths} David J. Griffiths, \textit{Introduction to Elementary Particles} 2nd Ed., WILEY-VCH Verlag GmbH, 2008.
+    
+    \bibitem{J.J.Sakurai} J.J. Sakurai, \textit{Advanced Quantum Mechanics}, Addison Wesley, 1967.
+    
+    \bibitem{Hanamura6} S. Hanamura, Correspondence Between a 0-Sphere and the Electron Model, Zenodo (2020), \href{https://doi.org/10.5281/zenodo.17759908}{doi:10.5281/zenodo.17759908}. [Originally: \href{https://vixra.org/abs/2001.0610}{viXra:2001.0610}]
+\end{thebibliography}
+
+% = = * * = =  * * = = * * = = * * = = * * = = * * = = * * = = * * 
+\section{Appendix}
+\label{Appendix}
+
+\subsection{An electron’s structure in this study}
+\label{An electron’s structure in this study}
+
+        An electron's structure is as follows. First, consider there is a tiny thermal source in the center. This thermal spot, named bare electron or an spinor in this study, can be moved by radiation, however, it stops time and fixes it in the center of the electron. Next, consider a real photon that surrounds the bare electron. This real photon has an electromagnetic interaction with the bare electron.
+
+        The concept of virtual photons has not changed since mentioned on paper \cite{Hanamura1}. The photons surrounding the two thermal sources exchanging energy with each other are real photons. Because the photon is connected to the thermal spot by the electromagnetic force, this photon does not emit energy to the external system and cannot be observed. In this paper, one electron is regarded as a closed system in thermodynamics, and this paper is not expanded to the interaction with other electrons.
+        
+        From this viewpoint, this real photon may be called a virtual photon. However, the virtual photons used in the past are particles that are temporarily generated during an interaction, and the meaning of the virtual photons in this paper is very different in that they do not satisfy the energy conservation law.
+
+
+
+\subsection{Thermal energy gradient caused by two spinors}
+\label{Thermal energy gradient caused by two spinors}
+
+    The Appendix quotes from paper \cite{Hanamura1} on how the energy gradient arises from two spinors. To maintain the law of conservation of energy, we take two bare electron as thermal potential energies. These two electrons act as both emitters and absorbers in turn. To meet the requirements for simultaneous emission and absorption, assign $T_{e1}$ and $T_{e2}$ as follows; 
+
+        \begin{equation}
+            \begin{split}
+                (Oscillator \ 1): T_{\mathrm{e1}}
+                    &= E_{0} \cos^{4} \left( \frac{\omega t}{2} \right) , \\
+                (Oscillator \ 2): T_{\mathrm{e2}}
+                    &= E_{0} \sin^{4} \left( \frac{\omega t}{2} \right)
+                    .
+            \label{e3_Oscillators_Te1_Te2}
+            \end{split}
+        \end{equation}
+
+
+        \begin{figure}[h!]
+            \centering 
+            \includegraphics[scale=1]{f_appendix1.png}
+                \caption{Behavior of the virtual photon as a spatial simple harmonic oscillator while the two bare electrons behave as emitters and absorbers. Since the equation of $ T_{\mathrm{e1}} + T_{\mathrm{e2}} + \gamma^{*}_{\mathrm{Kinetic.E}} = E_{\mathrm{_0}} $, the sum of the thermal potential energy of the two spinors and the kinetic energy of the virtual photon is constant. The energy conservation law is preserved. See paper \cite{Hanamura1} for details.}
+            \label{f_appendix1}
+        \end{figure}
+
+
+
+    Set the two electrons as paired oscillators with $T_{\mathrm{e1}}$ = $E_{0} \cos^{4} \omega t /2$ and $T_{\mathrm{e2}}$ = $E_{0} \sin^{4} \omega t /2$. The temperature gradient between the two bare electrons is calculated as,
+
+    \begin{equation}
+            \mathrm{grad} \ T_e = \mathrm{grad} \ ( T_{\mathrm{e2}} - T_{\mathrm{e1}} )
+            \ .
+            \label{e3_k_grad_Te2-Te1}
+    \end{equation}
+
+
+    Since the values of thermal energy at both thermal spots vary with time, the temperature gradient changes with time. Let the previous $\omega t$ is $\theta$,
+
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e1}}
+                &= \frac{d}{d \theta} \left( E_{0} \cos^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &= - 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e1}
+        \end{align}
+
+        \begin{align}
+            \mathrm{grad} \ T_{\mathrm{e2}}
+                &= \frac{d}{d \theta} \left( E_{0} \sin^{4} \left( \frac{\theta}{2} \right) \right) \notag \\
+                &=   2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right)
+                \ .
+                \label{e3_gradT_e2}
+        \end{align}        
+
+
+        
+    $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ include only time derivative terms; their space derivatives are zero, because the bare electrons do not change in position with time. That is,
+
+
+        \begin{align}
+            \mathrm{grad} \ (T_{\mathrm{e2}} - T_{\mathrm{e1}})
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin^{3} \left( \frac{\theta}{2} \right) \notag \\
+                & \quad + 2 E_{0} \cos^{3} \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= 2 E_{0} \cos \left( \frac{\theta}{2} \right) \sin \left( \frac{\theta}{2} \right) \notag \\
+                &= E_{0} \sin \theta
+                \ .
+            \label{e3_simple_harmonic_motion}
+        \end{align}
+
+
+
+
+    Equation (\ref{e3_simple_harmonic_motion}) shows that the temperature gradient between $\mathrm{grad} \ T_{\mathrm{e1}}$ and $\mathrm{grad} \ T_{\mathrm{e2}}$ produces a force $\bm{\mathrm{F}}$. The force drives the velocity of the virtual photon along with simple harmonic motion. On the basis of the above assumption, the virtual photon swing back and force spatially between the two bare electrons.
+    
+    Interaction between thermal and kinetic energy is essential in the 0--sphere electron model, because the interaction between the two kinds of energy, i.e., the thermal potential energy of the spinors and the kinetic energy of the virtual photon, drives the virtual photon along with the harmonic oscillator. See yellow line on Fig. \ref{f_appendix1}.
+
+
+\end{document}

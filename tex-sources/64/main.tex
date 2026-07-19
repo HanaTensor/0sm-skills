@@ -1,0 +1,460 @@
+% =====================================================================
+% 0-Sphere Model series, Paper #64
+% The Square Root of the Hyperspherical Laplacian:
+% A Geometric Foundation for Spin Two-Valuedness on S^3
+% Author: Satoshi Hanamura
+% REVTeX 4-2 (APS/PRB). DOI: 10.5281/zenodo.20820646
+% =====================================================================
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+% 基本パッケージ
+\usepackage{graphicx}
+\usepackage{bm}
+% 量子力学記法
+\usepackage{physics}
+\usepackage{slashed}
+% 単位行列記号: amssymb の \mathbb には数字グリフが無く �� が崩れるため、
+% bbm → dsfont → \mathbf{1} の順に利用可能なものへ自動退避する。
+\IfFileExists{bbm.sty}{%
+  \usepackage{bbm}%
+  \newcommand{\unit}{\mathbbm{1}}%
+}{%
+  \IfFileExists{dsfont.sty}{%
+    \usepackage{dsfont}%
+    \newcommand{\unit}{\mathds{1}}%
+  }{%
+    \newcommand{\unit}{\mathbf{1}}%
+  }%
+}
+% ハイパーリンク
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+% キャプション設定
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+% 数式番号をセクションごとに
+\numberwithin{equation}{section}
+% タイポグラフィ調整
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+% マイクロタイポグラフィ
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+% \midrule、\addlinespace、\bottomruleを使う
+\usepackage{booktabs}
+\usepackage{enumitem}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{lemma}{Lemma}[section]
+% --- paragraph heading: run-in italic with extra top skip for block readability ---
+\makeatletter
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+    {3mm \@plus 1ex \@minus .2ex}%   前 (block separator)
+    {-1em}%                          後 (負値で run-in 維持)
+    {\normalfont\normalsize\itshape}}
+\makeatother
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+% 色定義 (薄いブルー系 - 学術論文向け)
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+% --- Custom Macros ---
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\vZB}{v_{\text{ZB}}}
+\newcommand{\Sthree}{S^{3}}
+\newcommand{\Stwo}{S^{2}}
+\newcommand{\Rfour}{\mathbb{R}^{4}}
+\newcommand{\Dslash}{\slashed{D}}
+\newcommand{\half}{\tfrac{1}{2}}
+
+\begin{document}
+
+\title{The Square Root of the Hyperspherical Laplacian:\\ A Geometric Foundation for Spin Two-Valuedness on $S^{3}$ in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+
+\date{June 27, 2026}
+
+\begin{abstract}
+This paper proposes a geometric foundation for the two-valuedness of electron spin within the 0-Sphere model, organized around a single operation: taking the square root of a Laplacian.
+On a compact internal geometric space, the three-sphere $S^{3}$ regarded as the surface of a Euclidean $\mathbb{R}^{4}$, the scalar Laplace--Beltrami operator supplies an orthonormal basis of hyperspherical harmonics with a discrete spectrum and integer orbital label $\ell$.
+The two-valuedness of spin is then shown to live not in this scalar basis but in its square root, the Dirac operator $\slashed{D}_{S^{3}}$, whose eigenvalues form the signed pairs $\pm(\ell+\tfrac{3}{2})$.
+Compactness is responsible for discreteness; the square-root operation is responsible for the two sheets, identified here with the up and down spin states.
+The same square-root operation is the one Dirac performed historically on the Klein--Gordon equation in Minkowski space, where the Clifford algebra $\{\gamma^{\mu},\gamma^{\nu}\}=2\eta^{\mu\nu}$ internalizes the metric signature into the spinor; the Euclidean $S^{3}$ realization and the Minkowski realization are connected by Wick rotation, which we invoke as a bridge rather than develop in full.
+Through this construction the $\mathrm{SU}(2)$ double cover of the rotation group appears as the two-valuedness of the square root, made explicit by the complex-analytic two-sheeted Riemann surface.
+The novelty claimed here is not the square-root operation itself, which is classical, but its appearance as one operation across two stages and the consequent reduction of spin two-valuedness to the geometry of $S^{3}$.
+The construction supplies an operator-theoretic foundation for the half-angle and $g=2$ results obtained earlier from the U(1) fiber-bundle picture, and corrects the four-state reading of the earliest Riemann-surface draft in the series, retaining its two-sheeted structure on a firmer footing.
+\end{abstract}
+
+\maketitle
+
+% =====================================================================
+\section{Introduction}
+\label{sec:intro}
+
+The difficulty of forming an intuitive picture of spin-$\tfrac{1}{2}$ behaviour is old and well known. Hawking illustrated it with playing cards, contrasting the half-turn symmetry of higher spins with the stubborn requirement that a spin-$\tfrac{1}{2}$ object be turned through $720^{\circ}$ before it returns to itself~\cite{hanamura03}. The 0-Sphere model inherits this difficulty in a sharpened form, because in that model the electron is not a structureless point but a two-kernel architecture whose internal phase evolves in time~\cite{hanamura01}. The question this paper addresses is geometric and specific: from what geometric structure does the two-valuedness of spin arise, and can that structure be exhibited cleanly enough that the $720^{\circ}$ periodicity, the two spin sheets, and the $\mathrm{SU}(2)$ covering all follow from one operation rather than being imposed by hand?
+
+The answer proposed here is that the operation is the taking of a square root. The plan of the argument is to set up, on a compact internal geometric space, a scalar Laplacian whose orthonormal eigenbasis is the natural carrier of the orbital, integer-labelled degrees of freedom, and then to take the square root of that Laplacian. The square root is the Dirac operator; its eigenvalues come in signed pairs; the two signs are the two spin sheets; and the obstruction to choosing a single sign globally is precisely the two-valuedness that the $\mathrm{SU}(2)$ double cover encodes. Everything else in the paper is the careful execution of this single idea and its alignment with results already present in the series.
+
+\paragraph{What is new and what is not.}
+Honesty about provenance matters here, because the central operation is classical. That the Dirac operator is a square root of a Laplacian, and that taking this square root on the Klein--Gordon equation forces a Clifford algebra and produces spinors, has been textbook material since 1928. We claim none of that as new. What we do claim is twofold and narrower. First, that the same square-root operation appears across two distinct stages, a Minkowski stage where the Clifford algebra internalizes the metric signature and a Euclidean $S^{3}$ stage where the operator has a discrete spectrum and an orthonormal eigenbasis, and that the two stages are related by Wick rotation; the operation is one, the stages are two. Second, that on the $S^{3}$ stage the two-valuedness of spin reduces to geometry in a strong sense: compactness gives the discreteness of the spectrum, and the square-root (two-sheeted) character of the Dirac operator gives the up/down doubling, with no appeal to a superposition of simultaneously co-present basis states. The reduction of spin two-valuedness to the geometry of a compact manifold, by way of the square-root operation read across two stages, is the contribution.
+
+\paragraph{Relation to the series, and a correction.}
+The construction does not stand apart from the 0-Sphere series; it consolidates several of its threads. The half-angle structure $\cos^{4}(\iphase/2)$ of the internal energy identity~\cite{hanamura01}, the geometric origin of $g=2$ obtained from a principal U(1) fiber bundle and a Berry holonomy of $\pi$~\cite{hanamura48}, the double-angle Thomas term that supplies the $4\pi$ periodicity~\cite{hanamura50}, and the spherical-harmonic imprinting that attaches angular structure to the gravitational mediator~\cite{hanamura57} are all, in the language of this paper, manifestations of one square-root operation. The construction also requires us to revisit the earliest spin paper of the series~\cite{hanamura03}. That paper introduced a two-sheeted Riemann surface for spin and, alongside it, a four-state reading $\ket{\uparrow\uparrow},\ket{\downarrow\uparrow},\ket{\uparrow\downarrow},\ket{\downarrow\downarrow}$ in which the two oblique states carry up and down simultaneously. The two-sheeted surface we retain and place on an operator-theoretic footing; the simultaneous four-state reading we do not, because the simultaneous co-presence of up and down is exactly the superposition picture this construction replaces with a time-sequential one. The retention of the Riemann surface for a future geometric treatment, and the setting-aside of the four-state representation, were already anticipated within the series; the present paper carries them out.
+
+\paragraph{Scope.}
+The paper is deliberately confined to the kinematic geometry of a single free electron's spin. It establishes the spinor structure on $S^{3}$ and the two-valuedness that follows from it. It does not put a field on that structure: the binding of an electron in an external Coulomb field, the optical-geodesic reading of the resulting refraction, and the recovery of bound-state spectra are dynamical questions deferred to a sequel. Likewise the recovery of physical Minkowski spacetime from the internal geometry, which in the series proceeds through the two-point action and the emergence of a metric~\cite{hanamura51,hanamura63}, is invoked here only as the destination of the Wick-rotation bridge and is not developed. The present paper is the geometric foundation on which those dynamical and gravitational developments are intended to rest.
+
+% =====================================================================
+\section{The square-root operation}
+\label{sec:sqrt}
+
+We begin with the operation itself, in the setting where it was first performed, so that its transplant to $S^{3}$ in the following sections is recognizable as the same move rather than a new postulate.
+
+\paragraph{Dirac's construction as a square root.}
+The relativistic energy--momentum relation, written as a wave equation for a scalar field, is the Klein--Gordon equation
+\begin{equation}
+\label{eq:KG}
+(\Box + m^{2})\,\phi = 0,
+\qquad
+\Box = \partial_{t}^{2} - \nabla^{2},
+\end{equation}
+in units with $\hbar=c=1$ and metric signature $(+,-,-,-)$. The operator $\Box$ is hyperbolic, and the scalar field $\phi$ carries no spin. Dirac's step was to seek a first-order operator whose square returns~\eqref{eq:KG}~\cite{Dirac1928}. Writing $\slashed{D}=i\gamma^{\mu}\partial_{\mu}$, the requirement $(\,i\gamma^{\mu}\partial_{\mu}-m)(\,i\gamma^{\nu}\partial_{\nu}+m) = -(\Box+m^{2})$ holds if and only if the coefficients satisfy the Clifford relation
+\begin{equation}
+\label{eq:clifford-mink}
+\{\gamma^{\mu},\gamma^{\nu}\} = 2\,\eta^{\mu\nu}\, \unit.
+\end{equation}
+Two consequences of this single step organize everything that follows. The coefficients cannot be numbers; they must be matrices, and the object on which they act is therefore not a scalar but a multi-component spinor. And the metric $\eta^{\mu\nu}$ does not stand outside the construction as a fixed background; it is absorbed into the anticommutator, so that the spinor carries the signature of spacetime within its own algebra. Taking the square root is what creates the spinor, and the metric rides inside it.
+
+\paragraph{Why the square root evades the hyperbolic obstruction.}
+It is worth pausing on a point that becomes decisive when we move to $S^{3}$. The scalar operator $\Box$, being hyperbolic, does not furnish a discrete orthonormal eigenbasis on a non-compact Minkowski slice; its spectral theory is that of a wave operator, with continuous spectrum. One might expect this to block any clean eigenbasis construction. The square root sidesteps the obstruction in the only way available: rather than diagonalizing the hyperbolic operator directly, it factors the operator, and the factorization is purely algebraic, carried entirely by the Clifford relation~\eqref{eq:clifford-mink}. The signature, with its troublesome relative sign between time and space, is handled by the algebra of the $\gamma^{\mu}$ rather than by the analysis of $\Box$. This is the feature we exploit. When the same factorization is performed on a Euclidean Laplacian over a compact manifold, the algebra is unchanged in character while the analysis becomes that of an elliptic operator, which does possess a discrete spectrum and an orthonormal eigenbasis. The square-root operation is the invariant; the stage on which it is performed determines whether the spectrum is continuous or discrete.
+
+\paragraph{The two stages and the bridge between them.}
+We therefore distinguish two stages of one operation. In the Minkowski stage, the square root of $\Box+m^{2}$ is the physical Dirac operator, the Clifford algebra carries $\eta^{\mu\nu}$, and the spinor is the relativistic electron field. In the Euclidean $S^{3}$ stage, developed in Secs.~\ref{sec:s3} and~\ref{sec:dirac}, the square root is taken of the Laplace--Beltrami operator on a compact internal geometric space, the Clifford algebra carries the Euclidean metric, and the spinor is a section of the spinor bundle over $S^{3}$ with a discrete spectrum. The two stages are connected by Wick rotation $t\to -i\tau$, which turns $\Box$ into a Euclidean Laplacian and $\eta^{\mu\nu}$ into $\delta^{\mu\nu}$. We invoke this connection as a bridge: it is what licenses reading the discrete $S^{3}$ construction as the geometric counterpart of the physical Minkowski one. The analytic justification of Wick rotation in the present context, the precise sense in which the continuation is reversible, is not required for the kinematic statements of this paper and is left aside. What we need, and all we claim, is that the operation performed on each stage is the same operation, a square root forcing a Clifford algebra and producing a two-valued spinor object.
+
+% =====================================================================
+\section{The $S^{3}$ setting: compactness, orthonormal basis, discreteness}
+\label{sec:s3}
+
+We now construct the scalar stage on which the square root will be taken: the Laplacian on $S^{3}$ and its orthonormal eigenbasis. The emphasis throughout is on three properties, compactness, the orthonormal basis, and the discreteness of the spectrum, because they are what the square-root operation in Sec.~\ref{sec:dirac} converts into the discreteness of the spin doubling.
+
+\paragraph{$S^{3}$ as an internal geometric space.}
+We take $S^{3}$ to be the unit three-sphere embedded in a Euclidean $\mathbb{R}^{4}$,
+\begin{equation}
+\label{eq:s3def}
+S^{3} = \{\, x \in \mathbb{R}^{4} : x_{1}^{2}+x_{2}^{2}+x_{3}^{2}+x_{4}^{2} = 1 \,\},
+\end{equation}
+with the round metric induced from the ambient Euclidean metric. A word on the status of this space is in order, because it determines the whole construction. We treat $S^{3}$ as an \emph{internal geometric space}, the compact arena in which the electron's internal phase and spinor degrees of freedom live, and not as physical spacetime. Two reasons compel this reading. First, the orthonormal-basis construction below requires an elliptic Laplacian, which is available on a Euclidean (positive-definite) $S^{3}$ but not on a Minkowski mass shell, where the corresponding surface is a hyperboloid and the operator is hyperbolic with continuous spectrum. Second, the series has consistently placed $S^{3}$ and its lower-dimensional relatives in the internal sector: the photon sphere is modelled as a compact positively curved manifold whose Bonnet--Myers diameter bound supplies confinement~\cite{hanamura51}, and physical spacetime is not this internal sphere but a metric that \emph{emerges} from the two-point action defined on the internal geometry~\cite{hanamura51,hanamura63}. The internal reading is thus both the mathematically admissible one and the one already in force in the series.
+
+\paragraph{Harmonic polynomials restricted to the sphere.}
+The orthonormal basis is built by the classical device of restricting ambient harmonic polynomials to the sphere, the construction familiar from $S^{2}$ in the standard geometric treatment~\cite{Nakahara2003,SteinWeiss1971} and carried up one dimension here. Let $\mathcal{H}_{\ell}(\Rfour)$ denote the space of homogeneous polynomials of degree $\ell$ in the four Cartesian coordinates that are harmonic in the ambient sense,
+\begin{equation}
+\label{eq:ambient-harmonic}
+\Delta_{\Rfour}\, P = 0,
+\qquad
+\Delta_{\Rfour} = \sum_{i=1}^{4}\partial_{x_{i}}^{2},
+\qquad
+P \in \mathcal{H}_{\ell}(\Rfour).
+\end{equation}
+The restriction of such a polynomial to $S^{3}$ is a hyperspherical harmonic of degree $\ell$. As $\ell$ ranges over the non-negative integers, these restrictions span $L^{2}(S^{3})$ and form, after orthonormalization, a complete orthonormal basis of that space. The integer $\ell$ is the orbital label: it counts the degree of the ambient polynomial and, equivalently, indexes the eigenspaces of the intrinsic Laplacian below. This is the four-dimensional analogue of the statement that the spherical harmonics $Y_{\ell}^{m}$ form an orthonormal basis of $L^{2}(S^{2})$, and it inherits from that statement the same logical structure: harmonicity in the ambient space, restriction to the sphere, completeness and orthonormality on the sphere.
+
+\paragraph{The Laplace--Beltrami spectrum is discrete.}
+Intrinsically, the hyperspherical harmonics of degree $\ell$ are the eigenfunctions of the Laplace--Beltrami operator $\Delta_{S^{3}}$ on the round three-sphere, with eigenvalues
+\begin{equation}
+\label{eq:lb-spectrum}
+\Delta_{S^{3}}\, Y_{\ell} = -\,\ell(\ell+2)\, Y_{\ell},
+\qquad
+\ell = 0,1,2,\dots
+\end{equation}
+the four-dimensional counterpart of the $S^{2}$ eigenvalues $-\ell(\ell+1)$. The spectrum is manifestly discrete, indexed by the integer $\ell$, and this discreteness is not an extra assumption but a consequence of compactness: an elliptic operator on a closed manifold has discrete spectrum and a complete orthonormal eigenbasis. This is the precise sense in which, in this construction, discreteness traces to the geometry of $S^{3}$ rather than to any quantization rule imposed from outside. We will see in Sec.~\ref{sec:dirac} that the square-root operation inherits this discreteness, delivering a discrete set of signed spinor eigenvalues whose sign is the spin label.
+
+\paragraph{Connection to spherical-harmonic imprinting.}
+The angular structure organized here by hyperspherical harmonics is the same structure that the series attaches to the gravitational mediator through spherical-harmonic imprinting~\cite{hanamura57}: the $Y_{\ell}^{m}$ that label angular content there are, in the present language, the $S^{2}$ shadow of the $S^{3}$ hyperspherical harmonics that label the orbital sector. Reading that imprinting as living on $S^{3}$ rather than on a single $S^{2}$ slice is what allows the orbital label $\ell$ and the spin label introduced next to sit in one geometric framework, the first as the eigenvalue index of the Laplacian and the second as the sign index of its square root.
+
+% =====================================================================
+\section{The Dirac operator on $S^{3}$ as the square root of the Laplacian}
+\label{sec:dirac}
+
+We now perform, on the scalar stage of Sec.~\ref{sec:s3}, the operation of Sec.~\ref{sec:sqrt}. The result is the central technical content of the paper: a discrete, signed spectrum whose two signs are the two spin sheets.
+
+\paragraph{The square root of $\Delta_{S^{3}}$.}
+Just as the Dirac operator in Minkowski space is the first-order operator whose square is the Klein--Gordon operator, the Dirac operator $\Dslash_{S^{3}}$ on the round three-sphere is the first-order operator whose square recovers the Laplace--Beltrami operator, up to the curvature term dictated by the Lichnerowicz identity~\cite{Lichnerowicz1963,LawsonMichelsohn1989},
+\begin{equation}
+\label{eq:lichnerowicz}
+\Dslash_{S^{3}}^{\,2} = -\,\Delta_{S^{3}} + \frac{R}{4},
+\end{equation}
+where $R$ is the scalar curvature of the unit $S^{3}$, a positive constant. The curvature shift is the one structural difference between the flat-space factorization of Sec.~\ref{sec:sqrt} and the curved one: on a curved manifold the square of the Dirac operator is the Laplacian plus a scalar-curvature term, not the bare Laplacian. The algebraic heart of the operation is unchanged. The factorization again forces a Clifford algebra, now carrying the Euclidean metric of $S^{3}$,
+\begin{equation}
+\label{eq:clifford-s3}
+\{\gamma^{a},\gamma^{b}\} = 2\,\delta^{ab}\,\unit,
+\end{equation}
+and the object on which $\Dslash_{S^{3}}$ acts is again not a scalar but a spinor, here a section of the spinor bundle over $S^{3}$. The construction of Sec.~\ref{sec:sqrt} has been transplanted intact; only the metric inside the Clifford algebra has passed from $\eta^{\mu\nu}$ to $\delta^{ab}$ under the bridge of Sec.~\ref{sec:sqrt}.
+
+\paragraph{The signed eigenvalue pairs.}
+The eigenvalues of the Dirac operator on the unit round $S^{3}$ are known in closed form~\cite{Baer1996}, and their structure is exactly what the square-root reading predicts. They form signed pairs
+\begin{equation}
+\label{eq:dirac-spectrum}
+\Dslash_{S^{3}}\,\psi_{\ell}^{\pm} = \pm\Big(\ell + \tfrac{3}{2}\Big)\,\psi_{\ell}^{\pm},
+\qquad
+\ell = 0,1,2,\dots
+\end{equation}
+with multiplicities growing polynomially in $\ell$. The derivation is reproduced self-containedly in Appendix~\ref{app:dirac}. Two features matter for the present argument, and both are direct consequences of having taken a square root. The eigenvalues come in pairs of opposite sign, $+(\ell+\tfrac32)$ and $-(\ell+\tfrac32)$, because a square root is defined only up to sign; the two signs are the two sheets. And the eigenvalues are half-integers, $\ell+\tfrac{3}{2} \in \{\tfrac32,\tfrac52,\tfrac72,\dots\}$, because the square root of the integer-labelled scalar spectrum $\ell(\ell+2)=(\ell+1)^{2}-1$ lands on half-integer-shifted values rather than on integers. The half-integrality is not inserted; it is what the square-root operation does to an integer-labelled spectrum.
+
+\paragraph{Half-integrality, the half-angle, and $720^{\circ}$.}
+The half-integer eigenvalue is the operator-theoretic counterpart of a structure the series has carried from the beginning. The internal energy identity assigns to each kernel a thermal potential energy with a half-angle argument, $T_{e1}=E_{0}\cos^{4}(\iphase/2)$ and $T_{e2}=E_{0}\sin^{4}(\iphase/2)$~\cite{hanamura01}, and the basis function $\cos(\iphase/2)$ changes sign under $\iphase\to\iphase+2\pi$, returning to itself only after $\iphase\to\iphase+4\pi$~\cite{hanamura48}. That $4\pi$ periodicity, the $720^{\circ}$ rotation requirement, is the same fact as the half-integrality of~\eqref{eq:dirac-spectrum}: a half-integer eigenvalue is the spectral signature of an object that needs a double rotation to return. Where the fiber-bundle treatment obtained $g=2$ from a Berry holonomy of $\pi$ accumulated over the internal cycle~\cite{hanamura48}, and the rotational treatment obtained the same $4\pi$ periodicity from the double-angle Thomas term $\Omega_{T}\propto\sin(2\iphase)$ completing two oscillations per spinor cycle~\cite{hanamura50}, the present construction obtains it as the half-integer spectrum of the square root of the $S^{3}$ Laplacian. These are three readings of one structure; the square-root reading is the one that exhibits it as a property of the operator's spectrum rather than of a holonomy or a precession rate, and so locates the $720^{\circ}$ periodicity in the geometry of $S^{3}$ itself.
+
+% =====================================================================
+\section{Two sheets, the Riemann surface, and the $\mathrm{SU}(2)$ covering}
+\label{sec:su2}
+
+The signed eigenvalue pairs of Sec.~\ref{sec:dirac} are two sheets in the sense made precise by complex analysis. This section identifies the two sheets with the up and down spin states, re-presents the two-sheeted Riemann surface of the earliest spin paper on the present footing, and exhibits the $\mathrm{SU}(2)$ double cover as the global obstruction to choosing one sheet.
+
+\paragraph{The two sheets as up and down.}
+The square-root operation that produced the signed spectrum~\eqref{eq:dirac-spectrum} is, in complex-analytic terms, the function $w=\sqrt{z}$, whose natural domain is a two-sheeted Riemann surface~\cite{Hitchin1974}. The positive-eigenvalue spinors $\psi^{+}$ occupy one sheet and the negative-eigenvalue spinors $\psi^{-}$ the other. We identify the positive sheet with the up state and the negative sheet with the down state. This identification is the operator-theoretic version of the construction in the earliest spin paper of the series~\cite{hanamura03}, which placed the two spin values on the two domains $D_{0}$ and $D_{1}$ of the Riemann surface of $\sqrt{z}$, with $D_{0}$ spanning $0$ to $2\pi$ and $D_{1}$ spanning $2\pi$ to $4\pi$, so that a full circuit of the base through $4\pi$ visits each sheet once. What was there a diagrammatic device is here the sign structure of a differential operator's spectrum, and the two readings agree term by term: the $4\pi$ circuit of the base is the $720^{\circ}$ periodicity, the two domains are the two signs, and the branch point joining them is the place where the up and down sheets meet.
+
+\paragraph{Correction of the four-state reading.}
+The same early paper carried, alongside the two-sheeted surface, a four-state representation $\ket{\uparrow\uparrow},\ket{\downarrow\uparrow},\ket{\uparrow\downarrow},\ket{\downarrow\downarrow}$ in which the two oblique combinations assign up to one kernel and down to the other at the same instant~\cite{hanamura03}. On the present footing this reading is not retained. The square-root construction furnishes exactly two sheets, not four states, and the two oblique combinations would require up and down to be simultaneously co-present, which is the superposition picture that the time-sequential reading of Sec.~\ref{sec:zb} is intended to replace. We therefore keep the two-sheeted Riemann surface, now grounded in the signed spectrum~\eqref{eq:dirac-spectrum}, and set aside the simultaneous four-state representation. This is not a reversal of the series but the execution of a course already charted within it: the two-sheeted surface was flagged as needed for a future geometric approach to spin, while the four-state representation was judged not to be carried forward, on the grounds that the double-angle structure emerging from the reconsideration of Thomas precession~\cite{hanamura50} offered the more promising route. The present paper is that geometric approach, and it makes the same selection.
+
+\paragraph{The $\mathrm{SU}(2)$ double cover.}
+The two sheets are not independent; they are joined at a branch point, and a continuous circuit of the base that starts on one sheet returns on the other, requiring a second circuit to come back to the start. This is the defining behaviour of a double cover, and the relevant cover here is $\mathrm{SU}(2)\to\mathrm{SO}(3)$. The identification is immediate once one recalls that the three-sphere is the group manifold of $\mathrm{SU}(2)$, $S^{3}\cong\mathrm{SU}(2)$, so that the spinor sections over $S^{3}$ on which $\Dslash_{S^{3}}$ acts are functions on the double cover itself. The factor of two between the $4\pi$ spinor period and the $2\pi$ period of a vector is then the same factor of two that distinguishes $\mathrm{SU}(2)$ from $\mathrm{SO}(3)$, a correspondence the fiber-bundle treatment reached through the $\mathbb{Z}_{2}$ holonomy protecting the $g=2$ result~\cite{hanamura48} and which appears here as the two-sheetedness of the square root. The signed spectrum, the two Riemann sheets, and the $\mathrm{SU}(2)$ cover are three descriptions of the one fact that the Dirac operator is a square root: a square root has two branches, the branches are joined, and a single circuit exchanges them.
+
+\paragraph{Connection and disconnection.}
+The earlier paper read the connected two-sheeted surface as the state in which the spin is not yet fixed, and the disconnection of the two sheets, induced physically by a magnetic field gradient, as the act by which the spin becomes definite~\cite{hanamura03}. In the present language this reads cleanly. When the two sheets are joined at the branch point, the internal phase traverses both signs in succession and neither sign is singled out; when an external gradient severs the connection, the phase is confined to a single sheet and a single sign, that is, to a definite spin. The mechanism by which an external field effects this severance is dynamical and belongs to the sequel; what the present geometric construction supplies is the precise object that is severed, namely the branch connecting the two eigenvalue signs of the square root.
+
+% =====================================================================
+\section{Determinism and Zitterbewegung}
+\label{sec:zb}
+
+This section records, briefly and as a matter of interpretation rather than of new geometry, how the two-sheeted structure is to be read in time. It is included because it is the ground on which the correction of Sec.~\ref{sec:su2} rests, but it is kept deliberately short and does not bear the weight of the paper's geometric claims.
+
+\paragraph{Time-sequential, not simultaneous.}
+The two signs of the Dirac eigenvalue~\eqref{eq:dirac-spectrum} are read here as states visited in succession by the internal phase, not as amplitudes co-present at a single instant. The up and down sheets are alternated in time as the phase $\iphase$ advances through the $4\pi$ cycle, deterministically, with each instant lying on a definite sheet. This is the reading that motivates setting aside the simultaneous four-state representation in Sec.~\ref{sec:su2}: spin two-valuedness is the existence of two sheets, and the electron is on one or the other at each moment, alternating between them rather than superposing them. The position taken here is specific and limited. It does not deny that spin is undetermined prior to measurement; in the connected state of Sec.~\ref{sec:su2}, the phase traverses both sheets and no sign is fixed, so no definite value is possessed in advance. What it denies is only the simultaneous co-presence of up and down at one instant, replacing it with their time-sequential alternation.
+
+\paragraph{Consistency with the Zitterbewegung velocity.}
+The picture of a deterministic alternation between the two signed sheets is the geometric counterpart of reading Zitterbewegung as a time-sequential alternation between positive- and negative-eigenvalue states, rather than as the interference of simultaneously co-present components~\cite{Schrodinger1930}. This reading supplies a geometric foundation for the subluminal Zitterbewegung velocity $\vZB \approx 0.04c$ established elsewhere in the series~\cite{hanamura10,hanamura48,hanamura51}; its quantitative derivation lies outside the scope of the present paper and rests with those works. We note only that the geometry developed here, two signed sheets traversed in succession by the internal phase, is the kinematic structure within which that velocity is defined, and is consistent with it.
+
+% =====================================================================
+\section{Discussion}
+\label{sec:discussion}
+
+\paragraph{One operation, several appearances.}
+The construction gathers into a single operation a set of structures the series had arrived at by separate routes. Taking the square root of the $S^{3}$ Laplacian is, read in its several aspects, the half-angle $\cos^{4}(\iphase/2)$ of the energy identity~\cite{hanamura01}, the $720^{\circ}$ periodicity and the $g=2$ holonomy of the fiber-bundle picture~\cite{hanamura48}, the double-angle Thomas term that supplies the $4\pi$ cycle~\cite{hanamura50}, the two-sheeted Riemann surface of the earliest spin paper~\cite{hanamura03}, the half-integer signed spectrum $\pm(\ell+\tfrac32)$ of Sec.~\ref{sec:dirac}, and the $\mathrm{SU}(2)$ double cover of Sec.~\ref{sec:su2}. These are not six results but six faces of one operation, and exhibiting them as such is the synthesis the paper offers. The unifying claim is geometric and modest: a square root has two branches, the branches are half-integer-shifted and oppositely signed, they are joined into a double cover, and on the compact manifold $S^{3}$ this two-branch structure is the two-valuedness of spin.
+
+\paragraph{What is established and what is deferred.}
+What the construction establishes is confined to kinematic geometry: the spinor structure on $S^{3}$, the discreteness of its spectrum from compactness, the two-valuedness from the square-root operation, and the identification of the two sheets with up and down spin. What it defers is dynamical and gravitational. Placing a field on this structure, so that an external potential refracts the internal geodesic and binds the electron, and recovering the resulting bound-state spectrum, is left to a sequel; the present paper deliberately does not name a mechanism for that binding. The recovery of physical Minkowski spacetime from the internal geometry, through the two-point action and the emergent metric, is the subject of separate work in the series~\cite{hanamura51,hanamura63} and enters here only as the destination of the Wick-rotation bridge of Sec.~\ref{sec:sqrt}. The analytic justification of that bridge, the precise sense in which the Euclidean $S^{3}$ construction continues to the Minkowski one, is itself deferred.
+
+\paragraph{Place in the series.}
+The construction sits one level below the metric-and-curvature program of the recent series. Where that program treats the two-point action as a distance function and recovers a spacetime metric from its endpoint derivatives~\cite{hanamura51,hanamura63}, the present paper treats the compact internal geometry on which such an action is defined and equips it with the spinor structure that carries spin. The two are complementary: the metric program builds geometry from the action along the internal geodesic, while the present paper builds the spinor that lives on the internal manifold. Both rest on the same compact internal geometry; they differ in what they propagate over it, a metric in the one case and a spinor in the other.
+
+\paragraph{The symmetric sector and the case for an electromagnetic basis.}
+The present paper has located spin two-valuedness in the antisymmetric, two-sheeted sector of the square-root operation. The complementary symmetric sector, the symmetric rank-two tensor that carries the metric and the internal stress, lies outside the scope of this paper, but one forward-looking remark is in order, because the series has so far treated this sector unevenly. Symmetric rank-two tensors arising from the two-kernel architecture have been identified principally with gravitation, the spin-two mediator and its quadrupole content~\cite{hanamura60}. A simple scale estimate suggests that this identification cannot be the whole story. The internal stress of the two-kernel system is set by the energy scale $E_{0}\sim m_{e}c^{2}$ over the Compton length $\lambda_{C}$, an electromagnetic scale; the gravitational coupling of the same system is of order $G m_{e}^{2}/\hbar c \sim 10^{-45}$, so a purely gravitational reading of the symmetric sector leaves the magnitude of the stress and the weakness of the force it is asked to mediate separated by some forty orders of magnitude. The inference we draw is the reverse of the usual one: rather than starting from a force and asking what stress it produces, one may start from the stress, which is geometrically present from the outset, and ask what force is strong enough to produce it. At the internal scale, that magnitude points not to gravitation but to electromagnetism. A natural candidate for the symmetric sector is then the Maxwell-type stress $T_{\mu\nu}=\mathcal{F}_{\mu\alpha}\mathcal{F}_{\nu}{}^{\alpha}-\tfrac14\eta_{\mu\nu}\mathcal{F}_{\alpha\beta}\mathcal{F}^{\alpha\beta}$, the quadratic symmetric contraction of the same antisymmetric Berry curvature $\mathcal{F}_{\mu\nu}$ whose first power carries the spin sector of the present construction. Spin as the first power of $\mathcal{F}$ and stress as its second power would then descend from a single field, with the gravitational quadrupole surviving only as the far weaker symmetric-traceless component that, as a separate analysis shows, does not radiate for a free electron~\cite{hanamura59}. There is a further structural parallel worth recording. Just as the GPS time correction is correct only when the special-relativistic and general-relativistic contributions are both retained, the symmetric tensor sector should in principle carry both an electromagnetic and a gravitational contribution; the difference here is only that, at the internal scale, the two are not comparable as they are for GPS but are separated by the forty-order gap above, so that the electromagnetic term dominates and the gravitational term is a vanishing correction. The full development of this electromagnetic basis for the symmetric sector is left to separate work; it is recorded here as the natural sequel on the symmetric side to the spinor construction completed on the antisymmetric side.
+
+% =====================================================================
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have proposed that the two-valuedness of electron spin, within the 0-Sphere model, is the two-valuedness of a square root. On the compact internal geometric space $S^{3}$, the scalar Laplace--Beltrami operator supplies an orthonormal basis of hyperspherical harmonics with discrete, integer-labelled spectrum; its square root, the Dirac operator $\Dslash_{S^{3}}$, has the signed half-integer spectrum $\pm(\ell+\tfrac32)$, whose two signs are the two spin sheets. Compactness is responsible for the discreteness, and the square-root operation for the doubling. The same operation is Dirac's historical factorization of the Klein--Gordon equation, in which the Clifford algebra internalizes the metric signature; the Euclidean and Minkowski realizations are one operation on two stages, joined by Wick rotation. The two sheets are the two domains of the Riemann surface of $\sqrt{z}$, and their joining is the $\mathrm{SU}(2)$ double cover. The construction places the half-angle and $g=2$ results of the series on an operator-theoretic footing, and corrects the simultaneous four-state reading of the earliest spin paper while retaining its two-sheeted surface. The dynamical question of binding a field on this structure, and the gravitational question of recovering spacetime from the internal geometry, are left as the natural sequels to this geometric foundation.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+The author acknowledges the use of a large language model, Claude Opus 4.8, in a limited supportive role for textual organization during document preparation. All physical interpretations, methodological judgments, and philosophical commitments remain the responsibility of the author.
+
+\appendix
+
+% =====================================================================
+\section{The Dirac operator on $S^{3}$ and its spectrum}
+\label{app:dirac}
+
+This appendix reproduces, self-containedly, the construction of the Dirac operator on the round three-sphere and the derivation of its eigenvalue spectrum~\eqref{eq:dirac-spectrum}, so that the central spectral fact of the paper can be followed without recourse to external references. Nothing below presupposes the rest of the series.
+
+\paragraph{Frame, connection, and the operator.}
+Let $S^{3}$ carry the round metric of unit radius. Choose an orthonormal frame $\{e_{a}\}_{a=1,2,3}$ and the associated spin connection $\omega_{\mu}{}^{ab}$, the latter fixed by the vanishing of the torsion and the constancy of the frame's inner products. The Dirac operator is
+\begin{equation}
+\label{eq:dirac-def}
+\Dslash_{S^{3}} = \gamma^{a}\,e_{a}^{\,\mu}\Big(\partial_{\mu} + \tfrac{1}{4}\,\omega_{\mu}{}^{bc}\,\gamma_{b}\gamma_{c}\Big),
+\end{equation}
+with the $\gamma^{a}$ satisfying the Euclidean Clifford relation~\eqref{eq:clifford-s3}. The term in $\omega_{\mu}{}^{bc}$ is the spin connection's action on the spinor and is what makes $\Dslash_{S^{3}}$ a covariant first-order operator rather than a bare frame derivative.
+
+\paragraph{The Lichnerowicz identity.}
+Squaring~\eqref{eq:dirac-def} and using the Clifford relation gives the Lichnerowicz identity
+\begin{equation}
+\label{eq:lich-app}
+\Dslash_{S^{3}}^{\,2} = \nabla^{\dagger}\nabla + \frac{R}{4},
+\end{equation}
+where $\nabla^{\dagger}\nabla$ is the spinor Laplacian (the connection Laplacian on spinor sections) and $R$ is the scalar curvature. For the unit round $S^{3}$, $R = 6$, a positive constant, so the curvature term is the fixed shift $R/4 = 3/2$ appearing below. Equation~\eqref{eq:lich-app} is the curved-space counterpart of the flat factorization $\Dslash^{2}=-\Box$ of Sec.~\ref{sec:sqrt}; the only new element is the additive scalar-curvature term, which is constant because $S^{3}$ is a symmetric space.
+
+\paragraph{The spectrum.}
+The eigenvalues of $\Dslash_{S^{3}}$ on the unit round three-sphere are~\cite{Baer1996,Trautman1995}
+\begin{equation}
+\label{eq:dirac-eig-app}
+\lambda_{\ell}^{\pm} = \pm\Big(\ell + \tfrac{3}{2}\Big),
+\qquad
+\ell = 0,1,2,\dots,
+\end{equation}
+with multiplicity $(\ell+1)(\ell+2)$ for each sign. The half-integer shift $\tfrac{3}{2}$ is $\tfrac{n}{2}$ for the $n=3$ sphere and is exactly the value $R/4$ inherited from~\eqref{eq:lich-app}; the signed structure is the statement that $\Dslash_{S^{3}}$, being a square root, has eigenvalues symmetric about zero. Squaring~\eqref{eq:dirac-eig-app} gives $(\ell+\tfrac32)^{2}$, which through~\eqref{eq:lich-app} equals the spinor-Laplacian eigenvalue shifted by $R/4=\tfrac32$; the integer-labelled scalar spectrum $\ell(\ell+2)$ of~\eqref{eq:lb-spectrum} is thereby seen to have a square root landing on the half-integers, which is the spectral origin of the $720^{\circ}$ periodicity used in the main text.
+
+% =====================================================================
+\section{The half-angle identity and the two-sheeted surface}
+\label{app:halfangle}
+
+This appendix records the elementary identity behind the half-angle structure invoked in the main text, and its relation to the two-sheeted Riemann surface, so that the correspondence asserted in Secs.~\ref{sec:dirac} and~\ref{sec:su2} can be checked directly.
+
+\paragraph{The energy identity.}
+The internal energy identity of the foundational model assigns to the two kernels and the photon sphere the three terms~\cite{hanamura01}
+\begin{equation}
+\label{eq:E0-app}
+E_{0} = E_{0}\Big[\cos^{4}\!\big(\tfrac{\iphase}{2}\big) + \sin^{4}\!\big(\tfrac{\iphase}{2}\big) + \tfrac{1}{2}\sin^{2}\iphase\Big],
+\end{equation}
+which is an identity for all $\iphase$ by virtue of $\cos^{4}x+\sin^{4}x = 1-\tfrac12\sin^{2}(2x)$. The first two terms carry the half-angle $\iphase/2$ and so are the spinorial sector; the third carries the full angle and is the vector (photon) sector. The half-angle is the reason the spinor terms require $\iphase$ to run through $4\pi$ for a full return while the photon term returns after $2\pi$.
+
+\paragraph{The sign change and the two sheets.}
+The basis function $\cos(\iphase/2)$ underlying the first term changes sign under $\iphase\to\iphase+2\pi$ and returns to itself only under $\iphase\to\iphase+4\pi$. This is the same two-valuedness as the function $\sqrt{z}$, whose value changes sign on a single circuit of its branch point and returns only on the second. The two-sheeted Riemann surface of $\sqrt{z}$ is therefore the natural domain of the half-angle structure: one sheet for each sign of $\cos(\iphase/2)$, joined at the branch point, traversed once per $2\pi$ and fully per $4\pi$. This is the elementary content behind the identification, in Sec.~\ref{sec:su2}, of the two signed Dirac sheets with the two domains $D_{0}$ and $D_{1}$ of the earlier construction~\cite{hanamura03}.
+
+\paragraph{A structural parallel, noted without commitment.}
+One may observe, without developing the point here, that the energy identity~\eqref{eq:E0-app} carries the same square-root signature that organizes the body of this paper. The unit total energy is the square of $\cos^{2}(\iphase/2)+\sin^{2}(\iphase/2)=1$, and the square root of this otherwise trivial identity does not close within a single kind of term: its expansion branches into the fourth-power terms carrying the spinor sector and the $\tfrac12\sin^{2}\iphase$ term carrying the vector sector. This forced branching, generated by taking a square root, runs parallel to the move of Sec.~\ref{sec:sqrt}, where the square root of the Klein--Gordon operator does not close while its coefficients are treated as numbers and is made to close only by enlarging them to a Clifford algebra. In both the energy identity and the Dirac factorization, taking a square root compels an enlargement of structure rather than returning to its scalar origin. Whether this parallel is more than formal is left as an open question.
+
+% =====================================================================
+\section{Dictionary}
+\label{app:dictionary}
+
+The following one-line glosses translate between the language of differential geometry, the language of the 0-Sphere model, and ordinary terms, for a reader meeting the construction without the rest of the series.
+
+\begin{itemize}[leftmargin=1.4em,itemsep=2pt]
+\item \emph{Hyperspherical harmonic} --- a standing wave on $S^{3}$; the four-dimensional analogue of a spherical harmonic $Y_{\ell}^{m}$ on $S^{2}$; the orthonormal basis of the scalar (orbital) sector.
+\item \emph{Laplace--Beltrami operator $\Delta_{S^{3}}$} --- the curved-space Laplacian on $S^{3}$; its eigenvalues $-\ell(\ell+2)$ label the orbital sector by the integer $\ell$.
+\item \emph{Dirac operator $\Dslash_{S^{3}}$} --- the square root of the Laplacian (up to a curvature term); a first-order operator whose square is~\eqref{eq:lichnerowicz}; acts on spinors, not scalars.
+\item \emph{Signed eigenvalue pair $\pm(\ell+\tfrac32)$} --- the two values a square root takes; the two spin sheets; up for the positive sign, down for the negative.
+\item \emph{Two-sheeted Riemann surface} --- the natural domain of $\sqrt{z}$; the complex-analytic picture of the two spin sheets joined at a branch point.
+\item \emph{$\mathrm{SU}(2)$ double cover} --- the group manifold $S^{3}$ itself; the statement that one circuit exchanges the two sheets and two circuits are needed to return; the geometric source of the $720^{\circ}$ periodicity.
+\item \emph{Half-angle $\iphase/2$} --- the argument of the spinor basis function $\cos(\iphase/2)$; the reason a $4\pi$ cycle is needed; the energy-identity counterpart of the half-integer Dirac eigenvalue.
+\item \emph{Wick rotation} --- the continuation $t\to-i\tau$ linking the Minkowski stage (physical Dirac equation) to the Euclidean $S^{3}$ stage (discrete spectrum); used here as a bridge, not derived.
+\end{itemize}
+
+% =====================================================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamura03}
+S.~Hanamura,
+``Uniquely Distinguishing an Electron's Spin from Two Quantum States via Riemann Surface Guidance,''
+Zenodo (2019).
+\href{https://doi.org/10.5281/zenodo.17759634}{https://doi.org/10.5281/zenodo.17759634}
+
+\bibitem{hanamura01}
+S.~Hanamura,
+``A Model of an Electron Including Two Perfect Black Bodies,''
+Zenodo (2018).
+\href{https://doi.org/10.5281/zenodo.16759284}{https://doi.org/10.5281/zenodo.16759284}
+
+\bibitem{hanamura48}
+S.~Hanamura,
+``Geometric Origin of $g=2$ in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19227518}{https://doi.org/10.5281/zenodo.19227518}
+
+\bibitem{hanamura50}
+S.~Hanamura,
+``Rotation from Scalar Oscillation: Photon-Sphere Angular Momentum in the 0-Sphere Model,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19482145}{https://doi.org/10.5281/zenodo.19482145}
+
+\bibitem{hanamura57}
+S.~Hanamura,
+``Spherical Harmonic Imprinting and the Physical Identity of Phase Information: Microscopic Mechanism of Gravitational Coupling in the 0-Sphere Model,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19932176}{https://doi.org/10.5281/zenodo.19932176}
+
+\bibitem{hanamura59}
+S.~Hanamura,
+``Proton-Trapped Electron and Spin-2 Gravitational Radiation in the 0-Sphere Model,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19932907}{https://doi.org/10.5281/zenodo.19932907}
+
+\bibitem{hanamura60}
+S.~Hanamura,
+``The Berry--Synge--Bonnet--Myers Triangle in the 0-Sphere Model,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.19932922}{https://doi.org/10.5281/zenodo.19932922}
+
+\bibitem{hanamura51}
+S.~Hanamura,
+``Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model,''
+Zenodo (2026), revised version.
+\href{https://doi.org/10.5281/zenodo.20388056}{https://doi.org/10.5281/zenodo.20388056}
+
+\bibitem{hanamura63}
+S.~Hanamura,
+``From Line Integral to Covariant Derivative: A Reader's Map of the Bridge from the 0-Sphere Model to Riemannian Curvature,''
+Zenodo (2026).
+\href{https://doi.org/10.5281/zenodo.20767589}{https://doi.org/10.5281/zenodo.20767589}
+
+\bibitem{Dirac1928}
+P.~A.~M.~Dirac,
+\textit{The quantum theory of the electron},
+Proc.\ R.\ Soc.\ Lond.\ A \textbf{117}, 610 (1928).
+
+\bibitem{Nakahara2003}
+M.~Nakahara,
+\textit{Geometry, Topology and Physics}, 2nd ed.\ (Institute of Physics Publishing, Bristol, 2003).
+
+\bibitem{SteinWeiss1971}
+E.~M.~Stein and G.~Weiss,
+\textit{Introduction to Fourier Analysis on Euclidean Spaces} (Princeton University Press, Princeton, 1971).
+
+\bibitem{Lichnerowicz1963}
+A.~Lichnerowicz,
+\textit{Spineurs harmoniques},
+C.~R.\ Acad.\ Sci.\ Paris \textbf{257}, 7 (1963).
+
+\bibitem{LawsonMichelsohn1989}
+H.~B.~Lawson and M.-L.~Michelsohn,
+\textit{Spin Geometry} (Princeton University Press, Princeton, 1989).
+
+\bibitem{Baer1996}
+C.~B\"ar,
+\textit{The Dirac operator on space forms of positive curvature},
+J.\ Math.\ Soc.\ Japan \textbf{48}, 69 (1996).
+
+\bibitem{Hitchin1974}
+N.~Hitchin,
+\textit{Harmonic spinors},
+Adv.\ Math.\ \textbf{14}, 1 (1974).
+
+\bibitem{Schrodinger1930}
+E.~Schr\"odinger,
+\textit{\"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik},
+Sitzungsber.\ Preuss.\ Akad.\ Wiss.\ Phys.-Math.\ Kl.\ \textbf{24}, 418 (1930).
+
+\bibitem{hanamura10}
+S.~Hanamura,
+``Redefining Electron Spin and the Anomalous Magnetic Moment,''
+Zenodo (2023).
+\href{https://doi.org/10.5281/zenodo.17764997}{https://doi.org/10.5281/zenodo.17764997}
+
+\bibitem{Trautman1995}
+A.~Trautman,
+\textit{The Dirac operator on hypersurfaces},
+Acta Phys.\ Polon.\ B \textbf{26}, 1283 (1995).
+
+\end{thebibliography}
+
+\end{document}

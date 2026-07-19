@@ -1,0 +1,421 @@
+% ========================================
+% Document Class and Package Setup
+% ========================================
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+% 基本パッケージ
+\usepackage{graphicx}
+\usepackage{bm}
+% 量子力学記法
+\usepackage{physics}
+% ハイパーリンク
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+% キャプション設定
+\usepackage{caption}
+\captionsetup[figure]{justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period}
+\captionsetup[table]{labelfont={bf}, name={Table}, labelsep=period}
+% 数式番号をセクションごとに
+\numberwithin{equation}{section}
+% タイポグラフィ調整
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+% マイクロタイポグラフィ
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+% \midrule、\addlinespace、\bottomruleを使う
+\usepackage{booktabs}
+\usepackage{enumitem}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+\newcommand{\iphase}{\theta}
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\hodge}{\star}
+\newcommand{\OmT}{\Omega_{\mathrm{T}}}
+\newcommand{\omeff}{\omega_{\mathrm{eff}}}
+\newcommand{\Lspin}{L_{\mathrm{int}}^{\mathrm{spin}}}
+\newcommand{\UAB}{U(A,B)}
+\newcommand{\KAB}{K(A,B)}
+\newcommand{\anom}{a_{\mathrm{e}}}
+\newcommand{\anommu}{a_{\mu}}
+\newcommand{\gfac}{g}
+\newcommand{\betaZB}{\beta}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+
+\begin{document}
+
+\title{Geometric Origin of the One-Half Factor:\\
+Thermal Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model\\[4pt]
+{\normalsize A Conceptual Clarification}
+}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{March 14, 2026}
+
+% ========================================
+% Abstract
+% ========================================
+\begin{abstract}
+The 0-Sphere Model energy identity $E_0 = \cos^4\theta + \sin^4\theta + \tfrac{1}{2}\sin^2(2\theta)$ contains a geometric constraint that has not previously been stated explicitly: the combined thermal potential energy of the two kernels, $Te_1 + Te_2 = 1 - \tfrac{1}{2}\sin^2(2\theta)$, is bounded below by $E_0/2$ for all values of the internal phase $\theta$.
+This lower bound is tight: it is achieved exactly at $\theta = \pi/4$ and $\theta = 3\pi/4$, where the photon sphere simultaneously attains its maximum kinetic energy $E_0/2$.
+The bound is a mathematical identity, not a dynamical assumption.
+We propose that this geometric floor provides the possible geometric analogue of the one-half factor that appears in the zero-point energy $\tfrac{1}{2}\hbar\omega$ of a quantum harmonic oscillator: the kernel thermal potential energy cannot be removed from the system because it is geometrically prevented from falling below $E_0/2$.
+This complements the prior dissolution of the vacuum energy problem in the 0-Sphere framework \cite{hanamura2026_32}, which showed that the enormous QFT vacuum energy is an artifact of local field ontology.
+The present paper provides the positive counterpart: within the 0-Sphere ontology, where particle history replaces local fields as the fundamental entity, the one-half factor has a concrete geometric origin in the structure of the energy identity itself.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+
+The zero-point energy $\tfrac{1}{2}\hbar\omega$ of a quantum harmonic oscillator is one of the most firmly established results in quantum mechanics, confirmed through Casimir forces, spontaneous emission rates, and the Lamb shift. Its origin in standard quantum mechanics is kinematic: the Heisenberg uncertainty principle prevents both position and momentum from vanishing simultaneously, so the ground-state energy cannot be zero. This is a constraint from the \emph{non-commutativity} of operators.
+
+The same factor $\tfrac{1}{2}$ appears in standard quantum field theory as the zero-point energy density $\tfrac{1}{2}\hbar\omega_\mathbf{k}$ per mode. Summing over all modes produces an ultraviolet-divergent quantity that, when compared with the observed cosmological constant, yields the famous discrepancy of order $10^{120}$. The preceding work \cite{hanamura2026_32} dissolved this cosmological constant problem at the level of ontological principle: the enormous sum arises only if local quantum field modes are taken as physically real independent degrees of freedom, each carrying a zero-point energy. In the 0-Sphere framework, where the fundamental entities are proper-time parametrized worldline processes rather than local field values, no such sum is generated.
+
+That dissolution, however, was a negative result: it clarified what the enormous vacuum energy does \emph{not} represent. This naturally leads to the search for a geometric analogue, within the 0-Sphere framework, of the factor $\tfrac{1}{2}$ that yields the correct zero-point energy $\tfrac{1}{2}\hbar\omega$ for a single oscillating system.
+
+The underlying problem—namely, what physical quantity is conserved by the energy identity, and what determines its minimum—has been the central motivation of the 0-Sphere research program since the energy identity was first introduced in 2018 \cite{hanamura2018}.
+
+The present paper answers this question. We show that the energy identity of the 0-Sphere Model,
+\begin{equation}
+E_0 = \cos^4\theta + \sin^4\theta + \frac{1}{2}\sin^2(2\theta),
+\label{eq:energy}
+\end{equation}
+contains a strict geometric lower bound on the kernel thermal potential energy:
+\begin{equation}
+Te_1 + Te_2 \;=\; \cos^4\theta + \sin^4\theta \;\geq\; \frac{E_0}{2}
+\quad \text{for all } \theta.
+\label{eq:floor_statement}
+\end{equation}
+The bound \eqref{eq:floor_statement} is an identity, not a dynamical assumption. It follows from the arithmetic--geometric mean (AM--GM) inequality applied to $(\cos^2\theta, \sin^2\theta)$ and requires no Lagrangian, no Hamiltonian operator, and no uncertainty principle. The kernel thermal energy is geometrically prohibited from dropping below half the total system energy.
+
+This paper forms the positive counterpart to \cite{hanamura2026_32} in a two-part account of zero-point energy within the 0-Sphere framework. A recurring pattern in the development of the series has been that a successor paper derives the mechanism for a statement made qualitatively by a predecessor: the geodesic path structure of energy exchange was derived in~\cite{hanamura2024_11} after being described qualitatively in~\cite{hanamura2018}; the conservation-law origin of spin was derived in~\cite{hanamura2025_25} after being stated in~\cite{hanamura2025_20}; the gravitational-like confinement mechanism was established in~\cite{hanamura2026_35} after~\cite{hanamura2026_33} had introduced it structurally. The present paper occupies this role with respect to \cite{hanamura2026_32}: that paper stated the ontological argument for dissolving the vacuum energy divergence, and the present paper provides the positive mechanical account that \cite{hanamura2026_32} left open.
+
+We propose that the geometric floor \eqref{eq:floor_statement} is the 0-Sphere Model's counterpart to the quantum mechanical zero-point energy: the minimum energy that cannot be removed from the system is not a consequence of operator non-commutativity but of the geometry of the energy identity. The factor $\tfrac{1}{2}$ is not inserted by hand---it emerges from the specific fourth-power structure of $Te_1$ and $Te_2$.
+
+The logical structure of the present work may be summarized as follows. Starting from the 0-Sphere energy identity introduced in Ref.~\cite{hanamura2018}, we analyze its quartic geometric structure. This structure imposes a constraint on the squared mode amplitudes, allowing the application of the arithmetic–geometric mean (AM–GM) inequality.  The resulting bound establishes a geometric lower limit of $E_0/2$ for the kernel thermal potential energy. We interpret this lower bound as a geometric analogue of the factor
+$\tfrac{1}{2}$ that appears in the quantum zero-point energy $\tfrac{1}{2}\hbar\omega$.
+
+The organization of the paper is as follows. Section~\ref{sec:floor} reviews the 0-Sphere energy identity, introduces the kernel thermal potential energies $Te_1$ and $Te_2$, and derives the geometric lower bound $E_0/2$ via the AM--GM inequality applied to the quartic form. Section~\ref{sec:zpe} proposes the correspondence between this geometric floor and the quantum mechanical zero-point energy $\tfrac{1}{2}\hbar\omega$, and discusses the bridge through the Zitterbewegung frequency. Section~\ref{sec:vacuum} relates the present result to the prior dissolution of the vacuum energy problem, completing the two-part account of zero-point energy in the 0-Sphere framework. Section~\ref{sec:discussion} examines the structural role of the fourth-power exponent and raises open questions. Finally, Section~\ref{sec:outlook} summarizes the main findings and outlines the immediate next steps.
+
+% ========================================
+% Section 2: The Geometric Floor — Derivation
+% ========================================
+\section{The Geometric Lower Bound on Kernel Energy}
+\label{sec:floor}
+
+\subsection{Statement and proof}
+
+\begin{theorem}[Kernel energy floor]
+\label{thm:floor}
+For the energy identity \eqref{eq:energy} of the 0-Sphere Model, the combined kernel thermal potential energy satisfies
+\begin{equation}
+Te_1(\theta) + Te_2(\theta) = \cos^4\theta + \sin^4\theta \geq \frac{1}{2} = \frac{E_0}{2}
+\label{eq:floor}
+\end{equation}
+for all $\theta \in \mathbb{R}$, with equality if and only if $\theta = \pi/4 + n\pi/2$ for integer $n$.
+\end{theorem}
+
+\begin{proof}
+Let $u = \cos^2\theta$ and $v = \sin^2\theta$, so that $u + v = 1$ with $u, v \geq 0$. Then
+\begin{equation}
+\cos^4\theta + \sin^4\theta = u^2 + v^2 = (u+v)^2 - 2uv = 1 - 2uv.
+\label{eq:proof_step1}
+\end{equation}
+By the AM--GM inequality, $uv \leq \bigl(\tfrac{u+v}{2}\bigr)^2 = \tfrac{1}{4}$, with equality if and only if $u = v = \tfrac{1}{2}$, i.e., $\theta = \pi/4 + n\pi/2$. Therefore
+\begin{equation}
+u^2 + v^2 = 1 - 2uv \geq 1 - 2 \cdot \tfrac{1}{4} = \tfrac{1}{2}.
+\label{eq:proof_step2}
+\end{equation}
+In the normalization $E_0 = 1$ used in \eqref{eq:energy}, this gives $Te_1 + Te_2 \geq \tfrac{1}{2} = E_0/2$. $\square$
+\end{proof}
+
+\subsection{The complementary ceiling on photon sphere energy}
+
+Theorem~\ref{thm:floor} is equivalent to a ceiling on the photon sphere kinetic energy. Since $T_\text{ph} = \tfrac{1}{2}\sin^2(2\theta)$ and $Te_1 + Te_2 + T_\text{ph} = E_0$, the floor \eqref{eq:floor} immediately implies
+\begin{equation}
+T_\text{ph}(\theta) = \frac{1}{2}\sin^2(2\theta) \leq \frac{E_0}{2}
+\label{eq:ceiling}
+\end{equation}
+with equality at the same phase values $\theta = \pi/4 + n\pi/2$. The floor and ceiling are the same geometric constraint stated from two complementary perspectives: either the kernel energy cannot go below $E_0/2$, or the photon sphere energy cannot exceed $E_0/2$. Both are exact consequences of the AM--GM inequality applied to the quartic form.
+
+\subsection{Symmetry character of the floor and ceiling}
+
+It is useful to distinguish two levels at which the bound \eqref{eq:floor} operates, following Wigner's classification of symmetry in quantum systems \cite{wigner1959}. At the level of the \emph{Hamiltonian}, the energy identity \eqref{eq:energy} is a fixed structural law governing all phases $\theta$; the bound is a property of this law and holds universally. At the level of the \emph{state}, the bound constrains what configurations the system can occupy: no state has $Te_1 + Te_2 < E_0/2$. The floor is therefore simultaneously a Hamiltonian-level identity and a state-level exclusion. This distinction matters for interpreting the condensation points $\theta = 0, \pi$, where $T_\text{ph} = 0$ and the bound is trivially satisfied with $Te_1 + Te_2 = E_0 \gg E_0/2$. At those instants the kernel energy is \emph{maximally above} the floor, not at it; the floor is most constraining at $\theta = \pi/4, 3\pi/4$, where the equal partition $Te_1 + Te_2 = T_\text{ph} = E_0/2$ realizes the bound exactly.
+
+At the condensation points $\theta = 0, \pi$, the photon sphere kinetic energy vanishes: $T_\text{ph} = \tfrac{1}{2}\sin^2(2\theta)|_{\theta=0,\pi} = 0$. By the Parseval relation for the spherical harmonic expansion of the photon sphere surface energy density, $T_\text{ph} = r_\text{ph}^2 \sum_{\ell,m}|a_{\ell m}|^2$, this forces all angular mode amplitudes to vanish simultaneously: $a_{\ell m}(\theta)|_{\theta=0,\pi} = 0$ for all $(\ell, m)$. The photon sphere is in a momentarily monopolar state and contributes no directional information to the system. This is a statement about the \emph{state} of the photon sphere at those instants; the Hamiltonian symmetry group, determined by the permanent kernel axis $\hat{n}$, is unaffected and remains $C_{\infty v}$ throughout the cycle.
+
+\subsection{Why the fourth-power structure is essential}
+
+The lower bound $Te_1 + Te_2 \geq E_0/2$ is a special property of the \emph{fourth-power} form of the kernel energies. If the kernel energies were instead $Te_1 = \cos^2\theta$ and $Te_2 = \sin^2\theta$ (quadratic form), then $Te_1 + Te_2 = 1 = E_0$ identically, and the photon sphere would carry no energy at all. The fourth-power structure arises from the thermodynamic interpretation of the kernels as perfect black bodies \cite{hanamura2018}: the Stefan--Boltzmann law gives radiated power proportional to the fourth power of temperature. It is the Stefan--Boltzmann exponent that produces the $\tfrac{1}{2}$ floor.
+
+Equivalently: a quadratic theory distributes energy equally between two degrees of freedom at thermal equilibrium (equipartition). The quartic theory does not obey simple equipartition; instead, it enforces a global constraint (Theorem~\ref{thm:floor}) that has no analogue in linear theories.
+
+% ========================================
+% Section 3: Relation to Zero-Point Energy
+% ========================================
+\section{Relation to Zero-Point Energy}
+\label{sec:zpe}
+
+\subsection{Standard quantum mechanical zero-point energy}
+
+In standard quantum mechanics, the harmonic oscillator Hamiltonian $H = \tfrac{p^2}{2m} + \tfrac{1}{2}m\omega^2 x^2$ has ground-state energy $E_0^\text{QM} = \tfrac{1}{2}\hbar\omega$. The factor $\tfrac{1}{2}$ arises from the uncertainty relation $\Delta x \cdot \Delta p \geq \hbar/2$: minimizing $\langle H \rangle$ subject to this constraint yields a ground-state energy that is exactly $\tfrac{1}{2}\hbar\omega$, split equally between average kinetic and potential energy by the virial theorem. This is an operator-algebraic result: it depends on the non-commutativity $[x, p] = i\hbar$.
+
+The 0-Sphere Model is a deterministic geometric framework with no operator algebra. The factor $\tfrac{1}{2}$ in Theorem~\ref{thm:floor} arises not from operator non-commutativity but from the AM--GM inequality applied to the fourth-power thermodynamic structure. The two mechanisms are distinct. The present paper proposes that they give the same answer: $E_\text{min} = E_0/2$.
+
+\subsection{The proposed correspondence}
+
+We propose the following correspondence between the standard and 0-Sphere descriptions of zero-point energy:
+
+\begin{quote}
+\textit{In the 0-Sphere Model, the kernel thermal potential energy $Te_1 + Te_2$ plays the role of the potential energy in the harmonic oscillator. Its geometric lower bound $E_0/2$ (Theorem~\ref{thm:floor}) is the 0-Sphere counterpart of the quantum mechanical zero-point potential energy $\tfrac{1}{2} \cdot \tfrac{1}{2}\hbar\omega = \tfrac{1}{4}\hbar\omega$. The photon sphere kinetic energy $T_\text{ph}$, which is simultaneously bounded above by $E_0/2$, is the 0-Sphere counterpart of the zero-point kinetic energy. The total zero-point energy $E_0/2 = \tfrac{1}{2}\hbar\omega$ is the minimum energy of the system that cannot be extracted by any process that respects the geometric constraint \eqref{eq:floor}.}
+\end{quote}
+
+The energy $E_0$ of the 0-Sphere Model corresponds to the total energy of the oscillating internal system. Identifying $E_0 = \hbar\omega$ (one quantum of internal oscillation), the geometric minimum of $E_0/2 = \tfrac{1}{2}\hbar\omega$ reproduces the quantum mechanical zero-point energy.
+
+\subsection{The bridge: $E_0 = \hbar\omega$ through Zitterbewegung as real oscillation}
+\label{subsec:bridge}
+
+In the Dirac theory of the electron, the Zitterbewegung angular frequency is
+\begin{equation}
+\omega_\text{ZB}^\text{Dirac} = \frac{2m_e c^2}{\hbar} \approx 1.55 \times 10^{21}\ \text{rad/s},
+\label{eq:omZB_dirac}
+\end{equation}
+corresponding to $\nu_\text{ZB}^\text{Dirac} \approx 3.93\times10^{20}$ Hz (gamma-ray regime). This follows from the interference between positive- and negative-energy solutions of the Dirac equation. In standard quantum theory this oscillation is not interpreted as a real internal motion, but as a mathematical feature of the relativistic wave function.
+
+The 0-Sphere Model assigns a different frequency to the internal oscillation, derived not from the Dirac mass formula but from the anomalous magnetic moment via the Lorentz contraction condition $\sqrt{1-\beta^2} = 1/(1 + \tfrac{1}{\sqrt{2}}a_e^\text{exp})$, which gives $\beta = v/c \approx 0.04047$ \cite{hanamura_spin2024}. The inter-kernel energy transport frequency is then
+\begin{equation}
+\nu_{0S} = \frac{\beta c}{\lambda_C} \approx \frac{0.04047 \times 2.998\times10^{8}}{2.426\times10^{-12}} \approx 5.007\times10^{18}\ \text{Hz},
+\label{eq:omZB_0S}
+\end{equation}
+with angular frequency $\omega_{0S} = 2\pi\nu_{0S} \approx 3.15\times10^{19}$ rad/s (X-ray regime, $\approx 20.7$ keV). This is a factor of $\sim 78$ lower than the Dirac value \eqref{eq:omZB_dirac}. The two frequencies are distinct because they describe different physical mechanisms: Eq.~\eqref{eq:omZB_dirac} describes position-operator fluctuations at the speed of light, while Eq.~\eqref{eq:omZB_0S} describes real inter-kernel thermal energy transport at $0.04047c$. In the 0-Sphere Model, $\omega = \omega_{0S}$ is the oscillation frequency that governs the condensation--radiation cycle.
+
+The geometric result $E_\text{min} = E_0/2$ acquires physical content only when $E_0$ is identified with a quantum of energy at this frequency. We now provide the argument for this identification, while being explicit about what is established and what remains a hypothesis contingent on future experimental confirmation.
+
+The 0-Sphere Model cycle proceeds as follows. At $\theta = 0$, all thermal potential energy resides in kernel A ($Te_1 = E_0$, $Te_2 = 0$, $T_\text{ph} = 0$). As $\theta$ advances from 0 to $\pi$, this energy is fully radiated: it leaves kernel A, propagates through the photon sphere, and condenses at kernel B. At $\theta = \pi$, all energy resides in kernel B ($Te_2 = E_0$) and the photon sphere is again momentarily at rest. The return journey ($\theta\colon \pi \to 2\pi$) is the time-reverse: energy radiates from B and condenses at A. One complete cycle A$\to$B$\to$A constitutes the full internal oscillation.
+
+In elementary physics, the energy of a single photon radiated at frequency $\omega$ is $\hbar\omega$. In the 0-Sphere Model, the photon sphere carries energy at frequency $\omega$ (the Zitterbewegung frequency). If the complete condensation--radiation--condensation cycle of the electron's internal energy corresponds to the emission of one quantum at this frequency, then the total internal energy satisfies
+\begin{equation}
+E_0 = \hbar\omega.
+\label{eq:E0_hbaromega}
+\end{equation}
+With this identification, Theorem~\ref{thm:floor} immediately gives
+\begin{equation}
+E_\text{min} = \frac{E_0}{2} = \frac{\hbar\omega}{2} = \frac{1}{2}\hbar\omega.
+\label{eq:ZPE_bridge}
+\end{equation}
+The factor $\tfrac{1}{2}$ and the frequency $\omega$ appear on both sides. The shared quantity is $\omega$: the same oscillation frequency that governs the internal dynamics in the 0-Sphere Model and that labels the energy quantum $\hbar\omega$ in the photon picture. The bridge is not a coincidence of numbers; it is a coincidence of \emph{frequencies}.
+
+This bridge depends critically on the 0-Sphere Model's interpretation of Zitterbewegung. In standard quantum mechanics, the electron is a structureless point particle; the Zitterbewegung that appears in the Dirac equation is a mathematical interference effect between positive- and negative-energy solutions, not a real internal oscillation. No internal structure exists in which ``all energy radiates and reconcentrates'' in any literal sense. In the 0-Sphere Model, by contrast, Zitterbewegung is interpreted as a real, physically occurring internal oscillation at frequency $\omega_{0S} \approx 3.15\times10^{19}$ rad/s ($\nu_{0S}\approx 5.007\times10^{18}$ Hz) \cite{hanamura_spin2024}. The condensation--radiation cycle is a real process, and the identification \eqref{eq:E0_hbaromega} has physical content.
+
+We state the observational status explicitly: direct experimental observation of Zitterbewegung as a real internal oscillation of the electron has not yet been achieved. Simulation analogues have been observed in ultracold atoms and trapped ions, but these are classical simulations of the Dirac equation structure, not observations of the electron's internal dynamics. The argument of this subsection is therefore conditional:
+
+\begin{quote}
+\textit{If Zitterbewegung is a real internal oscillation (as the 0-Sphere Model proposes and as remains experimentally unconfirmed for the free electron), then the geometric floor $E_0/2$ of the energy identity equals the quantum mechanical zero-point energy $\tfrac{1}{2}\hbar\omega$, with the shared oscillation frequency $\omega$ as the connecting quantity.}
+\end{quote}
+
+The identification \eqref{eq:E0_hbaromega} is therefore a phenomenological matching condition rather than a derived equality at the present stage of the theory. Its derivation from first principles within the 0-Sphere framework is deferred to the Lagrangian construction of subsequent work.
+
+We note explicitly the numerical consequence of this identification. Using $\nu_{0S} = \beta c/\lambda_C$ from \eqref{eq:omZB_0S}:
+\begin{equation}
+\begin{split}
+E_0 &= h\nu_{0S} = \beta \cdot \frac{hc}{\lambda_C} = \beta \cdot m_e c^2 \\
+&\approx 0.04047 \times 511\ \text{keV} \\
+&\approx 20.7\ \text{keV}.
+\end{split}
+\label{eq:E0_numerical}
+\end{equation}
+This is approximately $1/24.7$ of the electron rest-mass energy $m_e c^2 = 511$ keV. The identification \eqref{eq:E0_hbaromega} therefore does \emph{not} assign the full rest-mass energy to the internal oscillation; rather, $E_0$ represents the fraction of the total energy attributable to inter-kernel thermal transport at velocity $\beta c$. The remaining $\sim 96\%$ of the rest-mass energy---and its relation to the geometric structure of the 0-Sphere Model---is not addressed in the present paper and constitutes an open problem. For comparison, in the Dirac theory the Zitterbewegung quantum satisfies $\hbar\omega_\text{ZB}^\text{Dirac} = 2m_ec^2 \approx 1022$ keV, which exceeds the rest-mass energy by a factor of two; the 0-Sphere prediction \eqref{eq:E0_numerical} is lower by a factor of $\sim 50$. This large difference reflects the distinct physical mechanisms: position-operator fluctuations at speed $c$ (Dirac) versus thermal energy transport at $\beta c \approx 0.04c$ (0-Sphere Model).
+
+The factor of $\sim 50$ between the two predictions is entirely accounted for by the ratio $2/\beta \approx 49.4$: the Dirac theory assigns speed $c$ to the oscillating degree of freedom, whereas the 0-Sphere Model assigns the thermally determined velocity $\beta c$ derived from the anomalous magnetic moment. No other parameter difference is involved.
+
+This observation has a foundational implication that deserves explicit statement. The apparent ``remaining 96\%''---the gap between $E_0 \approx 20.7$ keV and the electron rest-mass energy $m_ec^2 = 511$ keV---is not an intrinsic deficit of the 0-Sphere framework. It arises solely from the different kinematic assignments of the internal velocity in the two frameworks. Within the 0-Sphere ontology, $E_0 = \beta m_ec^2$ is the \emph{complete} energy of the inter-kernel oscillation; there is no ``missing'' fraction by construction. The 96\% gap exists only in the comparison between two frameworks that assign different velocities to the internal degree of freedom.
+
+Consequently, the experimental confirmation of $v_\text{ZB} = \beta c \approx 0.04047c$ as the actual internal oscillation velocity of the electron would not leave a residual discrepancy to be explained. It would instead establish that the Dirac assignment $v_\text{ZB} = c$ is the framework requiring reinterpretation. In this sense, $v_\text{ZB} \approx 0.04c$ is not merely a quantitative prediction of the 0-Sphere Model but the critical experimental datum that would determine which velocity---and therefore which energy quantum---correctly describes the electron's internal dynamics. The measurement of $v_\text{ZB}$ is therefore the foundational experimental test that distinguishes the two interpretations at their root.
+
+The floor \eqref{eq:floor} implies that no internal process can reduce the kernel thermal potential energy below $E_0/2$. This is not a dynamical statement about the difficulty of removing energy; it is a geometric identity. At every phase $\theta$, the kernel energy is at least $E_0/2$. There is no phase at which the kernels are ``empty.'' This is structurally analogous to the statement that a harmonic oscillator in its ground state cannot be made to oscillate less: the zero-point energy is irreducible. In the 0-Sphere Model, the irreducibility is not probabilistic (Heisenberg) but geometric (AM--GM applied to the Stefan--Boltzmann quartic form).
+
+% ========================================
+% Section 4: Relation to the Dissolution of the Vacuum Energy Problem
+% ========================================
+\section{Relation to Prior Work on Vacuum Energy}
+\label{sec:vacuum}
+
+\subsection{Recap: the dissolution argument}
+
+The paper \cite{hanamura2026_32} argued that the cosmological constant problem is dissolved, not solved, by shifting the ontological basis from local quantum fields to particle histories (worldline processes). In the local field picture, every mode $\mathbf{k}$ of every field carries a zero-point energy $\tfrac{1}{2}\hbar\omega_\mathbf{k}$, and summing over all modes produces an ultraviolet-divergent vacuum energy density. In the worldline picture, only the accumulated phase $\Phi = \int_\gamma \omega$ along actual worldlines is physically real; no energy is assigned to empty field modes. The vacuum energy never accumulates because the modes that would generate it are not independent physical degrees of freedom.
+
+\subsection{The complementary positive result}
+
+The dissolution of \cite{hanamura2026_32} was necessarily silent about one question: \emph{if the enormous QFT vacuum energy is an artifact, what is the physical origin of the factor $\tfrac{1}{2}$ that appears in the correct zero-point energy $\tfrac{1}{2}\hbar\omega$ for a real oscillating system?} In the worldline picture, a real oscillating system is an electron (or other particle) with an active internal structure. Its zero-point energy must come from somewhere within that structure.
+
+Theorem~\ref{thm:floor} provides the answer. The zero-point energy of the internal oscillator is not the ground-state energy of a quantum harmonic oscillator mode; it is the geometric minimum of the kernel thermal potential energy, enforced by the AM--GM constraint on the fourth-power thermodynamic form. The factor $\tfrac{1}{2}$ is not inserted by quantization---it is a consequence of the Stefan--Boltzmann structure of the kernels.
+
+The two results are therefore complementary:
+\begin{itemize}[noitemsep]
+\item \cite{hanamura2026_32} (negative): the enormous QFT vacuum energy sum is not physically real because its ontological basis (independent local field modes) is rejected.
+\item Present paper (positive): the factor $\tfrac{1}{2}$ in $\tfrac{1}{2}\hbar\omega$ has a possible geometric analogue in the energy identity of the 0-Sphere Model.
+\end{itemize}
+Together, they complete a two-part account of zero-point energy in the 0-Sphere framework: the divergence is dissolved, and the residual $\tfrac{1}{2}$ factor is explained geometrically. The framework further yields a concrete experimental discriminant: a predicted Zitterbewegung velocity $v_{\mathrm{ZB}} \approx 0.04c$, which distinguishes the present interpretation from conventional light-speed internal models.
+
+% ========================================
+% Section 5: Discussion
+% ========================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{The role of the fourth-power exponent}
+
+The key structural feature that generates the $\tfrac{1}{2}$ floor is the fourth-power form of $Te_1$ and $Te_2$. This exponent is not a free parameter of the model: it is fixed by the Stefan--Boltzmann law, which governs the radiation from the perfect black-body kernels \cite{hanamura2018}. The fact that the same exponent that arises from thermodynamics of radiation produces the quantum mechanical zero-point energy factor is, in the present framework, not a coincidence but a deep structural connection between thermodynamics and quantum mechanics.
+
+Formally: for a general power $2n$ in the kernel energies, $Te_1 = \cos^{2n}\theta$ and $Te_2 = \sin^{2n}\theta$, the minimum of $Te_1 + Te_2$ subject to $\theta \in [0, 2\pi)$ occurs at $\theta = \pi/4$ and gives $2 \cdot (1/\sqrt{2})^{2n} = 2^{1-n}$. For $n = 2$ (Stefan--Boltzmann): floor $= 2^{-1} = 1/2$. For $n = 1$ (linear): floor $= 1$ (trivial). For $n = 3$: floor $= 2^{-2} = 1/4$. Only the Stefan--Boltzmann exponent $n = 2$ gives the factor $\tfrac{1}{2}$.
+
+\subsection{Open questions}
+
+Three questions raised by the present analysis are left for subsequent work.
+
+\paragraph{Relationship to $\hbar$.} The identification $E_0 = \hbar\omega$ is used to convert the geometric result $E_\text{min} = E_0/2$ into $\tfrac{1}{2}\hbar\omega$. A derivation of $E_0 = \hbar\omega$ from first principles within the 0-Sphere framework---rather than as an identification---would strengthen the argument considerably. The Hamiltonian framework of \cite{hanamura2025_18} is the natural starting point.
+
+\paragraph{Casimir effect.} The Casimir force between two conducting plates is standardly attributed to the change in zero-point energy of electromagnetic field modes upon introduction of the plates. In the worldline/history-based ontology of the 0-Sphere Model, how the Casimir force is generated without independent field modes is not addressed here.
+
+\paragraph{Intrinsic mass threshold.} Whether the measured electron rest mass $m_ec^2 = 511$ keV includes a photon-sphere contribution, or whether a lower intrinsic threshold mass exists corresponding to $E_0 \approx 20.7$ keV, remains to be clarified. Addressing this question requires a treatment of the electromagnetic self-energy and the internal energy budget of the 0-Sphere Model that goes beyond the scope of the present paper. At $\theta = \pi/4$ and $\theta = 3\pi/4$, the energy is equally divided: $Te_1 + Te_2 = T_\text{ph} = E_0/2$. This equal division is the exact analogue of the virial theorem for a harmonic oscillator, where the time-averaged kinetic and potential energies are equal. Whether a generalized virial theorem can be derived for the 0-Sphere Model from its (as yet unspecified) Lagrangian is an open question.
+
+% ========================================
+% Section 6: Outlook
+% ========================================
+\section{Outlook}
+\label{sec:outlook}
+
+This paper has established one rigorous result and one interpretive proposal:
+\begin{enumerate}
+\item \textit{(Result)} The combined kernel thermal potential energy $Te_1 + Te_2$ in the 0-Sphere Model energy identity is bounded below by $E_0/2$ for all internal phases $\theta$. This is an exact identity following from the AM--GM inequality applied to the fourth-power thermodynamic form (Theorem~\ref{thm:floor}).
+\item \textit{(Proposal)} This geometric floor is the 0-Sphere counterpart of the quantum mechanical zero-point energy $\tfrac{1}{2}\hbar\omega$. The factor $\tfrac{1}{2}$ arises from the quartic ($n=2$) thermal energy structure of the kernel modes, rather than from operator non-commutativity.
+\end{enumerate}
+
+Together with \cite{hanamura2026_32}, which dissolves the cosmological vacuum energy by rejecting local field modes as fundamental, the present paper completes a two-part account of zero-point energy in the 0-Sphere framework.
+
+The immediate next steps are: (i) derive $E_0 = \hbar\omega$ from first principles to replace the identification used here; (ii) investigate whether the virial theorem analogue holds for the 0-Sphere oscillator; and (iii) examine the Casimir effect within the worldline ontology.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+The author acknowledges the use of large language models in a limited supportive role for textual organization during document preparation. All physical interpretations, methodological judgments, and philosophical commitments remain the responsibility of the author.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamura2026_32}
+S.~Hanamura, \textit{Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18275142}{10.5281/zenodo.18275142}
+
+\bibitem{hanamura2018}
+S.~Hanamura, \textit{A Model of an Electron Including Two Perfect Black Bodies}, Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}
+
+\bibitem{hanamura2024_11}
+S.~Hanamura, \textit{Quantum Oscillations: Bridging Zitterbewegung, Geodesic Paths, and Proper Time}, Zenodo (2024). \href{https://doi.org/10.5281/zenodo.17765017}{10.5281/zenodo.17765017}
+
+\bibitem{hanamura2025_25}
+S.~Hanamura, \textit{A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18064535}{10.5281/zenodo.18064535}
+
+\bibitem{hanamura2025_20}
+S.~Hanamura, \textit{Emergent Conservation Laws: Noetherian Reinterpretation}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.16937727}{10.5281/zenodo.16937727}
+
+\bibitem{hanamura2026_35}
+S.~Hanamura, \textit{Detailed Exposition of the 0-Sphere Model for Gravitational-Like Phenomena}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18511664}{10.5281/zenodo.18511664}
+
+\bibitem{hanamura2026_33}
+S.~Hanamura, \textit{Geometrical Confinement: Rest Mass and Zitterbewegung}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18356895}{10.5281/zenodo.18356895}
+
+\bibitem{wigner1959}
+E.~P. Wigner, \textit{Group Theory and Its Application to the Quantum Mechanics of Atomic Spectra}, Academic Press, New York (1959).
+
+\bibitem{hanamura_spin2024}
+S.~Hanamura, \textit{Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction}, Zenodo (2024). \href{https://doi.org/10.5281/zenodo.17764997}{10.5281/zenodo.17764997}
+
+\bibitem{hanamura2025_18}
+S.~Hanamura, \textit{Time-Dependent Mass: Hamiltonian Approach to Thermal Modulation}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765200}{10.5281/zenodo.17765200}
+
+\end{thebibliography}
+
+\appendix
+
+\section{Note on the Choice of Inequality Used in the Derivation}
+
+In analyses of this type, several elementary inequalities or identities
+may potentially be used in the derivation.
+Typical candidates include the arithmetic–geometric mean (AM–GM) inequality,
+the Cauchy–Schwarz inequality, or trigonometric identities.
+
+In the present derivation, however, the argument relies specifically on the
+AM–GM inequality.  To see this explicitly, we introduce
+\[
+u=\cos^2\theta, \qquad v=\sin^2\theta ,
+\]
+for which
+\[
+u+v=1 .
+\]
+
+The relevant term appearing in the energy identity becomes
+\[
+\cos^4\theta+\sin^4\theta = u^2+v^2 .
+\]
+
+Using the arithmetic–geometric mean inequality
+\[
+\frac{u+v}{2} \ge \sqrt{uv},
+\]
+one obtains
+\[
+uv \le \left(\frac{u+v}{2}\right)^2 .
+\]
+
+Since $u+v=1$, this yields
+\[
+uv \le \frac14 .
+\]
+
+Substituting this bound into
+\[
+u^2+v^2=(u+v)^2-2uv
+\]
+gives
+\[
+u^2+v^2 \ge 1-2\cdot\frac14=\frac12 .
+\]
+
+Therefore we obtain the inequality
+\[
+\cos^4\theta+\sin^4\theta \ge \frac12 .
+\]
+
+Although equivalent bounds can also be derived by purely trigonometric
+manipulations, the present form makes explicit that the result is a direct
+consequence of the AM–GM inequality applied to the pair
+$(\cos^2\theta,\sin^2\theta)$.
+
+This observation clarifies that the lower bound appearing in
+Eq.~(\ref{eq:floor}) originates from a simple geometric constraint
+between the squared amplitudes of the two modes.
+
+\clearpage
+
+\end{document}

@@ -1,0 +1,31 @@
+\begin{tikzpicture}[scale=1.1,
+  kernel/.style={circle, fill=black, inner sep=2pt},
+  arr/.style={-{Stealth[length=3mm]}, thick}
+]
+% --- Left panel: open path ---
+\begin{scope}[xshift=-4.5cm]
+\node[above] at (-1.0,2.5) {\textbf{(a) Open thermal geodesic (0-Sphere)}};
+\node[kernel, label=left:{$A\,(\mathbf{r}_A)$}] (A)  at (-3,0)   {};
+\node[kernel, label=right:{$B\,(\mathbf{r}_B)$}] (B) at (-0.5,1) {};
+\node[kernel, label=right:{$A'(\mathbf{r}_{A'})$}] (Ap) at (2,2) {};
+\draw[arr, blue, thick] (A) -- node[below right, pos=0.6, font=\small]{geodesic 1} (B);
+\draw[arr, red,  thick] (B) -- node[below right, pos=0.6, font=\small]{geodesic 2} (Ap);
+\node[font=\small, align=center] at (-0.5,-0.6)
+  {$\mathbf{r}_{A'} \neq \mathbf{r}_A$\\Wilson line $\WL[A\to A']$};
+\end{scope}
+% --- Right panel: closed loop ---
+\begin{scope}[xshift=2.5cm]
+\node[above] at (0,2.5) {\textbf{(b) Closed loop (Berry / AB)}};
+\node[kernel] (A2)  at (-1,0)   {};
+\node[kernel] (Ap2) at (-1,0) {};
+\node[kernel, label=right:{$B$}] (B2)  at (1,1.2) {};
+\node[font=\small] at (-1,0) [left] {$A$};
+\node[font=\small] at (-1,-0.5) {$A' = A$};
+\draw[arr, violet, thick] (A2) to[bend left=40]
+  node[above, font=\small]{$\gamma_1$} (B2);
+\draw[arr, violet, thick] (B2) to[bend left=40]
+  node[below, font=\small]{$\gamma_2$} (Ap2);
+\node[font=\small, align=center] at (1.5,-0.6)
+  {$\mathbf{r}_{A'} = \mathbf{r}_A$\\Holonomy $\oint_C \Pi$};
+\end{scope}
+\end{tikzpicture}

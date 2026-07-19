@@ -1,0 +1,94 @@
+================================================================================
+Zenodo Related Works — Paper #62
+"The Bridge Equation γ = 1 + a from First Principles: Representation Duality
+of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square
+Factor in the 0-Sphere Model"
+DOI: 10.5281/zenodo.20091680
+================================================================================
+
+------------------------------------------------------------------------
+CITES  (cited via \bibitem in the bibliography)
+------------------------------------------------------------------------
+
+Cites | 10.5281/zenodo.16759284 | Hanamura #1  — A Model of an Electron Including Two Perfect Black Bodies (2018)
+Cites | 10.5281/zenodo.17760132 | Hanamura #7  — Coexistence of Positive and Negative-Energy States in the Dirac Equation with One Electron (2020)
+Cites | 10.5281/zenodo.17764997 | Hanamura #10 — Redefining Electron Spin and AMM Through Harmonic Oscillation and Lorentz Contraction (2023)
+Cites | 10.5281/zenodo.17765238 | Hanamura #19 — Spin as a Real Vector from Internal Photon-Sphere Motion: U(1) Gauge and SU(2) Periodicity (2025)
+Cites | 10.5281/zenodo.17765349 | Hanamura #24 — Thermal Geodesics in the 0-Sphere Model (2025)
+Cites | 10.5281/zenodo.18064535 | Hanamura #25 — A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry (2025)
+Cites | 10.5281/zenodo.18636509 | Hanamura #28 — Dimensional Consistency of G and c^2 in the 0-Sphere Model (2025)
+Cites | 10.5281/zenodo.18067760 | Hanamura #29 — Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics (2025)
+Cites | 10.5281/zenodo.18819682 | Hanamura #30 — From Curvature to Connection: Geometric Origin of Conservation Laws (v2) (2026)
+Cites | 10.5281/zenodo.18203433 | Hanamura #31 — Line Integrals as Fundamental Observables in Physics (2026)
+Cites | 10.5281/zenodo.19120057 | Hanamura #47 — Rotational Lorentz Contraction as the Geometric Origin of the AMM (2026)
+Cites | 10.5281/zenodo.20388056 | Hanamura #51 — Helical Trajectory, Fixed-Endpoint Line Integrals, and Metric Emergence (2026)
+Cites | 10.5281/zenodo.19701297 | Hanamura #54 — Maxwell Electrodynamics as a Derived Low-Energy Limit of the 0-Sphere Line-Integral Ontology (2026)
+Cites | 10.5281/zenodo.19800797 | Hanamura #55 — Four Functions of the Open Wilson Line in the 0-Sphere Model (2026)
+Cites | 10.5281/zenodo.19934138 | Hanamura #61 — Application of the γ-Equation to the Proton: A Parameter-Free Hadronic Mass Scale (2026)
+
+------------------------------------------------------------------------
+CONTINUES  (direct conceptual extension of prior papers in the series)
+------------------------------------------------------------------------
+
+Continues | 10.5281/zenodo.17764997 | Hanamura #10 — Source of the bridge equation and of the RMS heuristic: the present paper replaces the alternating-voltage analogy of #10 with a first-principles derivation of the 1/√2 factor from the conservation identity
+Continues | 10.5281/zenodo.19120057 | Hanamura #47 — Rotational Lorentz contraction a_e = (L0 − L)/L0: the present paper elevates it into the representation duality (external time ratio / internal length ratio) and derives the modulus in γ = 1 + |a| as its geometric consequence
+Continues | 10.5281/zenodo.20388056 | Hanamura #51 — Constant-radius helical trajectory: the present paper refines it into the pulsating-radius helix R(θ) = (1/√2)|sin θ| with R² equal to the momentum term
+Continues | 10.5281/zenodo.19934138 | Hanamura #61 — Canonical use of the mass-determining (peak) and velocity-determining (RMS) forms: the present paper places the two on a common footing as two readings of the same sin²θ partition
+
+------------------------------------------------------------------------
+IS PART OF  (series membership; direct predecessor)
+------------------------------------------------------------------------
+
+Is part of | 10.5281/zenodo.19934138 | Hanamura #61 — Immediately preceding paper; γ-equation pair (#61 application to the proton / #62 first-principles foundation)
+
+------------------------------------------------------------------------
+REQUIRES  (logical prerequisites; papers without which the argument
+           cannot be followed)
+------------------------------------------------------------------------
+
+Requires | 10.5281/zenodo.16759284 | Hanamura #1  — Conservation identity cos⁴(θ/2) + sin⁴(θ/2) + ½sin²θ = 1; two-kernel architecture and thermal gradient ∇(T_e2 − T_e1) = E₀ sin θ
+Requires | 10.5281/zenodo.17760132 | Hanamura #7  — Relativistic reading of the identity as mass/momentum partition of E² = (mc²)² + (pc)²; stationary points with p_γ* = 0
+Requires | 10.5281/zenodo.17764997 | Hanamura #10 — Bridge equation γ_v = 1 + |a|/√2 and the historical placement of the factor on a_e
+Requires | 10.5281/zenodo.17765238 | Hanamura #19 — SU(2) (720°) amplitude versus U(1) (360°) energy phase duality, which fixes the winding number to unity
+Requires | 10.5281/zenodo.19120057 | Hanamura #47 — Rotational Lorentz contraction as the internal (length-ratio) representation of a_e
+Requires | 10.5281/zenodo.20388056 | Hanamura #51 — Helical trajectory description of the photon sphere, the object refined here
+
+------------------------------------------------------------------------
+MULTI-RELATION ASSIGNMENTS  (same DOI, multiple relation types)
+------------------------------------------------------------------------
+
+#10 (17764997): Cites + Continues + Requires
+#47 (19120057): Cites + Continues + Requires
+#51 (20388056): Cites + Continues + Requires
+#61 (19934138): Cites + Continues + Is part of
+#1  (16759284): Cites + Requires
+#7  (17760132): Cites + Requires
+#19 (17765238): Cites + Requires
+
+------------------------------------------------------------------------
+REVERSE RELATIONS  (recommended updates to prior Zenodo records)
+------------------------------------------------------------------------
+
+These papers should have the following reverse relations added to point
+back to #62 (10.5281/zenodo.20091680):
+
+#10 (10.5281/zenodo.17764997): Is continued by | #62
+#47 (10.5281/zenodo.19120057): Is continued by | #62
+#51 (10.5281/zenodo.20388056): Is continued by | #62
+#61 (10.5281/zenodo.19934138): Is continued by | #62 (sequence membership; #62's IS PART OF target)
+#1  (10.5281/zenodo.16759284): Is required by | #62
+#7  (10.5281/zenodo.17760132): Is required by | #62
+#19 (10.5281/zenodo.17765238): Is required by | #62
+
+================================================================================
+NOTE — #51 DOI discrepancy (informational; please verify):
+Paper #62's bibliography cites #51 at DOI 10.5281/zenodo.20388056, and the
+published description of #60 also links #51 at 10.5281/zenodo.20388056.
+However, #60's zenodo_relations.txt listed #51 at 10.5281/zenodo.19489126.
+If #51 was re-uploaded as a new record (19489126 → 20388056), the relations
+above are correct as written; the reverse relation for #51 should then be
+added to the 20388056 record. If 20388056 is incorrect, update the #62
+bibitem hanamura51 before upload.
+================================================================================
+END
+================================================================================

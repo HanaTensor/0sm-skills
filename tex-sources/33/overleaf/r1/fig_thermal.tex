@@ -1,0 +1,56 @@
+% fig_thermal.tex
+\begin{tikzpicture}[
+    % 座標軸の単位長さ
+    x={(0.75cm,-0.05cm)},   % wt 軸
+    y={(0cm,0.9cm)},        % TPE 軸
+    z={(-0.4cm,-0.25cm)},   % x 軸
+    >=Stealth
+]
+    % --- 補助ガイド ---
+    \draw[gray!30, dashed, thin] (0,0,1) -- (4.2,0,1);  % +a
+    \draw[gray!30, dashed, thin] (0,0,-1) -- (4.2,0,-1); % -a
+
+    % \small, \footnotesize, \scriptsize, \tiny
+    % --- 座標軸 ---
+    \draw[semithick, ->] (0,-0.1,0) -- (0,1.4,0) node[above, font=\tiny] {TPE};
+    \node[left, font=\tiny] at (0,1,0) {$E_0$};
+    
+    \draw[semithick, ->] (0,0,0) -- (4.7,0,0) node[right, font=\tiny] {$\omega t$};
+    
+    \draw[semithick, ->] (0,0,-1.3) -- (0,0,1.5) node[below left, font=\tiny] {$x$};
+    \node[left, font=\tiny] at (0,0,1) {$p_{+}$};
+    \node[right, font=\tiny] at (0,0,-1) {$p_{-}$};
+    
+    % --- 関数のプロット ---
+    % 1. 黄色/オレンジ (Photon Sphere): p_{-} と p_{+} の間で振動
+    \draw[orange!80, semithick, domain=0:4.2, samples=80] 
+        plot (\x, 0, {-1 * cos(\x * 180)});
+    
+    % 2. 青 (Kernel 1): x = +a 平面上
+    \draw[blue!70, semithick, domain=0:4.2, samples=80] 
+        plot (\x, {sin(\x * 90)^4}, 1);
+    % 文字だけを (wt=0.8, TPE=1.1, x=+a) の位置に配置
+    \node[blue!70, font=\tiny, anchor=south] at (0.8, -0.3, 1) {Kernel 1};
+    
+    % 3. 緑 (Kernel 2): x = -a 平面上
+    \draw[olive!70, semithick, domain=0:4.2, samples=80] 
+        plot (\x, {cos(\x * 90)^4}, -1);
+    \node[olive!70, font=\tiny, anchor=south] at (2.4, 1.2, -1) {Kernel 2};
+    
+    % --- 目盛りラベル ---
+    \foreach \x/\label in {1/\pi, 2/2\pi, 3/3\pi} {
+        \draw (\x, 0.05, 0) -- (\x, -0.05, 0);
+        \node[below, font=\tiny] at (\x, 0, 0) {$\label$};
+    }
+    
+    % --- 原点の球体 ---
+    %\fill[yellow!40, opacity=0.5] (0,0,0) circle (0.15);
+    %\shade[ball color=yellow!40, opacity=0.4] (0,0,0) circle (0.15);
+    
+    % --- テキスト説明 ---
+    \node[orange!90!black, anchor=north west, align=left, font=\tiny] (text) at (0.8, -0.4, 0) {
+        $\gamma^*$ : The Photon Sphere \\
+        as kinetic energy
+    };
+    \draw[->, orange!90!black, thin] (text.west) .. controls (0.5,-0.3, 0) .. (0.3, 0, -0.2);
+\end{tikzpicture}

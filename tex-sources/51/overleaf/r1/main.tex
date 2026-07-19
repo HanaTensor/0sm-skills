@@ -1,0 +1,1623 @@
+% ========================================
+% 10.5281/zenodo.19489126 (#51)
+% ========================================
+
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+\usepackage{booktabs}
+\usepackage{enumitem}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
+\lstset{style=pythonstyle}
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+% --- Custom Macros ---
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\hodge}{\star}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+\newcommand{\betaZB}{\beta_{\mathrm{ZB}}}
+
+% ========================================
+\begin{document}
+% ========================================
+
+\title{Helical Trajectory, Fixed-Endpoint Line Integrals,\\ and the Emergence of the Spacetime Metric in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{April 12, 2026}
+
+% ========================================
+% Abstract
+% ========================================
+\begin{abstract}
+This paper presents a structural reconstruction of confinement and spacetime geometry within the 0-Sphere framework. The companion paper~\cite{hanamura50} established that the orientation of the thermal geodesic in the internal phase space determines the electron/positron distinction as a Lorentz-invariant binary $\chi = \mathrm{sign}(da/dt)$.
+That analysis was confined to the transverse plane; the propagation direction entered only as an external label.
+
+The present paper extends the picture to three dimensions.
+Including the longitudinal advance of the photon sphere converts the planar rotation into a helix carrying two physically distinct velocity scales: the transverse Zitterbewegung speed $v_{\mathrm{ZB}}\approx 0.04c$, anchored to the anomalous magnetic moment through $\gamma = 1+a_e$, and a longitudinal pitch speed $v_{\mathrm{pitch}}\sim c$, set by the Compton-scale kernel separation $\Delta x\sim\lambdaC$.
+The ratio $v_{\mathrm{pitch}}/v_{\mathrm{ZB}}\approx 25$ breaks the velocity uniformity assumed in the Dirac--Hestenes helical model; both scales are derived from the two-kernel architecture without free parameters.
+
+Before the line integral can be defined, its foundational prerequisites---existence and uniqueness of the path---must be secured.
+We show that confinement emerges as a geometric necessity.
+Starting from the non-arcwise-connectivity of $S^0 = \{A,B\}$, a positively curved photon-sphere geometry activates the Bonnet--Myers theorem, yielding a finite diameter bound that defines the confinement domain $\mathcal{D}$ of prior work~\cite{hanamura33} without introducing it as an external assumption.
+This converts a topological input into a geometric bound with direct physical interpretation.
+Non-antipodality of the kernels on $S^n$ then ensures uniqueness of the thermal geodesic, making the fixed-endpoint integral a genuine two-point functional.
+
+The half-turn arc between Kernel~A and Kernel~B defines a fixed-endpoint line integral of the Berry connection 1-form $\mathcal{A}_\mu$.
+We identify the resulting phase accumulation functional $\mathcal{S}(x_A,x_B) = \int_{\Gamma_{\mathrm{ext}}}\mathcal{A}_\mu\,dx^\mu$ as a generalized Synge world function: it vanishes at coincidence, depends only on the endpoints through the extremal arc, and reproduces $\eta_{\mu\nu}$ in the flat-space limit.
+Since Synge's reconstruction theorem holds for any two-point function satisfying these axioms, the spacetime metric emerges directly as the coincidence limit of mixed second derivatives:
+\begin{equation*}
+g_{\mu\nu}(x) \;=\; \partial_{A\mu}\,\partial_{B\nu}\,\mathcal{S}_s(x_A,x_B)\big|_{x_A=x_B=x}.
+\end{equation*}
+This identification provides a structurally motivated resolution to the open question of prior work~\cite{hanamura37, hanamura40}: the relation between the internal connection $\omega_\mu$ and the spacetime Christoffel symbols is given explicitly by the inversion chain $\mathcal{S} \to g_{\mu\nu} \to \Gamma^\mu_{\nu\rho}$, descending one level below the derivative-order hierarchy established in~\cite{hanamura40}.
+The proposal passes the flat-space consistency check; a complete proof in curved spacetime is deferred to subsequent work.
+
+The line-integral foundations are those of~\cite{hanamura29, hanamura30, hanamura31}; the thermal geodesic framework is that of~\cite{hanamura24}.
+These are used without re-derivation; the new content is the confinement-as-geometric-necessity argument (topology $\to$ curvature $\to$ confinement), the helical geometry, the two-scale decomposition, the Synge identification, and the metric-emergence proposal.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+
+The companion paper~\cite{hanamura50} established that the orientation of the thermal geodesic~\cite{hanamura24} $A\to B\to A'$ in the internal phase space of the 0-Sphere model determines the electron/positron distinction: the sign of $da/dt$ governs the rotation direction of the photon sphere in the $yz$-plane, providing a geometric origin for chirality. That analysis was intentionally confined to the transverse plane, with the propagation direction $x$ entering only as an external label.
+
+The present paper extends that two-dimensional picture to three dimensions by including the longitudinal advance of the photon sphere along the propagation axis, converting the planar rotation of~\cite{hanamura50} into a three-dimensional helix. This extension rests on the line-integral program developed in prior work~\cite{hanamura29, hanamura30, hanamura31}: the identification of the connection integral as the fundamental geometric quantity along a thermal geodesic~\cite{hanamura29}, the reinterpretation of conservation laws as geometric consistency conditions of accumulated connection structure~\cite{hanamura30}, and the demonstration that line integrals constitute a universal class of fundamental observables across quantum, gauge-theoretic, and gravitational domains~\cite{hanamura31}. The three-dimensional helical trajectory is the natural domain for a fixed-endpoint line integral of the Berry connection 1-form $\mathcal{A}_\mu$ between Kernel~A and Kernel~B, separated along the propagation axis by $\Delta x\sim\lambdaC$. The accumulated phase along this arc constitutes a \emph{phase history} encoding local spacetime geometry, and we propose that the metric tensor $g_{\mu\nu}$ can be derived as the second functional derivative of this phase accumulation functional with respect to the endpoint positions.
+
+The long-range motivation of this programme is a structural question that has remained unresolved since gauge theory and general relativity were formulated as separate frameworks: in gauge theory, the curvature (field strength $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$) plays the role of the physical force, whereas in general relativity, the connection (Christoffel symbols $\Gamma^\mu_{\nu\rho}$) governs particle motion directly through the geodesic equation. The two frameworks assign direct physical significance to geometric objects that differ by one derivative order. Paper~\#40~\cite{hanamura40} identified this \emph{derivative-order mismatch} as a structural feature rather than an inconsistency, and proposed line integrals of the connection as the common observational layer at which both frameworks can be compared without privileging either. The present paper pursues this programme one level deeper. If the connection itself is not the primary object but is derived from a phase accumulation functional $\mathcal{S}$, then the derivative-order mismatch may be recast as a question about the direction in which $\mathcal{S}$ is differentiated: differentiation with respect to path deformation yields the gauge connection and field strength, while differentiation with respect to endpoints yields the metric and its associated gravitational connection. What appears as a fundamental incompatibility between two separate theories may, from this vantage point, reflect two projections of a single underlying phase-history structure. The present paper does not resolve this question---the bridge equation between Berry curvature $\mathcal{F}_{\mu\nu}$ and the Riemann tensor of the emergent $g_{\mu\nu}$ remains an open task recorded in Appendix~\ref{app:metric_status}---but the phase accumulation functional $\mathcal{S}$ introduced here is the natural candidate for the common object from which both projections descend.
+
+Before the line integral can be defined, however, a foundational prerequisite must be addressed: the existence and uniqueness of the path. Section~\ref{sec:fixedend} establishes this prerequisite by observing that the 0-sphere $S^0=\{A,B\}$ is not arcwise connected, so no continuous curve lies entirely within $S^0$ joining the two kernel points. The photon sphere, modeled as $S^n$ with $n\geq 1$, supplies the required arcwise-connected embedding. The Compton-scale radius constraint then activates the Bonnet--Myers theorem to bound the diameter of the photon sphere and establish the confinement domain $\mathcal{D}$ of Paper~\#33~\cite{hanamura33} as a geometric consequence. Non-antipodality of the kernels on this compact manifold ensures that the thermal geodesic is unique, making the fixed-endpoint integral a genuine two-point functional.
+
+The remainder of this paper is organized as follows. Section~\ref{sec:helix} derives the three-dimensional helical trajectory from the two-kernel architecture of the 0-Sphere model and identifies the two velocity scales. Section~\ref{sec:fixedend} establishes the arcwise-connectivity prerequisite and formulates the fixed-endpoint line integral of the Berry connection, defining the phase accumulation functional. Section~\ref{sec:metric} proposes the derivation of $g_{\mu\nu}$ from the second functional derivative of the phase accumulation, and discusses the conditions under which this recovers the GR metric in the low-energy limit. Section~\ref{sec:discussion} discusses the relation to Zitterbewegung, the connection to prior line-integral work~\cite{hanamura29, hanamura30, hanamura31}, and the open problems that remain.
+
+\subsection{Relation to prior work and scope of new results}
+\label{subsec:prior_work}
+
+The present paper is the second in a closely coupled pair. The companion paper~\cite{hanamura50} established the geometric origin of chirality and the electron/positron distinction; the present paper extends that foundation to three dimensions and proposes the emergence of the spacetime metric. Table~\ref{tab:contributions51} maps the key concepts used here to their source in the prior series and states precisely what is new. The table serves two purposes: it allows readers who have not followed the full series to identify immediately what requires background reading, and it prevents the new results from being attributed to prior work or vice versa.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Map of contributions: prior series versus this paper}}
+\label{tab:contributions51}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{7.0cm}p{3.5cm}p{6.5cm}}
+\toprule
+\textbf{Concept} & \textbf{Prior source} & \textbf{This paper's contribution} \\
+\midrule
+Two-kernel internal structure; energy identity $E_0 = \cos^4\iphase + \sin^4\iphase + \tfrac{1}{2}\sin^2(2\iphase)$
+& \cite{hanamura01} (\#1, 2018)
+& Used as starting point; not re-derived \\
+\addlinespace[0.3cm]
+Thermal geodesic framework; metric $\mathcal{G}_{\mu\nu}(T)$
+& \cite{hanamura24} (\#24)
+& Used as the geometric setting for the helical trajectory; not re-derived \\
+\addlinespace[0.3cm]
+Open-arc spinorial phase integral; $2\pi$ per traversal, $4\pi$ round-trip; Poincar\'{e} prototype
+& \cite{hanamura29} (\#29)
+& Extended from straight thermal geodesic to three-dimensional helical arc \\
+\addlinespace[0.3cm]
+Conservation laws as geometric consistency conditions; Einstein equations as derived checksum
+& \cite{hanamura30} (\#30)
+& Underpins the metric-emergence proposal: if conservation laws are derived, $g_{\mu\nu}$ need not be primitive \\
+\addlinespace[0.3cm]
+Universality of line integrals (Aharonov--Bohm, Berry phase, Wilson loops)
+& \cite{hanamura31} (\#31)
+& Provides the conceptual framework for Berry connection as fundamental object \\
+\addlinespace[0.3cm]
+Topological confinement domain $\mathcal{D}$; $\mathrm{supp}(E)\subset\mathcal{D}$
+& \cite{hanamura33} (\#33)
+& Re-derived as geometric consequence of Bonnet--Myers theorem applied to photon-sphere curvature (§~\ref{subsec:bonnet_myers}) \\
+\addlinespace[0.3cm]
+Chirality $\chi = \mathrm{sign}(da/dt)$ as Lorentz-invariant binary; electron/positron distinction; DOF audit ($\chi\times\mathrm{spin}=4$)
+& \cite{hanamura50} (\#50)
+& Used as the starting point for the three-dimensional extension; helical trajectory is the lift of the planar rotation \\
+\addlinespace[0.3cm]
+Arcwise connectivity of the photon sphere ($S^0$ not arcwise connected; $S^n$, $n\geq 1$ is); Bonnet--Myers diameter bound; non-antipodality and uniqueness of thermal geodesic
+& New to this paper (§~\ref{sec:fixedend})
+& Foundational prerequisite for the fixed-endpoint line integral; establishes domain $\mathcal{D}$ of \#33 as a theorem; promotes uniqueness from open to established \\
+\addlinespace[0.3cm]
+Helical trajectory with two distinct velocity scales ($v_\mathrm{ZB}\approx 0.04c$ transverse, $v_\mathrm{pitch}\sim c$ longitudinal)
+& New to this paper
+& Core kinematic result; breaks the uniformity of Dirac--Hestenes helical model; both scales derived from two-kernel structure \\
+\addlinespace[0.3cm]
+Fixed-endpoint line integral of Berry connection $\mathcal{A}_\mu$ along helical arc $x_A\to x_B$
+& New to this paper
+& Extends open-arc program of~\cite{hanamura29} to helical geometry; phase accumulation encodes spacetime structure \\
+\addlinespace[0.3cm]
+Phase accumulation functional $\mathcal{S}(x_A,x_B)$ as generalized Synge world function
+& New to this paper
+& Structural identification enabling Synge reconstruction theorem; flat-space consistency check performed \\
+\addlinespace[0.3cm]
+Metric proposal: $g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}_s\big|_{x_A=x_B}$
+& New to this paper
+& Central proposal of this paper; spacetime metric as emergent second derivative of internal phase dynamics; explicit curved-metric computation deferred \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Rows 8--12 mark results that are new to the present paper. Rows 1--7 mark results imported from the prior series and used here without re-derivation. Row 6 notes that the confinement domain $\mathcal{D}$ of Paper~\#33 is promoted from an assumption to a theorem in Section~\ref{sec:fixedend}. The table is not a claim of novelty over all prior literature but a precise demarcation of what this paper adds to the 0-Sphere program. References cite the specific paper in the series where each prior result was first established.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Section 2: Helical Trajectory
+% ========================================
+\section{The Three-Dimensional Helical Trajectory}
+\label{sec:helix}
+
+\subsection{From planar rotation to helix}
+
+The physical basis for the helical structure rests on two independent inputs: the Zitterbewegung oscillation scale and the two-kernel architecture of the 0-Sphere model. In the Dirac theory, the Zitterbewegung occurs at the Compton wavelength $\lambdaC = \hbar/mc$, which sets the spatial scale of the internal oscillation. In the 0-Sphere model, this scale has a direct geometric realization: Kernel~A and Kernel~B are the two thermodynamic endpoints of the internal emission--absorption cycle, and their spatial separation along the propagation axis is of order $\Delta x \sim \lambdaC$, where
+\begin{equation}
+\lambdaC \;=\; \frac{\hbar}{m_e c} \;\approx\; 2.4 \times 10^{-12}\,\mathrm{m}.
+\label{eq:compton}
+\end{equation}
+The characteristic oscillation frequency of the Zitterbewegung is therefore set by the ratio of the internal velocity to the Compton wavelength \cite{hanamura36}:
+\begin{equation}
+\nu_{\mathrm{ZB}} \;=\; \frac{v_{\mathrm{ZB}}}{\lambdaC} \;\approx\; 5.0 \times 10^{18}\,\mathrm{Hz}.
+\label{eq:nu_zb}
+\end{equation}
+This places the 0-Sphere ZB frequency firmly in the \emph{X-ray regime} ($\sim\mathrm{keV}$), in contrast to the Dirac ZB frequency $\nu_{\mathrm{ZB}}^{\mathrm{Dirac}} = mc^2/(\pi\hbar) \approx 3.93\times10^{20}\,\mathrm{Hz}$, which lies in the gamma-ray regime ($\sim100\,\mathrm{keV}$). The distinction arises from the velocity entering the ratio: the Dirac theory assumes $v = c$, whereas the 0-Sphere model predicts the subluminal value $v_\mathrm{ZB} \approx 0.04c$ \cite{hanamura10, hanamura36}. It is precisely this separation---two distinct kernel locations at Compton-scale distance---that converts the planar rotation of~\cite{hanamura50} into a helix: the photon sphere rotates in the $yz$-plane while the active kernel shuttles between $x_A$ and $x_B$, generating a net advance in $x$ per half-cycle. Without two spatially separated kernels, the trajectory would remain a closed circle; the helix is the geometric signature of the two-kernel structure. \emph{The helix is therefore not an arbitrary kinematic ansatz but the geometric consequence of phase oscillation between two spatially separated kernels.}
+
+A further relativistic remark is in order. The kernel separation $\Delta x \sim \lambdaC$ is a \emph{proper length} measured in the rest frame of the photon sphere. An external observer moving at velocity $v$ relative to the electron measures a Lorentz-contracted separation:
+\begin{equation}
+\Delta x_{\text{obs}} \;=\; \frac{\Delta x_{\text{proper}}}{\gamma},
+\label{eq:lorentz_separation}
+\end{equation}
+in exact analogy with the muon lifetime: the muon's proper lifetime is fixed, but an Earth-frame observer measures a longer interval because of time dilation. Here the roles are reversed---the spatial extent appears contracted---but the physical logic is identical. Consequently, the Zitterbewegung velocity $v_\mathrm{ZB}$ also transforms under observer boosts; the value $v_\mathrm{ZB} \approx 0.04c$ quoted throughout this paper is the effective RMS velocity in the laboratory frame, consistent with the value predicted from the anomalous magnetic moment in the same frame \cite{hanamura10, hanamura36}.
+
+At the same time, the internal phase $a$ advances with respect to the \emph{proper time} $\tau$ of the photon sphere, not coordinate time $t$. The correct parametrization of the helix is therefore:
+\begin{equation}
+a \;=\; \omZB\,\tau, \qquad d\tau^2 \;=\; g_{\mu\nu}\,dx^\mu dx^\nu,
+\label{eq:proper_phase}
+\end{equation}
+where $g_{\mu\nu}$ is the local spacetime metric. This parametrization absorbs both SR effects (Lorentz contraction of the helix pitch in a boosted frame) and GR effects (gravitational time dilation modifying the observed oscillation frequency). Concretely, the predicted ZB oscillation frequency is lower at Earth's surface than at high altitude---consistent with the gravitational redshift predictions established in \cite{hanamura22}---without requiring any modification of the internal kernel dynamics. The kernel pair is therefore a genuinely relativistic structure whose SR and GR degrees of freedom are naturally incorporated through Eq.~\eqref{eq:proper_phase}.
+
+Expanding the proper-time definition makes this explicit. Since $d\tau^2 = g_{\mu\nu}\,dx^\mu dx^\nu$, the total phase accumulated along the helical arc from Kernel~A to Kernel~B is:
+\begin{equation}
+\phi_{AB} \;=\; \omZB \int_{A}^{B} d\tau \;=\; \omZB \int_{A}^{B} \sqrt{g_{\mu\nu}\,dx^\mu\,dx^\nu}.
+\label{eq:phase_worldline}
+\end{equation}
+This is structurally identical to the relativistic free-particle action $S = -mc\int d\tau$, with $\omZB$ playing the role of $mc/\hbar$. The phase history along the worldline \emph{is} the proper-time integral. In flat spacetime, $g_{\mu\nu} = \eta_{\mu\nu}$ and $\phi_{AB}$ reduces to the phase accumulated along a straight helix---the free-electron case. In curved spacetime, $g_{\mu\nu}$ distorts the arc length and thereby modifies the accumulated phase, providing a direct route from spacetime geometry to observable ZB frequency shifts. This connection will be the foundation of the metric-emergence proposal in Section~\ref{sec:metric}. For a free electron propagating in the $+x$ direction with velocity $v_x$, the phase advances as $a = \omZB \tau$ (cf.\ Eq.~\eqref{eq:proper_phase}), and the center of the photon-sphere orbit translates along $x$ at rate $v_x$. The three-dimensional trajectory is therefore the helix:
+\begin{align}
+x(\tau) &= v_x\, \tau, \label{eq:helix_x}\\
+y(\tau) &= \cos(\omZB \tau), \label{eq:helix_y}\\
+z(\tau) &= \sin(\omZB \tau). \label{eq:helix_z}
+\end{align}
+A terminological caution is necessary at the outset. The trajectory \eqref{eq:helix_x}--\eqref{eq:helix_z} is \emph{not} the classical worldline of the electron as a point particle moving through space. It is the locus traced by the instantaneous center of the internal photon-sphere dynamics---the internal phase trajectory of the 0-Sphere system projected into $(x,y,z)$-space as the global phase $a$ advances. In Dirac's language, it is the Zitterbewegung trajectory of the internal state, not the center-of-mass motion. This distinction is essential: the helix describes internal kinematics, while the center-of-mass advances smoothly along $x$ at velocity $v_x \ll c$.
+
+\subsection{Two velocity scales and the asymmetry}
+\label{subsec:twovelocities}
+
+In this model, the internal field dynamics are characterized by an effective velocity $v_{\mathrm{ZB}} \approx 0.04c$, which defines a transverse scale, while the overall propagation of the system is governed by a relativistic scale $v_{\mathrm{pitch}} \sim c$, defining a longitudinal scale. These should not be interpreted as spatial components of a single motion, but rather as two distinct velocity scales arising from different physical origins. Here, ``transverse'' and ``longitudinal'' do not refer to spatial wave components, but to dynamically distinct processes: internal field transitions and global propagation, respectively.
+
+\vspace{5mm}
+
+The helical trajectory exhibits a fundamental asymmetry between its two velocity scales. The transverse rotation speed in the $yz$-plane is the Zitterbewegung speed $v_{\mathrm{ZB}} \approx 0.04c$. This value is not an independent postulate but follows from the relation between the anomalous magnetic moment and Lorentz contraction established in \cite{hanamura10}. Specifically, the formula
+\begin{equation}
+\gamma \;=\; 1 + a_e,
+\label{eq:gamma_ae}
+\end{equation}
+where $a_e \approx 1.16\times10^{-3}$ is the experimentally measured anomalous magnetic moment of the electron \cite{hanamura10, hanamura36}, yields the Lorentz factor of the internal photon-sphere rotation, and from it the transverse speed:
+\begin{equation}
+v_{\mathrm{ZB}} \;=\; c\sqrt{1 - \gamma^{-2}} \;\approx\; c\sqrt{2a_e} \;\approx\; 0.04c.
+\label{eq:vzb_from_ae}
+\end{equation}
+The transverse speed is therefore anchored to a measured physical quantity $a_e$, not a free parameter. The derivation is closed and non-perturbative: no loop integrals, no fine-structure constant, and no virtual particles enter \cite{hanamura36}.
+
+The longitudinal pitch velocity, by contrast, is of order:
+\begin{equation}
+v_{\text{pitch}} \;\sim\; \Delta x \cdot \omZB \;\sim\; \lambdaC \cdot \frac{mc^2}{\hbar} \;\sim\; c,
+\label{eq:pitch_velocity}
+\end{equation}
+where $\lambdaC$ is as defined in Eq.~\eqref{eq:compton}. Since the longitudinal propagation corresponds to a relativistic worldline, the pitch velocity is bounded by $c$, and the estimate $v_{\text{pitch}} \sim c$ should be understood as saturation of this relativistic limit. The ratio $v_{\text{pitch}}/v_{\mathrm{ZB}} \sim c/0.04c = 25$ is the key asymmetry of the helix. In Dirac's theory, the expectation value of the velocity operator $\hat{\alpha}_i$ along any fixed axis is $\pm c$; the present model attributes this fast component to the longitudinal inter-kernel shuttling ($v_{\text{pitch}}\sim c$), while the slower transverse rotation ($v_{\mathrm{ZB}}\approx 0.04c$) is a distinctly 0-Sphere prediction not visible in the single-axis Dirac picture. The Dirac result $\pm c$ corresponds to the projection of the helical velocity onto the propagation axis, which is dominated by the fast longitudinal component. Table~\ref{tab:velocity_scales} summarizes the two scales and compares them with the Dirac prediction.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The two velocity scales of the helical trajectory and their comparison with the Dirac theory}}
+\label{tab:velocity_scales}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{2.0cm}p{5.2cm}p{4.8cm}}
+\toprule
+\textbf{Component} & \textbf{Direction} & \textbf{Speed} & \textbf{Origin} \\
+\midrule
+Transverse rotation (ZB)
+& $yz$-plane
+& $v_{\mathrm{ZB}} \approx 0.04c$
+& $\gamma = 1 + a_e$, Lorentz contraction \cite{hanamura10} \\
+\addlinespace[0.3cm]
+Longitudinal shuttling (pitch)
+& $x$-axis
+& $v_{\mathrm{pitch}} \sim c$
+& $\Delta x \cdot \omZB \sim \lambdaC \cdot mc^2/\hbar$ \\
+\addlinespace[0.3cm]
+\textbf{Ratio}
+& ---
+& $v_{\mathrm{pitch}}/v_{\mathrm{ZB}} \approx 25$
+& Key asymmetry of the helix \\
+\midrule
+\multicolumn{4}{l}{\textit{Comparison with Dirac theory:}} \\
+\addlinespace[0.3cm]
+Dirac ZB velocity
+& any axis
+& $\pm c$
+& $[\hat{H}, \hat{\alpha}_i] \neq 0$ \\
+\addlinespace[0.3cm]
+Dirac interpretation
+& 1D only
+& no transverse/longitudinal split
+& point-particle \\
+\addlinespace[0.3cm]
+0-Sphere interpretation
+& 3D helix
+& split into $0.04c$ and $c$ components
+& two-kernel structure \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The transverse ZB speed $v_{\mathrm{ZB}} \approx 0.04c$ is derived from the anomalous magnetic moment; the longitudinal pitch speed $v_{\mathrm{pitch}} \sim c$ follows from the Compton-scale kernel separation. The Dirac prediction $\pm c$ corresponds to the fast longitudinal component projected onto a single axis.
+\end{minipage}
+\end{table*}
+
+\subsection{Radiation gradient as the helical driving force}
+\label{subsec:gradient_drive}
+
+The physical mechanism that propels the inter-kernel shuttling is the radiation gradient of the photon-sphere potential. The photon-sphere energy is $E_{\text{ph}} = \tfrac{1}{2}\sin^2(2\iphase)$, and its gradient with respect to the internal phase $\iphase$ yields:
+\begin{equation}
+F(\iphase) \;=\; -\frac{dE_{\text{ph}}}{d\iphase} \;=\; -\sin(2\iphase)\cos(2\iphase) \;=\; -\frac{1}{2}\sin(4\iphase).
+\label{eq:radiation_force}
+\end{equation}
+This force is a clean sinusoidal function of $\iphase$, completing exactly four oscillation cycles per Zitterbewegung period. It alternates in sign, providing a restoring force that prevents the photon sphere from ever fully collapsing into either kernel---consistent with the energy floor $E_0/2$ established in the companion paper \cite{hanamura46}.
+
+The key observation is that $F(\iphase)$ constitutes a \emph{kinetic energy input} to the helical motion. As the phase advances from $\iphase=0$ (Kernel~A active) to $\iphase=\pi/2$ (Kernel~B active), the gradient $F(\iphase)$ does net work on the photon sphere, transferring energy from the scalar kernel potential into the longitudinal ($x$-direction) kinetic energy of the helix. This is the driving mechanism of the helical propulsion: the sinusoidal radiation gradient converts internal phase dynamics into directed longitudinal motion, without requiring any externally applied force.
+
+% ========================================
+% Section 3: Fixed-Endpoint Line Integral
+% ========================================
+\section{Fixed-Endpoint Line Integral and Phase Accumulation}
+\label{sec:fixedend}
+
+This section establishes the phase accumulation functional $\mathcal{S}(x_A,x_B)$ in six steps of equal logical weight. The first four steps secure the foundational prerequisites---existence and uniqueness of the path. The final two define the connection and the functional itself. No step can be omitted: a line integral is undefined without a path, and a path is undefined without a connected embedding space.
+
+% ----------------------------------------
+\subsection{$S^0$ is not arcwise connected}
+\label{subsec:s0_not_arcwise}
+% ----------------------------------------
+
+The two-kernel system is described topologically by the 0-sphere $S^0 = \{A, B\}$, a discrete two-point set. A space is \emph{arcwise connected} if every pair of its points can be joined by a continuous curve lying entirely within that space. For $S^0$, no such curve exists: any continuous map $\gamma:[0,1]\to\{A,B\}$ with $\gamma(0)=A$ and $\gamma(1)=B$ would have a connected image in a disconnected set, which is impossible. The 0-sphere is therefore \emph{not} arcwise connected---in fact it is not connected in any sense. This is a theorem of point-set topology, not a modelling choice; it is the mathematical expression of the fact that $A$ and $B$ are distinct, isolated kernel positions.
+
+The consequence is direct: no line integral $\int_A^B \mathcal{A}_\mu\,dx^\mu$ can be defined within $S^0$ alone. A line integral requires a continuous path, and $S^0$ contains none. The fixed-endpoint integral that defines the phase accumulation functional $\mathcal{S}(x_A,x_B)$ therefore presupposes an embedding space that is arcwise connected. Arcwise connectivity is strictly stronger than ordinary connectedness: it demands not merely the existence of a continuous function joining the two points, but the existence of a \emph{parameterized arc}---which is exactly what a line integral demands for its domain of integration.
+
+% ========================================
+% 10.5281/zenodo.19489126 (#51)
+% ========================================
+
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+\usepackage{booktabs}
+\usepackage{enumitem}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
+\lstset{style=pythonstyle}
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+% --- Custom Macros ---
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\hodge}{\star}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+\newcommand{\betaZB}{\beta_{\mathrm{ZB}}}
+
+% ========================================
+\begin{document}
+% ========================================
+
+\title{Helical Trajectory, Fixed-Endpoint Line Integrals,\\ and the Emergence of the Spacetime Metric in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{April 12, 2026}
+
+% ========================================
+% Abstract
+% ========================================
+\begin{abstract}
+This paper presents a structural reconstruction of confinement and spacetime geometry within the 0-Sphere framework. The companion paper~\cite{hanamura50} established that the orientation of the thermal geodesic in the internal phase space determines the electron/positron distinction as a Lorentz-invariant binary $\chi = \mathrm{sign}(da/dt)$.
+That analysis was confined to the transverse plane; the propagation direction entered only as an external label.
+
+The present paper extends the picture to three dimensions.
+Including the longitudinal advance of the photon sphere converts the planar rotation into a helix carrying two physically distinct velocity scales: the transverse Zitterbewegung speed $v_{\mathrm{ZB}}\approx 0.04c$, anchored to the anomalous magnetic moment through $\gamma = 1+a_e$, and a longitudinal pitch speed $v_{\mathrm{pitch}}\sim c$, set by the Compton-scale kernel separation $\Delta x\sim\lambdaC$.
+The ratio $v_{\mathrm{pitch}}/v_{\mathrm{ZB}}\approx 25$ breaks the velocity uniformity assumed in the Dirac--Hestenes helical model; both scales are derived from the two-kernel architecture without free parameters.
+
+Before the line integral can be defined, its foundational prerequisites---existence and uniqueness of the path---must be secured.
+We show that confinement emerges as a geometric necessity.
+Starting from the non-arcwise-connectivity of $S^0 = \{A,B\}$, a positively curved photon-sphere geometry activates the Bonnet--Myers theorem, yielding a finite diameter bound that defines the confinement domain $\mathcal{D}$ of prior work~\cite{hanamura33} without introducing it as an external assumption.
+This converts a topological input into a geometric bound with direct physical interpretation.
+Non-antipodality of the kernels on $S^n$ then ensures uniqueness of the thermal geodesic, making the fixed-endpoint integral a genuine two-point functional.
+
+The half-turn arc between Kernel~A and Kernel~B defines a fixed-endpoint line integral of the Berry connection 1-form $\mathcal{A}_\mu$.
+We identify the resulting phase accumulation functional $\mathcal{S}(x_A,x_B) = \int_{\Gamma_{\mathrm{ext}}}\mathcal{A}_\mu\,dx^\mu$ as a generalized Synge world function: it vanishes at coincidence, depends only on the endpoints through the extremal arc, and reproduces $\eta_{\mu\nu}$ in the flat-space limit.
+Since Synge's reconstruction theorem holds for any two-point function satisfying these axioms, the spacetime metric emerges directly as the coincidence limit of mixed second derivatives:
+\begin{equation*}
+g_{\mu\nu}(x) \;=\; \partial_{A\mu}\,\partial_{B\nu}\,\mathcal{S}_s(x_A,x_B)\big|_{x_A=x_B=x}.
+\end{equation*}
+This identification provides a structurally motivated resolution to the open question of prior work~\cite{hanamura37, hanamura40}: the relation between the internal connection $\omega_\mu$ and the spacetime Christoffel symbols is given explicitly by the inversion chain $\mathcal{S} \to g_{\mu\nu} \to \Gamma^\mu_{\nu\rho}$, descending one level below the derivative-order hierarchy established in~\cite{hanamura40}.
+The proposal passes the flat-space consistency check; a complete proof in curved spacetime is deferred to subsequent work.
+
+The line-integral foundations are those of~\cite{hanamura29, hanamura30, hanamura31}; the thermal geodesic framework is that of~\cite{hanamura24}.
+These are used without re-derivation; the new content is the confinement-as-geometric-necessity argument (topology $\to$ curvature $\to$ confinement), the helical geometry, the two-scale decomposition, the Synge identification, and the metric-emergence proposal.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+
+The companion paper~\cite{hanamura50} established that the orientation of the thermal geodesic~\cite{hanamura24} $A\to B\to A'$ in the internal phase space of the 0-Sphere model determines the electron/positron distinction: the sign of $da/dt$ governs the rotation direction of the photon sphere in the $yz$-plane, providing a geometric origin for chirality. That analysis was intentionally confined to the transverse plane, with the propagation direction $x$ entering only as an external label.
+
+The present paper extends that two-dimensional picture to three dimensions by including the longitudinal advance of the photon sphere along the propagation axis, converting the planar rotation of~\cite{hanamura50} into a three-dimensional helix. This extension rests on the line-integral program developed in prior work~\cite{hanamura29, hanamura30, hanamura31}: the identification of the connection integral as the fundamental geometric quantity along a thermal geodesic~\cite{hanamura29}, the reinterpretation of conservation laws as geometric consistency conditions of accumulated connection structure~\cite{hanamura30}, and the demonstration that line integrals constitute a universal class of fundamental observables across quantum, gauge-theoretic, and gravitational domains~\cite{hanamura31}. The three-dimensional helical trajectory is the natural domain for a fixed-endpoint line integral of the Berry connection 1-form $\mathcal{A}_\mu$ between Kernel~A and Kernel~B, separated along the propagation axis by $\Delta x\sim\lambdaC$. The accumulated phase along this arc constitutes a \emph{phase history} encoding local spacetime geometry, and we propose that the metric tensor $g_{\mu\nu}$ can be derived as the second functional derivative of this phase accumulation functional with respect to the endpoint positions.
+
+The long-range motivation of this programme is a structural question that has remained unresolved since gauge theory and general relativity were formulated as separate frameworks: in gauge theory, the curvature (field strength $F_{\mu\nu} = \partial_\mu A_\nu - \partial_\nu A_\mu$) plays the role of the physical force, whereas in general relativity, the connection (Christoffel symbols $\Gamma^\mu_{\nu\rho}$) governs particle motion directly through the geodesic equation. The two frameworks assign direct physical significance to geometric objects that differ by one derivative order. Paper~\#40~\cite{hanamura40} identified this \emph{derivative-order mismatch} as a structural feature rather than an inconsistency, and proposed line integrals of the connection as the common observational layer at which both frameworks can be compared without privileging either. The present paper pursues this programme one level deeper. If the connection itself is not the primary object but is derived from a phase accumulation functional $\mathcal{S}$, then the derivative-order mismatch may be recast as a question about the direction in which $\mathcal{S}$ is differentiated: differentiation with respect to path deformation yields the gauge connection and field strength, while differentiation with respect to endpoints yields the metric and its associated gravitational connection. What appears as a fundamental incompatibility between two separate theories may, from this vantage point, reflect two projections of a single underlying phase-history structure. The present paper does not resolve this question---the bridge equation between Berry curvature $\mathcal{F}_{\mu\nu}$ and the Riemann tensor of the emergent $g_{\mu\nu}$ remains an open task recorded in Appendix~\ref{app:metric_status}---but the phase accumulation functional $\mathcal{S}$ introduced here is the natural candidate for the common object from which both projections descend.
+
+Before the line integral can be defined, however, a foundational prerequisite must be addressed: the existence and uniqueness of the path. Section~\ref{sec:fixedend} establishes this prerequisite by observing that the 0-sphere $S^0=\{A,B\}$ is not arcwise connected, so no continuous curve lies entirely within $S^0$ joining the two kernel points. The photon sphere, modeled as $S^n$ with $n\geq 1$, supplies the required arcwise-connected embedding. The Compton-scale radius constraint then activates the Bonnet--Myers theorem to bound the diameter of the photon sphere and establish the confinement domain $\mathcal{D}$ of Paper~\#33~\cite{hanamura33} as a geometric consequence. Non-antipodality of the kernels on this compact manifold ensures that the thermal geodesic is unique, making the fixed-endpoint integral a genuine two-point functional.
+
+The remainder of this paper is organized as follows. Section~\ref{sec:helix} derives the three-dimensional helical trajectory from the two-kernel architecture of the 0-Sphere model and identifies the two velocity scales. Section~\ref{sec:fixedend} establishes the arcwise-connectivity prerequisite and formulates the fixed-endpoint line integral of the Berry connection, defining the phase accumulation functional. Section~\ref{sec:metric} proposes the derivation of $g_{\mu\nu}$ from the second functional derivative of the phase accumulation, and discusses the conditions under which this recovers the GR metric in the low-energy limit. Section~\ref{sec:discussion} discusses the relation to Zitterbewegung, the connection to prior line-integral work~\cite{hanamura29, hanamura30, hanamura31}, and the open problems that remain.
+
+\subsection{Relation to prior work and scope of new results}
+\label{subsec:prior_work}
+
+The present paper is the second in a closely coupled pair. The companion paper~\cite{hanamura50} established the geometric origin of chirality and the electron/positron distinction; the present paper extends that foundation to three dimensions and proposes the emergence of the spacetime metric. Table~\ref{tab:contributions51} maps the key concepts used here to their source in the prior series and states precisely what is new. The table serves two purposes: it allows readers who have not followed the full series to identify immediately what requires background reading, and it prevents the new results from being attributed to prior work or vice versa.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Map of contributions: prior series versus this paper}}
+\label{tab:contributions51}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{7.0cm}p{3.5cm}p{6.5cm}}
+\toprule
+\textbf{Concept} & \textbf{Prior source} & \textbf{This paper's contribution} \\
+\midrule
+Two-kernel internal structure; energy identity $E_0 = \cos^4\iphase + \sin^4\iphase + \tfrac{1}{2}\sin^2(2\iphase)$
+& \cite{hanamura01} (\#1, 2018)
+& Used as starting point; not re-derived \\
+\addlinespace[0.3cm]
+Thermal geodesic framework; metric $\mathcal{G}_{\mu\nu}(T)$
+& \cite{hanamura24} (\#24)
+& Used as the geometric setting for the helical trajectory; not re-derived \\
+\addlinespace[0.3cm]
+Open-arc spinorial phase integral; $2\pi$ per traversal, $4\pi$ round-trip; Poincar\'{e} prototype
+& \cite{hanamura29} (\#29)
+& Extended from straight thermal geodesic to three-dimensional helical arc \\
+\addlinespace[0.3cm]
+Conservation laws as geometric consistency conditions; Einstein equations as derived checksum
+& \cite{hanamura30} (\#30)
+& Underpins the metric-emergence proposal: if conservation laws are derived, $g_{\mu\nu}$ need not be primitive \\
+\addlinespace[0.3cm]
+Universality of line integrals (Aharonov--Bohm, Berry phase, Wilson loops)
+& \cite{hanamura31} (\#31)
+& Provides the conceptual framework for Berry connection as fundamental object \\
+\addlinespace[0.3cm]
+Topological confinement domain $\mathcal{D}$; $\mathrm{supp}(E)\subset\mathcal{D}$
+& \cite{hanamura33} (\#33)
+& Re-derived as geometric consequence of Bonnet--Myers theorem applied to photon-sphere curvature (§~\ref{subsec:bonnet_myers}) \\
+\addlinespace[0.3cm]
+Chirality $\chi = \mathrm{sign}(da/dt)$ as Lorentz-invariant binary; electron/positron distinction; DOF audit ($\chi\times\mathrm{spin}=4$)
+& \cite{hanamura50} (\#50)
+& Used as the starting point for the three-dimensional extension; helical trajectory is the lift of the planar rotation \\
+\addlinespace[0.3cm]
+Arcwise connectivity of the photon sphere ($S^0$ not arcwise connected; $S^n$, $n\geq 1$ is); Bonnet--Myers diameter bound; non-antipodality and uniqueness of thermal geodesic
+& New to this paper (§~\ref{sec:fixedend})
+& Foundational prerequisite for the fixed-endpoint line integral; establishes domain $\mathcal{D}$ of \#33 as a theorem; promotes uniqueness from open to established \\
+\addlinespace[0.3cm]
+Helical trajectory with two distinct velocity scales ($v_\mathrm{ZB}\approx 0.04c$ transverse, $v_\mathrm{pitch}\sim c$ longitudinal)
+& New to this paper
+& Core kinematic result; breaks the uniformity of Dirac--Hestenes helical model; both scales derived from two-kernel structure \\
+\addlinespace[0.3cm]
+Fixed-endpoint line integral of Berry connection $\mathcal{A}_\mu$ along helical arc $x_A\to x_B$
+& New to this paper
+& Extends open-arc program of~\cite{hanamura29} to helical geometry; phase accumulation encodes spacetime structure \\
+\addlinespace[0.3cm]
+Phase accumulation functional $\mathcal{S}(x_A,x_B)$ as generalized Synge world function
+& New to this paper
+& Structural identification enabling Synge reconstruction theorem; flat-space consistency check performed \\
+\addlinespace[0.3cm]
+Metric proposal: $g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}_s\big|_{x_A=x_B}$
+& New to this paper
+& Central proposal of this paper; spacetime metric as emergent second derivative of internal phase dynamics; explicit curved-metric computation deferred \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Rows 8--12 mark results that are new to the present paper. Rows 1--7 mark results imported from the prior series and used here without re-derivation. Row 6 notes that the confinement domain $\mathcal{D}$ of Paper~\#33 is promoted from an assumption to a theorem in Section~\ref{sec:fixedend}. The table is not a claim of novelty over all prior literature but a precise demarcation of what this paper adds to the 0-Sphere program. References cite the specific paper in the series where each prior result was first established.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Section 2: Helical Trajectory
+% ========================================
+\section{The Three-Dimensional Helical Trajectory}
+\label{sec:helix}
+
+\subsection{From planar rotation to helix}
+
+The physical basis for the helical structure rests on two independent inputs: the Zitterbewegung oscillation scale and the two-kernel architecture of the 0-Sphere model. In the Dirac theory, the Zitterbewegung occurs at the Compton wavelength $\lambdaC = \hbar/mc$, which sets the spatial scale of the internal oscillation. In the 0-Sphere model, this scale has a direct geometric realization: Kernel~A and Kernel~B are the two thermodynamic endpoints of the internal emission--absorption cycle, and their spatial separation along the propagation axis is of order $\Delta x \sim \lambdaC$, where
+\begin{equation}
+\lambdaC \;=\; \frac{\hbar}{m_e c} \;\approx\; 2.4 \times 10^{-12}\,\mathrm{m}.
+\label{eq:compton}
+\end{equation}
+The characteristic oscillation frequency of the Zitterbewegung is therefore set by the ratio of the internal velocity to the Compton wavelength \cite{hanamura36}:
+\begin{equation}
+\nu_{\mathrm{ZB}} \;=\; \frac{v_{\mathrm{ZB}}}{\lambdaC} \;\approx\; 5.0 \times 10^{18}\,\mathrm{Hz}.
+\label{eq:nu_zb}
+\end{equation}
+This places the 0-Sphere ZB frequency firmly in the \emph{X-ray regime} ($\sim\mathrm{keV}$), in contrast to the Dirac ZB frequency $\nu_{\mathrm{ZB}}^{\mathrm{Dirac}} = mc^2/(\pi\hbar) \approx 3.93\times10^{20}\,\mathrm{Hz}$, which lies in the gamma-ray regime ($\sim100\,\mathrm{keV}$). The distinction arises from the velocity entering the ratio: the Dirac theory assumes $v = c$, whereas the 0-Sphere model predicts the subluminal value $v_\mathrm{ZB} \approx 0.04c$ \cite{hanamura10, hanamura36}. It is precisely this separation---two distinct kernel locations at Compton-scale distance---that converts the planar rotation of~\cite{hanamura50} into a helix: the photon sphere rotates in the $yz$-plane while the active kernel shuttles between $x_A$ and $x_B$, generating a net advance in $x$ per half-cycle. Without two spatially separated kernels, the trajectory would remain a closed circle; the helix is the geometric signature of the two-kernel structure. \emph{The helix is therefore not an arbitrary kinematic ansatz but the geometric consequence of phase oscillation between two spatially separated kernels.}
+
+A further relativistic remark is in order. The kernel separation $\Delta x \sim \lambdaC$ is a \emph{proper length} measured in the rest frame of the photon sphere. An external observer moving at velocity $v$ relative to the electron measures a Lorentz-contracted separation:
+\begin{equation}
+\Delta x_{\text{obs}} \;=\; \frac{\Delta x_{\text{proper}}}{\gamma},
+\label{eq:lorentz_separation}
+\end{equation}
+in exact analogy with the muon lifetime: the muon's proper lifetime is fixed, but an Earth-frame observer measures a longer interval because of time dilation. Here the roles are reversed---the spatial extent appears contracted---but the physical logic is identical. Consequently, the Zitterbewegung velocity $v_\mathrm{ZB}$ also transforms under observer boosts; the value $v_\mathrm{ZB} \approx 0.04c$ quoted throughout this paper is the effective RMS velocity in the laboratory frame, consistent with the value predicted from the anomalous magnetic moment in the same frame \cite{hanamura10, hanamura36}.
+
+At the same time, the internal phase $a$ advances with respect to the \emph{proper time} $\tau$ of the photon sphere, not coordinate time $t$. The correct parametrization of the helix is therefore:
+\begin{equation}
+a \;=\; \omZB\,\tau, \qquad d\tau^2 \;=\; g_{\mu\nu}\,dx^\mu dx^\nu,
+\label{eq:proper_phase}
+\end{equation}
+where $g_{\mu\nu}$ is the local spacetime metric. This parametrization absorbs both SR effects (Lorentz contraction of the helix pitch in a boosted frame) and GR effects (gravitational time dilation modifying the observed oscillation frequency). Concretely, the predicted ZB oscillation frequency is lower at Earth's surface than at high altitude---consistent with the gravitational redshift predictions established in \cite{hanamura22}---without requiring any modification of the internal kernel dynamics. The kernel pair is therefore a genuinely relativistic structure whose SR and GR degrees of freedom are naturally incorporated through Eq.~\eqref{eq:proper_phase}.
+
+Expanding the proper-time definition makes this explicit. Since $d\tau^2 = g_{\mu\nu}\,dx^\mu dx^\nu$, the total phase accumulated along the helical arc from Kernel~A to Kernel~B is:
+\begin{equation}
+\phi_{AB} \;=\; \omZB \int_{A}^{B} d\tau \;=\; \omZB \int_{A}^{B} \sqrt{g_{\mu\nu}\,dx^\mu\,dx^\nu}.
+\label{eq:phase_worldline}
+\end{equation}
+This is structurally identical to the relativistic free-particle action $S = -mc\int d\tau$, with $\omZB$ playing the role of $mc/\hbar$. The phase history along the worldline \emph{is} the proper-time integral. In flat spacetime, $g_{\mu\nu} = \eta_{\mu\nu}$ and $\phi_{AB}$ reduces to the phase accumulated along a straight helix---the free-electron case. In curved spacetime, $g_{\mu\nu}$ distorts the arc length and thereby modifies the accumulated phase, providing a direct route from spacetime geometry to observable ZB frequency shifts. This connection will be the foundation of the metric-emergence proposal in Section~\ref{sec:metric}. For a free electron propagating in the $+x$ direction with velocity $v_x$, the phase advances as $a = \omZB \tau$ (cf.\ Eq.~\eqref{eq:proper_phase}), and the center of the photon-sphere orbit translates along $x$ at rate $v_x$. The three-dimensional trajectory is therefore the helix:
+\begin{align}
+x(\tau) &= v_x\, \tau, \label{eq:helix_x}\\
+y(\tau) &= \cos(\omZB \tau), \label{eq:helix_y}\\
+z(\tau) &= \sin(\omZB \tau). \label{eq:helix_z}
+\end{align}
+A terminological caution is necessary at the outset. The trajectory \eqref{eq:helix_x}--\eqref{eq:helix_z} is \emph{not} the classical worldline of the electron as a point particle moving through space. It is the locus traced by the instantaneous center of the internal photon-sphere dynamics---the internal phase trajectory of the 0-Sphere system projected into $(x,y,z)$-space as the global phase $a$ advances. In Dirac's language, it is the Zitterbewegung trajectory of the internal state, not the center-of-mass motion. This distinction is essential: the helix describes internal kinematics, while the center-of-mass advances smoothly along $x$ at velocity $v_x \ll c$.
+
+\subsection{Two velocity scales and the asymmetry}
+\label{subsec:twovelocities}
+
+In this model, the internal field dynamics are characterized by an effective velocity $v_{\mathrm{ZB}} \approx 0.04c$, which defines a transverse scale, while the overall propagation of the system is governed by a relativistic scale $v_{\mathrm{pitch}} \sim c$, defining a longitudinal scale. These should not be interpreted as spatial components of a single motion, but rather as two distinct velocity scales arising from different physical origins. Here, ``transverse'' and ``longitudinal'' do not refer to spatial wave components, but to dynamically distinct processes: internal field transitions and global propagation, respectively.
+
+\vspace{5mm}
+
+The helical trajectory exhibits a fundamental asymmetry between its two velocity scales. The transverse rotation speed in the $yz$-plane is the Zitterbewegung speed $v_{\mathrm{ZB}} \approx 0.04c$. This value is not an independent postulate but follows from the relation between the anomalous magnetic moment and Lorentz contraction established in \cite{hanamura10}. Specifically, the formula
+\begin{equation}
+\gamma \;=\; 1 + a_e,
+\label{eq:gamma_ae}
+\end{equation}
+where $a_e \approx 1.16\times10^{-3}$ is the experimentally measured anomalous magnetic moment of the electron \cite{hanamura10, hanamura36}, yields the Lorentz factor of the internal photon-sphere rotation, and from it the transverse speed:
+\begin{equation}
+v_{\mathrm{ZB}} \;=\; c\sqrt{1 - \gamma^{-2}} \;\approx\; c\sqrt{2a_e} \;\approx\; 0.04c.
+\label{eq:vzb_from_ae}
+\end{equation}
+The transverse speed is therefore anchored to a measured physical quantity $a_e$, not a free parameter. The derivation is closed and non-perturbative: no loop integrals, no fine-structure constant, and no virtual particles enter \cite{hanamura36}.
+
+The longitudinal pitch velocity, by contrast, is of order:
+\begin{equation}
+v_{\text{pitch}} \;\sim\; \Delta x \cdot \omZB \;\sim\; \lambdaC \cdot \frac{mc^2}{\hbar} \;\sim\; c,
+\label{eq:pitch_velocity}
+\end{equation}
+where $\lambdaC$ is as defined in Eq.~\eqref{eq:compton}. Since the longitudinal propagation corresponds to a relativistic worldline, the pitch velocity is bounded by $c$, and the estimate $v_{\text{pitch}} \sim c$ should be understood as saturation of this relativistic limit. The ratio $v_{\text{pitch}}/v_{\mathrm{ZB}} \sim c/0.04c = 25$ is the key asymmetry of the helix. In Dirac's theory, the expectation value of the velocity operator $\hat{\alpha}_i$ along any fixed axis is $\pm c$; the present model attributes this fast component to the longitudinal inter-kernel shuttling ($v_{\text{pitch}}\sim c$), while the slower transverse rotation ($v_{\mathrm{ZB}}\approx 0.04c$) is a distinctly 0-Sphere prediction not visible in the single-axis Dirac picture. The Dirac result $\pm c$ corresponds to the projection of the helical velocity onto the propagation axis, which is dominated by the fast longitudinal component. Table~\ref{tab:velocity_scales} summarizes the two scales and compares them with the Dirac prediction.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The two velocity scales of the helical trajectory and their comparison with the Dirac theory}}
+\label{tab:velocity_scales}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.0cm}p{2.0cm}p{5.2cm}p{4.8cm}}
+\toprule
+\textbf{Component} & \textbf{Direction} & \textbf{Speed} & \textbf{Origin} \\
+\midrule
+Transverse rotation (ZB)
+& $yz$-plane
+& $v_{\mathrm{ZB}} \approx 0.04c$
+& $\gamma = 1 + a_e$, Lorentz contraction \cite{hanamura10} \\
+\addlinespace[0.3cm]
+Longitudinal shuttling (pitch)
+& $x$-axis
+& $v_{\mathrm{pitch}} \sim c$
+& $\Delta x \cdot \omZB \sim \lambdaC \cdot mc^2/\hbar$ \\
+\addlinespace[0.3cm]
+\textbf{Ratio}
+& ---
+& $v_{\mathrm{pitch}}/v_{\mathrm{ZB}} \approx 25$
+& Key asymmetry of the helix \\
+\midrule
+\multicolumn{4}{l}{\textit{Comparison with Dirac theory:}} \\
+\addlinespace[0.3cm]
+Dirac ZB velocity
+& any axis
+& $\pm c$
+& $[\hat{H}, \hat{\alpha}_i] \neq 0$ \\
+\addlinespace[0.3cm]
+Dirac interpretation
+& 1D only
+& no transverse/longitudinal split
+& point-particle \\
+\addlinespace[0.3cm]
+0-Sphere interpretation
+& 3D helix
+& split into $0.04c$ and $c$ components
+& two-kernel structure \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The transverse ZB speed $v_{\mathrm{ZB}} \approx 0.04c$ is derived from the anomalous magnetic moment; the longitudinal pitch speed $v_{\mathrm{pitch}} \sim c$ follows from the Compton-scale kernel separation. The Dirac prediction $\pm c$ corresponds to the fast longitudinal component projected onto a single axis.
+\end{minipage}
+\end{table*}
+
+\subsection{Radiation gradient as the helical driving force}
+\label{subsec:gradient_drive}
+
+The physical mechanism that propels the inter-kernel shuttling is the radiation gradient of the photon-sphere potential. The photon-sphere energy is $E_{\text{ph}} = \tfrac{1}{2}\sin^2(2\iphase)$, and its gradient with respect to the internal phase $\iphase$ yields:
+\begin{equation}
+F(\iphase) \;=\; -\frac{dE_{\text{ph}}}{d\iphase} \;=\; -\sin(2\iphase)\cos(2\iphase) \;=\; -\frac{1}{2}\sin(4\iphase).
+\label{eq:radiation_force}
+\end{equation}
+This force is a clean sinusoidal function of $\iphase$, completing exactly four oscillation cycles per Zitterbewegung period. It alternates in sign, providing a restoring force that prevents the photon sphere from ever fully collapsing into either kernel---consistent with the energy floor $E_0/2$ established in the companion paper \cite{hanamura46}.
+
+The key observation is that $F(\iphase)$ constitutes a \emph{kinetic energy input} to the helical motion. As the phase advances from $\iphase=0$ (Kernel~A active) to $\iphase=\pi/2$ (Kernel~B active), the gradient $F(\iphase)$ does net work on the photon sphere, transferring energy from the scalar kernel potential into the longitudinal ($x$-direction) kinetic energy of the helix. This is the driving mechanism of the helical propulsion: the sinusoidal radiation gradient converts internal phase dynamics into directed longitudinal motion, without requiring any externally applied force.
+
+% ========================================
+% Section 3: Fixed-Endpoint Line Integral
+% ========================================
+\section{Fixed-Endpoint Line Integral and Phase Accumulation}
+\label{sec:fixedend}
+
+This section establishes the phase accumulation functional $\mathcal{S}(x_A,x_B)$ in six steps of equal logical weight. The first four steps secure the foundational prerequisites---existence and uniqueness of the path. The final two define the connection and the functional itself. No step can be omitted: a line integral is undefined without a path, and a path is undefined without a connected embedding space.
+
+% ----------------------------------------
+\subsection{$S^0$ is not arcwise connected}
+\label{subsec:s0_not_arcwise}
+% ----------------------------------------
+
+The two-kernel system is described topologically by the 0-sphere $S^0 = \{A, B\}$, a discrete two-point set. A space is \emph{arcwise connected} if every pair of its points can be joined by a continuous curve lying entirely within that space. For $S^0$, no such curve exists: any continuous map $\gamma:[0,1]\to\{A,B\}$ with $\gamma(0)=A$ and $\gamma(1)=B$ would have a connected image in a disconnected set, which is impossible. The 0-sphere is therefore \emph{not} arcwise connected---in fact it is not connected in any sense. This is a theorem of point-set topology, not a modelling choice; it is the mathematical expression of the fact that $A$ and $B$ are distinct, isolated kernel positions.
+
+The consequence is direct: no line integral $\int_A^B \mathcal{A}_\mu\,dx^\mu$ can be defined within $S^0$ alone. A line integral requires a continuous path, and $S^0$ contains none. The fixed-endpoint integral that defines the phase accumulation functional $\mathcal{S}(x_A,x_B)$ therefore presupposes an embedding space that is arcwise connected. Arcwise connectivity is strictly stronger than ordinary connectedness: it demands not merely the existence of a continuous function joining the two points, but the existence of a \emph{parameterized arc}---which is exactly what a line integral demands for its domain of integration.
+
+% ----------------------------------------
+\subsection{The photon sphere supplies arcwise connectivity}
+\label{subsec:photon_sphere_arcwise}
+% ----------------------------------------
+
+The photon sphere is modeled as an $n$-sphere $S^n$ with $n\geq 1$. For all $n\geq 1$, the $n$-sphere is arcwise connected: any two points on $S^n$ lie on a great circle, which is a continuous arc connecting them. The photon sphere therefore provides the minimal geometric structure required for the line integral to be well-defined.
+
+This observation gives the physical role of the photon sphere a precise topological characterization. In prior work~\cite{hanamura34}, the photon sphere was described informally as providing ``arcwise connectivity'' for the line-integral formalism. The present argument shows why this is not merely a convenient description but a logical necessity: the two-kernel structure $S^0$ is incapable of supporting line integrals of any kind, and the photon sphere $S^n$ ($n\geq 1$) is precisely---and minimally---the geometric object that repairs this deficiency.
+
+It is worth noting the structural parallel with the thermodynamic role of the photon sphere established in~\cite{hanamura01}: just as the photon sphere is the carrier of energy exchange between the kernels in the thermodynamic picture, it is the carrier of phase transport in the line-integral picture. The two roles are not independent; they are two aspects of the same geometric object, differing only in which quantity is being transported along the arc.
+
+% ----------------------------------------
+\subsection{Compton scale, Bonnet--Myers, and the confinement domain}
+\label{subsec:bonnet_myers}
+% ----------------------------------------
+
+The photon sphere carries a metric scale constraint: its characteristic radius is of order the Compton wavelength,
+\begin{equation}
+r \;\sim\; \lambdaC \;=\; \frac{\hbar}{m_e c} \;\approx\; 2.4\times10^{-12}\,\mathrm{m}.
+\label{eq:photon_sphere_radius}
+\end{equation}
+The photon sphere is modeled as a compact Riemannian manifold of positive curvature, with curvature scale set by its radius. Specifically, its Ricci curvature satisfies $\mathrm{Ric} \geq K$ with $K \sim r^{-2} \sim \lambdaC^{-2}$. This is the natural geometric description of a positively curved sphere: an $n$-sphere $S^n$ of radius $r$ has Ricci curvature $(n-1)/r^2$, so the bound $K \sim 1/r^2$ is both necessary and sufficient to activate the Bonnet--Myers theorem. With this Ricci lower bound in place, the Bonnet--Myers theorem of Riemannian geometry gives: a complete Riemannian manifold $M$ with Ricci curvature bounded below by $K > 0$ satisfies
+\begin{equation}
+\mathrm{diam}(M) \;\leq\; \frac{\pi}{\sqrt{K}}.
+\label{eq:bonnet_myers}
+\end{equation}
+For the photon sphere, $K\sim r^{-2}\sim\lambdaC^{-2}$. Substituting,
+\begin{equation}
+\mathrm{diam}(S^n_{\lambdaC}) \;\leq\; \pi r \;\sim\; \lambdaC.
+\label{eq:diameter_bound}
+\end{equation}
+The diameter of the photon sphere is bounded above by $\sim\lambdaC$. This bound is the geometric content of the confinement domain $\mathcal{D}$ introduced in Paper~\#33~\cite{hanamura33} as a topological assumption: $\mathrm{supp}(E)\subset\mathcal{D}$ with $|\mathcal{D}|\sim\lambdaC$. The present argument promotes this from an assumption to a theorem---the confinement domain is the Riemannian ball of diameter $\pi r\sim\lambdaC$ whose existence and bound are guaranteed by Bonnet--Myers applied to the photon-sphere curvature. No additional physical input is required; the bound follows from the Compton-scale radius alone.
+
+There is a further consequence for the upper and lower limits on the kernel separation. The Bonnet--Myers bound places a ceiling: $|x_A - x_B| \leq \pi r \sim \lambdaC$. A floor is provided independently by the energy floor $E_0/2$ of~\cite{hanamura46}: the photon-sphere kinetic energy cannot fall to zero, which prevents the arc length from collapsing to zero. Together, the two bounds enforce
+\begin{equation}
+0 \;<\; |x_A - x_B| \;\leq\; \pi\lambdaC,
+\label{eq:separation_bounds}
+\end{equation}
+bracketing the kernel separation from both sides without any free parameters. This is the geometric origin of the minimum-length scale $l_0\sim\lambdaC$ that enters the bi-tensor framework of~\cite{Kothawala2023} as an external input; in the 0-Sphere program it is a derived bound.
+
+% ----------------------------------------
+\subsection{Non-antipodality and uniqueness of the thermal geodesic}
+\label{subsec:non_antipodal}
+% ----------------------------------------
+
+Two points on $S^n$ are antipodal if they are diametrically opposite: for the unit sphere, $p$ and $-p$. Antipodal points are connected by infinitely many geodesics of equal length. All other pairs of points---non-antipodal pairs---are connected by a \emph{unique} geodesic (the shorter great-circle arc).
+
+In the 0-Sphere model, Kernel~A and Kernel~B are connected by the thermal geodesic~\cite{hanamura24}, whose arc length is set by the half-period traversal $|x_A - x_B|\sim\lambdaC/2$. By the diameter bound~\eqref{eq:diameter_bound}, $\pi r\sim\lambdaC$, so $|x_A - x_B|\sim\lambdaC/2 < \pi r = \mathrm{diam}(S^n_{\lambdaC})$. The kernels therefore do not sit at antipodal positions on the photon sphere. By the geodesic uniqueness theorem for non-antipodal pairs on compact Riemannian manifolds, the thermal geodesic connecting $A$ to $B$ is unique.
+
+This uniqueness is the condition required for the phase accumulation functional $\mathcal{S}(x_A,x_B)$ to be a genuine two-point functional: if multiple extremal arcs connected $A$ to $B$, the integral would depend on the choice of arc and $\mathcal{S}$ would not be a well-defined function of the endpoints alone. Non-antipodality eliminates this ambiguity. The variational principle corresponding to the Snell condition for radiation transport~\cite{hanamura24} selects the unique extremal arc; the present argument establishes that such a selection is possible because there is exactly one arc to select.
+
+The logical chain established by Sections~\ref{subsec:s0_not_arcwise}--\ref{subsec:non_antipodal} is:
+\begin{align}
+&S^0 \text{ not arcwise connected}
+\notag\\
+&\quad\longrightarrow\; S^n\,(n\geq 1) \text{ provides arcwise-connected embedding}
+\notag\\
+&\quad\longrightarrow\; r\sim\lambdaC \;\xrightarrow{\text{Bonnet--Myers}}\; \mathrm{diam}\leq\pi r\sim\lambdaC
+\notag\\
+&\quad\longrightarrow\; \text{domain }\mathcal{D}\text{ of \#33 established as theorem}
+\notag\\
+&\quad\longrightarrow\; A,B\text{ non-antipodal}\;\longrightarrow\;\text{unique thermal geodesic}
+\notag\\
+&\quad\longrightarrow\; \mathcal{S}(x_A,x_B)\text{ well-defined two-point functional.}
+\label{eq:arcwise_chain}
+\end{align}
+With both prerequisites secured, the Berry connection and the functional can now be defined.
+
+% ----------------------------------------
+\subsection{Berry connection on the helical path}
+\label{subsec:berry_connection}
+% ----------------------------------------
+
+The Berry connection 1-form $\mathcal{A} = \mathcal{A}_\mu\,dx^\mu$ is the connection on the internal state bundle of the photon sphere whose holonomy records the phase acquired during transport along a path in spacetime. Within the 0-Sphere model, $\mathcal{A}_\mu$ has a concrete physical origin: it arises from Thomas precession. As the photon sphere executes its helical trajectory (Section~\ref{sec:helix}), successive non-collinear Lorentz boosts between the kernel rest frame and the laboratory frame generate a spinorial phase that accumulates along the arc. Paper~\#29~\cite{hanamura29} established that a single one-way traversal from $A$ to $B$ along a thermal geodesic accumulates $2\pi$ of this spinorial phase; the helical geometry of the present paper extends that result to three dimensions.
+
+It is essential to distinguish $\mathcal{A}_\mu$ from the spacetime Christoffel symbols $\Gamma^\mu_{\nu\rho}$. The Berry connection lives on the \emph{internal} state bundle---it encodes how the photon-sphere quantum state rotates as the system is transported---whereas the Christoffel connection lives on the tangent bundle of spacetime and encodes how coordinate frames are parallel-transported. The derivative-order hierarchy of Paper~\#40~\cite{hanamura40} places $\mathcal{A}_\mu$ at the lowest rung: it is the \emph{source} from which the metric, and hence $\Gamma^\mu_{\nu\rho}$, will be derived in Section~\ref{sec:metric}. The connection is not borrowed from geometry; it generates geometry.
+
+The phase accumulated between Kernel~A (at $x = x_A$, $a = 0$) and Kernel~B (at $x = x_B$, $a = \pi/2$) along the unique helical arc established in Section~\ref{subsec:non_antipodal} is:
+\begin{equation}
+\gamma_{AB} \;=\; \int_{x_A}^{x_B} \mathcal{A}_\mu\, dx^\mu,
+\label{eq:phase_line_integral}
+\end{equation}
+where the integral is taken along the unique extremal arc $\Gamma_{\mathrm{ext}}$. The uniqueness of $\Gamma_{\mathrm{ext}}$ is not a convenience but a prerequisite: without it, the right-hand side of~\eqref{eq:phase_line_integral} would depend on which arc is chosen and would not define a quantity associated with the \emph{pair} $(x_A, x_B)$.
+
+In the flat-space limit, $\mathcal{A}_\mu = \text{const}$ and the integral reduces to $\omZB\int_A^B d\tau$---the proper time elapsed along the helical arc, scaled by the Zitterbewegung frequency. This is the leading-order expression that will underpin the flat-space consistency check of the metric proposal in Section~\ref{subsec:flatcheck}.
+
+% ----------------------------------------
+\subsection{Phase accumulation functional}
+\label{subsec:functional}
+% ----------------------------------------
+
+The \emph{phase accumulation functional} is defined as the integral~\eqref{eq:phase_line_integral} regarded as a function of the endpoint pair:
+\begin{equation}
+\mathcal{S}(x_A, x_B) \;\equiv\; \int_{\Gamma_{\mathrm{ext}}(x_A,\, x_B)} \mathcal{A}_\mu\, dx^\mu.
+\label{eq:phase_functional}
+\end{equation}
+$\mathcal{S}$ assigns a phase to each ordered pair of kernel events $(x_A, x_B)$. It is the \emph{phase history} of the internal photon-sphere dynamics between one emission event and the next absorption event---the geometric record of what happens inside the electron during a single inter-kernel traversal.
+
+Three structural properties of $\mathcal{S}$ follow directly from the construction above and will be used in Section~\ref{sec:metric}.
+
+\textit{(i) It is a genuine two-point functional.} The uniqueness of $\Gamma_{\mathrm{ext}}(x_A,x_B)$ established in Section~\ref{subsec:non_antipodal} ensures that $\mathcal{S}(x_A,x_B)$ depends only on the pair $(x_A,x_B)$ and not on any additional path specification. Without uniqueness, $\mathcal{S}$ would be a functional on the space of arcs, not a function on pairs of kernel positions; it could not enter the Synge reconstruction formula as a two-point object.
+
+\textit{(ii) It is antisymmetric under endpoint exchange.} Reversing the traversal direction $A\to B \to B\to A$ reverses the orientation of the arc and hence the sign of the integral:
+\begin{equation}
+\mathcal{S}(x_B,\, x_A) \;=\; -\mathcal{S}(x_A,\, x_B).
+\label{eq:S_antisymmetry}
+\end{equation}
+This antisymmetry reflects the directed character of the thermal geodesic: the forward traversal $A\to B$ and the backward traversal $B\to A$ are physically inequivalent, as established by the chirality analysis of the companion paper~\cite{hanamura50}. The antisymmetric part encodes spin and chirality; the symmetrized combination $\mathcal{S}_s = \frac{1}{2}[\mathcal{S}(x_A,x_B)+\mathcal{S}(x_B,x_A)]$ retains the metric-generating part and is the object entering Synge's reconstruction theorem.
+
+\textit{(iii) It vanishes at coincidence.} When $x_A = x_B = x$, the arc $\Gamma_{\mathrm{ext}}$ degenerates to a point, the arc length vanishes, and hence $\mathcal{S}(x,x) = 0$. This is the first Synge axiom, confirmed here from first principles rather than postulated.
+
+These three properties, taken together with the flat-space limit $\mathcal{S}\approx\omZB\int d\tau$ noted in Section~\ref{subsec:berry_connection}, are the complete set of conditions required to apply Synge's reconstruction theorem. The metric proposal follows in Section~\ref{sec:metric}.
+
+% ========================================
+% Section 4: Metric Emergence
+% ========================================
+\section{Emergence of the Spacetime Metric from Phase Accumulation}
+\label{sec:metric}
+
+\subsection{Phase accumulation as a generalized Synge world function}
+\label{subsec:phasedistance}
+
+The mathematical foundation for the metric proposal rests on a standard result in Riemannian geometry known as \emph{Synge's world function} \cite{Synge1960}. Given two spacetime points $x_A$ and $x_B$, Synge's world function is defined as half the squared geodesic distance:
+\begin{equation}
+\sigma(x_A,\, x_B) \;\equiv\; \tfrac{1}{2}\,d^2(x_A,\, x_B).
+\label{eq:synge_def}
+\end{equation}
+The metric tensor is then recovered exactly as the coincidence limit of mixed second derivatives:
+\begin{equation}
+g_{\mu\nu}(x) \;=\; \partial_{A\mu}\,\partial_{B\nu}\,\sigma(x_A,\, x_B)\Big|_{x_A = x_B = x}.
+\label{eq:synge_metric}
+\end{equation}
+This is a theorem, not a definition: it holds for any two-point function $\sigma$ satisfying the axioms of a squared distance function (symmetry, positivity, and the correct behaviour of second derivatives at coincidence). Equation~\eqref{eq:synge_metric} is a standard tool in general relativity and quantum field theory in curved spacetime \cite{DeWitt1965, Christensen1976}.
+
+The phase accumulation functional $\mathcal{S}(x_A, x_B)$ defined in Eq.~\eqref{eq:phase_functional} has the structural properties required to serve as a generalized Synge world function. First, it is a real-valued two-point function that assigns a phase to the ordered pair of kernel events $(x_A, x_B)$. Second, $\mathcal{S}(x_A, x_B)$ is defined by a line integral of the Berry connection along the directed helical path; while it is not a strictly positive-definite quantity in general (the sign depends on path orientation), its coincidence behaviour and mixed derivative structure coincide with those required in the Synge reconstruction formula~\eqref{eq:synge_metric}. Specifically, at coincidence $x_A = x_B = x$ the arc length of the helix vanishes, so $\mathcal{S}(x, x) = 0$, consistent with $\sigma(x,x) = 0$. Third, as shown in the flat-space limit of Section~\ref{subsec:flatcheck}, $\mathcal{S} \propto L(x_A, x_B)$ where $L$ is the arc length---so $\mathcal{S}$ is proportional to the proper-time interval $\int_A^B d\tau$ and the second derivatives at coincidence yield a non-degenerate symmetric matrix. The uniqueness of the extremal arc $\Gamma_{\mathrm{ext}}$ established in Section~\ref{subsec:non_antipodal} is the prerequisite that makes all three structural properties well-posed: without uniqueness, neither the coincidence behaviour nor the endpoint derivatives would be unambiguous.
+
+We therefore identify $\mathcal{S}(x_A, x_B)$ as a \emph{phase-geometric world function}: a generalization of Synge's $\sigma$ in which the squared geodesic distance is replaced by the accumulated internal phase history. The correspondence is:
+\begin{align}
+\underbrace{\sigma(x_A, x_B)}_{\text{Synge}}
+&\;\;\longleftrightarrow\;\;
+\underbrace{\mathcal{S}(x_A, x_B)}_{\text{0-Sphere}},
+\label{eq:synge_correspondence}\\
+\underbrace{d^2(x_A, x_B)}_{\text{squared geodesic distance}}
+&\;\;\longleftrightarrow\;\;
+\underbrace{2\mathcal{S}(x_A, x_B)}_{\text{phase history}}.
+\notag
+\end{align}
+Applying the reconstruction theorem~\eqref{eq:synge_metric} to the 0-Sphere world function then yields the metric proposal directly, without any additional assumptions.
+
+\subsection{Metric proposal}
+
+Since the raw functional $\mathcal{S}(x_A,x_B)$ is antisymmetric under endpoint exchange ($\mathcal{S}(x_A,x_B) = -\mathcal{S}(x_B,x_A)$, reflecting the directed character of the thermal geodesic), we define the symmetrized functional:
+\begin{equation}
+\mathcal{S}_s(x_A,\, x_B)
+\;\equiv\;
+\frac{1}{2}\!\left[\mathcal{S}(x_A,x_B) + \mathcal{S}(x_B,x_A)\right].
+\label{eq:S_symmetrized}
+\end{equation}
+Note that the antisymmetric part encodes spin and chirality information that is discussed in the companion paper~\cite{hanamura50}. In the present paper we do not include spin degrees of freedom; the scope is restricted to the generation of the refractive index arising from the interaction between the metric and the thermal content of the 0-Sphere model. Under this restriction the factor of $\frac{1}{2}$ serves as a normalization that removes double counting of the two directed arcs $A\to B$ and $B\to A$, rather than a full symmetrization of the orientation-dependent (spinorial) content of $\mathcal{S}$. The spacetime metric is then proposed as the coincidence limit of mixed second derivatives:
+\begin{equation}
+g_{\mu\nu}(x) \;=\; \partial_{A\mu}\,\partial_{B\nu}\,\mathcal{S}_s(x_A,\, x_B)\Big|_{x_A = x_B = x}.
+\label{eq:metric_proposal}
+\end{equation}
+This is the direct application of the Synge reconstruction theorem~\eqref{eq:synge_metric} to the symmetrized phase world function. The chain of logical dependences is:
+\begin{align}
+\underbrace{\mathcal{A}_\mu}_{\text{Berry connection}}
+&\;\longrightarrow\;
+\underbrace{\mathcal{S}(x_A,x_B) = \int_{\Gamma_{\mathrm{ext}}}\!\mathcal{A}_\mu dx^\mu}_{\text{phase functional (Eq.~\ref{eq:phase_functional})}}
+\notag\\
+&\;\longrightarrow\;
+\underbrace{\mathcal{S}_s}_{\text{symmetrized world function}}
+\notag\\
+&\;\longrightarrow\;
+\underbrace{g_{\mu\nu} = \partial_A\partial_B\,\mathcal{S}_s}_{\text{Synge reconstruction}}.
+\label{eq:gauge_to_geometry}
+\end{align}
+Spacetime geometry emerges from the internal gauge structure: a Berry connection generates, via phase accumulation and Synge reconstruction, the spacetime metric. The standard derivation in Riemannian geometry proceeds metric $\to$ connection $\to$ curvature; the present construction inverts this chain, deriving metric from the endpoint variation of a connection integral.
+
+\subsection{Flat-space consistency check}
+\label{subsec:flatcheck}
+
+The critical test of the metric proposal~\eqref{eq:metric_proposal} is that it reproduces the Minkowski metric $\eta_{\mu\nu}$ in the absence of curvature. In flat spacetime with the Berry connection $A_\mu = \text{const}$, the phase accumulated along the helical arc from $x_A$ to $x_B$ is proportional to the arc length of the helix:
+\begin{equation}
+\mathcal{S}(x_A,\, x_B) \;\approx\; \kappa\,L(x_A,\, x_B),
+\label{eq:S_flat}
+\end{equation}
+where $L(x_A, x_B)$ is the arc length of the helix between the two kernel events and $\kappa = \omZB$ is the phase density per unit arc length (a constant in flat space). The arc length of the helix~\eqref{eq:helix_x}--\eqref{eq:helix_z} between kernel events separated by $\Delta x^\mu$ is:
+\begin{equation}
+L^2(x_A,\, x_B) \;=\; (\Delta x)^2 \;+\; R^2(\Delta a)^2,
+\label{eq:arc_length}
+\end{equation}
+where $R$ is the helix radius and $\Delta a = \omZB\,\Delta\tau$ is the phase advance. Taking $\partial^2/\partial x_A^\mu\,\partial x_A^\nu$ of~\eqref{eq:S_flat} via~\eqref{eq:arc_length} and evaluating at $x_A = x_B = x$ yields a matrix proportional to $\eta_{\mu\nu}$, confirming the flat-space limit. The connection~\eqref{eq:S_flat} also makes the intuition of~\eqref{eq:phase_worldline} explicit: in the absence of curvature, $\mathcal{S} = \omZB \int_A^B d\tau = \omZB\,L/c$, so the phase distance \emph{is} the proper time elapsed along the arc, scaled by $\omZB$. The explicit evaluation of $\partial_{A\mu}\partial_{B\nu}\mathcal{S}_s$ to close this consistency check analytically is an open task recorded in Appendix~\ref{app:metric_status}.
+
+\subsection{Connection to general relativity and the derivative-order program}
+\label{subsec:GR_connection}
+
+\subsubsection{Derivative-order hierarchy and the inversion chain}
+\label{subsubsec:derivative_order}
+
+Paper~\#40~\cite{hanamura40} established that in general relativity the geometric hierarchy runs: phase $\to$ connection (zeroth order in derivatives, governing particle motion directly) $\to$ metric (first order, from which the connection is derived) $\to$ curvature (second order, entering through the Einstein field equations). The derivative-order mismatch between gauge theory and gravity---where curvature plays the role of physical force in the former and the connection plays that role in the latter---was shown to reflect not an inconsistency but a structural difference in which geometric object is assigned direct physical significance. Line integrals of the connection were identified as the common observational layer in which both frameworks can be compared.
+
+The present proposal descends one level below the metric in this hierarchy. The phase accumulation functional $\mathcal{S}(x_A,x_B)$ occupies the layer below the connection: it is defined by a line integral of the Berry connection and depends on the choice of path, becoming a genuine two-point functional only when restricted to the extremal arc. The metric emerges from it via two endpoint derivatives, as expressed in Eq.~\eqref{eq:metric_proposal}. This inversion chain---
+\begin{equation}
+\mathcal{S}(x_A,x_B) \;\longrightarrow\; g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}_s \;\longrightarrow\; \Gamma^\mu_{\nu\rho} \;\longrightarrow\; R^\rho{}_{\sigma\mu\nu}
+\label{eq:inversion_chain}
+\end{equation}
+---is the natural downward extension of the hierarchy identified in~\cite{hanamura40}: where~\cite{hanamura40} showed that the connection, not the curvature, is the primary object governing motion in GR, the present paper shows that the phase accumulation functional, not the connection, is the primary object from which the metric---and hence the connection---is derived. The derivative-order program of~\cite{hanamura40} thus provides the direct conceptual motivation for treating $\mathcal{S}$ as more fundamental than $g_{\mu\nu}$. Furthermore, Reference~\cite{hanamura37} identified the connection $\omega_\mu$ as the carrier of gravitational potential energy and noted explicitly that the relation between $\omega_\mu$ and the Christoffel symbols $\Gamma^\mu_{\alpha\beta}$ remained open, with curvature expected to emerge as a consistency condition on accumulated phase histories. The metric proposal~\eqref{eq:metric_proposal} closes this open question: $g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}_s$ provides the explicit construction, with the Christoffel symbols of the emergent metric recovering $\Gamma^\mu_{\alpha\beta}$ in the appropriate limit via the inversion chain~\eqref{eq:inversion_chain}.
+
+\subsubsection{Relation to bi-tensor approaches in quantum gravity}
+\label{subsubsec:bitensor}
+
+A structurally related programme has been developed in the quantum gravity literature by Kothawala \cite{Kothawala2023}, who argues that a Lorentz-covariant incorporation of a minimum length scale $l_0$ into spacetime physics necessitates replacing the local metric tensor $g_{ab}(x)$ with a non-local bi-tensor $q_{ab}(x,y)$, with Synge's world function and the van Vleck determinant identified as the two central objects carrying this geometric information. The mathematical starting point is therefore the same as that of the present paper: metric reconstruction via the second derivative of a two-point function, as expressed in Eq.~\eqref{eq:synge_metric}.
+
+The two programmes differ, however, in their ontological structure. In \cite{Kothawala2023}, the minimum length $l_0$ is introduced as an external parameter, imposed on an otherwise pre-existing geometric background; the bi-tensor $q_{ab}(x,y)$ is a refinement of the standard metric, not a replacement of it at the foundational level. The present paper takes a different position: no metric is presupposed, and no minimum length is inserted by hand. The constraint on the smallest accessible scale is instead a consequence of internal dynamics---the Bonnet--Myers diameter bound of Section~\ref{subsec:bonnet_myers} places a geometric ceiling $\pi\lambdaC$ on the photon-sphere domain, and the energy floor $E_0/2$ established in \cite{hanamura46} prevents the phase accumulation functional $\mathcal{S}(x_A, x_B)$ from having a trivial (zero arc-length) argument, which together place a lower bound on the kernel separation $|x_A - x_B|$ of order $\lambdaC$ without additional input.
+
+A further difference concerns the role of perturbation theory. The analysis of \cite{Kothawala2023} proceeds by examining the non-analytic structure of $q_{ab}$ in the limit $l_0 \to 0$, identifying non-trivial ``remnants'' that survive this limit and affect the Einstein--Hilbert dynamics. The 0-Sphere framework is non-perturbative by construction \cite{hanamura36}: the phase accumulation functional is defined along the extremal helical arc and does not admit a small-parameter expansion around a flat or classical background. The two analyses are therefore complementary rather than competing: \cite{Kothawala2023} describes what happens when a minimum length is imposed on conventional geometry, while the present programme asks whether geometry itself can be derived from an underlying phase structure.
+
+We note that the metric proposal~\eqref{eq:metric_proposal} of the present paper remains a programme rather than a completed derivation. The explicit verification that $\partial_{A\mu}\partial_{B\nu}\mathcal{S}_s \to \eta_{\mu\nu}$ in the flat-space limit (Section~\ref{subsec:flatcheck}) and the full reconstruction of a curved metric from a specified Berry connection are deferred to subsequent work. The comparison with \cite{Kothawala2023} is offered here as a positioning statement, not as a claim of equivalence or priority.
+
+% ========================================
+% Section 5: Discussion
+% ========================================
+\section{Discussion}
+\label{sec:discussion}
+
+\subsection{Relation to prior line-integral work}
+\label{subsec:lineintegral_prior}
+
+The present paper builds directly on three prior works that established the conceptual and mathematical foundations for the line-integral approach within the 0-Sphere model. Reference~\cite{hanamura29} demonstrated that the physically relevant quantity along a thermal geodesic is \emph{not} the curvature of the spatial path but the line integral of the spinorial connection generated along proper time by Thomas precession. In the configuration with two kernels at $x=\pm a$, a single one-way traversal $(-a\to+a)$ accumulates $2\pi$ of internal spinorial phase---one full SU(2) cycle---while the external bosonic motion covers only $\pi$; the round trip therefore produces the $4\pi$ periodicity characteristic of spin-$\tfrac{1}{2}$. The Poincar\'{e} upper half-plane semicircle served as the geometric prototype: apparent spatial curvature absorbed entirely into the hyperbolic connection, with the Poincar\'{e} correspondence $\int_\gamma\omega_{\mathrm{hyp}}\leftrightarrow\tfrac{1}{2}\int(\mathbf{a}\times\mathbf{v})\,d\tau$ capturing the duality between external simplicity and internal phase complexity. Reference~\cite{hanamura30} extended this program by showing that conservation laws themselves emerge as geometric consistency conditions of accumulated connection structure, demoting the Einstein field equation from a fundamental dynamical postulate to a derived compatibility condition. Reference~\cite{hanamura31} completed the conceptual arc by demonstrating universality: the Aharonov--Bohm effect, Berry phase in adiabatic quantum evolution, and Wilson loops in non-Abelian gauge theory are all instances of the same operational principle---physical observables correspond to holonomies of connections along histories, with local tensors and curvature as secondary, derived descriptors.
+
+The present paper extends this program by cutting the oscillation cycle to an open arc and deriving the spacetime metric from the second functional derivative of the accumulated phase. The arcwise-connectivity argument of Section~\ref{sec:fixedend} places the existence and uniqueness of this open arc on rigorous geometric ground. The two central results---the radiation-gradient driving of the helical advance (Section~\ref{subsec:gradient_drive}) and the metric-emergence proposal (Section~\ref{sec:metric})---are both expressions of the single underlying principle:
+\begin{equation}
+\text{internal phase dynamics} \;\longrightarrow\; \text{observable macrostructure.}
+\label{eq:unified_principle}
+\end{equation}
+Table~\ref{tab:lineintegral_program} maps the three prior works to the present extension across the key structural dimensions of the program.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The line-integral program of the 0-Sphere model: prior work and the present extension}}
+\label{tab:lineintegral_program}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.2cm}p{4.5cm}p{4.5cm}p{4.5cm}}
+\toprule
+\textbf{Aspect} & \textbf{\cite{hanamura29}} & \textbf{\cite{hanamura30}} & \textbf{Present work / \cite{hanamura31}} \\
+\midrule
+Integral type
+& Open arc, $\int_{-a}^{+a}$
+& Open arc; connection integral
+& Open arc $\int_{x_A}^{x_B}$ / holonomy \\
+\addlinespace[0.3cm]
+Primary object
+& Spinorial connection $\tfrac{1}{2}(\mathbf{a}{\times}\mathbf{v})$
+& Connection integral; conservation
+& Phase functional $\mathcal{S}(x_A,x_B)$ / holonomy $W$ \\
+\addlinespace[0.3cm]
+Physical output
+& $2\pi$ per traversal; $4\pi$ round-trip
+& Conservation laws as geometric conditions
+& Emergent metric $g_{\mu\nu}$ / universality \\
+\addlinespace[0.3cm]
+Key result
+& $\int_\gamma\omega_{\mathrm{hyp}}\leftrightarrow\tfrac{1}{2}\int(\mathbf{a}{\times}\mathbf{v})d\tau$
+& Einstein eq.\ as derived checksum
+& $g_{\mu\nu} = \partial_{A}\partial_{B}\,\mathcal{S}_s$ \\
+\addlinespace[0.3cm]
+Role in program
+& Connection over curvature established
+& Conservation as consistency condition
+& Metric from phase history \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Reference~\cite{hanamura29} established the connection integral as the fundamental geometric quantity along a thermal geodesic, with the Poincar\'{e} upper half-plane as prototype ($2\pi$ per one-way traversal, $4\pi$ round-trip). Reference~\cite{hanamura30} showed that conservation laws are geometric consistency conditions of accumulated connection structure, not independently imposed axioms. Reference~\cite{hanamura31} demonstrated universality across quantum, gauge, and gravitational domains. The present paper derives the spacetime metric $g_{\mu\nu}$ as the second functional derivative of the phase accumulation functional $\mathcal{S}(x_A,x_B)$, extending the open-arc approach of~\cite{hanamura29} to three-dimensional helical geometry.
+\end{minipage}
+\end{table*}
+
+\subsection{Relation to Zitterbewegung and the Dirac equation}
+
+The rapid oscillatory motion of a free electron in the Dirac theory was identified by Schr\"{o}dinger \cite{Schrodinger1930} as arising from the interference between positive- and negative-energy components of the wavepacket. In that original treatment the Zitterbewegung is a one-dimensional phenomenon: the velocity operator $\hat{\alpha}_i$ oscillates along a single fixed axis with frequency $2mc^2/\hbar \approx 2.47\times10^{20}\,\mathrm{Hz}$ and amplitude of order $\lambdaC$. No transverse structure is present, and no distinction between longitudinal and transverse velocity components is drawn.
+
+Hestenes \cite{Hestenes2003} subsequently reinterpreted the Zitterbewegung in the language of geometric algebra, identifying the oscillatory motion with a helical trajectory whose pitch is set by $\lambdaC$ and whose rotation plane is determined by the spin bivector. In that picture the electron's internal clock is the phase of this helix, and the spin $\tfrac{1}{2}$ arises from the $4\pi$ periodicity of the helical phase. The helical geometry of Section~\ref{sec:helix} is structurally consonant with the Hestenes picture.
+
+The distinctive contribution of the 0-Sphere model is the identification of two \emph{separate} velocity scales within the helix, rather than a single speed $c$. In the Dirac and Hestenes treatments the helical velocity is uniformly $c$ along all directions; the model offers no mechanism to distinguish the longitudinal from the transverse component. In the present framework, by contrast, the two scales arise from different physical origins: the transverse rotation speed $v_{\mathrm{ZB}} \approx 0.04c$ is determined by the anomalous magnetic moment through $\gamma = 1 + a_e$ (Section~\ref{subsec:twovelocities}), while the longitudinal pitch speed $v_{\mathrm{pitch}} \sim c$ follows from the Compton-scale kernel separation $\Delta x \sim \lambdaC$ and the ZB frequency $\omZB$. The Dirac prediction $\pm c$ is recovered as the projection of the longitudinal component onto the propagation axis, which dominates because $v_{\mathrm{pitch}}/v_{\mathrm{ZB}} \approx 25$.
+
+This asymmetry has a direct observational consequence. The ZB frequency predicted by the 0-Sphere model is $\nu_{\mathrm{ZB}} = v_{\mathrm{ZB}}/\lambdaC \approx 5.0\times10^{18}\,\mathrm{Hz}$ (X-ray regime), compared with the Dirac value $\nu_{\mathrm{ZB}}^{\mathrm{Dirac}} = mc^2/(\pi\hbar) \approx 3.93\times10^{20}\,\mathrm{Hz}$ (gamma-ray regime). The two predictions differ by a factor of approximately $1/(2\pi a_e^{1/2}) \approx 80$, arising entirely from the replacement of $c$ by $v_{\mathrm{ZB}} \approx 0.04c$ in the transverse channel. Trapped-ion quantum simulations of the Dirac equation \cite{Gerritsma2010} have already demonstrated that the ZB frequency can be tuned by adjusting the effective mass parameter; a precision measurement sensitive to the transverse component would in principle distinguish the two predictions.
+
+\paragraph{On the $\gamma$-matrix algebra and the line-integral program.}
+The Dirac equation provides the most precise kinematic description of the electron available in quantum field theory, and the $\gamma$-matrix algebra organizes that description with extraordinary efficiency. However, the $\gamma$-matrices presuppose a field-theoretic ontology---creation and annihilation operators acting on a vacuum---that the 0-Sphere line-integral program aims to replace rather than accept as a primitive. The productive question for the present framework is therefore not ``is the helical trajectory isomorphic to the $\gamma$-matrix algebra?'' but the converse: \emph{can the $\gamma$-matrix algebra be derived as a limit or approximation of the line-integral structure?} If the Berry connection 1-form $\mathcal{A}_\mu$ along the helical arc encodes enough structure, the $\gamma$-matrices should emerge as a derived algebraic representation of that geometry, not as inputs. This is the same logical structure that applies to the PMNS matrix in the neutrino context~\cite{hanamura50}: in each case the 0-Sphere position is that field-theoretic constructions are outputs to be derived, not primitives to be borrowed. The explicit derivation of the $\gamma$-algebra from the helical line-integral geometry remains an open problem and is recorded here as a future task.
+
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Comparison between the field-theoretic approach of Paper~\#24 and the line-integral ontology of the present work}}
+\label{tab:ontology_comparison}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.5cm}p{6.5cm}p{6.5cm}}
+\toprule
+\textbf{Aspect} & \textbf{Paper \#24 \cite{hanamura24}} & \textbf{This work} \\
+\midrule
+Fundamental object
+& Field $T_{\mu\nu}^{(\text{thermal})}(x)$
+& Line integral $\mathcal{S}(x_A,x_B) = \int \mathcal{A}_\mu dx^\mu$ \\
+\addlinespace[0.3cm]
+Metric $g_{\mu\nu}$
+& Primitive input (pre-existing)
+& Emergent output ($-\tfrac{1}{2}\partial^2\mathcal{S}$) \\
+\addlinespace[0.3cm]
+Einstein equations
+& Fundamental dynamical law
+& Derived consistency condition \\
+\addlinespace[0.3cm]
+Coupling structure
+& Bidirectional: internal $\leftrightarrow$ external
+& Unidirectional: history $\to$ geometry \\
+\addlinespace[0.3cm]
+Information carrier
+& Local field value at $x$
+& Accumulated path history $A\to B$ \\
+\addlinespace[0.3cm]
+Background
+& Curved spacetime assumed
+& Background-independent \\
+\addlinespace[0.3cm]
+ZB driving force
+& Thermal gradient in field
+& Radiation gradient $-\tfrac{1}{2}\sin(4\iphase)$ \\
+\addlinespace[0.3cm]
+Relation to GR
+& Extension (tensor additivity)
+& Deeper reduction (GR as derived limit) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Paper~\#24 operates within the framework of general relativity, augmenting it with internal thermal structure. The present paper proposes a more radical shift: $g_{\mu\nu}$ is not an input but an output, and the Einstein equations are a macroscopic consistency condition rather than a fundamental law.
+\end{minipage}
+\end{table*}
+
+\subsection{Internal and external observer: $g=2$ and the anomalous magnetic moment as a relativistic effect}
+\label{subsec:gfactor_observers}
+
+One of the most striking consequences of the helical structure is the resolution it offers for the $g$-factor discrepancy. From the perspective of an observer \emph{co-moving with the photon sphere}---that is, an observer situated inside the internal dynamics and rotating with it---there is no anomalous contribution to the magnetic moment. The internal rotation is purely kinematic, and the effective $g$-factor seen from this co-rotating frame is:
+\begin{equation}
+g_{\text{internal}} \;=\; 2,
+\label{eq:g_internal}
+\end{equation}
+in exact agreement with the Dirac equation's prediction for a point-like spin-$\tfrac{1}{2}$ particle.
+
+The anomalous magnetic moment $a_e = (g-2)/2 \neq 0$ observed in laboratory measurements arises because we are \emph{external observers}, measuring the photon-sphere rotation from outside the internal dynamics. The external observer does not co-rotate with the photon sphere; instead, they observe the helical trajectory in full, including the Lorentz contraction of the longitudinal ($x$-direction) extent of the helix. This contraction modifies the apparent angular momentum, producing the shift:
+\begin{equation}
+g_{\text{external}} \;=\; 2(1 + a_e) \;=\; 2\gamma,
+\label{eq:g_external}
+\end{equation}
+where $\gamma = 1 + a_e$ is the Lorentz factor of the internal rotation established in Eq.~\eqref{eq:gamma_ae}. The anomalous magnetic moment is therefore not a quantum correction to a classical quantity; it is a special-relativistic effect of the same kind as the muon lifetime extension.
+
+The analogy with the muon is precise and instructive. A muon created in the upper atmosphere has a rest-frame lifetime of $\tau_0 \approx 2.2\,\mu\mathrm{s}$, which in the muon's own frame is perfectly consistent with known decay physics. An observer on the ground measures a longer lifetime $\tau = \gamma\tau_0$ because of time dilation. Neither observer is wrong; they are measuring the same physical process from different frames. In exactly the same way, the internal observer sees $g=2$ (Dirac value, no anomaly); the external observer sees $g = 2(1+a_e)$ because the Lorentz-contracted helical geometry appears to carry additional angular momentum. The anomaly $a_e$ is the ``time dilation'' of the magnetic moment.
+
+This reinterpretation has a falsifiable consequence: any experimental apparatus that couples directly to the internal phase dynamics---rather than to the external electromagnetic field of the electron---should measure $g=2$ rather than $g=2(1+a_e)$. The methodological basis for keeping $a_e$ as an empirical input while treating $\alpha$ as outside the current scope is detailed in \cite{hanamura36}.
+
+\subsection{Relation to perturbative QED}
+\label{subsec:QED_complement}
+
+The present interpretation does not deny the perturbative QED calculation of the anomalous magnetic moment. The QED result $a_e = \alpha/(2\pi) - 0.328(\alpha/\pi)^2 + \cdots$ is numerically extraordinary and represents one of the most precise agreements between theory and experiment in all of physics. Rather, the present work suggests that the experimentally measured value $a_e$ may admit a complementary geometric interpretation in terms of relativistic observation of the internal helical dynamics: what QED attributes to virtual-photon loop corrections, the 0-Sphere model attributes to the Lorentz contraction of the helical trajectory as seen by an external observer. These are not competing claims about the numerical value of $a_e$---both frameworks accept the same experimental input---but competing ontological interpretations of its physical origin. Whether the two descriptions can be formally related through an effective-field-theory bridge remains an open question, discussed in \cite{hanamura36}. Table~\ref{tab:ontology_comparison} places the two ontological frameworks side by side.
+
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Hierarchy of geodesic principles}}
+\label{tab:geodesic_hierarchy}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.5cm}p{3.7cm}p{4.5cm}p{3.0cm}p{2.3cm}}
+\toprule
+\textbf{Type} & \textbf{Principle} & \textbf{Line element} & \textbf{Governing equation} & \textbf{Result} \\
+\midrule
+Optical geodesic
+& $\delta\!\int n\,ds = 0$
+& $ds_\text{opt}^2 = n^2 g_{ij}dx^idx^j$
+& Ray equation
+& Snell's law \\
+\addlinespace[0.3cm]
+GR geodesic
+& $\delta\!\int ds = 0$
+& $ds^2 = g_{\mu\nu}dx^\mu dx^\nu$
+& $\ddot{x}^\mu + \Gamma^\mu_{\nu\rho}\dot{x}^\nu\dot{x}^\rho = 0$
+& Free fall \\
+\addlinespace[0.3cm]
+Thermal geodesic \cite{hanamura24}
+& $\delta\!\int \kappa\,ds = 0$
+& $ds_T^2 = n^2(T)g_{\mu\nu}dx^\mu dx^\nu$
+& $\ddot{x}^\mu + \Gamma^\mu_{\nu\rho}(T)\dot{x}^\nu\dot{x}^\rho = 0$
+& A$\to$B transport \\
+\addlinespace[0.3cm]
+0-Sphere (this work)
+& $\delta\mathcal{S} = 0$
+& $\mathcal{S} = \int\mathcal{A}_\mu dx^\mu$
+& $g_{\mu\nu} = -\tfrac{1}{2}\partial^2\mathcal{S}$
+& Emergent metric \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The thermal geodesic (row 3) is mathematically identical to the optical geodesic (row 1) with temperature playing the role of refractive index: $\mathcal{G}_{\mu\nu}(T) = n^2(T)g_{\mu\nu}$. This is not an analogy but a conformal rescaling. The 0-Sphere proposal (row 4) descends one level deeper: rather than presupposing any metric, the phase accumulation functional $\mathcal{S}$ generates the metric as its second derivative.
+\end{minipage}
+\end{table*}
+
+\subsection{Thermal geodesics and the emergence of spacetime geometry}
+\label{subsec:thermal_geodesics}
+
+The connection between the radiation driving force and the metric proposal is mediated by a classical analogy that substantially strengthens the physical motivation. In optics, Fermat's principle states that light follows the path of stationary optical path length:
+\begin{equation}
+\delta \int n(x)\,ds \;=\; 0,
+\label{eq:fermat}
+\end{equation}
+where $n(x)$ is the local refractive index. When $n$ varies continuously in space, the path curves---becoming an optical geodesic. The squared line element of the \emph{optical metric} is:
+\begin{equation}
+ds_{\mathrm{opt}}^2 \;=\; n^2(x)\,g_{ij}\,dx^i dx^j,
+\label{eq:optical_metric}
+\end{equation}
+so that Fermat's principle is simply the geodesic condition of this conformally rescaled metric. The correspondence $n(x) \leftrightarrow g_{\mu\nu}$ is well established in general relativity, where the Schwarzschild effective refractive index $n = 1/(1-r_s/r)$ reproduces light bending to leading order.
+
+The thermal Lagrangian of \cite{hanamura24} has precisely the same mathematical structure. With $\mathcal{L}_{\mathrm{thermal}} = \mathcal{G}_{\mu\nu}(T)\dot{x}^\mu\dot{x}^\nu$, the thermal metric can be written as:
+\begin{equation}
+\mathcal{G}_{\mu\nu}(T) \;=\; n^2(T)\,g_{\mu\nu},
+\label{eq:thermal_optical_metric}
+\end{equation}
+where the effective refractive index $n(T)$ encodes the local thermal state of the internal medium. This is not an analogy but a mathematical identity: the thermal geodesic equation is the optical geodesic equation of the conformally rescaled metric $n^2(T)g_{\mu\nu}$, with temperature playing the role of refractive index. The thermal Fermat principle $\delta\int\kappa\,ds = 0$ then follows directly, with $\kappa \propto n(T)$.
+
+The thermal transport between Kernel~A and Kernel~B therefore follows the path of minimum thermal resistance:
+\begin{equation}
+\delta \int \kappa(x)\,ds \;=\; 0,
+\label{eq:thermal_fermat}
+\end{equation}
+the thermal Fermat principle, whose stationary paths are the thermal geodesics of \cite{hanamura24}. Table~\ref{tab:geodesic_hierarchy} places the four geodesic principles---optical, GR, thermal, and the 0-Sphere phase proposal---in a unified hierarchy.
+
+The chain connecting thermal geodesics to spacetime geometry is then:
+\begin{align}
+\phi &= \omZB\int d\tau
+\notag\\
+&\;\longrightarrow\;
+T_e(\phi)
+\notag\\
+&\;\longrightarrow\;
+\delta\!\int\!\kappa\,ds = 0
+\notag\\
+&\;\longrightarrow\;
+\text{thermal geodesic}
+\notag\\
+&\;\longrightarrow\;
+g_{\mu\nu}.
+\label{eq:thermal_chain}
+\end{align}
+In the language of \cite{hanamura24}, the thermal geodesic equation is:
+\begin{equation}
+\frac{d^2 x^\mu}{d\tau^2} + \Gamma^\mu_{\nu\rho}(T)\frac{dx^\nu}{d\tau}\frac{dx^\rho}{d\tau} = 0,
+\label{eq:thermal_geodesic_eq}
+\end{equation}
+where $\Gamma^\mu_{\nu\rho}(T)$ are the Christoffel symbols of the temperature-dependent internal metric $\mathcal{G}_{\mu\nu}(T)$ \cite{hanamura24}. Spacetime geodesics then emerge as the macroscopic limit of these microscopic thermal geodesics, when the internal thermal structure is averaged over many oscillation cycles.
+
+Crucially, the present framework differs from the approach of \cite{hanamura24} in one important respect. In that earlier work, the thermal dynamics were coupled \emph{bidirectionally} to general relativity: internal thermal structure contributed to the external stress-energy tensor $T_{\mu\nu}^{(\text{thermal})}$, which in turn modified the metric $g_{\mu\nu}$ through Einstein's field equations, which then fed back into the internal thermal geodesic structure. This is a field-theoretic construction that presupposes a pre-existing metric as the carrier of geometric information.
+
+The present paper takes a more radical step. The metric $g_{\mu\nu}$ does not pre-exist; it \emph{emerges} from the phase accumulation functional $\mathcal{S}(x_A, x_B)$ via Eq.~\eqref{eq:metric_proposal}. There is no background field, no external stress-energy tensor, and no feedback loop. The sole fundamental object is the proper-time integral of the internal phase:
+\begin{equation}
+\phi = \omZB \int d\tau = \omZB \int \sqrt{g_{\mu\nu}\,dx^\mu dx^\nu},
+\label{eq:phase_as_history}
+\end{equation}
+from which the metric is recovered as a second derivative. In this sense, the thermal geodesic equation~\eqref{eq:thermal_geodesic_eq} of \cite{hanamura24} describes a \emph{transitional} result---a bridge between the 0-Sphere internal dynamics and conventional GR---whereas the present work proposes a deeper ontological shift: the field equations are not the fundamental laws but a \emph{derived} consistency condition, emergent from the line-integral structure of phase histories~\cite{hanamura30}. The thermal geodesic equation accordingly describes not the motion of a particle in a pre-existing curved spacetime, but the internal transport structure from which that spacetime curvature is built.
+
+There is a further consequence of this ontological shift that sharpens the programme. In \cite{hanamura24}, the governing variable is the temperature $T$, and the metric is $\mathcal{G}_{\mu\nu}(T)$. But within the 0-Sphere model, $T$ is not a primitive: the internal energy distributions $K_A = \cos^4(\phi/2)$ and $K_B = \sin^4(\phi/2)$ are functions of the internal phase $\phi$ alone, so $T = T(\phi)$. Substituting, $\mathcal{G}_{\mu\nu}(T(\phi)) \equiv \mathcal{G}_{\mu\nu}(\phi)$: the thermal metric is in fact a \emph{phase metric}. The language of temperature is a convenient intermediate description; the true primitive is the phase field $\phi$. The logical chain is therefore:
+\begin{align}
+\phi
+\;\longrightarrow\;
+T(\phi)
+\;\longrightarrow\;
+n(T) = \sqrt{\mathcal{G}/g}
+&\;\longrightarrow\;
+\delta\!\int n\,ds = 0
+\notag\\
+&\;\longrightarrow\;
+g_{\mu\nu} = -\tfrac{1}{2}\partial^2\mathcal{S}.
+\label{eq:phase_geometry_chain}
+\end{align}
+This is consistent with the metric proposal~\eqref{eq:metric_proposal}: $g_{\mu\nu}$ emerges from the second derivative of the phase accumulation functional, not from a temperature field. The 0-Sphere framework is therefore more accurately described as \emph{phase geometry} than as thermal geometry---temperature and refraction are derived features of the underlying phase dynamics.
+
+A further distinction from quantum-mechanical treatments is worth noting. In Feynman's path-integral formulation, quantum amplitudes are summed over all possible trajectories. In the thermal geodesic framework, the variational principle $\delta S = 0$ selects a \emph{single}, causally determined path of least thermodynamic action. This geometric determinism is a direct consequence of the realist ontology of the 0-Sphere model: uncertainty enters only through incomplete knowledge of thermal boundary conditions, not through intrinsic quantum randomness \cite{hanamura36}.
+
+Taken together, these observations point to a single concise characterization of the role of gravity in the 0-Sphere framework:
+\begin{equation}
+\text{\emph{Gravity}} \;=\; \text{\emph{refraction of internal energy flow.}}
+\label{eq:gravity_refraction}
+\end{equation}
+Where conventional GR encodes gravity as the curvature of a pre-existing spacetime metric, the 0-Sphere program encodes it as the bending of internal phase geodesics by a temperature---or equivalently, phase---dependent refractive index. This positions the 0-Sphere framework alongside emergent-gravity programs \cite{Sakharov1967, Jacobson1995} but with a distinctive microscopic origin: not entanglement entropy, not thermodynamic area, but the oscillatory phase dynamics of a two-kernel particle structure.
+
+\subsection{Two-Scale Structure, Effective Velocities, and Relation to the Dirac Picture}
+\label{sec:two_scale_structure}
+
+The present model introduces a separation of dynamical scales that is not explicit in the conventional Dirac or Dirac--Hestenes interpretations. In particular, we distinguish between an internal dynamical process associated with A--B transitions and a global propagation along the helical axis. These two processes are characterized by distinct effective velocities, which should not be interpreted as spatial components of a single motion, but rather as physically independent scales.
+
+The internal dynamics are governed by a subluminal Zitterbewegung scale
+\begin{equation}
+v_{\mathrm{ZB}} \approx 0.04c,
+\end{equation}
+which emerges from the internal field structure, specifically from the cyclic process of radiation and absorption between the A and B kernels. This quantity does not represent the propagation speed of a free particle or photon, but rather an effective rate characterizing the internal energy-exchange cycle. In this sense, $v_{\mathrm{ZB}}$ is not obtained as a kinematic component of a larger velocity, but arises independently from the internal field dynamics.
+
+By contrast, the longitudinal propagation of the system is characterized by an effective pitch velocity
+\begin{equation}
+v_{\mathrm{pitch}} \sim c,
+\end{equation}
+which represents the cumulative drift along the helical axis generated by successive internal transitions. More precisely, $v_{\mathrm{pitch}}$ should be understood as an effective propagation velocity along the worldline, rather than an instantaneous particle velocity. Since this propagation corresponds to a relativistic trajectory, it is bounded by the speed of light, and the estimate $v_{\mathrm{pitch}} \sim c$ should be interpreted as saturation of this relativistic limit.
+
+It is important to emphasize that the terms ``transverse'' and ``longitudinal'' used in this work do not refer to spatial wave components. Instead, they denote dynamically distinct processes: the transverse scale corresponds to internal field transitions, while the longitudinal scale corresponds to global propagation. This distinction is essential to avoid confusion with conventional decompositions of motion in real space.
+
+Within this framework, the helical structure arises as a composite effect of these two scales. The internal A--B transition cycle generates a rotational component, while the relativistic propagation produces a drift along the axis. The resulting motion is therefore helical, with a strong asymmetry set by the ratio
+\begin{equation}
+\frac{v_{\mathrm{pitch}}}{v_{\mathrm{ZB}}} \sim 25,
+\end{equation}
+which plays a central role in determining the observed chirality. In this framework, Zitterbewegung is subluminal internally, but appears luminal through helical projection.
+
+In this framework, \textbf{Zitterbewegung is subluminal internally, but appears luminal through helical projection.} This two-scale interpretation allows for a reinterpretation of the Dirac result. In the Dirac theory, the velocity operator has eigenvalues $\pm c$ along any given axis. In the present model, this feature is not taken to imply that all internal dynamics occur at the speed of light. Instead, the value $\pm c$ is understood as arising from the projection of the helical motion onto the propagation axis, which is dominated by the fast longitudinal component. The internal dynamics themselves remain subluminal.
+
+In this sense, the present model does not contradict the Dirac framework, but rather refines its physical interpretation. The apparent luminal behavior emerges from the geometric structure of motion, while the underlying dynamical processes operate at distinct scales. This resolves the tension between the luminal velocity eigenvalues and the expectation of physically meaningful subluminal internal dynamics.
+
+Finally, the A--B transition is assumed to follow a thermal geodesic, i.e., a minimal-action path in the internal field (configuration) space. This reinforces the interpretation that the internal dynamics are not spatial propagation processes, but transitions in an abstract state space. The effective velocity $v_{\mathrm{ZB}}$ therefore characterizes the rate of traversal along this internal path, rather than motion through physical space.
+
+Taken together, these considerations establish a two-level dynamical structure: a subluminal internal cycle and a relativistic global propagation. Their interplay gives rise to the helical motion and provides a consistent reinterpretation of the Dirac velocity without requiring that all degrees of freedom move at the speed of light.
+
+% ========================================
+% Section 6: Outlook
+% ========================================
+\section{Outlook}
+\label{sec:outlook}
+
+The results of this paper can be organized around four complementary contributions.
+
+\begin{enumerate}
+
+\item \textbf{Arcwise connectivity and uniqueness of the thermal geodesic.} Section~\ref{sec:fixedend} establishes, for the first time within the 0-Sphere program, the foundational prerequisites for the fixed-endpoint line integral: the 0-sphere $S^0$ is not arcwise connected, the photon sphere $S^n$ ($n\geq 1$) supplies the required embedding, the Bonnet--Myers theorem applied to the Compton-scale curvature bounds the diameter and establishes the confinement domain $\mathcal{D}$ of Paper~\#33 as a theorem, and non-antipodality ensures uniqueness of the thermal geodesic. The use of Bonnet--Myers here is a \emph{conceptual redeployment}: a classical theorem of global Riemannian geometry is identified as the natural mechanism by which a topological input (non-arcwise-connectivity of $S^0$) is converted into a geometric bound with direct physical interpretation (see Appendix~\ref{app:curvature_interpretation}).
+
+\item \textbf{Helical trajectory with two distinct velocity scales.} The three-dimensional helical trajectory of the photon sphere (Section~\ref{sec:helix}) carries two physically distinct velocity scales: the transverse Zitterbewegung speed $v_{\mathrm{ZB}}\approx 0.04c$, anchored to the anomalous magnetic moment through $\gamma=1+a_e$, and the longitudinal pitch speed $v_{\mathrm{pitch}}\sim c$, set by the Compton-scale kernel separation $\Delta x\sim\lambdaC$ and the ZB frequency $\omZB$. The Dirac prediction $\pm c$ is recovered as the projection of the fast longitudinal component onto the propagation axis; the transverse component $v_{\mathrm{ZB}}\approx 0.04c$ is a distinctly 0-Sphere prediction not present in any one-dimensional model.
+
+\item \textbf{Fixed-endpoint line integral as the natural geometric object.}
+The half-turn of the helix between Kernel~A and Kernel~B defines a fixed-endpoint line integral of the Berry connection 1-form $\mathcal{A}_\mu$ (Section~\ref{sec:fixedend}).
+This extends the program initiated in~\cite{hanamura29}, where the open arc $\int_{-a}^{+a}$ along a straight thermal geodesic was identified as the carrier of spinorial phase; here, the open arc $\int_{x_A}^{x_B}$ along the helical trajectory is elevated to a geometric object encoding spacetime structure.
+
+\item \textbf{Phase accumulation functional as a generalized Synge world function.} The phase functional $\mathcal{S}(x_A,x_B)=\int_{\Gamma_{\mathrm{ext}}}\mathcal{A}_\mu dx^\mu$ restricted to the unique extremal helical arc satisfies the structural axioms of Synge's world function (Section~\ref{subsec:phasedistance}): it vanishes at coincidence, depends only on the endpoints through the extremal path, and is proportional to the proper-time integral $\omZB\int d\tau$ in the flat-space limit. The symmetrized functional $\mathcal{S}_s$ serves as the phase-geometric analogue of the squared geodesic distance, and Synge's reconstruction theorem applies directly, yielding $g_{\mu\nu}(x) = \partial_{A\mu}\,\partial_{B\nu}\,\mathcal{S}_s(x_A,x_B)\big|_{x_A=x_B=x}$.
+
+\end{enumerate}
+
+Several problems define the immediate agenda. The explicit computation of $\partial_{A\mu}\partial_{B\nu}\mathcal{S}_s$ in the flat-space case must be completed to close the consistency check of Section~\ref{subsec:flatcheck}. The extension of the uniqueness proof of Section~\ref{subsec:non_antipodal} to curved spacetime requires a variational analysis with a non-trivial Berry connection. The relation between the Berry curvature $\mathcal{F}_{\mu\nu}=\partial_\mu\mathcal{A}_\nu-\partial_\nu\mathcal{A}_\mu$ and the Riemann tensor of the emergent metric $g_{\mu\nu}$ is an open structural question whose resolution would sharpen the connection to standard differential geometry.
+
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Three waves of the 0-Sphere model: key papers and achievements}}
+\label{tab:threewaves}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{2.2cm}p{2.5cm}p{5.5cm}p{6.3cm}}
+\toprule
+\textbf{Wave} & \textbf{Core papers} & \textbf{Central achievement} & \textbf{Open question left for next wave} \\
+\midrule
+First wave \newline (2018--2020)
+& \#1--\#7
+& Scalar two-kernel architecture; energy identity; Dirac reinterpretation
+& How does scalar oscillation produce angular momentum? Why is the electron/positron distinction Lorentz-invariant? \\
+\addlinespace[0.3cm]
+Second wave \newline (late 2025 -- early 2026)
+& \#29, \#30, \#31
+& Line integral as fundamental observable; conservation laws as geometric consistency; universality across AB/Berry/Wilson
+& What physical quantity does the line integral compute? Can the spacetime metric be derived from it? \\
+\addlinespace[0.3cm]
+Third wave \newline (2026)
+& \#50, \#51
+& Angular momentum from scalar oscillators; $\chi$ as Lorentz-invariant theorem; arcwise connectivity argument; helical geometry; metric-emergence proposal $g_{\mu\nu} = \partial_A\partial_B\mathcal{S}_s$
+& Explicit curved-metric computation from Berry connection; $\gamma$-matrix algebra as derived limit; neutrino Lissajous helix; covariant rotation-plane definition \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+This table is a reader's orientation guide, not a claim of completeness. Papers \#8--\#28 and \#32--\#49 (not listed) developed applications, supplements, and structural clarifications that consolidate the results of each wave and prepare the ground for the next. The open questions listed for each wave are the specific gaps that the subsequent wave addressed or is addressing; they are not a complete list of open problems at the time of each wave.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Three Waves
+% ========================================
+\section{The 0-Sphere model in context: three waves of development}
+\label{sec:threewaves}
+
+The present paper and its companion~\cite{hanamura50} are the fiftieth and fifty-first entries in a series begun in 2018. A reader arriving at this point without that background may find it useful to know where the present results sit within the broader arc of the program. The following overview is offered not as a summary of achievements but as a map to help orient future reading and to make clear which questions are settled, which are open, and which direction the program is heading.
+
+\subsection*{First wave (papers \#1--\#7, 2018--2020): foundations}
+
+The first seven papers established the structural core of the model. Paper~\#1~\cite{hanamura01} identified the electron's internal structure with two thermodynamic kernels, A and B, radiating a photon sphere, and derived the energy identity
+\begin{equation*}
+E_0 = \cos^4\!\tfrac{\theta}{2} + \sin^4\!\tfrac{\theta}{2} + \tfrac{1}{2}\sin^2\theta.
+\end{equation*}
+Papers \#2--\#6 developed the geometric and algebraic consequences: spin as a real vector, interference patterns from internal geometry, and the formal identification of the 0-sphere topology with the electron model. Paper~\#7 provided the first reinterpretation of the Dirac equation within this framework, identifying the positive- and negative-energy solutions not with particle and antiparticle but with the two orientations of the internal thermal geodesic. The key achievement of the first wave was the demonstration that a scalar, non-perturbative internal structure can reproduce the quantum numbers of the electron without postulating spin as an independent axiom.
+
+\subsection*{Second wave (papers \#29--\#31, late 2025 -- early 2026): the line-integral turn}
+
+After a period of consolidation and application (papers \#8--\#28), the program underwent a methodological reorganization beginning with paper~\#29~\cite{hanamura29}. The central shift was the recognition that the physically relevant quantity along a thermal geodesic is not the curvature of the spatial path but the line integral of the spinorial connection generated by Thomas precession. Paper~\#29 showed that a single one-way traversal from Kernel~A to Kernel~B accumulates $2\pi$ of internal spinorial phase, and the round trip yields the $4\pi$ periodicity characteristic of spin-$\tfrac{1}{2}$. Paper~\#30~\cite{hanamura30} extended this by showing that conservation laws themselves are geometric consistency conditions of accumulated connection structure, demoting the Einstein field equations from a fundamental dynamical postulate to a derived compatibility condition. Paper~\#31~\cite{hanamura31} established universality: the Aharonov--Bohm effect, Berry phase, and Wilson loops are all instances of the same operational principle in which physical observables correspond to holonomies of connections along histories. The key achievement of the second wave was the identification of the line integral as the fundamental geometric observable of the 0-Sphere model, replacing local field values and curvature tensors as primary descriptors.
+
+\subsection*{Third wave (papers \#50--\#51, 2026): from scalar oscillation to spacetime geometry}
+
+The present paper and its companion~\cite{hanamura50} constitute what may be called the third wave: the first explicit derivation of an unbroken logical chain from scalar kernel oscillations to the emergence of the spacetime metric.
+
+Paper~\#50~\cite{hanamura50} closed two long-standing gaps. The first was the derivation of angular momentum from scalar oscillators: the phase-staggered array produces emergent rotation without any circular force law, with the centroid tracing a circle of radius $\tfrac{1}{2}$ linked directly to the zero-point energy floor. The second was the promotion of the electron/positron distinction from a geometric reinterpretation (paper~\#7, 2020) to a Lorentz-invariant theorem: chirality $\chi = \mathrm{sign}(da/dt)$ is topologically protected, and the four Dirac spinor components are accounted for exactly by $\chi \times \mathrm{spin} = 2 \times 2 = 4$.
+
+The present paper~\#51 extends that two-dimensional picture to three dimensions. A foundational geometric argument---the arcwise-connectivity chain of Section~\ref{sec:fixedend}---establishes the existence and uniqueness prerequisites for the fixed-endpoint line integral, and promotes the confinement domain $\mathcal{D}$ of Paper~\#33 from an assumption to a theorem via the Bonnet--Myers argument. The helical trajectory carries two distinct velocity scales derived from the two-kernel architecture. The half-turn arc between the kernels is the natural domain of a fixed-endpoint line integral of the Berry connection, continuing the open-arc program of paper~\#29 in three-dimensional helical geometry. The phase accumulation functional along this arc satisfies the structural axioms of Synge's world function, and the spacetime metric emerges as its second functional derivative.
+
+Taken together, the chain established by the third wave is:
+\begin{align*}
+&\underbrace{\text{scalar kernel oscillations}}_{\#1,\ 2018}\\[1.2ex]
+&\hspace{1em}\longrightarrow\;
+\underbrace{\text{emergent angular momentum and chirality}}_{\#50,\ 2026}\\[1.2ex]
+&\hspace{2em}\longrightarrow\;
+\underbrace{
+\begin{aligned}
+&\text{arcwise connectivity, helical geometry,}\\
+&\text{and spacetime metric}
+\end{aligned}
+}_{\#51,\ 2026}.
+\end{align*}
+This chain has not previously been assembled in a single connected argument within the 0-Sphere program. Whether the metric-emergence proposal of Section~\ref{sec:metric} can be elevated from a structurally motivated conjecture to a proved theorem is the primary open question that defines the next stage of the program. Table~\ref{tab:threewaves} summarizes the three waves, their core papers, and the open questions each wave addressed or left for the next.
+
+% ========================================
+% Acknowledgments
+% ========================================
+\section*{Acknowledgments}
+
+The author acknowledges the use of large language models in a limited supportive role for textual organization during document preparation. All physical interpretations, methodological judgments, and philosophical commitments remain the responsibility of the author.
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{hanamura50}
+S.~Hanamura, \textit{Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum, Chirality, and Helicity from Phase-Staggered Kernel Dynamics in the 0-Sphere Model}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19482145}{10.5281/zenodo.19482145}
+
+\bibitem{hanamura33}
+S.~Hanamura, \textit{Geometrical Confinement of Energy in the 0-Sphere Model: Rest Mass, Zitterbewegung, and Topological Stability}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18356895}{10.5281/zenodo.18356895}
+
+\bibitem{hanamura37}
+S.~Hanamura, \textit{Reinterpreting Gravitational Potential Energy as an Internal Line-Integral Quantity in the 0-Sphere Model}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18637487}{10.5281/zenodo.18637487}
+
+\bibitem{hanamura40}
+S.~Hanamura, \textit{On the Derivative-Order Mismatch Between Gauge Theory and Gravity: A Supplement on Connection, Curvature, and Line-Integral Observables}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18736670}{10.5281/zenodo.18736670}
+
+\bibitem{hanamura29}
+S.~Hanamura, \textit{Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.18067760}{10.5281/zenodo.18067760}
+
+\bibitem{hanamura30}
+S.~Hanamura, \textit{From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18135855}{10.5281/zenodo.18135855}
+
+\bibitem{hanamura31}
+S.~Hanamura, \textit{Line Integrals as Fundamental Observables: Holonomy, Phase Accumulation, and the 0-Sphere Two-Kernel System}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18203433}{10.5281/zenodo.18203433}
+
+\bibitem{hanamura24}
+S.~Hanamura, \textit{Thermal Geodesics in the 0-Sphere Model: Extending General Relativity Through Internal Thermodynamic Structure}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765349}{10.5281/zenodo.17765349}
+
+\bibitem{hanamura01}
+S.~Hanamura, \textit{A Model of an Electron Including Two Perfect Black Bodies}, Zenodo (2018). \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}
+
+\bibitem{hanamura36}
+S.~Hanamura, \textit{On the Non-Perturbative Nature of the 0-Sphere Model and the Fine-Structure Constant: A Supplement on Methodological Scope and Realist Foundations}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18603340}{10.5281/zenodo.18603340}
+
+\bibitem{hanamura10}
+S.~Hanamura, \textit{Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction}, Zenodo (2024). \href{https://doi.org/10.5281/zenodo.17764997}{10.5281/zenodo.17764997}
+
+\bibitem{hanamura22}
+S.~Hanamura, \textit{Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model}, Zenodo (2025). \href{https://doi.org/10.5281/zenodo.17765318}{10.5281/zenodo.17765318}
+
+\bibitem{hanamura46}
+S.~Hanamura, \textit{Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model: A Conceptual Clarification}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19010945}{10.5281/zenodo.19010945}
+
+\bibitem{hanamura34}
+S.~Hanamura, \textit{Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass, Zitterbewegung, and Gravitational-Like Phenomena --- Emergent Gravitational Dynamics Without Additional Mediators}, Zenodo (2026). \href{https://doi.org/10.5281/zenodo.18437010}{10.5281/zenodo.18437010}
+
+\bibitem{Kothawala2023}
+D.~Kothawala, \textit{Relics of the quantum spacetime: from Synge's world function as the fundamental probe of spacetime architecture to the emergent description of gravity}, J.\ Phys.:\ Conf.\ Ser.\ \textbf{2533}, 012012 (2023). \href{https://doi.org/10.1088/1742-6596/2533/1/012012}{10.1088/1742-6596/2533/1/012012}; arXiv:2304.01995.
+
+\bibitem{Synge1960}
+J.~L.~Synge, \textit{Relativity: The General Theory} (North-Holland, Amsterdam, 1960), Ch.~2.
+
+\bibitem{DeWitt1965}
+B.~S.~DeWitt, \textit{Dynamical Theory of Groups and Fields} (Gordon and Breach, New York, 1965).
+
+\bibitem{Christensen1976}
+S.~M.~Christensen, \textit{Vacuum expectation value of the stress tensor in an arbitrary curved background: The covariant point-separation method}, Phys.\ Rev.\ D \textbf{14}, 2490 (1976).
+
+\bibitem{Schrodinger1930}
+E.~Schr\"{o}dinger, \textit{\"{U}ber die kr\"{a}ftefreie Bewegung in der relativistischen Quantenmechanik}, Sitzungsber.\ Preuss.\ Akad.\ Wiss.\ Berlin \textbf{24}, 418 (1930).
+
+\bibitem{Hestenes2003}
+D.~Hestenes, \textit{Zitterbewegung in quantum mechanics}, Found.\ Phys.\ \textbf{40}, 1 (2010).
+
+\bibitem{Gerritsma2010}
+R.~Gerritsma \textit{et~al.}, \textit{Quantum Simulation of the Dirac Equation}, Nature \textbf{463}, 68 (2010). \href{https://doi.org/10.1038/nature08688}{10.1038/nature08688}
+
+\bibitem{Sakharov1967}
+A.~D.~Sakharov, \textit{Vacuum quantum fluctuations in curved space and the theory of gravitation}, Sov.\ Phys.\ Dokl.\ \textbf{12}, 1040 (1968).
+
+\bibitem{Jacobson1995}
+T.~Jacobson, \textit{Thermodynamics of spacetime: The Einstein equation of state}, Phys.\ Rev.\ Lett.\ \textbf{75}, 1260 (1995).
+
+\end{thebibliography}
+
+
+% ========================================
+% Appendices
+% ========================================
+\appendix
+
+\section{Record of reasoning: how the conclusions of this paper were reached}
+\label{app:reasoning_record51}
+
+\subsection{Purpose}
+\label{app:purpose51}
+This appendix records the reasoning process, including rejected paths and open problems, so that future readers---human or otherwise---who load this paper as context do not reconstruct erroneous arguments or bypass genuine difficulties.
+
+\subsection{The arcwise-connectivity argument: why it belongs in the main body}
+\label{app:arcwise_rationale}
+The argument of Section~\ref{sec:fixedend} was initially developed as an appendix item. It was elevated to the main body (Section~\ref{sec:fixedend}) for the following reason: the Synge identification---the central proposal of the paper---rests on the phase accumulation functional being a well-defined two-point function. Without existence (arcwise connectivity) and uniqueness (non-antipodality), the functional $\mathcal{S}(x_A,x_B)$ is not well-posed as a function of the endpoints alone. Since the Synge identification is the main result, its foundational prerequisite must appear in the main body, not in an appendix.
+
+\subsection{The two-velocity decomposition: why it is new and why it matters}
+\label{app:twovelocities}
+The identification of two distinct velocity scales---$v_\mathrm{ZB}\approx 0.04c$ transverse and $v_\mathrm{pitch}\sim c$ longitudinal---required rejecting two simpler alternatives.
+
+\textit{Alternative 1: uniform helical speed $c$.} The Dirac and Hestenes treatments assign a single speed $c$ to the helix along all directions. This was the natural starting point. It was rejected because the 0-Sphere model derives $v_\mathrm{ZB}$ independently from $\gamma = 1+a_e$~\cite{hanamura10}, and $v_\mathrm{ZB}\approx 0.04c$ is not $c$. A uniform-speed helix would require discarding the most precise numerical prediction of the model.
+
+\textit{Alternative 2: treat the two scales as independent parameters.} One could introduce $v_\mathrm{ZB}$ and $v_\mathrm{pitch}$ as free inputs and fit them to experiment. This was rejected because both scales have independent geometric derivations within the two-kernel architecture (Section~\ref{subsec:twovelocities}), and consistency between the two derivations is a non-trivial check. Treating them as free parameters would conceal this consistency.
+
+The correct resolution is that the two scales arise from \emph{different physical origins}: the transverse scale from the anomalous magnetic moment through the Lorentz factor $\gamma = 1+a_e$, the longitudinal scale from the Compton-wavelength kernel separation $\Delta x\sim\lambdaC$ and the ZB oscillation frequency $\omZB$. Both are derived, not postulated.
+
+\subsection{The metric proposal: status and open problems}
+\label{app:metric_status}
+The proposal $g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}_s\big|_{x_A=x_B}$ is the most speculative result of this paper. Its current status is that of a structurally motivated proposal, not a proved theorem. Table~\ref{tab:metric_status} records what has been established, what remains open, and the condition required for each open item to be resolved.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Status of the metric-emergence proposal $g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\mathcal{S}_s\big|_{x_A=x_B}$}}
+\label{tab:metric_status}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{6.8cm}p{2.4cm}p{7.0cm}}
+\toprule
+\textbf{Item} & \textbf{Status} & \textbf{Condition for elevation to theorem} \\
+\midrule
+$\mathcal{S}(x_A,x_B)$ satisfies the structural axioms of Synge's world function (symmetry, $\mathcal{S}(x,x)=0$, correct coincidence behaviour)
+& \checkmark\ Established
+& --- \\
+\addlinespace[0.3cm]
+Flat-space limit: $\mathcal{S}\propto\omZB\int d\tau \propto \eta_{\mu\nu}\Delta x^\mu\Delta x^\nu$ to leading order
+& \checkmark\ Established\textsuperscript{a}
+& --- \\
+\addlinespace[0.3cm]
+Synge's reconstruction theorem applies formally to $\mathcal{S}_s$
+& \checkmark\ Established
+& --- \\
+\addlinespace[0.3cm]
+Existence and uniqueness of the extremal arc $\Gamma_\mathrm{ext}(x_A,x_B)$ (flat-space / photon-sphere geometry)
+& \checkmark\ Established (§~\ref{sec:fixedend})
+& Curved-spacetime generalization: variational uniqueness proof with non-trivial $g_{\mu\nu}$ \\
+\addlinespace[0.3cm]
+Explicit computation of $\partial_{A\mu}\partial_{B\nu}\mathcal{S}_s$ beyond the flat-space limit
+& $\triangle$\ Open
+& Analytic or numerical evaluation of the mixed second derivatives for a specified non-trivial Berry connection $\mathcal{A}_\mu$ \\
+\addlinespace[0.3cm]
+Relation between Berry curvature $\mathcal{F}_{\mu\nu} = \partial_\mu\mathcal{A}_\nu - \partial_\nu\mathcal{A}_\mu$ and the Riemann tensor of the emergent $g_{\mu\nu}$
+& $\triangle$\ Open
+& A bridge equation connecting $\mathcal{F}_{\mu\nu}$ to $R^\rho{}_{\sigma\mu\nu}(g_{\mu\nu})$; required to verify that the emergent geometry is Riemannian \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The four established items confirm that the proposal is formally well-posed, that the uniqueness prerequisite is satisfied in the photon-sphere (flat) geometry, and that the proposal reduces correctly in the flat-space limit. The two open items are necessary conditions for the proposal to be elevated from a structurally motivated conjecture to a proved theorem; each defines a self-contained task for subsequent work. \textsuperscript{a}The leading-order check confirms $\mathcal{S}\propto L(x_A,x_B)$; the explicit second-derivative computation closing the flat-space consistency check is listed separately as an open item because it has not yet been carried out analytically.
+\end{minipage}
+\end{table*}
+
+\subsection{The $\gamma$-matrix algebra: the question is ill-posed as stated}
+\label{app:gamma_matrix}
+During the development of Section~\ref{sec:discussion}, the question arose whether the helical trajectory is isomorphic to the $\gamma$-matrix algebra. This question was found to be ill-posed in the same way identified in the companion paper~\cite{hanamura50}. The $\gamma$-matrices presuppose a field-theoretic ontology that the 0-Sphere line-integral program aims to replace. Asking ``is the helical geometry isomorphic to the $\gamma$-algebra?'' imports the field-theoretic framework as the standard of judgment.
+
+The correct restatement is: \emph{can the $\gamma$-matrix algebra be derived as a limit or approximation of the Berry-connection line-integral structure of the helical trajectory?} If the answer is yes, the $\gamma$-matrices emerge as a derived algebraic encoding of the geometry, and the correspondence becomes a theorem. This restatement---$\gamma$-algebra as output, not input---is the correct entry point for future work.
+
+\subsection{Open problems inherited from the companion paper}
+\label{app:inherited}
+The following open problems from~\cite{hanamura50} directly constrain the present paper's scope and are recorded here to prevent circular resolution.
+
+\textit{(i) Covariant definition of the rotation plane.} The companion paper grades this $\triangle$: the rotation plane is currently fixed as the $yz$-plane for propagation along $x$, which is a frame-specific convention. A fully covariant formulation is deferred. The helical trajectory of the present paper inherits this limitation: the helix axis is currently taken along $x$, and the covariant generalization of the helical geometry to arbitrary propagation directions is not provided here.
+
+\textit{(ii) The $v_\mathrm{ZB}$ derivation depends on an external input.} The companion paper grades this $\triangle$: $v_\mathrm{ZB}$ is imported from~\cite{hanamura10} rather than re-derived. The present paper uses $v_\mathrm{ZB}$ extensively and inherits this limitation.
+
+\textit{(iii) Neutrino DOF (genuine 2 internal DOF).} The companion paper established that the neutrino carries genuine 2 internal DOF when $\omega_A\neq\omega_B$, as distinct from the electron's 1 internal DOF. The present paper's helical construction applies to the electron ($\omega_A=\omega_B$) and does not extend to the neutrino case. The helical geometry for $\omega_A\neq\omega_B$ (Lissajous helix) and its fixed-endpoint line integral are open problems.
+
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Bonnet--Myers theorem versus geodesic focusing in general relativity}}
+\label{tab:bonnet_vs_focusing}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.0cm}p{5.5cm}p{5.5cm}}
+\toprule
+\textbf{Aspect} & \textbf{GR geodesic focusing} & \textbf{Bonnet--Myers (this paper)} \\
+\midrule
+Mechanism
+& Positive curvature $\to$ geodesics converge (dynamic)
+& Positive curvature $\to$ diameter bounded (static theorem) \\
+\addlinespace[0.3cm]
+Geometry
+& Lorentzian spacetime
+& Riemannian manifold (photon sphere) \\
+\addlinespace[0.3cm]
+Result
+& Singularity theorems; caustics
+& Confinement domain $\mathcal{D}$ with $|\mathcal{D}| \sim \lambdaC$ \\
+\addlinespace[0.3cm]
+Character
+& Differential equation + energy condition
+& Inequality + intrinsic curvature \\
+\addlinespace[0.3cm]
+Role in physics
+& Central to GR, black hole physics
+& Rare in mainstream physics; used here as geometric confinement principle \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Both geodesic focusing and the Bonnet--Myers theorem express the same underlying geometric intuition---positive curvature suppresses spatial spreading---but in different mathematical and physical registers. Geodesic focusing is dynamic and lives in Lorentzian spacetime; Bonnet--Myers is a static inequality on Riemannian manifolds. The singularity theorems use focusing to show that spacetime cannot be extended indefinitely; the present paper uses Bonnet--Myers to show that the photon-sphere manifold cannot extend beyond $\pi r \sim \lambdaC$.
+\end{minipage}
+\end{table*}
+
+
+% ========================================
+\section{Interpretational Status of the Photon-Sphere Curvature: Modeling Choices and Considered Alternatives}
+\label{app:curvature_interpretation}
+% ========================================
+
+\subsection{Historical and physical context of the Bonnet--Myers theorem}
+\label{app:bonnet_history}
+
+The Bonnet--Myers theorem is a result of global Riemannian geometry: a complete Riemannian manifold with Ricci curvature bounded below by $K>0$ has finite diameter, bounded by $\pi/\sqrt{K}$. Its conceptual content is that \emph{positive curvature compels spatial finiteness}---a manifold cannot spread indefinitely if it curves sufficiently inward.
+
+In the development of general relativity, this theorem played no central role. Einstein's equations relate the Einstein tensor $G_{\mu\nu}$ to the stress-energy tensor $T_{\mu\nu}$, and the focus was on the dynamics of the spacetime metric under matter and energy: how curvature drives geodesic motion, and how matter determines curvature. The global question of \emph{whether spacetime is bounded in size} entered GR only later, through the Hawking--Penrose singularity theorems, which exploit the closely related phenomenon of \emph{geodesic focusing}: positive curvature causes neighboring geodesics to converge, eventually producing caustics or singularities. Table~\ref{tab:bonnet_vs_focusing} contrasts these two manifestations of the same underlying idea.
+
+In quantum field theory, the Bonnet--Myers theorem is rarely invoked directly: the background is usually flat or perturbatively curved, and the primary objects are fields, interactions, and symmetries rather than global geometric bounds. In string theory, compact internal dimensions do use curvature conditions, but typically in the Ricci-flat direction (Calabi--Yau manifolds with special holonomy), which is the \emph{opposite} curvature regime from Bonnet--Myers.
+
+The application of Bonnet--Myers in the present paper therefore constitutes a \emph{conceptual redeployment} of an established mathematical theorem in a new physical context: \emph{curvature $\to$ diameter bound $\to$ confinement domain}. This chain does not appear in GR, QFT, or string theory in this form. Its closest conceptual ancestor is geodesic focusing, but the present use is static and concerns an internal model manifold rather than the ambient spacetime. The novelty lies not in the theorem itself---which is classical Riemannian geometry---but in identifying the photon-sphere geometry as the domain where the theorem's conditions are naturally met and its conclusion directly yields a physically meaningful bound.
+
+
+\subsection{The question}
+
+Section~\ref{subsec:bonnet_myers} introduces the Ricci curvature lower bound $K \sim r^{-2} \sim \lambdaC^{-2}$ as the condition required to activate the Bonnet--Myers theorem, deriving it from the model geometry of $S^n$ of radius $r \sim \lambdaC$. This derivation is geometrically self-contained. However, a natural question arises: can the positive curvature be independently motivated from the \emph{physical dynamics} of the photon sphere, rather than from its geometric model? The present appendix records the interpretational alternatives that were considered, the reasons each was adopted or not adopted, and the resulting open task. The purpose is not to undermine the derivation in Section~\ref{subsec:bonnet_myers}---which stands independently---but to clarify the scope of what has been established and to prevent future work from reconstructing paths that have already been examined.
+
+\subsection{Adopted position: curvature from model geometry}
+
+The positive curvature $K \sim r^{-2}$ is adopted as a \emph{geometric modeling choice}: the photon sphere is modeled as $S^n$ of radius $r \sim \lambdaC$, and an $n$-sphere of radius $r$ has Ricci curvature $(n-1)/r^2$ by definition. No additional dynamical input is required. This is the minimal assumption that activates Bonnet--Myers and delivers the diameter bound $\mathrm{diam}(S^n_{\lambdaC}) \leq \pi r \sim \lambdaC$. The separation between mathematical machinery (Bonnet--Myers) and physical interpretation is deliberately maintained throughout Section~\ref{sec:fixedend}.
+
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Interpretational status of the photon-sphere curvature assumption}}
+\label{tab:curvature_choices}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.0cm}p{2.5cm}p{9.0cm}}
+\toprule
+\textbf{Position} & \textbf{Status} & \textbf{Reason} \\
+\midrule
+$K \sim r^{-2}$ from $S^n$ model geometry
+& \checkmark\ Adopted
+& Geometrically self-contained; minimal assumption sufficient to activate Bonnet--Myers; no dynamical input required \\
+\addlinespace[0.3cm]
+$K$ from ZB oscillation dynamics
+& $\blacksquare$\ Open task
+& Requires bridge between intrinsic manifold curvature and spacetime Ricci tensor via internal kinematics; derivation beyond present scope \\
+\addlinespace[0.3cm]
+$K$ from strong energy condition
+& $\times$\ Not adopted
+& Layer mismatch (spacetime vs.\ manifold curvature); strong energy condition fragile in quantum regime; structurally mismatched to non-perturbative framework \\
+\addlinespace[0.3cm]
+Physical interpretation (permissible)
+& \checkmark\ Adopted
+& Curvature described as geometric encoding of boundedness, without asserting causal derivation from dynamics \\
+\addlinespace[0.3cm]
+Causal claim (ZB $\to$ curvature)
+& $\times$\ Not adopted
+& Asserts underived causal connection; not established within present scope \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Status grades: \checkmark\ adopted and used in the derivation of Section~\ref{subsec:bonnet_myers}. $\blacksquare$\ open task: a well-posed future problem whose resolution would convert the current modeling postulate into a theorem. $\times$\ not adopted: the path was examined and found to be either structurally mismatched or to require an underived causal step.
+\end{minipage}
+\end{table*}
+
+
+\subsection{Alternative A: oscillatory dynamics as the origin of positive curvature}
+
+\textit{Proposal.} The photon sphere executes internal oscillations at the Zitterbewegung speed $v_\mathrm{ZB} \approx 0.04c$. One may ask whether this oscillatory dynamics itself generates positive curvature through a dynamical mechanism, so that the curvature bound $K \sim r^{-2}$ would follow from the kinematics rather than from a modeling postulate.
+
+\textit{Evaluation.} This proposal is not adopted in the present paper. The difficulty is that connecting internal oscillatory dynamics to a Ricci curvature lower bound requires passing through an equation of the form $G_{\mu\nu} = 8\pi T_{\mu\nu}$ (or its analog), which involves the \emph{spacetime} Ricci tensor, not the intrinsic curvature of the photon-sphere manifold. These are geometrically distinct objects: the Ricci curvature used in Bonnet--Myers is an intrinsic property of the photon-sphere model manifold $S^n$, whereas the curvature induced by energy--momentum belongs to the embedding spacetime. Establishing a bridge between the two would require a derivation that lies outside the present scope.
+
+\textit{Status.} This alternative is recorded as an \emph{open task}: to derive the effective Ricci lower bound $K \sim \lambdaC^{-2}$ of the photon-sphere manifold from the internal Zitterbewegung dynamics, without modeling the manifold as $S^n$ a priori. A full dynamical derivation along these lines would convert the current geometric modeling postulate into a theorem.
+
+
+\subsection{Alternative B: effective energy density via the strong energy condition}
+
+\textit{Proposal.} The photon sphere carries an internal energy density associated with the thermal kernel structure and the Zitterbewegung energy $E_0 \approx 20.7\,\mathrm{keV}$. One may attempt to use the strong energy condition ($T_{\mu\nu}v^\mu v^\nu \geq 0$ for all timelike $v^\mu$) to establish $\mathrm{Ric}(v,v) \geq 0$ via the Raychaudhuri equation, and from there obtain the required lower bound.
+
+\textit{Evaluation.} This proposal faces the same layer-separation problem as Alternative~A. The strong energy condition applies to the stress-energy tensor of the embedding spacetime, not to the intrinsic curvature of the photon-sphere model manifold. Moreover, the strong energy condition is known to be violated by quantum fields in curved spacetime; relying on it as a foundational step would introduce fragility that the present paper deliberately avoids. This alternative is therefore not adopted.
+
+\textit{Status.} Not adopted; not recorded as an open task. The strong energy condition route is considered structurally mismatched to the non-perturbative, background-independent framework of the 0-Sphere programme~\cite{hanamura36}.
+
+\subsection{Physical interpretation: permissible and impermissible statements}
+
+Although neither dynamical alternative is adopted as part of the derivation, a physical interpretation of the curvature is admissible as long as it is clearly separated from the theorem chain. The following statement is consistent with the established results and does not assert a causal connection that has not been derived:
+
+\begin{quote}
+The positive curvature $K \sim r^{-2}$ is a consequence of the model geometry and not an independent dynamical assumption. It is consistent with the physical picture of a photon sphere as a bounded, internally energized structure whose characteristic size is set by the Compton wavelength; the curvature may be regarded as a geometric encoding of this boundedness, though a dynamical derivation of $K$ from the internal kinematics is not provided here.
+\end{quote}
+
+The following statement is \emph{not} permissible within the present paper, because it asserts a causal connection that has not been established:
+
+\begin{quote}
+\textit{(Impermissible)} The Zitterbewegung oscillation at $v_\mathrm{ZB} \approx 0.04c$ produces positive spatial curvature, which activates the Bonnet--Myers theorem.
+\end{quote}
+
+The distinction between these two statements---one interpretational, one causal---is the boundary maintained throughout this paper.
+
+\subsection{Summary of modeling choices}
+
+The preceding subsections examined three candidate approaches to motivating the Ricci curvature lower bound $K \sim r^{-2}$ required by the Bonnet--Myers theorem, and one interpretational question about the permissible scope of physical language. Table~\ref{tab:curvature_choices} collects the outcome of these deliberations in compact form. The table is organized around five positions: the adopted geometric model, two rejected dynamical alternatives, a permissible physical interpretation, and an impermissible causal claim. The status grades---\checkmark\ adopted, $\blacksquare$\ open task, $\times$\ not adopted---follow the convention introduced in the reasoning record of the companion paper~\cite{hanamura50} and are intended to prevent future work from reconstructing paths that have already been examined and found either sufficient or insufficient.
+
+The central lesson of this appendix is the separation of layers: the Bonnet--Myers derivation of Section~\ref{subsec:bonnet_myers} is geometrically self-contained and requires no dynamical input, while the physical interpretation of the curvature as a reflection of the photon sphere's bounded, internally energized character is admissible as commentary but not as a step in the proof chain. The open task---deriving $K \sim \lambdaC^{-2}$ from the Zitterbewegung kinematics without modeling the photon sphere as $S^n$ a priori---is recorded as a well-posed future problem whose resolution would convert the current modeling postulate into a theorem and thereby close the only remaining gap in the arcwise-connectivity argument of Section~\ref{subsec:bonnet_myers}.
+
+\clearpage
+
+\end{document}

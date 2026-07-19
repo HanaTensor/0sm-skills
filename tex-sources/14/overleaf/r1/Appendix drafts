@@ -1,0 +1,56 @@
+% 下記のAppendixは「相対論とゲージ馬の古典論を噛み砕く 松尾p.151より英訳
+
+\section{Appendix}
+\label{Appendix}
+
+\subsection{Comparative Analysis of Special and General Relativistic Lagrangians}
+\label{subsec:lagrangian_analysis}
+
+This section provides supplementary material on inertial forces acting on electrons in non-inertial systems, based on the Dirac equation. The content demonstrates how a rotational inertial force acts to align the spin angular momentum with the axis of rotation when matter is subjected to rotation. The discussion presents the relationship between the Hamiltonian in the rotating frame ($H_{\mathrm{rot}}$) and the Hamiltonian in the inertial frame ($H_0$), where $H_{\mathrm{Cor}}$ represents the gyroscopic effect and $H_{\mathrm{SRC}}$ represents the quantum gyroscopic effect acting on spin angular momentum. It should be noted that the explanations and equations in this section are drawn from conventional theory as found in standard textbooks and are provided for reference purposes only, without direct relevance to the main arguments of this paper.
+
+The theoretical framework for describing electron spin dynamics requires distinct treatments in special and general relativistic contexts. In an inertial frame, the special relativistic Dirac equation serves as our starting point, with its Lagrangian density given by:
+
+\begin{equation}
+    \mathcal{L} = -\bar{\psi}[\gamma^a cp_a + mc^2]\psi.
+    \label{eq:lag_density_special}
+\end{equation}
+
+This Lagrangian employs Dirac gamma matrices $\gamma^a$ that satisfy the anticommutation relations:
+
+\begin{equation}
+    \gamma^a\gamma^b + \gamma^b\gamma^a = 2\eta^{ab}I_{4\times4},
+    \label{eq:dirac_matrices}
+\end{equation}
+where $\psi$ is a four-component spinor field, and the Dirac matrices are expressed in terms of Pauli matrices:
+
+\begin{equation}
+    \gamma^0(x) = i\beta, \quad \gamma^i(x) = i\beta\alpha^i.
+    \label{eq:gamma_matrices}
+\end{equation}
+
+For rotating frames, the transition to general relativity necessitates the introduction of vierbein (tetrad fields). The vierbein, also known as tetrad fields (vierbein, tetrad field), is a mathematical tool that represents gravitational fields and inertial forces in non-inertial systems, serving a role similar to the metric tensor. The vierbein $e^a_\mu$ serves as a fundamental tool bridging special and general relativistic descriptions, connecting the local Minkowski frame to the curved or non-inertial spacetime. In this context, the modified Lagrangian density becomes:
+
+\begin{equation}
+    \mathcal{L} = -\bar{\psi}[i e^\mu_{\,a} \gamma^a c (p_\mu + i\hbar\Gamma_\mu) + mc^2]\psi.
+    \label{eq:modified_lag}
+\end{equation}
+
+
+
+The key differences between equations (\ref{eq:lag_density_special}) and (\ref{eq:modified_lag}) reflect the fundamental transition from special to general relativity:
+
+The differences between equations (\ref{eq:lag_density_special}) and (\ref{eq:modified_lag}) represent fundamental transitions from special to general relativity. The first key difference lies in the introduction of vierbein $e^a_\mu$, which provides a mapping between coordinate and local Lorentz frames. The second difference appears in the spin connection term $\Gamma_\mu$, which accounts for how spacetime curvature or non-inertial forces affect spin. The third distinction involves the modification of the momentum operator to incorporate both orbital and spin contributions, reflecting the complete dynamics of the system in non-inertial frames.
+
+Through perturbation theory, this general relativistic Lagrangian leads to the Hamiltonian in a rotating frame:
+
+\begin{equation}
+    H_{\text{tot}} = H_0 - \mathbf{L}\cdot\mathbf{\Omega} - \mathbf{S}\cdot\mathbf{\Omega},
+    \label{eq:total_hamiltonian}
+\end{equation}
+where $H_0 = \beta mc^2 + c\boldsymbol{\alpha}\cdot\mathbf{p}$ represents the free-particle Dirac Hamiltonian. The additional terms emerge naturally from the general relativistic treatment: $-\mathbf{L}\cdot\mathbf{\Omega}$ describes the coupling between mechanical angular momentum and rotation, corresponding to classical inertial effects such as the Coriolis force in non-inertial frames, while $-\mathbf{S}\cdot\mathbf{\Omega}$ represents the spin-rotation coupling term that characterizes the interaction between the particle's intrinsic spin angular momentum and the frame's rotation. These coupling terms manifest the fundamental connection between rotational motion and both orbital and spin degrees of freedom in quantum mechanics, demonstrating how general relativistic effects modify the particle's dynamics in rotating frames.
+
+The transformation from equation (\ref{eq:lag_density_special}) to (\ref{eq:modified_lag}) embodies a profound physical principle: the necessity of modifying quantum mechanical operators when transitioning from inertial to non-inertial frames. The vierbein formalism provides the mathematical framework for this modification, ensuring that the physical description remains consistent with both quantum mechanics and general relativity.
+
+This perturbative treatment, while distinct from the author's non-perturbative approach, illuminates how rotation affects electron spin dynamics through the systematic modification of the Lagrangian density and the resultant emergence of spin-rotation coupling terms in the Hamiltonian. The appearance of the spin-rotation coupling term $-\mathbf{S}\cdot\mathbf{\Omega}$ represents a quantum mechanical analog to classical geodetic precession, demonstrating the deep connection between quantum mechanics and general relativity in rotating frames.
+
+Both this conventional approach and the author's treatment share a common feature in incorporating quantum gyroscopic effects. However, they differ significantly in their methodologies: while this perturbative approach derives the Hamiltonian through established general relativistic equations, the author's work uniquely attempts to modify the Zitterbewegung velocity directly using insights from geodetic precession in general relativity. This fundamental difference in approach provides complementary perspectives on the relationship between quantum mechanics and general relativity in describing electron spin dynamics.
