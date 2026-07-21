@@ -1,0 +1,714 @@
+% =====================================================================
+% Paper #67 (working draft) — 0-Sphere Model
+% Corpus slot confirmed from GitHub tex-sources/67 (empty .gitkeep placeholder).
+% Follows #65 (Structural Overview) and #66 (Opus 4.8 / Fable 5 dialogue).
+% wall-practice — 2026-07-21 — to be cross-verified with Fable 5 next.
+% Zenodo DOI reservation / final curate: deferred (User).
+% =====================================================================
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+% 基本パッケージ
+\usepackage{graphicx}
+\usepackage{bm}
+% 量子力学記法
+\usepackage{physics}
+% ハイパーリンク
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+% キャプション設定
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+% 数式番号をセクションごとに
+\numberwithin{equation}{section}
+% タイポグラフィ調整
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+% マイクロタイポグラフィ
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+% \midrule、\addlinespace、\bottomruleを使う
+\usepackage{booktabs}
+\usepackage{enumitem}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+\newtheorem{proposition}[theorem]{Proposition}
+% --- paragraph heading: run-in italic with extra top skip for block readability ---
+\makeatletter
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+    {3mm \@plus 1ex \@minus .2ex}%   前 (block separator)
+    {-1em}%                          後 (負値で run-in 維持)
+    {\normalfont\normalsize\itshape}}
+\makeatother
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+% 色定義 (薄いブルー系 - 学術論文向け)
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+% Pythonスタイル定義
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
+\lstset{style=pythonstyle}
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+% --- Custom Macros ---
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+% Field strength 2-form
+\newcommand{\FF}{\mathbf{F}}
+% Open Wilson line
+\newcommand{\WL}{\mathcal{W}}
+% Hodge dual
+\newcommand{\hodge}{\star}
+\newcommand{\Bloch}{\mathbf{s}}
+
+\begin{document}
+
+\title{One Internal Oscillator: The Symplectic Origin of the Complex Structure, Equivalence to the Dirac Rest Solutions, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\affiliation{Independent Researcher}
+
+\date{\today}
+
+\begin{abstract}
+The 0-Sphere model describes the electron as two black-body kernels and a captured photon, and organizes their energetics around a single trigonometric identity, $E_0=E_0[\cos^4(\omega t/2)+\sin^4(\omega t/2)+\tfrac12\sin^2\omega t]$.
+Two features of this identity have remained unexplained: its relation to the Dirac equation, and the appearance of \emph{fourth} powers of the internal amplitude where relativistic quantum mechanics expects \emph{quadratic} (bilinear) energy densities.
+This paper resolves both, and in doing so ties four previously separate results to one source.
+First, the amplitude implied by the identity---the half-angle rotor $\chi=(\cos\tfrac{\omega t}{2},\sin\tfrac{\omega t}{2})^{\!\top}$---is shown to satisfy a first-order spinor equation $i\partial_t\chi=\tfrac{\omega}{2}\sigma_y\chi$ whose generator squares to $(\omega/2)^2\mathbb{1}$, the rest-frame Dirac square-root of Klein--Gordon; under $\hbar\omega/2=mc^2$ the rotor is proved unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy rest solutions.
+Second, the complex unit entering this equivalence is not imported but generated internally: it is the symplectic complex structure of the model's simple harmonic oscillation, and the oscillator's velocity--acceleration pair coincides component-wise with the Dirac zitterbewegung coherences.
+Third---the central new result---the fourth-power (Stefan--Boltzmann-looking) energy channels are shown to be exactly quadratic forms on the Bloch sphere of the two-level system, $T_{e1}=\tfrac14 E_0(1+s_z)^2$, $T_{e2}=\tfrac14 E_0(1-s_z)^2$, $\gamma^*_{K\!E}=\tfrac12 E_0 s_x^2$, and to be \emph{derivable} from the model's radiation-gradient relation, the oscillator kinetic energy, and energy conservation---without an independent Stefan--Boltzmann postulate.
+The single variable change connecting the quartic and quadratic descriptions is the Hopf (double-cover) map $\chi\mapsto\Bloch=\chi^\dagger\bm{\sigma}\chi$.
+We argue this settles a foundational question of the model---whether the electron's fermionic fourth power is thermodynamic or geometric in origin---in favour of a geometric origin, with the thermodynamic $T^4$ reading a dual re-description of the same quadratic Bloch structure rather than a second, independent origin.
+Relative to the companion construction that builds spin two-valuedness from the square root of the hyperspherical Laplacian on $S^3$~\cite{ref:p64}, these results supply the complex-structure, Bloch-vector, and quartic-derivation content that its operator-theoretic treatment omits, and answer in the affirmative its stated open question of whether the energy identity's square-root signature is more than formal.
+We state the limitations without softening them, and confirm every analytic claim numerically.
+\end{abstract}
+
+\maketitle
+
+\onecolumngrid
+\tableofcontents
+\vspace{0.5\baselineskip}
+\twocolumngrid
+
+\section{Introduction}
+\label{sec:intro}
+
+\subsection{The model and its central identity}
+
+The 0-Sphere model represents the electron not as a point but as a small internal system: two perfect black-body ``kernels'' (bare electrons, treated as spinors) together with a captured photon whose exchange between the kernels binds the structure~\cite{ref:p1}.
+The bookkeeping of the internal energy is carried by one algebraic statement, cited by every subsequent paper of the series,
+\begin{equation}
+E_0 = E_0\!\left[\cos^4\!\tfrac{\omega t}{2} + \sin^4\!\tfrac{\omega t}{2} + \tfrac12\sin^2\!\omega t\right],
+\label{eq:central}
+\end{equation}
+in which the three bracketed terms are read, respectively, as the thermal potential energies of the two kernels and the kinetic energy of the captured (``virtual'') photon,
+\begin{equation}
+\frac{T_{e1}}{E_0}=\cos^4\!\tfrac{\omega t}{2},\quad
+\frac{T_{e2}}{E_0}=\sin^4\!\tfrac{\omega t}{2},\quad
+\frac{\gamma^*_{K\!E}}{E_0}=\tfrac12\sin^2\!\omega t .
+\label{eq:channels}
+\end{equation}
+Because the bracket equals unity for every $\omega$ and every $t$, the total $E_0$ is constant; it is this constancy that the model calls energy conservation.
+The quartic powers are motivated in Ref.~\cite{ref:p1} by analogy with the Stefan--Boltzmann law, under which the energy radiated by a black body scales as the fourth power of temperature; if the ``temperature'' of a kernel is proportional to $\cos(\omega t/2)$ or $\sin(\omega t/2)$, the corresponding energy scales as the fourth power.
+
+\subsection{Two puzzles, and why they matter}
+
+Equation~\eqref{eq:central} is, as an equation, a trigonometric identity: it is true by algebra, independent of any dynamics.
+Its physical content therefore cannot lie in the mere fact that three non-negative terms sum to unity---that is guaranteed---but in the structure it encodes.
+Two features of that structure have never been made explicit, and each is a genuine puzzle for anyone reading the model against standard physics.
+
+\paragraph{Puzzle 1: the half-angle.}
+The energies~\eqref{eq:channels} are built from the \emph{half}-angle $\omega t/2$, whereas the cross term carries the \emph{full} angle $\omega t$.
+A dependence on $\omega t/2$ is the hallmark of a $720^\circ$ (double-cover) periodicity, i.e.\ of a spinor.
+This raises an unavoidable question: what is the relation between Eq.~\eqref{eq:central} and the Dirac equation, the canonical description of a relativistic spin-$\tfrac12$ particle?
+Earlier work took steps---the two kernels were identified with Dirac's positive- and negative-energy solutions~\cite{ref:p7}, the internal motion was modeled as a harmonic oscillation with a sub-luminal zitterbewegung prediction~\cite{ref:p10}, and the spinorial $\theta/2$ character of the quartic terms was named as an open question~\cite{ref:p43}---but no explicit equation of motion for the amplitude underlying Eq.~\eqref{eq:central} was ever written, and ``identification'' was never upgraded to a proof of equivalence.
+
+\paragraph{Puzzle 2: the fourth power.}
+In relativistic quantum mechanics the energy density of a Dirac field is \emph{bilinear}---quadratic in the amplitude $\psi$, of the form $\psi^\dagger H\psi$.
+The 0-Sphere energies~\eqref{eq:channels}, by contrast, are \emph{quartic} in the internal amplitude.
+This is not a cosmetic difference.
+It forces a foundational question about the model's very identity: is the electron's fermionic fourth power a genuine \emph{thermodynamic} law (Stefan--Boltzmann $T^4$), so that the model's black-body language is fundamental and irreducible; or is it a \emph{geometric} artifact of writing energies in the spinor (half-angle) variable, so that the fourth power is a standard quadratic energy seen through the double cover?
+The answer decides whether the 0-Sphere model \emph{contradicts} the bilinear structure of Dirac theory or \emph{embeds} it, and whether ``thermodynamics'' is a primitive of the model or a re-description of spinor geometry.
+We will refer to this as the \emph{root question}.
+
+\subsection{What this paper does}
+
+We resolve both puzzles and connect them.
+Sections~\ref{sec:rotor}--\ref{sec:symplectic} treat Puzzle~1: we write the first-order spinor equation the amplitude obeys (Sec.~\ref{sec:rotor}), prove its unitary equivalence to the Dirac rest solutions (Sec.~\ref{sec:equiv}), and show that the complex unit needed for that equivalence is generated by the model's own harmonic oscillation rather than borrowed from Dirac theory (Sec.~\ref{sec:symplectic}).
+Section~\ref{sec:quartic} treats Puzzle~2 and is the central new contribution: introducing the Bloch (Stokes) vector of the two-level system as the natural full-angle observable, we show that the quartic energy channels are exactly quadratic forms on the Bloch sphere, that they follow from conservation together with the model's own radiation-gradient and oscillator relations, and that the single variable change relating the quartic and quadratic descriptions is the Hopf double-cover map.
+We then argue that this settles the root question in favour of a geometric origin, with thermodynamics a dual reading.
+Section~\ref{sec:ledger} organizes the three internal frequencies, Sec.~\ref{sec:limits} states the limitations, and Sec.~\ref{sec:conclusion} concludes.
+Appendix~\ref{app:numeric} reproduces the numerical verification; Appendix~\ref{app:bloch} gives the explicit Bloch-map algebra and the derivation of the quartic; Appendix~\ref{app:boson} works out the bosonic contrast.
+The presentation is deliberately self-contained and step-by-step, aimed at a reader familiar with the Dirac equation and elementary two-level (Bloch-sphere) quantum mechanics but not with the 0-Sphere series.
+
+\subsection{Relation to the hyperspherical square-root construction}
+\label{sec:rel64}
+
+A companion paper in the series~\cite{ref:p64} constructs the electron's spin two-valuedness by taking the square root of the scalar Laplacian on the spatial three-sphere $S^3\cong SU(2)$.
+There the Dirac operator $\mathcal{D}_{S^3}$ obeys the Lichnerowicz identity $\mathcal{D}_{S^3}^2=-\Delta_{S^3}+R/4$ (with scalar curvature $R=6$ on the unit sphere), its eigenvalues form signed half-integer pairs $\pm(\ell+\tfrac32)$, and the obstruction to choosing one sign globally is exactly the $SU(2)\to SO(3)$ double cover; this yields the $720^\circ$ periodicity and the sign change of $\cos(\theta/2)$ under $\theta\to\theta+2\pi$.
+That treatment is operator-theoretic and Euclidean.
+By its own account it does not employ complex numbers, Bloch or Stokes vectors, or a first-principles derivation of the quartic energy; it leaves open (its Appendix~C) whether the energy identity's square-root signature is ``more than formal,'' and it defers the Wick-rotation bridge from the Euclidean $S^3$ construction to Minkowski dynamics.
+The present paper is the dynamical, Lorentzian-time counterpart to that construction.
+Our square root appears not as a spatial differential operator but as the first-order temporal evolution of the internal clock, Eq.~\eqref{eq:foe}; we supply precisely the complex-structure, Bloch-vector, and quartic-derivation content that Ref.~\cite{ref:p64} omits, and we answer its Appendix~C question in the affirmative (Sec.~\ref{sec:root}).
+We do not claim to construct the Wick bridge itself; rather, the two papers realize the same double cover at the two ends a full bridge would connect---a Euclidean spatial operator on one side, Lorentzian temporal dynamics on the other.
+
+\section{The kernel rotor and its equation of motion}
+\label{sec:rotor}
+
+\subsection{The amplitude behind the identity}
+
+The energies~\eqref{eq:channels} are fourth powers of the two half-angle functions $\cos(\omega t/2)$ and $\sin(\omega t/2)$.
+It is natural to collect these two functions into a single two-component real object, the \emph{kernel rotor},
+\begin{equation}
+\chi(t) \equiv \begin{pmatrix}\cos\tfrac{\omega t}{2}\\[3pt] \sin\tfrac{\omega t}{2}\end{pmatrix},
+\qquad \chi^\dagger\chi = 1 ,
+\label{eq:rotor}
+\end{equation}
+which is normalized for all $t$.
+Its squared components are the (normalized) \emph{occupations} of the two kernels,
+\begin{equation}
+n_1 \equiv \abs{\chi_1}^2=\cos^2\!\tfrac{\omega t}{2},\qquad
+n_2 \equiv \abs{\chi_2}^2=\sin^2\!\tfrac{\omega t}{2},
+\label{eq:occ}
+\end{equation}
+with $n_1+n_2=1$, and the thermal energies are the \emph{squares} of the occupations, $T_{e1}=E_0 n_1^2$ and $T_{e2}=E_0 n_2^2$.
+The rotor is the object the identity is ``about'': the energies are functions of $\chi$, and the double-cover periodicity---$\chi(t+2\pi/\omega)=-\chi(t)$, so that a full $720^\circ$ ($\omega t=4\pi$) is required to return $\chi$ to itself---resides in it.
+
+\subsection{A first-order spinor equation}
+
+Differentiate Eq.~\eqref{eq:rotor} once:
+\begin{equation}
+\dot\chi
+=\frac{\omega}{2}\begin{pmatrix}-\sin\tfrac{\omega t}{2}\\[3pt]\ \cos\tfrac{\omega t}{2}\end{pmatrix}
+=\frac{\omega}{2}\begin{pmatrix}0&-1\\ 1&0\end{pmatrix}\chi .
+\label{eq:deriv}
+\end{equation}
+The real antisymmetric generator can be written in terms of the Pauli matrix $\sigma_y=\left(\begin{smallmatrix}0&-i\\ i&0\end{smallmatrix}\right)$ as $\left(\begin{smallmatrix}0&-1\\ 1&0\end{smallmatrix}\right)=-i\sigma_y$.
+Equation~\eqref{eq:deriv} is therefore exactly a first-order equation of Schr\"odinger/Dirac type,
+\begin{equation}
+i\,\partial_t\chi = H\chi, \qquad H=\frac{\omega}{2}\,\sigma_y ,
+\label{eq:foe}
+\end{equation}
+in units $\hbar=1$ (we restore $\hbar$ where physical energies appear).
+The generator $H$ is Hermitian, with eigenvalues $\pm\omega/2$, and---because any traceless $2\times2$ Hermitian matrix squares to a multiple of the identity---it satisfies
+\begin{equation}
+H^2=\left(\frac{\omega}{2}\right)^{\!2}\mathbb{1}
+\quad\Longrightarrow\quad
+(i\,\partial_t)^2\chi=\left(\frac{\omega}{2}\right)^{\!2}\chi .
+\label{eq:kgroot}
+\end{equation}
+
+\paragraph{Why this is the Dirac structure.}
+The free Dirac equation at rest ($\mathbf{p}=0$) reads $i\hbar\partial_t\psi=\beta mc^2\psi$ with $\beta^2=\mathbb{1}$, so that $(i\hbar\partial_t)^2\psi=(mc^2)^2\psi$: the first-order Dirac operator is a \emph{square root} of the second-order Klein--Gordon operator.
+Equation~\eqref{eq:kgroot} is precisely this square-root relation for a particle of rest energy $\hbar\omega/2$.
+Identifying the positive eigenvalue with the rest energy,
+\begin{equation}
+\boxed{\;\frac{\hbar\omega}{2}=mc^2\;}
+\label{eq:idmass}
+\end{equation}
+makes the eigenvalues of $H$ equal to $\pm mc^2$, reproducing the standard positive/negative Dirac rest energies $E\psi^\pm=\pm mc^2\psi^\pm$ that Ref.~\cite{ref:p7} identified with the two kernels.
+No new postulate has been introduced between Eqs.~\eqref{eq:rotor} and~\eqref{eq:idmass}: writing the identity's amplitude as a rotor and differentiating once already produces the rest-frame Dirac structure.
+The square-root relation~\eqref{eq:kgroot} is the temporal, two-level realization of the Dirac factorization of Klein--Gordon that Ref.~\cite{ref:p64} develops spatially through the hyperspherical Laplacian on $S^3$ (Sec.~\ref{sec:rel64}); here it is a first-order evolution in time rather than an elliptic operator on the sphere.
+
+\section{Unitary equivalence to the Dirac rest solutions}
+\label{sec:equiv}
+
+The rotor~\eqref{eq:rotor} is real, and its component occupations~\eqref{eq:occ} oscillate; the Dirac rest solutions $e^{\mp imc^2t/\hbar}$ are complex, with fixed occupations.
+That these describe the \emph{same} two-level system is not obvious, and we establish it by transforming to the energy eigenbasis of $H$.
+
+The eigenvectors of $H=\tfrac{\omega}{2}\sigma_y$ are
+\begin{align}
+u_{+}&=\frac{1}{\sqrt2}\begin{pmatrix}1\\ i\end{pmatrix}\quad (E_{+}=+\tfrac{\omega}{2}),
+\notag\\
+u_{-}&=\frac{1}{\sqrt2}\begin{pmatrix}1\\ -i\end{pmatrix}\quad (E_{-}=-\tfrac{\omega}{2}).
+\label{eq:eigvec}
+\end{align}
+Projecting the rotor onto this basis, $c_\pm=u_\pm^\dagger\chi(0)=\tfrac{1}{\sqrt2}$ at $t=0$, and evolving each eigenmode by its phase $e^{-iE_\pm t}$, gives the exact decomposition
+\begin{equation}
+\chi(t)=\frac{1}{\sqrt2}\Big[\,e^{-i\omega t/2}\,u_{+}\;+\;e^{+i\omega t/2}\,u_{-}\,\Big].
+\label{eq:decomp}
+\end{equation}
+One verifies Eq.~\eqref{eq:decomp} by expansion: the upper component is $\tfrac12(e^{-i\omega t/2}+e^{+i\omega t/2})=\cos\tfrac{\omega t}{2}$, and the lower is $\tfrac{i}{2}(e^{-i\omega t/2}-e^{+i\omega t/2})=\sin\tfrac{\omega t}{2}$, recovering Eq.~\eqref{eq:rotor}.
+The matrix $U=[\,u_+\ u_-\,]^\dagger$ is a fixed (time-independent) unitary, so Eq.~\eqref{eq:decomp} is a genuine change of basis, not an approximation or a limit.
+Under Eq.~\eqref{eq:idmass} the two coefficients are $e^{\mp i\omega t/2}=e^{\mp imc^2t/\hbar}$: the positive- and negative-energy Dirac rest solutions $\psi^+$ and $\psi^-$.
+We may therefore state:
+
+\begin{theorem}[Rest-frame equivalence]
+\label{thm:equiv}
+The 0-Sphere kernel rotor $\chi(t)$ of Eq.~\eqref{eq:rotor} is unitarily equivalent, via the fixed unitary $U$ diagonalizing $H=\tfrac{\omega}{2}\sigma_y$, to the equal-weight superposition $\tfrac{1}{\sqrt2}(\psi^{+}+\psi^{-})$ of the Dirac positive- and negative-energy rest solutions, provided $\hbar\omega/2=mc^2$.
+The kernel (occupation) basis and the Dirac energy basis are one Hilbert space in two frames related by $U$.
+\end{theorem}
+
+Three physical consequences follow immediately.
+(i) The two branch weights are equal and constant, $\abs{c_\pm}^2=\tfrac12$; what oscillates in the kernel frame---the occupations, hence the thermal energies---is pure relative phase in the energy frame.
+(ii) The mean Hamiltonian vanishes, $\expval{H}{\chi}=\tfrac12E_++\tfrac12E_-=0$, so the symmetric two-kernel state is \emph{not} a stationary free electron (a pure positive-energy branch, $c_-=0$, has $\expval{H}=+mc^2$) but the balanced $\pm$ superposition.
+(iii) An equal superposition of $\pm$ energy branches is exactly the condition under which zitterbewegung appears in standard Dirac theory, since the trembling arises from the interference of the two branches~\cite{ref:schrodinger,ref:thaller}.
+The 0-Sphere electron is thus, in this reduction, the maximally-zitterbewegung state, so the model's insistence on a permanently oscillating internal structure and the standard condition for zitterbewegung coincide rather than conflict.
+
+\section{The complex unit is generated internally}
+\label{sec:symplectic}
+
+Theorem~\ref{thm:equiv} required promoting the real rotor to a complex superposition; the imaginary unit $i$ entered through the eigenvectors~\eqref{eq:eigvec}.
+Had that $i$ to be borrowed from Dirac theory, the equivalence would be a re-basing of standard quantum mechanics rather than a statement internal to the model.
+We show the $i$ is supplied by the model's own dynamics.
+
+\subsection{The internal oscillation is a phase-space rotation}
+
+The 0-Sphere model drives the captured photon as a simple harmonic oscillator by the radiation gradient $\partial_\theta(T_{e2}-T_{e1})=E_0\sin\theta$ (with $\theta=\omega t$), and Ref.~\cite{ref:p10} writes its internal velocity and acceleration as
+\begin{equation}
+v_{\gamma^*}=\cos\omega t,\qquad a_{\gamma^*}=-\sin\omega t .
+\label{eq:va}
+\end{equation}
+These are not two independent sinusoids but the two projections of a single uniform rotation.
+For any harmonic oscillator $\ddot x=-\omega^2 x$, define the complex phase-space amplitude
+\begin{equation}
+\alpha=\sqrt{\tfrac{m\omega}{2\hbar}}\;x+\frac{i}{\sqrt{2m\hbar\omega}}\;p ,
+\label{eq:alphadef}
+\end{equation}
+which combines position and momentum into one complex number.
+Its equation of motion is first-order and diagonal,
+\begin{equation}
+\dot\alpha=-i\omega\,\alpha
+\quad\Longrightarrow\quad
+\alpha(t)=\alpha(0)\,e^{-i\omega t},\quad \abs{\alpha}=\text{const}.
+\label{eq:alpha}
+\end{equation}
+The multiplication by $i$ in Eq.~\eqref{eq:alpha} is the \emph{symplectic complex structure} $J$ on the $(x,p)$ plane: the unique (up to orientation) operator with $J^2=-1$ that rotates phase space along the canonical flow.
+It is intrinsic to the oscillator, not adjoined to it.
+A sinusoid, in this language, is the shadow of a rotation, and the rotation \emph{is} the complex structure: the same object that Eq.~\eqref{eq:decomp} needed.
+
+\subsection{The oscillator components are the Dirac coherences}
+
+The correspondence is not merely one of shared frequency; the components match exactly.
+Evaluating the Pauli coherences of the two-level system in the rotor state~\eqref{eq:rotor},
+\begin{align}
+\expval{\sigma_z}&=\abs{\chi_1}^2-\abs{\chi_2}^2=\cos^2\!\tfrac{\omega t}{2}-\sin^2\!\tfrac{\omega t}{2}=\cos\omega t,
+\notag\\
+\expval{\sigma_x}&=2\,\mathrm{Re}(\chi_1^*\chi_2)=2\cos\tfrac{\omega t}{2}\sin\tfrac{\omega t}{2}=\sin\omega t,
+\label{eq:pauli}
+\end{align}
+so that, comparing with Eq.~\eqref{eq:va},
+\begin{equation}
+(v_{\gamma^*},\,a_{\gamma^*})=(\expval{\sigma_z},\,-\expval{\sigma_x}).
+\label{eq:coh}
+\end{equation}
+The internal oscillator's velocity--acceleration vector traces the same circle, at the same rate $\omega$, as the Dirac zitterbewegung coherence vector.
+Combining Eqs.~\eqref{eq:alpha}--\eqref{eq:coh}: the ``sine wave'' of the radiation gradient $E_0\sin\omega t$ and the ``sine wave'' of Dirac zitterbewegung are projections of one phase-space rotation, and therefore share one complex structure.
+The $i$ of Theorem~\ref{thm:equiv} is supplied by the harmonic dynamics that Eq.~\eqref{eq:central} already presupposes, rather than imported from Dirac theory.
+
+\section{The full-angle variables and the geometric origin of the quartic energy}
+\label{sec:quartic}
+
+We now turn to Puzzle~2, the fourth-power character of the energy, which is the central new result of this paper.
+The strategy is to change from the half-angle amplitude $\chi$ to the natural \emph{full-angle} observable of a two-level system, its Bloch (Stokes) vector, and to ask what the energies look like there.
+
+\subsection{The Bloch vector as the full-angle observable}
+
+For any normalized two-level amplitude $\chi$, the Bloch (Stokes) vector is the set of Pauli expectation values
+\begin{equation}
+\Bloch \equiv \chi^\dagger\bm{\sigma}\chi=(\expval{\sigma_x},\expval{\sigma_y},\expval{\sigma_z}),\qquad \abs{\Bloch}=1 ,
+\label{eq:blochdef}
+\end{equation}
+which for the rotor~\eqref{eq:rotor} evaluates, using Eq.~\eqref{eq:pauli}, to
+\begin{equation}
+\Bloch(t)=(\sin\omega t,\ 0,\ \cos\omega t).
+\label{eq:blochval}
+\end{equation}
+Two points are essential.
+First, $\Bloch$ is \emph{bilinear} in $\chi$---it is the same quadratic-in-amplitude degree as a Dirac energy density---whereas $\chi$ itself is the half-angle spinor.
+Second, $\Bloch$ rotates at the \emph{full} angle $\omega t$ (a great circle in the $x$--$z$ plane, period $2\pi/\omega$), while $\chi$ rotates at $\omega t/2$ (period $4\pi/\omega$).
+The map $\chi\mapsto\Bloch$ is thus two-to-one---it is the Hopf map, the double cover $SU(2)\to SO(3)$---and it is the single change of variables around which this section turns.
+
+\subsection{The energy channels are quadratic forms on the Bloch sphere}
+
+Rewriting the energies~\eqref{eq:channels} in terms of $\Bloch$ is elementary.
+Using $\cos^2(\omega t/2)=(1+\cos\omega t)/2=(1+s_z)/2$ and $\sin^2(\omega t/2)=(1-s_z)/2$, and $\sin^2\omega t=s_x^2$,
+\begin{align}
+T_{e1}&=E_0\,n_1^2=E_0\!\left(\frac{1+s_z}{2}\right)^{\!2}=\tfrac14 E_0(1+s_z)^2,
+\label{eq:Te1q}\\
+T_{e2}&=E_0\,n_2^2=E_0\!\left(\frac{1-s_z}{2}\right)^{\!2}=\tfrac14 E_0(1-s_z)^2,
+\label{eq:Te2q}\\
+\gamma^*_{K\!E}&=\tfrac12 E_0\sin^2\omega t=\tfrac12 E_0\,s_x^2 .
+\label{eq:KEq}
+\end{align}
+Every channel is now a \emph{quadratic form} in the components of the full-angle Bloch vector.
+Their sum reproduces the conservation law directly, using $s_x^2+s_z^2=\abs{\Bloch}^2=1$:
+\begin{equation}
+\frac{T_{e1}+T_{e2}+\gamma^*_{K\!E}}{E_0}=\tfrac12(1+s_z^2)+\tfrac12 s_x^2=\tfrac12(1+\abs{\Bloch}^2)=1 .
+\label{eq:conserv}
+\end{equation}
+The fourth-power appearance of Eq.~\eqref{eq:channels} is therefore \emph{entirely} an artifact of expressing the energies in the half-angle amplitude $\chi$; in the full-angle variable $\Bloch$ the same energies are quadratic, of the bilinear degree standard for a Dirac energy density.
+The quartic and the quadratic descriptions are one structure pulled back through the double cover:
+\begin{equation}
+\underbrace{\text{quartic in }\chi}_{\text{spinor / half-angle}}
+\;=\;
+\underbrace{\text{quadratic in }\Bloch}_{\text{Bloch / full-angle}}
+\;\circ\;
+\underbrace{(\chi\mapsto\Bloch)}_{\text{Hopf double cover}} .
+\label{eq:pullback}
+\end{equation}
+
+\subsection{The quartic is derived, not postulated}
+
+Equations~\eqref{eq:Te1q}--\eqref{eq:KEq} do more than re-express the energies: they show the quartic form is \emph{forced} by the model's own relations, so that no independent Stefan--Boltzmann postulate is needed.
+The inputs are exactly three, and all three are already part of the model.
+
+\begin{enumerate}[leftmargin=1.6em,itemsep=0.25em]
+\item[(i)] \textbf{The radiation-gradient relation}~\cite{ref:p1}, $\partial_\theta(T_{e2}-T_{e1})=E_0\sin\theta$.
+Integrating with $T_{e1}(0)=E_0,\ T_{e2}(0)=0$ gives
+\begin{equation}
+T_{e2}-T_{e1}=-E_0\cos\omega t=-E_0\,s_z .
+\label{eq:diff}
+\end{equation}
+\item[(ii)] \textbf{The oscillator kinetic energy}~\cite{ref:p10}, i.e.\ the simple-harmonic assumption, which makes the captured-photon kinetic energy the quadratic-in-coherence oscillator energy,
+\begin{equation}
+\gamma^*_{K\!E}=\tfrac12 E_0\sin^2\omega t=\tfrac12 E_0\,s_x^2 .
+\label{eq:ke}
+\end{equation}
+\item[(iii)] \textbf{Energy conservation}, $T_{e1}+T_{e2}=E_0-\gamma^*_{K\!E}=E_0\big(1-\tfrac12 s_x^2\big)=\tfrac12 E_0\big(1+s_z^2\big)$, where the last step uses $s_x^2=1-s_z^2$.
+\end{enumerate}
+
+Solving the two linear equations for $T_{e1}$ and $T_{e2}$,
+\begin{align}
+T_{e1}&=\tfrac12\big[(T_{e1}+T_{e2})-(T_{e2}-T_{e1})\big]
+\notag\\
+&=\tfrac12\big[\tfrac12 E_0(1+s_z^2)+E_0 s_z\big]
+=\tfrac14 E_0(1+s_z)^2 ,
+\label{eq:derive}
+\end{align}
+and likewise $T_{e2}=\tfrac14 E_0(1-s_z)^2$.
+Since $\tfrac14(1+\cos\omega t)^2=\cos^4(\omega t/2)$, this is exactly Eq.~\eqref{eq:channels}.
+We record the result as a proposition.
+
+\begin{proposition}[Geometric origin of the quartic]
+\label{prop:quartic}
+Given the radiation-gradient relation~\eqref{eq:diff}, the oscillator kinetic energy~\eqref{eq:ke}, and energy conservation, the thermal energies are uniquely $T_{e1,e2}=\tfrac14 E_0(1\pm s_z)^2$, quadratic forms on the Bloch sphere whose pullback through the double cover $\chi\mapsto\Bloch$ is the quartic $E_0\cos^4(\omega t/2),\ E_0\sin^4(\omega t/2)$.
+No independent Stefan--Boltzmann assumption is used.
+\end{proposition}
+
+\subsection{Resolution of the root question}
+\label{sec:root}
+
+We can now address the root question of Sec.~\ref{sec:intro}: is the electron's fermionic fourth power thermodynamic or geometric in origin?
+
+Proposition~\ref{prop:quartic} shows that the fourth power is \emph{not} an independent physical input.
+It is the double-cover pullback~\eqref{eq:pullback} of a quadratic energy on the Bloch sphere, and that quadratic energy is fixed by conservation together with two relations---\eqref{eq:diff} and~\eqref{eq:ke}---that the model already assumes for other reasons.
+The Stefan--Boltzmann $T^4$ reading remains \emph{consistent}: identifying a kernel temperature $T_i\propto\cos(\omega t/2)$ or $\sin(\omega t/2)$ reproduces the same $\cos^4,\sin^4$.
+But it is no longer \emph{primitive}: the $T^4$ scaling is a re-description of the quadratic Bloch structure, not a second, independent origin.
+
+The dichotomy therefore dissolves into a duality, and one relation is its hinge.
+The load-bearing input~\eqref{eq:diff}, $T_{e2}-T_{e1}=-E_0 s_z$, reads simultaneously as a \emph{thermodynamic} statement (the temperature imbalance of the two black bodies) and as a purely \emph{geometric/kinematic} one (the population inversion $s_z=\expval{\sigma_z}$ of the spinor rotation).
+These are the same function of time in two languages.
+Our conclusion is thus not that thermodynamics is wrong but that it is not fundamental \emph{here}: the fermionic fourth power has a geometric origin---it is the signature of the $SU(2)\to SO(3)$ double cover acting on a standard quadratic energy---and the thermodynamic $T^4$ is the dual reading of that same geometry.
+In the language of Puzzle~2: the 0-Sphere model does not contradict the bilinear structure of Dirac theory; it embeds it, with the apparent quartic being the bilinear seen through the spinor half-angle.
+
+This also answers, in the affirmative, an open question of the hyperspherical square-root paper~\cite{ref:p64}.
+Its Appendix~C notes that the square-root signature of the energy identity parallels Dirac's factorization and asks whether the parallel is ``more than formal.''
+It is: Proposition~\ref{prop:quartic} shows the quartic is the double-cover pullback of a quadratic Bloch energy, \emph{dynamically} realized by the first-order evolution~\eqref{eq:foe} and the symplectic complex structure of Sec.~\ref{sec:symplectic}, with the quartic derived rather than posited.
+The parallel is therefore substantive rather than formal.
+We add a consistency remark: the rotor is, at each instant, a definite point on the Bloch sphere sweeping a great circle, so its equal $\pm$energy superposition is a coherent, deterministic rotation, not a probabilistic mixture; this matches the time-sequential, non-probabilistic reading of the two sheets adopted in Ref.~\cite{ref:p64}, and does not reinstate the simultaneous four-state spin reading that Ref.~\cite{ref:p64} sets aside.
+
+\subsection{Fermion versus boson, unified}
+\label{sec:fermionboson}
+
+The same variable change explains why the fourth power is specific to the electron and absent for the photon.
+The bosonic (photon) identity of the 0-Sphere model~\cite{ref:p38} is the \emph{quadratic}, full-angle statement $\cos^2\theta+\sin^2\theta=1$, with no half-angle, no double cover, and no cross term.
+For the boson, the amplitude is already the full-angle object: its ``Bloch'' description and its amplitude description coincide, so its energy is quadratic in the amplitude with no residue.
+For the fermion, the amplitude is the half-angle rotor $\chi$; its energy is quadratic in the full-angle Bloch vector $\Bloch$, but because $\Bloch$ is itself bilinear in $\chi$, the energy is quartic in the amplitude, and the extra cross term $\tfrac12 E_0 s_x^2$ is exactly the oscillator kinetic energy that has no bosonic analogue.
+The quartic-versus-quadratic distinction between fermion and boson is therefore \emph{the double cover itself}, expressed at the level of energy, and not an independent thermodynamic fact about the electron.
+Table~\ref{tab:fb} summarizes the contrast.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Fermion/boson contrast as a consequence of the double cover}}
+\label{tab:fb}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.4cm}p{5.6cm}p{5.6cm}}
+\toprule
+\textbf{Feature} & \textbf{Boson (photon), Ref.~\cite{ref:p38}} & \textbf{Fermion (electron), this work} \\
+\midrule
+Amplitude angle
+& full angle $\theta$ ($360^\circ$)
+& half angle $\theta/2$ ($720^\circ$, double cover) \\
+\addlinespace[0.3cm]
+Normalization identity
+& $\cos^2\theta+\sin^2\theta=1$ (quadratic)
+& $\cos^4\tfrac{\theta}{2}+\sin^4\tfrac{\theta}{2}+\tfrac12\sin^2\theta=1$ (quartic) \\
+\addlinespace[0.3cm]
+Energy in amplitude
+& quadratic (bilinear)
+& quartic---but quadratic in the Bloch vector $\Bloch$ \\
+\addlinespace[0.3cm]
+Cross term
+& none
+& $\tfrac12 E_0 s_x^2$ = oscillator kinetic energy (zitterbewegung) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The two rows of identities differ only by the half-angle. Squaring the boson identity at half angle, $[\cos^2(\theta/2)+\sin^2(\theta/2)]^2=1$, produces the fermion identity, with the cross term $2\sin^2(\theta/2)\cos^2(\theta/2)=\tfrac12\sin^2\theta$. The fermionic fourth power is the bosonic quadratic composed with the double cover; the extra cross term is the internal kinetic (zitterbewegung) energy, positive-definite and absent for the boson.
+\end{minipage}
+\end{table*}
+
+\section{Frequency ledger}
+\label{sec:ledger}
+
+Three frequencies coexist in the construction, and conflating them is the main hazard in reading the equivalence and the double cover; Table~\ref{tab:ledger} separates them.
+The amplitude phase $e^{\mp i\omega t/2}$ rotates at $\omega/2$; this is the hidden, square-root layer carrying the $720^\circ$ double cover, i.e.\ the single Dirac branch.
+The observable Bloch vector, the radiation gradient, and the zitterbewegung all rotate at $\omega=2mc^2/\hbar$, the energy-gap frequency; this is where the component identity~\eqref{eq:coh} lives and where the two sine waves are genuinely the same rotation.
+The spin generator $\Omega=\tfrac{1}{2c^2}(\mathbf{a}_{\gamma^*}\!\times\mathbf{v}_{\gamma^*})\propto\sin(2\omega t)$~\cite{ref:p10} and the photon kinetic energy $\gamma^*_{K\!E}\propto\sin^2\omega t$ oscillate at $2\omega$, as expected for a quadratic function of an oscillator amplitude.
+The complex structure supplied by the oscillator (Sec.~\ref{sec:symplectic}) is thus, strictly, the $i$ of the observable ($\omega$) layer; the single-branch phase at $\omega/2$ is one further double-cover step beyond it.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Frequency ledger of the internal oscillation}}
+\label{tab:ledger}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{2.6cm}p{4.3cm}p{4.6cm}p{3.4cm}}
+\toprule
+\textbf{Frequency} & \textbf{Carrier} & \textbf{Role} & \textbf{Layer} \\
+\midrule
+$\omega/2$
+& amplitude phase $e^{\mp i\omega t/2}$
+& single Dirac branch $\psi^{\pm}$; square-root of the gap
+& spinor amplitude (hidden) \\
+\addlinespace[0.3cm]
+$\omega$
+& Bloch $\Bloch$; gradient $E_0\sin\omega t$; zitterbewegung
+& observable rotation; component identity Eq.~\eqref{eq:coh}; the shared complex structure
+& observable ($=2mc^2/\hbar$) \\
+\addlinespace[0.3cm]
+$2\omega$
+& $\Omega\propto\sin 2\omega t$; $\gamma^*_{K\!E}\propto\sin^2\omega t$
+& spin generator; photon kinetic energy
+& energy / spin (quadratic) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The three frequencies are tied by the double-cover relation $\omega=2\times(\omega/2)$ and the quadratic-in-amplitude relation $2\omega=2\times\omega$. The identification $\hbar\omega/2=mc^2$ sends the observable rotation $\omega$ to the textbook zitterbewegung frequency $2mc^2/\hbar$. Claims of ``sameness'' between the radiation-gradient sinusoid and the Dirac zitterbewegung refer specifically to the $\omega$ (observable) row.
+\end{minipage}
+\end{table*}
+
+\section{Limitations}
+\label{sec:limits}
+
+We state the boundaries of the results plainly, because each marks where a stronger claim would be unearned.
+
+\paragraph{Rest frame only.}
+Equations~\eqref{eq:foe}--\eqref{eq:coh} and the equivalence of Theorem~\ref{thm:equiv} describe the zero-momentum sector.
+The full Dirac equation requires the kinetic term $c\,\bm{\alpha}\!\cdot\!\mathbf{p}$, Lorentz covariance, and the Clifford algebra $\{\gamma^\mu,\gamma^\nu\}=2\eta^{\mu\nu}$, none of which is derived here.
+What has been matched is the rest energy, the square-root structure, and the zitterbewegung frequency; the momentum dependence and covariance remain open, and the construction is at present a rest-frame reduction, not a derivation of the Dirac equation from internal geometry.
+
+\paragraph{Sign sector, not spin sector.}
+The equivalence is a two-dimensional embedding into the $\pm$energy (sign) subspace at fixed spin.
+The second doubling of the Dirac four-spinor---the spin-up/spin-down $SU(2)$---is not contained in Eq.~\eqref{eq:central} and is carried elsewhere in the model~\cite{ref:p10,ref:p43}.
+``Equivalent to the $\pm$ Dirac solutions'' is a two-of-four correspondence.
+
+\paragraph{The root question is settled up to a shared input.}
+Proposition~\ref{prop:quartic} removes the fourth power as an independent postulate, but the derivation rests on the radiation-gradient relation~\eqref{eq:diff}.
+We have argued that this relation is dual---thermodynamic and geometric at once---so that it does not privilege either origin; a reader who regards Eq.~\eqref{eq:diff} as irreducibly thermodynamic would locate the residual thermodynamic content there.
+Our claim is the precise one that the \emph{fourth power itself} is geometric (a double-cover pullback), not that thermodynamics has been eliminated from the model.
+
+\paragraph{Ontology is not settled by a formal isomorphism.}
+That both sinusoids are shadows of one rotation is a mathematical identity.
+It strengthens the model's realist reading of zitterbewegung but does not establish it: the standard position, that the rest-frame trembling is a representation artifact removed by the Foldy--Wouthuysen transformation~\cite{ref:fw}, remains available, since the physical free electron is a pure positive-energy branch with no trembling.
+The present work resolves the origin of the complex structure and of the quartic; it does not, by itself, decide the reality of the oscillation.
+The model's falsifiable separation from the standard position stays with the sub-luminal prediction $v_{\text{ZB}}\approx0.04\,c$~\cite{ref:p10}, which contradicts the $\pm c$ eigenvalues of the Dirac velocity operator and is the proper place to adjudicate the ontology experimentally.
+
+\paragraph{A residual factor of two.}
+Under Eq.~\eqref{eq:idmass} the two branches carry $\pm mc^2$ and their gap is $\hbar\omega$; if the internal cycle emits one quantum at $\omega$ then $E_0=\hbar\omega=2mc^2$~\cite{ref:p43}, twice the observed rest energy.
+Reconciling $E_0=2mc^2$ with the single-electron rest energy $mc^2$---for instance through a binding contribution $E_{\text{bind}}=E_0/2$ at the emission threshold~\cite{ref:p46}---is a bookkeeping task these results surface but do not close.
+
+\section{Conclusion}
+\label{sec:conclusion}
+
+We have shown, at rest, that the amplitude underlying the 0-Sphere model's central identity is a rotor $\chi$ solving a first-order spinor equation whose generator squares to $(\omega/2)^2\mathbb{1}$; that $\chi$ is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy rest solutions under $\hbar\omega/2=mc^2$; that the complex unit making this equivalence possible is the symplectic structure of the model's internal harmonic oscillation, with the oscillator's velocity--acceleration pair coinciding component-wise with the Dirac zitterbewegung coherences; and---the central new result---that the fourth-power energy channels are quadratic forms on the Bloch sphere, derivable from the model's own radiation-gradient and oscillator relations together with conservation, and related to the quartic amplitude description by the single Hopf double-cover map.
+The threads previously developed apart---the central identity~\cite{ref:p1}, the identification of the kernels with the $\pm$ Dirac branches~\cite{ref:p7}, the harmonic-oscillator kinematics and $\sin2\omega t$ structure~\cite{ref:p10}, the $\theta/2$ spinorial character of the quartic terms~\cite{ref:p43}, and the bosonic quadratic contrast~\cite{ref:p38}---are, at rest, projections of a single phase-space rotation.
+In one sentence: one internal oscillator supplies, from one source, the complex structure $i$, the $\pm$ Dirac rest solutions, zitterbewegung, and---through the double cover---the fermionic fourth power.
+
+On the root question we conclude that the electron's fourth power is geometric in origin: it is the $SU(2)\to SO(3)$ double cover acting on a standard quadratic energy, with the Stefan--Boltzmann $T^4$ reading a dual re-description rather than an independent postulate.
+This does not eliminate thermodynamics from the model but relocates it: what looked like an irreducible $T^4$ law is the spinor geometry of a two-level system seen in the half-angle variable.
+Together with the hyperspherical square-root paper~\cite{ref:p64}, which realizes the same double cover as an elliptic operator on the spatial three-sphere, the present dynamical, complex-analytic treatment supplies the Bloch-vector and first-principles content that the operator-theoretic construction left open, and the two occupy the two ends---Euclidean spatial and Lorentzian temporal---that a full Wick-rotation bridge would join.
+The results leave open---and now sharpen---the covariant upgrade beyond the rest frame, the reconciliation of $E_0=2mc^2$ with $mc^2$, and the experimental adjudication of the reality of the internal oscillation through $v_{\text{ZB}}$.
+Each is now a well-posed problem rather than a gap.
+
+\appendix
+
+\section{Numerical verification}
+\label{app:numeric}
+
+Every analytic claim above was checked numerically; the routine below reproduces the essential checks.
+Block~(1) confirms the first-order equation~\eqref{eq:foe} and the eigenvalues of $H$; block~(2) confirms the equal-weight, counter-rotating decomposition~\eqref{eq:decomp} and the vanishing mean Hamiltonian; block~(3) confirms the component identity~\eqref{eq:coh}; block~(4) confirms that the quartic channels equal the quadratic Bloch forms~\eqref{eq:Te1q}--\eqref{eq:KEq}; and block~(5) confirms that the quartic is recovered from the three inputs of Sec.~\ref{sec:quartic}~C. The symplectic rotation~\eqref{eq:alpha} was verified separately by integrating $\ddot x=-\omega^2 x$ and checking $\arg\alpha=-\omega t$ at constant $\abs{\alpha}$.
+
+\begin{lstlisting}[caption={Verification of Eqs.~\eqref{eq:foe},~\eqref{eq:decomp},~\eqref{eq:coh}, the Bloch forms~\eqref{eq:Te1q}--\eqref{eq:KEq}, and Proposition~\ref{prop:quartic}.}]
+import numpy as np
+sx=np.array([[0,1],[1,0]]); sy=np.array([[0,-1j],[1j,0]]); sz=np.array([[1,0],[0,-1]])
+w=1.0; E0=1.0
+chi=lambda t: np.array([np.cos(w*t/2), np.sin(w*t/2)], dtype=complex)
+
+# (1) first-order equation and H^2=(w/2)^2 1
+dt=1e-6
+for t in np.linspace(0.1,5,7):
+    d=(chi(t+dt)-chi(t-dt))/(2*dt)
+    assert np.max(np.abs(1j*d-(w/2)*sy@chi(t)))<1e-6
+assert np.allclose(np.linalg.eigvalsh((w/2)*sy),[-0.5,0.5])
+
+# (2) decomposition into +-energy branches, |c|^2=1/2, <H>=0
+vals,V=np.linalg.eigh((w/2)*sy)
+for t in np.linspace(0,2*np.pi,9):
+    c=V.conj().T@chi(t)
+    assert np.allclose(np.abs(c)**2,[0.5,0.5])
+    assert abs((chi(t).conj()@((w/2)*sy)@chi(t)).real)<1e-12
+
+# (3) component identity (v,a)=(<sz>,-<sx>)
+for t in np.linspace(0,2*np.pi,9):
+    c=chi(t)
+    assert abs(np.cos(w*t)-(c.conj()@sz@c).real)<1e-12
+    assert abs(-np.sin(w*t)+(c.conj()@sx@c).real)<1e-12
+
+# (4) quartic channels = quadratic Bloch forms
+for t in np.linspace(0,2*np.pi,50):
+    c=chi(t)
+    Sx=(c.conj()@sx@c).real; Sz=(c.conj()@sz@c).real
+    assert abs(E0*np.cos(w*t/2)**4 - E0*((1+Sz)/2)**2)<1e-12
+    assert abs(E0*np.sin(w*t/2)**4 - E0*((1-Sz)/2)**2)<1e-12
+    assert abs(0.5*E0*np.sin(w*t)**2 - 0.5*E0*Sx**2)<1e-12
+
+# (5) quartic DERIVED from (grad)+(osc KE)+(conservation)
+for t in np.linspace(0,2*np.pi,50):
+    c=chi(t)
+    Sx=(c.conj()@sx@c).real; Sz=(c.conj()@sz@c).real
+    KE=0.5*E0*Sx**2                 # oscillator kinetic energy
+    sumTe=E0-KE                     # conservation
+    difTe=-E0*Sz                    # integrated radiation gradient: Te2-Te1
+    Te2=(sumTe+difTe)/2; Te1=(sumTe-difTe)/2
+    assert abs(Te1-E0*np.cos(w*t/2)**4)<1e-12
+    assert abs(Te2-E0*np.sin(w*t/2)**4)<1e-12
+print("all checks passed")
+\end{lstlisting}
+
+\section{The Bloch map and the derivation of the quartic}
+\label{app:bloch}
+
+This appendix collects the elementary algebra used in Sec.~\ref{sec:quartic} in a self-contained form.
+
+\paragraph{Half-angle to full-angle.}
+For the rotor $\chi=(\cos\tfrac{\omega t}{2},\sin\tfrac{\omega t}{2})^{\!\top}$ the occupations are $n_{1,2}=\tfrac12(1\pm\cos\omega t)$, obtained from the half-angle identities $\cos^2(\phi)=\tfrac12(1+\cos2\phi)$, $\sin^2(\phi)=\tfrac12(1-\cos2\phi)$ with $\phi=\omega t/2$.
+Hence $s_z=n_1-n_2=\cos\omega t$ and, from $2\cos\phi\sin\phi=\sin2\phi$, $s_x=\sin\omega t$, while $s_y=0$ because $\chi$ is real.
+This is the two-to-one map: $\chi$ advances by $\omega t/2$, $\Bloch$ by $\omega t$.
+
+\paragraph{Energies as quadratic forms.}
+Substituting $n_1=(1+s_z)/2$ into $T_{e1}=E_0 n_1^2$ gives Eq.~\eqref{eq:Te1q}; likewise $T_{e2}$.
+For the cross term, $\sin^2\omega t=s_x^2$ gives Eq.~\eqref{eq:KEq}.
+The conservation check~\eqref{eq:conserv} uses only $s_x^2+s_z^2=1$.
+
+\paragraph{Uniqueness of the derivation.}
+The linear system in Sec.~\ref{sec:quartic}~C has a unique solution because its two equations---the sum $T_{e1}+T_{e2}$ (fixed by conservation and the oscillator kinetic energy) and the difference $T_{e2}-T_{e1}$ (fixed by the radiation gradient)---determine $T_{e1}$ and $T_{e2}$ separately.
+Equation~\eqref{eq:derive} is the explicit solution, and the coefficient structure $\tfrac14(1\pm s_z)^2$ shows the fourth power in $\chi$ is the square of the linear-in-$s_z$ occupation, i.e.\ the double-cover pullback of a quadratic Bloch form.
+The Stefan--Boltzmann reading assigns $T_i\propto\{\cos,\sin\}(\omega t/2)$ and recovers the same expressions as $E_0 T_i^4$; the two are numerically identical, confirming they are dual descriptions.
+
+\section{The bosonic contrast}
+\label{app:boson}
+
+For completeness we contrast the bosonic (photon) case of the 0-Sphere model~\cite{ref:p38}.
+There the normalization identity is the quadratic, full-angle statement
+\begin{equation}
+\cos^2\theta+\sin^2\theta=1 ,
+\end{equation}
+with $\theta=\omega t$ and no half-angle.
+The photon amplitude is $(\cos\theta,\sin\theta)$ at the \emph{full} angle, so its own ``Bloch'' description coincides with its amplitude description; there is no double cover to pull an energy back through, and the energy is quadratic in the amplitude with no cross term.
+Squaring this identity at half angle,
+\begin{equation}
+\big[\cos^2\tfrac{\theta}{2}+\sin^2\tfrac{\theta}{2}\big]^2
+=\cos^4\tfrac{\theta}{2}+\sin^4\tfrac{\theta}{2}+2\sin^2\tfrac{\theta}{2}\cos^2\tfrac{\theta}{2}
+=1 ,
+\end{equation}
+and using $2\sin^2(\theta/2)\cos^2(\theta/2)=\tfrac12\sin^2\theta$, reproduces the fermionic identity~\eqref{eq:central}.
+This is the algebraic statement of Sec.~\ref{sec:fermionboson}: the fermion identity is the boson identity squared at half angle, so the fourth power and the extra (zitterbewegung) cross term are precisely what the double cover adds.
+
+\begin{thebibliography}{9}
+
+\bibitem{ref:p1}
+S.~Hanamura,
+\emph{A Model of an Electron Including Two Perfect Black Bodies},
+Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{10.5281/zenodo.16759284}.
+
+\bibitem{ref:p7}
+S.~Hanamura,
+\emph{Coexistence of Positive- and Negative-Energy States in the Dirac Framework within the 0-Sphere Model},
+Zenodo, \href{https://doi.org/10.5281/zenodo.17760132}{10.5281/zenodo.17760132}.
+
+\bibitem{ref:p10}
+S.~Hanamura,
+\emph{Redefining Electron Spin and the Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction},
+Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{10.5281/zenodo.17764997}.
+
+\bibitem{ref:p38}
+S.~Hanamura,
+\emph{Electron Interference from Internal Geometry in the 0-Sphere Model},
+Zenodo, \href{https://doi.org/10.5281/zenodo.18718174}{10.5281/zenodo.18718174}.
+
+\bibitem{ref:p43}
+S.~Hanamura,
+\emph{On Observer-Dependent Torsion, Zitterbewegung, and Phase Accumulation in the 0-Sphere Model},
+Zenodo, \href{https://doi.org/10.5281/zenodo.18896784}{10.5281/zenodo.18896784}.
+
+\bibitem{ref:p46}
+S.~Hanamura,
+\emph{Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model},
+Zenodo, \href{https://doi.org/10.5281/zenodo.19010945}{10.5281/zenodo.19010945}.
+
+\bibitem{ref:p63}
+S.~Hanamura,
+\emph{From Line Integral to Covariant Derivative: A Reader's Map for the 0-Sphere Model},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20767589}{10.5281/zenodo.20767589}.
+
+\bibitem{ref:p64}
+S.~Hanamura,
+\emph{The Square Root of the Hyperspherical Laplacian: A Geometric Foundation for Spin Two-Valuedness on $S^3$},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20820646}{10.5281/zenodo.20820646}.
+
+\bibitem{ref:dirac}
+P.~A.~M.~Dirac,
+\emph{The Quantum Theory of the Electron},
+Proc.~R.~Soc.~Lond.~A \textbf{117}, 610 (1928).
+
+\bibitem{ref:schrodinger}
+E.~Schr\"odinger,
+\emph{\"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik},
+Sitzungsber.~Preuss.~Akad.~Wiss.~Phys.-Math.~Kl.\ \textbf{24}, 418 (1930).
+
+\bibitem{ref:fw}
+L.~L.~Foldy and S.~A.~Wouthuysen,
+\emph{On the Dirac Theory of Spin 1/2 Particles and Its Non-Relativistic Limit},
+Phys.~Rev.\ \textbf{78}, 29 (1950).
+
+\bibitem{ref:thaller}
+B.~Thaller,
+\emph{The Dirac Equation}
+(Springer, Berlin, 1992).
+
+\end{thebibliography}
+
+\end{document}
