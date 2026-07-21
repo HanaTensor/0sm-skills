@@ -12,8 +12,6 @@
 \usepackage{bm}
 % 量子力学記法
 \usepackage{physics}
-% 単位行列記号 \mathds{1}（amssymb の \mathbb は数字1グリフを持たないため）
-\usepackage{dsfont}
 % ハイパーリンク
 \usepackage[colorlinks=true,
             linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
@@ -91,7 +89,7 @@
 The 0-Sphere model describes the electron as two black-body kernels and a captured photon, and organizes their energetics around a single trigonometric identity, $E_0=E_0[\cos^4(\omega t/2)+\sin^4(\omega t/2)+\tfrac12\sin^2\omega t]$.
 Two features of this identity have remained unexplained: its relation to the Dirac equation, and the appearance of \emph{fourth} powers of the internal amplitude where relativistic quantum mechanics expects \emph{quadratic} (bilinear) energy densities.
 This paper resolves both, and in doing so ties four previously separate results to one source.
-First, the amplitude implied by the identity---the half-angle rotor $\chi=(\cos\tfrac{\omega t}{2},\sin\tfrac{\omega t}{2})^{\!\top}$---is shown to satisfy a first-order spinor equation $i\partial_t\chi=\tfrac{\omega}{2}\sigma_y\chi$ whose generator squares to $(\omega/2)^2\mathds{1}$, the rest-frame Dirac square-root of Klein--Gordon; under $\hbar\omega/2=mc^2$ the rotor is proved unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy rest solutions.
+First, the amplitude implied by the identity---the half-angle rotor $\chi=(\cos\tfrac{\omega t}{2},\sin\tfrac{\omega t}{2})^{\!\top}$---is shown to satisfy a first-order spinor equation $i\partial_t\chi=\tfrac{\omega}{2}\sigma_y\chi$ whose generator squares to $(\omega/2)^2\openone$, the rest-frame Dirac square-root of Klein--Gordon; under $\hbar\omega/2=mc^2$ the rotor is proved unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy rest solutions.
 Second, the complex unit entering this equivalence is not imported but generated internally: it is the symplectic complex structure of the model's simple harmonic oscillation, and the oscillator's velocity--acceleration pair coincides component-wise with the Dirac zitterbewegung coherences.
 Third---the central new result---the fourth-power (Stefan--Boltzmann-looking) energy channels are shown to be exactly quadratic forms on the Bloch sphere of the two-level system, $T_{e1}=\tfrac14 E_0(1+s_z)^2$, $T_{e2}=\tfrac14 E_0(1-s_z)^2$, $\gamma^*_{K\!E}=\tfrac12 E_0 s_x^2$, and to be \emph{derivable} from the model's radiation-gradient relation, the oscillator kinetic energy, and energy conservation---without an independent Stefan--Boltzmann postulate.
 The single variable change connecting the quartic and quadratic descriptions is the Hopf (double-cover) map $\chi\mapsto\Bloch=\chi^\dagger\bm{\sigma}\chi$.
@@ -209,14 +207,14 @@ i\,\partial_t\chi = H\chi, \qquad H=\frac{\omega}{2}\,\sigma_y ,
 in units $\hbar=1$ (we restore $\hbar$ where physical energies appear).
 The generator $H$ is Hermitian, with eigenvalues $\pm\omega/2$, and---because any traceless $2\times2$ Hermitian matrix squares to a multiple of the identity---it satisfies
 \begin{equation}
-H^2=\left(\frac{\omega}{2}\right)^{\!2}\mathds{1}
+H^2=\left(\frac{\omega}{2}\right)^{\!2}\openone
 \quad\Longrightarrow\quad
 (i\,\partial_t)^2\chi=\left(\frac{\omega}{2}\right)^{\!2}\chi .
 \label{eq:kgroot}
 \end{equation}
 
 \paragraph{Why this is the Dirac structure.}
-The free Dirac equation at rest ($\mathbf{p}=0$) reads $i\hbar\partial_t\psi=\beta mc^2\psi$ with $\beta^2=\mathds{1}$, so that $(i\hbar\partial_t)^2\psi=(mc^2)^2\psi$: the first-order Dirac operator is a \emph{square root} of the second-order Klein--Gordon operator.
+The free Dirac equation at rest ($\mathbf{p}=0$) reads $i\hbar\partial_t\psi=\beta mc^2\psi$ with $\beta^2=\openone$, so that $(i\hbar\partial_t)^2\psi=(mc^2)^2\psi$: the first-order Dirac operator is a \emph{square root} of the second-order Klein--Gordon operator.
 Equation~\eqref{eq:kgroot} is precisely this square-root relation for a particle of rest energy $\hbar\omega/2$.
 Identifying the positive eigenvalue with the rest energy,
 \begin{equation}
@@ -544,7 +542,7 @@ Reconciling $E_0=2mc^2$ with the single-electron rest energy $mc^2$---for instan
 \section{Conclusion}
 \label{sec:conclusion}
 
-We have shown, at rest, that the amplitude underlying the 0-Sphere model's central identity is a rotor $\chi$ solving a first-order spinor equation whose generator squares to $(\omega/2)^2\mathds{1}$; that $\chi$ is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy rest solutions under $\hbar\omega/2=mc^2$; that the complex unit making this equivalence possible is the symplectic structure of the model's internal harmonic oscillation, with the oscillator's velocity--acceleration pair coinciding component-wise with the Dirac zitterbewegung coherences; and---the central new result---that the fourth-power energy channels are quadratic forms on the Bloch sphere, derivable from the model's own radiation-gradient and oscillator relations together with conservation, and related to the quartic amplitude description by the single Hopf double-cover map.
+We have shown, at rest, that the amplitude underlying the 0-Sphere model's central identity is a rotor $\chi$ solving a first-order spinor equation whose generator squares to $(\omega/2)^2\openone$; that $\chi$ is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy rest solutions under $\hbar\omega/2=mc^2$; that the complex unit making this equivalence possible is the symplectic structure of the model's internal harmonic oscillation, with the oscillator's velocity--acceleration pair coinciding component-wise with the Dirac zitterbewegung coherences; and---the central new result---that the fourth-power energy channels are quadratic forms on the Bloch sphere, derivable from the model's own radiation-gradient and oscillator relations together with conservation, and related to the quartic amplitude description by the single Hopf double-cover map.
 The threads previously developed apart---the central identity~\cite{ref:p1}, the identification of the kernels with the $\pm$ Dirac branches~\cite{ref:p7}, the harmonic-oscillator kinematics and $\sin2\omega t$ structure~\cite{ref:p10}, the $\theta/2$ spinorial character of the quartic terms~\cite{ref:p43}, and the bosonic quadratic contrast~\cite{ref:p38}---are, at rest, projections of a single phase-space rotation.
 In one sentence: one internal oscillator supplies, from one source, the complex structure $i$, the $\pm$ Dirac rest solutions, zitterbewegung, and---through the double cover---the fermionic fourth power.
 
