@@ -9,10 +9,11 @@
 | ファイル | 役割 |
 |---|---|
 | `NN/main.tex` | **Zenodo 清書版のみ**(0sm-zenodo-upload スキル発火で生成した納品物。英語コメント化・登録用メモ除去済み)。未清書の番号には置かない — main.tex の有無が「Zenodo 清書済みか否か」のシグナル。 |
-| `NN/main-overleaf.tex` | **Overleaf 原本**(日本語コメント込みの執筆版)。全番号に常設。複数リビジョンある場合は最新 rK のコピー。 |
+| `NN/main-overleaf.tex` | **Overleaf 原本**(日本語コメント込みの執筆版)。#1–#64 に常設。複数リビジョンある場合は最新 rK のコピー。**#65–#67 には置かない**(下記例外を参照)。 |
 | `NN/overleaf/rK/` | Overleaf エクスポート zip の**不可変スナップショット**(図版・付随ファイル込み・無加工)。K = zip プレフィクス `NN-K` のリビジョン。 |
 
 - 複数リビジョン保有: #30 (r1, r2)、#51 (r1: 図版含む全量 / r2: main.tex のみ → main-overleaf.tex は r2 由来)。
+- **#65–#67 は二本立て規約の例外(2026-07-25 User 決定)**: `main.tex` のみを置き、`main-overleaf.tex` は持たない。理由 = この3本では**リポジトリが上流、Overleaf が下流**になったため(User が repo の main.tex を Overleaf へ手動コピペする運用)。従来の #1–#64 は Overleaf が上流だったので原本保存に意味があったが、#65–#67 で同じ物を2つ持つと drift の温床にしかならない。削除内訳: `66/main-overleaf.tex` は 07-19 改訂**前**の旧版だった(コード実体 542 行 vs main.tex 830 行、`\date` に archival revision 表記なし、本文が「outside the numbered corpus」= 採番矛盾の解消前、Appendix B–E 約 288 行と TikZ 重なり修正 693964c が欠落)。`67/main-overleaf.tex` は main.tex と完全一致のため冗長。いずれも git 履歴に残るので復元可能。
 - **Zenodo 自動取得(2026-07-19)**: 各レコードの API(`zenodo.org/api/records/<id>/files/main.tex/content`)から公開版 main.tex を一括取得。#46, #51–62, #64 に新規設置、#28 は改訂公開版(Revised: 2026-02-13)へ更新、#30, #34–45, #47, #48, #50 は既存と完全一致を確認。
 - **スキル清書(2026-07-19)**: #1–12, #63 の main.tex を 0sm-zenodo-upload スキル Step 1(latex-standards.md)で Overleaf 原本から生成(日本語コメント全削除・コメントアウト行削除・英語バナー挿入・明示日付。#1 は Overleaf 内の既存 main_cleanup.tex を採用、#2 は \today → February 24, 2019、#11 は \end{document} 後の作業メモ切除)。本文はコメント除去後のコード実体レベルで原本と一致検証済み。**この 13 本は Zenodo レコード側に tex 未収録**(PDF のみ)— レコード追補時は GitHub のこの main.tex をそのまま使える。
 - **全 63 論文(#1–64、#16 欠番)に main.tex が揃った**。
