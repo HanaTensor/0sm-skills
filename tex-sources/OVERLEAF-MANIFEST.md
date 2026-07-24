@@ -22,7 +22,12 @@
 
 ## 特記事項
 
-- **旧 99-1「Rethinking Particles as Spacetime Oscillators (Research Summary)」は採番せず破棄(2026-07-19)** — コーパスと全面重複のため(User 承認)。**#65 以降(#66, #67 含む)は通常の通番として今後の論文に使用する(欠番にしない)**。#65 = The 0-Sphere Model: A Structural Overview — 2026-07-19 改訂完了・`65/main.tex` 設置済み(#1–#64 対応・DOI 最新化・コンパイル検証済・**Zenodo 未寄託**)。#66 = Dual-Model Deliberation Record(Opus 4.8 × Fable 5 討論記録)— 2026-07-19 枠組み層改訂完了・`66/main.tex` 設置済み(採番記述修正・#63 統合・検算付録 Appendix B・修士課程向け用語集 Appendix C 新設・コンパイル検証済・**Zenodo 未寄託**)。寄託順は #65 → #66(#66 が #65 を参照するため)。#67 は将来用の空スキャフォールド。
+- **旧 99-1「Rethinking Particles as Spacetime Oscillators (Research Summary)」は採番せず破棄(2026-07-19)** — コーパスと全面重複のため(User 承認)。**#65 以降(#66, #67 含む)は通常の通番として今後の論文に使用する(欠番にしない)**。**通番を 2026-07-25 に再割当**(3本とも未寄託のため履歴不要・User 承認)。旧割当 #65=総説 / #66=討論記録 / #67=quartic を、**#65=quartic / #66=討論記録 / #67=総説** に変更。理由:(1) 総説が quartic 論文に実質依存するため、総説を最後に置けば全参照が後方参照になる;(2) 総説が #65・#66 を「in preparation」ではなく正規カタログ行として収録できる;(3) quartic は唯一の一次研究で前方参照ゼロ。**旧マニフェスト記述「#66 が #65 を参照するため」は誤り** — #66 の参考文献は #63 までで総説を引いていない(本文2箇所の番号参照のみ、#67 に更新済み)。
+  - **#65 = One Internal Oscillator**(symplectic 複素構造・Dirac 静止解との等価性・quartic の幾何学的起源)— `65/main.tex`(旧 67/)。Prop.1: 輻射勾配関係+振動子運動エネルギー+保存則から $E_{A,B}=\frac14E_0(1\pm s_z)^2$ を一意導出、Stefan–Boltzmann 仮定不要。**Zenodo 未寄託**・寄託順 1 番目(前方依存ゼロ)。
+  - **#66 = Dual-Model Deliberation Record**(Opus 4.8 × Fable 5)— `66/main.tex` 据置。総説への番号参照を #65→#67 に更新。**Zenodo 未寄託**・寄託順 2 番目。
+  - **#67 = The 0-Sphere Model: A Structural Overview** — `67/main.tex`(旧 65/)。2026-07-25 Opus 5 改訂:§2.1 新設(quartic の二重被覆導出・SB を dual re-description に降格)、#61 の「disjoint empirical inputs」主張を撤回($1+a_p\equiv\mu_p/\mu_N$ より 336 MeV 一致は代数的恒等式)、γ/γ_v 二役を本文昇格、Synge 混合符号・次元・O18 署名問題・O19 先取り連続体・O20 輻射勾配関係を追加(全20課題)、#1–#66 対応に拡張、Group 08 新設。**Zenodo 未寄託**・寄託順 3 番目。
+  - **DOI 未確定**: #65–#67 の DOI は Group 08 で `[pending]` プレースホルダ。**寄託時に3件とも差し替えが必須**。
+  - コンパイル検証(tectonic・2026-07-25): #65 / #66 / #67 とも PDF 生成 OK・未定義参照 0。
 - **off-series/solar-neutrino-dna-recoils/** — Overleaf 名「28-1 Solar Neutrino–Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans」。目録 #28(G/c² 次元整合)とは別物の系列外論文(生物物理)。番号衝突のため未採番のまま退避。採番は User 判断待ち。
 - 目録(index.md)の 63 論文 #1–#64(#16 欠番)は全て Overleaf 原本が揃った。
 
