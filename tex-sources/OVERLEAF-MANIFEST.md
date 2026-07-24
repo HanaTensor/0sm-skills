@@ -27,6 +27,7 @@
   - **#66 = Dual-Model Deliberation Record**(Opus 4.8 × Fable 5)— `66/main.tex` 据置。総説への番号参照を #65→#67 に更新。**Zenodo 未寄託**・寄託順 2 番目。
   - **#67 = The 0-Sphere Model: A Structural Overview** — `67/main.tex`(旧 65/)。2026-07-25 Opus 5 改訂:§2.1 新設(quartic の二重被覆導出・SB を dual re-description に降格)、#61 の「disjoint empirical inputs」主張を撤回($1+a_p\equiv\mu_p/\mu_N$ より 336 MeV 一致は代数的恒等式)、γ/γ_v 二役を本文昇格、Synge 混合符号・次元・O18 署名問題・O19 先取り連続体・O20 輻射勾配関係を追加(全20課題)、#1–#66 対応に拡張、Group 08 新設。**Zenodo 未寄託**・寄託順 3 番目。
   - **DOI 未確定**: #65–#67 の DOI は Group 08 で `[pending]` プレースホルダ。**寄託時に3件とも差し替えが必須**。
+  - **総説の継承方針(2026-07-25 User 決定)**: 構造総説は改訂のたびに**新しい通番と新しい DOI で寄託する**(同一 DOI の version 更新はしない)。理由 = Zenodo を時系列ライブラリとして構築するため。→ 各総説は日付付きスナップショットであり、後続の総説が出た時点で supersede される。この方針は #67 本文(採番 detailbox と §14.1 LLM 読者向け注記)にも明記済み=読者が「この地図は最新か」を判断できるようにするため。次の総説を書く際は #67 を supersede する旨を明記すること。
   - コンパイル検証(tectonic・2026-07-25): #65 / #66 / #67 とも PDF 生成 OK・未定義参照 0。
 - **off-series/solar-neutrino-dna-recoils/** — Overleaf 名「28-1 Solar Neutrino–Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans」。目録 #28(G/c² 次元整合)とは別物の系列外論文(生物物理)。番号衝突のため未採番のまま退避。採番は User 判断待ち。
 - 目録(index.md)の 63 論文 #1–#64(#16 欠番)は全て Overleaf 原本が揃った。
