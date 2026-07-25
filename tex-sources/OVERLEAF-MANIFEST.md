@@ -9,11 +9,11 @@
 | ファイル | 役割 |
 |---|---|
 | `NN/main.tex` | **Zenodo 清書版のみ**(0sm-zenodo-upload スキル発火で生成した納品物。英語コメント化・登録用メモ除去済み)。未清書の番号には置かない — main.tex の有無が「Zenodo 清書済みか否か」のシグナル。 |
-| `NN/main-overleaf.tex` | **Overleaf 原本**(日本語コメント込みの執筆版)。#1–#64 に常設。複数リビジョンある場合は最新 rK のコピー。**#65–#67 には置かない**(下記例外を参照)。 |
+| `NN/main-overleaf.tex` | **Overleaf 原本**(日本語コメント込みの執筆版)。#1–#64 に常設。複数リビジョンある場合は最新 rK のコピー。**#65–#68 には置かない**(下記例外を参照)。 |
 | `NN/overleaf/rK/` | Overleaf エクスポート zip の**不可変スナップショット**(図版・付随ファイル込み・無加工)。K = zip プレフィクス `NN-K` のリビジョン。 |
 
 - 複数リビジョン保有: #30 (r1, r2)、#51 (r1: 図版含む全量 / r2: main.tex のみ → main-overleaf.tex は r2 由来)。
-- **#65–#67 は二本立て規約の例外(2026-07-25 User 決定)**: `main.tex` のみを置き、`main-overleaf.tex` は持たない。理由 = この3本では**リポジトリが上流、Overleaf が下流**になったため(User が repo の main.tex を Overleaf へ手動コピペする運用)。従来の #1–#64 は Overleaf が上流だったので原本保存に意味があったが、#65–#67 で同じ物を2つ持つと drift の温床にしかならない。削除内訳: `66/main-overleaf.tex` は 07-19 改訂**前**の旧版だった(コード実体 542 行 vs main.tex 830 行、`\date` に archival revision 表記なし、本文が「outside the numbered corpus」= 採番矛盾の解消前、Appendix B–E 約 288 行と TikZ 重なり修正 693964c が欠落)。`67/main-overleaf.tex` は main.tex と完全一致のため冗長。いずれも git 履歴に残るので復元可能。
+- **#65–#68 は二本立て規約の例外(2026-07-25 User 決定)**: `main.tex` のみを置き、`main-overleaf.tex` は持たない。理由 = この4本では**リポジトリが上流、Overleaf が下流**になったため(User が repo の main.tex を Overleaf へ手動コピペする運用)。従来の #1–#64 は Overleaf が上流だったので原本保存に意味があったが、#65–#67 で同じ物を2つ持つと drift の温床にしかならない。削除内訳: `66/main-overleaf.tex` は 07-19 改訂**前**の旧版だった(コード実体 542 行 vs main.tex 830 行、`\date` に archival revision 表記なし、本文が「outside the numbered corpus」= 採番矛盾の解消前、Appendix B–E 約 288 行と TikZ 重なり修正 693964c が欠落)。`67/main-overleaf.tex` は main.tex と完全一致のため冗長。いずれも git 履歴に残るので復元可能。
 - **Zenodo 自動取得(2026-07-19)**: 各レコードの API(`zenodo.org/api/records/<id>/files/main.tex/content`)から公開版 main.tex を一括取得。#46, #51–62, #64 に新規設置、#28 は改訂公開版(Revised: 2026-02-13)へ更新、#30, #34–45, #47, #48, #50 は既存と完全一致を確認。
 - **スキル清書(2026-07-19)**: #1–12, #63 の main.tex を 0sm-zenodo-upload スキル Step 1(latex-standards.md)で Overleaf 原本から生成(日本語コメント全削除・コメントアウト行削除・英語バナー挿入・明示日付。#1 は Overleaf 内の既存 main_cleanup.tex を採用、#2 は \today → February 24, 2019、#11 は \end{document} 後の作業メモ切除)。本文はコメント除去後のコード実体レベルで原本と一致検証済み。**この 13 本は Zenodo レコード側に tex 未収録**(PDF のみ)— レコード追補時は GitHub のこの main.tex をそのまま使える。
 - **全 63 論文(#1–64、#16 欠番)に main.tex が揃った**。
@@ -23,13 +23,14 @@
 
 ## 特記事項
 
-- **旧 99-1「Rethinking Particles as Spacetime Oscillators (Research Summary)」は採番せず破棄(2026-07-19)** — コーパスと全面重複のため(User 承認)。**#65 以降(#66, #67 含む)は通常の通番として今後の論文に使用する(欠番にしない)**。**通番を 2026-07-25 に再割当**(3本とも未寄託のため履歴不要・User 承認)。旧割当 #65=総説 / #66=討論記録 / #67=quartic を、**#65=quartic / #66=討論記録 / #67=総説** に変更。理由:(1) 総説が quartic 論文に実質依存するため、総説を最後に置けば全参照が後方参照になる;(2) 総説が #65・#66 を「in preparation」ではなく正規カタログ行として収録できる;(3) quartic は唯一の一次研究で前方参照ゼロ。**旧マニフェスト記述「#66 が #65 を参照するため」は誤り** — #66 の参考文献は #63 までで総説を引いていない(本文2箇所の番号参照のみ、#67 に更新済み)。
+- **旧 99-1「Rethinking Particles as Spacetime Oscillators (Research Summary)」は採番せず破棄(2026-07-19)** — コーパスと全面重複のため(User 承認)。**#65 以降(#66–#68 含む)は通常の通番として今後の論文に使用する(欠番にしない)**。**通番を 2026-07-25 に再割当**(いずれも未寄託のため履歴不要・User 承認)。旧割当 #65=総説 / #66=討論記録 / #67=quartic を、まず **#65=quartic / #66=討論記録 / #67=総説** に変更し、同日さらに **#67=等価原理2試験 / #68=総説** へ移管(理由: #67 が #65・#66 を引用して成立するため後方参照とし、総説はバッチ最後に置いて #67 をカタログできるようにする=総説自身の設計意図どおり)。理由:(1) 総説が quartic 論文に実質依存するため、総説を最後に置けば全参照が後方参照になる;(2) 総説が #65・#66 を「in preparation」ではなく正規カタログ行として収録できる;(3) quartic は唯一の一次研究で前方参照ゼロ。**旧マニフェスト記述「#66 が #65 を参照するため」は誤り** — #66 の参考文献は #63 までで総説を引いていない(本文2箇所の番号参照のみ、#67 に更新済み)。
   - **#65 = One Internal Oscillator**(symplectic 複素構造・Dirac 静止解との等価性・quartic の幾何学的起源)— `65/main.tex`(旧 67/)。Prop.1: 輻射勾配関係+振動子運動エネルギー+保存則から $E_{A,B}=\frac14E_0(1\pm s_z)^2$ を一意導出、Stefan–Boltzmann 仮定不要。**Zenodo 未寄託**・寄託順 1 番目(前方依存ゼロ)。
   - **#66 = Dual-Model Deliberation Record**(Opus 4.8 × Fable 5)— `66/main.tex` 据置。総説への番号参照を #65→#67 に更新。**Zenodo 未寄託**・寄託順 2 番目。
-  - **#67 = The 0-Sphere Model: A Structural Overview** — `67/main.tex`(旧 65/)。2026-07-25 Opus 5 改訂:§2.1 新設(quartic の二重被覆導出・SB を dual re-description に降格)、#61 の「disjoint empirical inputs」主張を撤回($1+a_p\equiv\mu_p/\mu_N$ より 336 MeV 一致は代数的恒等式)、γ/γ_v 二役を本文昇格、Synge 混合符号・次元・O18 署名問題・O19 先取り連続体・O20 輻射勾配関係を追加(全20課題)、#1–#66 対応に拡張、Group 08 新設。**Zenodo 未寄託**・寄託順 3 番目。
-  - **DOI 未確定**: #65–#67 の DOI は Group 08 で `[pending]` プレースホルダ。**寄託時に3件とも差し替えが必須**。
-  - **総説の継承方針(2026-07-25 User 決定)**: 構造総説は改訂のたびに**新しい通番と新しい DOI で寄託する**(同一 DOI の version 更新はしない)。理由 = Zenodo を時系列ライブラリとして構築するため。→ 各総説は日付付きスナップショットであり、後続の総説が出た時点で supersede される。この方針は #67 本文(採番 detailbox と §14.1 LLM 読者向け注記)にも明記済み=読者が「この地図は最新か」を判断できるようにするため。次の総説を書く際は #67 を supersede する旨を明記すること。
-  - コンパイル検証(tectonic・2026-07-25): #65 / #66 / #67 とも PDF 生成 OK・未定義参照 0。
+  - **#67 = Binding Energy, Composition, and the Residual β_ZB**(等価原理2試験＋定式化の出直し宣言)— `67/main.tex` 新規。#52 の λ_C 相殺が届かなかった**束縛**と**組成**を検証: 束縛は合格(F=(E/c²)g·β_ZB、Ω_T=(v_ZB³/4ħc³)E ともに E に厳密線形=束縛エネルギー欠損を自動で担う)、**組成は不合格**(#61 の v_ZB^p≈0.898c により β_ZB が種依存 → η(Ti,Pt)=3.13×10⁻⁵ vs MICROSCOPE 2.7×10⁻¹⁵ = **1.2×10¹⁰ 倍で排除**)。E に非線形な読みは核束縛てこで 3.2×10¹¹ 倍排除。#62 と #63 の両立不能も決着(局所読みは LPI 係数2を要求、Lange et al. 2021 の k_α=14(11)×10⁻⁹ により **10⁸ 倍で排除** → **地平面凍結は遠方観測者の記述に降格＝GR との乖離点ではなくなる**)。診断=4症状は1つの不整合(内部運動学に重力荷を担わせる取り違え)。**線積分シリーズ #29/#30/#31 からの定式化再出発を宣言**、受け入れ条件4件。Dirac 側の副産物: ⟨β⟩=E/mc²(Hellmann–Feynman、Adkins 2008 で既知・先取権主張せず)→ 負エネルギー混入率 = B/2mc²。図3点は TikZ(`67/fig1–3.tikz`、pgfplots 不使用)。**Zenodo 未寄託**・寄託順 3 番目。
+  - **#68 = The 0-Sphere Model: A Structural Overview** — `68/main.tex`(旧 67/、さらに旧 65/)。2026-07-25 Opus 5 改訂:§2.1 新設(quartic の二重被覆導出・SB を dual re-description に降格)、#61 の「disjoint empirical inputs」主張を撤回($1+a_p\equiv\mu_p/\mu_N$ より 336 MeV 一致は代数的恒等式)、γ/γ_v 二役を本文昇格、Synge 混合符号・次元・O18 署名問題・O19 先取り連続体・O20 輻射勾配関係を追加(全20課題)、#1–#67 対応に拡張、Group 08 新設。2026-07-25 追加改訂: #67 を収録(採番 detailbox・Group 08・Waves 節新設・Thread 5 延長・O21/O22 追加=全22課題)、**地平面凍結を「3つの実証的接点」から除去**(4箇所訂正: §3.5 内部時計・§8 capstone・O16・§15 まとめ)。**Zenodo 未寄託**・寄託順 4 番目。
+  - **DOI 未確定**: #65–#68 の DOI は Group 08 で `[pending]` プレースホルダ。**寄託時に4件とも差し替えが必須**。
+  - **総説の継承方針(2026-07-25 User 決定)**: 構造総説は改訂のたびに**新しい通番と新しい DOI で寄託する**(同一 DOI の version 更新はしない)。理由 = Zenodo を時系列ライブラリとして構築するため。→ 各総説は日付付きスナップショットであり、後続の総説が出た時点で supersede される。この方針は #67 本文(採番 detailbox と §14.1 LLM 読者向け注記)にも明記済み=読者が「この地図は最新か」を判断できるようにするため。次の総説を書く際は #68 を supersede する旨を明記すること(#67 は未寄託のまま #68 へスロット移動したため、supersede 関係は発生していない)。
+  - コンパイル検証(tectonic・2026-07-25): #65 / #66 / #67 / #68 とも PDF 生成 OK・未定義参照 0・エラー 0(#67 = 305 KB、#68 = 311 KB)。
 - **off-series/solar-neutrino-dna-recoils/** — Overleaf 名「28-1 Solar Neutrino–Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans」。目録 #28(G/c² 次元整合)とは別物の系列外論文(生物物理)。番号衝突のため未採番のまま退避。採番は User 判断待ち。
 - 目録(index.md)の 63 論文 #1–#64(#16 欠番)は全て Overleaf 原本が揃った。
 

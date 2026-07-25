@@ -1,0 +1,42 @@
+\begin{tikzpicture}[>=Stealth]
+\definecolor{c2}{RGB}{235,104,52}
+\definecolor{c3}{RGB}{27,175,122}
+\definecolor{c1}{RGB}{42,120,214}
+\definecolor{gr}{RGB}{170,175,178}
+\draw[gr!35,line width=0.3pt] (2.550,0.15) -- (2.550,4.900);
+\node[below,font=\scriptsize,gray!75!black] at (2.550,0.15) {$10^{-16}$};
+\draw[gr!35,line width=0.3pt] (4.498,0.15) -- (4.498,4.900);
+\node[below,font=\scriptsize,gray!75!black] at (4.498,0.15) {$10^{-14}$};
+\draw[gr!35,line width=0.3pt] (6.446,0.15) -- (6.446,4.900);
+\node[below,font=\scriptsize,gray!75!black] at (6.446,0.15) {$10^{-12}$};
+\draw[gr!35,line width=0.3pt] (8.393,0.15) -- (8.393,4.900);
+\node[below,font=\scriptsize,gray!75!black] at (8.393,0.15) {$10^{-10}$};
+\draw[gr!35,line width=0.3pt] (10.341,0.15) -- (10.341,4.900);
+\node[below,font=\scriptsize,gray!75!black] at (10.341,0.15) {$10^{-8}$};
+\draw[gr!35,line width=0.3pt] (12.289,0.15) -- (12.289,4.900);
+\node[below,font=\scriptsize,gray!75!black] at (12.289,0.15) {$10^{-6}$};
+\draw[gr!35,line width=0.3pt] (14.237,0.15) -- (14.237,4.900);
+\node[below,font=\scriptsize,gray!75!black] at (14.237,0.15) {$10^{-4}$};
+\draw[gr,line width=0.5pt] (2.550,0.15) -- (15.600,0.15);
+\draw[c2,line width=0.4pt,fill=c2!20,rounded corners=1pt] (2.550,4.180) rectangle (13.182,4.620);
+\node[left,font=\scriptsize] at (2.430,4.400) {Be\,--\,Ti};
+\node[left,font=\scriptsize,c2!62!black] at (13.042,4.400) {$\eta=8.26\times 10^{-6}$};
+\draw[c2,line width=0.4pt,fill=c2!20,rounded corners=1pt] (2.550,3.360) rectangle (13.745,3.800);
+\node[left,font=\scriptsize] at (2.430,3.580) {Ti\,--\,Pt};
+\node[left,font=\scriptsize,c2!62!black] at (13.605,3.580) {$\eta=3.13\times 10^{-5}$};
+\draw[c2,line width=0.4pt,fill=c2!20,rounded corners=1pt] (2.550,2.540) rectangle (13.879,2.980);
+\node[left,font=\scriptsize] at (2.430,2.760) {Al\,--\,Pt};
+\node[left,font=\scriptsize,c2!62!black] at (13.739,2.760) {$\eta=4.29\times 10^{-5}$};
+\draw[c3,line width=0.4pt,fill=c3!20,rounded corners=1pt] (2.550,1.720) rectangle (15.148,2.160);
+\node[left,font=\scriptsize] at (2.430,1.940) {Ti\,--\,Pt};
+\node[left,font=\scriptsize,c3!62!black] at (15.008,1.940) {$\eta=8.64\times 10^{-4}$};
+\draw[c3,line width=0.4pt,fill=c3!20,rounded corners=1pt] (2.550,0.900) rectangle (15.286,1.340);
+\node[left,font=\scriptsize] at (2.430,1.120) {Be\,--\,U};
+\node[left,font=\scriptsize,c3!62!black] at (15.146,1.120) {$\eta=1.20\times 10^{-3}$};
+\draw[c1,line width=1.1pt] (3.944,0.15) -- (3.944,4.900);
+\node[c1,font=\scriptsize,anchor=west] at (4.044,4.840) {MICROSCOPE bound $2.7\times10^{-15}$};
+\node[c2!62!black,font=\scriptsize,anchor=west] at (2.650,3.890) {};
+\node[below,font=\scriptsize\itshape,gray!70!black] at (9.075,-0.30) {E\"otv\"os parameter $\eta$ predicted, versus the measured bound};
+\node[c2!62!black,font=\scriptsize,anchor=west] at (2.550,5.320) {orange: electron sector ($\beta_{\mathrm{ZB}}$ species dependence)};
+\node[c3!62!black,font=\scriptsize,anchor=west] at (10.950,5.320) {green: nuclear sector ($Q\propto E^2$ reading)};
+\end{tikzpicture}
