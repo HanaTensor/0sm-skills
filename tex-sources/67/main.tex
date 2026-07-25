@@ -360,7 +360,8 @@ The present paper adds one structural assumption of its own, stated here so that
 \caption{\textbf{Notation used in this paper}}
 \label{tab:notation}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{p{2.2cm}p{7.2cm}p{5.6cm}}
+\setlength{\tabcolsep}{10pt}
+\begin{tabular}{p{2.2cm}p{8.3cm}p{3.2cm}}
 \toprule
 \textbf{Symbol} & \textbf{Meaning} & \textbf{Source} \\
 \midrule
@@ -369,8 +370,8 @@ $a$, $a_e$, $a_p$
 & experiment~\cite{fan2023,muong2_2025,codata2022} \\
 \addlinespace[0.3cm]
 $\gamma_L = 1+\lvert a\rvert$
-& mass-determining Lorentz factor of the internal motion
-& bridge equation, Paper~\#10 \\
+& mass-determining Lorentz factor of the internal motion; the bridge equation
+& Paper~\#10 \\
 \addlinespace[0.3cm]
 $\gv = 1+\lvert a\rvert/\sqrt{2}$
 & velocity-determining Lorentz factor; the $1/\sqrt{2}$ is the RMS-to-peak ratio
@@ -400,8 +401,8 @@ $\epsilon_2\epsilon_3$
 & per-cycle suppression of fragment ejection, $\sim10^{-5}$
 & Papers~\#34, \#49 \\
 \addlinespace[0.3cm]
-$\gammaD = \sqrt{1-(Z\alpha)^{2}}$
-& exact Dirac $1s$ energy in units of $mc^{2}$, point nucleus
+$\gammaD$
+& exact Dirac $1s$ energy in units of $mc^{2}$, $\gammaD=\sqrt{1-(Z\alpha)^{2}}$, point nucleus
 & standard, Eq.~\eqref{eq:EDirac} \\
 \addlinespace[0.3cm]
 $\eta$
@@ -857,7 +858,8 @@ Table~\ref{tab:verdict} collects the readings of ``gravitational charge'' that t
 \caption{\textbf{Readings of the gravitational charge and the constraint on each}}
 \label{tab:verdict}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{p{3.6cm}p{3.0cm}p{2.2cm}p{3.0cm}p{2.8cm}}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{p{3.2cm}p{2.9cm}p{1.7cm}p{3.4cm}p{3.1cm}}
 \toprule
 \textbf{Reading} & \textbf{Source} & \textbf{Scaling} & \textbf{Strongest constraint} & \textbf{Verdict} \\
 \midrule
@@ -868,31 +870,31 @@ Total energy $E$ alone
 & survives \\
 \addlinespace[0.3cm]
 Fragment energy $\hbar\omZB$
-& Paper~\#49
+& \#49
 & $E^{1}$, $\vZB^{1}$
 & species lever, $1.2\times10^{10}$
 & excluded as written \\
 \addlinespace[0.3cm]
 Thomas vortex $\OmT$
-& Paper~\#58, Eq.~\eqref{eq:OmT}
+& \#58, Eq.~\eqref{eq:OmT}
 & $E^{1}$, $\vZB^{3}$
 & species lever, $1.2\times10^{10}$
 & excluded as written \\
 \addlinespace[0.3cm]
 Force law $mg\,\betaZB$
-& Paper~\#52, Eq.~\eqref{eq:F52}
+& \#52, Eq.~\eqref{eq:F52}
 & $E^{1}$, $\vZB^{1}$
 & species lever, $1.2\times10^{10}$
-& completion must cancel $\betaZB$ \\
+& must cancel $\betaZB$ \\
 \addlinespace[0.3cm]
 Emission power
-& rate $\times$ fragment energy
+& emission picture
 & $E^{2}$
 & nuclear lever, $3.2\times10^{11}$
 & excluded \\
 \addlinespace[0.3cm]
 $\OmT$ with $\vZB \propto E$
-& Paper~\#63 horizon reading
+& \#63, horizon
 & $E^{3}$
 & bound state, $170.7$~keV
 & excluded \\
@@ -1013,7 +1015,8 @@ There is an irony worth stating plainly, because it is the sharpest thing this p
 \caption{\textbf{Four symptoms of a single mismatch}}
 \label{tab:diagnosis}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{p{4.2cm}p{2.0cm}p{4.4cm}p{4.0cm}}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{p{3.9cm}p{2.3cm}p{4.3cm}p{4.0cm}}
 \toprule
 \textbf{Symptom} & \textbf{Source} & \textbf{Internal quantity carrying the charge} & \textbf{How it fails, and by how much} \\
 \midrule
@@ -1027,14 +1030,14 @@ $\OmT \propto \vZB^{3}\,m$
 & the Thomas vortex amplitude
 & composition dependence, excluded by $1.2\times10^{10}$ \\
 \addlinespace[0.3cm]
-Charge read as emission power
+Charge as emission power
 & exchange picture
 & ejection rate $\times$ fragment energy
 & non-linear in $E$, excluded by $3.2\times10^{11}$ \\
 \addlinespace[0.3cm]
-Horizon freezing requires $\vZB \to 0$
+Horizon freezing needs $\vZB\to0$
 & Paper~\#63
-& the internal speed responding to $\Phi$
+& internal speed responding to $\Phi$
 & violates local position invariance, excluded by $10^{8}$ \\
 \addlinespace[0.2cm]
 \bottomrule
