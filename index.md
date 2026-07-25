@@ -4,6 +4,9 @@
 > Total: 63 papers (#1–#64, #16 permanent gap) | Coverage: Nov 2018 – Jun 2026 | All published on Zenodo
 > 正典: DOI は baseline の `context/doi-canonical.md`、個票は `context/papers/NNN.md`(最新 tar は `workspace-baselines/`)。
 > 壁練の入口は [wall-practice-index.md](wall-practice-index.md)。
+> **未寄託バッチ (2026-07-25)**: #65（quartic の幾何学的起源）/ #66（spin-2 討議記録）/ #67（等価原理2試験＋再出発宣言）/ #68（構造総説・#1–#67 回顧）は
+> `tex-sources/` に原稿があり **Zenodo 未寄託・DOI 未取得**。本カタログは寄託済み論文のみを収録。詳細は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)。
+> ⚠️ **#17 の内部速度 0.040374c と核半径 3.43×10⁻²⁵ m は引用しないこと** — 幾何学的歳差／臨界半径に依拠し #28 で訂正済み。正準値は #10 の 0.04047c（#68 訂正ログ参照）。
 
 ## Full Paper Catalog
 
