@@ -1,8 +1,9 @@
 # 0SM 壁練インデックス (wall-practice index)
 
-> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-07-26
+> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-09-06
 > **用途**: skill `0sm-wall-practice` の起動時 fetch 先。**まず §1 を読むこと。**
 > DOI 全表は [index.md](index.md)。一次資料は `tex-sources/NN/main.tex`。個票・派生索引は `workspace-baselines/` の最新 tar。
+> **幹（trunks）**: 派生議論の起点となる自己完結セルは [trunks/README.md](trunks/README.md)。テーマが幹に該当すれば**幹を丸ごと一次入力にする**（§7）。
 
 ---
 
@@ -97,6 +98,7 @@
 | 光学計量, 屈折率, 構成関係, Fermat, 前計量電磁気学 | **幾何学プログラム（N3）** |
 | Einstein 方程式, 整合条件, 応力エネルギー, 導出量 | **幾何学プログラム（N4）** |
 | 弧状連結, 可縮, 対蹠, 埋め込み, 𝒟, Bonnet–Myers | #33 / #51 |
+| 亜光速 ZB, 三層 β 階層, 質量双極子, 熱の双極子, 反跳, 20 keV, 419 eV, 零点＝AMM, 作用の ½, 2πβ | **幹 T1**（trunks/） |
 | 等価原理, WEP, Eötvös, MICROSCOPE, 組成依存, 束縛エネルギー, β_ZB | #67（到達点） |
 | 線積分, Wilson line, holonomy, AB効果, Berry位相, 接続 | 線積分存在論 |
 | 重力, spin-2, メディエータ, photon-sphere fragmentation | 重力媒介（荷の定義としては凍結） |
@@ -115,3 +117,13 @@
 **総説の継承方針**: 改訂のたび**新通番＋新DOI**で寄託する（同一DOI の version 更新はしない）。次の総説は #68 を supersede する旨を明記すること。
 
 **組版**: tectonic のエラー0は「読める」を意味しない。寄託前に必ず PDF ページを目視すること。`array` パッケージの追加は User 承認待ち（狭い列の語間伸びを構造的に解消できる）。
+
+---
+
+## §7 幹（trunks）
+
+壁練の成果のうち派生議論の起点として繰り返し使うものは `trunks/` に**一幹＝一ファイル**で保存する（規約は `trunks/README.md`）。起動時にテーマが幹に該当するなら、幹を丸ごと読んでから始め、結論は幹の枝番号 K.n で締める。幹本体の改訂は新しい日付の版として保存する。
+
+| ID | 日付 | 題 | 状態 |
+|---|---|---|---|
+| **T1** | 2026-09-06 | 亜光速 Zitterbewegung と三層 β 階層：0.04047c 以後の世界（`trunks/T1-2026-09-06-subluminal-zb.md`） | 確定。枝 K1–K12。K2 は §6 の C3 と同一問題 |
