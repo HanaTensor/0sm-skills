@@ -1,12 +1,11 @@
 # 0-Sphere Model — Master Index
 
-> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-07-10 (v9.00)
-> Total: 63 papers (#1–#64, #16 permanent gap) | Coverage: Nov 2018 – Jun 2026 | All published on Zenodo
-> 正典: DOI は baseline の `context/doi-canonical.md`、個票は `context/papers/NNN.md`(最新 tar は `workspace-baselines/`)。
-> 壁練の入口は [wall-practice-index.md](wall-practice-index.md)。**方針・地雷は同ファイル §1/§2 を参照。**
-> **未寄託**: #65–#68 は `tex-sources/` に原稿があり Zenodo 未寄託・DOI 未取得（本カタログは寄託済みのみ収録）。
-> ⚠️ **0.040374c・レプトン臨界半径・それに基づく崩壊の説明は撤回済み**（原因＝GM/c² 脱落・保有8本）。正準値は **#10 の 0.04047c**。詳細は #68 訂正ログ。
-> `tex-sources/` に原稿があり **Zenodo 未寄託・DOI 未取得**。本カタログは寄託済み論文のみを収録。詳細は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)。
+> Repository: `HanaTensor/0sm-skills` | Last updated: 2026-09-07（カタログ本体は v9.00 / 2026-07-10 のまま）
+> **寄託済み 63 本**: #1–#64（#16 永久欠番）、Nov 2018 – Jun 2026、全て Zenodo 公開済み。本カタログはこの 63 本のみを収録する。
+> **未寄託 4 本**: #65–#68 は `tex-sources/` に原稿があり **Zenodo 未寄託・DOI 未取得**。状態は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)。
+> 正典: DOI は baseline の `context/doi-canonical.md`、個票は `context/papers/NNN.md`（最新 tar は `workspace-baselines/`）。
+> 壁練の入口は [wall-practice-index.md](wall-practice-index.md)。**現在地・地雷は同ファイル §0/§2 を参照。** 幹（派生議論の起点セル）は [trunks/](trunks/README.md)。
+> ⚠️ **0.040374c・レプトン臨界半径・それに基づく崩壊の説明は撤回済み**（原因＝GM/c² 脱落・保有8本）。正準値は **#10 の 0.04047c**。詳細は #68 訂正ログと wall-practice-index §2。
 
 ## Full Paper Catalog
 
