@@ -70,3 +70,45 @@ for t in np.linspace(0, np.pi, 7):
     assert abs(f + b - 1) < 1e-12
 print("逆位相・和 = 1（数値走査）... OK")
 print("\n全項目 OK")
+
+# ---------------------------------------------------------------------------
+# 2026-09-14b 追加分（K4・K10・K11）
+# ---------------------------------------------------------------------------
+print("\n== 6. 時間発展とブロッホ球（K4・K10）==")
+t = sp.symbols("t", real=True)
+w = sp.symbols("omega", positive=True)
+th0 = sp.symbols("theta_0", real=True)
+sig_y = sp.Matrix([[0, -sp.I], [sp.I, 0]])
+psi_t = sp.Matrix([sp.cos(th0) * sp.exp(-sp.I * w * t), sp.sin(th0) * sp.exp(sp.I * w * t)])
+def ev(op):
+    return sp.simplify((psi_t.H * op * psi_t)[0])
+eb_t, ex_t, ey_t = ev(beta), ev(alpha), ev(sig_y)
+print("<β>(t)   =", eb_t)
+print("<α_x>(t) =", sp.simplify(ex_t.rewrite(sp.cos)))
+print("<α_y>(t) =", sp.simplify(ey_t.rewrite(sp.cos)))
+assert sp.simplify(eb_t - sp.cos(2 * th0)) == 0
+assert sp.simplify(ex_t - sp.sin(2 * th0) * sp.cos(2 * w * t)) == 0
+assert sp.simplify(ey_t - sp.sin(2 * th0) * sp.sin(2 * w * t)) == 0
+# ラグランジュ（一粒・瞬間）: ブロッホ球条件
+assert sp.simplify(eb_t**2 + ex_t**2 + ey_t**2 - 1) == 0
+print("一粒・瞬間: <β>²+<α_x>²+<α_y>² = 1（ブロッホ球）... OK")
+# オイラー（位相平均）: 一成分の平均が交差項
+avg = sp.integrate(ex_t**2, (t, 0, 2 * sp.pi / (2 * w))) / (2 * sp.pi / (2 * w))
+assert sp.simplify(avg - sp.Rational(1, 2) * sp.sin(2 * th0)**2) == 0
+print("位相平均: mean(<α_x>²) = ½ sin²2θ0 = 交差項（½ は cos² の平均）... OK")
+
+print("\n== 7. 受動的同期反転の二粒子相関（K11）==")
+rng = np.random.default_rng(0)
+N = 400000
+phi = rng.uniform(0, 2 * np.pi, N)       # 共有位相、測定時刻に対して一様
+def E(a, b):
+    A = np.sign(np.cos(phi - a)); B = np.sign(-np.cos(phi - b))   # 一重項: 粒子2は −n
+    return np.mean(A * B)
+print(f"{'角度差':>8} {'同期反転':>10} {'線形':>8} {'量子 -cos':>10}")
+for d in [0, np.pi / 8, np.pi / 4, 3 * np.pi / 8, np.pi / 2, 3 * np.pi / 4]:
+    e = E(0.0, d)
+    lin = -(1 - 2 * d / np.pi)
+    print(f"{d:8.3f} {e:10.3f} {lin:8.3f} {-np.cos(d):10.3f}")
+    assert abs(e - lin) < 5e-3
+print("受動的同期反転 = 角度差に線形（Bell 1964 の反例と同一）。余弦にならない ... 記帳")
+print("\n全項目 OK（09-14b）")
