@@ -110,3 +110,18 @@ for p in range(1,302):
         if int(round(W_sum(p,q)))!=W_char(p,q): bad+=1
 print(f"   有限和 vs 指標式（p,q ≤ 301、q 奇、{n} 通り）: 不一致 {bad}")
 print("   → W ∈ {−1, 0, +1} は定理。奇:奇の符号は q の mod 4 の類で決まる（1:3 → −1、1:5 → +1、3:5 → +1、3:7 → −1）")
+
+# ---------- 2026-09-14d 追加（T2.14 ロンスキアン） ----------
+print("\n12. T2.14: 電荷はロンスキアン Q = (2/ω)(a b' − b a')")
+t_,wA_,wB_,d_=sp.symbols('t omega_A omega_B delta',real=True)
+a_=sp.cos(t_/2); b_=sp.sin(t_/2+d_)
+Wr=sp.simplify(a_*sp.diff(b_,t_)-b_*sp.diff(a_,t_))
+print("   1:1・位相差 δ:  a b' − b a' =",Wr,"  → 2W/ω = cos δ（δ=0 → +1、δ=π → −1、δ=±π/2 → 0）")
+a_=sp.cos(wA_*t_/2); b_=sp.sin(wB_*t_/2)
+print("   離調:  d/dt(a b' − b a') =",sp.factor(sp.simplify(a_*sp.diff(b_,t_,2)-b_*sp.diff(a_,t_,2))),"  → ω_A = ω_B のときのみ保存（Abel）")
+for name,wb in [("1:1",1.0),("黄金比",(1+5**0.5)/2)]:
+    tt=np.linspace(0,4*np.pi*200,2_000_000); a=np.cos(tt/2); b=np.sin(wb*tt/2)
+    da=-0.5*np.sin(tt/2); db=0.5*wb*np.cos(wb*tt/2)
+    Wd=(a*db-b*da)/(a*a+b*b+1e-300)
+    print(f"   {name}: 巻き数 = ∫(ab'−ba')/|z|² dt / 2π = {np.trapezoid(Wd,tt)/(2*np.pi)/200:.4f}、 2⟨ab'−ba'⟩/ω = {2*np.mean(a*db-b*da):.4f}")
+print("   Cauchy–Schwarz: |a b' − b a'| ≤ |z||z'| = ω/2 → |Q| ≤ 1、等号は z' ⊥ z（円）のみ")
