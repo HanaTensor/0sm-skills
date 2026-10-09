@@ -16,7 +16,7 @@ This archive contains the LaTeX source file and the numerical-verification
 script for a research paper of the 0-Sphere Model series (paper #65):
 
 1. main.tex
-   - Main LaTeX source file (36 pages, 22 figures drawn in TikZ, 15 tables,
+   - Main LaTeX source file (37 pages, 22 figures drawn in TikZ, 16 tables,
      106 references)
    - Document class: REVTeX 4-2 (APS/PRB reprint format)
    - Compiler: pdfLaTeX
@@ -37,7 +37,7 @@ script for a research paper of the 0-Sphere Model series (paper #65):
    - Run:  python3 verify65.py   (prints "all checks passed")
 
 3. zenodo_23257458.pdf
-   - Compiled paper (36 pages).
+   - Compiled paper (37 pages).
 
 4. zenodo_23257458_relations.txt
    - Zenodo related-identifier list of this record (relations to earlier
@@ -236,6 +236,12 @@ What the model CAN derive:
   the pair-level radiation gradient cancels, F1 + F2 = 0; the residual
   fraction sin^2(phi/2) at axis angle phi would give the -cos(phi)
   correlation; a fluctuating rate mismatch is read as decoherence.
+  Section VIII.D sets out the pair cancellation in five steps: the two
+  drives as opposite phasors, one turned by the detector angle phi, the
+  remainder 4 sin^2(phi/2) (independent of the instant of measurement), the
+  single identification P_same = sin^2(phi/2), P_opp = cos^2(phi/2), and
+  E(phi) = -cos(phi) at every angle (Table XII), where fixed answers decided
+  at the source give only a straight line.
 - Internal time: transport rate beta m c^2/hbar = 5.0007e18 Hz with
   beta = 0.0404720 from a_e; exactly beta times the branch phase
   m c^2/hbar = 1.2356e20 Hz.
@@ -417,10 +423,12 @@ Tables:
   - Table IX:   Frequency ledger of the internal oscillation (VII.F)
   - Table X:    Maxwell's equations sorted by metric need (VIII.A)
   - Table XI:   The ladder from a single comparison to a field (VIII.C)
-  - Table XII:  Three layers of the electron and what enters at each (VIII.E)
-  - Table XIII: Experimental handles on the claims of this paper (Sec. IX)
-  - Table XIV:  Open problems and where each enters (Sec. X)
-  - Table XV:   Mathematical terms used in the paper (App. E)
+  - Table XII:  Correlation of an entangled pair against the detector angle
+                (VIII.D)
+  - Table XIII: Three layers of the electron and what enters at each (VIII.E)
+  - Table XIV:  Experimental handles on the claims of this paper (Sec. IX)
+  - Table XV:   Open problems and where each enters (Sec. X)
+  - Table XVI:  Mathematical terms used in the paper (App. E)
 
 Figures:
   - 22 figures, all drawn in TikZ inside main.tex (no external image files)

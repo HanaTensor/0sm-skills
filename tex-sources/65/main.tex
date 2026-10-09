@@ -1762,7 +1762,71 @@ Orange dots are electrons; red arrows are comparison maps between their internal
 
 \paragraph{The pair as a cancelled drive.} \textbf{[0SM reading]} Let electron~1 have kernels $A,B$ and electron~2 kernels $C,D$. In an entangled pair the two exchanges run on one common cycle, with equal internal frequency and time phases offset by $180^\circ$, so that at every instant one electron is on sheet~I while the other is on sheet~II of Fig.~\ref{fig:riemann}a. The radiation gradient that drives each photon sphere, $F=E_0\sin\theta$~\cite{ref:p1}, then enters the pair with opposite signs, and the drive of the pair as a whole cancels, $F_1+F_2=0$, while radiation and absorption continue inside each electron. Measured along a common axis, the two electrons give opposite results, whatever the delay between the two measurements, because the order of traversal is fixed for each electron.
 
-\paragraph{Correlations at an angle.} \textbf{[standard]} For two measurement axes at angle $\varphi$, the observed correlation of an entangled pair is $-\cos\varphi$, and the Clauser--Horne--Shimony--Holt combination reaches $2\sqrt2\approx2.83$, above the bound $2$ of every local model~\cite{ref:chsh,ref:aspect82}. \textbf{[0SM reading]} Two equal drives of opposite sign, one turned by $\varphi$, leave the residual $|e^{i\theta}-e^{i(\theta+\varphi)}|^2=4\sin^2(\varphi/2)$, a fraction $\sin^2(\varphi/2)$ of its largest value. If the uncancelled fraction is the weight of equal results and the cancelled fraction $\cos^2(\varphi/2)$ the weight of opposite results, the correlation is $\sin^2(\varphi/2)-\cos^2(\varphi/2)=-\cos\varphi$. The residual depends on both axes at once; it is a property of the pair, which is the non-locality that any model reproducing these correlations must have. Each electron taken alone still gives the two results with equal weight, the condition that no signal is sent.
+\paragraph{The observed law.} \textbf{[standard]} Each of the two electrons is sent to its own detector, and each detector returns $+1$ or $-1$ along its axis. Let the two axes differ by the angle $\varphi$. The correlation $E(\varphi)$ is the average of the product of the two outcomes: $E=+1$ if they always agree, $E=-1$ if they always disagree. For an entangled pair it is observed that
+\begin{equation}
+E(\varphi)=-\cos\varphi .
+\label{eq:Eobs}
+\end{equation}
+A model in which each electron carries its own fixed answer, decided at the source, gives at best the straight line $E=-1+2\varphi/\pi$. The two agree at $\varphi=0$, $\pi/2$ and $\pi$ and differ everywhere else, and the difference is what the Clauser--Horne--Shimony--Holt combination detects: at most $2$ for every local model, $2\sqrt2\approx2.83$ observed~\cite{ref:chsh,ref:aspect82}.
+
+\paragraph{The pair cancellation, step by step.} \textbf{[0SM reading]} The pair of Sec.~\ref{sec:entangle} reproduces Eq.~\eqref{eq:Eobs} in five steps.
+
+\emph{Step 1: the two drives as arrows.} Write the radiation gradient of each electron as a rotating arrow in the plane, a phasor. The two electrons run on one cycle with time phases offset by $180^\circ$, so their arrows point in opposite directions and cancel,
+\begin{equation}
+F_1\propto e^{i\theta},\qquad F_2\propto-e^{i\theta},\qquad F_1+F_2=0 .
+\end{equation}
+
+\emph{Step 2: turning one detector.} Measuring the second electron along an axis turned by $\varphi$ turns its arrow by $\varphi$. The two arrows no longer cancel:
+\begin{equation}
+F_1+F_2\propto e^{i\theta}-e^{i(\theta+\varphi)}=e^{i\theta}\big(1-e^{i\varphi}\big).
+\end{equation}
+
+\emph{Step 3: the size of the remainder.} The energy carried by the remainder is the square of its length. Using $|e^{i\theta}|=1$ and $|1-e^{i\varphi}|^2=(1-\cos\varphi)^2+\sin^2\varphi=2-2\cos\varphi$,
+\begin{equation}
+\big|F_1+F_2\big|^2\propto 2-2\cos\varphi=4\sin^2\!\tfrac{\varphi}{2}.
+\label{eq:residual}
+\end{equation}
+The phase $\theta$ has dropped out. The remainder does not depend on the instant at which the measurement is made, in agreement with the independence of the delay stated above.
+
+\emph{Step 4: the fraction left over.} The largest remainder, $4$, occurs at $\varphi=\pi$, when the two arrows point the same way. Dividing by it, the uncancelled fraction is $\sin^2(\varphi/2)$ and the cancelled fraction is $1-\sin^2(\varphi/2)=\cos^2(\varphi/2)$. The model identifies the uncancelled fraction with the weight of equal outcomes and the cancelled fraction with the weight of opposite outcomes,
+\begin{equation}
+P_{\mathrm{same}}=\sin^2\!\tfrac{\varphi}{2},\qquad P_{\mathrm{opp}}=\cos^2\!\tfrac{\varphi}{2}.
+\label{eq:Psame}
+\end{equation}
+This is the same rule by which the intensity of light passing a polarizer is the square of the transmitted amplitude.
+
+\emph{Step 5: the correlation.} An equal pair contributes $+1$ and an opposite pair $-1$, so
+\begin{equation}
+E(\varphi)=P_{\mathrm{same}}-P_{\mathrm{opp}}=\sin^2\!\tfrac{\varphi}{2}-\cos^2\!\tfrac{\varphi}{2}=-\cos\varphi ,
+\end{equation}
+which is Eq.~\eqref{eq:Eobs} at every angle.
+
+\paragraph{A worked example.} At $\varphi=60^\circ$, $\sin^2 30^\circ=0.25$: the two outcomes agree in $25\%$ of pairs and disagree in $75\%$, so $E=0.25-0.75=-0.50=-\cos60^\circ$. The straight line of a local model gives $-0.33$. Table~\ref{tab:bell} compares the three at five angles.
+
+\begin{table}[t!]
+\centering
+\caption{\textbf{Correlation of an entangled pair against the detector angle}}
+\label{tab:bell}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{1.1cm}p{1.6cm}p{1.9cm}p{2.3cm}}
+\toprule
+\textbf{$\varphi$} & \textbf{Observed $-\cos\varphi$} & \textbf{Pair cancellation, Eq.~\eqref{eq:Psame}} & \textbf{Fixed answers at the source} \\
+\midrule
+$0^\circ$ & $-1$ & $-1$ & $-1$ \\
+$60^\circ$ & $-0.50$ & $-0.50$ & $-0.33$ \\
+$90^\circ$ & $0$ & $0$ & $0$ \\
+$120^\circ$ & $+0.50$ & $+0.50$ & $+0.33$ \\
+$180^\circ$ & $+1$ & $+1$ & $+1$ \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\columnwidth}
+\justifying\footnotesize
+The pair cancellation follows the observed curve at every angle; a model with fixed answers decided at the source follows a straight line and falls short between the special angles.
+\end{minipage}
+\end{table}
+
+\paragraph{What the five steps establish.} Steps 1, 2, 3 and 5 are arithmetic; Step 4 is the single identification. Under that one identification the pair structure of the model reproduces the observed law $-\cos\varphi$ exactly at every angle, whereas a model with fixed answers decided at the source reproduces it under no identification at all. The remainder, Eq.~\eqref{eq:residual}, depends only on $\varphi$, the difference between the two axes: it is a property of the pair and of neither electron alone, which is the global variable of Sec.~\ref{sec:limits}. The identification fixes only the joint weights; for each electron taken alone the two outcomes keep equal weight, so no signal passes from one detector to the other. The mechanism by which a detector field turns the uncancelled fraction into an outcome is the remaining task, the same task as the projection law $\cos^2(\theta/2)$ for a single electron (Table~\ref{tab:open}).
 
 \paragraph{Loss of entanglement.} The pair cancels only while the two exchanges are exactly opposite and run at the same rate. If the two directions are not opposite, or if energy added to one electron changes its rate, the cancellation fails and $F_1+F_2\neq0$. A constant mismatch $\Delta\nu$ makes the two electrons pass from opposite sheets to the same sheet and back at the beat frequency $\Delta\nu$, a reversible rotation of the correlation; for a height difference of $1$ m the gravitational shift of the transport clock gives $\Delta\nu\approx546$ Hz (Sec.~\ref{sec:time}). A fluctuating mismatch prevents the cancellation from returning and is read as decoherence.
 
@@ -1938,7 +2002,7 @@ Spin projection law
 \addlinespace[0.15cm]
 Two-electron correlation
 & Pair cancellation, Sec.~\ref{sec:entangle}
-& A derivation of $-\cos\varphi$ from the residual drive, with no signalling \\
+& A mechanism turning the uncancelled fraction, Eq.~\eqref{eq:Psame}, into an outcome \\
 \addlinespace[0.15cm]
 Origin of $1/\sqrt2$
 & Eq.~\eqref{eq:beta}; cycle average of the transit energy
