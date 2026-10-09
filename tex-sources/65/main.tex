@@ -52,6 +52,20 @@
 %   - #68 l.~300 detailbox and l.~611 Capstone III reworded to match C1/C2.
 %   - #65 title updated in #67, #68 and OVERLEAF-MANIFEST.
 %   - Twelve figures added (Figs. 1-12), Sec. IX "What Experiment Can Decide".
+% DONE (2026-10-09, third pass — author asked for 35-40 pages, readable on re-reading)
+%   - Reader aids: "How to read this paper" + symbol table (Table I); boxed
+%     "A common misreading" (\misread) and "What this section established"
+%     (\established) at the end of Secs. II-VIII.
+%   - Worked examples: one full turn (Table), harmonicity check p=2 vs p=3,
+%     winding table for p:q <= 7 + Lissajous figure, Thomas computation in
+%     steps, a_e -> beta in four steps, 1 m gravitational redshift (546 Hz).
+%   - "Where the standard theory gets its integers" (Sec. II D, table).
+%   - Maxwell's equations sorted by metric need (vector-form table).
+%   - App. A rebuilt: verification map figure + seven literate code blocks;
+%     the script is shipped as tex-sources/65/verify65.py (Zenodo supplement).
+%   - Fourth pass: figures for embedding, the gap sqrt(1-|sin delta|), two
+%     frames, Bloch sphere, Thomas doubling, Aharonov-Bohm, energy scales;
+%     worked holonomy example; App. E glossary of mathematical terms.
 % OPEN / TO DO BEFORE DEPOSIT
 %   - Velocity convention (trunk T3 K1): grounding the internal time in #10
 %     implies #10's convention v = cos(wt). Author to confirm.
@@ -131,6 +145,10 @@
 \newcommand{\hodge}{\star}
 \newcommand{\Bloch}{\mathbf{s}}
 \newcommand{\Tmap}{\mathcal{T}}
+
+% --- Reader aids (boxes) ---
+\newcommand{\misread}[2]{\par\medskip\noindent\fbox{\parbox{0.95\columnwidth}{\justifying\small\textbf{A common misreading.} \emph{#1}\par\smallskip #2}}\par\medskip}
+\newcommand{\established}[1]{\par\medskip\noindent\fbox{\parbox{0.95\columnwidth}{\justifying\small\textbf{What this section established.} #1}}\par\medskip}
 
 \begin{document}
 
@@ -223,6 +241,150 @@ Two habits will prevent most misreadings.
 
 \paragraph{Two kinds of statement.} Following the structural overview of the series~\cite{ref:p68}, we mark statements that belong to textbook physics or mathematics as \textbf{[standard]} and statements that belong to this model's interpretation as \textbf{[0SM reading]} wherever confusion could arise. A reader may accept every \textbf{[standard]} statement and still reject the model; the paper is written so that this division is always visible.
 
+\subsection{What goes in and what comes out}
+
+\paragraph{Why this is needed.} A reader returning to this paper after some time should be able to see at once which statements are assumed and which are derived. Table~\ref{tab:io} lists the inputs of the argument and the outputs, each with the section where it appears.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Inputs and outputs of the argument}}
+\label{tab:io}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{1.8cm}p{8.4cm}p{2.6cm}p{2.8cm}}
+\toprule
+\textbf{Kind} & \textbf{Statement} & \textbf{Status} & \textbf{Where} \\
+\midrule
+Input
+& Two kernels and a photon sphere; the energy identity~\eqref{eq:central}
+& Model postulate~\cite{ref:p1}
+& Sec.~\ref{sec:intro} \\
+\addlinespace[0.3cm]
+Input
+& Simple-harmonic motion of the photon sphere; energy gradient between the kernels
+& Model postulate~\cite{ref:p1,ref:p10}
+& Secs.~\ref{sec:path}, \ref{sec:quartic} \\
+\addlinespace[0.3cm]
+Input
+& Anomalous magnetic moment read as the contraction of the half-turn
+& Model reading~\cite{ref:p10}; $a_e$ measured
+& Sec.~\ref{sec:time} \\
+\addlinespace[0.3cm]
+Output
+& Boson $=D^1$, fermion kernels $=S^0=\partial D^1$; degrees $1$ and $2$
+& Derived
+& Sec.~\ref{sec:twopictures} \\
+\addlinespace[0.3cm]
+Output
+& Charge as a protected winding number: existence, integer, conservation, bound, sign
+& Derived
+& Sec.~\ref{sec:winding}, App.~\ref{app:charge} \\
+\addlinespace[0.3cm]
+Output
+& Rest-frame equivalence with the Dirac solutions; quartic $=$ Hopf pullback
+& Derived
+& Sec.~\ref{sec:quartic} \\
+\addlinespace[0.3cm]
+Output
+& Internal time $\beta mc^2/\hbar$; two clocks a factor $\beta$ apart; $\lambda_C=\beta c\,T_{\mathrm{tr}}$
+& Derived (given the inputs)
+& Sec.~\ref{sec:time} \\
+\addlinespace[0.3cm]
+Not derived
+& Size of charge ($\alpha$); coupling to $A_\mu$; light cone; spin sector
+& Open
+& Secs.~\ref{sec:metric}, \ref{sec:limits} \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+``Derived'' means derived in this paper from the inputs above it, with the derivation checked numerically (Appendix~\ref{app:numeric}). The inputs are the model's assumptions; the paper does not argue for them beyond citing where they were introduced.
+\end{minipage}
+\end{table*}
+
+\subsection{How to read this paper}
+
+The argument runs along one main line, and every step of it is in the body text. Around the main line we place three kinds of aid, each visibly marked, so that a reader in a hurry can skip them and a reader who is stuck can stop at them. \emph{Worked examples and tables} put numbers on each claim; a reader with a pocket calculator can reproduce them. Boxes headed \emph{A common misreading} state an objection a careful reader is likely to raise at that point and answer it. Boxes headed \emph{What this section established} close each section with the result in two or three sentences, so that the reader never has to reconstruct where the argument stands. Table~\ref{tab:symbols} collects every symbol with the layer it lives on; Fig.~\ref{fig:flow} at the end shows the whole route on one page; and Appendix~\ref{app:numeric} maps each numerical check to the claim it supports.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Symbols used in this paper and the layer each lives on}}
+\label{tab:symbols}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{2.6cm}p{5.4cm}p{3.4cm}p{4.0cm}}
+\toprule
+\textbf{Symbol} & \textbf{Meaning} & \textbf{Layer} & \textbf{First appears} \\
+\midrule
+$\theta$
+& Internal angle; advances with internal time
+& ---
+& Eq.~\eqref{eq:central} \\
+\addlinespace[0.3cm]
+$a,\ b$
+& Amplitudes of kernels $A$, $B$: $\cos(\theta/2)$, $\sin(\theta/2)$
+& Amplitude (can be negative)
+& Sec.~\ref{sec:conv} \\
+\addlinespace[0.3cm]
+$\chi=(a,b)^\top$, $z=a+ib$
+& Kernel rotor; the same pair as a point in the plane
+& Amplitude
+& Secs.~\ref{sec:quartic}, \ref{sec:winding} \\
+\addlinespace[0.3cm]
+$n_A,\ n_B$
+& Occupations $a^2$, $b^2$; shares of the total; $n_A+n_B=1$
+& Occupation (temperature lives here)
+& Sec.~\ref{sec:twopictures} \\
+\addlinespace[0.3cm]
+$T_A,\ T_B,\ K$
+& Kernel energies $E_0n_A^2$, $E_0n_B^2$; transit energy $2E_0n_An_B$
+& Energy
+& Eq.~\eqref{eq:central} \\
+\addlinespace[0.3cm]
+$\Bloch=(s_x,s_y,s_z)$
+& Bloch vector $\chi^\dagger\bm{\sigma}\chi=(\sin\theta,0,\cos\theta)$
+& Occupation (full angle)
+& Sec.~\ref{sec:quartic} \\
+\addlinespace[0.3cm]
+$D^1,\ S^0$
+& The segment $[0,1]$; its two endpoints $\{0,1\}$
+& Occupation
+& Prop.~\ref{prop:sets} \\
+\addlinespace[0.3cm]
+$W,\ Q$
+& Winding number of $z$ around the origin; Wronskian charge
+& Amplitude
+& Eq.~\eqref{eq:wronskian} \\
+\addlinespace[0.3cm]
+$\beta$
+& $0.04047$; transport speed over $c$, fixed by $a_e$
+& Transport
+& Eq.~\eqref{eq:beta} \\
+\addlinespace[0.3cm]
+$T_{\mathrm{tr}},\ \nu_{\mathrm{tr}}$
+& One tick of internal time and its frequency
+& Transport
+& Table~\ref{tab:clocks} \\
+\addlinespace[0.3cm]
+$\mathcal{T}_{A\to B}$, $\mathcal{T}_{(AB)\to(A'B')}$
+& One tick inside an electron; comparison between two electrons
+& Transport / between electrons
+& Eqs.~\eqref{eq:tick}, \eqref{eq:compare} \\
+\addlinespace[0.3cm]
+$\lambda_C$
+& Compton wavelength $h/mc$; the kernel separation
+& Distance
+& Eq.~\eqref{eq:distance} \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The three layers of Sec.~\ref{sec:conv} are amplitude, occupation and energy; transport and distance are added in Sec.~\ref{sec:time}. A symbol is never moved from its layer: in particular temperature is an occupation-layer quantity, and the winding number is an amplitude-layer quantity that is invisible on the occupation layer.
+\end{minipage}
+\end{table*}
+
 % =====================================================================
 \section{Zero and One: The Arithmetic Seed}
 \label{sec:arith}
@@ -294,6 +456,50 @@ the zero-dimensional sphere: the set of points at unit distance from the origin 
 \end{minipage}
 \end{figure*}
 
+\subsection{Where the standard theory gets its integers}
+
+\paragraph{Why this is needed.} To judge what the 0-Sphere model adds, the reader should see how the established theory produces integers. Table~\ref{tab:stdints} lists four textbook examples. In every one, the integer is \emph{topological or algebraic} and the \emph{size} of the quantum is a separate input; this is the pattern the model will repeat in Sec.~\ref{sec:winding}.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Four integers of established physics and where each comes from}}
+\label{tab:stdints}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.4cm}p{4.2cm}p{4.2cm}p{3.8cm}}
+\toprule
+\textbf{Quantity} & \textbf{The integer} & \textbf{Its origin} & \textbf{The size of one unit} \\
+\midrule
+Angular momentum
+& $j\in\{0,\tfrac12,1,\tfrac32,\dots\}$
+& Irreducible representations of the rotation group $SU(2)$
+& $\hbar$ \\
+\addlinespace[0.3cm]
+Dirac's magnetic monopole
+& $eg=n\,\hbar c/2$ (Gaussian units)
+& Single-valuedness of the wave function around the string
+& Fixed by $e$ and $\hbar$ \\
+\addlinespace[0.3cm]
+Superconducting flux
+& $\Phi=n\,h/2e$
+& Winding of the condensate phase around the ring
+& $h/2e=2.068\times10^{-15}$ Wb \\
+\addlinespace[0.3cm]
+Quantum Hall conductance
+& $\sigma_{xy}=\nu\,e^2/h$, $\nu\in\mathbb{Z}$
+& A Chern number of the occupied bands
+& $e^2/h$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+In each row the integer is fixed by symmetry or topology and is exact; the unit it multiplies is set by constants measured independently. None of these theories derives the fine-structure constant. The 0-Sphere model will be held to the same division: it derives an integer, and the size of the unit is a separate question.
+\end{minipage}
+\end{table*}
+
+\established{The integers are fixed by $0$ and $1$. The numbers unchanged by squaring are exactly $0$ and $1$. The invertible integers are $\pm1$, which is the zero-sphere $S^0$. In established physics, integers come from symmetry or topology while the size of each quantum is a separate input.}
+
 % =====================================================================
 \section{One Normalization, Two Pictures}
 \label{sec:twopictures}
@@ -308,6 +514,50 @@ Write the occupations of the two kernels as $n_A=\cos^2(\theta/2)$ and $n_B=\sin
 \text{fermion:}\quad & (n_A+n_B)^2 = n_A^2+n_B^2+2n_An_B = 1. \label{eq:fermion}
 \end{align}
 The second is the square of the first, and $2n_An_B=\tfrac12\sin^2\theta$ is the cross term of Eq.~\eqref{eq:central}. The same normalization is read at degree one and at degree two~\cite{ref:p38}. Expanded, the fermionic identity has three terms: one seat for kernel $A$, one for the photon sphere in transit, and one for kernel $B$.
+
+\subsection{A worked example: one full turn, step by step}
+
+\paragraph{Why this is needed.} Equation~\eqref{eq:central} holds for every $\theta$, and a reader may suspect that an identity true for all values says nothing. Following one turn in steps of $\pi/2$ shows what the identity \emph{records}: which seat holds the energy at each moment, and how the amplitude changes sign while every observable returns. Table~\ref{tab:trace} gives the numbers.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{One full turn of the internal angle, in steps of $\pi/2$}}
+\label{tab:trace}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{1.4cm}p{1.15cm}p{1.15cm}p{1.15cm}p{1.15cm}p{1.15cm}p{1.15cm}p{1.15cm}p{1.15cm}p{1.15cm}p{1.15cm}}
+\toprule
+$\theta$ & $a$ & $b$ & $n_A$ & $n_B$ & $T_A/E_0$ & $T_B/E_0$ & $K/E_0$ & Sum & $s_z$ & $s_x$ \\
+\midrule
+$0$ & $+1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $0$ & $1$ & $+1$ & $0$ \\
+\addlinespace[0.15cm]
+$\pi/2$ & $+0.707$ & $+0.707$ & $0.5$ & $0.5$ & $0.25$ & $0.25$ & $0.5$ & $1$ & $0$ & $+1$ \\
+\addlinespace[0.15cm]
+$\pi$ & $0$ & $+1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $-1$ & $0$ \\
+\addlinespace[0.15cm]
+$3\pi/2$ & $-0.707$ & $+0.707$ & $0.5$ & $0.5$ & $0.25$ & $0.25$ & $0.5$ & $1$ & $0$ & $-1$ \\
+\addlinespace[0.15cm]
+$2\pi$ & $-1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $0$ & $1$ & $+1$ & $0$ \\
+\addlinespace[0.15cm]
+$5\pi/2$ & $-0.707$ & $-0.707$ & $0.5$ & $0.5$ & $0.25$ & $0.25$ & $0.5$ & $1$ & $0$ & $+1$ \\
+\addlinespace[0.15cm]
+$3\pi$ & $0$ & $-1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $1$ & $-1$ & $0$ \\
+\addlinespace[0.15cm]
+$7\pi/2$ & $+0.707$ & $-0.707$ & $0.5$ & $0.5$ & $0.25$ & $0.25$ & $0.5$ & $1$ & $0$ & $-1$ \\
+\addlinespace[0.15cm]
+$4\pi$ & $+1$ & $0$ & $1$ & $0$ & $1$ & $0$ & $0$ & $1$ & $+1$ & $0$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Read the table in three ways. Down the energy columns: the energy moves from kernel $A$ ($\theta=0$) through the transit seat ($\theta=\pi/2$, where the photon sphere carries half of everything) to kernel $B$ ($\theta=\pi$), and back. Across each row: the three energies always sum to one. Down the amplitude columns: at $\theta=2\pi$ every occupation, energy and Bloch component has returned, but $(a,b)=(-1,0)$; the amplitude returns to $(+1,0)$ only at $\theta=4\pi$. This is the double cover, visible in plain numbers.
+\end{minipage}
+\end{table*}
+
+Three features of the table are used later. The kernels alone carry the whole energy only in the rows where one occupation is $0$ and the other is $1$ (Proposition~\ref{prop:sets}). The transit energy is largest exactly when the two occupations are equal. And the amplitude columns change sign after one turn while nothing observable does; the integer of Sec.~\ref{sec:winding} will live in those amplitude columns.
+
+\misread{``Equation~\eqref{eq:central} is just $(\cos^2+\sin^2)^2=1$; an identity that holds for every angle cannot carry physics.''}{The identity itself carries no physics; its \emph{decomposition} does. Which three seats the unit is split into, and how the split changes along the cycle, is the content, exactly as the identity $\cos^2+\sin^2=1$ carries no physics while the split between kinetic and potential energy of a pendulum does. The model's claim is that the three terms are three physical seats, and the rest of this paper draws consequences from that claim.}
 
 \subsection{Where can the kernels alone carry the whole?}
 
@@ -467,11 +717,15 @@ Proposition~\ref{prop:sets} separates $p=1$ from every $p>1$; it does not by its
 
 \paragraph{Harmonicity.} The difference of kernel energies $D_p=n_A^p-n_B^p$ should be a pure harmonic oscillation, $D_p\propto\cos\theta$, so that the internal motion is simple-harmonic as assumed since Ref.~\cite{ref:p10}. Writing $u=\cos\theta$, one has $D_p=[(1+u)^p-(1-u)^p]/2^p$, and the cubic term vanishes only if $\binom{p}{3}=p(p-1)(p-2)/6=0$. The real solutions are $\{0,1,2\}$, and $p=0$ is degenerate. Harmonicity selects $\{1,2\}$ from the whole real line, without assuming that $p$ is an integer.
 
+\paragraph{A worked check of harmonicity.} For $p=2$ the difference factorizes, $D_2=n_A^2-n_B^2=(n_A-n_B)(n_A+n_B)=\cos\theta\cdot1$, a pure harmonic. For $p=3$ it does not: $D_3=n_A^3-n_B^3=(n_A-n_B)(n_A^2+n_An_B+n_B^2)=\cos\theta\,(1-\tfrac14\sin^2\theta)$, which contains $\cos^3\theta$ and is no longer simple-harmonic. For $p=1$, $D_1=\cos\theta$ trivially. The factor $(n_A+n_B)^{p-1}$ that would be needed to make $D_p$ harmonic is available only at $p=1$ and $p=2$.
+
 \paragraph{Counting seats.} The expansion of $(n_A+n_B)^p$ has $p+1$ terms. Two kernels and one carrier in transit need three seats, hence $p=2$. A photon has no kernels and is itself the carrier, so it needs only the two seats of $p=1$. Counting seats picks one member of the pair that harmonicity allowed.
 
 \subsection{What does \emph{not} separate them}
 
 A caution is needed, because an earlier draft of this paper stated otherwise. One might expect the spinor double cover to be what separates fermion from boson. It is not. The sign flip $a\to-a$, $b\to-b$ under $\theta\to\theta+2\pi$ follows from the definition $a=\cos(\theta/2)$, $b=\sin(\theta/2)$ alone, and holds for every degree $p$; the number of critical points of the internal oscillation is also independent of $p$. The double cover is shared ground, not the dividing wall. What divides the two pictures is Proposition~\ref{prop:sets} together with the seat count: whether the energy can be split into kernel seats globally, at every point of the cycle. We also do not claim that this division is the same as the spin--statistics division of standard theory, whose origin is the topology of exchanging identical particles in three dimensions; the 0-Sphere model reaches the same two-way choice at a different place and for a different reason.
+
+\established{The boson's identity is solved by the whole occupation segment $D^1$; the kernel part of the fermion's identity only by its two endpoints $S^0=\partial D^1$. The cross term is the seat of energy in transit. Harmonicity selects degrees $1$ and $2$, the seat count selects $2$ for a two-kernel particle, and the double cover is shared by both pictures rather than separating them.}
 
 % =====================================================================
 \section{Path-Connectedness: Joining Two Separated Points}
@@ -482,6 +736,25 @@ A caution is needed, because an earlier draft of this paper stated otherwise. On
 \subsection{From two points to a connected domain}
 
 \textbf{[standard]} A space is \emph{path-connected} if any two of its points can be joined by a continuous path inside it. The zero-sphere $S^0$ is the simplest space that is not: its two points have nothing between them. \textbf{[0SM reading]} Reference~\cite{ref:p33} resolves this by embedding: the two kernels are discrete locations in a path-connected compact domain $\mathcal{D}$, so that discrete localisation and continuous transport coexist. Reference~\cite{ref:p51} turns this into a chain of statements: $S^0$ is not path-connected; it embeds in a sphere; the Bonnet--Myers bound limits the diameter; the domain is path-connected and the two kernels are not antipodal; there is a unique thermal geodesic joining them; and the two-point phase functional along that geodesic is well defined. Proposition~\ref{prop:sets} adds the energy-side counterpart: the transit seat $2n_An_B$ is exactly what the energy budget needs for that journey.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\draw[thick, fill=gray!8] plot[smooth cycle, tension=0.8] coordinates {(-3.2,0.2) (-2.4,1.5) (0,1.9) (2.6,1.4) (3.3,0) (2.4,-1.4) (0,-1.7) (-2.5,-1.3)};
+\node[font=\small] at (2.6,1.75) {$\mathcal{D}$};
+\fill[orange!80!black] (-2.0,-0.2) circle (3pt) node[below left, font=\small, black] {$A$};
+\fill[orange!80!black] (2.0,0.3) circle (3pt) node[below right, font=\small, black] {$B$};
+\draw[very thick, blue!70!black, -{Stealth[length=2.5mm]}] (-1.85,-0.12) .. controls (-0.6,0.9) and (0.8,-0.6) .. (1.85,0.25);
+\node[blue!70!black, font=\small] at (0,0.75) {thermal geodesic};
+\end{tikzpicture}
+\caption{\textbf{Two separated points inside a connected domain}}
+\label{fig:embed}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+The kernels $A$ and $B$ form $S^0$, which on its own has no path between its points. Embedded in the path-connected domain $\mathcal{D}$ of Refs.~\cite{ref:p33,ref:p51}, they are joined by a unique thermal geodesic along which the photon sphere travels.
+\end{minipage}
+\end{figure}
 
 \subsection{Gradients, curls, and the first layer of the Helmholtz decomposition}
 
@@ -531,6 +804,10 @@ a gradient part, a rotational part, and a harmonic part. The harmonic part $\mat
 
 \textbf{[0SM reading]} The first layer of the electron is the gradient part. The drive is the gradient of the energy difference $D=(T_A-T_B)/E_0=\cos\theta$, and the kinetic energy of the photon sphere is $\tfrac12(dD/d\theta)^2=\tfrac12\sin^2\theta$, the cross term of Eq.~\eqref{eq:central}. On a segment, every curl-free flow is a gradient, so at this layer nothing circulates. Two cautions apply. First, $D$ is a function of the internal angle $\theta$, not yet of position in space; turning an internal gradient into a spatial one requires distance, which enters only in Sec.~\ref{sec:time}. Second, the other two parts of Eq.~\eqref{eq:helmholtz} do appear, but at different layers: the harmonic part in Sec.~\ref{sec:winding}, the rotational part in Sec.~\ref{sec:metric}.
 
+\misread{``If the two kernels are disconnected points, the photon sphere must jump between them.''}{No jump is implied. The kernels are discrete locations inside a connected domain (Refs.~\cite{ref:p33,ref:p51}); the photon sphere travels a continuous path, the thermal geodesic. What is discrete is where energy can \emph{rest}; what is continuous is the path along which it \emph{moves}. The energy budget records both: the kernel seats for resting, the transit seat for moving.}
+
+\established{Path-connectedness is the property the two kernels lack and the transport supplies. The drive of the photon sphere is the gradient of the energy difference, the first layer of the Helmholtz decomposition; at this layer nothing circulates.}
+
 % =====================================================================
 \section{Closing the Path: Winding Numbers and Charge}
 \label{sec:winding}
@@ -542,6 +819,35 @@ a gradient part, a rotational part, and a harmonic part. The harmonic part $\mat
 \textbf{[standard]} Two elementary operations relate the segment and the circle. Folding a circle onto a diameter gives a segment, with the two fold points forming $S^0$; conversely, gluing the two endpoints of a segment gives a circle, $D^1/S^0\cong S^1$. The circle is path-connected but not simply connected: a loop that goes once around cannot be shrunk to a point, and the number of times a loop goes around is an integer, $\pi_1(S^1)\cong\mathbb{Z}$.
 
 \textbf{[0SM reading]} The occupation segment is the shadow of the amplitude circle $z=a+ib$, folded at the two kernel points. The integer lives on the circle, not on its shadow. The circle encloses the origin of the amplitude plane only if the two kernels never empty simultaneously, and it closes on itself only if the two kernels are \emph{locked} to the same frequency, which is the normalization $|z|=1$~\cite{ref:p1,ref:p20}. Both conditions together give an integer that cannot change continuously: the winding number of $z$ around the origin.
+
+\paragraph{A worked example: why lock and normalization go together.} Keep the two kernels at the same frequency but let the second lag by a phase $\delta$: $a=\cos t$, $b=\sin(t+\delta)$. Figure~\ref{fig:delta} draws the curve for four values of $\delta$. A short calculation (Appendix~\ref{app:charge}) gives the closest approach to the origin in closed form,
+\begin{equation}
+\min_t|z|=\sqrt{1-|\sin\delta|},
+\label{eq:gap}
+\end{equation}
+which is $1$, $0.707$, $0.366$ and $0$ for $\delta=0,\pi/6,\pi/3,\pi/2$. The distance from the origin is the \emph{gap} that protects the winding number: as long as it is positive, no small disturbance can change the integer. Only at $\delta=0$ and $\delta=\pi$ is the gap the full radius at every instant, and only there is the normalization $n_A+n_B=1$ satisfied at every instant. At $\delta=\pi/2$ the gap closes, the curve passes through the origin, and the integer is lost.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\foreach \i/\d/\lab/\g in {0/0/{$\delta=0$}/{gap $1$}, 1/30/{$\delta=\pi/6$}/{gap $0.707$}, 2/60/{$\delta=\pi/3$}/{gap $0.366$}, 3/90/{$\delta=\pi/2$}/{gap $0$}} {
+\begin{scope}[xshift=\i*4.4cm]
+\draw[->, gray] (-1.75,0) -- (1.8,0) node[right, font=\scriptsize] {$a$};
+\draw[->, gray] (0,-1.75) -- (0,1.8) node[above, font=\scriptsize] {$b$};
+\draw[gray!50, dashed] (0,0) circle (1.3);
+\draw[very thick, blue!70!black, domain=0:6.2832, samples=200, smooth] plot ({1.3*cos(\x r)},{1.3*sin(\x r + \d)});
+\fill[red!70!black] (0,0) circle (2pt);
+\node[font=\small, align=center] at (0,-2.35) {\lab\\ \g};
+\end{scope}}
+\end{tikzpicture}
+\caption{\textbf{Closing the gap: from a locked circle to a segment through the origin}}
+\label{fig:delta}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+The curve $z=\cos t+i\sin(t+\delta)$ for four relative phases. The dashed circle is the normalized orbit. As $\delta$ grows, the circle flattens into an ellipse that comes closer to the origin, with closest approach $\sqrt{1-|\sin\delta|}$, Eq.~\eqref{eq:gap}; at $\delta=\pi/2$ it collapses to a segment through the origin and the winding number ceases to exist.
+\end{minipage}
+\end{figure*}
 
 \subsection{A worked example from fluid mechanics: the point vortex}
 
@@ -647,6 +953,55 @@ The first five rows are topological or algebraic and use no metric. The last two
 \end{minipage}
 \end{table*}
 
+\subsection{Worked examples: winding numbers of detuned pairs}
+
+\paragraph{Why this is needed.} The claim that detuned kernels carry no protected integer is easy to state and hard to picture. Table~\ref{tab:wind} lists the winding numbers of the curves $z(\tau)=\cos p\tau+i\sin q\tau$ for small frequency ratios, computed by counting turns around the origin, and Fig.~\ref{fig:liss} draws three of them.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Winding numbers of $\cos p\tau+i\sin q\tau$}}
+\label{tab:wind}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{2.2cm}p{1.6cm}p{1.6cm}p{1.6cm}p{1.6cm}p{1.6cm}p{1.6cm}p{1.6cm}}
+\toprule
+$p\backslash q$ & 1 & 2 & 3 & 4 & 5 & 6 & 7 \\
+\midrule
+1 & $+1$ & $\times$ & $-1$ & $\times$ & $+1$ & $\times$ & $-1$ \\
+2 & $0$ & --- & $0$ & --- & $0$ & --- & $0$ \\
+3 & $+1$ & $\times$ & --- & $\times$ & $+1$ & --- & $-1$ \\
+4 & $0$ & --- & $0$ & --- & $0$ & --- & $0$ \\
+5 & $+1$ & $\times$ & $-1$ & $\times$ & --- & $\times$ & $-1$ \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+$\times$: the curve passes through the origin ($q$ even) and no winding number exists. ---: $p$ and $q$ not coprime. For odd $p$ the entry is $\chi_4(q)=+1,-1$ for $q\equiv1,3\pmod4$; for even $p$ it is $0$ (Appendix~\ref{app:charge}).
+\end{minipage}
+\end{table*}
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\foreach \i/\p/\q/\lab in {0/1/3/{$1:3$, $W=-1$}, 1/2/3/{$2:3$, $W=0$}, 2/3/5/{$3:5$, $W=+1$}} {
+\begin{scope}[xshift=\i*5.8cm]
+\draw[->, gray] (-2.0,0) -- (2.1,0) node[right, font=\scriptsize] {$a$};
+\draw[->, gray] (0,-2.0) -- (0,2.1) node[above, font=\scriptsize] {$b$};
+\draw[thick, blue!70!black, domain=0:6.2832, samples=600, smooth] plot ({1.6*cos(\p*\x r)},{1.6*sin(\q*\x r)});
+\fill[red!70!black] (0,0) circle (2.2pt);
+\node[font=\small] at (0,-2.5) {\lab};
+\end{scope}}
+\end{tikzpicture}
+\caption{\textbf{Detuned pairs: windings that exist but are not protected}}
+\label{fig:liss}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Each curve is $z(\tau)=\cos p\tau+i\sin q\tau$ over one period. The curves avoid the origin, so a winding number exists, with the values of Table~\ref{tab:wind}. But nothing keeps them away from the origin: shifting the relative phase of the two kernels moves the curve through the origin and flips the sign of $W$. Compare the locked circle of Fig.~\ref{fig:winding}(a), which stays at distance one from the origin for every phase. For irrational ratios the curve fills a rectangle densely and passes arbitrarily close to the origin.
+\end{minipage}
+\end{figure*}
+
 \subsection{The integer and its size come from different places}
 
 \paragraph{Why this matters.} Table~\ref{tab:charge} ends with two rows marked \emph{not derived}. A reader may take this as a defect. Quantized circulation in condensed matter shows that it is the normal structure of any quantized winding.
@@ -663,6 +1018,10 @@ In a connection $D\theta=d\theta+qA$, the charge $q$ plays the role of a convers
 \begin{center}
 \fbox{\parbox{0.93\columnwidth}{\justifying\small \textbf{Statement of scope.} The 0-Sphere model, as developed in this paper, derives the \emph{integer} of electric charge: its existence, its quantization, its conservation, its bound $|Q|\le1$, and its sign. It does \emph{not} derive the \emph{size} of the charge. The fine-structure constant $\alpha=1/137.036$ is not derived here, and neither is the coupling of the winding number to the electromagnetic potential.}}
 \end{center}
+
+\misread{``The charge must sit on one of the two kernels.''}{It does not. The winding number belongs to the curve traced by the \emph{pair} of amplitudes, not to either amplitude separately; neither kernel alone has a winding number, just as neither of two hands alone has a handshake. Assigning charge to a single term of the identity, such as the transit term, gives a quantity that oscillates in time and so is not conserved, and it gives detuned pairs more ``charge'' than locked ones. The integer is global.}
+
+\established{Closing the path around the origin of the amplitude plane gives an integer. For locked kernels this integer is the protected winding number $W=\pm1$, conserved, bounded by one and carrying a sign; for detuned kernels nothing is protected. The model identifies the protected integer with charge and does not derive its size.}
 
 % =====================================================================
 \section{The Quartic Energy as a Pullback of Quadratic Bloch Forms}
@@ -705,12 +1064,50 @@ The eigenvectors of $H$ are $u_\pm=(1,\pm i)^\top/\sqrt2$ with eigenvalues $\pm\
 \end{equation}
 whose upper and lower components are $\cos(\omega t/2)$ and $\sin(\omega t/2)$.
 
+\paragraph{The decomposition in steps.} (i) The eigenvectors: $H u=\lambda u$ with $H=\tfrac{\omega}{2}\sigma_y$ gives $\lambda=\pm\omega/2$ and $u_\pm=(1,\pm i)^\top/\sqrt2$. (ii) The coefficients at $t=0$: $c_\pm=u_\pm^\dagger\chi(0)=u_\pm^\dagger(1,0)^\top=1/\sqrt2$. (iii) Each eigenvector evolves by its own phase, $e^{\mp i\omega t/2}$. (iv) Adding the two, the upper component is $\tfrac12(e^{-i\omega t/2}+e^{i\omega t/2})=\cos(\omega t/2)$ and the lower is $\tfrac{i}{2}(e^{-i\omega t/2}-e^{i\omega t/2})=\sin(\omega t/2)$, which is Eq.~\eqref{eq:rotor}. No approximation enters at any step.
+
 \begin{theorem}[Rest-frame equivalence]
 \label{thm:equiv}
 The kernel rotor $\chi(t)$ of Eq.~\eqref{eq:rotor} is unitarily equivalent, through the fixed unitary that diagonalizes $H=\tfrac{\omega}{2}\sigma_y$, to the equal-weight superposition $\tfrac{1}{\sqrt2}(\psi^{+}+\psi^{-})$ of the Dirac positive- and negative-energy rest solutions, provided $\hbar\omega/2=mc^2$. The kernel basis and the Dirac energy basis are one Hilbert space in two frames.
 \end{theorem}
 
 Three consequences follow. The two branch weights are equal and constant, $|c_\pm|^2=\tfrac12$; what oscillates in the kernel frame is pure relative phase in the energy frame. The mean energy vanishes, $\langle H\rangle=0$, so the symmetric two-kernel state is the balanced $\pm$ superposition rather than a stationary free electron. And an equal superposition of the two branches is exactly the standard condition for zitterbewegung~\cite{ref:schrodinger,ref:thaller}, so the model's permanently oscillating interior and the standard condition for trembling motion coincide.
+
+\paragraph{The same state in two frames.} Figure~\ref{fig:frames} draws what Theorem~\ref{thm:equiv} says. In the kernel frame the two occupations swing between $0$ and $1$; in the energy frame the two branch weights stay at $\tfrac12$. Nothing is lost in the change of frame: the swinging of the occupations is carried, in the energy frame, entirely by the relative phase $e^{-i\omega t}$ between the two branches. This is why the theorem can call the kernel picture and the Dirac picture ``one Hilbert space in two frames.''
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\begin{scope}
+\draw[->] (0,0) -- (7.0,0) node[right, font=\small] {$\omega t$};
+\draw[->] (0,0) -- (0,2.6);
+\node[left, font=\small] at (0,2) {$1$}; \node[left, font=\small] at (0,1) {$\tfrac12$};
+\draw[thick, orange!80!black, domain=0:6.2832, samples=120] plot ({\x},{2*cos(\x/2 r)^2});
+\draw[thick, blue!70!black, dashed, domain=0:6.2832, samples=120] plot ({\x},{2*sin(\x/2 r)^2});
+\node[below, font=\small] at (3.1416,0) {$\pi$}; \node[below, font=\small] at (6.2832,0) {$2\pi$};
+\node[font=\small, orange!80!black] at (1.0,2.35) {$n_A$};
+\node[font=\small, blue!70!black] at (2.4,2.35) {$n_B$};
+\node[font=\small] at (3.4,-0.9) {(a) kernel frame: occupations swing};
+\end{scope}
+\begin{scope}[xshift=9.0cm]
+\draw[->] (0,0) -- (7.0,0) node[right, font=\small] {$\omega t$};
+\draw[->] (0,0) -- (0,2.6);
+\node[left, font=\small] at (0,2) {$1$}; \node[left, font=\small] at (0,1) {$\tfrac12$};
+\draw[very thick, red!70!black] (0,1.03) -- (6.2832,1.03);
+\draw[very thick, teal, dashed] (0,0.97) -- (6.2832,0.97);
+\node[font=\small, align=center] at (3.2,1.7) {$|c_+|^2=|c_-|^2=\tfrac12$\\ relative phase $e^{-i\omega t}$ carries the motion};
+\node[below, font=\small] at (3.1416,0) {$\pi$}; \node[below, font=\small] at (6.2832,0) {$2\pi$};
+\node[font=\small] at (3.4,-0.9) {(b) energy frame: branch weights constant};
+\end{scope}
+\end{tikzpicture}
+\caption{\textbf{One state, two frames}}
+\label{fig:frames}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+(a) In the kernel basis the occupations $n_A=\cos^2(\omega t/2)$ and $n_B=\sin^2(\omega t/2)$ exchange the whole energy once per half turn. (b) In the Dirac energy basis the weights of the positive- and negative-energy branches are equal and constant. The two descriptions are related by a fixed unitary transformation, Theorem~\ref{thm:equiv}.
+\end{minipage}
+\end{figure*}
 
 \subsection{The complex unit is generated by the oscillator}
 
@@ -732,6 +1129,30 @@ T_B&=E_0n_B^2=\tfrac14E_0(1-s_z)^2, \label{eq:TBq}\\
 K&=\tfrac12E_0\sin^2\omega t=\tfrac12E_0s_x^2 , \label{eq:Kq}
 \end{align}
 and the conservation law becomes $\tfrac12(1+s_z^2)+\tfrac12s_x^2=\tfrac12(1+|\Bloch|^2)=1$. Every channel is quadratic in the full-angle vector $\Bloch$.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0, >={Stealth[length=2mm]}]
+\shade[ball color=blue!6, opacity=0.6] (0,0) circle (2);
+\draw[very thick, blue!70!black] (0,0) circle (2);
+\draw[gray, dashed] (2,0) arc (0:180:2 and 0.55);
+\draw[gray] (-2,0) arc (180:360:2 and 0.55);
+\draw[->] (0,0) -- (0,2.6) node[above, font=\small] {$s_z$};
+\draw[->] (0,0) -- (2.7,0) node[right, font=\small] {$s_x$};
+\draw[->, gray] (0,0) -- (-0.9,-0.75) node[below left, font=\small] {$s_y$};
+\fill (0,2) circle (2.5pt) node[above right, font=\small] {$\theta=0$: all in $A$};
+\fill (0,-2) circle (2.5pt) node[below right, font=\small] {$\theta=\pi$: all in $B$};
+\fill (2,0) circle (2.5pt) node[above right, font=\small] {$\theta=\tfrac{\pi}{2}$};
+\draw[->, very thick, blue!70!black] (1.41,1.41) arc (45:30:2);
+\end{tikzpicture}
+\caption{\textbf{The Bloch sphere and the electron's great circle}}
+\label{fig:bloch}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+The Bloch vector $\Bloch=(\sin\theta,0,\cos\theta)$ runs round the great circle in the $s_x$--$s_z$ plane (bold). The north pole is all energy in kernel $A$, the south pole all in $B$, the equator equal sharing with maximal transit energy $K=\tfrac12E_0s_x^2$.
+\end{minipage}
+\end{figure}
 
 \begin{figure*}[t!]
 \centering
@@ -802,6 +1223,8 @@ the square of the Klein--Gordon polynomial: two distinct roots $\pm E_p$, each t
 
 A companion paper~\cite{ref:p64} builds the electron's spin two-valuedness from the square root of the Laplacian on the three-sphere $S^3\cong SU(2)$. There the Dirac operator obeys the Lichnerowicz identity $\mathcal{D}^2=-\Delta+R/4$ with $R=6$ on the unit sphere, its eigenvalues come in signed pairs $\pm(\ell+\tfrac32)$, and the obstruction to choosing one sign globally is the double cover $SU(2)\to SO(3)$. That construction is operator-theoretic and spatial. By its own account it uses no complex structure, no Bloch vector and no derivation of the quartic energy, and its Appendix~C leaves open whether the square-root signature of the energy identity is ``more than formal.'' The present section answers that question in the affirmative: the square root appears here as the first-order evolution~\eqref{eq:foe} of the internal clock, the complex unit is the oscillator's symplectic structure, and the quartic is derived (Proposition~\ref{prop:quartic}). The two papers realize the same double cover at two ends, an elliptic operator on a spatial sphere and a first-order evolution in internal time, which a Wick-rotation bridge would have to join; we do not construct that bridge. The rotor is at each instant a definite point on the Bloch sphere, so the equal $\pm$ superposition of Theorem~\ref{thm:equiv} is a deterministic rotation rather than a probabilistic mixture, consistent with the time-sequential reading of Ref.~\cite{ref:p64}.
 
+\established{The rotor behind the identity is a square root of Klein--Gordon at rest and is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy solutions. The complex unit is the oscillator's own. The fourth powers are quadratic Bloch energies pulled back through the double cover; temperature lives on the occupation layer. The degree match with the Dirac equation is a match of counts in $3+1$ dimensions, structural only if the internal angle is a spatial angle.}
+
 % =====================================================================
 \section{Internal Time: The Transport Cycle}
 \label{sec:time}
@@ -817,6 +1240,30 @@ A companion paper~\cite{ref:p64} builds the electron's spin two-valuedness from 
 \end{equation}
 The oscillation has phase $\omega t$, the precession has phase $2\omega t$. Writing the rotation angle as $\theta=2\omega t$, the time phase is exactly $\theta/2$. The ratio two found here from kinematics is the same ratio that the identity requires algebraically: in $\cos^4\phi+\sin^4\phi+\tfrac12\sin^2(k\phi)=1$ only $k=2$ works.
 
+\paragraph{The computation in steps.} Equation~\eqref{eq:thomas} uses only the product of the two sinusoids. With $v=\cos\omega t$ and $a=-\sin\omega t$, and with the precession axis normal to the plane of the motion, the magnitude is $\tfrac{1}{2c^2}(-\sin\omega t)(\cos\omega t)=-\tfrac{1}{4c^2}\sin2\omega t$, by $2\sin x\cos x=\sin2x$. (Reference~\cite{ref:p10} writes $\Omega$ as a scalar; the unit vector normal to the plane is supplied in the later papers of the series.) The doubling of the frequency is therefore a consequence of multiplying two sinusoids of the same frequency, nothing more and nothing less.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[xscale=1.1, yscale=1.0]
+\draw[->] (0,0) -- (6.6,0) node[right, font=\small] {$\omega t$};
+\draw[->] (0,-1.4) -- (0,1.5);
+\draw[thick, blue!70!black, domain=0:6.2832, samples=120] plot ({\x},{cos(\x r)});
+\draw[thick, orange!80!black, dashed, domain=0:6.2832, samples=120] plot ({\x},{-sin(\x r)});
+\draw[very thick, red!70!black, domain=0:6.2832, samples=200] plot ({\x},{-0.5*sin(2*\x r)});
+\node[below, font=\small] at (3.1416,0) {$\pi$}; \node[below, font=\small] at (6.2832,0) {$2\pi$};
+\node[font=\small, blue!70!black] at (0.55,1.25) {$v$};
+\node[font=\small, orange!80!black] at (1.6,-1.2) {$a$};
+\node[font=\small, red!70!black, fill=white, inner sep=1pt] at (4.6,-1.25) {$\Omega\propto-\tfrac12\sin2\omega t$};
+\end{tikzpicture}
+\caption{\textbf{Frequency doubling in the Thomas precession}}
+\label{fig:thomas}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+With velocity $v=\cos\omega t$ and acceleration $a=-\sin\omega t$, the precession rate, proportional to their product, completes two cycles while the oscillation completes one. Read backwards: the oscillation phase is half the precession angle.
+\end{minipage}
+\end{figure}
+
 \subsection{The anomalous magnetic moment fixes the rate}
 
 Reference~\cite{ref:p10} reads the anomalous magnetic moment as the Lorentz contraction of the half-turn, with the root-mean-square average of a harmonic oscillation,
@@ -827,6 +1274,10 @@ a_e&=0.001\,159\,652\,180\,59(13),
 \notag
 \end{align}
 which gives $\beta^2=0.0016379809$ and $\beta=0.0404720$. The form without the root-mean-square factor, $\gamma=1+a_e$, gives the peak value $0.04812$; the internal time uses the averaged rate. No parameter is adjusted: $\beta$ follows from the measured $a_e$ alone, and the resulting transport speed $\beta c\approx0.04047\,c$ is the model's principal unmeasured prediction.
+
+\paragraph{From $a_e$ to $\beta$ in four steps.} (i) Divide by $\sqrt2$: $a_e/\sqrt2=8.1999792\times10^{-4}$. (ii) Form the contraction factor: $1/(1+a_e/\sqrt2)=0.99918067$. (iii) Square and subtract from one: $\beta^2=1-0.99836202=0.0016379809$. (iv) Take the root: $\beta=0.0404720$, so $\beta c=1.2133\times10^{7}$ m/s. Every input is the measured $a_e$ and the definition of $c$.
+
+\misread{``$0.04\,c$ is the speed of the electron.''}{It is the speed of the internal transfer of energy between the two kernels, inside an electron that may be at rest as a whole. It is the analogue of the speed of a piston inside an engine, not the speed of the car. Dirac theory assigns the corresponding internal motion the speed of light, $\pm c$; the model's sub-luminal value is what distinguishes it experimentally (Sec.~\ref{sec:exp}).}
 
 \subsection{Two clocks, exactly $\beta$ apart}
 
@@ -891,6 +1342,8 @@ sending the state of emission at kernel $A$ to the state of absorption at kernel
 \subsection{Proper time and background independence}
 
 \paragraph{Why this choice fits general relativity.} The transport rate $\beta mc^2/\hbar$ is the rest energy times a pure number fixed by $a_e$. \textbf{[standard]} The phase of a free particle advances as $mc^2\tau/\hbar$, with $\tau$ its proper time. \textbf{[0SM reading]} The internal time therefore advances as $\beta mc^2\tau/\hbar$: it is proportional to proper time, it is carried by the particle rather than by a background, and it slows in a gravitational potential exactly as every atomic clock does. This last property is not optional. Local position invariance has been tested with optical clocks at the level of height differences of centimetres; a clock whose rate depended on the particle species in a gravitational field would be excluded. Because $\beta$ is a constant, the transport clock passes this test automatically. The path along which the transfer runs is the thermal geodesic of Refs.~\cite{ref:p24,ref:p51}, with optical metric $n^2(T)g$, so the clock is also tied to geometry in the way general relativity requires.
+
+\paragraph{A worked example: the clock one metre higher.} \textbf{[standard]} Near the surface of the Earth, a clock raised by a height $h$ runs faster by the fraction $gh/c^2$; for $h=1$ m this is $1.09\times10^{-16}$, and optical clocks resolve it. \textbf{[0SM reading]} If the internal time is proportional to proper time, the transport frequency of an electron one metre higher is larger by the same fraction: $5.0007\times10^{18}\,\mathrm{Hz}\times1.09\times10^{-16}\approx546$ Hz. The point is not the number but its universality: every electron, every atom and every optical clock shifts by the same fraction, because $\beta$ is a pure number. A transport clock whose shift depended on the species would contradict the observed universality of gravitational redshift.
 
 \subsection{Distance from the clock}
 
@@ -974,6 +1427,8 @@ The last three rows are tied by the double-cover ratio $2$; the first row is tie
 \end{minipage}
 \end{table*}
 
+\established{The internal time is the transport cycle between the kernels, at the rate $\beta mc^2/\hbar$ with $\beta=0.04047$ fixed by $a_e$. It runs exactly $\beta$ times slower than the Dirac branch phase, is proportional to proper time, and therefore redshifts like every other clock. The kernel separation is the transport speed times one tick: distance is made from the clock.}
+
 % =====================================================================
 \section{Where the Metric Enters: Comparing Two Clocks}
 \label{sec:metric}
@@ -989,6 +1444,41 @@ d\mathbf{G}&=\mathbf{J}, && \text{(Gauss, Amp\`ere)} \label{eq:dG}\\
 \mathbf{G}&=\hodge\FF. && \text{(constitutive relation)} \label{eq:constit}
 \end{align}
 Here $\FF=(\mathbf{E},\mathbf{B})$ is the field strength and $\mathbf{G}=(\mathbf{D},\mathbf{H})$ the excitation. Equations~\eqref{eq:dF} and~\eqref{eq:dG} use only the exterior derivative and need no metric; the metric, and the vacuum constants with it, enter only through the Hodge star in Eq.~\eqref{eq:constit}~\cite{ref:hehl}. The structural overview~\cite{ref:p68} makes the metric-free sector the starting point of the model. We add one refinement: Eq.~\eqref{eq:dG} needs only the \emph{conservation} of charge, $d\mathbf{J}=0$, for $\mathbf{G}$ to exist, not a mechanism for charge. The model supplies conservation (Table~\ref{tab:charge}). If $\FF$ is the curvature of a connection, Eq.~\eqref{eq:dF} holds automatically.
+
+\paragraph{The same split in vector calculus.} For readers who know Maxwell's equations in vector form, Table~\ref{tab:maxwell} translates the three lines above.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Maxwell's equations sorted by whether they need a metric}}
+\label{tab:maxwell}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.0cm}p{4.6cm}p{3.6cm}p{4.3cm}}
+\toprule
+\textbf{Form language} & \textbf{Vector form} & \textbf{Needs a metric?} & \textbf{What the model supplies} \\
+\midrule
+$d\FF=0$
+& $\nabla\cdot\mathbf{B}=0$, $\ \nabla\times\mathbf{E}+\partial_t\mathbf{B}=0$
+& No
+& Automatic if $\FF$ is the curvature of a connection (clock comparisons) \\
+\addlinespace[0.3cm]
+$d\mathbf{G}=\mathbf{J}$
+& $\nabla\cdot\mathbf{D}=\rho$, $\ \nabla\times\mathbf{H}-\partial_t\mathbf{D}=\mathbf{j}$
+& No
+& Exists if charge is conserved (winding, Table~\ref{tab:charge}) \\
+\addlinespace[0.3cm]
+$\mathbf{G}=\hodge\FF$
+& $\mathbf{D}=\varepsilon_0\mathbf{E}$, $\ \mathbf{H}=\mathbf{B}/\mu_0$
+& Yes
+& Not yet: scale, light cone, $\alpha$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The vector forms hide the metric inside the divergence and curl, which use lengths and angles; the form language shows that the first two lines need only the exterior derivative. The vacuum constants $\varepsilon_0$ and $\mu_0$, and with them the speed of light and the fine-structure constant, appear only in the third line.
+\end{minipage}
+\end{table*}
 
 \begin{figure*}[t!]
 \centering
@@ -1021,6 +1511,32 @@ Keep the four kernels apart: electron 1 has kernels $A,B$; electron 2 has kernel
 \end{equation}
 where $q_{A'B'}^{\,\mathrm{comp}}$ is the state of electron 2 assigned by comparison with electron 1, not the state of electron 2 itself. The path of the comparison is the one selected by least action, the thermal geodesic. The idea that a $U(1)$ connection is a rule for synchronizing internal clocks goes back in the series to Ref.~\cite{ref:p17}; here it is applied between electrons rather than assumed as a field. Mathematically such a map is a parallel transport; if the states are phases on a circle, it is a rotation $e^{ia_{12}}$. Two outcomes are then possible. If composing comparisons around every closed chain of electrons, $\Tmap_{3\to1}\circ\Tmap_{2\to3}\circ\Tmap_{1\to2}$, returns the identity, the comparisons are a pure gradient and carry no field. If some chain does not return the identity, the comparisons have curvature: this is the rotational part of the Helmholtz decomposition~\eqref{eq:helmholtz}, and it is the candidate for $\FF=(\mathbf{E},\mathbf{B})$. Inside one electron the domain is contractible and every curl-free comparison is a gradient, so a single electron produces no holonomy; holonomy needs at least three electrons forming a loop. A continuous field $A_\mu$ is not assumed at the start: if it appears, it appears as the description of these comparisons once they fill a surface and a volume.
 
+\paragraph{A worked example of holonomy.} Suppose the comparison maps between three electrons are rotations of the clock phase by $a_{12}$, $a_{23}$ and $a_{31}$. Going round the triangle multiplies the three rotations, so the holonomy is the phase $a_{12}+a_{23}+a_{31}$ modulo $2\pi$. With $a_{12}=0.3$, $a_{23}=0.5$, $a_{31}=-0.8$ the sum is $0$: the comparisons can be undone by resetting each clock's origin, and there is no field. With $a_{31}=-0.6$ instead, the sum is $0.2$: no choice of clock origins removes it, because resetting the origin of electron $2$ adds to $a_{12}$ exactly what it subtracts from $a_{23}$. That residue is gauge-invariant; it is the discrete form of $\oint\mathcal{A}=\int\FF$, the flux through the triangle.
+
+\paragraph{The standard example: Aharonov--Bohm.} \textbf{[standard]} Electrons sent around a long solenoid travel where the magnetic field is zero, yet the interference pattern shifts by the phase $e\Phi/\hbar$, where $\Phi$ is the flux inside the solenoid (Fig.~\ref{fig:ab}). The observable is the holonomy around the loop, not a local field on the paths. The series has used this as the paradigm that line integrals, not local fields, are the primary observables~\cite{ref:p31}; the comparison maps of Eq.~\eqref{eq:compare} are the same idea applied between electrons.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0, >={Stealth[length=2.2mm]}]
+\fill[gray!25] (0,0) circle (0.45);
+\node[font=\small] at (0,0) {$\Phi$};
+\fill (-3.2,0) circle (2.5pt) node[left, font=\small] {source};
+\draw[thick] (3.2,-1.3) -- (3.2,1.3);
+\node[right, font=\small] at (3.2,0.9) {screen};
+\draw[very thick, blue!70!black, ->] (-3.1,0.05) .. controls (-1.5,1.6) and (1.5,1.6) .. (3.15,0.1);
+\draw[very thick, red!70!black, ->] (-3.1,-0.05) .. controls (-1.5,-1.6) and (1.5,-1.6) .. (3.15,-0.1);
+\node[font=\small, blue!70!black] at (0,1.45) {path 1: $\mathbf{B}=0$};
+\node[font=\small, red!70!black] at (0,-1.45) {path 2: $\mathbf{B}=0$};
+\end{tikzpicture}
+\caption{\textbf{Holonomy without a local field: the Aharonov--Bohm effect}}
+\label{fig:ab}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+Both paths avoid the magnetic field, which is confined inside the solenoid, yet the phase difference between them is $e\Phi/\hbar$. What is observed is the comparison around the closed loop.
+\end{minipage}
+\end{figure}
+
 \begin{figure*}[t!]
 \centering
 \begin{tikzpicture}[scale=1.0, >={Stealth[length=2.5mm]}]
@@ -1051,6 +1567,93 @@ where $q_{A'B'}^{\,\mathrm{comp}}$ is the state of electron 2 assigned by compar
 \begin{minipage}{0.95\textwidth}
 \justifying\small
 (a) The map $\mathcal{T}_{(AB)\to(A'B')}$ of Eq.~\eqref{eq:compare}, drawn between three electrons. If going round the triangle returns every clock reading to itself, the comparisons are a pure gradient and carry no field; if not, the residue is a holonomy, the candidate for $(\mathbf{E},\mathbf{B})$. (b) The tick $\mathcal{T}_{A\to B}$ of Eq.~\eqref{eq:tick} is the same type of map at the lower level; the two levels are never mixed.
+\end{minipage}
+\end{figure*}
+
+\subsection{From two points to a field: a research ladder}
+
+\paragraph{Why this is needed.} The comparison of clocks is open, and an open problem is easier to work on when it is broken into rungs. Table~\ref{tab:ladder} and Fig.~\ref{fig:ladder} set out the order in which the model intends to climb: begin with two electrons and a single comparison, and introduce a continuous field only if the comparisons, once they fill a surface and then a volume, require one. At each rung the question is the same: does the model's internal mechanism fix the comparison, or is something missing?
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The ladder from a single comparison to a field}}
+\label{tab:ladder}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{2.6cm}p{5.0cm}p{4.2cm}p{3.6cm}}
+\toprule
+\textbf{Rung} & \textbf{Object} & \textbf{Question asked} & \textbf{Mathematical name} \\
+\midrule
+1. Two points
+& One comparison $\mathcal{T}_{(AB)\to(A'B')}$ along the thermal geodesic
+& Is the comparison fixed by the internal cycle and the path?
+& Parallel transport \\
+\addlinespace[0.3cm]
+2. A chain
+& $\mathcal{T}_{2\to3}\circ\mathcal{T}_{1\to2}$ versus $\mathcal{T}_{1\to3}$
+& Does comparing via an intermediate agree with comparing directly?
+& Path dependence \\
+\addlinespace[0.3cm]
+3. A loop
+& $\mathcal{T}_{3\to1}\circ\mathcal{T}_{2\to3}\circ\mathcal{T}_{1\to2}$
+& Does a residue survive every choice of clock origins?
+& Holonomy \\
+\addlinespace[0.3cm]
+4. A surface
+& Many small loops tiling a surface
+& Does the residue add up like a flux?
+& Curvature $\FF$ \\
+\addlinespace[0.3cm]
+5. A volume
+& Surfaces closing around a region
+& Does the total flux out of a closed surface vanish?
+& $d\FF=0$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Only at rung 4 does a field-like object appear, and only if rungs 1--3 show a residue that the internal mechanism cannot remove. Rung 5 is automatic once rung 4 holds, which is why $d\FF=0$ needs no metric. Matching the result to the electromagnetic field additionally needs the constitutive relation and $\alpha$, Table~\ref{tab:maxwell}.
+\end{minipage}
+\end{table*}
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0, >={Stealth[length=2.2mm]}]
+\begin{scope}
+\fill[orange!80] (0,0) circle (3pt); \fill[orange!80] (1.6,0) circle (3pt);
+\draw[->, thick, red!70!black] (0.12,0) -- (1.48,0);
+\node[font=\small] at (0.8,-1.4) {1. two points};
+\end{scope}
+\begin{scope}[xshift=3.2cm]
+\fill[orange!80] (0,0) circle (3pt); \fill[orange!80] (0.8,0.7) circle (3pt); \fill[orange!80] (1.6,0) circle (3pt);
+\draw[->, thick, red!70!black] (0.08,0.07) -- (0.72,0.63); \draw[->, thick, red!70!black] (0.88,0.63) -- (1.52,0.07);
+\draw[->, thick, gray, dashed] (0.12,-0.05) -- (1.48,-0.05);
+\node[font=\small] at (0.8,-1.4) {2. a chain};
+\end{scope}
+\begin{scope}[xshift=6.4cm]
+\fill[orange!80] (0,0) circle (3pt); \fill[orange!80] (0.8,0.9) circle (3pt); \fill[orange!80] (1.6,0) circle (3pt);
+\draw[->, thick, red!70!black] (0.08,0.09) -- (0.72,0.81); \draw[->, thick, red!70!black] (0.88,0.81) -- (1.52,0.09); \draw[->, thick, red!70!black] (1.48,0) -- (0.12,0);
+\node[font=\scriptsize] at (0.8,0.3) {residue?};
+\node[font=\small] at (0.8,-1.4) {3. a loop};
+\end{scope}
+\begin{scope}[xshift=9.6cm]
+\foreach \i in {0,1,2} \foreach \j in {0,1} {\draw[red!70!black, thick] (\i*0.6,\j*0.5) rectangle ++(0.6,0.5);}
+\node[font=\small] at (0.9,-1.4) {4. a surface: flux};
+\end{scope}
+\begin{scope}[xshift=13.2cm]
+\draw[red!70!black, thick] (0,0) rectangle (1.2,1.0);
+\draw[red!70!black, thick] (0,1.0) -- (0.4,1.35) -- (1.6,1.35) -- (1.2,1.0);
+\draw[red!70!black, thick] (1.2,0) -- (1.6,0.35) -- (1.6,1.35);
+\node[font=\small] at (0.8,-1.4) {5. a volume: $d\FF=0$};
+\end{scope}
+\end{tikzpicture}
+\caption{\textbf{Five rungs from one comparison to a field}}
+\label{fig:ladder}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Orange dots are electrons; red arrows are comparison maps between their internal clocks. A field-like object appears only when residues around small loops (rung 3) add up over a surface (rung 4). The model does not assume a field at the start; it asks at each rung whether one is needed.
 \end{minipage}
 \end{figure*}
 
@@ -1092,6 +1695,8 @@ While the two kernels merely sit, everything is topological: winding numbers and
 \end{table*}
 
 \textbf{[0SM reading]} While only the two kernels are placed, no metric is needed. Distance enters when the photon sphere moves, as the transport speed times one tick, Eq.~\eqref{eq:distance}, and energy sets its scale through $\lambda_C=hc/E$. The Hodge star, which carries the metric, and the fine-structure constant, which sits inside the constitutive relation, enter at the same place. What this supplies is a \emph{scale}, a conformal factor. It does not yet supply the \emph{light cone}, the directions in which signals can travel; that requires the refractive index of the thermal geodesic to be promoted from a scalar to a tensor, and it remains open.
+
+\established{Two of Maxwell's equations need no metric. One needs only a connection, which the model would supply as the rule for comparing clocks; the other needs only conserved charge, which the model supplies. A single electron produces no holonomy; holonomy needs a loop of at least three electrons. Distance, the constitutive relation and $\alpha$ enter together when the photon sphere crosses space; the light cone is not yet supplied.}
 
 % =====================================================================
 \section{What Experiment Can Decide}
@@ -1142,6 +1747,29 @@ The first three rows are fixed by the measured $a_e$ alone, through Eq.~\eqref{e
 \end{minipage}
 \end{table*}
 
+\paragraph{Three energy scales that follow from $\beta$.} \textbf{[0SM reading]} Once $\beta$ is fixed, three energy scales follow with no further input: the rest energy $mc^2=511.0$ keV; the transport quantum $\beta mc^2=20.68$ keV; and the kinetic energy of transport, $\tfrac12mv^2=\tfrac12\beta^2mc^2=418.5$ eV. Figure~\ref{fig:scales} places them on one scale. Each step down is a factor of $\beta$ or of $\beta/2$, so a measurement at any one of them constrains the others.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0]
+\draw[->, thick] (0,0) -- (6.6,0) node[below right, font=\small] {$\log_{10}(E/\mathrm{eV})$};
+\foreach \x in {2,3,4,5,6} \draw (\x*1.2-1.8,0.08) -- (\x*1.2-1.8,-0.08) node[below, font=\scriptsize] {$\x$};
+\fill[red!70!black] ({2.6217*1.2-1.8},0) circle (3pt);
+\fill[orange!80!black] ({4.3156*1.2-1.8},0) circle (3pt);
+\fill[blue!70!black] ({5.7085*1.2-1.8},0) circle (3pt);
+\node[above, font=\small, red!70!black, align=center] at ({2.6217*1.2-1.8},0.15) {$\tfrac12\beta^2mc^2$\\ $418.5$ eV};
+\node[above, font=\small, orange!80!black, align=center] at ({4.3156*1.2-1.8},0.15) {$\beta mc^2$\\ $20.68$ keV};
+\node[above, font=\small, blue!70!black, align=center] at ({5.7085*1.2-1.8},0.15) {$mc^2$\\ $511.0$ keV};
+\end{tikzpicture}
+\caption{\textbf{Three energy scales fixed by $\beta$}}
+\label{fig:scales}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+Rest energy, transport quantum and transport kinetic energy of the electron, on a logarithmic axis. All three follow from $a_e$ and $mc^2$ with no adjustable parameter.
+\end{minipage}
+\end{figure}
+
 \textbf{[0SM reading]} The decisive measurement is the first row. If an internal transport speed near $0.04\,c$ is found, the internal clock of Sec.~\ref{sec:time} acquires an experimental footing, and with it the distance construction of Eq.~\eqref{eq:distance}. If the speed is excluded, the transport reading of the internal time falls, while the purely topological results of Secs.~\ref{sec:arith}--\ref{sec:winding} and the algebra of Sec.~\ref{sec:quartic} remain as mathematics. A measurement would not prove that a hidden variable exists; it would make the transport speed a variable of the formalism, which is how such variables have historically entered physics.
 
 % =====================================================================
@@ -1161,6 +1789,54 @@ We collect the limits of the paper in one place, so that the main text could mov
 \paragraph{Ontology.} That two sinusoids are shadows of one rotation is a mathematical identity. It does not by itself establish that the internal oscillation is real; the standard position, that rest-frame trembling is a representation artifact removed by the Foldy--Wouthuysen transformation~\cite{ref:fw}, remains available. The model's falsifiable separation from that position is the sub-luminal transport speed $\beta c\approx0.04047\,c$, which contradicts the $\pm c$ eigenvalues of the Dirac velocity operator; Sec.~\ref{sec:exp} lists it with the other experimental handles.
 
 \paragraph{Integers, not sizes.} We repeat the statement of scope of Sec.~\ref{sec:winding} without qualification. The model derives the existence, integer value, conservation, bound and sign of charge (Appendix~\ref{app:charge}), and the integer structure of the two pictures. It does not derive the size of charge, the fine-structure constant $\alpha$, the coupling to the electromagnetic potential, or the light-cone structure. Each is a separate open problem, named in Sec.~\ref{sec:metric}.
+
+\paragraph{Open problems, in one table.} Table~\ref{tab:open} collects the problems this paper leaves open, with the place where each enters the argument and what would close it.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Open problems and where each enters}}
+\label{tab:open}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.6cm}p{4.6cm}p{6.8cm}}
+\toprule
+\textbf{Problem} & \textbf{Where it enters} & \textbf{What would close it} \\
+\midrule
+Size of charge, $\alpha$
+& Constitutive relation, Eq.~\eqref{eq:constit}
+& A derivation of the Hodge star, with its scale, from the transport of the photon sphere \\
+\addlinespace[0.3cm]
+Coupling to $A_\mu$
+& Comparison of clocks, Sec.~\ref{sec:metric}
+& Rungs 1--4 of Table~\ref{tab:ladder} carried out from the internal mechanism \\
+\addlinespace[0.3cm]
+Light cone
+& Refractive index of the thermal geodesic
+& Promotion of the scalar index $n(T)$ to a tensor that fixes the causal directions \\
+\addlinespace[0.3cm]
+Spin sector
+& Second two-valued quantity of the Dirac spinor
+& An identification of the internal angle with a spatial rotation angle, or another home for spin up/down \\
+\addlinespace[0.3cm]
+Factor of two in $E_0$
+& Eq.~\eqref{eq:idmass}
+& A decision whether $E_0$ is $mc^2$ or $2mc^2$, consistent across the series \\
+\addlinespace[0.3cm]
+Velocity convention
+& Sec.~\ref{sec:time}
+& Confirmation of the convention $v=\cos\omega t$ of Ref.~\cite{ref:p10} \\
+\addlinespace[0.3cm]
+Reality of the internal motion
+& Sec.~\ref{sec:exp}
+& A measurement of the transport speed near $0.04\,c$, or its exclusion \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The first three rows are one problem seen from three sides: the scale, the coupling and the causal structure all enter where the photon sphere crosses space. The last row is experimental and is the decisive one.
+\end{minipage}
+\end{table*}
 
 \paragraph{Spin--statistics.} The two-way choice of Sec.~\ref{sec:twopictures} is reached at a different place and for a different reason than in standard theory, where it comes from the topology of exchanging identical particles. We do not claim the two are the same.
 
@@ -1207,67 +1883,119 @@ Top row: the integer thread, from the arithmetic of $0$ and $1$ (Sec.~\ref{sec:a
 \section{Numerical Verification}
 \label{app:numeric}
 
-Every analytic claim was checked numerically. The script below reproduces the checks: (1) the solution sets of Proposition~\ref{prop:sets} and the roots of $\binom{p}{3}$; (2)--(3) the first-order equation, the equal-weight decomposition and $\langle H\rangle=0$; (4) the quadratic Bloch forms and Proposition~\ref{prop:quartic}; (5) the Wronskian charge $Q=\pm1$; (6) the closed form $W=\chi_4(q)$ for coprime odd pairs below $40$; (7) $\beta$ from $a_e$, the ratio $\beta$ between the two clocks, and $\lambda_C=\beta c\,T_{\mathrm{tr}}$.
+\paragraph{What the script does, and why.} Every number and every identity in this paper can be checked by a short Python script, \texttt{verify65.py}, distributed with the paper. The script contains seven independent checks. Each check computes a quantity in two ways, or tests an inequality on a fine grid, and stops with an error if the two disagree; if all seven pass it prints the values of $\beta$ and the transport frequency and the line \texttt{all checks passed}. The script uses only \texttt{numpy} and the Python standard library and runs in under a second. Figure~\ref{fig:verifymap} shows which claim of the paper each check supports, and the listings below give each check with a one-sentence statement of its purpose.
 
-\begin{lstlisting}[caption={Verification of Propositions~\ref{prop:sets} and~\ref{prop:quartic}, Theorem~\ref{thm:equiv}, Eq.~\eqref{eq:wronskian}, and Tables~\ref{tab:charge}--\ref{tab:clocks}.}]
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[scale=1.0, >={Stealth[length=2.2mm]},
+  chk/.style={draw, rounded corners=3pt, fill=blue!7, align=flush left, font=\small, text width=4.6cm, minimum height=0.85cm, inner sep=4pt},
+  clm/.style={draw, rounded corners=3pt, fill=orange!10, align=flush left, font=\small, text width=5.2cm, minimum height=0.85cm, inner sep=4pt},
+  outc/.style={align=flush left, font=\small, text width=4.3cm}]
+\node[font=\small\bfseries] at (0,1.0) {Check in \texttt{verify65.py}};
+\node[font=\small\bfseries] at (6.4,1.0) {Claim in the paper};
+\node[font=\small\bfseries] at (12.2,1.0) {Passes when};
+\foreach \y/\c/\m/\o in {
+ 0/{1. Solution sets of $n_A^p+n_B^p=1$}/{Prop.~\ref{prop:sets}, Fig.~\ref{fig:seats}; roots of $\binom{p}{3}$}/{interior $<1$ for $p>1$; roots $\{0,1,2\}$},
+ 1/{2. First-order equation}/{Eqs.~\eqref{eq:foe}--\eqref{eq:kgroot}}/{$i\dot\chi=H\chi$; eigenvalues $\pm\omega/2$},
+ 2/{3. Branch decomposition}/{Theorem~\ref{thm:equiv}}/{weights $\tfrac12,\tfrac12$; $\langle H\rangle=0$},
+ 3/{4. Bloch forms and the quartic}/{Prop.~\ref{prop:quartic}, Fig.~\ref{fig:hopf}}/{quartic $=$ quadratic in $\Bloch$ to $10^{-12}$},
+ 4/{5. Wronskian charge}/{Eq.~\eqref{eq:wronskian}, App.~\ref{app:charge}}/{$Q=+1$ and $Q=-1$ exactly},
+ 5/{6. Winding of detuned pairs}/{Eq.~\eqref{eq:Wchi}, Table~\ref{tab:wind}}/{$W=\chi_4(q)$ for all coprime odd pairs below $40$},
+ 6/{7. $\beta$, two clocks, distance}/{Eq.~\eqref{eq:beta}, Table~\ref{tab:clocks}, Eq.~\eqref{eq:distance}}/{$\beta=0.0404720$; ratio $=\beta$; $\beta c\,T_{\mathrm{tr}}=\lambda_C$}} {
+  \node[chk] (c\y) at (0,-\y*1.15) {\c};
+  \node[clm] (m\y) at (6.4,-\y*1.15) {\m};
+  \node[outc] (o\y) at (12.2,-\y*1.15) {\o};
+  \draw[->, thick, gray] (c\y) -- (m\y);
+  \draw[->, thick, gray] (m\y) -- (o\y);}
+\node[draw, thick, rounded corners, fill=green!8, font=\small, inner sep=5pt] (ok) at (6.4,-8.4) {all seven pass $\;\Rightarrow\;$ prints $\beta$, $\nu_{\mathrm{tr}}$, and \texttt{all checks passed}};
+\draw[->, thick] (m6) -- (ok);
+\end{tikzpicture}
+\caption{\textbf{Map of the numerical checks}}
+\label{fig:verifymap}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Each row is one block of the script. Left: what the block computes. Middle: the statement of the paper it supports. Right: the condition under which the block passes. The checks are independent of one another; any single failure stops the script with an assertion error that names the line.
+\end{minipage}
+\end{figure*}
+
+\paragraph{Setup.} The Pauli matrices, the rotor $\chi(t)$ of Eq.~\eqref{eq:rotor}, and units $\omega=E_0=1$.
+\begin{lstlisting}
 import numpy as np, math
 sx=np.array([[0,1],[1,0]]); sy=np.array([[0,-1j],[1j,0]]); sz=np.array([[1,0],[0,-1]])
 w=1.0; E0=1.0
 chi=lambda t: np.array([np.cos(w*t/2), np.sin(w*t/2)], dtype=complex)
+\end{lstlisting}
 
-# (1) kernel terms alone give 1 only at the ends of the segment
+\paragraph{Check 1: two solution sets.} On a grid of $10^5$ points of the segment, the kernel terms $n_A^p+n_B^p$ equal one at the ends and stay below one inside, for $p=1.5,2,3$; and the cubic $\binom{p}{3}\propto p^3-3p^2+2p$ has roots $\{0,1,2\}$.
+\begin{lstlisting}
 x=np.linspace(0,1,100001)
 for p in [1.5,2,3]:
     f=x**p+(1-x)**p
     assert np.all(f[1:-1]<1) and f[0]==1 and f[-1]==1
 assert sorted(np.round(np.roots([1,-3,2,0]).real,12))==[0,1,2]
+\end{lstlisting}
 
-# (2) first-order equation and eigenvalues of H
+\paragraph{Check 2: the first-order equation.} The numerical derivative of $\chi$ satisfies $i\dot\chi=H\chi$ with $H=\tfrac{\omega}{2}\sigma_y$, whose eigenvalues are $\pm\omega/2$.
+\begin{lstlisting}
 dt=1e-6
 for t in np.linspace(0.1,5,7):
     d=(chi(t+dt)-chi(t-dt))/(2*dt)
     assert np.max(np.abs(1j*d-(w/2)*sy@chi(t)))<1e-6
 assert np.allclose(np.linalg.eigvalsh((w/2)*sy),[-0.5,0.5])
+\end{lstlisting}
 
-# (3) equal-weight decomposition, <H>=0
+\paragraph{Check 3: the two Dirac branches.} Projected on the eigenvectors of $H$, the rotor has weight $\tfrac12$ on each branch at every instant, and the mean energy vanishes.
+\begin{lstlisting}
 vals,V=np.linalg.eigh((w/2)*sy)
 for t in np.linspace(0,2*np.pi,9):
     c=V.conj().T@chi(t)
     assert np.allclose(np.abs(c)**2,[0.5,0.5])
     assert abs((chi(t).conj()@((w/2)*sy)@chi(t)).real)<1e-12
+\end{lstlisting}
 
-# (4) quadratic Bloch forms; quartic derived from three inputs
+\paragraph{Check 4: the quartic as a pullback.} At $50$ instants, the quartic kernel energies equal the quadratic Bloch forms, and solving the sum (conservation and kinetic energy) and the difference (energy gradient) recovers $\cos^4(\omega t/2)$.
+\begin{lstlisting}
 for t in np.linspace(0,2*np.pi,50):
     c=chi(t); Sx=(c.conj()@sx@c).real; Sz=(c.conj()@sz@c).real
     assert abs(E0*np.cos(w*t/2)**4-E0*((1+Sz)/2)**2)<1e-12
     assert abs(0.5*E0*np.sin(w*t)**2-0.5*E0*Sx**2)<1e-12
     KE=0.5*E0*Sx**2; s=E0-KE; d=-E0*Sz
     assert abs((s-d)/2-E0*np.cos(w*t/2)**4)<1e-12
+\end{lstlisting}
 
-# (5) Wronskian charge: +1 for the rotor, -1 reversed
+\paragraph{Check 5: the Wronskian charge.} For the rotor, $Q=(2/\omega)(a\dot b-b\dot a)$ equals $+1$ at every instant, and $-1$ when $b\to-b$.
+\begin{lstlisting}
 t=np.linspace(0,10,1001); a=np.cos(w*t/2); b=np.sin(w*t/2)
 ad=-(w/2)*np.sin(w*t/2); bd=(w/2)*np.cos(w*t/2)
 assert np.allclose((2/w)*(a*bd-b*ad),1)
 assert np.allclose((2/w)*(a*(-bd)-(-b)*ad),-1)
+\end{lstlisting}
 
-# (6) winding number W = chi_4(q) for coprime odd p:q
+\paragraph{Check 6: winding of detuned pairs.} The signed-crossing sum~\eqref{eq:Wsum} equals the mod-$4$ character $\chi_4(q)$ for every coprime pair of odd $p,q$ below $40$.
+\begin{lstlisting}
 def chi4(n): return 0 if n%2==0 else (1 if n%4==1 else -1)
 def W(p,q): return 0.5*sum((-1)**k*math.copysign(1,
     math.sin(math.pi*q*(2*k+1)/(2*p))) for k in range(2*p))
 for p in range(1,40,2):
     for q in range(1,40,2):
         if math.gcd(p,q)==1: assert W(p,q)==chi4(q)
+\end{lstlisting}
 
-# (7) beta from a_e; two clocks differ by beta; distance = speed x tick
+\paragraph{Check 7: $\beta$, the two clocks, and distance.} From the measured $a_e$, compute $\beta$ by Eq.~\eqref{eq:beta}; confirm that the transport frequency is $\beta$ times the branch frequency and that the transport speed times one tick is the Compton wavelength.
+\begin{lstlisting}
 ae=0.00115965218059
 beta=math.sqrt(1-1/(1+ae/math.sqrt(2))**2)
 h=6.62607015e-34; c=299792458; me=9.1093837015e-31
 lamC=h/(me*c); nu_branch=me*c**2/h; nu_tr=beta*c/lamC
+assert abs(beta-0.0404720)<1e-7
 assert abs(nu_tr/nu_branch-beta)<1e-15
 assert abs(beta*c/nu_tr-lamC)<1e-25
-print(f"beta={beta:.7f} nu_tr={nu_tr:.5e} Hz")
+print(f"beta={beta:.7f}  nu_tr={nu_tr:.5e} Hz")
 print("all checks passed")
 \end{lstlisting}
+
+\paragraph{Expected output.} \texttt{beta=0.0404720 \ nu\_tr=5.00068e+18 Hz} followed by \texttt{all checks passed}.
 
 \section{The Bloch Map and the Derivation of the Quartic}
 \label{app:bloch}
@@ -1321,7 +2049,9 @@ The normalization $n_A+n_B=1$ at every instant requires both oscillating coeffic
 A=B=1,\qquad \delta\in\{0,\pi\}.
 \label{eq:twosol}
 \end{equation}
-For $\delta=0$, $z=e^{it}$ and $W=+1$; for $\delta=\pi$, $z=e^{-it}$ and $W=-1$. The identity therefore has exactly two locked solutions, distinguished by orientation; the model reads them as $e^{-}$ and $e^{+}$. Any intermediate $\delta$ gives an ellipse with $|z|<1$ somewhere, and $\delta=\pi/2$ collapses the curve to the segment $a=b$ through the origin (Fig.~\ref{fig:winding}c). Two kernels running at different frequencies cannot satisfy the normalization at all, since the cross term then oscillates at the beat frequency. Normalization is therefore equivalent to lock.
+For $\delta=0$, $z=e^{it}$ and $W=+1$; for $\delta=\pi$, $z=e^{-it}$ and $W=-1$. The identity therefore has exactly two locked solutions, distinguished by orientation; the model reads them as $e^{-}$ and $e^{+}$. Any intermediate $\delta$ gives an ellipse with $|z|<1$ somewhere, and $\delta=\pi/2$ collapses the curve to the segment $a=b$ through the origin (Fig.~\ref{fig:winding}c).
+
+For $A=B=1$ the oscillating part of Eq.~\eqref{eq:normexp} is $\tfrac12(1-\cos2\delta)\cos2t+\tfrac12\sin2\delta\sin2t$, whose amplitude is $\tfrac12\sqrt{(1-\cos2\delta)^2+\sin^22\delta}=\tfrac12\sqrt{2-2\cos2\delta}=|\sin\delta|$. Hence $\min_t|z|^2=1-|\sin\delta|$, which is Eq.~\eqref{eq:gap}: the gap closes continuously as $\delta$ moves from $0$ to $\pi/2$ (Fig.~\ref{fig:delta}). Two kernels running at different frequencies cannot satisfy the normalization at all, since the cross term then oscillates at the beat frequency. Normalization is therefore equivalent to lock.
 
 \subsection{The Wronskian: conservation, quantization, bound}
 
@@ -1358,6 +2088,85 @@ For odd $p$ the first sum has $p$ alternating terms beginning with $+1$ and equa
 
 Nothing above fixes the size of one unit of charge or shows that the winding number couples to an electromagnetic potential. Those require a scale and a coupling, the two rows of Table~\ref{tab:charge} marked \emph{not derived}.
 
+\section{Mathematical Terms in Plain Words}
+\label{app:glossary}
+
+This appendix gives a one-sentence meaning for every mathematical term the paper uses, for readers coming from outside mathematical physics.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Mathematical terms used in the paper}}
+\label{tab:glossary}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{3.2cm}p{8.6cm}p{3.8cm}}
+\toprule
+\textbf{Term} & \textbf{Plain meaning} & \textbf{Where it is used} \\
+\midrule
+Idempotent
+& A number unchanged by squaring; among the reals, only $0$ and $1$
+& Secs.~\ref{sec:arith}, \ref{sec:twopictures} \\
+\addlinespace[0.3cm]
+Zero-sphere $S^0$
+& The set of two points at unit distance from the origin of a line
+& Throughout \\
+\addlinespace[0.3cm]
+Path-connected
+& Any two points can be joined by a continuous path inside the set
+& Sec.~\ref{sec:path} \\
+\addlinespace[0.3cm]
+Simply connected
+& Every closed loop can be shrunk to a point inside the set; a circle is not
+& Sec.~\ref{sec:winding} \\
+\addlinespace[0.3cm]
+Winding number
+& The number of times a closed curve goes round a point, counted with sign
+& Sec.~\ref{sec:winding}, App.~\ref{app:charge} \\
+\addlinespace[0.3cm]
+Wronskian
+& $a\dot b-b\dot a$; constant for two solutions of the same linear oscillator equation
+& Eq.~\eqref{eq:wronskian} \\
+\addlinespace[0.3cm]
+Dirichlet character $\chi_4$
+& The function $0,+1,-1$ on even numbers, numbers $\equiv1$ and $\equiv3\pmod4$
+& Eq.~\eqref{eq:Wchi} \\
+\addlinespace[0.3cm]
+Helmholtz (Hodge) decomposition
+& Splitting a flow into gradient, rotational and harmonic parts
+& Eq.~\eqref{eq:helmholtz} \\
+\addlinespace[0.3cm]
+Double cover; Hopf map
+& A two-to-one map; here the map from the spinor $\chi$ to the Bloch vector $\Bloch$
+& Sec.~\ref{sec:quartic} \\
+\addlinespace[0.3cm]
+Symplectic complex structure
+& The rotation of position--momentum phase space by a quarter turn; the ``$i$'' of an oscillator
+& Sec.~\ref{sec:quartic} \\
+\addlinespace[0.3cm]
+Connection; parallel transport
+& A rule for carrying a quantity from one place to another so that it can be compared
+& Sec.~\ref{sec:metric} \\
+\addlinespace[0.3cm]
+Holonomy
+& What remains after carrying a quantity round a closed loop and comparing it with itself
+& Sec.~\ref{sec:metric} \\
+\addlinespace[0.3cm]
+Hodge star $\hodge$
+& The operation that needs a metric and turns field strength into excitation
+& Eq.~\eqref{eq:constit} \\
+\addlinespace[0.3cm]
+Lock; detuning
+& Two kernels at the same frequency; at different frequencies
+& Sec.~\ref{sec:winding} \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The definitions are informal by design. Each term is used in the paper only in the sense given here.
+\end{minipage}
+\end{table*}
+
 % =====================================================================
 \begin{thebibliography}{99}
 
@@ -1390,6 +2199,11 @@ Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765244}{10.5281/zenodo.177
 S.~Hanamura,
 \emph{Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure},
 Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765349}{10.5281/zenodo.17765349}.
+
+\bibitem{ref:p31}
+S.~Hanamura,
+\emph{Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov-Bohm Effect, Berry Phase, and Wilson Loops},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18203433}{10.5281/zenodo.18203433}.
 
 \bibitem{ref:p33}
 S.~Hanamura,
