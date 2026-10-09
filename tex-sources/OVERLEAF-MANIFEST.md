@@ -24,7 +24,7 @@
 
 | # | 内容 | 状態 |
 |---|---|---|
-| **65** | One Internal Oscillator（symplectic 複素構造・Dirac 静止解との等価性・quartic の幾何学的起源） | 前方依存ゼロ＝最初に寄託 |
+| **65** | From Zero and One to the Electron（0 と 1・弧状連結・巻き数＝電荷・quartic の幾何学的起源・内部時間＝輸送の周期。2026-10-09 に旧稿と合併） | 前方依存ゼロ＝最初に寄託 |
 | **66** | Dual-Model Deliberation Record（spin-2 セクターの二重モデル討議記録） | #63 までを引用 |
 | **67** | Binding Energy, Composition, and the Residual β_ZB（等価原理2試験＋再出発宣言） | #65・#66 を引用 |
 | **68** | The 0-Sphere Model: A Structural Overview（#1–#67 回顧＋冒頭に再出発宣言） | 最後に寄託＝#67 までカタログ可能 |
