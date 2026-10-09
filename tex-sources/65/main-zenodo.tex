@@ -1257,12 +1257,12 @@ At every occupation strictly between $0$ and $1$ the flow has two values of oppo
   \draw[line width=1.6pt, red!70!black] (-1.2,\y) -- (1.2,\y);
   \fill (-1.2,\y) circle (1.8pt); \fill (1.2,\y) circle (1.8pt);
 }
-\draw[very thick, blue!70!black, ->] (1.2,1.85) .. controls (0.4,2.25) and (-0.4,2.25) .. (-1.15,1.88);
-\draw[very thick, blue!70!black, dashed, ->] (-1.45,1.62) -- (-1.45,0.08);
-\draw[very thick, orange!80!black, ->] (-1.2,-0.15) .. controls (-0.4,-0.55) and (0.4,-0.55) .. (1.15,-0.18);
-\draw[very thick, orange!80!black, dashed, ->] (1.45,0.08) -- (1.45,1.62);
-\node[font=\scriptsize] at (1.2,1.5) {$1$}; \node[font=\scriptsize] at (-1.2,1.5) {$0$};
-\node[font=\scriptsize] at (1.2,0.2) {$1$}; \node[font=\scriptsize] at (-1.2,0.2) {$0$};
+\draw[very thick, blue!70!black, ->] (-1.2,1.85) .. controls (-0.4,2.25) and (0.4,2.25) .. (1.15,1.88);
+\draw[very thick, blue!70!black, dashed, ->] (1.45,1.62) -- (1.45,0.08);
+\draw[very thick, orange!80!black, ->] (1.2,-0.15) .. controls (0.4,-0.55) and (-0.4,-0.55) .. (-1.15,-0.18);
+\draw[very thick, orange!80!black, dashed, ->] (-1.45,0.08) -- (-1.45,1.62);
+\node[font=\scriptsize] at (-1.2,1.5) {$1$}; \node[font=\scriptsize] at (1.2,1.5) {$0$};
+\node[font=\scriptsize] at (-1.2,0.2) {$1$}; \node[font=\scriptsize] at (1.2,0.2) {$0$};
 \node[font=\scriptsize, blue!70!black] at (0,2.42) {sheet I: $A$ radiates, $B$ absorbs};
 \node[font=\scriptsize, orange!80!black] at (0,-0.72) {sheet II: $B$ radiates, $A$ absorbs};
 \node[font=\scriptsize, align=center] at (0,-1.2) {(a) $\dot n_A=\mp\omega\sqrt{n_An_B}$: branch points $n_A\in\{0,1\}=S^0$, cut $D^1$};
@@ -1272,7 +1272,7 @@ At every occupation strictly between $0$ and $1$ the flow has two values of oppo
 \draw[->] (0,-1.7) -- (0,1.8) node[above, font=\scriptsize] {$\mathrm{Im}\,p$};
 \draw[very thick, red!70!black, decorate, decoration={zigzag, amplitude=0.6mm, segment length=2mm}] (0,0.9) -- (0,1.7);
 \draw[very thick, red!70!black, decorate, decoration={zigzag, amplitude=0.6mm, segment length=2mm}] (0,-0.9) -- (0,-1.6);
-\fill (0,0.9) circle (2pt) node[left=7pt, font=\scriptsize] {$+imc$};
+\fill (0,0.9) circle (2pt) node[left=15pt, font=\scriptsize] {$+imc$};
 \fill (0,-0.9) circle (2pt) node[left, font=\scriptsize] {$-imc$};
 \draw[thick, blue!70!black, ->] (0.45,0.9) arc (0:340:0.45);
 \node[font=\scriptsize, align=left, right] at (0.6,0.55) {$+E \to -E$};
@@ -1284,7 +1284,7 @@ At every occupation strictly between $0$ and $1$ the flow has two values of oppo
 \vspace{0.4em}
 \begin{minipage}{0.95\columnwidth}
 \justifying\small
-(a) The energy flow $\dot n_A$ as a two-valued function of the occupation $n_A$, Eq.~\eqref{eq:flowroot}. Sheet~I is the cycle in which kernel $A$ radiates and kernel $B$ absorbs; sheet~II the cycle in which $B$ radiates and $A$ absorbs. The branch points are the two kernel states $n_A=0,1$, the zero-sphere, and the cut is the segment $D^1$. At each branch point the flow stops and passes to the other sheet (dashed). (b) The Dirac energy as a function of complex momentum. Its branch points lie at $p=\pm imc$; a loop around one of them exchanges the positive- and negative-energy sheets.
+(a) The energy flow $\dot n_A$ as a two-valued function of the occupation $n_A$, Eq.~\eqref{eq:flowroot}. Sheet~I is the cycle in which kernel $A$ radiates and kernel $B$ absorbs; sheet~II the cycle in which $B$ radiates and $A$ absorbs. The branch points are the two kernel states $n_A=0,1$, the zero-sphere, and the cut is the segment $D^1$. The occupation axis is drawn with $n_A=1$, all energy in kernel $A$, on the left and $n_A=0$, all energy in kernel $B$, on the right, so that each solid arrow points in the direction in which the energy travels. At each branch point the flow stops and passes to the other sheet (dashed), and the full exchange cycle runs clockwise. (b) The Dirac energy as a function of complex momentum. Its branch points lie at $p=\pm imc$; a loop around one of them exchanges the positive- and negative-energy sheets.
 \end{minipage}
 \end{figure}
 
