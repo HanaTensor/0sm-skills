@@ -1,0 +1,217 @@
+================================================================================
+zenodo_relations.txt — Paper #65
+"From Zero and One to the Electron: Path-Connectedness, the Double Cover,
+ and the Geometric Origin of the Quartic Energy in the 0-Sphere Model"
+Author: Satoshi Hanamura
+Date: October 10, 2026
+DOI (this paper): [FILL: 10.5281/zenodo.XXXXXXXX — after Zenodo pre-registration]
+================================================================================
+NOTE: Mode = manual fallback (context/papers/065.md is not yet curated).
+      Rule applied: one relation type per counterpart (relation-types.md
+      Section 0). No paper appears in two sections below.
+
+NOTE: Two bibliography entries are "in preparation" and carry no DOI:
+  - ref:p68  #68 "The 0-Sphere Model: A Structural Overview"
+  - ref:p67  #67 "Binding Energy, Composition, and the Residual beta_ZB ..."
+  Both are later papers of the series and cite #65. Acceptable to keep as
+  "in preparation" in this upload. No Zenodo relation is entered for them
+  now; the relation is set from their own records when they are deposited
+  (#67 / #68 -> "Cites" or "References" #65).
+
+NOTE: verify65.py (the numerical-verification script of Appendix A) is
+  uploaded as a file IN THIS SAME RECORD, so no relation entry is needed.
+
+[Summary]
+  [1] Continues:         3 entries
+  [2] References:        6 entries
+  [3] Cites:            15 entries (Hanamura papers with DOI, not above)
+  [4] Is part of:        1 entry  (#1)
+  External (non-Zenodo): standard literature, 70 entries — no relation needed
+  GitHub working notes (trunks T1–T7): optional URL relation, see [5]
+  [Reverse Relations]:   9 target papers listed for update
+================================================================================
+
+[1] Continues
+  — Papers whose central results this paper takes over and extends —
+
+  #64 Hanamura 2026 — The Square Root of the Hyperspherical Laplacian:
+      A Geometric Foundation for Spin Two-Valuedness on S^3
+      DOI: 10.5281/zenodo.20820646
+      Reason: Immediate predecessor. #64 builds spin two-valuedness from the
+              square-root operator on S^3; #65 Sec. VI shows that the quartic
+              energies are quadratic Bloch forms pulled back through the Hopf
+              double cover S^3 -> S^2, and Sec. VI.G states the relation to the
+              square-root construction of #64 explicitly.
+
+  #10 Hanamura 2024 — Redefining Electron Spin and Anomalous Magnetic Moment
+      Through Harmonic Oscillation and Lorentz Contraction
+      DOI: 10.5281/zenodo.17764997
+      Reason: #65 Sec. VII defines the internal time as the transport cycle at
+              rate beta m c^2 / hbar, with beta = 0.0404720 fixed by a_e through
+              the RMS relation of #10 (Eq. III.5). The half-angle kinematics
+              (v = cos wt, Thomas precession) and lambda_C = beta c T_tr are
+              taken over from #10 and extended to a clock and a distance.
+
+  #51 Hanamura 2026 — Helical Trajectory, Fixed-Endpoint Line Integrals, and
+      the Emergence of the Spacetime Metric in the 0-Sphere Model
+      DOI: 10.5281/zenodo.20388056
+      Reason: #51 gives the chain "S^0 is not path-connected -> embedding in a
+              sphere -> Bonnet–Myers bound -> unique thermal geodesic". #65
+              Sec. IV adds the energy-side counterpart (the transit seat
+              2 n_A n_B) and Sec. V closes the path into a winding number.
+
+================================================================================
+
+[2] References
+  — Papers whose specific results are used as inputs —
+
+  #33 Hanamura 2026 — Geometrical Confinement of Energy in the 0-Sphere Model:
+      A Topological Mechanism Underlying Rest Mass and Zitterbewegung
+      DOI: 10.5281/zenodo.18356895
+      Reason: Embedding of the two discrete kernels in a path-connected compact
+              domain (used in Sec. IV.A).
+
+  #38 Hanamura 2026 — Electron Interference from Internal Geometry: Two-Kernel
+      SU(2) Structure, Quartic Energy Flow, and an Intrinsic Visibility Limit
+      DOI: 10.5281/zenodo.18718174
+      Reason: Two-kernel SU(2) structure and quartic energy flow; the starting
+              point of the rotor equation and Bloch-form analysis of Sec. VI.
+
+  #62 Hanamura 2026 — The Bridge Equation gamma = 1 + a from First Principles:
+      Representation Duality of the Anomalous Moment and the Geometric Origin
+      of the Root-Mean-Square Factor in the 0-Sphere Model
+      DOI: 10.5281/zenodo.20091680
+      Reason: Origin of the RMS factor 1/sqrt(2) that separates the averaged
+              beta = 0.04047 (used here) from the peak value 0.04812 (Sec. VII.B).
+
+  #20 Hanamura 2025 — Emergent Conservation Laws from Internal Geometry:
+      A Noetherian Reinterpretation in the 0-Sphere Model
+      DOI: 10.5281/zenodo.17765244
+      Reason: Normalization |z| = 1 as frequency lock of the two kernels, used
+              in Sec. V.A and Appendix D to make the winding number protected.
+
+  #50 Hanamura 2026 — Rotation from Scalar Oscillation: Emergence of
+      Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics
+      DOI: 10.5281/zenodo.19482145
+      Reason: A quarter-period stagger turns the scalar oscillation into a
+              rotation (Sec. V.A); this is the rotation whose winding is charge.
+
+  #17 Hanamura 2025 — From Clock Synchronization to Electromagnetism:
+      A Realist Construction of U(1) Gauge Theory
+      DOI: 10.5281/zenodo.17765136
+      Reason: Clock comparison between electrons as the source of the gauge
+              connection; Sec. VIII builds the comparison map T_(AB)->(A'B')
+              and the research ladder on it.
+
+================================================================================
+
+[3] Cites
+  — Hanamura papers cited in the bibliography and not listed above —
+
+  #7  Hanamura 2020 — Coexistence of Positive- and Negative-Energy States in
+      the Dirac Framework within the 0-Sphere Model
+      DOI: 10.5281/zenodo.17760132
+
+  #15 Hanamura 2025 — Spin-Induced Inertial Resistance in Electrons:
+      A Gyroscopic Interpretation Based on General Relativity
+      DOI: 10.5281/zenodo.17765121
+
+  #19 Hanamura 2025 — Spin as a Real Vector from Internal Photon-Sphere Motion:
+      Geometric Origin of U(1) Gauge and SU(2) Periodicity
+      DOI: 10.5281/zenodo.17765238
+
+  #22 Hanamura 2025 — Gravitational Redshift of Internal Quantum Clocks:
+      A Zitterbewegung-Based Model
+      DOI: 10.5281/zenodo.17765318
+
+  #24 Hanamura 2025 — Thermal Geodesics in the 0-Sphere Model: Extending
+      General Relativity through Internal Thermodynamic Structure
+      DOI: 10.5281/zenodo.17765349
+
+  #29 Hanamura 2025 — Geometric Structure of Spinorial Phase Accumulation
+      along Thermal Geodesics
+      DOI: 10.5281/zenodo.18067760
+
+  #30 Hanamura 2026 — From Curvature to Connection: Revisiting the Geometric
+      Origin of Conservation Laws
+      DOI: 10.5281/zenodo.18819682
+
+  #31 Hanamura 2026 — Line Integrals as Fundamental Observables in Physics
+      DOI: 10.5281/zenodo.18203433
+
+  #42 Hanamura 2026 — On the Non-Perturbative Nature of the 0-Sphere Model and
+      Magnetic Monopole Absence
+      DOI: 10.5281/zenodo.18857609
+
+  #43 Hanamura 2026 — On Observer-Dependent Torsion, Zitterbewegung, and Phase
+      Accumulation in the 0-Sphere Model
+      DOI: 10.5281/zenodo.18896784
+
+  #44 Hanamura 2026 — On Internal Energy Stabilization, Charge Localization,
+      and Superradiant Rephasing
+      DOI: 10.5281/zenodo.18905344
+
+  #46 Hanamura 2026 — Geometric Origin of the One-Half Factor: Thermal
+      Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model
+      DOI: 10.5281/zenodo.19010945
+
+  #48 Hanamura 2026 — Geometric Origin of g = 2 in the 0-Sphere Model:
+      U(1) Fiber Bundle and Dual-Frame Phase Decomposition
+      DOI: 10.5281/zenodo.19227518
+
+  #54 Hanamura 2026 — Maxwell Electrodynamics as a Derived Low-Energy Limit of
+      the 0-Sphere Line-Integral Ontology
+      DOI: 10.5281/zenodo.19701297
+
+  #63 Hanamura 2026 — From Line Integral to Covariant Derivative: A Reader's
+      Map of the Bridge from the 0-Sphere Model to Riemannian Curvature
+      DOI: 10.5281/zenodo.20767589
+
+  External (not Zenodo — no Zenodo relation entry required), principal ones:
+      Thomas 1926, Nature 117, 514 / Thomas 1927, Phil. Mag. 3, 1
+      Dirac 1928, Proc. R. Soc. Lond. A 117, 610
+      Uhlenbeck & Goudsmit 1926, Nature 117, 264
+      Hopf 1931, Math. Ann. 104, 637
+      Onsager 1949 / Feynman 1955 / Vinen 1961 (quantized circulation)
+      Deaver & Fairbank 1961 / Doll & Nabauer 1961 (flux quantization)
+      Fan et al. 2023, Phys. Rev. Lett. 130, 071801 (a_e)
+      Aharonov & Bohm 1959; Hehl & Obukhov 2003 (pre-metric electrodynamics)
+      ... 70 standard references in total (see bibliography of main.tex)
+
+================================================================================
+
+[4] Is part of
+  — 0-Sphere Model series membership (#1 only; not repeated under Cites) —
+
+  #1  Hanamura 2018 — A Model of an Electron Including Two Perfect Black Bodies
+      DOI: 10.5281/zenodo.16759284
+
+================================================================================
+
+[5] Optional — external URL (not a Zenodo DOI)
+
+  0-Sphere Model Working Notes, Trunks T1–T7 (GitHub HanaTensor/0sm-skills,
+  directory "trunks"). Cited as ref:trunks for the winding-number reading of
+  charge (T2) and the velocity convention (T3).
+      Relation: References   Identifier type: URL
+      If the repository is private at upload time, omit this entry.
+
+================================================================================
+
+[Reverse Relations — Recommended Updates to Target Papers]
+
+Add on each target record, pointing to the DOI of #65 once assigned.
+(Cites and Is part of have no reverse entry, per Section 0.)
+
+  #64 (10.5281/zenodo.20820646) — Add: Is continued by → DOI of #65
+  #10 (10.5281/zenodo.17764997) — Add: Is continued by → DOI of #65
+  #51 (10.5281/zenodo.20388056) — Add: Is continued by → DOI of #65
+
+  #33 (10.5281/zenodo.18356895) — Add: Is referenced by → DOI of #65
+  #38 (10.5281/zenodo.18718174) — Add: Is referenced by → DOI of #65
+  #62 (10.5281/zenodo.20091680) — Add: Is referenced by → DOI of #65
+  #20 (10.5281/zenodo.17765244) — Add: Is referenced by → DOI of #65
+  #50 (10.5281/zenodo.19482145) — Add: Is referenced by → DOI of #65
+  #17 (10.5281/zenodo.17765136) — Add: Is referenced by → DOI of #65
+
+================================================================================
