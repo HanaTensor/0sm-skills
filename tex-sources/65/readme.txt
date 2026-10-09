@@ -225,9 +225,13 @@ What the model CAN derive:
   polynomial (E^2 - m^2c^4)^2. Spin is assigned to the direction in which
   radiation and absorption progress in space, charge to the winding in the
   internal amplitude plane.
-- Hidden variables: the model posits no local hidden variable; its hidden
-  variable is global (the phase relation of the whole system), consistent
-  with Bell 1966 and Kochen-Specker for a single spin.
+- Hidden variables: the model posits no local hidden variable (a single
+  electron carries no independent degree of freedom fixing its partner's
+  outcome). Its hidden variable is global: the common oscillation cycle of
+  two electrons, with time phases offset by 180 degrees. A point particle
+  has no such cycle; it appears because the electron has internal
+  structure. It becomes physical only if the transport speed ~0.04c is
+  observed.
 - Entangled pair (outlook): opposite orders of traversal at equal rates, so
   the pair-level radiation gradient cancels, F1 + F2 = 0; the residual
   fraction sin^2(phi/2) at axis angle phi would give the -cos(phi)
