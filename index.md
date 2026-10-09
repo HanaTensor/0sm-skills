@@ -1,8 +1,8 @@
 # 0-Sphere Model — Master Index
 
 > Repository: `HanaTensor/0sm-skills` | Last updated: 2026-09-07（カタログ本体は v9.00 / 2026-07-10 のまま）
-> **寄託済み 63 本**: #1–#64（#16 永久欠番）、Nov 2018 – Jun 2026、全て Zenodo 公開済み。本カタログはこの 63 本のみを収録する。
-> **未寄託 4 本**: #65–#68 は `tex-sources/` に原稿があり **Zenodo 未寄託・DOI 未取得**。状態は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)。
+> **寄託済み 64 本**: #1–#65（#16 永久欠番）、Nov 2018 – Oct 2026、全て Zenodo 公開済み。本カタログはこの 64 本のみを収録する。
+> **未寄託 3 本**: #66–#68 は `tex-sources/` に原稿があり **Zenodo 未寄託・DOI 未取得**。状態は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)。
 > 正典: DOI は baseline の `context/doi-canonical.md`、個票は `context/papers/NNN.md`（最新 tar は `workspace-baselines/`）。
 > 壁練の入口は [wall-practice-index.md](wall-practice-index.md)。**現在地・地雷は同ファイル §0/§2 を参照。** 幹（派生議論の起点セル）は [trunks/](trunks/README.md)。
 > ⚠️ **0.040374c・レプトン臨界半径・それに基づく崩壊の説明は撤回済み**（原因＝GM/c² 脱落・保有8本）。正準値は **#10 の 0.04047c**。詳細は #68 訂正ログと wall-practice-index §2。
@@ -74,6 +74,7 @@
 | 62 | 2026-06 | The Bridge Equation γ = 1 + a from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model | [10.5281/zenodo.20091680](https://doi.org/10.5281/zenodo.20091680) |
 | 63 | 2026-06-20 | From Line Integral to Covariant Derivative: A Reader's Map of the Bridge from the 0-Sphere Model to Riemannian Curvature | [10.5281/zenodo.20767589](https://doi.org/10.5281/zenodo.20767589) |
 | 64 | 2026-06-27 | The Square Root of the Hyperspherical Laplacian: A Geometric Foundation for Spin Two-Valuedness on S³ in the 0-Sphere Model | [10.5281/zenodo.20820646](https://doi.org/10.5281/zenodo.20820646) |
+| 65 | 2026-10-10 | From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model | [10.5281/zenodo.23257458](https://doi.org/10.5281/zenodo.23257458) |
 
 ★ = Foundational (系列全体が前提する基盤論文 9本: #1, #3, #7, #10, #13, #17, #19, #20, #24)
 

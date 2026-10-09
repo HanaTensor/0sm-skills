@@ -20,11 +20,13 @@
 
 **#1–#64**: Zenodo 寄託済み・DOI 確定。`main.tex` は 63 論文全数完備。
 
-**#65–#68**: **Zenodo 未寄託・DOI 未取得**。寄託順 **#65 → #66 → #67 → #68**。
+**#65**: DOI 確定 **10.5281/zenodo.23257458**（2026-10-09 予約、寄託日 2026-10-10）。投稿一式は `65/`（main-zenodo.tex＝投稿用 main.tex、readme.txt、zenodo_23257458.pdf、zenodo_23257458_relations.txt、zenodo_23257458_description.html、verify65.py）。#67・#68 の引用は DOI に差替済み。
+
+**#66–#68**: **Zenodo 未寄託・DOI 未取得**。寄託順 **#66 → #67 → #68**。
 
 | # | 内容 | 状態 |
 |---|---|---|
-| **65** | From Zero and One to the Electron（0 と 1・弧状連結・巻き数＝電荷・quartic の幾何学的起源・内部時間＝輸送の周期。2026-10-09 に旧稿と合併） | 前方依存ゼロ＝最初に寄託 |
+| **65** | From Zero and One to the Electron（0 と 1・弧状連結・巻き数＝電荷・quartic の幾何学的起源・内部時間＝輸送の周期。2026-10-09 に旧稿と合併） | DOI 10.5281/zenodo.23257458 |
 | **66** | Dual-Model Deliberation Record（spin-2 セクターの二重モデル討議記録） | #63 までを引用 |
 | **67** | Binding Energy, Composition, and the Residual β_ZB（等価原理2試験＋再出発宣言） | #65・#66 を引用 |
 | **68** | The 0-Sphere Model: A Structural Overview（#1–#67 回顧＋冒頭に再出発宣言） | 最後に寄託＝#67 までカタログ可能 |
@@ -45,7 +47,7 @@
 
 ## 残タスクと未収録
 
-- **#65–#68 の寄託と DOI 4件差替**（User 作業）
+- **#66–#68 の寄託と DOI 3件差替**（User 作業。#65 は DOI 確定済み）
 - **Zenodo tex 未収録は 32 レコード**（#1–15, #17–27, #29, #31–33, #49, #63）＝`ZENODO-TEX-BACKLOG.md` にチェックリスト。全件 upload-ready・品質統一済み。New version 作成＝version DOI 増の方針決定が先。#33 追補時は `fig_thermal.tex` / `fig_TotalHamiltonian.tex` も同梱要
 - **`off-series/solar-neutrino-dna-recoils/`**: Overleaf 名「28-1 Solar Neutrino–Induced Nuclear Recoils as a Hypothetical Source of High-LET DNA Damage in Humans」。目録 #28（G/c² 次元整合）とは別物の系列外論文（生物物理）。番号衝突のため未採番のまま退避。採番は User 判断待ち
 - **`tomonaga.md`** の扱い判断

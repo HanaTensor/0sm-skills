@@ -1,10 +1,10 @@
 ================================================================================
-zenodo_relations.txt — Paper #65
+zenodo_23257458_relations.txt — Paper #65
 "From Zero and One to the Electron: Path-Connectedness, the Double Cover,
  and the Geometric Origin of the Quartic Energy in the 0-Sphere Model"
 Author: Satoshi Hanamura
 Date: October 10, 2026
-DOI (this paper): [FILL: 10.5281/zenodo.XXXXXXXX — after Zenodo pre-registration]
+DOI (this paper): 10.5281/zenodo.23257458
 ================================================================================
 NOTE: Mode = manual fallback (context/papers/065.md is not yet curated).
       Rule applied: one relation type per counterpart (relation-types.md
@@ -200,18 +200,18 @@ NOTE: verify65.py (the numerical-verification script of Appendix A) is
 
 [Reverse Relations — Recommended Updates to Target Papers]
 
-Add on each target record, pointing to the DOI of #65 once assigned.
+Add on each target record, pointing to the DOI of #65 (10.5281/zenodo.23257458).
 (Cites and Is part of have no reverse entry, per Section 0.)
 
-  #64 (10.5281/zenodo.20820646) — Add: Is continued by → DOI of #65
-  #10 (10.5281/zenodo.17764997) — Add: Is continued by → DOI of #65
-  #51 (10.5281/zenodo.20388056) — Add: Is continued by → DOI of #65
+  #64 (10.5281/zenodo.20820646) — Add: Is continued by → 10.5281/zenodo.23257458
+  #10 (10.5281/zenodo.17764997) — Add: Is continued by → 10.5281/zenodo.23257458
+  #51 (10.5281/zenodo.20388056) — Add: Is continued by → 10.5281/zenodo.23257458
 
-  #33 (10.5281/zenodo.18356895) — Add: Is referenced by → DOI of #65
-  #38 (10.5281/zenodo.18718174) — Add: Is referenced by → DOI of #65
-  #62 (10.5281/zenodo.20091680) — Add: Is referenced by → DOI of #65
-  #20 (10.5281/zenodo.17765244) — Add: Is referenced by → DOI of #65
-  #50 (10.5281/zenodo.19482145) — Add: Is referenced by → DOI of #65
-  #17 (10.5281/zenodo.17765136) — Add: Is referenced by → DOI of #65
+  #33 (10.5281/zenodo.18356895) — Add: Is referenced by → 10.5281/zenodo.23257458
+  #38 (10.5281/zenodo.18718174) — Add: Is referenced by → 10.5281/zenodo.23257458
+  #62 (10.5281/zenodo.20091680) — Add: Is referenced by → 10.5281/zenodo.23257458
+  #20 (10.5281/zenodo.17765244) — Add: Is referenced by → 10.5281/zenodo.23257458
+  #50 (10.5281/zenodo.19482145) — Add: Is referenced by → 10.5281/zenodo.23257458
+  #17 (10.5281/zenodo.17765136) — Add: Is referenced by → 10.5281/zenodo.23257458
 
 ================================================================================

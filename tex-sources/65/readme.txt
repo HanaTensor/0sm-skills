@@ -6,6 +6,7 @@ and the Geometric Origin of the Quartic Energy in the 0-Sphere Model
 Author: Satoshi Hanamura
 Email: hana.tensor@gmail.com
 Date: October 10, 2026
+DOI: 10.5281/zenodo.23257458
 
 ================================================================================
 CONTENTS
@@ -32,8 +33,13 @@ script for a research paper of the 0-Sphere Model series (paper #65):
    - Requires Python 3 and NumPy.
    - Run:  python3 verify65.py   (prints "all checks passed")
 
-3. main.pdf
+3. zenodo_23257458.pdf
    - Compiled paper (33 pages).
+
+4. zenodo_23257458_relations.txt
+   - Zenodo related-identifier list of this record (relations to earlier
+     papers of the series, with reasons) and the recommended reverse
+     relations.
 
 ================================================================================
 COMPILATION INSTRUCTIONS
@@ -291,7 +297,7 @@ Recommended citation format:
   "From Zero and One to the Electron: Path-Connectedness, the Double Cover,
    and the Geometric Origin of the Quartic Energy in the 0-Sphere Model,"
   Zenodo (2026).
-  https://doi.org/10.5281/zenodo.[ID]
+  https://doi.org/10.5281/zenodo.23257458
 
 ================================================================================
 CONTACT INFORMATION
