@@ -1182,30 +1182,35 @@ K&=\tfrac12E_0\sin^2\omega t=\tfrac12E_0s_x^2 , \label{eq:Kq}
 \end{align}
 and the conservation law becomes $\tfrac12(1+s_z^2)+\tfrac12s_x^2=\tfrac12(1+|\Bloch|^2)=1$. Every channel is quadratic in the full-angle vector $\Bloch$.
 
-\paragraph{The double cover drawn as a Riemann surface.} The vector $\Bloch$ is used here as bookkeeping for the kernel occupations, $s_z=n_A-n_B$, and not as a spin vector. The geometry that matters for the fourth power is the two-to-one map itself, and it is drawn without that risk as the Riemann surface of the square root, Fig.~\ref{fig:riemann}. \textbf{[standard]} The function $w=\sqrt{z}$ is two-valued; continuing it once around the branch point $z=0$ carries it from one sheet to the other, $w\to-w$, and a second circuit returns it to the first~\cite{ref:needham}. \textbf{[0SM reading]} The rotor is the square root of the full-angle phase in this sense: one turn of $\theta$ carries $\chi$ to $-\chi$, on the other sheet, and two turns return it, which is the $4\pi$ periodicity of the spinor. The Dirac energy carries the same two-sheeted structure. As a function of complex momentum, $E(p)=\sqrt{p^2c^2+m^2c^4}$ has branch points at $p=\pm imc$, and continuation around one of them exchanges the positive- and negative-energy sheets. The square root that linearizes the Klein--Gordon equation and the square root that relates the rotor to the occupations are thus two appearances of one kind of surface, which is why the Dirac equation and analytic continuation fit together naturally. A Riemann-surface reading of the two spin states was proposed early in the series~\cite{ref:p3}.
+\paragraph{The exchange drawn as a Riemann surface.} \textbf{[standard]} The function $w=\sqrt{z}$ is two-valued; continuing it once around a branch point carries it from one sheet to the other, $w\to-w$, and a second circuit returns it to the first~\cite{ref:needham}. \textbf{[0SM reading]} The direction of the energy exchange is a function of this kind. With $\sin\omega t=2ab$, the transit energy is $K=\tfrac12E_0\sin^2\omega t=2E_0\,n_An_B$, the cross term of Eq.~\eqref{eq:fermion}, and the energy flow is its square root,
+\begin{equation}
+\dot n_A=-\omega\,ab=\mp\,\omega\sqrt{n_An_B},\qquad n_B=1-n_A .
+\label{eq:flowroot}
+\end{equation}
+At every occupation strictly between $0$ and $1$ the flow has two values of opposite sign. On sheet~I kernel $A$ radiates and kernel $B$ absorbs, the cycle $A\to B$; on sheet~II kernel $B$ radiates and kernel $A$ absorbs, the cycle $B\to A$ (Fig.~\ref{fig:riemann}a). The branch points are $n_A=1$ and $n_A=0$, the two instants at which all energy sits in one kernel and the flow stops; going round either of them carries the flow from one sheet to the other, which is the reversal of the exchange at each turning point. The branch points are therefore the zero-sphere $\{0,1\}=S^0$, and the cut joining them is the segment $D^1$ of Proposition~\ref{prop:sets}: the Riemann surface of the exchange is built on the two solution sets of Sec.~\ref{sec:twopictures}. One full cycle of $\theta$ runs once over each sheet. The amplitude adds a second two-valuedness above this one: after one full cycle $\chi$ returns as $-\chi$, and only after two cycles as $\chi$ (Fig.~\ref{fig:hopf}), so the amplitude circle covers the occupation segment four times, once in each quadrant of $z=a+ib$.
+
+\textbf{[standard]} The Dirac energy carries the same two-sheeted structure. As a function of complex momentum, $E(p)=\sqrt{p^2c^2+m^2c^4}$ has branch points at $p=\pm imc$, and continuation around one of them exchanges the positive- and negative-energy sheets (Fig.~\ref{fig:riemann}b). \textbf{[0SM reading]} The model reads the two sheets of the Dirac square root together with the two sheets of the exchange: the sign pair of the energy appears inside one particle as the pair of opposite flows, radiation from one kernel paired with absorption in the other (Sec.~\ref{sec:interf}). A Riemann-surface reading of the two spin states was proposed early in the series~\cite{ref:p3}.
 
 \begin{figure}[t!]
 \centering
 \begin{tikzpicture}[scale=0.95, >={Stealth[length=2mm]}]
-% (a) two sheets of sqrt over the phase circle
+% (a) two sheets of the energy flow over the occupation plane
 \begin{scope}
-\fill[blue!6] (0,1.5) ellipse (2.6 and 0.55);
-\draw[gray] (0,1.5) ellipse (2.6 and 0.55);
-\fill[orange!8] (0,0) ellipse (2.6 and 0.55);
-\draw[gray] (0,0) ellipse (2.6 and 0.55);
-\draw[densely dotted] (0,-0.5) -- (0,2.0);
-\fill (0,1.5) circle (1.5pt); \fill (0,0) circle (1.5pt);
-\node[font=\scriptsize, right] at (2.65,1.5) {sheet I};
-\node[font=\scriptsize, right] at (2.65,0) {sheet II};
-\draw[very thick, blue!70!black, ->] ([shift={(300:1.85 and 0.42)}]0,1.5) arc (300:600:1.85 and 0.42);
-\draw[very thick, blue!70!black, dashed, ->] ([shift={(240:1.85 and 0.42)}]0,1.5) -- ([shift={(240:1.85 and 0.42)}]0,0.05);
-\draw[very thick, orange!80!black, ->] ([shift={(240:1.85 and 0.42)}]0,0) arc (240:540:1.85 and 0.42);
-\draw[very thick, orange!80!black, dashed, ->] (-1.85,0.05) -- (-1.85,1.45);
-\fill[blue!70!black] ([shift={(300:1.85 and 0.42)}]0,1.5) circle (1.6pt);
-\node[font=\scriptsize, below right] at ([shift={(300:1.85 and 0.42)}]0,1.5) {$\chi$};
-\node[font=\scriptsize, right] at (-0.85,0.75) {$-\chi$};
-\node[font=\scriptsize, left] at (-1.85,0.75) {$\chi$};
-\node[font=\scriptsize, align=center] at (0,-0.95) {(a) $\chi=\sqrt{e^{i\theta}}$: $\theta=2\pi$ gives $-\chi$, $\theta=4\pi$ returns};
+\foreach \y/\col in {1.7/blue!6, 0/orange!8} {
+  \fill[\col] (-2.9,\y-0.5) -- (2.3,\y-0.5) -- (2.9,\y+0.5) -- (-2.3,\y+0.5) -- cycle;
+  \draw[gray] (-2.9,\y-0.5) -- (2.3,\y-0.5) -- (2.9,\y+0.5) -- (-2.3,\y+0.5) -- cycle;
+  \draw[line width=1.6pt, red!70!black] (-1.2,\y) -- (1.2,\y);
+  \fill (-1.2,\y) circle (1.8pt); \fill (1.2,\y) circle (1.8pt);
+}
+\draw[very thick, blue!70!black, ->] (1.2,1.85) .. controls (0.4,2.25) and (-0.4,2.25) .. (-1.15,1.88);
+\draw[very thick, blue!70!black, dashed, ->] (-1.45,1.62) -- (-1.45,0.08);
+\draw[very thick, orange!80!black, ->] (-1.2,-0.15) .. controls (-0.4,-0.55) and (0.4,-0.55) .. (1.15,-0.18);
+\draw[very thick, orange!80!black, dashed, ->] (1.45,0.08) -- (1.45,1.62);
+\node[font=\scriptsize] at (1.2,1.5) {$1$}; \node[font=\scriptsize] at (-1.2,1.5) {$0$};
+\node[font=\scriptsize] at (1.2,0.2) {$1$}; \node[font=\scriptsize] at (-1.2,0.2) {$0$};
+\node[font=\scriptsize, blue!70!black] at (0,2.42) {sheet I: $A$ radiates, $B$ absorbs};
+\node[font=\scriptsize, orange!80!black] at (0,-0.72) {sheet II: $B$ radiates, $A$ absorbs};
+\node[font=\scriptsize, align=center] at (0,-1.2) {(a) $\dot n_A=\mp\omega\sqrt{n_An_B}$: branch points $n_A\in\{0,1\}=S^0$, cut $D^1$};
 \end{scope}
 % (b) complex momentum plane of E(p)
 \begin{scope}[yshift=-3.9cm]
@@ -1220,16 +1225,15 @@ and the conservation law becomes $\tfrac12(1+s_z^2)+\tfrac12s_x^2=\tfrac12(1+|\B
 \node[font=\scriptsize, align=center] at (0.2,-2.05) {(b) $E(p)=\sqrt{p^2c^2+m^2c^4}$: branch points at $p=\pm imc$};
 \end{scope}
 \end{tikzpicture}
-\caption{\textbf{The double cover as a Riemann surface}}
+\caption{\textbf{The exchange and the Dirac energy as Riemann surfaces}}
 \label{fig:riemann}
 \vspace{0.4em}
 \begin{minipage}{0.95\columnwidth}
 \justifying\small
-(a) The rotor as the square root of the full-angle phase. One turn of $\theta$ around the branch point (dotted axis) carries $\chi$ from sheet~I to sheet~II, where it reads $-\chi$; a second turn returns it. (b) The Dirac energy as a function of complex momentum. Its branch points lie at $p=\pm imc$; a loop around one of them exchanges the positive- and negative-energy sheets. Both panels show the same structure, a two-sheeted surface of the square root.
+(a) The energy flow $\dot n_A$ as a two-valued function of the occupation $n_A$, Eq.~\eqref{eq:flowroot}. Sheet~I is the cycle in which kernel $A$ radiates and kernel $B$ absorbs; sheet~II the cycle in which $B$ radiates and $A$ absorbs. The branch points are the two kernel states $n_A=0,1$, the zero-sphere, and the cut is the segment $D^1$. At each branch point the flow stops and passes to the other sheet (dashed). (b) The Dirac energy as a function of complex momentum. Its branch points lie at $p=\pm imc$; a loop around one of them exchanges the positive- and negative-energy sheets.
 \end{minipage}
 \end{figure}
 
-\misread{``The north pole of the Bloch sphere is spin up.''}{Not in this paper. The north pole of $\Bloch$ is the instant at which all energy is stored in kernel $A$; at that instant the photon sphere is at rest, $K=\tfrac12E_0s_x^2=0$, and nothing circulates. What the model associates with spin is not a point of this sphere but the motion along it: the circulation of the photon sphere in transit, which vanishes at the poles and is largest at the equator. Averaged over one cycle, $\langle s_x^2\rangle=\tfrac12$, the same factor $1/\sqrt2$ that enters the root-mean-square relation~\eqref{eq:beta} between $\beta$ and $a_e$; whether the two are one factor is left open (Table~\ref{tab:open}).}
 
 \begin{figure*}[t!]
 \centering
@@ -2061,12 +2065,14 @@ for t in np.linspace(0,2*np.pi,50):
     assert abs((s-d)/2-E0*np.cos(w*t/2)**4)<1e-12
 \end{lstlisting}
 
-\paragraph{Check 5: the Wronskian charge.} For the rotor, $Q=(2/\omega)(a\dot b-b\dot a)$ equals $+1$ at every instant, and $-1$ when $b\to-b$.
+\paragraph{Check 5: the Wronskian charge and the two-sheeted flow.} For the rotor, $Q=(2/\omega)(a\dot b-b\dot a)$ equals $+1$ at every instant, and $-1$ when $b\to-b$. The energy flow satisfies $|\dot n_A|=\omega\sqrt{n_An_B}$, Eq.~\eqref{eq:flowroot}.
 \begin{lstlisting}
 t=np.linspace(0,10,1001); a=np.cos(w*t/2); b=np.sin(w*t/2)
 ad=-(w/2)*np.sin(w*t/2); bd=(w/2)*np.cos(w*t/2)
 assert np.allclose((2/w)*(a*bd-b*ad),1)
 assert np.allclose((2/w)*(a*(-bd)-(-b)*ad),-1)
+nA=a**2; nB=b**2; nd=2*a*ad
+assert np.allclose(np.abs(nd), w*np.sqrt(nA*nB))
 \end{lstlisting}
 
 \paragraph{Check 6: winding of detuned pairs.} The signed-crossing sum~\eqref{eq:Wsum} equals the mod-$4$ character $\chi_4(q)$ for every coprime pair of odd $p,q$ below $40$.

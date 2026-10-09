@@ -47,6 +47,8 @@ t=np.linspace(0,10,1001); a=np.cos(w*t/2); b=np.sin(w*t/2)
 ad=-(w/2)*np.sin(w*t/2); bd=(w/2)*np.cos(w*t/2)
 assert np.allclose((2/w)*(a*bd-b*ad),1)
 assert np.allclose((2/w)*(a*(-bd)-(-b)*ad),-1)
+nA=a**2; nB=b**2; nd=2*a*ad
+assert np.allclose(np.abs(nd), w*np.sqrt(nA*nB))
 
 # ---- Check 6: winding of detuned pairs ----
 def chi4(n): return 0 if n%2==0 else (1 if n%4==1 else -1)
