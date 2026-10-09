@@ -8,7 +8,7 @@
 %   Oscillator: The Symplectic Origin of the Complex Structure, Equivalence to
 %   the Dirac Rest Solutions, and the Geometric Origin of the Quartic Energy").
 %   The previous text is in git history (commit 46704ca and earlier).
-%   Audience: graduate students and readers outside the field. Every section
+%   Audience: readers outside the field. Every section
 %   opens with the reader's question, says why it is needed, then gives
 %   numbers, a worked example, and closes with the flow (Fig. 1, Sec. X).
 %
@@ -89,6 +89,17 @@
 %     naming rule: main.tex (= main-zenodo.tex), readme.txt,
 %     zenodo_23257458.pdf, zenodo_23257458_relations.txt, verify65.py;
 %     description = zenodo_23257458_description.html (paste, not upload).
+% DONE (2026-10-10, revision before publication)
+%   - Style: no question sentences, no graduate-audience guidance;
+%     "Reader's question" -> "Motivation"; I.C/I.F retitled.
+%   - New Sec. VI.C: zitterbewegung = interference (cross) term of the two
+%     Dirac branches, Eq. (interf); negative energy read as the paired
+%     emission/absorption rate (sign of frequency), not as an antiparticle.
+%   - Degree matching rewritten: sign factor structural, spin factor open.
+%   - Bloch figure replaced by the Riemann surface of sqrt (Fig. riemann);
+%     misreading box "north pole is not spin up"; refs Needham, #3 added.
+%   - Sec. X + Table XIV: charge vs spin (undecided), origin of 1/sqrt2.
+%   - verify65 Check 3 extended with the interference identity.
 % OPEN / TO DO BEFORE DEPOSIT
 %   - Velocity convention (trunk T3 K1): grounding the internal time in #10
 %     implies #10's convention v = cos(wt). Author to confirm.
@@ -183,12 +194,11 @@
 \date{October 10, 2026}
 
 \begin{abstract}
-Where do integers come from in a model of the electron?
-This paper answers the question for the 0-Sphere model, in which the electron is two separated kernels exchanging a captured photon, and it is written so that a graduate student outside the field can follow every step.
+This paper traces where the integers of a model of the electron come from. The model is the 0-Sphere model, in which the electron is two separated kernels exchanging a captured photon.
 We start from arithmetic: the integers are fixed by $0$ and $1$, the numbers that do not change when squared are exactly $\{0,1\}$, and the invertible integers are $\{\pm1\}$, which is the zero-sphere $S^0$.
 The model's two energy identities share the right-hand side $1$, yet the bosonic identity $n_A+n_B=1$ is solved by a whole segment $D^1$, whereas the kernel part of the fermionic identity $(n_A+n_B)^2=1$ is solved only by the two endpoints, $S^0=\partial D^1$; the cross term is exactly the seat that lets energy travel between the two separated points.
 Path-connectedness therefore enters at the foundations, and the next topological step, a closed path that is not simply connected, yields an integer winding number that the model identifies with electric charge; a point vortex in fluid mechanics gives the picture, and quantized circulation in superfluids shows that the integer and its size come from different sources.
-We retain and sharpen the earlier results of this paper: the amplitude behind the identity obeys a first-order spinor equation unitarily equivalent to the Dirac rest solutions, the complex unit is the symplectic structure of the internal oscillator, and the quartic energies are quadratic forms on the Bloch sphere pulled back through the Hopf double cover.
+We retain and sharpen the earlier results of this paper: the amplitude behind the identity obeys a first-order spinor equation unitarily equivalent to the Dirac rest solutions, and the energy exchange between the two kernels is exactly the interference term between the positive- and negative-energy branches, so that zitterbewegung is read as a real internal oscillation and the negative branch as the absorbing half of a paired emission and absorption rather than as an antiparticle; the complex unit is the symplectic structure of the internal oscillator, and the quartic energies are quadratic forms on the Bloch sphere pulled back through the Hopf double cover.
 We then define the internal time as the transport cycle between the kernels, fixed by the anomalous magnetic moment through $\beta=0.04047$, show that it runs exactly $\beta$ times slower than the Dirac branch phase, and show that the kernel separation is the transport speed times one tick, $\lambda_C=\beta c\,T_{\mathrm{tr}}$.
 Metric structure is not needed while the two kernels merely sit; it enters with transport, together with the constitutive relation and the fine-structure constant.
 We state explicitly that the model derives the integer of charge, its existence, quantization, conservation and sign, but not its size: the fine-structure constant is not derived here, nor is the coupling to the electromagnetic potential or the light-cone structure.
@@ -206,11 +216,11 @@ The decisive test is experimental: the internal transport speed $\beta c\approx0
 \section{Introduction}
 \label{sec:intro}
 
-\subsection{A question a graduate student can ask}
+\subsection{Integers in physics and in the model}
 
 Physics is full of integers. Charges come in whole multiples, angular momentum comes in half-integer steps~\cite{ref:uhlenbeck,ref:sakurai}, and the number of states of a spin-$\tfrac12$ particle is two. In the standard theory these integers are mostly put in by hand: one chooses a symmetry group, and the integers appear as labels of its representations. A model that claims to describe the inside of the electron owes the reader a better answer. It should say where its integers come from, which of them it can derive, and which of them it cannot.
 
-This paper takes that question seriously for the 0-Sphere model (abbreviated 0SM below). It is written for a reader who knows undergraduate quantum mechanics and a little vector calculus, but who has not read the earlier papers of the series. Each section opens with the question the reader is likely to ask at that point, explains why the step is needed, and then gives numbers, a worked example, and a short summary. The flow of the whole argument is collected in Fig.~\ref{fig:flow} at the end.
+This paper takes up that question for the 0-Sphere model (abbreviated 0SM below). Each section states the problem it addresses and why the step is needed, and then gives numbers, a worked example, and a short summary; the paper can be read without the earlier papers of the series. The flow of the whole argument is collected in Fig.~\ref{fig:flow} at the end.
 
 \subsection{The model in one paragraph}
 
@@ -244,14 +254,14 @@ Two kernels $A$ and $B$, the two points of the zero-sphere $S^0$, exchange energ
 \end{minipage}
 \end{figure}
 
-\subsection{Four questions this paper answers}
+\subsection{Four results of this paper}
 
-Equation~\eqref{eq:central} is an algebraic identity, true for every $\theta$. Its physical content therefore lies not in the fact that it sums to one, but in the structure it hides. We extract four pieces of that structure, each prompted by a question a careful reader will ask.
+Equation~\eqref{eq:central} is an algebraic identity, true for every $\theta$. Its physical content therefore lies not in the fact that it sums to one, but in the structure it hides. We extract four pieces of that structure.
 \begin{enumerate}[leftmargin=1.6em,itemsep=0.25em]
-\item \emph{Why fourth powers?} Relativistic quantum mechanics expects energies quadratic in the amplitude~\cite{ref:dirac28}. Section~\ref{sec:quartic} shows that the fourth powers are quadratic energies seen through the spinor double cover.
-\item \emph{What separates boson from fermion?} The photon obeys $\cos^2+\sin^2=1$, the electron the identity above, and both right-hand sides are $1$. Section~\ref{sec:twopictures} shows that the difference is the shape of the solution set: a segment versus its two endpoints.
-\item \emph{Where do integers come from?} Sections~\ref{sec:arith}, \ref{sec:path} and~\ref{sec:winding} trace them from the arithmetic of $0$ and $1$ through path-connectedness to winding numbers, which the model identifies with charge.
-\item \emph{What is time inside the electron, and where does distance come from?} Section~\ref{sec:time} defines the internal time as the transport cycle, fixed by the anomalous magnetic moment, and builds the kernel separation from it.
+\item \emph{The fourth powers.} Relativistic quantum mechanics expects energies quadratic in the amplitude~\cite{ref:dirac28}. Section~\ref{sec:quartic} shows that the fourth powers are quadratic energies seen through the spinor double cover.
+\item \emph{Boson and fermion.} The photon obeys $\cos^2+\sin^2=1$, the electron the identity above, and both right-hand sides are $1$. Section~\ref{sec:twopictures} shows that the difference is the shape of the solution set: a segment versus its two endpoints.
+\item \emph{The origin of integers.} Sections~\ref{sec:arith}, \ref{sec:path} and~\ref{sec:winding} trace them from the arithmetic of $0$ and $1$ through path-connectedness to winding numbers, which the model identifies with charge.
+\item \emph{Internal time and distance.} Section~\ref{sec:time} defines the internal time as the transport cycle, fixed by the anomalous magnetic moment, and builds the kernel separation from it.
 \end{enumerate}
 Section~\ref{sec:metric} looks ahead to the comparison of two electrons' clocks and to where the metric enters. Section~\ref{sec:exp} lists what experiment can decide, and Sec.~\ref{sec:limits} states the distance from standard theory without softening it. Appendix~\ref{app:charge} derives the topological properties of charge in full.
 
@@ -326,9 +336,9 @@ Not derived
 \end{minipage}
 \end{table*}
 
-\subsection{How to read this paper}
+\subsection{Organization of the paper}
 
-The argument runs along one main line, and every step of it is in the body text. Around the main line we place three kinds of aid, each visibly marked, so that a reader in a hurry can skip them and a reader who is stuck can stop at them. \emph{Worked examples and tables} put numbers on each claim; a reader with a pocket calculator can reproduce them. Boxes headed \emph{A common misreading} state an objection a careful reader is likely to raise at that point and answer it. Boxes headed \emph{What this section established} close each section with the result in two or three sentences, so that the reader never has to reconstruct where the argument stands. Table~\ref{tab:symbols} collects every symbol with the layer it lives on; Fig.~\ref{fig:flow} at the end shows the whole route on one page; and Appendix~\ref{app:numeric} maps each numerical check to the claim it supports.
+The argument runs along one main line, and every step of it is in the body text. Three kinds of aid surround the main line, each visibly marked. \emph{Worked examples and tables} put numbers on each claim, and each number can be reproduced by hand. Boxes headed \emph{A common misreading} state an objection likely to arise at that point and answer it. Boxes headed \emph{What this section established} close each section with the result in two or three sentences. Table~\ref{tab:symbols} collects every symbol with the layer it lives on; Fig.~\ref{fig:flow} at the end shows the whole route on one page; and Appendix~\ref{app:numeric} maps each numerical check to the claim it supports.
 
 \begin{table*}[t!]
 \centering
@@ -412,7 +422,7 @@ The three layers of Sec.~\ref{sec:conv} are amplitude, occupation and energy; tr
 \section{Zero and One: The Arithmetic Seed}
 \label{sec:arith}
 
-\paragraph{Reader's question.} Why begin a physics paper with the arithmetic of $0$ and $1$? Because the three facts below are the patterns that the rest of the paper finds again inside the electron. Seeing them first in their simplest setting makes the later sections recognisable rather than surprising.
+\paragraph{Motivation.} The paper begins with the arithmetic of $0$ and $1$ because the three facts below are the patterns that the rest of the paper finds again inside the electron. Seeing them first in their simplest setting makes the later sections recognisable rather than surprising.
 
 \subsection{The integers are fixed by 0 and 1}
 
@@ -527,7 +537,7 @@ In each row the integer is fixed by symmetry or topology and is exact; the unit 
 \section{One Normalization, Two Pictures}
 \label{sec:twopictures}
 
-\paragraph{Reader's question.} The photon's identity and the electron's identity both equal one. If the right-hand sides are the same, in what sense are the two particles different? The answer is not in the total but in \emph{who carries it}.
+\paragraph{Motivation.} The photon's identity and the electron's identity both equal one. The difference between the two particles therefore lies not in the total but in \emph{who carries it}.
 
 \subsection{The same one, read at two degrees}
 
@@ -582,9 +592,9 @@ Three features of the table are used later. The kernels alone carry the whole en
 
 \misread{``Equation~\eqref{eq:central} is just $(\cos^2+\sin^2)^2=1$; an identity that holds for every angle cannot carry physics.''}{The identity itself carries no physics; its \emph{decomposition} does. Which three seats the unit is split into, and how the split changes along the cycle, is the content, exactly as the identity $\cos^2+\sin^2=1$ carries no physics while the split between kinetic and potential energy of a pendulum does. The model's claim is that the three terms are three physical seats, and the rest of this paper draws consequences from that claim.}
 
-\subsection{Where can the kernels alone carry the whole?}
+\subsection{Where the kernels alone carry the whole}
 
-Ask how much of the total the two kernels hold by themselves, without the photon sphere. Table~\ref{tab:seats} gives the answer at five points along the cycle.
+Table~\ref{tab:seats} gives, at five points along the cycle, how much of the total the two kernels hold by themselves, without the photon sphere.
 
 \begin{table*}[t!]
 \centering
@@ -734,7 +744,7 @@ For $p>1$ the function $f(x)=x^p+(1-x)^p$ is strictly convex on $[0,1]$ with $f(
 \end{minipage}
 \end{figure*}
 
-\subsection{Which degree? Two independent criteria}
+\subsection{Choice of degree: two independent criteria}
 
 Proposition~\ref{prop:sets} separates $p=1$ from every $p>1$; it does not by itself pick $p=2$. Two independent criteria do, and they meet at the same answer.
 
@@ -754,7 +764,7 @@ A caution is needed, because an earlier draft of this paper stated otherwise. On
 \section{Path-Connectedness: Joining Two Separated Points}
 \label{sec:path}
 
-\paragraph{Reader's question.} If the fermion's kernels are two disconnected points, how does anything travel between them? A disconnected set has no paths. The answer is that the two points sit inside a larger connected region, and the cross term is the bookkeeping of the journey through it.
+\paragraph{Motivation.} The fermion's kernels are two disconnected points, and a disconnected set has no paths; energy nevertheless travels between them. The resolution is that the two points sit inside a larger connected region, and the cross term is the bookkeeping of the journey through it.
 
 \subsection{From two points to a connected domain}
 
@@ -835,7 +845,7 @@ a gradient part, a rotational part, and a harmonic part~\cite{ref:helmholtz,ref:
 \section{Closing the Path: Winding Numbers and Charge}
 \label{sec:winding}
 
-\paragraph{Reader's question.} So far there is a segment and its two endpoints. Where is an integer that can change, be conserved, and carry a sign, as charge does? Not on a segment: a segment has no holes, so nothing can wind around anything. An integer appears when the path closes into a loop around a point it cannot cross.
+\paragraph{Motivation.} So far there is a segment and its two endpoints. An integer that is conserved and carries a sign, as charge does, cannot live on a segment: a segment has no holes, so nothing can wind around anything. An integer appears when the path closes into a loop around a point it cannot cross.
 
 \subsection{From the segment to the circle}
 
@@ -1051,7 +1061,7 @@ In a connection $D\theta=d\theta+qA$, the charge $q$ plays the role of a convers
 \section{The Quartic Energy as a Pullback of Quadratic Bloch Forms}
 \label{sec:quartic}
 
-\paragraph{Reader's question.} Relativistic quantum mechanics says that energy density is quadratic in the amplitude, of the form $\psi^\dagger H\psi$. The model's kernel energies are fourth powers of the amplitude. Does the model contradict Dirac theory? This section shows that it does not: the fourth power is a quadratic energy seen through the double cover. The section keeps the results of the earlier draft of this paper and corrects its reading of temperature.
+\paragraph{Motivation.} Relativistic quantum mechanics says that energy density is quadratic in the amplitude, of the form $\psi^\dagger H\psi$, whereas the model's kernel energies are fourth powers of the amplitude. This section shows that the two are compatible: the fourth power is a quadratic energy seen through the double cover. The section keeps the results of the earlier draft of this paper and corrects its reading of temperature.
 
 \subsection{The kernel rotor and its first-order equation}
 
@@ -1133,6 +1143,24 @@ Three consequences follow. The two branch weights are equal and constant, $|c_\p
 \end{minipage}
 \end{figure*}
 
+\subsection{Zitterbewegung as the interference of the two branches}
+\label{sec:interf}
+
+\paragraph{The exchange is the interference term.} Substituting the decomposition~\eqref{eq:decomp} into the occupation of kernel $A$, $n_A=|\chi_1|^2$, separates what each branch contributes alone from what the two contribute together,
+\begin{equation}
+n_A=\underbrace{\tfrac14+\tfrac14}_{\text{each branch alone}}+\underbrace{\tfrac12\cos\omega t}_{\text{cross term}},
+\label{eq:interf}
+\end{equation}
+and $n_B=\tfrac14+\tfrac14-\tfrac12\cos\omega t$. The separate weights of the two branches are constant. Everything in the interior that changes in time is built from the cross term alone: the occupations, the energy flow $\dot n_A=-\dot n_B=-\tfrac{\omega}{2}\sin\omega t$, and the transit energy $K=\tfrac12E_0\sin^2\omega t$. \textbf{[standard]} In Dirac theory the cross term between positive- and negative-energy solutions is the zitterbewegung~\cite{ref:schrodinger,ref:thaller}. \textbf{[0SM reading]} The energy exchange between the two kernels is that cross term, read as a real oscillation of the electron's interior rather than as an artefact of the representation.
+
+\paragraph{Two readings of negative energy.} \textbf{[standard]} The negative-energy solutions arise because the Dirac equation is a square root of $E^2=p^2c^2+m^2c^4$, and the square root admits both signs~\cite{ref:dirac28}. Quantum field theory reads the negative branch as the antiparticle. \textbf{[0SM reading]} The model reads the sign differently. An energy eigenvalue is an eigenvalue of $i\hbar\,\partial_t$, so its sign is the sign of a frequency: the sense in which the phase advances in time. A real oscillation such as $\cos(\omega t/2)$ contains the positive and the negative frequency with equal weight, so the real kernel amplitudes carry both branches equally within one particle, and no second particle is required. In the kernel frame the two signs register as a pair of opposite rates: while one kernel radiates, the other absorbs, $\dot n_A=-\dot n_B$ exactly. An electron with only one branch would have no cross term, hence no exchange and a frozen interior; by energy conservation the radiating side and the absorbing side must always occur together. The negative branch is therefore read not as negative energy held by anything, but as the decreasing side of a paired increase and decrease of thermal potential energy.
+
+\paragraph{A frame statement, not a one-to-one assignment.} The pairing does not assign the positive branch to kernel $A$ and the negative branch to kernel $B$. The state of kernel $A$ alone, $(1,0)^\top=(u_++u_-)/\sqrt2$, contains both branches equally. The kernel pair $\{A,B\}$ and the branch pair $\{+,-\}$ are two bases of one two-dimensional space (Theorem~\ref{thm:equiv}); the sign pair of the energy basis appears in the kernel basis as the pair of opposite-signed rates, and the cross term between the two branches is the exchange itself.
+
+\paragraph{What this reading must account for.} Two points separate it from the standard position. First, the equal superposition has $\langle H\rangle=0$, so the rest energy of the electron is carried by the total $E_0$ of Eq.~\eqref{eq:central}, not by the mean of $H$ (see the factor of two in Sec.~\ref{sec:limits}). Second, in standard theory a wave packet built from positive-energy solutions alone shows no zitterbewegung, and the Foldy--Wouthuysen transformation removes it~\cite{ref:fw}; the model's claim is that the equal superposition is the permanent interior of the electron. The measurable consequence is the sub-luminal transport speed of Sec.~\ref{sec:exp}.
+
+\misread{``Without antiparticles, the negative-energy solutions of the Dirac equation have no meaning.''}{In the model they keep a meaning inside one particle. The sign of an energy eigenvalue is the sign of a frequency, a real oscillation needs both, and the cross term between the two branches is exactly the energy exchange between the kernels, Eq.~\eqref{eq:interf}. The model does not deny the antiparticle; it adds a reading of the sign that does not require one.}
+
 \subsection{The complex unit is generated by the oscillator}
 
 \paragraph{Why this is needed.} Theorem~\ref{thm:equiv} used the imaginary unit $i$. If that $i$ had to be borrowed from Dirac theory, the equivalence would be a change of basis in standard quantum mechanics rather than a statement about the model.
@@ -1154,29 +1182,54 @@ K&=\tfrac12E_0\sin^2\omega t=\tfrac12E_0s_x^2 , \label{eq:Kq}
 \end{align}
 and the conservation law becomes $\tfrac12(1+s_z^2)+\tfrac12s_x^2=\tfrac12(1+|\Bloch|^2)=1$. Every channel is quadratic in the full-angle vector $\Bloch$.
 
+\paragraph{The double cover drawn as a Riemann surface.} The vector $\Bloch$ is used here as bookkeeping for the kernel occupations, $s_z=n_A-n_B$, and not as a spin vector. The geometry that matters for the fourth power is the two-to-one map itself, and it is drawn without that risk as the Riemann surface of the square root, Fig.~\ref{fig:riemann}. \textbf{[standard]} The function $w=\sqrt{z}$ is two-valued; continuing it once around the branch point $z=0$ carries it from one sheet to the other, $w\to-w$, and a second circuit returns it to the first~\cite{ref:needham}. \textbf{[0SM reading]} The rotor is the square root of the full-angle phase in this sense: one turn of $\theta$ carries $\chi$ to $-\chi$, on the other sheet, and two turns return it, which is the $4\pi$ periodicity of the spinor. The Dirac energy carries the same two-sheeted structure. As a function of complex momentum, $E(p)=\sqrt{p^2c^2+m^2c^4}$ has branch points at $p=\pm imc$, and continuation around one of them exchanges the positive- and negative-energy sheets. The square root that linearizes the Klein--Gordon equation and the square root that relates the rotor to the occupations are thus two appearances of one kind of surface, which is why the Dirac equation and analytic continuation fit together naturally. A Riemann-surface reading of the two spin states was proposed early in the series~\cite{ref:p3}.
+
 \begin{figure}[t!]
 \centering
-\begin{tikzpicture}[scale=1.0, >={Stealth[length=2mm]}]
-\shade[ball color=blue!6, opacity=0.6] (0,0) circle (2);
-\draw[very thick, blue!70!black] (0,0) circle (2);
-\draw[gray, dashed] (2,0) arc (0:180:2 and 0.55);
-\draw[gray] (-2,0) arc (180:360:2 and 0.55);
-\draw[->] (0,0) -- (0,2.6) node[above, font=\small] {$s_z$};
-\draw[->] (0,0) -- (2.7,0) node[right, font=\small] {$s_x$};
-\draw[->, gray] (0,0) -- (-0.9,-0.75) node[below left, font=\small] {$s_y$};
-\fill (0,2) circle (2.5pt) node[above right, font=\small] {$\theta=0$: all in $A$};
-\fill (0,-2) circle (2.5pt) node[below right, font=\small] {$\theta=\pi$: all in $B$};
-\fill (2,0) circle (2.5pt) node[above right, font=\small] {$\theta=\tfrac{\pi}{2}$};
-\draw[->, very thick, blue!70!black] (1.41,1.41) arc (45:30:2);
+\begin{tikzpicture}[scale=0.95, >={Stealth[length=2mm]}]
+% (a) two sheets of sqrt over the phase circle
+\begin{scope}
+\fill[blue!6] (0,1.5) ellipse (2.6 and 0.55);
+\draw[gray] (0,1.5) ellipse (2.6 and 0.55);
+\fill[orange!8] (0,0) ellipse (2.6 and 0.55);
+\draw[gray] (0,0) ellipse (2.6 and 0.55);
+\draw[densely dotted] (0,-0.5) -- (0,2.0);
+\fill (0,1.5) circle (1.5pt); \fill (0,0) circle (1.5pt);
+\node[font=\scriptsize, right] at (2.65,1.5) {sheet I};
+\node[font=\scriptsize, right] at (2.65,0) {sheet II};
+\draw[very thick, blue!70!black, ->] ([shift={(300:1.85 and 0.42)}]0,1.5) arc (300:600:1.85 and 0.42);
+\draw[very thick, blue!70!black, dashed, ->] ([shift={(240:1.85 and 0.42)}]0,1.5) -- ([shift={(240:1.85 and 0.42)}]0,0.05);
+\draw[very thick, orange!80!black, ->] ([shift={(240:1.85 and 0.42)}]0,0) arc (240:540:1.85 and 0.42);
+\draw[very thick, orange!80!black, dashed, ->] (-1.85,0.05) -- (-1.85,1.45);
+\fill[blue!70!black] ([shift={(300:1.85 and 0.42)}]0,1.5) circle (1.6pt);
+\node[font=\scriptsize, below right] at ([shift={(300:1.85 and 0.42)}]0,1.5) {$\chi$};
+\node[font=\scriptsize, right] at (-0.85,0.75) {$-\chi$};
+\node[font=\scriptsize, left] at (-1.85,0.75) {$\chi$};
+\node[font=\scriptsize, align=center] at (0,-0.95) {(a) $\chi=\sqrt{e^{i\theta}}$: $\theta=2\pi$ gives $-\chi$, $\theta=4\pi$ returns};
+\end{scope}
+% (b) complex momentum plane of E(p)
+\begin{scope}[yshift=-3.9cm]
+\draw[->] (-2.4,0) -- (2.6,0) node[right, font=\scriptsize] {$\mathrm{Re}\,p$};
+\draw[->] (0,-1.7) -- (0,1.8) node[above, font=\scriptsize] {$\mathrm{Im}\,p$};
+\draw[very thick, red!70!black, decorate, decoration={zigzag, amplitude=0.6mm, segment length=2mm}] (0,0.9) -- (0,1.7);
+\draw[very thick, red!70!black, decorate, decoration={zigzag, amplitude=0.6mm, segment length=2mm}] (0,-0.9) -- (0,-1.6);
+\fill (0,0.9) circle (2pt) node[left=7pt, font=\scriptsize] {$+imc$};
+\fill (0,-0.9) circle (2pt) node[left, font=\scriptsize] {$-imc$};
+\draw[thick, blue!70!black, ->] (0.45,0.9) arc (0:340:0.45);
+\node[font=\scriptsize, align=left, right] at (0.6,0.55) {$+E \to -E$};
+\node[font=\scriptsize, align=center] at (0.2,-2.05) {(b) $E(p)=\sqrt{p^2c^2+m^2c^4}$: branch points at $p=\pm imc$};
+\end{scope}
 \end{tikzpicture}
-\caption{\textbf{The Bloch sphere and the electron's great circle}}
-\label{fig:bloch}
+\caption{\textbf{The double cover as a Riemann surface}}
+\label{fig:riemann}
 \vspace{0.4em}
 \begin{minipage}{0.95\columnwidth}
 \justifying\small
-The Bloch vector $\Bloch=(\sin\theta,0,\cos\theta)$ runs round the great circle in the $s_x$--$s_z$ plane (bold). The north pole is all energy in kernel $A$, the south pole all in $B$, the equator equal sharing with maximal transit energy $K=\tfrac12E_0s_x^2$.
+(a) The rotor as the square root of the full-angle phase. One turn of $\theta$ around the branch point (dotted axis) carries $\chi$ from sheet~I to sheet~II, where it reads $-\chi$; a second turn returns it. (b) The Dirac energy as a function of complex momentum. Its branch points lie at $p=\pm imc$; a loop around one of them exchanges the positive- and negative-energy sheets. Both panels show the same structure, a two-sheeted surface of the square root.
 \end{minipage}
 \end{figure}
+
+\misread{``The north pole of the Bloch sphere is spin up.''}{Not in this paper. The north pole of $\Bloch$ is the instant at which all energy is stored in kernel $A$; at that instant the photon sphere is at rest, $K=\tfrac12E_0s_x^2=0$, and nothing circulates. What the model associates with spin is not a point of this sphere but the motion along it: the circulation of the photon sphere in transit, which vanishes at the poles and is largest at the equator. Averaged over one cycle, $\langle s_x^2\rangle=\tfrac12$, the same factor $1/\sqrt2$ that enters the root-mean-square relation~\eqref{eq:beta} between $\beta$ and $a_e$; whether the two are one factor is left open (Table~\ref{tab:open}).}
 
 \begin{figure*}[t!]
 \centering
@@ -1233,27 +1286,29 @@ Reference~\cite{ref:p1} motivated the fourth powers by the Stefan--Boltzmann law
 
 \subsection{Degree matching with the Dirac equation}
 
-\paragraph{Reader's question.} The Dirac equation in three dimensions has four solutions. The fermionic identity is of fourth degree. Is that a coincidence?
+\paragraph{Motivation.} The Dirac equation in three dimensions has four solutions, and the fermionic identity is of fourth degree. The two counts are compared here factor by factor.
 
 \textbf{[standard]} The number of solutions is the degree of the characteristic polynomial. For the $4\times4$ Dirac Hamiltonian in $3+1$ dimensions,
 \begin{equation}
 \det\!\big(E-H_D\big)=\big(E^2-E_p^2\big)^2,\qquad E_p^2=p^2c^2+m^2c^4 ,
 \label{eq:charpoly}
 \end{equation}
-the square of the Klein--Gordon polynomial: two distinct roots $\pm E_p$, each twice degenerate. In $1+1$ dimensions the Dirac matrices are $2\times2$ and the polynomial is $E^2-E_p^2$ itself, with two roots. \textbf{[0SM reading]} The pattern ``boson identity squared equals fermion identity'' and ``Klein--Gordon polynomial squared equals Dirac polynomial'' is the same algebraic shape. The two squarings, however, have different sources. In the model both squarings (amplitude to occupation, occupation to energy) belong to the internal-time sector and are independent of spatial dimension; in Dirac theory the second squaring is the spin degeneracy, which needs three spatial dimensions. The match ``fourth degree, four roots'' is therefore a $3+1$-dimensional coincidence of counts unless the internal angle can be identified with a spatial rotation angle. Whether it can is an open question (Sec.~\ref{sec:limits}).
+the square of the Klein--Gordon polynomial: two distinct roots $\pm E_p$, each twice degenerate. In $1+1$ dimensions the Dirac matrices are $2\times2$ and the polynomial is $E^2-E_p^2$ itself, with two roots. The four roots therefore factor as $2\times2$. The first factor, the sign pair $\pm E_p$, comes from the square root of $E^2=p^2c^2+m^2c^4$, that is, from squaring the mass, and is present in every dimension. The second factor, the spin degeneracy, needs three spatial dimensions.
+
+\textbf{[0SM reading]} The first factor is not a coincidence. The sign pair is the pair on which the model is built: the kernel pair and the branch pair are two bases of one space (Theorem~\ref{thm:equiv}), the exchange between the kernels is the interference of the two branches (Eq.~\eqref{eq:interf}), and both square roots are sheets of one kind of Riemann surface (Fig.~\ref{fig:riemann}). The second factor remains open. It has a home in the model only if the internal angle can be identified with a spatial rotation angle, or if spin is carried by a separate degree of freedom (Sec.~\ref{sec:limits}). The match ``fourth degree, four roots'' is therefore half structural and half open.
 
 \subsection{Relation to the square-root construction on $S^3$}
 \label{sec:rel64}
 
 A companion paper~\cite{ref:p64} builds the electron's spin two-valuedness from the square root of the Laplacian on the three-sphere $S^3\cong SU(2)$. There the Dirac operator obeys the Lichnerowicz identity~\cite{ref:lichnerowicz} $\mathcal{D}^2=-\Delta+R/4$ with $R=6$ on the unit sphere, its eigenvalues come in signed pairs $\pm(\ell+\tfrac32)$, and the obstruction to choosing one sign globally is the double cover $SU(2)\to SO(3)$. That construction is operator-theoretic and spatial. By its own account it uses no complex structure, no Bloch vector and no derivation of the quartic energy, and its Appendix~C leaves open whether the square-root signature of the energy identity is ``more than formal.'' The present section answers that question in the affirmative: the square root appears here as the first-order evolution~\eqref{eq:foe} of the internal clock, the complex unit is the oscillator's symplectic structure, and the quartic is derived (Proposition~\ref{prop:quartic}). The two papers realize the same double cover at two ends, an elliptic operator on a spatial sphere and a first-order evolution in internal time, which a Wick-rotation bridge~\cite{ref:wick} would have to join; we do not construct that bridge. The rotor is at each instant a definite point on the Bloch sphere, so the equal $\pm$ superposition of Theorem~\ref{thm:equiv} is a deterministic rotation rather than a probabilistic mixture, consistent with the time-sequential reading of Ref.~\cite{ref:p64}.
 
-\established{The rotor behind the identity is a square root of Klein--Gordon at rest and is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy solutions. The complex unit is the oscillator's own. The fourth powers are quadratic Bloch energies pulled back through the double cover; temperature lives on the occupation layer. The degree match with the Dirac equation is a match of counts in $3+1$ dimensions, structural only if the internal angle is a spatial angle.}
+\established{The rotor behind the identity is a square root of Klein--Gordon at rest and is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy solutions. The complex unit is the oscillator's own. The fourth powers are quadratic Bloch energies pulled back through the double cover; temperature lives on the occupation layer. The kernel exchange is the interference of the two Dirac branches, so the sign factor of the degree match with the Dirac equation is structural; the spin factor remains open.}
 
 % =====================================================================
 \section{Internal Time: The Transport Cycle}
 \label{sec:time}
 
-\paragraph{Reader's question.} The angle $\theta$ advances. Against what clock? Standard quantum mechanics uses an external time $t$ shared by every particle in the universe. That shared time is precisely a background. A model that wants to be background independent must let each particle carry its own clock, and must say how fast it runs.
+\paragraph{Motivation.} The angle $\theta$ advances, and the clock against which it advances has to be specified. Standard quantum mechanics uses an external time $t$ shared by every particle in the universe. That shared time is precisely a background. A model that wants to be background independent must let each particle carry its own clock, and must say how fast it runs.
 
 \subsection{The half-angle from kinematics}
 
@@ -1371,7 +1426,7 @@ sending the state of emission at kernel $A$ to the state of absorption at kernel
 
 \subsection{Distance from the clock}
 
-\paragraph{Reader's question.} So far nothing has had a length. Where does distance come from? \textbf{[standard]} In the SI, since 1983 the metre has been defined from the second and the speed of light~\cite{ref:si}: length is not an independent standard but is built from time. \textbf{[0SM reading]} The model builds the kernel separation in the same way. Rewriting $\nu_{\mathrm{tr}}=\beta c/\lambda_C$,
+\paragraph{Motivation.} So far nothing has had a length, so distance has to be built from something else. \textbf{[standard]} In the SI, since 1983 the metre has been defined from the second and the speed of light~\cite{ref:si}: length is not an independent standard but is built from time. \textbf{[0SM reading]} The model builds the kernel separation in the same way. Rewriting $\nu_{\mathrm{tr}}=\beta c/\lambda_C$,
 \begin{equation}
 \lambda_C=\beta c\times T_{\mathrm{tr}},\qquad T_{\mathrm{tr}}=\frac{1}{\nu_{\mathrm{tr}}}=1.9997\times10^{-19}\,\mathrm{s},
 \label{eq:distance}
@@ -1457,7 +1512,7 @@ The last three rows are tied by the double-cover ratio $2$; the first row is tie
 \section{Where the Metric Enters: Comparing Two Clocks}
 \label{sec:metric}
 
-\paragraph{Reader's question.} If every electron carries its own clock, how are two clocks compared? A clock in each particle does not by itself complete background independence: one must also say how the reading of one clock is carried to another. This section is an outlook. It states what the model has, what it needs, and where each missing piece enters; it does not close the problem.
+\paragraph{Motivation.} If every electron carries its own clock, the readings of two clocks still have to be compared. A clock in each particle does not by itself complete background independence: one must also say how the reading of one clock is carried to another. This section is an outlook. It states what the model has, what it needs, and where each missing piece enters; it does not close the problem.
 
 \subsection{Two of Maxwell's equations need no metric}
 
@@ -1478,7 +1533,7 @@ Here $\FF=(\mathbf{E},\mathbf{B})$ is the field strength and $\mathbf{G}=(\mathb
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{p{3.0cm}p{4.6cm}p{3.6cm}p{4.3cm}}
 \toprule
-\textbf{Form language} & \textbf{Vector form} & \textbf{Needs a metric?} & \textbf{What the model supplies} \\
+\textbf{Form language} & \textbf{Vector form} & \textbf{Metric needed} & \textbf{What the model supplies} \\
 \midrule
 $d\FF=0$
 & $\nabla\cdot\mathbf{B}=0$, $\ \nabla\times\mathbf{E}+\partial_t\mathbf{B}=0$
@@ -1596,7 +1651,7 @@ Both paths avoid the magnetic field, which is confined inside the solenoid, yet 
 
 \subsection{From two points to a field: a research ladder}
 
-\paragraph{Why this is needed.} The comparison of clocks is open, and an open problem is easier to work on when it is broken into rungs. Table~\ref{tab:ladder} and Fig.~\ref{fig:ladder} set out the order in which the model intends to climb: begin with two electrons and a single comparison, and introduce a continuous field only if the comparisons, once they fill a surface and then a volume, require one. At each rung the question is the same: does the model's internal mechanism fix the comparison, or is something missing?
+\paragraph{Why this is needed.} The comparison of clocks is open, and an open problem is easier to work on when it is broken into rungs. Table~\ref{tab:ladder} and Fig.~\ref{fig:ladder} set out the order in which the model intends to climb: begin with two electrons and a single comparison, and introduce a continuous field only if the comparisons, once they fill a surface and then a volume, require one. At each rung the test is the same: whether the model's internal mechanism fixes the comparison, or something is missing.
 
 \begin{table*}[t!]
 \centering
@@ -1605,31 +1660,31 @@ Both paths avoid the magnetic field, which is confined inside the solenoid, yet 
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{p{2.6cm}p{5.0cm}p{4.2cm}p{3.6cm}}
 \toprule
-\textbf{Rung} & \textbf{Object} & \textbf{Question asked} & \textbf{Mathematical name} \\
+\textbf{Rung} & \textbf{Object} & \textbf{Condition tested} & \textbf{Mathematical name} \\
 \midrule
 1. Two points
 & One comparison $\mathcal{T}_{(AB)\to(A'B')}$ along the thermal geodesic
-& Is the comparison fixed by the internal cycle and the path?
+& The comparison is fixed by the internal cycle and the path
 & Parallel transport \\
 \addlinespace[0.3cm]
 2. A chain
 & $\mathcal{T}_{2\to3}\circ\mathcal{T}_{1\to2}$ versus $\mathcal{T}_{1\to3}$
-& Does comparing via an intermediate agree with comparing directly?
+& Comparison via an intermediate agrees, or not, with direct comparison
 & Path dependence \\
 \addlinespace[0.3cm]
 3. A loop
 & $\mathcal{T}_{3\to1}\circ\mathcal{T}_{2\to3}\circ\mathcal{T}_{1\to2}$
-& Does a residue survive every choice of clock origins?
+& A residue survives every choice of clock origins
 & Holonomy \\
 \addlinespace[0.3cm]
 4. A surface
 & Many small loops tiling a surface
-& Does the residue add up like a flux?
+& The residue adds up like a flux
 & Curvature $\FF$ \\
 \addlinespace[0.3cm]
 5. A volume
 & Surfaces closing around a region
-& Does the total flux out of a closed surface vanish?
+& The total flux out of a closed surface vanishes
 & $d\FF=0$ \\
 \addlinespace[0.2cm]
 \bottomrule
@@ -1658,7 +1713,7 @@ Only at rung 4 does a field-like object appear, and only if rungs 1--3 show a re
 \begin{scope}[xshift=6.4cm]
 \fill[orange!80] (0,0) circle (3pt); \fill[orange!80] (0.8,0.9) circle (3pt); \fill[orange!80] (1.6,0) circle (3pt);
 \draw[->, thick, red!70!black] (0.08,0.09) -- (0.72,0.81); \draw[->, thick, red!70!black] (0.88,0.81) -- (1.52,0.09); \draw[->, thick, red!70!black] (1.48,0) -- (0.12,0);
-\node[font=\scriptsize] at (0.8,0.3) {residue?};
+\node[font=\scriptsize] at (0.8,0.3) {residue};
 \node[font=\small] at (0.8,-1.4) {3. a loop};
 \end{scope}
 \begin{scope}[xshift=9.6cm]
@@ -1692,7 +1747,7 @@ Table~\ref{tab:layers} collects the three layers of Eq.~\eqref{eq:helmholtz} and
 \renewcommand{\arraystretch}{1.4}
 \begin{tabular}{p{3.0cm}p{3.6cm}p{4.6cm}p{4.0cm}}
 \toprule
-\textbf{Helmholtz part} & \textbf{Fluid example} & \textbf{0-Sphere Model} & \textbf{Metric needed?} \\
+\textbf{Helmholtz part} & \textbf{Fluid example} & \textbf{0-Sphere Model} & \textbf{Metric needed} \\
 \midrule
 Gradient $\nabla\phi$
 & Potential flow
@@ -1726,7 +1781,7 @@ While the two kernels merely sit, everything is topological: winding numbers and
 \section{What Experiment Can Decide}
 \label{sec:exp}
 
-\paragraph{Reader's question.} A paper that derives integers by topology can be internally consistent and still wrong about nature. How would one find out? Not by another round of argument: the independent check of this paper is meant to come from measurement. Table~\ref{tab:exp} lists the handles.
+\paragraph{Motivation.} A paper that derives integers by topology can be internally consistent and still wrong about nature. The independent check of this paper is therefore meant to come from measurement, not from another round of argument. Table~\ref{tab:exp} lists the handles.
 
 \begin{table*}[t!]
 \centering
@@ -1804,7 +1859,9 @@ We collect the limits of the paper in one place, so that the main text could mov
 
 \paragraph{Rest frame only.} Theorem~\ref{thm:equiv} and Proposition~\ref{prop:quartic} describe the zero-momentum sector. The kinetic term $c\,\bm{\alpha}\cdot\mathbf{p}$, Lorentz covariance and the Clifford algebra are not derived.
 
-\paragraph{Sign sector, not spin sector.} The equivalence is two-dimensional and lives in the $\pm$ energy subspace at fixed spin. The spin degeneracy of the Dirac four-spinor is a second two-valued quantity, independent of the first; where it sits in the model is open. In particular the amplitude sign $\chi\to-\chi$ cannot be the spin-up/spin-down pair, because $\chi$ and $-\chi$ are the same physical state, while spin up and spin down are orthogonal states. In the language of the Hopf fibration, the sign lives in the fibre and the spin direction in the base. The degree match of Eq.~\eqref{eq:charpoly} becomes structural only if the internal angle can be identified with a spatial rotation angle.
+\paragraph{Sign sector, not spin sector.} The equivalence is two-dimensional and lives in the $\pm$ energy subspace at fixed spin. The spin degeneracy of the Dirac four-spinor is a second two-valued quantity, independent of the first; where it sits in the model is open. In particular the amplitude sign $\chi\to-\chi$ cannot be the spin-up/spin-down pair, because $\chi$ and $-\chi$ are the same physical state, while spin up and spin down are orthogonal states. In the language of the Hopf fibration, the sign lives in the fibre and the spin direction in the base. The sign factor of the degree match of Eq.~\eqref{eq:charpoly} is structural (Sec.~\ref{sec:quartic}); the spin factor becomes structural only if the internal angle can be identified with a spatial rotation angle.
+
+\paragraph{Charge and spin.} Section~\ref{sec:winding} identifies the sense in which the amplitude $z$ winds with the sign of charge. If spin is also carried by circulation, namely by the photon sphere in transit, the two quantities compete for one orientation. Either they are separate degrees of freedom, with charge the winding in the amplitude plane and spin the angular momentum of the transported photon sphere in space, or they share one orientation, and then the model predicts a correlation between the sign of charge and the sense of spin that must be stated and tested. This paper does not decide between the two.
 
 \paragraph{A residual factor of two.} With Eq.~\eqref{eq:idmass} the branches carry $\pm mc^2$ and the gap is $\hbar\omega=2mc^2$. Whether $E_0$ in Eq.~\eqref{eq:central} is $mc^2$ or $2mc^2$ is an open bookkeeping question; Refs.~\cite{ref:p38,ref:p43,ref:p46} make different choices.
 
@@ -1820,7 +1877,7 @@ We collect the limits of the paper in one place, so that the main text could mov
 \centering
 \caption{\textbf{Open problems and where each enters}}
 \label{tab:open}
-\renewcommand{\arraystretch}{1.4}
+\renewcommand{\arraystretch}{1.25}
 \begin{tabular}{p{3.6cm}p{4.6cm}p{6.8cm}}
 \toprule
 \textbf{Problem} & \textbf{Where it enters} & \textbf{What would close it} \\
@@ -1828,27 +1885,35 @@ We collect the limits of the paper in one place, so that the main text could mov
 Size of charge, $\alpha$
 & Constitutive relation, Eq.~\eqref{eq:constit}
 & A derivation of the Hodge star, with its scale, from the transport of the photon sphere \\
-\addlinespace[0.3cm]
+\addlinespace[0.15cm]
 Coupling to $A_\mu$
 & Comparison of clocks, Sec.~\ref{sec:metric}
 & Rungs 1--4 of Table~\ref{tab:ladder} carried out from the internal mechanism \\
-\addlinespace[0.3cm]
+\addlinespace[0.15cm]
 Light cone
 & Refractive index of the thermal geodesic
 & Promotion of the scalar index $n(T)$ to a tensor that fixes the causal directions \\
-\addlinespace[0.3cm]
+\addlinespace[0.15cm]
 Spin sector
 & Second two-valued quantity of the Dirac spinor
 & An identification of the internal angle with a spatial rotation angle, or another home for spin up/down \\
-\addlinespace[0.3cm]
+\addlinespace[0.15cm]
+Charge and spin
+& Sense of rotation of $z$, Sec.~\ref{sec:winding}
+& A decision whether charge and spin are separate degrees of freedom or share one orientation \\
+\addlinespace[0.15cm]
+Origin of $1/\sqrt2$
+& Eq.~\eqref{eq:beta}; cycle average of the transit energy
+& A demonstration that $\langle s_x^2\rangle=\tfrac12$ of the circulating photon sphere is the root-mean-square factor of Ref.~\cite{ref:p62} \\
+\addlinespace[0.15cm]
 Factor of two in $E_0$
 & Eq.~\eqref{eq:idmass}
 & A decision whether $E_0$ is $mc^2$ or $2mc^2$, consistent across the series \\
-\addlinespace[0.3cm]
+\addlinespace[0.15cm]
 Velocity convention
 & Sec.~\ref{sec:time}
 & Confirmation of the convention $v=\cos\omega t$ of Ref.~\cite{ref:p10} \\
-\addlinespace[0.3cm]
+\addlinespace[0.15cm]
 Reality of the internal motion
 & Sec.~\ref{sec:exp}
 & A measurement of the transport speed near $0.04\,c$, or its exclusion \\
@@ -1974,13 +2039,16 @@ for t in np.linspace(0.1,5,7):
 assert np.allclose(np.linalg.eigvalsh((w/2)*sy),[-0.5,0.5])
 \end{lstlisting}
 
-\paragraph{Check 3: the two Dirac branches.} Projected on the eigenvectors of $H$, the rotor has weight $\tfrac12$ on each branch at every instant, and the mean energy vanishes.
+\paragraph{Check 3: the two Dirac branches.} Projected on the eigenvectors of $H$, the rotor has weight $\tfrac12$ on each branch at every instant, and the mean energy vanishes. The occupation of kernel $A$ splits into $\tfrac14+\tfrac14$ from the branches alone and the cross term $\tfrac12\cos\omega t$, Eq.~\eqref{eq:interf}.
 \begin{lstlisting}
 vals,V=np.linalg.eigh((w/2)*sy)
 for t in np.linspace(0,2*np.pi,9):
     c=V.conj().T@chi(t)
     assert np.allclose(np.abs(c)**2,[0.5,0.5])
     assert abs((chi(t).conj()@((w/2)*sy)@chi(t)).real)<1e-12
+    a=c[0]*V[:,0]; b=c[1]*V[:,1]
+    assert abs(abs(a[0])**2+abs(b[0])**2-0.5)<1e-12
+    assert abs(2*(a[0]*b[0].conjugate()).real-0.5*np.cos(w*t))<1e-12
 \end{lstlisting}
 
 \paragraph{Check 4: the quartic as a pullback.} At $50$ instants, the quartic kernel energies equal the quadratic Bloch forms, and solving the sum (conservation and kinetic energy) and the difference (energy gradient) recovers $\cos^4(\omega t/2)$.
@@ -2166,6 +2234,14 @@ Helmholtz (Hodge) decomposition
 Double cover; Hopf map
 & A two-to-one map; here the map from the spinor $\chi$ to the Bloch vector $\Bloch$
 & Sec.~\ref{sec:quartic} \\
+\addlinespace[0.3cm]
+Riemann surface; branch point
+& The surface on which a many-valued function such as $\sqrt{z}$ becomes single-valued; going once around a branch point moves to the other sheet
+& Fig.~\ref{fig:riemann} \\
+\addlinespace[0.3cm]
+Interference (cross) term
+& The part of $|a+b|^2$ that needs both $a$ and $b$, namely $2\,\mathrm{Re}(a\bar b)$
+& Eq.~\eqref{eq:interf} \\
 \addlinespace[0.3cm]
 Symplectic complex structure
 & The rotation of position--momentum phase space by a quarter turn; the ``$i$'' of an oscillator
@@ -2445,6 +2521,11 @@ B.~Thaller,
 \emph{The Dirac Equation}
 (Springer, Berlin, 1992).
 
+\bibitem{ref:fw}
+L.~L.~Foldy and S.~A.~Wouthuysen,
+\emph{On the Dirac Theory of Spin 1/2 Particles and Its Non-Relativistic Limit},
+Phys.~Rev.\ \textbf{78}, 29 (1950).
+
 \bibitem{ref:arnold}
 V.~I.~Arnold,
 \emph{Mathematical Methods of Classical Mechanics}, 2nd ed.
@@ -2459,6 +2540,16 @@ Phys.~Rev.\ \textbf{70}, 460 (1946).
 H.~Hopf,
 \emph{\"Uber die Abbildungen der dreidimensionalen Sph\"are auf die Kugelfl\"ache},
 Math.~Ann.\ \textbf{104}, 637 (1931).
+
+\bibitem{ref:needham}
+T.~Needham,
+\emph{Visual Complex Analysis}
+(Oxford University Press, Oxford, 1997).
+
+\bibitem{ref:p3}
+S.~Hanamura,
+\emph{Uniquely Distinguishing an Electron's Spin from Two Quantum States via Riemann Surface Guidance},
+Zenodo (2019), \href{https://doi.org/10.5281/zenodo.17759634}{10.5281/zenodo.17759634}.
 
 \bibitem{ref:stefan}
 J.~Stefan,
@@ -2669,11 +2760,6 @@ Zenodo (2026), in preparation.
 S.~Hanamura,
 \emph{On Observer-Dependent Torsion, Zitterbewegung, and Phase Accumulation in the 0-Sphere Model},
 Zenodo, \href{https://doi.org/10.5281/zenodo.18896784}{10.5281/zenodo.18896784}.
-
-\bibitem{ref:fw}
-L.~L.~Foldy and S.~A.~Wouthuysen,
-\emph{On the Dirac Theory of Spin 1/2 Particles and Its Non-Relativistic Limit},
-Phys.~Rev.\ \textbf{78}, 29 (1950).
 
 \bibitem{ref:numpy}
 C.~R.~Harris \emph{et al.},

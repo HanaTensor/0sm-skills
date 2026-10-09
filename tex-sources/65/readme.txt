@@ -16,8 +16,8 @@ This archive contains the LaTeX source file and the numerical-verification
 script for a research paper of the 0-Sphere Model series (paper #65):
 
 1. main.tex
-   - Main LaTeX source file (33 pages, 22 figures drawn in TikZ, 15 tables,
-     98 references)
+   - Main LaTeX source file (35 pages, 22 figures drawn in TikZ, 15 tables,
+     100 references)
    - Document class: REVTeX 4-2 (APS/PRB reprint format)
    - Compiler: pdfLaTeX
    - TeX Live version: 2025
@@ -26,7 +26,8 @@ script for a research paper of the 0-Sphere Model series (paper #65):
    - Python 3 script with the seven numerical checks of Appendix A:
      (1) the two solution sets and the harmonicity criterion {0, 1, 2};
      (2) the first-order equation i d(chi)/dt = (omega/2) sigma_y chi;
-     (3) the two Dirac branches; (4) the quartic as a Hopf pullback;
+     (3) the two Dirac branches and the interference identity
+     n_A = 1/4 + 1/4 + (1/2)cos(omega t); (4) the quartic as a Hopf pullback;
      (5) the Wronskian Q = +/-1; (6) the mod-4 character W = chi_4(q) for
      coprime odd pairs below 40; (7) beta from a_e, the two clock
      frequencies and their ratio beta, and lambda_C = beta c T_tr.
@@ -34,7 +35,7 @@ script for a research paper of the 0-Sphere Model series (paper #65):
    - Run:  python3 verify65.py   (prints "all checks passed")
 
 3. zenodo_23257458.pdf
-   - Compiled paper (33 pages).
+   - Compiled paper (35 pages).
 
 4. zenodo_23257458_relations.txt
    - Zenodo related-identifier list of this record (relations to earlier
@@ -75,10 +76,9 @@ Alternatively, use Overleaf with the following settings:
 ABSTRACT
 ================================================================================
 
-Where do integers come from in a model of the electron? This paper answers
-the question for the 0-Sphere model, in which the electron is two separated
-kernels exchanging a captured photon, and it is written so that a graduate
-student outside the field can follow every step. We start from arithmetic:
+This paper traces where the integers of a model of the electron come from.
+The model is the 0-Sphere model, in which the electron is two separated
+kernels exchanging a captured photon. We start from arithmetic:
 the integers are fixed by 0 and 1, the numbers that do not change when
 squared are exactly {0, 1}, and the invertible integers are {+1, -1}, which
 is the zero-sphere S^0. The model's two energy identities share the
@@ -95,7 +95,12 @@ different sources.
 
 We retain and sharpen the earlier results of this paper: the amplitude
 behind the identity obeys a first-order spinor equation unitarily equivalent
-to the Dirac rest solutions, the complex unit is the symplectic structure of
+to the Dirac rest solutions, and the energy exchange between the two kernels
+is exactly the interference term between the positive- and negative-energy
+branches, so that zitterbewegung is read as a real internal oscillation and
+the negative branch as the absorbing half of a paired emission and
+absorption rather than as an antiparticle; the complex unit is the
+symplectic structure of
 the internal oscillator, and the quartic energies are quadratic forms on the
 Bloch sphere pulled back through the Hopf double cover. We then define the
 internal time as the transport cycle between the kernels, fixed by the
@@ -119,6 +124,9 @@ Key topics include:
 - Charge as a protected winding number (Wronskian Q = (2/omega)(a b' - b a'))
 - Detuned kernels and the mod-4 Dirichlet character W = chi_4(q)
 - Rest-frame Dirac equivalence and the Hopf pullback of the quartic energy
+- Zitterbewegung as the interference of the two Dirac branches; a reading
+  of negative energy without antiparticles
+- The double cover drawn as a Riemann surface of the square root
 - Internal time as the transport cycle; distance from the clock
 - Pre-metric electrodynamics: where the metric and alpha enter
 - Experimental test: internal transport speed beta c ~ 0.04 c
@@ -193,6 +201,15 @@ What the model CAN derive:
   the symplectic structure of the oscillator.
 - The quartic energies are quadratic Bloch forms pulled back through the
   Hopf double cover (Proposition VI.2).
+- The occupation of each kernel splits into a constant part from each Dirac
+  branch alone and a cross term between them, n_A = 1/4 + 1/4 +
+  (1/2)cos(omega t): the energy exchange between the kernels, i.e.
+  zitterbewegung, is the interference of the positive- and negative-energy
+  branches. The sign of an energy eigenvalue is read as the sign of a
+  frequency, registered in the kernel frame as the paired opposite rates
+  dn_A/dt = -dn_B/dt (emission and absorption).
+- In the degree match with the Dirac polynomial (E^2 - E_p^2)^2, the sign
+  factor is structural; only the spin factor remains open.
 - Internal time: transport rate beta m c^2/hbar = 5.0007e18 Hz with
   beta = 0.0404720 from a_e; exactly beta times the branch phase
   m c^2/hbar = 1.2356e20 Hz.
@@ -203,8 +220,9 @@ What the model CANNOT currently derive:
 - The coupling of the winding number to the electromagnetic potential.
 - The light-cone structure (a tensor refractive index of the thermal
   geodesic would be needed).
-- Whether the degree match "fourth degree, four roots" with the Dirac
-  polynomial is more than a 3+1-dimensional coincidence of counts.
+- The spin factor of the degree match with the Dirac polynomial.
+- Whether charge and spin are separate degrees of freedom or share one
+  orientation of the internal rotation.
 
 Statements are marked [standard] or [0SM reading] throughout, so that a
 reader can accept the standard mathematics and still reject the model. The
@@ -215,12 +233,12 @@ DOCUMENT STRUCTURE
 ================================================================================
 
 Section I: Introduction
-  I.A  A question a graduate student can ask
+  I.A  Integers in physics and in the model
   I.B  The model in one paragraph
-  I.C  Four questions this paper answers
+  I.C  Four results of this paper
   I.D  Conventions: three layers and two kinds of statement
   I.E  What goes in and what comes out
-  I.F  How to read this paper
+  I.F  Organization of the paper
 
 Section II: Zero and One: The Arithmetic Seed
   II.A The integers are fixed by 0 and 1
@@ -250,11 +268,13 @@ Section V: Closing the Path: Winding Numbers and Charge
 Section VI: The Quartic Energy as a Pullback of Quadratic Bloch Forms
   VI.A The kernel rotor and its first-order equation
   VI.B Unitary equivalence to the Dirac rest solutions
-  VI.C The complex unit is generated by the oscillator
-  VI.D The fourth power is a quadratic form on the Bloch sphere
-  VI.E Where temperature lives
-  VI.F Degree matching with the Dirac equation
-  VI.G Relation to the square-root construction on S^3
+  VI.C Zitterbewegung as the interference of the two branches
+  VI.D The complex unit is generated by the oscillator
+  VI.E The fourth power is a quadratic form on the Bloch sphere
+       (the double cover drawn as a Riemann surface)
+  VI.F Where temperature lives
+  VI.G Degree matching with the Dirac equation
+  VI.H Relation to the square-root construction on S^3
 
 Section VII: Internal Time: The Transport Cycle
   VII.A The half-angle from kinematics
@@ -283,7 +303,7 @@ Appendices:
   D. Derivation: Charge as a Protected Winding Number
   E. Mathematical Terms in Plain Words (glossary)
 
-References (98 entries, ordered by first citation)
+References (100 entries, ordered by first citation)
 
 ================================================================================
 LICENSE AND CITATION
@@ -320,6 +340,9 @@ Version 1.0 (October 10, 2026)
   - Internal time as the transport cycle; distance from the clock
   - Pre-metric electrodynamics and an explicit statement of scope
     (the integer of charge is derived, alpha is not)
+  - Zitterbewegung as the interference of the two Dirac branches and a
+    reading of negative energy without antiparticles
+  - The double cover drawn as the Riemann surface of the square root
   - Numerical verification script verify65.py
 
 ================================================================================

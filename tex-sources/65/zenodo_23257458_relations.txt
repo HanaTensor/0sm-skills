@@ -24,9 +24,9 @@ NOTE: verify65.py (the numerical-verification script of Appendix A) is
 [Summary]
   [1] Continues:         3 entries
   [2] References:        6 entries
-  [3] Cites:            15 entries (Hanamura papers with DOI, not above)
+  [3] Cites:            16 entries (Hanamura papers with DOI, not above)
   [4] Is part of:        1 entry  (#1)
-  External (non-Zenodo): standard literature, 70 entries — no relation needed
+  External (non-Zenodo): standard literature, 71 entries — no relation needed
   GitHub working notes (trunks T1–T7): optional URL relation, see [5]
   [Reverse Relations]:   9 target papers listed for update
 ================================================================================
@@ -108,6 +108,10 @@ NOTE: verify65.py (the numerical-verification script of Appendix A) is
 [3] Cites
   — Hanamura papers cited in the bibliography and not listed above —
 
+  #3  Hanamura 2019 — Uniquely Distinguishing an Electron's Spin from Two
+      Quantum States via Riemann Surface Guidance
+      DOI: 10.5281/zenodo.17759634
+
   #7  Hanamura 2020 — Coexistence of Positive- and Negative-Energy States in
       the Dirac Framework within the 0-Sphere Model
       DOI: 10.5281/zenodo.17760132
@@ -176,7 +180,7 @@ NOTE: verify65.py (the numerical-verification script of Appendix A) is
       Deaver & Fairbank 1961 / Doll & Nabauer 1961 (flux quantization)
       Fan et al. 2023, Phys. Rev. Lett. 130, 071801 (a_e)
       Aharonov & Bohm 1959; Hehl & Obukhov 2003 (pre-metric electrodynamics)
-      ... 70 standard references in total (see bibliography of main.tex)
+      ... 71 standard references in total (see bibliography of main.tex)
 
 ================================================================================
 
