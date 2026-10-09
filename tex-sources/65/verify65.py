@@ -33,6 +33,8 @@ for t in np.linspace(0,2*np.pi,9):
     a=c[0]*V[:,0]; b=c[1]*V[:,1]
     assert abs(abs(a[0])**2+abs(b[0])**2-0.5)<1e-12
     assert abs(2*(a[0]*b[0].conjugate()).real-0.5*np.cos(w*t))<1e-12
+H4=np.block([[(w/2)*sy,np.zeros((2,2))],[np.zeros((2,2)),-(w/2)*sy]])
+assert np.allclose(np.linalg.eigvalsh(H4),[-0.5,-0.5,0.5,0.5])
 
 # ---- Check 4: quartic as a pullback ----
 for t in np.linspace(0,2*np.pi,50):

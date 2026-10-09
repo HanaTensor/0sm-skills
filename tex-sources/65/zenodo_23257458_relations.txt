@@ -26,7 +26,7 @@ NOTE: verify65.py (the numerical-verification script of Appendix A) is
   [2] References:        6 entries
   [3] Cites:            16 entries (Hanamura papers with DOI, not above)
   [4] Is part of:        1 entry  (#1)
-  External (non-Zenodo): standard literature, 71 entries — no relation needed
+  External (non-Zenodo): standard literature, 77 entries — no relation needed
   GitHub working notes (trunks T1–T7): optional URL relation, see [5]
   [Reverse Relations]:   9 target papers listed for update
 ================================================================================
@@ -180,7 +180,9 @@ NOTE: verify65.py (the numerical-verification script of Appendix A) is
       Deaver & Fairbank 1961 / Doll & Nabauer 1961 (flux quantization)
       Fan et al. 2023, Phys. Rev. Lett. 130, 071801 (a_e)
       Aharonov & Bohm 1959; Hehl & Obukhov 2003 (pre-metric electrodynamics)
-      ... 71 standard references in total (see bibliography of main.tex)
+      Bell 1964 / Bell 1966 / Kochen & Specker 1967 / CHSH 1969 / Aspect 1982
+      Bohm 1952; Gerlach & Stern 1922
+      ... 77 standard references in total (see bibliography of main.tex)
 
 ================================================================================
 

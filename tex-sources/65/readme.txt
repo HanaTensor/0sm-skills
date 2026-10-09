@@ -16,8 +16,8 @@ This archive contains the LaTeX source file and the numerical-verification
 script for a research paper of the 0-Sphere Model series (paper #65):
 
 1. main.tex
-   - Main LaTeX source file (35 pages, 22 figures drawn in TikZ, 15 tables,
-     100 references)
+   - Main LaTeX source file (36 pages, 22 figures drawn in TikZ, 15 tables,
+     106 references)
    - Document class: REVTeX 4-2 (APS/PRB reprint format)
    - Compiler: pdfLaTeX
    - TeX Live version: 2025
@@ -27,7 +27,8 @@ script for a research paper of the 0-Sphere Model series (paper #65):
      (1) the two solution sets and the harmonicity criterion {0, 1, 2};
      (2) the first-order equation i d(chi)/dt = (omega/2) sigma_y chi;
      (3) the two Dirac branches and the interference identity
-     n_A = 1/4 + 1/4 + (1/2)cos(omega t); (4) the quartic as a Hopf pullback;
+     n_A = 1/4 + 1/4 + (1/2)cos(omega t), and the four-solution Hamiltonian
+     H4 = diag(H, -H) with eigenvalues +/-omega/2, each twice; (4) the quartic as a Hopf pullback;
      (5) the Wronskian Q = +/-1 and the two-sheeted energy flow
      |dn_A/dt| = omega sqrt(n_A n_B); (6) the mod-4 character W = chi_4(q) for
      coprime odd pairs below 40; (7) beta from a_e, the two clock
@@ -36,7 +37,7 @@ script for a research paper of the 0-Sphere Model series (paper #65):
    - Run:  python3 verify65.py   (prints "all checks passed")
 
 3. zenodo_23257458.pdf
-   - Compiled paper (35 pages).
+   - Compiled paper (36 pages).
 
 4. zenodo_23257458_relations.txt
    - Zenodo related-identifier list of this record (relations to earlier
@@ -103,7 +104,10 @@ the negative branch as the absorbing half of a paired emission and
 absorption rather than as an antiparticle; the complex unit is the
 symplectic structure of
 the internal oscillator, and the quartic energies are quadratic forms on the
-Bloch sphere pulled back through the Hopf double cover. We then define the
+Bloch sphere pulled back through the Hopf double cover. The four Dirac rest solutions
+are read as the radiating or absorbing role of a kernel taken together with
+the order in which the exchange runs over the two sheets of a Riemann
+surface, the latter being the candidate for spin. We then define the
 internal time as the transport cycle between the kernels, fixed by the
 anomalous magnetic moment through beta = 0.04047, show that it runs exactly
 beta times slower than the Dirac branch phase, and show that the kernel
@@ -216,6 +220,18 @@ What the model CAN derive:
   dn_A/dt = -/+ omega sqrt(n_A n_B): a two-valued function whose sheets are
   the cycle A -> B (A radiates, B absorbs) and the cycle B -> A, whose branch
   points are the kernel states {0, 1} = S^0, and whose cut is the segment D^1.
+- Four Dirac rest solutions = {radiating / absorbing kernel} x {order of
+  traversal of the two sheets}; H4 = diag(H, -H) reproduces the Dirac rest
+  polynomial (E^2 - m^2c^4)^2. Spin is assigned to the direction in which
+  radiation and absorption progress in space, charge to the winding in the
+  internal amplitude plane.
+- Hidden variables: the model posits no local hidden variable; its hidden
+  variable is global (the phase relation of the whole system), consistent
+  with Bell 1966 and Kochen-Specker for a single spin.
+- Entangled pair (outlook): opposite orders of traversal at equal rates, so
+  the pair-level radiation gradient cancels, F1 + F2 = 0; the residual
+  fraction sin^2(phi/2) at axis angle phi would give the -cos(phi)
+  correlation; a fluctuating rate mismatch is read as decoherence.
 - Internal time: transport rate beta m c^2/hbar = 5.0007e18 Hz with
   beta = 0.0404720 from a_e; exactly beta times the branch phase
   m c^2/hbar = 1.2356e20 Hz.
@@ -226,9 +242,10 @@ What the model CANNOT currently derive:
 - The coupling of the winding number to the electromagnetic potential.
 - The light-cone structure (a tensor refractive index of the thermal
   geodesic would be needed).
-- The spin factor of the degree match with the Dirac polynomial.
-- Whether charge and spin are separate degrees of freedom or share one
-  orientation of the internal rotation.
+- The response of the spin candidate to spatial rotations, and the
+  projection law cos^2(theta/2) in a Stern-Gerlach field.
+- The two-electron correlation -cos(phi) derived from the residual drive,
+  with no signalling.
 
 Statements are marked [standard] or [0SM reading] throughout, so that a
 reader can accept the standard mathematics and still reject the model. The
@@ -294,7 +311,8 @@ Section VIII: Where the Metric Enters: Comparing Two Clocks
   VIII.A Two of Maxwell's equations need no metric
   VIII.B Comparing two electrons
   VIII.C From two points to a field: a research ladder
-  VIII.D Distance, the constitutive relation, and alpha enter together
+  VIII.D Two entangled electrons: an outlook
+  VIII.E Distance, the constitutive relation, and alpha enter together
 
 Section IX: What Experiment Can Decide
 Section X: Distance from Standard Theory
@@ -309,7 +327,7 @@ Appendices:
   D. Derivation: Charge as a Protected Winding Number
   E. Mathematical Terms in Plain Words (glossary)
 
-References (100 entries, ordered by first citation)
+References (106 entries, ordered by first citation)
 
 ================================================================================
 LICENSE AND CITATION
@@ -350,6 +368,9 @@ Version 1.0 (October 10, 2026)
     reading of negative energy without antiparticles
   - The kernel exchange drawn as a Riemann surface (sheets = the two
     directions of radiation and absorption; branch points = S^0; cut = D^1)
+  - Four Dirac rest solutions from {radiating/absorbing} x {order of
+    traversal}; spin and charge assigned to different spaces; hidden
+    variables stated as global, not local; entangled pairs as an outlook
   - Numerical verification script verify65.py
 
 ================================================================================
@@ -392,7 +413,7 @@ Tables:
   - Table IX:   Frequency ledger of the internal oscillation (VII.F)
   - Table X:    Maxwell's equations sorted by metric need (VIII.A)
   - Table XI:   The ladder from a single comparison to a field (VIII.C)
-  - Table XII:  Three layers of the electron and what enters at each (VIII.D)
+  - Table XII:  Three layers of the electron and what enters at each (VIII.E)
   - Table XIII: Experimental handles on the claims of this paper (Sec. IX)
   - Table XIV:  Open problems and where each enters (Sec. X)
   - Table XV:   Mathematical terms used in the paper (App. E)
