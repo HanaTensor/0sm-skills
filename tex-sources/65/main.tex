@@ -107,6 +107,11 @@
 %     (space); charge = winding in the amplitude plane. Hidden variables:
 %     no local one; a global one (phase relation of the whole system).
 %     Sec. VIII D: entangled pair = opposite orders, equal rates, F1+F2=0.
+%   - CORRECTION (2026-10-10 06:40): the order of traversal of the sheets is
+%     the sign of ab, i.e. the winding = charge. H4 = charge partner, not spin.
+%     Spin = spatial direction of progression (not carried by chi). New
+%     Sec. V F "What a winding number counts" (Table windings): amplitude
+%     plane -> charge; closed orbit -> energy level; layer ladder open (K13).
 % OPEN / TO DO BEFORE DEPOSIT
 %   - Velocity convention (trunk T3 K1): grounding the internal time in #10
 %     implies #10's convention v = cos(wt). Author to confirm.
@@ -205,7 +210,7 @@ This paper traces where the integers of a model of the electron come from. The m
 We start from arithmetic: the integers are fixed by $0$ and $1$, the numbers that do not change when squared are exactly $\{0,1\}$, and the invertible integers are $\{\pm1\}$, which is the zero-sphere $S^0$.
 The model's two energy identities share the right-hand side $1$, yet the bosonic identity $n_A+n_B=1$ is solved by a whole segment $D^1$, whereas the kernel part of the fermionic identity $(n_A+n_B)^2=1$ is solved only by the two endpoints, $S^0=\partial D^1$; the cross term is exactly the seat that lets energy travel between the two separated points.
 Path-connectedness therefore enters at the foundations, and the next topological step, a closed path that is not simply connected, yields an integer winding number that the model identifies with electric charge; a point vortex in fluid mechanics gives the picture, and quantized circulation in superfluids shows that the integer and its size come from different sources.
-We retain and sharpen the earlier results of this paper: the amplitude behind the identity obeys a first-order spinor equation unitarily equivalent to the Dirac rest solutions, and the energy exchange between the two kernels is exactly the interference term between the positive- and negative-energy branches, so that zitterbewegung is read as a real internal oscillation and the negative branch as the absorbing half of a paired emission and absorption rather than as an antiparticle; the complex unit is the symplectic structure of the internal oscillator, and the quartic energies are quadratic forms on the Bloch sphere pulled back through the Hopf double cover. The four Dirac rest solutions are read as the radiating or absorbing role of a kernel taken together with the order in which the exchange runs over the two sheets of a Riemann surface, the latter being the candidate for spin.
+We retain and sharpen the earlier results of this paper: the amplitude behind the identity obeys a first-order spinor equation unitarily equivalent to the Dirac rest solutions, and the energy exchange between the two kernels is exactly the interference term between the positive- and negative-energy branches, so that zitterbewegung is read as a real internal oscillation and the negative branch as the absorbing half of a paired emission and absorption rather than as an antiparticle; the complex unit is the symplectic structure of the internal oscillator, and the quartic energies are quadratic forms on the Bloch sphere pulled back through the Hopf double cover. The four Dirac rest solutions are read as the radiating or absorbing role of a kernel taken together with spin, which is assigned to the direction in which radiation and absorption progress in space.
 We then define the internal time as the transport cycle between the kernels, fixed by the anomalous magnetic moment through $\beta=0.04047$, show that it runs exactly $\beta$ times slower than the Dirac branch phase, and show that the kernel separation is the transport speed times one tick, $\lambda_C=\beta c\,T_{\mathrm{tr}}$.
 Metric structure is not needed while the two kernels merely sit; it enters with transport, together with the constitutive relation and the fine-structure constant.
 We state explicitly that the model derives the integer of charge, its existence, quantization, conservation and sign, but not its size: the fine-structure constant is not derived here, nor is the coupling to the electromagnetic potential or the light-cone structure.
@@ -1062,7 +1067,45 @@ In a connection $D\theta=d\theta+qA$, the charge $q$ plays the role of a convers
 
 \misread{``The charge must sit on one of the two kernels.''}{It does not. The winding number belongs to the curve traced by the \emph{pair} of amplitudes, not to either amplitude separately; neither kernel alone has a winding number, just as neither of two hands alone has a handshake. Assigning charge to a single term of the identity, such as the transit term~\cite{ref:p42}, gives a quantity that oscillates in time and so is not conserved, and it gives detuned pairs more ``charge'' than locked ones. The integer is global.}
 
-\established{Closing the path around the origin of the amplitude plane gives an integer. For locked kernels this integer is the protected winding number $W=\pm1$, conserved, bounded by one and carrying a sign; for detuned kernels nothing is protected. The model identifies the protected integer with charge and does not derive its size.}
+\subsection{What a winding number counts}
+
+\paragraph{Motivation.} A winding number is a tool, not a quantity: it counts how many times a phase turns around a closed path, and what it measures depends on which space the path lies in. This subsection separates the winding of this paper from the winding that makes atomic energy levels discrete.
+
+\paragraph{One tool, several spaces.} \textbf{[standard]} The winding number of a phase $\phi$ around a closed path $C$ is the simplest closed line integral of the phase,
+\begin{equation}
+n=\frac{1}{2\pi}\oint_C d\phi\ \in\ \mathbb{Z}.
+\label{eq:windingint}
+\end{equation}
+The Aharonov--Bohm phase~\cite{ref:ab59} and the Berry phase~\cite{ref:berry84} are closed line integrals of the same kind, whose values are not restricted to integers; the series has taken such line integrals as the fundamental observables~\cite{ref:p29,ref:p30,ref:p31}. A winding number is the integer-valued member of that family, and the integer it returns takes its meaning from the path. Table~\ref{tab:windings} lists the paths that appear in the model.
+
+\begin{table}[t!]
+\centering
+\caption{\textbf{What a winding number counts, by the path it is taken around}}
+\label{tab:windings}
+\renewcommand{\arraystretch}{1.3}
+\begin{tabular}{p{2.6cm}p{1.1cm}p{3.5cm}}
+\toprule
+\textbf{Path} & \textbf{Value} & \textbf{Quantity} \\
+\midrule
+\raggedright Origin of $z=a+ib$ & $\pm1$ & \raggedright Sign of charge, bound and free\tabularnewline
+\addlinespace[0.15cm]
+\raggedright Orbit around a nucleus & $n\in\mathbb{Z}$ & \raggedright Energy level\tabularnewline
+\addlinespace[0.15cm]
+\raggedright Internal layers, per $2\pi$ & $\tfrac12,\ 1,\ 2$ & \raggedright Spin, charge, quadrupole (open)\tabularnewline
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\columnwidth}
+\justifying\footnotesize
+The same integer-valued line integral, Eq.~\eqref{eq:windingint}, measures different quantities on different paths. The third row is a correspondence recorded for later work.
+\end{minipage}
+\end{table}
+
+\paragraph{The orbital winding and discrete levels.} \textbf{[standard]} The energy levels of a bound electron are discrete because the phase must return to itself after one circuit of a closed orbit, an integer number of turns; the integer $m$ of the angular factor $e^{im\phi}$ of the spherical harmonics is such a winding number~\cite{ref:sakurai}. The spacing of the levels is set by the size of the closed path. Between the first two levels of hydrogen it is $10.2$ eV. For an electron circulating in a storage ring of circumference $1436$ m, the revolution frequency is $c/1436\,\mathrm{m}=208.8$ kHz and the corresponding spacing is $h\times208.8\,\mathrm{kHz}=8.6\times10^{-10}$ eV, ten orders of magnitude finer, so that the radiation spectrum appears continuous; for an electron on an open path there is no integer condition at all. \textbf{[0SM reading]} The principle of Secs.~\ref{sec:path} and~\ref{sec:winding}, that a closed path gives an integer and an open one does not, therefore applies to the orbit as well as to the interior. In the model the integer condition of a bound orbit is carried by the spherical-harmonic modes imprinted on the photon sphere~\cite{ref:p57}.
+
+\paragraph{The charge winding does not change.} The two windings are independent. The orbital winding of an electron changes when it is captured by an atom or set free, and its spacing shrinks as the path grows; the winding of its amplitude plane stays $\pm1$ throughout, in the atom and in the storage ring alike. This is the statement that the charge of a bound electron and the charge of a free electron are the same.
+
+\established{Closing the path around the origin of the amplitude plane gives an integer. For locked kernels this integer is the protected winding number $W=\pm1$, conserved, bounded by one and carrying a sign; for detuned kernels nothing is protected. The model identifies the protected integer with charge and does not derive its size. The same integer-valued line integral counts other quantities on other paths: around a closed orbit it counts the energy level, and that winding changes between bound and free electrons while the charge winding does not.}
 
 % =====================================================================
 \section{The Quartic Energy as a Pullback of Quadratic Bloch Forms}
@@ -1308,20 +1351,22 @@ the square of the Klein--Gordon polynomial: two distinct roots $\pm E_p$, each t
 
 \textbf{[0SM reading]} The first factor is not a coincidence. The sign pair is the pair on which the model is built: the kernel pair and the branch pair are two bases of one space (Theorem~\ref{thm:equiv}), the exchange between the kernels is the interference of the two branches (Eq.~\eqref{eq:interf}), and both square roots are sheets of one kind of Riemann surface (Fig.~\ref{fig:riemann}). The second factor needs a second two-valued quantity that the rotor $\chi$ does not contain: the two-dimensional space of $\chi$ is already spanned by the two branches (Theorem~\ref{thm:equiv}), and which sheet of Fig.~\ref{fig:riemann}a the exchange occupies at a given instant is fixed by the phase, so it adds no dimension.
 
-\paragraph{Four solutions from two orders of traversal.} \textbf{[standard]} The rotor traversed in the opposite sense, $(a,-b)$, obeys $i\dot\chi=-\tfrac{\omega}{2}\sigma_y\chi$. Placing the two senses side by side gives
+\paragraph{The reversed rotor is the charge partner.} \textbf{[standard]} The rotor traversed in the opposite sense, $(a,-b)$, obeys $i\dot\chi=-\tfrac{\omega}{2}\sigma_y\chi$. Placing the two senses side by side gives
 \begin{equation}
 H_4=\begin{pmatrix}\tfrac{\omega}{2}\sigma_y&0\\0&-\tfrac{\omega}{2}\sigma_y\end{pmatrix},\qquad
 \det\!\big(E-H_4\big)=\Big(E^2-\tfrac{\omega^2}{4}\Big)^2 ,
 \label{eq:H4}
 \end{equation}
-which with $\hbar\omega/2=mc^2$ is the Dirac rest polynomial~\eqref{eq:charpoly} at $p=0$: two roots $\pm mc^2$, each twice degenerate, the degeneracy being between the two senses. \textbf{[0SM reading]} The four solutions are read as two choices taken together. The first is the role of a kernel, radiating or absorbing, which carries the sign of the energy. The second is the order in which the exchange runs over the two sheets of Fig.~\ref{fig:riemann}a, from sheet~I to sheet~II or from sheet~II to sheet~I, which is fixed for a given electron and is the candidate for spin. Two of the four solutions are of positive energy (the radiating kernel in each order) and two of negative energy (the absorbing kernel in each order). The candidate is structural in the sense of Eq.~\eqref{eq:H4}; its identification with spin in space requires the response to spatial rotations and the projection law of Sec.~\ref{sec:limits}.
+which with $\hbar\omega/2=mc^2$ has the form of the Dirac rest polynomial~\eqref{eq:charpoly} at $p=0$: two roots $\pm mc^2$, each twice degenerate. \textbf{[0SM reading]} The degeneracy of $H_4$, however, is between the two senses of rotation, and the sense of rotation is the winding number of Sec.~\ref{sec:winding}: reversing $b\to-b$ reverses $Q$. The same reversal also changes the order in which the exchange runs over the two sheets of Fig.~\ref{fig:riemann}a, because the sheet is fixed by the sign of $ab$. The order of traversal and the sign of charge are therefore one quantity. In Dirac theory the two degenerate solutions at one energy belong to one particle and differ in spin, with the same charge. With the winding read as charge, $H_4$ pairs an electron with its charge partner and does not supply the spin degeneracy. This agrees with the counting of Ref.~\cite{ref:p50}, in which the four Dirac components are the orientation of the phase flow (electron or positron) taken together with spin, two independent two-valued quantities.
+
+\paragraph{Where the four solutions sit.} The four rest solutions are read as two choices taken together. The first is the role of a kernel, radiating or absorbing, which carries the sign of the energy (Sec.~\ref{sec:interf}). The second is spin, assigned to the direction in which radiation and absorption progress in space, along the directed helical path of the transport~\cite{ref:p51}. That direction is a spatial quantity; it is not written in the rotor $\chi$, whose orientation is the charge. Two of the four solutions are of positive energy and two of negative energy, and the two at each energy differ in the spatial direction of progression. How that direction enters the equations alongside $\chi$ is open (Sec.~\ref{sec:limits}).
 
 \subsection{Relation to the square-root construction on $S^3$}
 \label{sec:rel64}
 
 A companion paper~\cite{ref:p64} builds the electron's spin two-valuedness from the square root of the Laplacian on the three-sphere $S^3\cong SU(2)$. There the Dirac operator obeys the Lichnerowicz identity~\cite{ref:lichnerowicz} $\mathcal{D}^2=-\Delta+R/4$ with $R=6$ on the unit sphere, its eigenvalues come in signed pairs $\pm(\ell+\tfrac32)$, and the obstruction to choosing one sign globally is the double cover $SU(2)\to SO(3)$. That construction is operator-theoretic and spatial. By its own account it uses no complex structure, no Bloch vector and no derivation of the quartic energy, and its Appendix~C leaves open whether the square-root signature of the energy identity is ``more than formal.'' The present section answers that question in the affirmative: the square root appears here as the first-order evolution~\eqref{eq:foe} of the internal clock, the complex unit is the oscillator's symplectic structure, and the quartic is derived (Proposition~\ref{prop:quartic}). The two papers realize the same double cover at two ends, an elliptic operator on a spatial sphere and a first-order evolution in internal time, which a Wick-rotation bridge~\cite{ref:wick} would have to join; we do not construct that bridge. The rotor is at each instant a definite point on the Bloch sphere, so the equal $\pm$ superposition of Theorem~\ref{thm:equiv} is a deterministic rotation rather than a probabilistic mixture, consistent with the time-sequential reading of Ref.~\cite{ref:p64}.
 
-\established{The rotor behind the identity is a square root of Klein--Gordon at rest and is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy solutions. The complex unit is the oscillator's own. The fourth powers are quadratic Bloch energies pulled back through the double cover; temperature lives on the occupation layer. The kernel exchange is the interference of the two Dirac branches, so the sign factor of the degree match with the Dirac equation is structural. The two orders of traversal of the exchange sheets supply a second two-valued quantity, and together with the sign they reproduce the Dirac rest polynomial; their identification with spin is the remaining step.}
+\established{The rotor behind the identity is a square root of Klein--Gordon at rest and is unitarily equivalent to an equal superposition of the Dirac positive- and negative-energy solutions. The complex unit is the oscillator's own. The fourth powers are quadratic Bloch energies pulled back through the double cover; temperature lives on the occupation layer. The kernel exchange is the interference of the two Dirac branches, so the sign factor of the degree match with the Dirac equation is structural. The reversed rotor reproduces the form of the Dirac rest polynomial but reverses the winding, so it is the charge partner; spin is assigned to the spatial direction of progression, which the rotor does not carry.}
 
 % =====================================================================
 \section{Internal Time: The Transport Cycle}
@@ -1760,7 +1805,7 @@ Orange dots are electrons; red arrows are comparison maps between their internal
 
 \paragraph{Motivation.} The comparison of two electrons in Table~\ref{tab:ladder} also has to account for the strongest correlations known between two particles, those of entangled pairs. This subsection states the model's picture and the conditions it must meet; it does not derive them.
 
-\paragraph{The pair as a cancelled drive.} \textbf{[0SM reading]} Let electron~1 have kernels $A,B$ and electron~2 kernels $C,D$. In an entangled pair the two exchanges run on one common cycle, with equal internal frequency and time phases offset by $180^\circ$, so that at every instant one electron is on sheet~I while the other is on sheet~II of Fig.~\ref{fig:riemann}a. The radiation gradient that drives each photon sphere, $F=E_0\sin\theta$~\cite{ref:p1}, then enters the pair with opposite signs, and the drive of the pair as a whole cancels, $F_1+F_2=0$, while radiation and absorption continue inside each electron. Measured along a common axis, the two electrons give opposite results, whatever the delay between the two measurements, because the order of traversal is fixed for each electron.
+\paragraph{The pair as a cancelled drive.} \textbf{[0SM reading]} Let electron~1 have kernels $A,B$ and electron~2 kernels $C,D$. In an entangled pair the two exchanges run on one common cycle, with equal internal frequency and time phases offset by $180^\circ$, so that at every instant one electron is on sheet~I while the other is on sheet~II of Fig.~\ref{fig:riemann}a. The radiation gradient that drives each photon sphere, $F=E_0\sin\theta$~\cite{ref:p1}, then enters the pair with opposite signs, and the drive of the pair as a whole cancels, $F_1+F_2=0$, while radiation and absorption continue inside each electron. Measured along a common axis, the two electrons give opposite results, whatever the delay between the two measurements, because the phase offset of the pair is fixed.
 
 \paragraph{The observed law.} \textbf{[standard]} Each of the two electrons is sent to its own detector, and each detector returns $+1$ or $-1$ along its axis. Let the two axes differ by the angle $\varphi$. The correlation $E(\varphi)$ is the average of the product of the two outcomes: $E=+1$ if they always agree, $E=-1$ if they always disagree. For an entangled pair it is observed that
 \begin{equation}
@@ -1953,9 +1998,9 @@ We collect the limits of the paper in one place, so that the main text could mov
 
 \paragraph{Rest frame only.} Theorem~\ref{thm:equiv} and Proposition~\ref{prop:quartic} describe the zero-momentum sector. The kinetic term $c\,\bm{\alpha}\cdot\mathbf{p}$, Lorentz covariance and the Clifford algebra are not derived.
 
-\paragraph{Sign sector, not spin sector.} The equivalence is two-dimensional and lives in the $\pm$ energy subspace at fixed spin. The spin degeneracy of the Dirac four-spinor is a second two-valued quantity, independent of the first; where it sits in the model is open. In particular the amplitude sign $\chi\to-\chi$ cannot be the spin-up/spin-down pair, because $\chi$ and $-\chi$ are the same physical state, while spin up and spin down are orthogonal states. In the language of the Hopf fibration, the sign lives in the fibre and the spin direction in the base. The sign factor of the degree match of Eq.~\eqref{eq:charpoly} is structural (Sec.~\ref{sec:quartic}); the spin factor has a candidate in the order of traversal of the exchange sheets, Eq.~\eqref{eq:H4}, whose identification with spin is stated below.
+\paragraph{Sign sector, not spin sector.} The equivalence is two-dimensional and lives in the $\pm$ energy subspace at fixed spin. The spin degeneracy of the Dirac four-spinor is a second two-valued quantity, independent of the first; where it sits in the model is open. In particular the amplitude sign $\chi\to-\chi$ cannot be the spin-up/spin-down pair, because $\chi$ and $-\chi$ are the same physical state, while spin up and spin down are orthogonal states. In the language of the Hopf fibration, the sign lives in the fibre and the spin direction in the base. The sign factor of the degree match of Eq.~\eqref{eq:charpoly} is structural (Sec.~\ref{sec:quartic}); the spin factor is assigned to the spatial direction of progression, which the rotor does not carry (Sec.~\ref{sec:quartic}).
 
-\paragraph{Charge and spin.} The two quantities are assigned to different spaces. Charge is the winding of the amplitude $z=a+ib$ in the internal amplitude plane (Sec.~\ref{sec:winding}). Spin is assigned to the direction in which radiation and absorption progress in space: the transport runs along a directed, helical path~\cite{ref:p51}, one way for a given electron, and the order of traversal of the exchange sheets is its internal record, Eq.~\eqref{eq:H4}. Because the two live in different spaces, they do not compete for one orientation.
+\paragraph{Charge and spin.} The two quantities are assigned to different spaces. Charge is the winding of the amplitude $z=a+ib$ in the internal amplitude plane (Sec.~\ref{sec:winding}). Spin is assigned to the direction in which radiation and absorption progress in space: the transport runs along a directed, helical path~\cite{ref:p51}, one way for a given electron. The orientation of the rotor $\chi$, which fixes the order in which the exchange runs over the two sheets, is the charge and is not used for spin (Sec.~\ref{sec:quartic}). Because the two live in different spaces, they do not compete for one orientation; how the spatial direction enters the equations alongside $\chi$ is open.
 
 \paragraph{Two values in a magnetic field.} A direction in space projected on a field axis would give a continuous distribution, whereas the Stern--Gerlach experiment~\cite{ref:gerlach} gives two. The model therefore assigns the measured value not to the direction itself but to the sense of the helical transport relative to the field axis, a sign and hence two-valued, in line with the chirality of Ref.~\cite{ref:p50}. The probability of the upper outcome for a spin-$\tfrac12$ state at angle $\theta$ to the axis is $\cos^2(\theta/2)$, the same function as the kernel occupation $n_A$; deriving it from the angle between the transport direction and the field is open (Table~\ref{tab:open}).
 
@@ -1994,11 +2039,15 @@ Light cone
 \addlinespace[0.15cm]
 Spin sector
 & Second two-valued quantity of the Dirac spinor
-& Candidate: the order of traversal, Eq.~\eqref{eq:H4}; its response to spatial rotations remains to be shown \\
+& Candidate: the direction of progression in space; an equation that carries it alongside $\chi$, with the right response to spatial rotations \\
 \addlinespace[0.15cm]
 Spin projection law
-& Order of traversal, Eq.~\eqref{eq:H4}; Stern--Gerlach
+& Direction of progression; Stern--Gerlach
 & A derivation of $\cos^2(\theta/2)$ from the angle between the transport direction and the field \\
+\addlinespace[0.15cm]
+Winding ladder
+& Table~\ref{tab:windings}, third row
+& A mechanism showing whether the layer windings $\tfrac12$, $1$, $2$ are spin, charge and quadrupole \\
 \addlinespace[0.15cm]
 Two-electron correlation
 & Pair cancellation, Sec.~\ref{sec:entangle}
@@ -2602,6 +2651,36 @@ E.~Tiesinga, P.~J.~Mohr, D.~B.~Newell, and B.~N.~Taylor,
 \emph{CODATA Recommended Values of the Fundamental Physical Constants: 2018},
 Rev.~Mod.~Phys.\ \textbf{93}, 025010 (2021).
 
+\bibitem{ref:ab59}
+Y.~Aharonov and D.~Bohm,
+\emph{Significance of Electromagnetic Potentials in the Quantum Theory},
+Phys.~Rev.\ \textbf{115}, 485 (1959).
+
+\bibitem{ref:berry84}
+M.~V.~Berry,
+\emph{Quantal Phase Factors Accompanying Adiabatic Changes},
+Proc.~R.~Soc.~Lond.~A \textbf{392}, 45 (1984).
+
+\bibitem{ref:p29}
+S.~Hanamura,
+\emph{Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics},
+Zenodo (2025), \href{https://doi.org/10.5281/zenodo.18067760}{10.5281/zenodo.18067760}.
+
+\bibitem{ref:p30}
+S.~Hanamura,
+\emph{From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18819682}{10.5281/zenodo.18819682}.
+
+\bibitem{ref:p31}
+S.~Hanamura,
+\emph{Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov-Bohm Effect, Berry Phase, and Wilson Loops},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18203433}{10.5281/zenodo.18203433}.
+
+\bibitem{ref:p57}
+S.~Hanamura,
+\emph{Spherical Harmonic Imprinting and the Physical Identity of Phase Information: Microscopic Mechanism of Gravitational Coupling in the 0-Sphere Model},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19932176}{10.5281/zenodo.19932176}.
+
 \bibitem{ref:klein}
 O.~Klein,
 \emph{Quantentheorie und f\"unfdimensionale Relativit\"atstheorie},
@@ -2817,30 +2896,10 @@ T.~T.~Wu and C.~N.~Yang,
 \emph{Concept of Nonintegrable Phase Factors and Global Formulation of Gauge Fields},
 Phys.~Rev.~D \textbf{12}, 3845 (1975).
 
-\bibitem{ref:ab59}
-Y.~Aharonov and D.~Bohm,
-\emph{Significance of Electromagnetic Potentials in the Quantum Theory},
-Phys.~Rev.\ \textbf{115}, 485 (1959).
-
 \bibitem{ref:tonomura86}
 A.~Tonomura, N.~Osakabe, T.~Matsuda, T.~Kawasaki, J.~Endo, S.~Yano, and H.~Yamada,
 \emph{Evidence for Aharonov--Bohm Effect with Magnetic Field Completely Shielded from Electron Wave},
 Phys.~Rev.~Lett.\ \textbf{56}, 792 (1986).
-
-\bibitem{ref:p29}
-S.~Hanamura,
-\emph{Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics},
-Zenodo (2025), \href{https://doi.org/10.5281/zenodo.18067760}{10.5281/zenodo.18067760}.
-
-\bibitem{ref:p30}
-S.~Hanamura,
-\emph{From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws},
-Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18819682}{10.5281/zenodo.18819682}.
-
-\bibitem{ref:p31}
-S.~Hanamura,
-\emph{Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov-Bohm Effect, Berry Phase, and Wilson Loops},
-Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18203433}{10.5281/zenodo.18203433}.
 
 \bibitem{ref:p63}
 S.~Hanamura,

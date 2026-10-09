@@ -16,8 +16,8 @@ This archive contains the LaTeX source file and the numerical-verification
 script for a research paper of the 0-Sphere Model series (paper #65):
 
 1. main.tex
-   - Main LaTeX source file (37 pages, 22 figures drawn in TikZ, 16 tables,
-     106 references)
+   - Main LaTeX source file (38 pages, 22 figures drawn in TikZ, 17 tables,
+     108 references)
    - Document class: REVTeX 4-2 (APS/PRB reprint format)
    - Compiler: pdfLaTeX
    - TeX Live version: 2025
@@ -37,7 +37,7 @@ script for a research paper of the 0-Sphere Model series (paper #65):
    - Run:  python3 verify65.py   (prints "all checks passed")
 
 3. zenodo_23257458.pdf
-   - Compiled paper (37 pages).
+   - Compiled paper (38 pages).
 
 4. zenodo_23257458_relations.txt
    - Zenodo related-identifier list of this record (relations to earlier
@@ -106,8 +106,8 @@ symplectic structure of
 the internal oscillator, and the quartic energies are quadratic forms on the
 Bloch sphere pulled back through the Hopf double cover. The four Dirac rest solutions
 are read as the radiating or absorbing role of a kernel taken together with
-the order in which the exchange runs over the two sheets of a Riemann
-surface, the latter being the candidate for spin. We then define the
+spin, which is assigned to the direction in which radiation and absorption
+progress in space. We then define the
 internal time as the transport cycle between the kernels, fixed by the
 anomalous magnetic moment through beta = 0.04047, show that it runs exactly
 beta times slower than the Dirac branch phase, and show that the kernel
@@ -220,11 +220,22 @@ What the model CAN derive:
   dn_A/dt = -/+ omega sqrt(n_A n_B): a two-valued function whose sheets are
   the cycle A -> B (A radiates, B absorbs) and the cycle B -> A, whose branch
   points are the kernel states {0, 1} = S^0, and whose cut is the segment D^1.
-- Four Dirac rest solutions = {radiating / absorbing kernel} x {order of
-  traversal of the two sheets}; H4 = diag(H, -H) reproduces the Dirac rest
-  polynomial (E^2 - m^2c^4)^2. Spin is assigned to the direction in which
-  radiation and absorption progress in space, charge to the winding in the
-  internal amplitude plane.
+- Four Dirac rest solutions = {radiating / absorbing kernel} x {spin}, with
+  spin assigned to the direction in which radiation and absorption progress
+  in space and charge to the winding in the internal amplitude plane. The
+  reversed rotor, H4 = diag(H, -H), has the form of the Dirac rest
+  polynomial (E^2 - m^2c^4)^2 but reverses the winding: it is the charge
+  partner, not spin. The order in which the exchange runs over the two
+  sheets is the sign of ab and is the same quantity as the charge winding.
+- A winding number is the integer-valued closed line integral of a phase,
+  n = (1/2pi) closed-integral dphi (the family of the Aharonov-Bohm and
+  Berry phases, Refs. #29-#31). Its meaning is set by the path: around the
+  origin of the amplitude plane it is the sign of charge (+/-1, bound and
+  free alike); around a closed orbit it is the energy level (integer n).
+  Level spacing shrinks with path size: 10.2 eV for hydrogen (n = 1 -> 2),
+  8.6e-10 eV for a 1436 m storage ring (revolution 208.8 kHz), so the
+  storage-ring spectrum appears continuous while the charge winding never
+  changes.
 - Hidden variables: the model posits no local hidden variable (a single
   electron carries no independent degree of freedom fixing its partner's
   outcome). Its hidden variable is global: the common oscillation cycle of
@@ -240,7 +251,7 @@ What the model CAN derive:
   drives as opposite phasors, one turned by the detector angle phi, the
   remainder 4 sin^2(phi/2) (independent of the instant of measurement), the
   single identification P_same = sin^2(phi/2), P_opp = cos^2(phi/2), and
-  E(phi) = -cos(phi) at every angle (Table XII), where fixed answers decided
+  E(phi) = -cos(phi) at every angle (Table XIII), where fixed answers decided
   at the source give only a straight line.
 - Internal time: transport rate beta m c^2/hbar = 5.0007e18 Hz with
   beta = 0.0404720 from a_e; exactly beta times the branch phase
@@ -297,6 +308,7 @@ Section V: Closing the Path: Winding Numbers and Charge
   V.C  Charge as a protected winding number
   V.D  Worked examples: winding numbers of detuned pairs
   V.E  The integer and its size come from different places
+  V.F  What a winding number counts
 
 Section VI: The Quartic Energy as a Pullback of Quadratic Bloch Forms
   VI.A The kernel rotor and its first-order equation
@@ -378,9 +390,13 @@ Version 1.0 (October 10, 2026)
     reading of negative energy without antiparticles
   - The kernel exchange drawn as a Riemann surface (sheets = the two
     directions of radiation and absorption; branch points = S^0; cut = D^1)
-  - Four Dirac rest solutions from {radiating/absorbing} x {order of
-    traversal}; spin and charge assigned to different spaces; hidden
-    variables stated as global, not local; entangled pairs as an outlook
+  - Four Dirac rest solutions from {radiating/absorbing} x {spin}; spin
+    assigned to the spatial direction of progression, charge to the
+    internal winding; the reversed rotor identified as the charge partner;
+    hidden variables stated as global, not local; entangled pairs as an
+    outlook
+  - What a winding number counts: charge (amplitude plane) versus energy
+    level (closed orbit)
   - Numerical verification script verify65.py
 
 ================================================================================
@@ -412,23 +428,24 @@ Line spacing: REVTeX default
 Font: Computer Modern (LaTeX default)
 
 Tables:
-  - Table I:    Inputs and outputs of the argument (Sec. I.E)
-  - Table II:   Symbols used in this paper and their layer (Sec. I.F)
-  - Table III:  Four integers of established physics and their sources (II.D)
-  - Table IV:   One full turn of the internal angle in steps of pi/2 (III.B)
-  - Table V:    Kernel seats and transit seat (III.C)
-  - Table VI:   What the model derives about charge, and what it does not (V.C)
-  - Table VII:  Winding numbers of detuned kernel pairs (V.D)
-  - Table VIII: The two internal clocks of the electron (VII.C)
-  - Table IX:   Frequency ledger of the internal oscillation (VII.F)
-  - Table X:    Maxwell's equations sorted by metric need (VIII.A)
-  - Table XI:   The ladder from a single comparison to a field (VIII.C)
-  - Table XII:  Correlation of an entangled pair against the detector angle
-                (VIII.D)
-  - Table XIII: Three layers of the electron and what enters at each (VIII.E)
-  - Table XIV:  Experimental handles on the claims of this paper (Sec. IX)
-  - Table XV:   Open problems and where each enters (Sec. X)
-  - Table XVI:  Mathematical terms used in the paper (App. E)
+  - Table I:     Inputs and outputs of the argument (Sec. I.E)
+  - Table II:    Symbols used in this paper and their layer (Sec. I.F)
+  - Table III:   Four integers of established physics and their sources (II.D)
+  - Table IV:    One full turn of the internal angle in steps of pi/2 (III.B)
+  - Table V:     Kernel seats and transit seat (III.C)
+  - Table VI:    What the model derives about charge, and what it does not (V.C)
+  - Table VII:   Winding numbers of detuned kernel pairs (V.D)
+  - Table VIII:  What a winding number counts, by its path (V.F)
+  - Table IX:    The two internal clocks of the electron (VII.C)
+  - Table X:     Frequency ledger of the internal oscillation (VII.F)
+  - Table XI:    Maxwell's equations sorted by metric need (VIII.A)
+  - Table XII:   The ladder from a single comparison to a field (VIII.C)
+  - Table XIII:  Correlation of an entangled pair against the detector angle
+                 (VIII.D)
+  - Table XIV:   Three layers of the electron and what enters at each (VIII.E)
+  - Table XV:    Experimental handles on the claims of this paper (Sec. IX)
+  - Table XVI:   Open problems and where each enters (Sec. X)
+  - Table XVII:  Mathematical terms used in the paper (App. E)
 
 Figures:
   - 22 figures, all drawn in TikZ inside main.tex (no external image files)
