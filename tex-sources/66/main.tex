@@ -104,13 +104,13 @@
 The paper has two parts.
 Part~I is a step-by-step account of Paper~\#65, which builds the electron of the 0-Sphere model from the arithmetic of $0$ and $1$: the energy split between two kernels and the transit term, the segment and its two ends, charge as a protected winding number whose integer follows and whose size does not, the quartic energy as a quadratic form seen through the double cover, the Dirac branches read as the radiating and absorbing halves of one exchange, and an internal clock fixed by the anomalous magnetic moment; it includes the choice of the Compton wavelength as the transport length made in Paper~\#33.
 Part~II applies that clock to the weak equivalence principle.
-The weak equivalence principle says that free fall does not depend on mass, on internal binding or on composition.
-Paper~\#52 of the 0-Sphere series obtained the first of the three: the Compton wavelength enters the force twice, as lever arm and as inverse rate, and cancels, leaving $F = mg\,\betaZB$ with $\betaZB = \vZB/c = 0.040472$ the average speed at which the electron's energy is carried between its two kernels.
-This paper tests the other two clauses, with the internal frequency set throughout at the subluminal value of Paper~\#10, $\nuZB = \betaZB c/\lambdaC = 5.0007\times10^{18}$~Hz.
-Binding passes exactly.
+The weak equivalence principle says that free fall does not depend on mass, on internal binding or on composition, and Part~II treats the three clauses as three separate tests, because a force proportional to mass is not enough if its coefficient depends on what the body is made of.
+Test~1, mass, was settled by Paper~\#52 of the 0-Sphere series: the Compton wavelength enters the force twice, as lever arm and as inverse rate, and cancels, leaving $F = mg\,\betaZB$ with $\betaZB = \vZB/c = 0.040472$ the average speed at which the electron's energy is carried between its two kernels.
+Tests~2 and~3 are carried out here, with the internal frequency set throughout at the subluminal value of Paper~\#10, $\nuZB = \betaZB c/\lambdaC = 5.0007\times10^{18}$~Hz.
+Test~2, binding, passes exactly.
 For a Dirac--Coulomb bound electron the cancellation returns $F = (E/c^{2})\,g\,\betaZB$, and the Thomas vortex reduces to $\OmT = (\vZB^{3}/4\hbar c^{3})E$, both strictly linear in the total energy, because $\betaZB$ is a pure number fixed by the anomalous magnetic moment.
 A standard identity, $\expval{\beta} = E/mc^{2}$ for every Dirac--Coulomb state, verified by direct integration of the radial equations, equates the negative-energy admixture of such a state with half its binding-energy defect.
-Composition fails.
+Test~3, composition, fails.
 The same bridge equation that fixes $\betaZB$ assigns $0.0405$ to leptons and $0.898$ to nucleons, so the force law makes titanium and platinum fall differently by $\eta = 3.13\times10^{-5}$, ten orders of magnitude above the MICROSCOPE bound, and a charge non-linear in energy fails by a still larger margin through nuclear binding.
 The residual factor itself has a plain reading: $\betaZB = \nuZB/\nuC$, the ratio of the subluminal transport frequency to the light-speed frequency $c/\lambdaC$, so the force counts transport cycles where Newtonian free fall would need one count per Compton cycle, and the missing factor differs between species.
 A local reading of the horizon freezing of Paper~\#63 requires the anomalous moment to vary with the gravitational potential at order unity, which atomic clock comparisons exclude by eight orders of magnitude.
@@ -136,9 +136,9 @@ A hydrogen atom weighs less than a free proton and a free electron. The differen
 \centering
 \begin{tikzpicture}[node distance=4mm and 6mm]
 \node[font=\small\bfseries] (wep) at (0,0) {Weak equivalence principle: free fall is independent of};
-\node[passbox, text width=4.4cm, below=5mm of wep, xshift=-5.6cm] (m) {\textbf{mass}\\[1pt] Paper~\#52: $\lambdaC$ cancels\\$F = mg\,\betaZB$\\[1pt]\textcolor{pass}{\textbf{passes}}, residual $\betaZB$};
-\node[passbox, text width=4.4cm, below=5mm of wep] (b) {\textbf{binding}\\[1pt] Test~I, Secs.~\ref{sec:bound}--\ref{sec:cycle}\\$F = (E/c^{2})\,g\,\betaZB$, $\OmT\propto E$\\[1pt]\textcolor{pass}{\textbf{passes exactly}}};
-\node[failbox, text width=4.4cm, below=5mm of wep, xshift=5.6cm] (c) {\textbf{composition}\\[1pt] Test~II, Sec.~\ref{sec:composition}\\$\betaZB^{p}/\betaZB^{e} = 22.18$\\[1pt]\textcolor{fail}{\textbf{fails}}, $\eta = 3.13\times10^{-5}$};
+\node[passbox, text width=4.4cm, below=5mm of wep, xshift=-5.6cm] (m) {\textbf{mass}\\[1pt] Test~1, Paper~\#52: $\lambdaC$ cancels\\$F = mg\,\betaZB$\\[1pt]\textcolor{pass}{\textbf{passes}}, residual $\betaZB$};
+\node[passbox, text width=4.4cm, below=5mm of wep] (b) {\textbf{binding}\\[1pt] Test~2, Secs.~\ref{sec:bound}--\ref{sec:cycle}\\$F = (E/c^{2})\,g\,\betaZB$, $\OmT\propto E$\\[1pt]\textcolor{pass}{\textbf{passes exactly}}};
+\node[failbox, text width=4.4cm, below=5mm of wep, xshift=5.6cm] (c) {\textbf{composition}\\[1pt] Test~3, Sec.~\ref{sec:composition}\\$\betaZB^{p}/\betaZB^{e} = 22.18$\\[1pt]\textcolor{fail}{\textbf{fails}}, $\eta = 3.13\times10^{-5}$};
 \draw[arr, neutral] (wep.south) -- ++(0,-1.5mm) -| (m.north);
 \draw[arr, neutral] (wep.south) -- (b.north);
 \draw[arr, neutral] (wep.south) -- ++(0,-1.5mm) -| (c.north);
@@ -157,19 +157,48 @@ A hydrogen atom weighs less than a free proton and a free electron. The differen
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
 \justifying\small
-Green boxes pass, red boxes fail. Paper~\#52 settled the mass clause with a residual factor $\betaZB$. The two tests of the present paper split: binding is carried exactly, composition is not. The local reading of the horizon freezing of Paper~\#63 fails for the same reason as the composition test. The failures are traced to one cause, and the formalisation is restarted on the route where that cause does not arise.
+Green boxes pass, red boxes fail. Test~1, the mass clause, was settled by Paper~\#52 with a residual factor $\betaZB$. Tests~2 and~3, carried out here, split: binding is carried exactly, composition is not. The local reading of the horizon freezing of Paper~\#63 fails for the same reason as the composition test. The failures are traced to one cause, and the formalisation is restarted on the route where that cause does not arise.
 \end{minipage}
 \end{figure*}
 
-\paragraph{Binding.} A bound electron should gravitate by its reduced total energy. Inside the model this is not automatic: the electron's coupling is generated by an internal cycle whose size and rate are set by its energy, and binding changes that energy. Section~\ref{sec:bound} redoes the cancellation of Paper~\#52 for a Dirac--Coulomb bound electron from hydrogen to hydrogen-like uranium, where the electron carries only $74\%$ of its rest mass. The force comes out as $(E/c^{2})\,g\,\betaZB$ and the Thomas vortex of Paper~\#58~\cite{hanamura58} as a quantity strictly linear in $E$. The defect is carried exactly, and the reason is specific: $\betaZB$ is fixed by the anomalous magnetic moment and is a pure number, so binding cannot move it.
+\paragraph{Three clauses, three tests.} The equivalence principle is split here into three requirements, and each is treated as a test of its own (Table~\ref{tab:threetests}). \emph{Test~1, mass:} heavy and light bodies fall alike in the same field. Paper~\#52 passed it, with a residual factor in the force. \emph{Test~2, binding:} when a system loses energy by binding, its gravitational mass falls by exactly that energy over $c^{2}$. \emph{Test~3, composition:} bodies with different proportions of electrons, protons and neutrons respond to gravity alike per unit mass. Separating the three clauses is the organising idea of the paper. A force that is proportional to mass passes Test~1 and can still fail the other two, because the coefficient of proportionality may depend on binding or on the species, and the two remaining tests probe exactly that coefficient.
 
-\paragraph{Composition.} Bodies of different composition should fall alike. Here the value of $\betaZB$ matters, and Paper~\#61~\cite{hanamura61} applies the same bridge equation to the proton and obtains $\betaZB^{p} = 0.898$. Section~\ref{sec:composition} shows that the force law then makes electrons and nucleons fall at rates differing by a factor of $22$, which gives bulk matter a composition-dependent free fall ten orders of magnitude above the MICROSCOPE bound~\cite{microscope2022}. The missing factor of Paper~\#52 is $24.7$ for a lepton and $1.11$ for a nucleon; no constant can supply it, and the coupling cannot contain $\betaZB$ at all.
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The equivalence principle as three tests}}
+\label{tab:threetests}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{5.0cm}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{2.6cm}>{\raggedright\arraybackslash}p{2.4cm}}
+\toprule
+\textbf{Test} & \textbf{Requirement} & \textbf{Where} & \textbf{Result} & \textbf{Why} \\
+\midrule
+1. mass & bodies of any mass fall alike & Paper~\#52; Sec.~\ref{subsec:primer_wep} & \textcolor{pass}{\textbf{passes}}, residual $\betaZB$ & $\lambdaC$ cancels \\
+\addlinespace[0.3cm]
+2. binding & the binding-energy defect gravitates exactly & Secs.~\ref{sec:bound}--\ref{sec:cycle} & \textcolor{pass}{\textbf{passes exactly}} & $\betaZB$ is a pure number \\
+\addlinespace[0.3cm]
+3. composition & electron-rich and nucleon-rich bodies fall alike per unit mass & Sec.~\ref{sec:composition} & \textcolor{fail}{\textbf{fails}}, $\eta = 3.13\times10^{-5}$ & $\betaZB$ differs by species \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Tests~2 and~3 turn on the same property of the transport speed: it is a pure number fixed by the anomalous magnetic moment, so binding cannot change it, but it is a different number for leptons and nucleons. The MICROSCOPE bound on $\eta$ is $2.7\times10^{-15}$.
+\end{minipage}
+\end{table*}
+
+\paragraph{Mechanism.} The series proposes that gravity arises in three stages (Sec.~\ref{subsec:primer_gravity}). In the first, energy is transported inside the electron and the transport carries a rotational structure, the Thomas precession. In the second, part of that energy is emitted and the synchronisation between the electron and neighbouring systems changes. In the third, the synchronisation energy turns into translation, which appears on the macroscopic scale as free fall. The tests of this paper ask whether the charge this mechanism assigns is the one the equivalence principle requires.
+
+\paragraph{Test 2: binding.} A bound electron should gravitate by its reduced total energy. Inside the model this is not automatic: the electron's coupling is generated by an internal cycle whose size and rate are set by its energy, and binding changes that energy. Section~\ref{sec:bound} redoes the cancellation of Paper~\#52 for a Dirac--Coulomb bound electron from hydrogen to hydrogen-like uranium, where the electron carries only $74\%$ of its rest mass. The force comes out as $(E/c^{2})\,g\,\betaZB$ and the Thomas vortex of Paper~\#58~\cite{hanamura58} as a quantity strictly linear in $E$. The defect is carried exactly, and the reason is specific: $\betaZB$ is fixed by the anomalous magnetic moment and is a pure number, so binding cannot move it.
+
+\paragraph{Test 3: composition.} Bodies of different composition should fall alike. Here the value of $\betaZB$ matters, and Paper~\#61~\cite{hanamura61} applies the same bridge equation to the proton and obtains $\betaZB^{p} = 0.898$. Section~\ref{sec:composition} shows that the force law then makes electrons and nucleons fall at rates differing by a factor of $22$, which gives bulk matter a composition-dependent free fall ten orders of magnitude above the MICROSCOPE bound~\cite{microscope2022}. The missing factor of Paper~\#52 is $24.7$ for a lepton and $1.11$ for a nucleon; no constant can supply it, and the coupling cannot contain $\betaZB$ at all.
 
 \paragraph{The residual factor read as a ratio of frequencies.} With the convention of Paper~\#10, $\betaZB = \nuZB/\nuC$ identically. The force of Paper~\#52 counts one momentum transfer per transport cycle; Newtonian free fall would need the same transfer once per Compton cycle. The shortfall is the ratio of the two clocks, and the ratio is a different number for each species. Section~\ref{subsec:constraint} turns this into a precise requirement on any completion of Paper~\#52.
 
 \paragraph{Further results.} Section~\ref{sec:theorems} records two exact statements about Dirac--Coulomb bound states, one of which equates the negative-energy admixture of a bound state with half its binding-energy defect. Section~\ref{sec:tension} shows that Papers~\#62~\cite{hanamura62} and~\#63~\cite{hanamura63} make incompatible demands on whether $\vZB$ is a local invariant, and that clock comparisons decide between them. Section~\ref{sec:diagnosis} collects the failures into one diagnosis, separates the rank-2 question of the spin-2 sector into its two halves, and states the restart. Section~\ref{sec:corrections} records three corrections to Papers~\#58 and~\#59~\cite{hanamura59}.
 
-\paragraph{Two kinds of statement.} Statements of standard physics or mathematics are marked \textbf{[standard]}, and statements that belong to the interpretation of the 0-Sphere model are marked \textbf{[0SM reading]}, so that a reader can accept the first kind and still reject the second. Part~I and Section~\ref{sec:primer} assemble the background from the series, so that the paper can be read without it.
+\paragraph{Two kinds of statement.} Statements of standard physics or mathematics are marked \textbf{[standard]}, and statements that belong to the interpretation of the 0-Sphere model are marked \textbf{[0SM reading]}, so that a reader can accept the first kind and still reject the second. Part~I and Section~\ref{sec:primer} assemble the background from the series, so that the paper can be read without it. Appendix~\ref{app:aim} restates the aim and the outline of the paper in plain terms.
 
 % ========================================
 \section{Part I. Paper~\#65 Explained: From Zero and One to the Electron}
@@ -871,9 +900,36 @@ Two features of Eq.~\eqref{eq:OmT} are used below and both are robust. Its ampli
 \subsection{How the Series Proposes That Gravity Is Generated}
 \label{subsec:primer_gravity}
 
-\textbf{[0SM reading]} The mechanism has three stages~\cite{hanamura34,hanamura49,hanamura58}. In the first, the Thomas precession builds an outward stress on the transported energy, and when the stress reaches the binding floor $E_0/2$ a fragment of energy is ejected; the $\sin 2\iphase$ structure gives two ejections per cycle, forward and backward, so that the pair carries no net momentum but a symmetric polarisation. In the second, a neighbouring system absorbs the fragment, its internal phase shifts, and the synchronisation energy turns into a translational drift that appears as free fall. In the third, the weakness of gravity is attributed to a small probability, a per-cycle suppression written $\epsilon_2\epsilon_3 \sim 10^{-5}$, which is at present a parametrisation and not a derived quantity. Newton's constant and the ratio $F_{\text{grav}}/F_{\text{EM}} \sim 10^{-42}$ have not been derived, and there is no field theory with a propagator. The framework offers a mechanism, and the tests of this paper examine whether the charge that the mechanism assigns is the one the equivalence principle requires.
+\textbf{[0SM reading]} The mechanism proposed across Papers~\#34, \#49 and~\#58~\cite{hanamura34,hanamura49,hanamura58} has three stages (Fig.~\ref{fig:stages}).
 
-\subsection{Paper~\#52's Derivation of the First Clause}
+\paragraph{Stage 1: motion of the internal energy.} Energy is transported between the kernels along a curved path, and the transport carries a rotational structure, the Thomas precession of Eq.~\eqref{eq:OmT}. The precession builds an outward stress on the transported energy, which peaks twice per cycle.
+
+\paragraph{Stage 2: emission and synchronisation.} When the stress reaches the binding floor $E_0/2$, a fragment of energy is ejected; the $\sin 2\iphase$ structure gives two ejections per cycle, forward and backward, so that the pair carries no net momentum but a symmetric polarisation. A neighbouring system absorbs the fragment, its internal phase shifts, and the synchronisation between the two systems changes.
+
+\paragraph{Stage 3: motion that appears as free fall.} The synchronisation energy turns into a translational drift, which appears on the macroscopic scale as free fall. The weakness of gravity is attributed to a small probability, a per-cycle suppression written $\epsilon_2\epsilon_3 \sim 10^{-5}$, which is at present a parametrisation and not a derived quantity.
+
+None of the three stages is experimentally established, and Newton's constant, the ratio $F_{\text{grav}}/F_{\text{EM}} \sim 10^{-42}$ and a field theory with a propagator have not been derived. The framework offers a mechanism, and the tests of this paper examine whether the charge the mechanism assigns is the one the equivalence principle requires.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[node distance=9mm]
+\node[box, text width=4.4cm, minimum height=2.3cm] (s1) {\textbf{Stage 1}\\motion of the internal energy\\[2pt] transport between the kernels;\\Thomas precession $\OmT\propto\sin2\iphase$};
+\node[box, text width=4.4cm, minimum height=2.3cm, right=of s1] (s2) {\textbf{Stage 2}\\emission and synchronisation\\[2pt] two fragments per cycle;\\a neighbour absorbs, its phase shifts};
+\node[box, text width=4.4cm, minimum height=2.3cm, right=of s2] (s3) {\textbf{Stage 3}\\motion seen as free fall\\[2pt] synchronisation energy\\$\to$ translational drift};
+\draw[arr] (s1) -- (s2); \draw[arr] (s2) -- (s3);
+\node[failbox, text width=13.8cm, below=6mm of s2] (q) {\textbf{question of this paper:} the strength of the coupling assigned along this chain must be the total energy $E$, the same per unit energy for every species and every form of energy (Tests~1--3)};
+\draw[dashed, neutral] (s1.south) -- (s1.south |- q.north); \draw[dashed, neutral] (s2.south) -- (q.north); \draw[dashed, neutral] (s3.south) -- (s3.south |- q.north);
+\end{tikzpicture}
+\caption{\textbf{The three stages of the proposed mechanism}}
+\label{fig:stages}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+The series proposes that gravity arises from the internal transport through emission, synchronisation and drift. The stages are a structural proposal of Papers~\#34, \#49 and~\#58. The tests of Part~II do not examine whether the stages occur; they examine whether any quantity built along them can serve as the gravitational charge.
+\end{minipage}
+\end{figure*}
+
+\subsection{Test 1: Paper~\#52's Cancellation for Mass}
 \label{subsec:primer_wep}
 
 \textbf{[0SM reading]} In a field $\vb{g} = -g\hat{g}$ the two kernels sit at different gravitational potentials, separated along $\hat{g}$ by $\lambdaC(\hat{e}\cdot\hat{g})$, where $\hat{e}$ is the kernel axis (Fig.~\ref{fig:cancel}). The energy carried across that separation in one tick acquires the asymmetry
@@ -897,7 +953,7 @@ The Compton wavelength cancels between the lever arm and the rate, so the force 
 F \;=\; m\,g\,(\hat{e}\cdot\hat{g})\;\frac{\nuZB}{\nuC},
 \label{eq:F52ratio}
 \end{equation}
-which is the form used in Sec.~\ref{subsec:constraint}: one transfer of $\delta p$ per transport tick gives $mg\,\betaZB$, one transfer per Compton cycle would give $mg$. Paper~\#52 recorded the recovery of $F = mg$ as an open task.
+which is the form used in Sec.~\ref{subsec:constraint}: one transfer of $\delta p$ per transport tick gives $mg\,\betaZB$, one transfer per Compton cycle would give $mg$. Test~1 therefore passes: the force is proportional to mass for any mass. Paper~\#52 recorded the recovery of $F = mg$, the removal of the residual factor, as an open task, and Tests~2 and~3 examine that factor.
 
 \begin{figure*}[t!]
 \centering
@@ -961,7 +1017,7 @@ The MICROSCOPE satellite, comparing titanium and platinum alloy test masses in o
 \begin{axis}[width=6.6cm, height=5.0cm, xbar, xmode=log, xmin=1e-6, xmax=2, log origin=infty,
   ytick={1,2,3}, yticklabels={electron rest mass, nuclear binding, nucleon rest mass},
   ymin=0.4, ymax=3.6, bar width=5pt, xlabel={fraction of the mass of the body}, label style={font=\small}, tick label style={font=\footnotesize},
-  legend style={font=\scriptsize, at={(0.98,0.03)}, anchor=south east, draw=none, fill=white}, enlarge y limits=false]
+  legend style={font=\scriptsize, at={(0.98,0.45)}, anchor=east, draw=none, fill=white}, enlarge y limits=false]
 \addplot[fill=kA!70, draw=kA] coordinates {(2.521e-4,1) (9.375e-3,2) (1.0091,3)};
 \addplot[fill=kB!70, draw=kB] coordinates {(2.193e-4,1) (8.511e-3,2) (1.0083,3)};
 \legend{titanium, platinum}
@@ -1078,7 +1134,7 @@ $\lambdaC$ cancellation, Eq.~\eqref{eq:F52}
 Thomas vortex, Eq.~\eqref{eq:OmT}
 & \textcolor{pass}{\textbf{standard kinematics}}
 & granted the curved internal path
-& Test~I \\
+& Test~2 \\
 \addlinespace[0.3cm]
 $\pi$-periodicity as spin 2
 & \textcolor{kB}{\textbf{candidate}}
@@ -1098,7 +1154,7 @@ $\epsilon_2\epsilon_3$
 $\lambdaC^{\text{eff}} = hc/E$
 & \textcolor{fail}{\textbf{assumption of this paper}}
 & the Compton length of a system of energy $E$
-& Test~I \\
+& Test~2 \\
 \addlinespace[0.2cm]
 \bottomrule
 \end{tabular}
@@ -1112,7 +1168,7 @@ Green: established within the framework or standard. Orange: proposed within the
 \established{The electron's energy is carried between two kernels a Compton wavelength apart at the average speed $\betaZB c$, with $\betaZB = 0.040472$ a pure number fixed by the anomalous moment. The internal clock ticks at $\nuZB = \betaZB c/\lambdaC$, a factor $\betaZB$ below the light-speed reference $c/\lambdaC$. Paper~\#52's force is $mg\,\betaZB$: one momentum transfer per transport tick. The standard benchmarks are the Dirac energy of a bound electron and the E\"otv\"os parameter.}
 
 % ========================================
-\section{Test I: The Cancellation for a Bound Electron}
+\section{Test 2: The Cancellation for a Bound Electron}
 \label{sec:bound}
 % ========================================
 
@@ -1388,11 +1444,11 @@ $\OmT(t)$ of Eq.~\eqref{eq:OmT} for a nearly free electron (blue) and the $1s$ e
 \established{Under the assumption $\lambdaC^{\text{eff}} = hc/E$, the cancellation of Paper~\#52 returns $F = (E/c^{2})\,g\,\betaZB$ for a bound electron, and the Thomas vortex is strictly linear in $E$. The binding-energy defect is carried exactly, because $\betaZB$ is a pure number that binding cannot move. The Thomas angle per cycle is the same for every $Z$. In standard Dirac theory the negative-energy admixture of a Coulomb bound state is exactly half its fractional binding energy.}
 
 % ========================================
-\section{Test II: The Composition Side}
+\section{Test 3: The Composition Side}
 \label{sec:composition}
 % ========================================
 
-\paragraph{Motivation.} Test~I used only the fact that $\betaZB$ is a pure number and never its value. The composition clause needs its value, and for more than one species, because bulk matter is made of electrons and nucleons in proportions that differ from one material to another.
+\paragraph{Motivation.} Test~2 used only the fact that $\betaZB$ is a pure number and never its value. The composition clause needs its value, and for more than one species, because bulk matter is made of electrons and nucleons in proportions that differ from one material to another.
 
 \subsection{$\betaZB$ Is Not a Universal Number}
 \label{subsec:beta_species}
@@ -1597,14 +1653,14 @@ If the composition problem were resolved without cancelling $\betaZB$, a residua
 \label{sec:tension}
 % ========================================
 
-\paragraph{Motivation.} Test~I turned on $\vZB$ being a pure number. One paper of the series says it is; another needs it not to be. The two statements cannot both be local, and measurement decides between them.
+\paragraph{Motivation.} Test~2 turned on $\vZB$ being a pure number. One paper of the series says it is; another needs it not to be. The two statements cannot both be local, and measurement decides between them.
 
 \subsection{The Two Statements and the Two Readings}
 \label{subsec:two_statements}
 
 \textbf{[0SM reading]} Paper~\#62 argues that the anomalous moment is a single frame-independent invariant and is explicit about its independence of external fields. Since $\betaZB$ is a function of $a$ alone, this makes $\betaZB$ a constant of nature. Paper~\#63, following the redshift of internal clocks of Paper~\#22~\cite{hanamura22}, argues that near a horizon the internal frequency and the speed $\vZB$ are driven to zero, so that $\OmT \propto \vZB^{2}$ vanishes, ejection stops, and the gravitational coupling freezes rather than diverging. If $\betaZB$ is fixed by a field-independent $a$, it cannot go to zero anywhere; if it goes to zero locally, $a$ depends on the gravitational potential.
 
-\paragraph{Reading A: $\vZB$ is a local invariant.} Test~I stands, and the freezing of Paper~\#63 describes quantities inferred by a distant observer. This is consistent, but general relativity already predicts that a distant observer sees internal processes freeze near a horizon, so the freezing is no longer a point of divergence from general relativity.
+\paragraph{Reading A: $\vZB$ is a local invariant.} Test~2 stands, and the freezing of Paper~\#63 describes quantities inferred by a distant observer. This is consistent, but general relativity already predicts that a distant observer sees internal processes freeze near a horizon, so the freezing is no longer a point of divergence from general relativity.
 
 \paragraph{Reading B: $\vZB$ decreases locally.} Then $a$ depends on the potential $\Phi$. With $\vZB \propto \sqrt{1 + 2\Phi/c^{2}}$, as the redshift argument suggests, and $\betaZB^{2} \approx \sqrt{2}\,\lvert a\rvert$ at small $a$, one obtains $a \propto 1 + 2\Phi/c^{2}$ at leading order, that is
 \begin{equation}
@@ -1648,7 +1704,7 @@ One loophole should be stated. The bound constrains $\alpha$, and the series tak
 \subsection{Consequence for the Series}
 \label{subsec:tension_consequence}
 
-Reading~A is forced, and three things follow. First, Test~I stands without qualification: $\vZB$ is a local invariant, so $\OmT \propto E$ is not threatened from this direction. This is also the reading on which Paper~\#65 builds its internal time: the transport clock advances in proportion to proper time, is redshifted as an atomic clock is, and, because $\betaZB$ is a pure number, passes tests of local position invariance automatically. Second, the horizon freezing of Paper~\#63 is a statement about what a distant observer infers. So read, it does not conflict with general relativity and is not a test of the model against it, and the series should not count it as an observational signature. Third, the episode shows a hazard the framework will meet again. Because $\betaZB$ is anchored to a measured constant, any proposal that makes the internal transport respond to the environment becomes a claim that a measured constant varies, and such claims are bounded very tightly. The arithmetic that carries the model through Test~I prevents it from buying environmental responses cheaply.
+Reading~A is forced, and three things follow. First, Test~2 stands without qualification: $\vZB$ is a local invariant, so $\OmT \propto E$ is not threatened from this direction. This is also the reading on which Paper~\#65 builds its internal time: the transport clock advances in proportion to proper time, is redshifted as an atomic clock is, and, because $\betaZB$ is a pure number, passes tests of local position invariance automatically. Second, the horizon freezing of Paper~\#63 is a statement about what a distant observer infers. So read, it does not conflict with general relativity and is not a test of the model against it, and the series should not count it as an observational signature. Third, the episode shows a hazard the framework will meet again. Because $\betaZB$ is anchored to a measured constant, any proposal that makes the internal transport respond to the environment becomes a claim that a measured constant varies, and such claims are bounded very tightly. The arithmetic that carries the model through Test~2 prevents it from buying environmental responses cheaply.
 
 % ========================================
 \section{Diagnosis, the Rank-2 Question, and the Restart}
@@ -1660,7 +1716,7 @@ Reading~A is forced, and three things follow. First, Test~I stands without quali
 
 \textbf{[0SM reading]} The results of Secs.~\ref{sec:composition} and~\ref{sec:tension} look like four separate difficulties. Table~\ref{tab:diagnosis} sets them side by side, and the common structure is then visible: in every case an \emph{internal kinematic} quantity has been asked to carry the \emph{gravitational charge}. Internal kinematic quantities are tied by the bridge equation to the measured anomalous moment, so they are species-specific: $\betaZB$ is $0.0405$ for a lepton and $0.898$ for a nucleon. The gravitational charge must be the total energy and nothing else, to one part in $10^{15}$. A quantity fixed by $a$ cannot be a quantity fixed by $E$ (Fig.~\ref{fig:mismatch}).
 
-The sharpest statement this paper makes about the framework follows. \emph{The property that makes the model pass Test~I makes it fail Test~II.} Test~I succeeds because $\betaZB$ is a pure number, so binding cannot change it and the charge follows $E$ alone. Test~II fails because it is a different pure number for each species, so composition does change it. No value of $\betaZB$ repairs this, because the problem is that the charge depends on it at all.
+The sharpest statement this paper makes about the framework follows. \emph{The property that makes the model pass Test~2 makes it fail Test~3.} Test~2 succeeds because $\betaZB$ is a pure number, so binding cannot change it and the charge follows $E$ alone. Test~3 fails because it is a different pure number for each species, so composition does change it. No value of $\betaZB$ repairs this, because the problem is that the charge depends on it at all.
 
 \begin{table*}[t!]
 \centering
@@ -1698,8 +1754,8 @@ In each row the charge, or the gravitational response, is built from a quantity 
 \node[passbox, text width=3.2cm] (d) at (13.6,0) {required charge\\total energy $E$\\(species-blind, linear)};
 \draw[arr] (a) -- (b); \draw[arr] (b) -- (c);
 \draw[very thick, fail] (c.east) -- (d.west) node[midway, above, font=\scriptsize, text=fail] {$\neq$};
-\node[font=\scriptsize, align=center, text width=3.2cm] at (8.8,-1.45) {binding cannot move it\\\textcolor{pass}{Test I passes}};
-\node[font=\scriptsize, align=center, text width=3.2cm] at (13.6,-1.45) {composition must not move it\\\textcolor{fail}{Test II fails}};
+\node[font=\scriptsize, align=center, text width=3.2cm] at (8.8,-1.45) {binding cannot move it\\\textcolor{pass}{Test 2 passes}};
+\node[font=\scriptsize, align=center, text width=3.2cm] at (13.6,-1.45) {composition must not move it\\\textcolor{fail}{Test 3 fails}};
 \end{tikzpicture}
 \caption{\textbf{One mismatch behind the four failures}}
 \label{fig:mismatch}
@@ -1798,9 +1854,9 @@ A restart is worth more if it begins with conditions it can be seen to fail. Tab
 \toprule
 & \textbf{Criterion} & \textbf{Content} & \textbf{Origin} & \textbf{Bound} \\
 \midrule
-(i) & species blindness & the source is the total energy and contains no transport speed; $\eta = 0$ as an identity, not to some order & \textcolor{pass}{\textbf{new}}, Test~II & $2.7\times10^{-15}$ \\
+(i) & species blindness & the source is the total energy and contains no transport speed; $\eta = 0$ as an identity, not to some order & \textcolor{pass}{\textbf{new}}, Test~3 & $2.7\times10^{-15}$ \\
 \addlinespace[0.3cm]
-(ii) & linearity in energy & the source is linear in $E$, so the binding defect is carried without adjustment & \textcolor{pass}{\textbf{new}}, Tests~I, II & $3.2\times10^{11}$ margin \\
+(ii) & linearity in energy & the source is linear in $E$, so the binding defect is carried without adjustment & \textcolor{pass}{\textbf{new}}, Tests~2, 3 & $3.2\times10^{11}$ margin \\
 \addlinespace[0.3cm]
 (iii) & an object with a transformation law & $A_\mu$ identified as Paper~\#63 requires, so that rank 2 can be tested on something that transforms & Paper~\#63 & --- \\
 \addlinespace[0.3cm]
@@ -1870,7 +1926,7 @@ None of the three entries touches the results of Secs.~\ref{sec:bound}--\ref{sec
 \subsection{The Composite Nucleon}
 \label{subsec:composite}
 
-The most substantial escape from Test~II is that the proton is not an elementary two-kernel system. About $99\%$ of its mass is binding and gluon-field energy of quantum chromodynamics, and Paper~\#61 itself presents the application of the bridge equation to the proton as a structural correspondence. One may therefore hold that $\betaZB^{p}$ is not the quantity that enters Eq.~\eqref{eq:F52} for a nucleon. This is a legitimate position, and it has three costs. The constraint transfers rather than disappears: whatever the constituents carry, the charge of the composite must still come out proportional to its total energy to one part in $10^{15}$, and the model then owes an account of why the constituent speeds cancel. The escape does not touch the lepton family, where the $0.27\%$ muon--electron difference of Sec.~\ref{subsec:muon} survives. And it leaves the open task of Paper~\#52 where Sec.~\ref{subsec:constraint} put it: a factor $24.7$ is missing for the electron, and no universal constant supplies it once a second species is admitted.
+The most substantial escape from Test~3 is that the proton is not an elementary two-kernel system. About $99\%$ of its mass is binding and gluon-field energy of quantum chromodynamics, and Paper~\#61 itself presents the application of the bridge equation to the proton as a structural correspondence. One may therefore hold that $\betaZB^{p}$ is not the quantity that enters Eq.~\eqref{eq:F52} for a nucleon. This is a legitimate position, and it has three costs. The constraint transfers rather than disappears: whatever the constituents carry, the charge of the composite must still come out proportional to its total energy to one part in $10^{15}$, and the model then owes an account of why the constituent speeds cancel. The escape does not touch the lepton family, where the $0.27\%$ muon--electron difference of Sec.~\ref{subsec:muon} survives. And it leaves the open task of Paper~\#52 where Sec.~\ref{subsec:constraint} put it: a factor $24.7$ is missing for the electron, and no universal constant supplies it once a second species is admitted.
 
 \subsection{The Composite Body}
 \label{subsec:composite_bulk}
@@ -1880,7 +1936,7 @@ A more radical escape treats a bulk body's internal structure as a property of t
 \subsection{The Assumption Added Here}
 \label{subsec:assumption}
 
-Equation~\eqref{eq:lameff}, that the internal scale of a bound electron is $hc/E$, is not established elsewhere in the corpus, and Sec.~\ref{sec:bound} is conditional on it. The conditionality runs in an instructive direction. If the internal scale is held at $h/mc$, the transport frequency does not follow $E$, $\OmT$ does not follow the total energy, and the model fails Test~I. The assumption therefore does not push the result in a favourable direction; it is the minimal condition under which the favourable result is available at all.
+Equation~\eqref{eq:lameff}, that the internal scale of a bound electron is $hc/E$, is not established elsewhere in the corpus, and Sec.~\ref{sec:bound} is conditional on it. The conditionality runs in an instructive direction. If the internal scale is held at $h/mc$, the transport frequency does not follow $E$, $\OmT$ does not follow the total energy, and the model fails Test~2. The assumption therefore does not push the result in a favourable direction; it is the minimal condition under which the favourable result is available at all.
 
 \subsection{Other Limits}
 \label{subsec:other_limits}
@@ -1907,11 +1963,11 @@ The Dirac calculations use a point nucleus except where stated and omit nuclear 
 \label{sec:conclusion}
 % ========================================
 
-Paper~\#52 showed that the 0-Sphere model's gravitational force is proportional to mass because the Compton wavelength enters twice, as lever arm and as inverse rate, and cancels. This paper applied the other two clauses of the equivalence principle, with the internal frequency set throughout at the subluminal transport value of Paper~\#10, $\nuZB = \betaZB c/\lambdaC$, and the two clauses gave opposite answers.
+The equivalence principle was taken apart into three requirements and each was treated as a test: mass, binding and composition. The separation is what makes the result legible, because a force proportional to mass can still carry a coefficient that depends on binding or on the species. Test~1, mass, was passed by Paper~\#52: the Compton wavelength enters twice, as lever arm and as inverse rate, and cancels, leaving the residual factor $\betaZB$. This paper carried out Tests~2 and~3, with the internal frequency set throughout at the subluminal transport value of Paper~\#10, $\nuZB = \betaZB c/\lambdaC$, and the two clauses gave opposite answers.
 
-On binding, the model passes exactly. The cancellation for a bound electron returns $F = (E/c^{2})\,g\,\betaZB$, and the Thomas vortex reduces to $\OmT = (\vZB^{3}/4\hbar c^{3})E$; both are linear in the total energy, and the Thomas angle per cycle is the same for every nuclear charge. The reason is that $\betaZB$ is fixed by the anomalous magnetic moment and is a pure number, so the binding clause is underwritten by the $g-2$ sector of the series. In standard Dirac theory, the negative-energy admixture of a Coulomb bound state equals half its fractional binding energy, exactly.
+Test~2, binding, passes exactly. The cancellation for a bound electron returns $F = (E/c^{2})\,g\,\betaZB$, and the Thomas vortex reduces to $\OmT = (\vZB^{3}/4\hbar c^{3})E$; both are linear in the total energy, and the Thomas angle per cycle is the same for every nuclear charge. The reason is that $\betaZB$ is fixed by the anomalous magnetic moment and is a pure number, so the binding clause is underwritten by the $g-2$ sector of the series. In standard Dirac theory, the negative-energy admixture of a Coulomb bound state equals half its fractional binding energy, exactly.
 
-On composition, the model as written does not pass. The bridge equation assigns $\betaZB = 0.0405$ to leptons and $0.898$ to nucleons, and the force law then predicts $\eta(\mathrm{Ti},\mathrm{Pt}) = 3.13\times10^{-5}$, ten orders of magnitude above the MICROSCOPE bound. A charge non-linear in energy fails by a larger margin through nuclear binding. The missing factor of Paper~\#52 has a plain reading: $\betaZB = \nuZB/\nuC$, so the force counts one transfer per transport tick where Newtonian free fall would need one per Compton cycle, and the ratio of the two clocks differs from species to species. The completing mechanism must therefore cancel the transport speed, not rescale the force.
+Test~3, composition, fails as the model is written. The bridge equation assigns $\betaZB = 0.0405$ to leptons and $0.898$ to nucleons, and the force law then predicts $\eta(\mathrm{Ti},\mathrm{Pt}) = 3.13\times10^{-5}$, ten orders of magnitude above the MICROSCOPE bound. A charge non-linear in energy fails by a larger margin through nuclear binding. The missing factor of Paper~\#52 has a plain reading: $\betaZB = \nuZB/\nuC$, so the force counts one transfer per transport tick where Newtonian free fall would need one per Compton cycle, and the ratio of the two clocks differs from species to species. The completing mechanism must therefore cancel the transport speed, not rescale the force.
 
 Papers~\#62 and~\#63 make incompatible demands on whether the transport speed is a local invariant, and clock comparisons decide: the local reading needs a coefficient of order unity where measurement allows $2.5\times10^{-8}$. The horizon freezing of Paper~\#63 is a distant-observer statement and not a divergence from general relativity.
 
@@ -1919,6 +1975,107 @@ The four failures have one cause. A quantity tied by the bridge equation to the 
 
 % ========================================
 \appendix
+
+\section{The Aim and Outline of This Paper}
+\label{app:aim}
+
+The 0-Sphere model is unfamiliar, and this paper uses a good deal of it at once. This appendix restates what the paper sets out to do and how the argument runs, in plain terms and in the order of the paper, so that the main text can be read with the whole in view.
+
+\subsection{What the paper is}
+
+The paper is not a report that a new theory of gravity has been completed. It examines a research programme that derives gravity from a model of the electron with internal structure, finds where that programme meets an obstruction, identifies the cause, and changes the way the formalisation proceeds. The outcome is neither a plain success nor a plain failure: one test is passed, one is failed, the failure is traced to a single cause, and the route to the gravitational charge is changed accordingly.
+
+\subsection{The problem: gravity must not depend on what a body is made of}
+
+The weak equivalence principle says that, without air resistance, an iron ball and a titanium ball released together fall together. It says more than that: whatever form of energy makes up the mass of a body, that energy couples to gravity in the same way. A hydrogen atom is the simplest example. Bound together, a proton and an electron have less energy than apart, by the binding energy of $13.6$~eV, so
+\begin{equation}
+m_{\text{H}}c^{2} \;=\; m_pc^{2} + m_ec^{2} - E_{\text{bind}},
+\label{eq:app_H}
+\end{equation}
+and the atom weighs less than its parts. The energy lost in binding must also be missing from the atom's weight. A theory in which binding reduces the mass but gravity ignores the reduction violates the principle.
+
+\subsection{The three tests}
+
+The paper splits the principle into three requirements (Table~\ref{tab:threetests}). Test~1, mass: bodies of any mass fall alike in the same field; Paper~\#52 passed it, with a residual factor in the force. Test~2, binding: the energy lost in binding is reflected exactly in the gravitational mass; passed in this paper. Test~3, composition: bodies with different proportions of electrons and nucleons respond alike per unit mass; failed in this paper. The separation is the organising idea. A force proportional to mass is not enough, because if the coefficient of proportionality depends on the kind of matter, the principle is still violated.
+
+\subsection{The model in one paragraph}
+
+The model describes the electron by two kernels, $A$ and $B$, a Compton wavelength apart, and the energy carried between them; Part~I explains the construction, published as Paper~\#65. The energy is not fixed at either kernel. It is carried back and forth, and the energy in transit is counted as a term of its own. The existence of the two kernels is an assumption of the model, not an experimental fact, and the paper keeps mathematics, the model and nature apart throughout (Table~\ref{tab:layers}).
+
+\subsection{The internal clock}
+
+The bridge between Part~I and Part~II is the transport speed. From the measured anomalous magnetic moment of the electron, the series' bridge equation gives $\betaZB = 0.040472$: the energy inside the electron is carried at about $4\%$ of the speed of light, $1.21\times10^{7}$~m/s, while the electron as a whole may be at rest. The bridge equation is a relation of the 0-Sphere series, not of quantum electrodynamics, and using a measured input does not make the speed measured. Two frequencies follow (Table~\ref{tab:g_clocks}): the light-speed reference $\nuC = c/\lambdaC = 1.2356\times10^{20}$~Hz and the transport frequency $\nuZB = \betaZB c/\lambdaC = 5.0007\times10^{18}$~Hz, whose ratio is $\betaZB$. One transport takes $\Ttr = 2.00\times10^{-19}$~s, and the kernel separation is $\lambdaC = \vZB\Ttr$. Part~II asks whether, granting this clock, its use as the source of gravity is consistent with known physics.
+
+\subsection{How gravity is supposed to arise}
+
+The mechanism has three stages (Fig.~\ref{fig:stages}). Stage~1: energy is transported inside the electron, and a rotational structure tied to the Thomas precession appears. Stage~2: part of the energy is emitted, and the synchronisation with neighbouring systems changes. Stage~3: the synchronisation energy turns into translation, which appears macroscopically as free fall. This is a proposed mechanism. None of its stages is established by experiment, and Newton's constant and a field theory of the interaction have not been derived.
+
+\subsection{Test 1 and its residual factor}
+
+Paper~\#52 placed the two kernels at different heights in a gravitational field. The energy carried between them picks up an asymmetry on every transport, and the force is that asymmetry times the transport rate. The Compton wavelength enters twice, once as lever arm and once through the rate, and cancels, so the force is proportional to mass: Test~1 passes. The result is $F = mg\,\betaZB$, not $F = mg$. For the electron the force is about $4\%$ of the Newtonian value. The factor cannot simply be set to one, because it is fixed by the anomalous moment and differs between species. Tests~2 and~3 examine what that factor does.
+
+\subsection{Test 2: binding passes}
+
+A bound electron has less energy than a free one. Taking the internal length of a bound electron to be the Compton length of its total energy, $hc/E$, the lever arm and the rate again cancel, and the force becomes $F = (E/c^{2})\,g\,\betaZB$: the total energy appears in place of the rest mass. The Thomas precession gives the same answer independently, $\lvert\OmT\rvert_{\max} = (\vZB^{3}/4\hbar c^{3})E$, linear in $E$ because the transport speed does not change with binding. From hydrogen to hydrogen-like uranium, where the $1s$ electron keeps only $74\%$ of its rest energy, the force follows the energy exactly. This is a result inside the model and under its assumption; it shows that the model's equations carry the binding defect correctly, not that the internal transport exists.
+
+\subsection{Test 3: composition fails}
+
+The same bridge equation gives the proton and the neutron transport speeds of about $0.9$, against $0.04$ for the electron and the muon, a ratio of $22.18$. With $\betaZB$ left in the force, electrons pull with only $4.5\%$ of the strength their mass suggests, and a body with more electrons per unit mass falls more slowly. For titanium against platinum the model predicts $\eta = 3.13\times10^{-5}$, while the MICROSCOPE satellite bounds the difference at $2.7\times10^{-15}$: ten orders of magnitude too large. A charge proportional to $E^{2}$ or $E^{3}$ instead of $E$ fails as well, because nuclear binding makes up about $1\%$ of ordinary matter and differs between nuclides. The source of gravity has to be linear in the total energy, and the transport speed must not remain in it.
+
+\subsection{What the residual factor means}
+
+The residual factor has a reading in terms of the two clocks, $\betaZB = \nuZB/\nuC$. Paper~\#52's force counts one momentum transfer per transport; Newtonian free fall would need one per Compton cycle. The missing factor is therefore $\nuC/\nuZB = 1/\betaZB$: $24.71$ for the electron, $1.114$ for the proton, $1.105$ for the neutron. No single constant supplies it. The completing mechanism must remove the species-dependent speed from the force altogether. The internal transport itself need not be abandoned; what cannot be done is to use its speed as the definition of the coupling strength.
+
+\subsection{The internal clock in a gravitational field}
+
+Paper~\#63 proposed that the internal clock freezes near a horizon. Read as a statement about what a distant observer sees, this is ordinary general relativity, in which a falling clock appears to a distant observer to stop while its own proper time does not. Read as a local statement, that the transport speed itself goes to zero, it requires the anomalous moment to change with the gravitational potential at order unity, while atomic clock comparisons allow at most $2.5\times10^{-8}$. The local reading is therefore excluded by eight orders of magnitude, and the freezing is not a point of divergence from general relativity.
+
+\subsection{Four problems, one cause}
+
+The failures of the paper are not independent: the composition dependence, the non-linear charges, the local horizon freezing, and the residual factor of Paper~\#52. All four use a kinematic quantity of the internal motion, fixed by the anomalous moment, as if it were the gravitational charge. The charge has to respond to the total energy in the same way for electrons and nucleons, bound or free. A speed that differs by species cannot be part of its definition. The same property explains both test results: the speed is constant, so binding cannot spoil the linearity (Test~2 passes); the speed differs by species, so the response is not universal (Test~3 fails).
+
+\subsection{The restart}
+
+The route that constructs the gravitational charge from the internal speed, rotation and emission is set aside as a definition of the charge. The formalisation restarts from Papers~\#29--\#31, which take line integrals and holonomies as the basic observables: quantities accumulated along a path, and the change found after carrying a quantity once round a closed loop. On that route the source of gravity is read off from accumulated phase and need not be built from the internal speed. The physical picture of internal transport, emission and absorption is kept as a possible microscopic realisation. The new route is not complete. The paper states four acceptance criteria it must meet (Table~\ref{tab:criteria}): no dependence on composition, linearity in the total energy, an object with a proper transformation law, and no environmental response that would make a measured constant vary.
+
+\subsection{Corrections to earlier papers}
+
+The paper also corrects three statements of Papers~\#58 and~\#59 (Sec.~\ref{sec:corrections}): a locking ratio that is $9.2\times10^{21}$ rather than $10^{39}$, a symbol $a$ that carries four different meanings across the series, and an inference that the mediator is its own antiparticle at a degenerate phase point, which does not stand. None of them changes the outcome of the tests.
+
+\subsection{How to read the result}
+
+Table~\ref{tab:app_read} separates what the paper shows from what it does not. Three points carry the rest. First, building a mathematical structure and finding it in nature are different things: the two kernels and the internal transport are not observed. Second, a theory of gravity needs a coupling that is universal in the total energy, and a single passed test does not make a theory right; what matters is to know which conditions are met, which are not, and why. Third, the conclusion of the paper is a reconstruction: the picture of internal transport is kept, the way the gravitational source is defined is changed, and the new route is stated together with the conditions on which it can fail.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{What the paper shows and what it does not}}
+\label{tab:app_read}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{8pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{7.4cm}>{\raggedright\arraybackslash}p{7.4cm}}
+\toprule
+\textbf{Shown} & \textbf{Not shown} \\
+\midrule
+within the model, the force follows the total energy of a bound electron exactly (Test~2) & that the two kernels and the internal transport exist \\
+\addlinespace[0.3cm]
+with the speed of the bridge equation left in the force, titanium and platinum fall differently by $3.13\times10^{-5}$ (Test~3) & a theory of gravity: $G$, the weakness of gravity, a propagator \\
+\addlinespace[0.3cm]
+a local horizon freezing would need a variation of $a_e$ excluded by clocks & that the line-integral route will deliver the charge \\
+\addlinespace[0.3cm]
+the four failures share one cause, and four criteria for the restart & that the transport speed $0.04c$ is real; it is unmeasured \\
+\addlinespace[0.3cm]
+in standard Dirac theory, the negative-energy admixture of a Coulomb bound state equals half its fractional binding energy & how that admixture relates to the internal superposition of Paper~\#65 \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The left column lists results that follow from the stated assumptions or from standard physics; the right column lists what remains to be established, by derivation or by experiment.
+\end{minipage}
+\end{table*}
+
+
 
 \section{Numerical Methods}
 \label{app:methods}
