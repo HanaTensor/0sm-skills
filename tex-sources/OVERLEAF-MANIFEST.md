@@ -27,7 +27,7 @@
 | # | 内容 | 状態 |
 |---|---|---|
 | **65** | From Zero and One to the Electron（0 と 1・弧状連結・巻き数＝電荷・quartic の幾何学的起源・内部時間＝輸送の周期。2026-10-09 に旧稿と合併） | DOI 10.5281/zenodo.23257458 |
-| **66** | Binding Energy, Composition, and the Residual β_ZB（等価原理2試験＋spin-2 の rank-2 分割＋#58/#59 への訂正 C1–C3＋再出発宣言） | #65 までを引用 |
+| **66** | Three Tests of the Weak Equivalence Principle in the 0-Sphere Model: Binding Passes, Composition Fails, and the Formalisation Restarts（等価原理3試験＋spin-2 の rank-2 分割＋#58/#59 への訂正 C1–C3＋再出発宣言） | #65 までを引用 |
 | **67** | The 0-Sphere Model: A Structural Overview（#1–#66 回顧＋冒頭に再出発宣言） | 最後に寄託＝#66 までカタログ可能 |
 
 **DOI プレースホルダ**: #67 Group 08 に `[pending]` が計2箇所（#66・#67）。**寄託時に2件とも差替が必須。**
