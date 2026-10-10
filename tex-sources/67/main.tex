@@ -6,6 +6,10 @@
 % Slot assigned 2026-07-25: this paper takes #67; the Structural Overview
 %   moves to #68 so that it can catalog this entry.  Deposit order within the
 %   #65-#68 batch: #65 -> #66 -> #67 -> #68.
+%   Status 2026-10-11: #65 deposited 2026-10-10 (10.5281/zenodo.23257458);
+%   this draft revised to match it (internal time = transport cycle,
+%   lambda_C = beta c T_tr, zitterbewegung = branch interference, charge =
+%   winding, spin = spatial direction of progression, Stefan-Boltzmann demoted).
 %
 % Author       : Satoshi Hanamura
 % Date         : July 2026
@@ -34,6 +38,8 @@
 %   #61 (10.5281/zenodo.19934138) -- gamma-equation applied to the proton
 %   #62 (10.5281/zenodo.20091680) -- field-independence of a_e, 1/sqrt(2)
 %   #63 (10.5281/zenodo.20767589) -- A_mu bottleneck, horizon freezing
+%   #65 (10.5281/zenodo.23257458) -- quartic as Hopf pullback; internal time
+%                                    = transport cycle; lambda_C = beta c T_tr
 %
 % FIGURES: requires fig1.tikz, fig2.tikz, fig3.tikz in the same directory.
 % ========================================
@@ -152,7 +158,7 @@ Section~\ref{sec:primer} is a self-contained primer on the model, so that the pa
 
 A hydrogen atom weighs less than a proton plus an electron. The difference, $13.6$~eV$/c^2$, is the binding energy divided by $c^2$, and it is not a bookkeeping convention: it is a real reduction in what the atom weighs on a balance and in how strongly it pulls on other matter. This is the sharpest everyday consequence of the statement that all forms of energy gravitate equally, which is the content of the weak equivalence principle (WEP). Any microscopic theory that proposes to explain where gravity comes from must reproduce this, and reproducing it is not automatic.
 
-Paper~\#52~\cite{hanamura52} derived the WEP inside the 0-Sphere framework. Its central result, the $\lambdaC$ cancellation theorem, is that the Compton wavelength $\lambdaC = \hbar/(m c)$ enters the gravitational force twice --- once as the internal lever arm over which the particle samples the potential, once as the inverse of the rate at which it samples --- and cancels exactly, leaving $F = m g\,\betaZB$ with $\betaZB \equiv \vZB/c \approx 0.04$ the internal Zitterbewegung speed in units of $c$. The derivation is reproduced in full in Section~\ref{subsec:primer_wep}, Eq.~\eqref{eq:F52}, so that this paper can be read without it. Because $\lambdaC$ has dropped out, $F$ is proportional to $m$ for any mass whatsoever, and the universality of free fall follows as a geometric identity rather than as a postulate. Paper~\#52 was explicit that a residual coefficient $\betaZB$ remains, and recorded the recovery of the full Newtonian $F = mg$ as an open task.
+Paper~\#52~\cite{hanamura52} derived the WEP inside the 0-Sphere framework. Its central result, the $\lambdaC$ cancellation theorem, is that the Compton wavelength $\lambdaC = h/(m c)$ enters the gravitational force twice --- once as the internal lever arm over which the particle samples the potential, once as the inverse of the rate at which it samples --- and cancels exactly, leaving $F = m g\,\betaZB$ with $\betaZB \equiv \vZB/c \approx 0.04$ the internal Zitterbewegung speed in units of $c$. The derivation is reproduced in full in Section~\ref{subsec:primer_wep}, Eq.~\eqref{eq:F52}, so that this paper can be read without it. Because $\lambdaC$ has dropped out, $F$ is proportional to $m$ for any mass whatsoever, and the universality of free fall follows as a geometric identity rather than as a postulate. Paper~\#52 was explicit that a residual coefficient $\betaZB$ remains, and recorded the recovery of the full Newtonian $F = mg$ as an open task.
 
 That derivation settles one of the three things the WEP asserts. The principle says that free fall is independent of mass, of internal binding, and of composition. Paper~\#52 addressed the first. The present paper addresses the other two, and the two answers differ.
 
@@ -166,7 +172,7 @@ Two further results are recorded along the way. Section~\ref{sec:theorems} prove
 
 Section~\ref{sec:diagnosis} then steps back from the individual results. It argues that the failures collected here are four disguises of a single mismatch; that Paper~\#66's recent advance on the rank-2 question, read carefully, leaves the remaining burden on the emergent metric rather than on the mediator; and that the formalisation should therefore restart from the line-integral papers~\#29, \#30 and~\#31, where the gravitational source is read off from accumulated phase rather than assembled from internal kinematics. Acceptance criteria for that restart are stated in Section~\ref{subsec:acceptance}.
 
-This manuscript is written for a reader who has met the Dirac equation and special relativity but who is not assumed to know the 0-Sphere series. Section~\ref{sec:primer} assembles the required background; a reader familiar with Papers~\#51, \#52, \#58 and \#61 may proceed directly to Section~\ref{sec:bound}.
+The argument presupposes the Dirac equation and special relativity but not the 0-Sphere series. Section~\ref{sec:primer} assembles the required background from the series; a reader familiar with Papers~\#51, \#52, \#58 and \#61 may proceed directly to Section~\ref{sec:bound}.
 
 % ========================================
 \section{A Self-Contained Primer on the 0-Sphere Model}
@@ -178,7 +184,7 @@ The 0-Sphere series now runs to more than sixty deposited papers, and a reader e
 \subsection{What the Model Proposes}
 \label{subsec:primer_what}
 
-The 0-Sphere model is an attempt to give the electron an internal geometric structure and to derive from that structure the quantities that the Dirac theory takes as input or leaves as bookkeeping: rest mass, spin, the anomalous magnetic moment, and --- the concern of this paper --- gravitational coupling. Its starting construction, from Paper~\#1~\cite{hanamura01}, replaces the point electron by two kernels separated by a distance of order the Compton wavelength, with an energy structure called the \emph{photon sphere} shuttling between them along a curved path. The kernels are the turning points of the internal motion; the photon sphere is where the energy actually resides while in transit.
+The 0-Sphere model is an attempt to give the electron an internal geometric structure and to derive from that structure the quantities that the Dirac theory takes as input or leaves as bookkeeping: rest mass, spin, the anomalous magnetic moment, and --- the concern of this paper --- gravitational coupling. Its starting construction, from Paper~\#1~\cite{hanamura01}, replaces the point electron by two kernels separated by a distance of order the Compton wavelength, with an energy structure called the \emph{photon sphere} shuttling between them along a curved path. The kernels are the turning points of the internal motion; the photon sphere is where the energy actually resides while in transit. The two kernels alternately radiate and absorb: while one emits, the other takes up the same energy, so that their occupations obey $n_A + n_B = 1$ throughout the cycle~\cite{hanamura65}.
 
 Three consequences of this picture matter here. First, rest mass is not a primitive but the energy of a confined internal circulation, which is the content of the geometrical-confinement papers~\cite{hanamura34}. Second, the internal motion is a real motion in space, not a formal device, so it has a real velocity and a real angular momentum. Third, because the internal cycle must close on itself under the $4\pi$ boundary condition appropriate to a spin-$\tfrac12$ object, the phase structure of the cycle carries a hierarchy of periodicities that the series reads as the spin content of the interactions the electron participates in.
 
@@ -189,7 +195,7 @@ None of this is standard physics, and the reader should hold it at the appropria
 
 In the Dirac theory, a free electron whose state contains any admixture of negative-energy solutions exhibits Zitterbewegung: the position expectation value oscillates at the beat frequency between the positive- and negative-energy branches, $\omega = 2mc^{2}/\hbar$, and the velocity operator $c\bm{\alpha}$ has eigenvalues $\pm c$ along any axis. This is usually treated as an artefact of the single-particle interpretation, removed by the Foldy--Wouthuysen transformation and absorbed into field theory.
 
-The 0-Sphere model takes it literally: the oscillation is the photon sphere shuttling between the two kernels. The reading has one immediate structural consequence that the reader needs. Because the two kernels are separated in space, the internal trajectory is not a one-dimensional oscillation but a helix, and a helix has two independent velocity scales. Paper~\#51~\cite{hanamura51} separates them: a \emph{transverse} rotation speed $\vZB$ in the plane orthogonal to the kernel axis, and a \emph{longitudinal} pitch speed $v_{\text{pitch}} \sim c$ set by the kernel separation. The Dirac result $\pm c$ is recovered as the projection of the fast longitudinal component onto a single axis; the slow transverse component is a distinctly 0-Sphere quantity with no counterpart in the one-dimensional picture.
+The 0-Sphere model takes it literally: the oscillation is the photon sphere shuttling between the two kernels. Paper~\#65~\cite{hanamura65} makes the correspondence precise. Writing the kernel occupation in terms of the two Dirac branches gives $n_A = \tfrac14 + \tfrac14 + \tfrac12\cos\omega t$: each branch alone contributes a constant, and the cross term between them, which is the Zitterbewegung of the standard theory, is the energy exchange between the kernels. The sign of the negative-energy branch is read as the sign of a frequency, the absorbing half of a paired emission and absorption ($\dot n_A = -\dot n_B$) within one particle, so that no second particle is required; the antiparticle reading of quantum field theory is not denied. The reading has one immediate structural consequence that the reader needs. Because the two kernels are separated in space, the internal trajectory is not a one-dimensional oscillation but a helix, and a helix has two independent velocity scales. Paper~\#51~\cite{hanamura51} separates them: a \emph{transverse} rotation speed $\vZB$ in the plane orthogonal to the kernel axis, and a \emph{longitudinal} pitch speed $v_{\text{pitch}} \sim c$ set by the kernel separation. The Dirac result $\pm c$ is recovered as the projection of the fast longitudinal component onto a single axis; the slow transverse component is a distinctly 0-Sphere quantity with no counterpart in the one-dimensional picture. Paper~\#65 assigns the electron's spin to the spatial direction in which radiation and absorption progress along this helix, and the sign of its charge to a protected winding number in the internal amplitude plane; the integer of the charge follows in that construction, its size $\alpha$ does not. Neither assignment is used below.
 
 The transverse speed turns out to be small, $\vZB \approx 0.04\,c$, and the corresponding internal frequency
 \begin{equation}
@@ -198,7 +204,7 @@ The transverse speed turns out to be small, $\vZB \approx 0.04\,c$, and the corr
 \lambdaC \;=\; \frac{h}{mc},
 \label{eq:nuZB}
 \end{equation}
-is $5.00\times10^{18}$~Hz, in the hard X-ray band, rather than the $3.93\times10^{20}$~Hz of the Dirac estimate. Equation~\eqref{eq:nuZB} is used throughout this paper. Note its structure: the internal size $\lambdaC$ scales as $1/m$, so a heavier particle is smaller and cycles faster, and it is this reciprocal pairing that makes the cancellation of Section~\ref{subsec:primer_wep} possible.
+is $5.0007\times10^{18}$~Hz, in the hard X-ray band, rather than the $2mc^{2}/h = 2.47\times10^{20}$~Hz of the Dirac estimate. Equation~\eqref{eq:nuZB} is used throughout this paper. Paper~\#65 takes this transport cycle, from one kernel to the other, as the internal time of the electron: its rate is $\betaZB\,mc^{2}/h$, exactly $\betaZB$ times the phase rate $mc^{2}/h$ of a single Dirac branch, so that one tick lasts $T_{\text{tr}} = 1/\nu_{\text{ZB}} = 1.9997\times10^{-19}$~s, and Eq.~\eqref{eq:nuZB} reads $\lambdaC = \betaZB\,c\,T_{\text{tr}}$: the kernel separation is the transport speed times one tick. Being proportional to proper time, this clock redshifts in a gravitational potential as every atomic clock does. Note its structure: the internal size $\lambdaC$ scales as $1/m$, so a heavier particle is smaller and cycles faster, and it is this reciprocal pairing that makes the cancellation of Section~\ref{subsec:primer_wep} possible.
 
 \subsection{The Bridge Equation: Where $\betaZB$ Comes From}
 \label{subsec:primer_bridge}
@@ -219,14 +225,14 @@ For velocities the series uses a variant. Paper~\#62 shows that the internal ene
 \cos^{4}\!\frac{\iphase}{2} + \sin^{4}\!\frac{\iphase}{2} + \tfrac12\sin^{2}\iphase \;=\; 1
 \label{eq:energy_identity}
 \end{equation}
---- whose geometric origin, together with the reduction of its fourth-power channels to quadratic forms on the Bloch sphere through the Hopf map, is the subject of Paper~\#65~\cite{hanamura65} --- contains a factor $1/\sqrt{2}$ intrinsically: the momentum-carrying term $\tfrac12\sin^{2}\iphase$ has a time-averaged-to-peak ratio whose square root is exactly $1/\sqrt{2}$, so the cycle representative of the velocity is its root-mean-square rather than its peak. The velocity-determining factor and the internal speed are therefore
+--- whose geometric origin is the subject of Paper~\#65~\cite{hanamura65}, where the two fourth-power channels are shown to be quadratic forms on the Bloch sphere pulled back through the Hopf map, following from the radiation-gradient relation, the oscillator kinetic energy and energy conservation, so that the Stefan--Boltzmann motivation of Paper~\#1 survives only as a heuristic --- contains a factor $1/\sqrt{2}$ intrinsically: the momentum-carrying term $\tfrac12\sin^{2}\iphase$ has a time-averaged-to-peak ratio whose square root is exactly $1/\sqrt{2}$, so the cycle representative of the velocity is its root-mean-square rather than its peak. The velocity-determining factor and the internal speed are therefore
 \begin{equation}
 \gv \;=\; 1 + \frac{\lvert a\rvert}{\sqrt{2}},
 \qquad
 \betaZB \;\equiv\; \frac{\vZB}{c} \;=\; \sqrt{1 - \gv^{-2}} .
 \label{eq:bridge}
 \end{equation}
-For the electron, $\lvert a_e\rvert = 1.15965\times10^{-3}$ gives $\betaZB = 0.04047$, the canonical value of the series. It is worth noting for precision that the corpus contains one other figure: Papers~\#14, \#15, \#17, \#20, \#22, \#23, \#27 and~\#37 quote a ``geodetically refined'' $0.040374\,c$, which rests on a dimensional slip corrected in Paper~\#28 and has been retracted by author decision of 25 July 2026; the canonical value is the one Paper~\#10 derives from the anomalous moment alone, $\beta^2 = 0.00163798087$, and is what Papers~\#51, \#61 and~\#62 use and what is used throughout the present paper. Omitting the $1/\sqrt{2}$ gives the peak value $0.0481$; the residual factor $2^{1/4}$ between the two placements is a recorded open item of Paper~\#62 and does not affect anything in this paper, because both are pure numbers.
+For the electron, $\lvert a_e\rvert = 1.15965\times10^{-3}$ gives $\betaZB = 0.04047$, the canonical value of the series. It is worth noting for precision that the corpus contains one other figure: Papers~\#14, \#15, \#17, \#20, \#22, \#23, \#27 and~\#37 quote a ``geodetically refined'' $0.040374\,c$, which rests on a dimensional slip corrected in Paper~\#28 and has been retracted by author decision of 25 July 2026; the canonical value is the one Paper~\#10 derives from the anomalous moment alone, $\beta^2 = 0.0016379809$, and is what Papers~\#51, \#61, \#62 and~\#65 use and what is used throughout the present paper. Omitting the $1/\sqrt{2}$ gives the peak value $0.0481$; the residual factor $2^{1/4}$ between the two placements is a recorded open item of Paper~\#62 and does not affect anything in this paper, because both are pure numbers.
 
 That last observation is the single most important property of $\betaZB$ for what follows, and it is worth isolating. \emph{$\betaZB$ is built from a dimensionless input and is therefore a pure number.} It does not depend on mass, on position, on binding, or on the state of motion. Section~\ref{sec:bound} shows that the model passes the bound-state test precisely because of this; Section~\ref{sec:composition} shows that it fails the composition test precisely because the pure number is a \emph{different} pure number for different species.
 
@@ -242,7 +248,7 @@ established in Paper~\#49~\cite{hanamura49}, where $E_0/2$ is a geometric bindin
 
 Paper~\#48~\cite{hanamura48} analyses the phase structure of this identity as a principal $U(1)$ fibre bundle over the internal phase circle, computes the Berry connection explicitly as $A_\iphase = \tfrac12\cos\iphase$, and finds a coordinate-invariant holonomy $\gamma_{\text{intrinsic}} = \pi$ which the series reads as the geometric origin of $g = 2$. In the same analysis three periodicities coexist within the cycle --- $4\pi$, $2\pi$ and $\pi$ --- and are mapped to spin quantum numbers through $s = 2\pi/T$, giving $s = \tfrac12$, $1$ and $2$ respectively. The $\pi$-periodic component is thus the model's candidate for the gravitational, spin-2 sector.
 
-We stress the word candidate. Paper~\#48 was explicit that promoting this numerical correspondence to a derivation requires two things: a physical mechanism independent of spin-cycle counting, and a demonstration that the $\pi$-periodic structure carries rank-2 tensor transformation properties. Paper~\#49 supplied the first; the second is recorded as open in Papers~\#49, \#58 and~\#63 and remains open today. The present paper does not close it, and Section~\ref{sec:survives} argues that what the $\pi$-periodic structure carries is the polarisation of the mediator rather than the strength of its coupling.
+We stress the word candidate. Paper~\#48 was explicit that promoting this numerical correspondence to a derivation requires two things: a physical mechanism independent of spin-cycle counting, and a demonstration that the $\pi$-periodic structure carries rank-2 tensor transformation properties. Paper~\#49 supplied the first; the second is recorded as open in Papers~\#49, \#58 and~\#63 and remains open today; Paper~\#65 likewise records the correspondence of the internal layers $\tfrac12$, $1$ and $2$ with spin, charge and quadrupole as open. The present paper does not close it, and Section~\ref{sec:survives} argues that what the $\pi$-periodic structure carries is the polarisation of the mediator rather than the strength of its coupling.
 
 \subsection{The Thomas Vortex $\OmT$}
 \label{subsec:primer_omt}
@@ -371,12 +377,12 @@ $\betaZB = \vZB/c$
 & Eq.~\eqref{eq:bridge} \\
 \addlinespace[0.3cm]
 $\lambdaC = h/mc$
-& Compton wavelength; sets the internal kernel separation
-& Papers~\#1, \#51 \\
+& Compton wavelength; sets the internal kernel separation, $\lambdaC = \betaZB\,c\,T_{\text{tr}}$
+& Papers~\#1, \#51, \#65 \\
 \addlinespace[0.3cm]
 $\omZB$, $\nu_{\text{ZB}}$
-& internal cycle frequency, $\nu_{\text{ZB}} = \vZB/\lambdaC$
-& Paper~\#51, Eq.~\eqref{eq:nuZB} \\
+& internal cycle frequency, $\nu_{\text{ZB}} = \vZB/\lambdaC = 1/T_{\text{tr}}$; the transport cycle read as internal time
+& Papers~\#51, \#65, Eq.~\eqref{eq:nuZB} \\
 \addlinespace[0.3cm]
 $\iphase = \omZB t$
 & internal phase; kernels at $\iphase = n\pi$
@@ -445,7 +451,7 @@ Quantities in the upper block belong to the 0-Sphere framework; those in the low
 \vspace{0.2cm}
 \begin{minipage}{0.95\textwidth}
 \justifying\footnotesize
-Six papers suffice to check every step of the present argument. Papers~\#1, \#19, \#22, \#34, \#48, \#49, \#50 and~\#59 are cited for context and for the background of Section~\ref{sec:primer} but are not load-bearing for the two tests. All are openly deposited; digital object identifiers are given in the bibliography.
+Six papers suffice to check every step of the present argument. Papers~\#1, \#19, \#22, \#34, \#48, \#49, \#50, \#59 and~\#65 are cited for context and for the background of Section~\ref{sec:primer} but are not load-bearing for the two tests. All are openly deposited; digital object identifiers are given in the bibliography.
 \end{minipage}
 \end{table*}
 
@@ -462,7 +468,7 @@ The 0-Sphere internal structure is sized by $\lambdaC = h/(mc)$, which is the Co
 \lambdaC^{\text{eff}} \;=\; \frac{hc}{E} \;=\; \frac{\lambdaC}{\gammaD}.
 \label{eq:lameff}
 \end{equation}
-The kernel separation of a bound electron therefore \emph{dilates}: for the $1s$ state of hydrogen-like uranium it is $34.9\%$ larger than for a free electron. This is the one structural commitment the present paper adds to the series, and it should be flagged as such. It is not derived elsewhere in the corpus; it is the statement that the internal scale tracks the total energy rather than the rest energy, which is the natural reading of a Compton length and is, as shown below, exactly what the equivalence principle requires. A reader who rejects Eq.~\eqref{eq:lameff} should read the results of this section as a conditional: they hold if and only if the internal scale is set by $E$.
+The kernel separation of a bound electron therefore \emph{dilates}: for the $1s$ state of hydrogen-like uranium it is $34.9\%$ larger than for a free electron. This is the one structural commitment the present paper adds to the series, and it should be flagged as such. It is not derived elsewhere in the corpus; it is the statement that the internal scale tracks the total energy rather than the rest energy, which is the natural reading of a Compton length and is, as shown below, exactly what the equivalence principle requires. A reader who rejects Eq.~\eqref{eq:lameff} should read the results of this section as a conditional: they hold if and only if the internal scale is set by $E$. In the clock language of Paper~\#65, where the kernel separation is $\lambdaC = \betaZB\,c\,T_{\text{tr}}$, Eq.~\eqref{eq:lameff} is equivalently the statement that the tick of a bound electron lengthens to $T_{\text{tr}}/\gammaD$ while $\betaZB$ is unchanged. Paper~\#65 writes the internal scale as $hc/E$ but treats only the free electron, so the extension to bound states remains an assumption of the present paper.
 
 Combining Eqs.~\eqref{eq:nuZB} and \eqref{eq:lameff}, the internal frequency of a bound electron is reduced in the same proportion,
 \begin{equation}
@@ -610,7 +616,7 @@ Neither statement is new, and we claim no priority for either. Applying the Hell
 
 The small component of a Dirac spinor is the negative-energy admixture, and it is the interference between positive- and negative-energy amplitudes that produces Zitterbewegung. Corollary~\ref{cor:admix} therefore states that the Zitterbewegung content of a bound state and its binding-energy defect are the same quantity, up to a factor of two, exactly and for every state. For the $1s$ electron of hydrogen-like uranium the admixture is $0.12943$; for hydrogen it is $1.33\times10^{-5}$.
 
-For a framework in which Zitterbewegung is the carrier of gravitational coupling, this is a strong internal consistency signal rather than a coincidence: the quantity the 0-Sphere model uses to generate gravity and the quantity relativity says must be subtracted from the gravitating mass are, in the Coulomb case, the same object. It is also the mathematically exact version of the statement that the model passes Test~I. We emphasise that Corollary~\ref{cor:admix} is a theorem of standard Dirac theory and is not itself a 0-Sphere result; what belongs to the model is the interpretation of the small component as internal-oscillation content.
+For a framework in which Zitterbewegung is the carrier of gravitational coupling, this is a strong internal consistency signal rather than a coincidence: the quantity the 0-Sphere model uses to generate gravity and the quantity relativity says must be subtracted from the gravitating mass are, in the Coulomb case, the same object. It is also the mathematically exact version of the statement that the model passes Test~I. We emphasise that Corollary~\ref{cor:admix} is a theorem of standard Dirac theory and is not itself a 0-Sphere result; what belongs to the model is the interpretation of the small component as internal-oscillation content. That interpretation should be kept distinct from the internal reading of Paper~\#65, in which the interior of every electron, free or bound, is an equal superposition of the two branches whose cross term is the energy exchange between the kernels. The admixture of Corollary~\ref{cor:admix} is a property of the standard Dirac spinor of the bound state and vanishes for a free electron at rest; how it relates to the internal equal superposition is not settled here.
 
 \subsection{Where the Theorem Stops}
 \label{subsec:theorem_boundary}
@@ -979,7 +985,7 @@ One loophole remains, and it should be stated rather than passed over. The bound
 
 Reading~A is therefore forced. Three things follow.
 
-First, Test~I stands without qualification: $\vZB$ is a local invariant, so the reduction $\OmT \propto E$ of Section~\ref{subsec:OmT_reduce} is not threatened from this direction.
+First, Test~I stands without qualification: $\vZB$ is a local invariant, so the reduction $\OmT \propto E$ of Section~\ref{subsec:OmT_reduce} is not threatened from this direction. This is also the reading on which Paper~\#65 builds its internal time: the transport cycle advances in proportion to proper time, redshifts exactly as an atomic clock does, and, because $\betaZB$ is a pure number, passes tests of local position invariance automatically.
 
 Second, the horizon-freezing prediction of Paper~\#63 must be read as a statement about quantities inferred by a distant observer. So read, it is not in conflict with general relativity and not a test of the model against it. Paper~\#63 flagged the prediction as structural rather than quantitative and as an ``in-principle-testable point of divergence''; the present analysis removes the divergence while leaving the structural statement intact. The series should not count it as an observational signature.
 

@@ -75,7 +75,7 @@
 
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
-\date{July 5, 2026 (archival revision: July 19, 2026)}
+\date{July 5, 2026 (archival revision: July 19, 2026; notes added: October 2026)}
 
 % ========================================
 % Abstract
@@ -88,6 +88,7 @@ The deliberation produced six citable outcomes: (i) the separation of the ``spin
 These outcomes are consolidated into seven candidate directions for future papers, with their prerequisites and dependencies mapped.
 Equally important, the record preserves --- symmetrically and without attenuation --- the errors, retractions, and corrections-of-corrections committed by both models, as a working specimen of dual-model verification.
 The document is designed to be read both by human readers and by future reasoning sessions, alongside a comprehensive review of the series, as the map from which the next move is chosen.
+Notes added in October 2026 point to Paper~\#65 where its later results bear on the record; the account of the session is left as it stood.
 \end{abstract}
 
 \maketitle
@@ -107,7 +108,7 @@ The 0-Sphere model series has been developed since 2018 as a single-author resea
 
 This record is deposited on Zenodo as \#66 of the series --- an archival deliberation record, distinct in genre from the research papers of the corpus. It is not submitted for peer review and makes no claim to the standards of a journal article. Its purpose is threefold. First, it fixes the priority and provenance of several substantive results (Sec.~\ref{sec:ledger}) that subsequent papers in the series may cite by DOI. Second, it consolidates those results into an explicit map of candidate directions for future papers (Sec.~\ref{sec:stones}), which is the deliverable the theme asked for. Third, it preserves the \emph{method}: the session produced multiple rounds of mutual error detection, retraction, and correction-of-correction, and this process --- which vanishes from a results-only paper --- is itself worth archiving, both for the transparency policy of the series and as a specimen of dual-model verification practice.
 
-A remark on the intended readership. This document is written to be legible to a human reader with a graduate-level physics background, but it is equally written to be \emph{loaded}: the author intends to supply it, together with a comprehensive review of the series, to future reasoning sessions as the prompt from which the next move is explored. Appendix~\ref{app:future} gives explicit reading instructions for that use. Appendix~\ref{app:checks} reproduces, without skipped steps, the explicit arithmetic behind every numerical and algebraic verification quoted in this record; it is addressed to readers new to the material, and doubles as a machine-checkable restatement of the session's verification norms. Appendix~\ref{app:glossary} provides a glossary --- standard terms, 0-Sphere terms, and the record's label systems --- pitched at a reader beginning graduate study. Appendix~\ref{app:primers} supplies self-contained primers on the four pieces of standard machinery the record imports (Lorentz representation theory, the Weinberg--Witten and Landau--Yang theorems, and the linearized-gravity quadrupole formalism), and Appendix~\ref{app:corpus} lists exactly what is assumed from each source paper, so that the record can be entered without prior reading of the series.
+A remark on the use of this document. Besides being read, it is written to be \emph{loaded}: the author intends to supply it, together with a comprehensive review of the series, to future reasoning sessions as the prompt from which the next move is explored. Appendix~\ref{app:future} gives explicit reading instructions for that use. Appendix~\ref{app:checks} reproduces, without skipped steps, the explicit arithmetic behind every numerical and algebraic verification quoted in this record, and doubles as a machine-checkable restatement of the session's verification norms. Appendix~\ref{app:glossary} provides a glossary --- standard terms, 0-Sphere terms, and the record's label systems. Appendix~\ref{app:primers} supplies self-contained primers on the four pieces of standard machinery the record imports (Lorentz representation theory, the Weinberg--Witten and Landau--Yang theorems, and the linearized-gravity quadrupole formalism), and Appendix~\ref{app:corpus} lists exactly what is assumed from each source paper, so that the record can be entered without prior reading of the series.
 
 % ----------------------------------------
 % Subsection 1.2: Method: dual-model cross-verification
@@ -137,7 +138,7 @@ Two properties of the resulting dialogue deserve emphasis. First, the two models
 
 The author's charge to the two models, paraphrased from its original statement, was: \emph{from the papers I have written, find where the theory can be deepened and extended; identify where the stones for the next papers should be placed.} The designated sector for this session was the gravitational-mediator line of the series --- Papers \#49 through \#59 --- which develops the proposal that gravitational interaction is mediated by photon-sphere fragments ejected from the internal two-kernel dynamics of the electron \cite{hanamura49}, culminating in the phase-stable pair-emission mechanism of Paper \#58 \cite{hanamura58} and the proton-trapped quadrupole radiation of Paper \#59 \cite{hanamura59}.
 
-The central open question of that sector, taken as the starting position, is representation-theoretic. A spin-2 mediator demands a symmetric traceless rank-2 tensor structure, which under the Lorentz group belongs to the $(1,1)$ representation; the natural curvature object of the series' line-integral program --- the field-strength or Berry-curvature 2-form $F_{\mu\nu}$ --- is antisymmetric and belongs to $(1,0)\oplus(0,1)$. No Lorentz-covariant linear map connects the two, so the search for an ``antisymmetric-to-symmetric conversion'' is closed by representation theory before it begins. The question the session inherited is therefore: \emph{by what route, if any, does the corpus actually obtain a rank-2 symmetric object --- and is that route load-bearing?}
+The central open question of that sector, taken as the starting position, is representation-theoretic. A spin-2 mediator demands a symmetric traceless rank-2 tensor structure, which under the Lorentz group belongs to the $(1,1)$ representation; the natural curvature object of the series' line-integral program --- the field-strength or Berry-curvature 2-form $F_{\mu\nu}$ --- is antisymmetric and belongs to $(1,0)\oplus(0,1)$. No Lorentz-covariant linear map connects the two, so the search for an ``antisymmetric-to-symmetric conversion'' is closed by representation theory before it begins. The question the session inherited is therefore \emph{by what route, if any, the corpus actually obtains a rank-2 symmetric object, and whether that route is load-bearing}.
 
 Beneath the designated sector lies a foundational trilogy of the series that the deliberation presupposes throughout, and which this record makes explicit here. Paper \#29 \cite{hanamura29} establishes that a spinorial connection is embedded along the thermal geodesic by relativistic kinematics alone: the line integral $\tfrac{1}{2}\int(\mathbf a\times\mathbf v)\,d\tau$ of the Thomas-precession connection accumulates $2\pi$ of internal phase per one-way kernel traversal --- in two lobes of $\pi$ each, separated by the midpoint where the acceleration vanishes --- and the operative geometric object is the line integral of a connection, not the curvature of the spatial path nor the integration of a fiber bundle. Paper \#30 \cite{hanamura30} declares the program's reading of gravitation: conservation laws arise from connection-based phase accumulation, stress--energy is a derived rather than fundamental quantity, and the Einstein field equation functions not as a generative dynamical law but as an a posteriori global consistency condition --- a \emph{geometric checksum} --- verifying that accumulated phase along worldlines remains self-coherent. Paper \#31 \cite{hanamura31} generalizes this into the program's ordering principle: physical observables are holonomies of connections along histories --- the Aharonov--Bohm phase, the Berry phase, Wilson loops, and the two-kernel energy transport as instances of one class --- with local curvature a derived descriptor of infinitesimal transport. This trilogy is the standard against which several of the session's findings acquire their weight: the outsourcing verdict of Table~\ref{tab:split}, the two-metric problem, and candidate directions D2, D3, and D6 of Sec.~\ref{sec:stones} are all, in the end, statements about whether the gravitational sector of \#49--\#59 lives up to the hierarchy the trilogy declares.
 
@@ -225,7 +226,7 @@ Fable 5's counter-collation made four points. (i) \#59's Appendix~A rejects the 
 
 With the three source files supplied, Opus 4.8 delivered four judgments. Two were sound and survive: \#58's pair-tensor equation (its Proposition, source label \texttt{eq:rank2\_tensor}; line~279 of the deposited source) does exhibit the symmetric structure $h_{\mu\nu}\propto \varepsilon_{1\mu}\varepsilon_{2\nu}+\varepsilon_{1\nu}\varepsilon_{2\mu}$, vindicating E3's relocation of the pair, and the apparent event-count mismatch between \#58 (two ejection events per cycle, at $\iphase=\pi/2$ and $3\pi/2$) and \#59 was dissolved --- \#59's summary presupposes \#58's two events --- with Opus 4.8 explicitly retracting its E2 reading. The collation of \#51 (emergent metric verified in the flat limit only; Bonnet--Myers confinement derived from the non-path-connectedness of $S^0$) and of \#52 \cite{hanamura52} (the directional decoupling is a kinematic orthogonality $\mathbf v\perp\mathbf a$ of a single particle, with \#52 itself warning that conflating it with an internal-phase-space orthogonality is a category error) was accurate and confirmed E3's diagnosis of task (C).
 
-Two claims, however, departed from the sources. First, Opus 4.8 read the two ejection events' ``same axis, opposite sign'' statement as fixing the \emph{polarization} vectors, concluded $\varepsilon_1\parallel\varepsilon_2\parallel\hat e_x$, and judged that the symmetric product collapses to the rank-1 projector $\hat e_{x\mu}\hat e_{x\nu}$ --- a conflation of momentum with polarization. Second, it reported that a text search for Weinberg--Witten in \#52 returned nothing, and on that basis retracted its own earlier suggestion that the Weinberg--Witten theorem \cite{ww} was relevant. Both claims were struck in E5. E4 closed with a productive question: could the two events carry \emph{opposite chirality}, rendering the two polarizations independent?
+Two claims, however, departed from the sources. First, Opus 4.8 read the two ejection events' ``same axis, opposite sign'' statement as fixing the \emph{polarization} vectors, concluded $\varepsilon_1\parallel\varepsilon_2\parallel\hat e_x$, and judged that the symmetric product collapses to the rank-1 projector $\hat e_{x\mu}\hat e_{x\nu}$ --- a conflation of momentum with polarization. Second, it reported that a text search for Weinberg--Witten in \#52 returned nothing, and on that basis retracted its own earlier suggestion that the Weinberg--Witten theorem \cite{ww} was relevant. Both claims were struck in E5. E4 closed with a productive question: whether the two events could carry \emph{opposite chirality}, rendering the two polarizations independent.
 
 % ----------------------------------------
 % Subsection 3.5: E5: the source collation and the fixed-$\chi$ construction (Fable 5)
@@ -403,6 +404,8 @@ The two fragments of the phase-stable pair (Paper \#58) are emitted back-to-back
 
 Three boundary conditions of the proposition, established during the session, must be recorded with it. First, the double-copy formalism proper ($\varepsilon_{\mu\nu}=\varepsilon_\mu\tilde\varepsilon_\nu$ for a single null momentum \cite{klt,bcj}) does not directly apply, because the two fragments do not share a momentum; the correct standard-physics frame is two-particle angular-momentum composition, and the double-copy language of E1 survives only as the motivating analogy. Second, the self-conjugacy of the mediator --- required of any graviton candidate --- follows in one line from the photon-sector nature of the fragments (Paper \#49, Table~II) and needs neither the $\chi$-degeneracy reading of \#58 nor the deleted positron supplement of E7. Third, the scope: the proposition establishes the rank-2 tensor structure of the \emph{source} configuration; what it does not establish is discussed next. A fourth, interpretive caution belongs with these: the Landau--Yang rule is a theorem about two \emph{real photons}, and its application to photon-sphere fragments is an analogy operating at the same level as Hypothesis~\ref{hyp:H}; it is used in Proposition~\ref{prop:rank2} as a consistency check, not as an independent derivation.
 
+\paragraph{Note added (October 2026).} Paper~\#65 \cite{hanamura65}, published after this session, separates charge from spin in a way that bears on the construction above; the record of the session is left as it stood. (i) Paper~\#65 shows that the winding of the internal amplitude $z=a+ib$ about the origin is a protected integer ($\pm1$) whose sign is the sign of charge, and reads the orientation of the internal phase flow --- the $\chi$ of Paper \#50 --- as that sign. This supports the session's premise that $\chi$ cannot flip within one electron: a flip would change the sign of charge. (ii) Paper~\#65 assigns spin not to this orientation but to the spatial direction in which radiation and absorption progress along the directed helical path of Paper \#51; the four Dirac rest solutions are read as \{radiating/absorbing role\} $\times$ \{spin\}, and the reversed internal rotor is the charge partner (electron/positron), not a spin partner. Hypothesis~\ref{hyp:H}, as recorded, ties the fragment's spatial rotation sense to $\chi$, that is, to the charge orientation. The algebra of Proposition~\ref{prop:rank2} needs only that both fragments inherit one and the same rotation sense, and is unaffected; which internal quantity fixes that sense --- $\chi$ or the spatial sense of the helical transport --- is an open question for directions D1 and D2, and the dependence of the helicity sign on $\chi$ (``$-2$ for $\chi=-1$'') is to be read with this caveat. (iii) The deletion of the positron supplement (E7--E9) is consistent with Paper~\#65: the reversed rotor exchanges the sign of charge, not helicity.
+
 % ----------------------------------------
 % Subsection 4.3: The Weinberg--Witten route and the task (I)/O3 boundary
 % ----------------------------------------
@@ -528,7 +531,7 @@ $a_e=(g-2)/2$
 \vspace{0.2cm}
 \begin{minipage}{0.95\textwidth}
 \justifying\footnotesize
-Maintained as a standing collation table for future sessions; entries C2 and C3 of Table~\ref{tab:corrections} are its first casualties.
+Maintained as a standing collation table for future sessions; entries C2 and C3 of Table~\ref{tab:corrections} are its first casualties. Note added (October 2026): Paper~\#65 \cite{hanamura65} introduces a fourth usage, the kernel amplitude $a=\cos(\omega t/2)$ (paired with $b=\sin(\omega t/2)$), which can be negative, and uses $\chi$ for the two-component internal rotor, whose orientation is the charge; both usages are to be checked against the rows above.
 \end{minipage}
 \end{table*}
 
@@ -723,7 +726,7 @@ The author intervened at the turning points rather than in the line-by-line argu
 
 The following were identified during the session and are explicitly \emph{not} decided by this record.
 
-\paragraph{The $\chi$ canonical decision.} Whether to retract \#58's $\chi$-degeneracy (boundary-emission) reading and adopt the fixed-$\chi$ construction of Proposition~\ref{prop:rank2}. Both agents recommend retraction --- on the grounds that the degeneracy reading rests on the internally contradictory $\pi/2$ kinematics (entry C3), conflicts with \#50's definitions, and costs nothing (self-conjugacy survives via the photon-sector route) --- and Opus 4.8 notes that retraction is best recorded as a \emph{restoration of consistency with \#50} rather than an interpretive preference. The decision is the author's and remains open, together with the choice of parent convention for \#58's $\pi/2$ kinematics (\#10 versus \#49; open task viii of \#49). A further witness, identified at the editorial stage of this record: the lobe kinematics of Paper \#29 --- velocity vanishing at the kernels $x=\pm a$, acceleration vanishing at the midpoint --- sits on the \#49 side of the convention clash, making \#29 a third source, alongside \#49 and \#50, whose internal structure favors the maximum-speed-at-midpoint reading. Direction D1 waits on this decision.
+\paragraph{The $\chi$ canonical decision.} Whether to retract \#58's $\chi$-degeneracy (boundary-emission) reading and adopt the fixed-$\chi$ construction of Proposition~\ref{prop:rank2}. Both agents recommend retraction --- on the grounds that the degeneracy reading rests on the internally contradictory $\pi/2$ kinematics (entry C3), conflicts with \#50's definitions, and costs nothing (self-conjugacy survives via the photon-sector route) --- and Opus 4.8 notes that retraction is best recorded as a \emph{restoration of consistency with \#50} rather than an interpretive preference. The decision is the author's and remains open, together with the choice of parent convention for \#58's $\pi/2$ kinematics (\#10 versus \#49; open task viii of \#49). A further witness, identified at the editorial stage of this record: the lobe kinematics of Paper \#29 --- velocity vanishing at the kernels $x=\pm a$, acceleration vanishing at the midpoint --- sits on the \#49 side of the convention clash, making \#29 a third source, alongside \#49 and \#50, whose internal structure favors the maximum-speed-at-midpoint reading. Direction D1 waits on this decision. A further question was opened after the session by Paper~\#65 \cite{hanamura65}, which reads $\chi$ as the sign of charge and assigns spin to the spatial sense of the helical transport: whether Hypothesis~\ref{hyp:H} should draw the fragment's rotation sense from $\chi$ or from that spatial sense (note added to Sec.~\ref{sec:taskI}).
 
 \paragraph{Publication mechanics of the corrections.} Whether entries C1--C3 are deposited as new versions of \#58/\#59 or as errata linked by Zenodo relations, with this record cited as provenance. Direction D7 waits on this decision.
 
@@ -753,7 +756,7 @@ This record was drafted in its entirety by large language models. The deliberati
 
 This appendix is addressed to a future reasoning session --- human, machine, or both --- that loads this document, together with a comprehensive review of the series, as the prompt from which the next move is explored. The following reading order and cautions are recommended.
 
-\paragraph{Entry point.} Begin with Table~\ref{tab:stones}. It is the distillate of the session: seven directions, their dependencies, and the two highlighted paths (D1 shortest, D3 highest leverage). Then read Sec.~\ref{sec:deferred} to learn which decisions are the author's and must not be presumed by the session. A reader new to the field should keep the glossary (Appendix~\ref{app:glossary}) at hand; it also decodes the record's label systems (E/C/D/O and the per-paper task letters). The primers of Appendix~\ref{app:primers} make the imported machinery self-contained, and Appendix~\ref{app:corpus} replaces prior reading of the source papers with an explicit list of what is assumed from each. When this record is loaded as a prompt, the foundational trilogy \#29/\#30/\#31 \cite{hanamura29,hanamura30,hanamura31} should accompany it, together with the comprehensive review of the series, since directions D2, D3, and D6 are formulated against the standards those three papers declare; whenever D3 is the target, Paper \#60 \cite{hanamura60} should be included as well, since it formulates O3 and O4 as the edges of a single triangle, together with Paper \#63 \cite{hanamura63}, whose open task O16 (the physical identity of $A_\mu$) isolates the bottleneck of the route convergence.
+\paragraph{Entry point.} Begin with Table~\ref{tab:stones}. It is the distillate of the session: seven directions, their dependencies, and the two highlighted paths (D1 shortest, D3 highest leverage). Then read Sec.~\ref{sec:deferred} to learn which decisions are the author's and must not be presumed by the session. The glossary (Appendix~\ref{app:glossary}) defines the standard and corpus-specific terms and decodes the record's label systems (E/C/D/O and the per-paper task letters). The primers of Appendix~\ref{app:primers} make the imported machinery self-contained, and Appendix~\ref{app:corpus} replaces prior reading of the source papers with an explicit list of what is assumed from each. Whenever D1 or D2 is the target, Paper~\#65 \cite{hanamura65} should be loaded as well, since it separates charge (the orientation $\chi$) from spin (the spatial sense of the helical transport) after this session (note added to Sec.~\ref{sec:taskI}). When this record is loaded as a prompt, the foundational trilogy \#29/\#30/\#31 \cite{hanamura29,hanamura30,hanamura31} should accompany it, together with the comprehensive review of the series, since directions D2, D3, and D6 are formulated against the standards those three papers declare; whenever D3 is the target, Paper \#60 \cite{hanamura60} should be included as well, since it formulates O3 and O4 as the edges of a single triangle, together with Paper \#63 \cite{hanamura63}, whose open task O16 (the physical identity of $A_\mu$) isolates the bottleneck of the route convergence.
 
 \paragraph{Status vocabulary.} Claims in this record carry one of four statuses, and conflating them is the fastest way to corrupt a continuation. \emph{Closed}: verified against the sources by both agents (e.g., the split of Table~\ref{tab:split}). \emph{Closable modulo a named postulate}: Proposition~\ref{prop:rank2}, conditional on Hypothesis~\ref{hyp:H}. \emph{Open}: O3 and everything that terminates on it. \emph{Deferred}: the author's canonical decisions of Sec.~\ref{sec:deferred} --- a future session may argue about these but must not treat them as made.
 
@@ -769,7 +772,7 @@ This appendix is addressed to a future reasoning session --- human, machine, or 
 \section{Explicit Verification Computations}
 \label{app:checks}
 
-This appendix reproduces, step by step and without skipped algebra, the computations by which the session's central claims were verified. It is written for a reader new to the material --- advanced-undergraduate electromagnetism and special relativity suffice --- and it doubles as a machine-checkable restatement: a future session can re-run every line below against the claims of the body text. Numerical constants are CODATA values rounded to four significant figures: $e=1.602\times10^{-19}\,\mathrm{C}$, $m_e=9.109\times10^{-31}\,\mathrm{kg}$, $m_p=1.673\times10^{-27}\,\mathrm{kg}$, $a_0=5.292\times10^{-11}\,\mathrm{m}$, $1/4\pi\epsilon_0=8.988\times10^{9}\,\mathrm{N\,m^2\,C^{-2}}$, $G=6.674\times10^{-11}\,\mathrm{N\,m^2\,kg^{-2}}$, $g_\oplus=9.81\,\mathrm{m\,s^{-2}}$, $c=2.998\times10^{8}\,\mathrm{m\,s^{-1}}$, $h=6.626\times10^{-34}\,\mathrm{J\,s}$, $\hbar=1.055\times10^{-34}\,\mathrm{J\,s}$, $\lambda_C=2.426\times10^{-12}\,\mathrm{m}$.
+This appendix reproduces, step by step and without skipped algebra, the computations by which the session's central claims were verified. Its prerequisites are electromagnetism and special relativity, and it doubles as a machine-checkable restatement: a future session can re-run every line below against the claims of the body text. Numerical constants are CODATA values rounded to four significant figures: $e=1.602\times10^{-19}\,\mathrm{C}$, $m_e=9.109\times10^{-31}\,\mathrm{kg}$, $m_p=1.673\times10^{-27}\,\mathrm{kg}$, $a_0=5.292\times10^{-11}\,\mathrm{m}$, $1/4\pi\epsilon_0=8.988\times10^{9}\,\mathrm{N\,m^2\,C^{-2}}$, $G=6.674\times10^{-11}\,\mathrm{N\,m^2\,kg^{-2}}$, $g_\oplus=9.81\,\mathrm{m\,s^{-2}}$, $c=2.998\times10^{8}\,\mathrm{m\,s^{-1}}$, $h=6.626\times10^{-34}\,\mathrm{J\,s}$, $\hbar=1.055\times10^{-34}\,\mathrm{J\,s}$, $\lambda_C=2.426\times10^{-12}\,\mathrm{m}$.
 
 % ----------------------------------------
 % Subsection 8.1: Why no linear map turns $F_{\mu\nu}$ into $h_{\mu\nu}$
@@ -831,23 +834,26 @@ With the fixed rotation sense of Hypothesis~\ref{hyp:H} the two fragments carry 
 
 Each fragment is massless-like with energy $E_{\mathrm{frag}}$ and momentum $|\mathbf p_i|=E_{\mathrm{frag}}/c$. For the back-to-back pair,
 \begin{equation}
-E_{\mathrm{tot}}=2E_{\mathrm{frag}},\qquad
-\mathbf p_{\mathrm{tot}}=\mathbf p_1+\mathbf p_2=\frac{E_{\mathrm{frag}}}{c}\hat e_x-\frac{E_{\mathrm{frag}}}{c}\hat e_x=\mathbf 0,
+\begin{split}
+E_{\mathrm{tot}}&=2E_{\mathrm{frag}},\\
+\mathbf p_{\mathrm{tot}}&=\mathbf p_1+\mathbf p_2=\frac{E_{\mathrm{frag}}}{c}\hat e_x-\frac{E_{\mathrm{frag}}}{c}\hat e_x=\mathbf 0,
+\end{split}
 \end{equation}
 so the invariant mass is
 \begin{equation}
-M^2c^4=E_{\mathrm{tot}}^2-|\mathbf p_{\mathrm{tot}}|^2c^2=(2E_{\mathrm{frag}})^2
-\quad\Longrightarrow\quad
-M=\frac{2E_{\mathrm{frag}}}{c^2}\neq0 .
+\begin{split}
+M^2c^4&=E_{\mathrm{tot}}^2-|\mathbf p_{\mathrm{tot}}|^2c^2=(2E_{\mathrm{frag}})^2\\
+&\Longrightarrow\quad M=\frac{2E_{\mathrm{frag}}}{c^2}\neq0 .
+\end{split}
 \end{equation}
 The pair is therefore a \emph{massive} $J=2$ configuration --- like the tensor mesons --- and not a massless spin-2 particle; the Weinberg--Witten theorem, which constrains massless composites, does not reach it (Sec.~\ref{sec:ww}). This one-line computation carries the entire escape route.
 
 % ----------------------------------------
 % Subsection 8.5: The numerics of Corrections Log entry C1
 % ----------------------------------------
+\begin{widetext}
 \subsection{The numerics of Corrections Log entry C1}
 \label{app:checks-C1}
-\begin{widetext}
 
 \emph{Coulomb force on the electron at the Bohr radius:}
 \begin{equation}
@@ -902,8 +908,10 @@ Three candidate values for the Zitterbewegung angular frequency appear in the se
 \qquad
 \omega_{\mathrm{ZB}}=2\pi\nu_{\mathrm{ZB}}=3.1\times10^{19}\,\mathrm{rad\,s^{-1}}.
 \end{equation}
-The value $\omega_{\mathrm{ZB}}\approx1.55\times10^{20}\,\mathrm{rad\,s^{-1}}$ quoted in \#59's Appendix~B sits between the two --- one order of magnitude below Dirac's $\omega$, a factor of five above the series' $\omega$ --- and matches neither; this mismatch, recorded in entry C1, awaits resolution together with the convention question of \#49's task (viii). The moral for a beginner: always state whether a quoted ``frequency'' is $\nu$ (Hz) or $\omega$ (rad/s), and always state which velocity and which length scale define it. (The same $\nu$/$\omega$ care applies across the corpus; a slip of exactly this kind in the overview's Dirac-frequency quotation was caught and corrected at the archival-revision stage of this record.)
+The value $\omega_{\mathrm{ZB}}\approx1.55\times10^{20}\,\mathrm{rad\,s^{-1}}$ quoted in \#59's Appendix~B sits between the two --- one order of magnitude below Dirac's $\omega$, a factor of five above the series' $\omega$ --- and matches neither; this mismatch, recorded in entry C1, awaits resolution together with the convention question of \#49's task (viii). The general lesson: always state whether a quoted ``frequency'' is $\nu$ (Hz) or $\omega$ (rad/s), and always state which velocity and which length scale define it. (The same $\nu$/$\omega$ care applies across the corpus; a slip of exactly this kind in the overview's Dirac-frequency quotation was caught and corrected at the archival-revision stage of this record.)
 \end{widetext}
+
+\emph{Note added (October 2026).} Paper~\#65 \cite{hanamura65} fixes the series' value without a free parameter. The transport speed is $\beta c$ with $\beta=0.0404720$, obtained from the measured $a_e$ through $\sqrt{1-\beta^2}=1/(1+a_e/\sqrt2)$; the transport frequency is $\nu_{\mathrm{tr}}=\beta c/\lambda_C=\beta\,m_ec^2/h=5.0007\times10^{18}\,\mathrm{Hz}$ (angular rate $\beta\,m_ec^2/\hbar=3.14\times10^{19}\,\mathrm{rad\,s^{-1}}$), exactly $\beta$ times the Dirac branch phase $m_ec^2/\hbar$, and one tick $T_{\mathrm{tr}}=1.9997\times10^{-19}\,\mathrm{s}$ satisfies $\lambda_C=\beta c\,T_{\mathrm{tr}}$. The values above agree with this to the precision quoted. The speed $\beta c\approx0.04c$ itself is unmeasured; Paper~\#65 names its observation as the decisive test of the model.
 
 % ========================================
 % Bibliography
@@ -911,10 +919,10 @@ The value $\omega_{\mathrm{ZB}}\approx1.55\times10^{20}\,\mathrm{rad\,s^{-1}}$ q
 % ========================================
 % Appendix C: Glossary
 % ========================================
-\section{Glossary for Readers Entering the Field}
+\section{Glossary}
 \label{app:glossary}
 
-This glossary is pitched at a reader beginning graduate study. Part~1 defines the standard physics and mathematics terms used in this record, with a note on the role each plays here; Part~2 defines the terms specific to the 0-Sphere model, with their home papers; Part~3 is a key to the labels (E, C, D, O, \ldots) by which the record cross-references itself. Definitions are deliberately informal; the cited sources carry the precise statements.
+Part~1 defines the standard physics and mathematics terms used in this record, with a note on the role each plays here; Part~2 defines the terms specific to the 0-Sphere model, with their home papers; Part~3 is a key to the labels (E, C, D, O, \ldots) by which the record cross-references itself. Definitions are deliberately informal; the cited sources carry the precise statements.
 
 \subsection{Standard physics and mathematics terms}
 
@@ -972,7 +980,7 @@ This glossary is pitched at a reader beginning graduate study. Part~1 defines th
 
 \item[Wilson line / Wilson loop.] The path-ordered exponential of a gauge potential along a curve --- open (two endpoints) or closed (a loop). The closed version is gauge invariant; the open version carries endpoint dependence. \emph{Here:} the open Wilson line between the two kernels is the corpus's primary object (\#55).
 
-\item[Zitterbewegung (ZB).] The rapid oscillatory motion that appears when the Dirac equation's positive- and negative-energy components interfere; conventionally at speed $c$ and unobservable. \emph{Here:} reinterpreted as the physically real, sub-luminal ($\approx0.04c$) internal oscillation of the electron --- the model's central move.
+\item[Zitterbewegung (ZB).] The rapid oscillatory motion that appears when the Dirac equation's positive- and negative-energy components interfere; conventionally at speed $c$ and unobservable. \emph{Here:} read as the physically real internal oscillation of the electron --- the model's central move. Paper~\#65 \cite{hanamura65} makes the reading explicit: the occupation of a kernel, $n_A=\tfrac14+\tfrac14+\tfrac12\cos\omega t$, is the interference of the positive- and negative-energy branches, each branch alone giving a constant and the cross term being the energy exchange between the kernels; the negative-energy branch is read as the absorbing half of a paired emission and absorption, not as an antiparticle or a Dirac sea. The transport between the kernels runs at the sub-luminal speed $\beta c\approx0.04c$ ($\beta=0.04047$ fixed by $a_e$; unmeasured).
 
 \end{description}
 
@@ -980,7 +988,7 @@ This glossary is pitched at a reader beginning graduate study. Part~1 defines th
 
 \begin{description}[style=unboxed, leftmargin=0em, itemsep=3pt]
 
-\item[Kernels $A$, $B$.] The two energy-localization sites of the electron's internal structure --- the two points of the 0-sphere $S^0$. The rest energy oscillates between them with the $\cos^4/\sin^4$ split (\#1).
+\item[Kernels $A$, $B$.] The two energy-localization sites of the electron's internal structure --- the two points of the 0-sphere $S^0$. The rest energy oscillates between them with the $\cos^4/\sin^4$ split (\#1). Paper~\#65 \cite{hanamura65} shows that these quartic energies, $T_{A,B}=\tfrac14E_0(1\pm s_z)^2$, are quadratic forms on the Bloch sphere pulled back through the Hopf double cover, given the radiation-gradient relation (an open item), the oscillator kinetic energy, and energy conservation; the Stefan--Boltzmann motivation of \#1 is retained only as a heuristic, and a kernel temperature proportional to $\cos(\omega t/2)$ is withdrawn.
 
 \item[Photon sphere.] The collective radiative carrier that transports energy between the kernels; modeled as a compact positively curved surface at the Compton scale. Not to be confused with the black-hole photon sphere of general relativity.
 
@@ -990,7 +998,7 @@ This glossary is pitched at a reader beginning graduate study. Part~1 defines th
 
 \item[Internal phase $\iphase$.] The angle $\omega t$ (or $\omega t/2$, per convention) parametrizing where in the transfer cycle the system sits; ejection events occur at $\iphase=\pi/2$ and $3\pi/2$ (\#58).
 
-\item[Chirality $\chi$ (0-Sphere usage).] $\chi=\mathrm{sign}(da/dt)$ with $a$ the \emph{monotonic} internal phase on the circle $S^1$: the orientation of the internal phase flow, a topological invariant distinguishing electron from positron (\#50). Distinct from the chirality of massless fermions in field theory; the collision of the two usages (and of the symbol $a$) is the subject of Table~\ref{tab:acollision}.
+\item[Chirality $\chi$ (0-Sphere usage).] $\chi=\mathrm{sign}(da/dt)$ with $a$ the \emph{monotonic} internal phase on the circle $S^1$: the orientation of the internal phase flow, a topological invariant distinguishing electron from positron (\#50). Distinct from the chirality of massless fermions in field theory; the collision of the two usages (and of the symbol $a$) is the subject of Table~\ref{tab:acollision}. Paper~\#65 \cite{hanamura65} reads this orientation as the sign of the protected winding number of the internal amplitude, i.e., the sign of charge, and assigns spin separately, to the spatial sense of the helical transport of \#51; it also uses the symbol $\chi$ for the internal rotor, whose orientation is the charge.
 
 \item[Phase-stable pair.] The two fragments ejected back-to-back within one internal cycle whose relative phase is locked (\#58); the candidate spin-2 source configuration of this record.
 
@@ -1026,7 +1034,7 @@ This glossary is pitched at a reader beginning graduate study. Part~1 defines th
 \section{Primers on the Imported Theorems and Formalisms}
 \label{app:primers}
 
-The body of this record imports four pieces of standard machinery: the representation theory of the Lorentz group, the Weinberg--Witten theorem, the Landau--Yang theorem, and the quadrupole formalism of linearized general relativity. Each is standard, but none is standard \emph{equipment} for a reader entering from outside particle theory or gravitational physics. This appendix supplies a self-contained primer for each, pitched one level below the body text; the aim in every case is that the reader be able to judge \emph{how} the machinery is used here, not merely accept that it is. Precise treatments are in the cited originals and in any field-theory or gravitational-wave textbook.
+The body of this record imports four pieces of standard machinery: the representation theory of the Lorentz group, the Weinberg--Witten theorem, the Landau--Yang theorem, and the quadrupole formalism of linearized general relativity. Each is standard, but none is standard \emph{equipment} outside particle theory or gravitational physics. This appendix supplies a self-contained primer for each, one level below the body text; the aim in every case is that the reader be able to judge \emph{how} the machinery is used here, not merely accept that it is. Precise treatments are in the cited originals and in any field-theory or gravitational-wave textbook.
 
 \subsection{Lorentz representation theory: where the labels $(j_1,j_2)$ come from}
 \label{app:primer-lorentz}
@@ -1153,7 +1161,7 @@ The Kawai--Lewellen--Tye and Bern--Carrasco--Johansson relations \cite{klt,bcj} 
 \section{What This Record Assumes from Each Source Paper}
 \label{app:corpus}
 
-Half the difficulty of this record for a newcomer is not the imported machinery of Appendix~\ref{app:primers} but the corpus-internal premises: results established in the source papers and used here without rederivation. This appendix lists, for each source paper, exactly what is assumed and where it is used, so that the record can be entered without prior reading of the series. (The structural overview of the series, \#68, provides the full context; the entries below are deliberately minimal.)
+Half the difficulty of entering this record is not the imported machinery of Appendix~\ref{app:primers} but the corpus-internal premises: results established in the source papers and used here without rederivation. This appendix lists, for each source paper, exactly what is assumed and where it is used, so that the record can be entered without prior reading of the series. (The structural overview of the series, \#68, provides the full context; the entries below are deliberately minimal.)
 
 \begin{description}[style=unboxed, leftmargin=0em, itemsep=3pt]
 
@@ -1183,6 +1191,8 @@ Half the difficulty of this record for a newcomer is not the imported machinery 
 
 \item[Paper \#63 \cite{hanamura63}.] \emph{Assumed:} the two-route formulation (metric door / connection door) with convergence as the decisive open problem; the physical identity of $A_\mu$ isolated as O16; the internal-winding correction of the curvature-family reading. \emph{Used in:} the D3 formulation and Sec.~\ref{sec:ww} (integrated at the archival-revision stage, as marked there).
 
+\item[Paper \#65 \cite{hanamura65}.] Published after the session and not loaded into it; cited only in notes added in October 2026. \emph{Bears on:} the orientation $\chi$ read as the sign of the protected winding number (charge), and spin assigned to the spatial sense of the helical transport (note to Sec.~\ref{sec:taskI}; the $\chi$ decision of Sec.~\ref{sec:deferred}); zitterbewegung as branch interference and the quartic energies as Hopf pullbacks (glossary); $\beta=0.0404720$ and the transport frequency (Appendix~\ref{app:checks-freq}).
+
 \end{description}
 
 \begin{thebibliography}{99}
@@ -1204,6 +1214,8 @@ Half the difficulty of this record for a newcomer is not the imported machinery 
 \bibitem{hanamura60} S. Hanamura, ``The Berry--Synge--Bonnet--Myers Triangle: Structural Conditions for the Unification of Gauge and Gravitational Sectors in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.19932922}{10.5281/zenodo.19932922}
 
 \bibitem{hanamura63} S. Hanamura, ``From Line Integral to Covariant Derivative: A Reader's Map of the Bridge from the 0-Sphere Model to Riemannian Curvature,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.20767589}{10.5281/zenodo.20767589}
+
+\bibitem{hanamura65} S. Hanamura, ``From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model,'' Zenodo (2026). \href{https://doi.org/10.5281/zenodo.23257458}{10.5281/zenodo.23257458}
 
 \bibitem{hanamura10} S. Hanamura, ``Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction,'' Zenodo (2024). \href{https://doi.org/10.5281/zenodo.17764997}{10.5281/zenodo.17764997}
 
