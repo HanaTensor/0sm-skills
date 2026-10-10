@@ -14,7 +14,7 @@
 
 - 複数リビジョン保有: #30（r1, r2）、#51（r1: 図版含む全量／r2: main.tex のみ → main-overleaf.tex は r2 由来）
 - **#65–#67 は二本立て規約の例外**（2026-07-25 User 決定）: `main.tex` のみを置き `main-overleaf.tex` は持たない。理由＝この3本では**リポジトリが上流、Overleaf が下流**（User が repo の main.tex を Overleaf へ手動コピペする運用）。従来の #1–#64 は Overleaf が上流だったので原本保存に意味があったが、同じ物を2つ持つと drift の温床にしかならない
-- #66 のみ図版を同梱: `66/fig1.tikz` `66/fig2.tikz` `66/fig3.tikz`（素の tikzpicture・pgfplots 不使用）
+- #66 は図版を main.tex に内蔵（TikZ・pgfplots、外部ファイルなし）。検算スクリプト `66/verify66.py` を同梱（本文・表・図の全数値を再計算）
 
 ## 現在の状態（2026-10-11）
 
