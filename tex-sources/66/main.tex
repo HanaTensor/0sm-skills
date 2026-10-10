@@ -1590,7 +1590,8 @@ Blue: the measured bounds, the MICROSCOPE sensitivity for Ti--Pt~\cite{microscop
 \addplot[domain=0:100, samples=101, very thick, fail, dotted] {(1-(x/137.036)^2)^1.5};
 \legend{charge $\propto E$ (equivalence principle), charge $\propto E^{2}$ (emission power), charge $\propto E^{3}$ ($\vZB$ scaling with $E$)}
 \draw[dashed, neutral] (axis cs:92,0.3) -- (axis cs:92,1.03);
-\draw[<->, kB] (axis cs:95,0.7411) -- node[right, font=\scriptsize, text=black] {$98.0$\,keV} (axis cs:95,0.5493);
+\draw[<->, kB] (axis cs:95,0.7411) -- (axis cs:95,0.5493);
+\node[anchor=east, font=\scriptsize, fill=white, inner sep=1pt] at (axis cs:91.3,0.718) {$98.0$\,keV};
 \end{axis}
 \end{tikzpicture}
 \caption{\textbf{The gravitating mass of a bound electron for three readings of the charge}}
