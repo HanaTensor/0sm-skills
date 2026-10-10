@@ -4,7 +4,7 @@
 %   and a Restart of the Formalisation
 % Deposit order: #65 -> #66 -> #67 (Structural Overview).
 % Paper #65 (10.5281/zenodo.23257458) cites this paper by this title.
-% Rebuilt from zero, October 2026. Frequency convention: Paper #10,
+% Frequency convention: Paper #10,
 %   nu_ZB = beta c / lambda_C (subluminal transport); the light-speed
 %   value c / lambda_C enters only as a reference.
 % Numerical checks: verify66.py (all numbers in the text and tables).
@@ -98,7 +98,7 @@
 
 \author{Satoshi Hanamura}
 \email{hana.tensor@gmail.com}
-\date{October 2026}
+\date{\today}
 
 \begin{abstract}
 The paper has two parts.
@@ -161,7 +161,12 @@ Green boxes pass, red boxes fail. Test~1, the mass clause, was settled by Paper~
 \end{minipage}
 \end{figure*}
 
-\paragraph{Three clauses, three tests.} The equivalence principle is split here into three requirements, and each is treated as a test of its own (Table~\ref{tab:threetests}). \emph{Test~1, mass:} heavy and light bodies fall alike in the same field. Paper~\#52 passed it, with a residual factor in the force. \emph{Test~2, binding:} when a system loses energy by binding, its gravitational mass falls by exactly that energy over $c^{2}$. \emph{Test~3, composition:} bodies with different proportions of electrons, protons and neutrons respond to gravity alike per unit mass. Separating the three clauses is the organising idea of the paper. A force that is proportional to mass passes Test~1 and can still fail the other two, because the coefficient of proportionality may depend on binding or on the species, and the two remaining tests probe exactly that coefficient.
+\paragraph{Three clauses, three tests.} The equivalence principle is split here into three requirements, and each is treated as a test of its own (Table~\ref{tab:threetests}). \emph{Test~1, mass:} heavy and light bodies fall alike in the same field. Paper~\#52 passed it, with a residual factor in the force. \emph{Test~2, binding:} when a system loses energy by binding, its gravitational mass falls by exactly that energy over $c^{2}$. \emph{Test~3, composition:} bodies with different proportions of electrons, protons and neutrons respond to gravity alike per unit mass. Separating the three clauses is the organising idea of the paper. Suppose a theory gives
+\begin{equation}
+F \;=\; m\,g\,C .
+\label{eq:FmgC}
+\end{equation}
+The force is proportional to $m$, so Test~1 is passed whatever $C$ is. If $C$ changes with binding, Test~2 fails; if $C$ differs between electrons and nucleons, Test~3 fails. Deriving a force proportional to mass and constructing a gravitational coupling that satisfies the equivalence principle are therefore different achievements, and the two remaining tests probe exactly the coefficient $C$, which for Paper~\#52 is $\betaZB$.
 
 \begin{table*}[t!]
 \centering
@@ -187,6 +192,8 @@ Green boxes pass, red boxes fail. Test~1, the mass clause, was settled by Paper~
 Tests~2 and~3 turn on the same property of the transport speed: it is a pure number fixed by the anomalous magnetic moment, so binding cannot change it, but it is a different number for leptons and nucleons. The MICROSCOPE bound on $\eta$ is $2.7\times10^{-15}$.
 \end{minipage}
 \end{table*}
+
+\paragraph{What passing and failing mean here.} The two outcomes of this paper have to be read in a precise sense. Passing Test~2 means that, under one stated assumption, the model's equations reproduce the proportionality the equivalence principle requires; it is not an experimental confirmation of the model. Failing Test~3 is not a small numerical discrepancy: the quantity the model uses as the gravitational source carries a dependence on the kind of matter, and the effect exceeds the measured bound by ten orders of magnitude. The restart that follows is a change in how the source is defined, not an abandonment of the internal picture.
 
 \paragraph{Mechanism.} The series proposes that gravity arises in three stages (Sec.~\ref{subsec:primer_gravity}). In the first, energy is transported inside the electron and the transport carries a rotational structure, the Thomas precession. In the second, part of that energy is emitted and the synchronisation between the electron and neighbouring systems changes. In the third, the synchronisation energy turns into translation, which appears on the macroscopic scale as free fall. The tests of this paper ask whether the charge this mechanism assigns is the one the equivalence principle requires.
 
@@ -1267,6 +1274,8 @@ This locates the reason the model passes the test. The equivalence principle is 
 \subsection{Numbers}
 \label{subsec:bound_numbers}
 
+Hydrogen-like ions up to uranium are used because weak binding does not discriminate. In hydrogen the defect is $2.7\times10^{-5}$ of the electron mass, so a wrong scaling and the right one give nearly the same number. In uranium the defect is $26\%$, and a theory that does not follow the energy is caught at once.
+
 Table~\ref{tab:ions} gives the internal quantities for the $1s$ electron of five hydrogen-like ions. All entries follow from Eqs.~\eqref{eq:EDirac}, \eqref{eq:lameff}, \eqref{eq:nuE} and~\eqref{eq:OmT_E}, with no adjustable input. The transport quantum $h\nuZB$, $20.68$~keV for a free electron, falls to $15.33$~keV for the $1s$ electron of uranium. The 0-Sphere transport line is not an established observable, so this is a structural statement rather than an operational prediction, but it is a definite number attached to a definite system.
 
 \begin{table*}[t!]
@@ -1296,6 +1305,29 @@ Table~\ref{tab:ions} gives the internal quantities for the $1s$ electron of five
 Point-nucleus Dirac values with $\alpha^{-1} = 137.035999177$~\cite{codata2022} and $\betaZB = 0.040472$. The transport frequency is $\nuZB^{\text{bound}} = \gammaD\,\nuZB$ with the free value $5.0007\times10^{18}$~Hz of Eq.~\eqref{eq:nuZB}. Every column after the third is a single power of $\gammaD$, which is the content of Eqs.~\eqref{eq:lameff}--\eqref{eq:OmT_E}.
 \end{minipage}
 \end{table*}
+
+\paragraph{What Test 2 settles and what it leaves.} Table~\ref{tab:test2} separates four questions that are easily run together. The force follows the binding defect, and it is linear in the total energy, under the assumption of Eq.~\eqref{eq:lameff}. The residual factor $\betaZB$ is still in the force, and nothing in the test shows that the internal transport exists.
+
+\begin{table}[t!]
+\centering
+\caption{\textbf{What Test 2 settles}}
+\label{tab:test2}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{3.0cm}}
+\toprule
+\textbf{Question} & \textbf{Answer} \\
+\midrule
+does the force reflect the binding-energy defect & \textcolor{pass}{\textbf{yes}}, under Eq.~\eqref{eq:lameff} \\
+\addlinespace[0.2cm]
+is the force linear in the total energy $E$ & \textcolor{pass}{\textbf{yes}} \\
+\addlinespace[0.2cm]
+is the residual factor $\betaZB$ removed & \textcolor{fail}{\textbf{no}} \\
+\addlinespace[0.2cm]
+is the internal structure of the electron demonstrated & \textcolor{fail}{\textbf{no}} \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\end{table}
 
 % ========================================
 \section{Two Exact Results About Dirac Bound States}
@@ -1520,7 +1552,7 @@ against the MICROSCOPE sensitivity of $2.7\times10^{-15}$. The prediction exceed
 \subsection{The Nuclear-Binding Lever}
 \label{subsec:nuclear_lever}
 
-\textbf{[0SM reading]} A second and independent lever constrains a different family of readings. If the gravitational charge were not linear in energy, for instance if it were identified with the rate of fragment emission times the energy per fragment, which scales as $E^{2}$, then the mass defect would count twice at leading order. Nuclear binding is about $0.9\%$ of the mass of ordinary matter and varies between nuclides (Fig.~\ref{fig:budget}), so the doubling would appear directly in $\eta$. The binding fraction is $9.375\times10^{-3}$ for $^{48}$Ti and $8.511\times10^{-3}$ for $^{195}$Pt, so a charge quadratic in energy gives $\eta(\mathrm{Ti},\mathrm{Pt}) = 8.64\times10^{-4}$, $3.2\times10^{11}$ times the bound, and $1.20\times10^{-3}$ for beryllium against uranium. The same reading fails more directly on the hydrogen atom: doubling its $13.6$~eV defect shifts $m(^{1}\mathrm{H})$ by $1.46\times10^{-8}$~u, against a measured uncertainty of $1.4\times10^{-11}$~u~\cite{ame2020}.
+\textbf{[0SM reading]} A second and independent lever constrains a different family of readings. A charge proportional to $E$ falls by $10\%$ when the energy falls by $10\%$; a charge proportional to $E^{2}$ falls by $19\%$, and one proportional to $E^{3}$ by $27\%$, so binding energy would be counted at the wrong weight. If the gravitational charge were not linear in energy, for instance if it were identified with the rate of fragment emission times the energy per fragment, which scales as $E^{2}$, then the mass defect would count twice at leading order. Nuclear binding is about $0.9\%$ of the mass of ordinary matter and varies between nuclides (Fig.~\ref{fig:budget}), so the doubling would appear directly in $\eta$. The binding fraction is $9.375\times10^{-3}$ for $^{48}$Ti and $8.511\times10^{-3}$ for $^{195}$Pt, so a charge quadratic in energy gives $\eta(\mathrm{Ti},\mathrm{Pt}) = 8.64\times10^{-4}$, $3.2\times10^{11}$ times the bound, and $1.20\times10^{-3}$ for beryllium against uranium. The same reading fails more directly on the hydrogen atom: doubling its $13.6$~eV defect shifts $m(^{1}\mathrm{H})$ by $1.46\times10^{-8}$~u, against a measured uncertainty of $1.4\times10^{-11}$~u~\cite{ame2020}.
 
 Figure~\ref{fig:fork} gives the bound-state form of the same statement: the gravitating mass of a $1s$ electron for charges scaling as $E$, $E^{2}$ and $E^{3}$. Only the first follows the equivalence principle. At $Z = 92$ the second is short by $98.0$~keV and the third by $170.7$~keV.
 
@@ -1809,7 +1841,7 @@ Problem~(a), the tensor structure of the source, is available through the mass q
 
 \paragraph{The mediator-construction route.} Papers~\#34, \#49, \#52, \#57, \#58 and~\#59 build gravity from an ejected fragment whose energy, emission rate and polarisation follow from the internal kinematics. On this route the charge is \emph{constructed} from internal quantities. All four rows of Table~\ref{tab:diagnosis} live here, and no available construction succeeds: each is either species-dependent or non-linear in the energy.
 
-\paragraph{The connection-holonomy route.} Papers~\#29, \#30 and~\#31 start elsewhere. Paper~\#31~\cite{hanamura31} takes observables to be holonomies of connections accumulated along histories, with local tensors and curvature as derived descriptors. Paper~\#29~\cite{hanamura29} makes this concrete for the two kernels: the line integral of the spinorial connection along one traversal accumulates a full $2\pi$ of internal phase, so the relevant object is the line integral of a connection rather than the curvature of the path. Paper~\#30~\cite{hanamura30} draws the consequence that matters here: stress--energy is a derived quantity, and the Einstein equation is read as a global consistency condition on accumulated phase. On this route the source is not assembled; it is what the accumulated phase delivers. A phase accumulated along a worldline is an action, and an action carries energy, not transport speed.
+\paragraph{The connection-holonomy route.} Papers~\#29, \#30 and~\#31 start elsewhere. Paper~\#31~\cite{hanamura31} takes observables to be holonomies of connections accumulated along histories, with local tensors and curvature as derived descriptors. Paper~\#29~\cite{hanamura29} makes this concrete for the two kernels: the line integral of the spinorial connection along one traversal accumulates a full $2\pi$ of internal phase, so the relevant object is the line integral of a connection rather than the curvature of the path. Paper~\#30~\cite{hanamura30} draws the consequence that matters here: stress--energy is a derived quantity, and the Einstein equation is read as a global consistency condition on accumulated phase. A connection says how an internal direction or phase is carried from point to point, and a holonomy is what the connection does to it round a closed path. On a sphere, an arrow carried round a triangle by parallel transport returns rotated, although it was never turned locally; the rotation is a property of the closed path, fixed by the curvature it encloses. On this route the source is not assembled; it is what the accumulated phase delivers. A phase accumulated along a worldline is an action, and an action carries energy, not transport speed.
 
 The split of Sec.~\ref{subsec:rank2} arrives at the same place from the other direction: with the source-side structure separated off, the remaining burden sits on the closure edge and on O3, both on the holonomy route. Two independent arguments, one from representation theory and one from the equivalence principle, point to the same edge.
 
@@ -1973,6 +2005,8 @@ Papers~\#62 and~\#63 make incompatible demands on whether the transport speed is
 
 The four failures have one cause. A quantity tied by the bridge equation to the anomalous moment, and therefore to the species, has been asked to carry a charge that must be the total energy alone. The property that carries the model through the binding test defeats it in the composition test. The rank-2 question separates into a source-side half, available through the mass quadrupole, and a curvature half that belongs to the emergent metric. The formalisation of the gravitational sector is therefore restarted from the line-integral papers \#29--\#31, where the source is read off from accumulated phase rather than assembled from internal kinematics, under four acceptance criteria. The mediator picture is kept as a picture. It cannot be the definition of the charge.
 
+The reach of the paper can be stated in three tiers. Shown within the paper: the energy bookkeeping and the winding structure of the model, the linearity of the force in the total energy of a bound electron under one assumption, the conflict of the present force law with the MICROSCOPE bound, and one cause behind four failures, with four criteria for what comes next. Not demonstrated: that the electron consists of two kernels and the transport between them, that the transport speed $0.040472c$ is a physical quantity, that the proposed emission, synchronisation and drift produce gravity, and that the line-integral route yields an equivalence-respecting source and the geometry of spacetime. To be done: a gravitational source independent of the transport speed and linear in the total energy, an object with a transformation law and its relation to the emergent metric and curvature, and agreement with the precision tests of gravity together with a new prediction that can be checked.
+
 % ========================================
 \appendix
 
@@ -2093,7 +2127,7 @@ with $V = -Z\alpha/r$ for a point nucleus and $V = -Z\alpha(3 - r^{2}/R^{2})/2R$
 \section{Reproducibility}
 \label{app:repro}
 
-All results follow from measured inputs and no fitted parameter: the fine-structure constant, the anomalous moments of Table~\ref{tab:species}, atomic and nuclear masses for the E\"otv\"os estimates, and the two relations of the series used here, Eqs.~\eqref{eq:bridge} and~\eqref{eq:OmT}. The script \texttt{verify66.py}, deposited with this paper, recomputes every number in the text, tables and figures, including the shooting solutions of Table~\ref{tab:theorem}, in a few seconds with \texttt{numpy} and \texttt{scipy}, and prints \texttt{all checks passed}. The single most consequential number is the ratio $\betaZB^{p}/\betaZB^{e} = 22.18$, which requires only Eq.~\eqref{eq:bridge}, two anomalous moments and a square root.
+All results follow from measured inputs and no fitted parameter: the fine-structure constant, the anomalous moments of Table~\ref{tab:species}, atomic and nuclear masses for the E\"otv\"os estimates, and the two relations of the series used here, Eqs.~\eqref{eq:bridge} and~\eqref{eq:OmT}. The script \texttt{verify66.py}, deposited with this paper, recomputes every number in the text, tables and figures, including the shooting solutions of Table~\ref{tab:theorem}, in a few seconds with \texttt{numpy} and \texttt{scipy}, and prints \texttt{all checks passed}. The single most consequential number is the ratio $\betaZB^{p}/\betaZB^{e} = 22.18$, which requires only Eq.~\eqref{eq:bridge}, two anomalous moments and a square root. Reproducing the numbers checks the arithmetic of the paper, not the physics of the model: the same equations give the same numbers whether or not they describe nature.
 
 \begin{acknowledgments}
 This audit rests on the explicit statements of claim boundary and open task that Papers~\#52, \#58 and~\#63 record about themselves; the constraint derived here is a constraint only because those papers were precise about what they had not shown. Large language models (Claude, Anthropic) assisted with drafting, figure preparation and numerical checking. Their role was supportive; the physical content, the choices of reading and the responsibility for every statement rest with the author.
