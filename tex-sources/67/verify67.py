@@ -24,6 +24,8 @@ nuC=c/lamC; nuZB=B['e']*c/lamC
 chk('nu_C = c/lambda_C [Hz]',nuC,1.2356e20,1e-4)
 chk('nu_ZB = beta c/lambda_C [Hz]',nuZB,5.0007e18,1e-4)
 chk('T_tr = 1/nu_ZB [s]',1/nuZB,1.9997e-19,1e-4)
+chk('single passage T/2 [s]',0.5/nuZB,1.00e-19,2e-3)
+chk('kernel separation lambda_C/2 [m]',lamC/2,1.2132e-12,1e-3)
 chk('h nu_ZB [keV]',h*nuZB/e/1e3,20.68,1e-3)
 nuD=2*me*c**2/h
 chk('Dirac 2mc^2/h [Hz]',nuD,2.4712e20,1e-4)

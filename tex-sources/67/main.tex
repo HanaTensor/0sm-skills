@@ -89,7 +89,7 @@
 \date{\today}
 
 \begin{abstract}
-The 0-Sphere model describes the electron as two kernels, $A$ and $B$, a Compton wavelength apart, together with the energy carried between them, and asks how much of established physics follows from that internal structure without a spacetime metric assumed in advance.
+The 0-Sphere model describes the electron as two kernels, $A$ and $B$, half a Compton wavelength apart, together with the energy carried between them, and asks how much of established physics follows from that internal structure without a spacetime metric assumed in advance.
 This overview surveys the sixty-five deposited papers of the series, Papers~\#1--\#66 with \#16 a permanent numbering gap, as a single argument and as a corpus.
 The first part states the model in six steps: the energy identity of the two kernels and its reading as a quadratic form seen through the spinor double cover; the internal clock, whose transport speed $\betaZB = 0.0404720$ is fixed by the measured anomalous magnetic moment through the bridge equation and whose transport frequency $\nuZB = \betaZB c/\lambdaC = 5.0007\times10^{18}$~Hz lies a factor of $49.4$ below the Dirac Zitterbewegung frequency $2m_ec^{2}/h$; charge as a protected winding number and spin as the direction in which the transport progresses; the internal clock under gravity; the line-integral route from accumulated phase to the metric and the Maxwell equations; and the contact of the gravitational sector with the weak equivalence principle, which the sector passes for mass and binding and fails for composition by ten orders of magnitude.
 The second part records the corpus: its waves of development, a catalog with canonical DOIs, nine concept threads, the dependency structure, a corrections log that now includes an arithmetic error in the Dirac reference frequency of Papers~\#33, \#43 and~\#46, the open problems of the narrowed programme, and a reading roadmap.
@@ -262,13 +262,13 @@ which is the founding identity of the series~\cite{hanamura01}. \textbf{[0SM rea
 \begin{scope}[xshift=-4.6cm]
 \node[kernel, fill=kA] (A) at (-2.2,0) {};
 \node[kernel, fill=kB] (B) at (2.2,0) {};
-\node[below=3pt, font=\small, text=kA] at (A) {kernel $A$};
-\node[below=3pt, font=\small, text=kB] at (B) {kernel $B$};
+\node[left=3pt, font=\small, text=kA] at (A) {$A$};
+\node[right=3pt, font=\small, text=kB] at (B) {$B$};
 \draw[thick, -{Stealth[length=2mm]}, decorate, decoration={snake, amplitude=0.5mm, segment length=2.6mm, post length=2mm}] (-2.0,0.18) .. controls (-1.0,1.5) and (1.0,1.5) .. (2.0,0.18);
 \draw[thick, -{Stealth[length=2mm]}, decorate, decoration={snake, amplitude=0.5mm, segment length=2.6mm, post length=2mm}] (2.0,-0.18) .. controls (1.0,-1.5) and (-1.0,-1.5) .. (-2.0,-0.18);
 \node[font=\small] at (0,1.5) {transit $K$: photon sphere};
 \draw[neutral, dashed] (A) -- (B);
-\node[font=\scriptsize, neutral, fill=white, inner sep=1pt] at (0,0) {$\sim\lambdaC$};
+\node[font=\scriptsize, neutral, fill=white, inner sep=1pt] at (0,0) {$\lambdaC/2$};
 \node[font=\small] at (0,-1.6) {$\theta=0$ at $A$, $\theta=\pi$ at $B$};
 \node[font=\bfseries] at (-2.9,1.7) {(a)};
 \end{scope}
@@ -291,7 +291,7 @@ which is the founding identity of the series~\cite{hanamura01}. \textbf{[0SM rea
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
 \justifying\small
-(a) The electron's energy is carried between kernels $A$ and $B$, about a Compton wavelength apart, along a curved path; the curvature of the path is what later produces the Thomas precession (Sec.~\ref{sec:wep}). (b) The energy identity, Eq.~\eqref{eq:identity}. The three curves add to one at every phase. The energy in transit is largest at $\theta = \pi/2$ and $3\pi/2$, where it equals half the total, and vanishes when the energy sits at a kernel.
+(a) The electron's energy is carried between kernels $A$ and $B$, half a Compton wavelength apart, along a curved path, and one round trip covers $\lambdaC$; the curvature of the path is what later produces the Thomas precession (Sec.~\ref{sec:wep}). (b) The energy identity, Eq.~\eqref{eq:identity}. The three curves add to one at every phase. The energy in transit is largest at $\theta = \pi/2$ and $3\pi/2$, where it equals half the total, and vanishes when the energy sits at a kernel.
 \end{minipage}
 \end{figure*}
 
@@ -339,7 +339,7 @@ $\pi$ & $(0,1)$ & $(0,1,0)$ & all energy at $B$ \\
 \label{sec:clock}
 % ========================================
 
-\inbrief{The transport between the kernels takes time, and the series fixes its speed from one measured number, the anomalous magnetic moment of the electron: $4.05\%$ of the speed of light. One transport takes $2.00\times10^{-19}$~s, a frequency of $5.00\times10^{18}$~Hz. This subluminal frequency is the clock of every paper in the series; the light-speed value $c/\lambdaC$ and the Dirac value $2m_ec^{2}/h$ appear only as references.}
+\inbrief{The transport between the kernels takes time, and the series fixes its speed from one measured number, the anomalous magnetic moment of the electron: $4.05\%$ of the speed of light. One round trip of the energy, from $A$ to $B$ and back, takes $2.00\times10^{-19}$~s, a frequency of $5.00\times10^{18}$~Hz. This subluminal frequency is the clock of every paper in the series; the light-speed value $c/\lambdaC$ and the Dirac value $2m_ec^{2}/h$ appear only as references.}
 
 \subsection{The bridge equation}
 
@@ -352,19 +352,19 @@ With $a_e = 1.15965218\times10^{-3}$~\cite{codata2022} this gives $\vZB = 1.2133
 
 \subsection{Two frequencies and one length}
 
-The kernel separation is the Compton wavelength $\lambdaC = h/m_ec = 2.42631\times10^{-12}$~m. Paper~\#33 compared it with the shorter Zitterbewegung amplitude $\lambdaZB = \lambdaC/4\pi = 1.931\times10^{-13}$~m and chose $\lambdaC$ as the transport length (Appendices E--G of Paper~\#33~\cite{hanamura33}). Dividing the length by the transport speed gives the clock of the series, Paper~\#10's transport frequency,
+The transport length is the Compton wavelength $\lambdaC = h/m_ec = 2.42631\times10^{-12}$~m. Paper~\#33 compared it with the shorter Zitterbewegung amplitude $\lambdaZB = \lambdaC/4\pi = 1.931\times10^{-13}$~m and chose $\lambdaC$ (Appendices E--G of Paper~\#33~\cite{hanamura33}). What one cycle is follows from the energy identity, Eq.~\eqref{eq:identity}: the kernel energy $E_A = E_0\cos^{4}(\theta/2)$ returns to its starting value only at $\theta = 2\pi$, after the energy has gone from $A$ to $B$ and back. One cycle of the identity is one round trip of the photon sphere, and $\lambdaC$ is the path covered in one cycle; the kernels are $\lambdaC/2$ apart, the separation Paper~\#51 uses~\cite{hanamura51}. Dividing the transport speed by the path of one cycle gives the clock of the series, Paper~\#10's transport frequency,
 \begin{align}
 \nuZB &= \frac{\betaZB c}{\lambdaC} = 5.0007\times10^{18}~\text{Hz},
 \label{eq:nuZB}\\
 \Ttr &= \frac{1}{\nuZB} = 1.9997\times10^{-19}~\text{s},
 \notag
 \end{align}
-so that $\lambdaC = \vZB\Ttr$: the separation is built from the clock. The light-speed value $\nuC = c/\lambdaC = m_ec^{2}/h = 1.2356\times10^{20}$~Hz enters only as a reference, and the ratio of the two clocks is
+so that $\lambdaC = \vZB\Ttr$: the path of one round trip is built from the clock. A single passage $A\to B$ takes $\Ttr/2 = 1.00\times10^{-19}$~s, and the phase $\theta$ advances at $2\pi\nuZB = 3.14\times10^{19}$~rad/s. The light-speed value $\nuC = c/\lambdaC = m_ec^{2}/h = 1.2356\times10^{20}$~Hz enters only as a reference, and the ratio of the two clocks is
 \begin{equation}
 \frac{\nuZB}{\nuC} = \betaZB .
 \label{eq:ratio}
 \end{equation}
-The energy quantum of one transport is $h\nuZB = \betaZB m_ec^{2} = 20.68$~keV, about $1/24.7$ of the rest energy. \textbf{[standard]} The Dirac Zitterbewegung oscillates at $\nuD = 2m_ec^{2}/h = 2.4712\times10^{20}$~Hz~\cite{Schrodinger1930}, with angular frequency $2m_ec^{2}/\hbar = 1.5527\times10^{21}$~rad/s. The 0-Sphere transport frequency lies a factor $49.4$ below it. Table~\ref{tab:clocks} collects the quantities and Fig.~\ref{fig:ladder} places them on one axis.
+The energy quantum of one cycle is $h\nuZB = \betaZB m_ec^{2} = 20.68$~keV, about $1/24.7$ of the rest energy. \textbf{[standard]} The Dirac Zitterbewegung oscillates at $\nuD = 2m_ec^{2}/h = 2.4712\times10^{20}$~Hz~\cite{Schrodinger1930}, with angular frequency $2m_ec^{2}/\hbar = 1.5527\times10^{21}$~rad/s. The 0-Sphere transport frequency lies a factor $49.4$ below it. Table~\ref{tab:clocks} collects the quantities and Fig.~\ref{fig:ladder} places them on one axis.
 
 \begin{table*}[t!]
 \centering
@@ -378,13 +378,13 @@ The energy quantum of one transport is $h\nuZB = \betaZB m_ec^{2} = 20.68$~keV, 
 \midrule
 transport speed & Eq.~\eqref{eq:bridge} & $0.0404720\,c$ & fixed by $a_e$; unmeasured \\
 \addlinespace[0.15cm]
-kernel separation & $\lambdaC = h/m_ec$ & $2.42631\times10^{-12}$~m & transport length chosen in \#33 \\
+path of one cycle & $\lambdaC = h/m_ec$ & $2.42631\times10^{-12}$~m & chosen in \#33; kernels $\lambdaC/2$ apart (\#51) \\
 \addlinespace[0.15cm]
 transport frequency & $\nuZB = \betaZB c/\lambdaC$ & $5.0007\times10^{18}$~Hz & \textbf{the clock of the series} (\#10) \\
 \addlinespace[0.15cm]
-transport time & $\Ttr = 1/\nuZB$ & $1.9997\times10^{-19}$~s & one passage $A\to B$ \\
+cycle time & $\Ttr = 1/\nuZB$ & $1.9997\times10^{-19}$~s & one round trip $A\to B\to A$ \\
 \addlinespace[0.15cm]
-energy of one transport & $h\nuZB = \betaZB m_ec^{2}$ & $20.68$~keV & X-ray range \\
+energy of one cycle & $h\nuZB = \betaZB m_ec^{2}$ & $20.68$~keV & X-ray range \\
 \addlinespace[0.15cm]
 light-speed reference & $\nuC = c/\lambdaC$ & $1.2356\times10^{20}$~Hz & reference only; $\nuZB/\nuC = \betaZB$ \\
 \addlinespace[0.15cm]
@@ -397,7 +397,7 @@ alternative length & $\lambdaZB = \lambdaC/4\pi$ & $1.931\times10^{-13}$~m & not
 \vspace{0.2cm}
 \begin{minipage}{0.95\textwidth}
 \justifying\footnotesize
-Frequencies are counted per transport. How many transports one period of the phase $\theta$ contains, and hence the angular frequency to be written in formulas such as the Thomas precession, is a convention not yet fixed across the series (Sec.~\ref{sec:open}); it changes no entry of this table.
+Frequencies are counted per cycle of the energy identity, that is, per round trip of the photon sphere; the angular frequency of $\theta$ is $2\pi\nuZB$. Papers~\#65 and~\#66 described $\Ttr$ as one passage $A\to B$ and the kernel separation as $\lambdaC$; the correction is recorded in Table~\ref{tab:corrections}. No value in this table changes.
 \end{minipage}
 \end{table*}
 
@@ -714,7 +714,7 @@ Difference in free fall between titanium and platinum. Red: the prediction of th
 
 \subsection{One cause}
 
-\textbf{[0SM reading]} Paper~\#66 reads four difficulties as one: the composition dependence; the failure of charges non-linear in energy, which nuclear binding excludes by a still larger margin; the excluded local horizon freezing of Sec.~\ref{sec:gravclock}; and the residual factor of Paper~\#52 itself. In each, a kinematic quantity of the internal motion, fixed by the anomalous moment and therefore by the species, has been asked to carry a charge that must be the total energy alone. The same property explains both test results: the speed is constant, so binding cannot spoil linearity; the speed differs by species, so the response is not universal. The residual factor has a reading in terms of the two clocks of Eq.~\eqref{eq:ratio}: $\betaZB = \nuZB/\nuC$, so the force counts one transfer per transport where Newtonian free fall would need one per Compton cycle, and the missing factor $1/\betaZB$ is $24.7$ for the electron and $1.11$ for a nucleon. No single constant supplies it.
+\textbf{[0SM reading]} Paper~\#66 reads four difficulties as one: the composition dependence; the failure of charges non-linear in energy, which nuclear binding excludes by a still larger margin; the excluded local horizon freezing of Sec.~\ref{sec:gravclock}; and the residual factor of Paper~\#52 itself. In each, a kinematic quantity of the internal motion, fixed by the anomalous moment and therefore by the species, has been asked to carry a charge that must be the total energy alone. The same property explains both test results: the speed is constant, so binding cannot spoil linearity; the speed differs by species, so the response is not universal. The residual factor has a reading in terms of the two clocks of Eq.~\eqref{eq:ratio}: $\betaZB = \nuZB/\nuC$, so the force counts one transfer per transport cycle where Newtonian free fall would need one per Compton cycle, and the missing factor $1/\betaZB$ is $24.7$ for the electron and $1.11$ for a nucleon. No single constant supplies it.
 
 \subsection{The restart}
 
@@ -934,11 +934,13 @@ $^{\star}$ Foundational papers that the rest of the series presupposes. The Zeno
 \addlinespace[0.12cm]
 \#58 & chirality from $da/dt = \omega\cos\theta$ & \textbf{corrected} (C2): the symbol $a$ carries four meanings across the series (internal phase, kinematic convention, anomalous moment, kernel amplitude) & \#66 \\
 \addlinespace[0.12cm]
-\#58, \#60 & ejection at $\theta=\pi/2$ read as a chirality-degenerate point, so that the mediator is its own antiparticle & \textbf{retracted} (C3): the same point is assigned maximal transit energy and zero velocity; the velocity convention behind it remains open (Sec.~\ref{sec:open}) & \#66 \\
+\#58, \#60 & ejection at $\theta=\pi/2$ read as a chirality-degenerate point, so that the mediator is its own antiparticle & \textbf{retracted} (C3): the same point is assigned maximal transit energy and zero velocity; of the three layers behind it, the origin of the phase and the count of the cycle are fixed here, and the direction of the acceleration remains open (Sec.~\ref{sec:open}) & \#66 \\
 \addlinespace[0.12cm]
 \#33, \#46 & the Dirac Zitterbewegung frequency $\approx3.93\times10^{20}$~Hz, about $80$ (or $78$) times $\nuZB$ & \textbf{corrected}: $2m_ec^{2}/h = 2.471\times10^{20}$~Hz, a factor $49.4$ above $\nuZB$; the angular frequency $1.55\times10^{21}$~rad/s quoted in \#46 is right, and the slip is a division by about $4$ instead of $2\pi$. The conclusion that the two frequencies are different quantities is unchanged & this paper \\
 \addlinespace[0.12cm]
 \#43 & the Dirac frequency $2m_ec^{2}/h\approx1.6\times10^{20}$~Hz & \textbf{corrected}: $2.471\times10^{20}$~Hz & this paper \\
+\addlinespace[0.12cm]
+\#65 & the tick $\Ttr = 1/\nuZB$ described as one transport from $A$ to $B$, and the kernel separation as $\lambdaC = \betaZB c\,\Ttr$ & \textbf{corrected}: one cycle of the energy identity is a round trip $A\to B\to A$, so $\Ttr$ is the round-trip time and $\lambdaC$ the path of one round trip; the kernels are $\lambdaC/2$ apart, as in \#51. The equation $\lambdaC = \betaZB c\,\Ttr$ and every numerical value stand; \#66 is written in the corrected form & this paper \\
 \addlinespace[0.12cm]
 \#63 & horizon freezing of the gravitational coupling as an observable signature & local reading \textbf{excluded} by clock comparisons; the distant-observer reading coincides with general relativity & \#66 \\
 \addlinespace[0.12cm]
@@ -1172,9 +1174,38 @@ Green: inputs already established in the corpus. Orange: the four tasks of Table
 \end{minipage}
 \end{figure*}
 
-\subsection{The velocity convention}
+\subsection{The velocity convention and the direction of the acceleration}
 
-\textbf{[0SM reading]} One convention is not yet fixed across the series, and it was the root of correction C3. Paper~\#10 writes the transport velocity as $v = v_0\cos\omega t$, at rest at $\omega t = \pi/2$; the energy description that runs from Paper~\#49 to Paper~\#65 places the maximum of the transit energy, and hence the fastest transport, at $\theta = \pi/2$ (Fig.~\ref{fig:kernel}). With kernel $A$ at $\theta = 0$, as in Paper~\#65, the transit energy $K = \tfrac12E_0\sin^{2}\theta$ read as kinetic energy gives $|v|\propto|\sin\theta|$, and Paper~\#10's form describes the same motion with its time origin at the midpoint, $\omega t = \theta - \pi/2$. Paper~\#58 combined the velocity of the first with the energy of the second at the same $\theta$. The convention has three layers. The first is the origin of the phase. The second is the number of transports in one period of $\theta$: one transport $A\to B$ is $\Delta\theta = \pi$, so the angular frequency of $\theta$ is $\pi\nuZB = 1.57\times10^{19}$~rad/s, while Paper~\#58 writes $2\pi\nuZB = 3.14\times10^{19}$~rad/s; the choice scales the amplitude of $\OmT$ by a factor of two. The third is not a convention: Papers~\#10 and~\#49 place the acceleration perpendicular to the velocity, which is not the time derivative of $v_0\cos\omega t$, and deriving the transverse geometry of the curved path is open task~(viii) of Paper~\#49. The form $\OmT\propto\sin2\theta$, its two peaks per cycle and its integral over a period, $\betaZB^{2} = 1.64\times10^{-3}$~rad, are the same under every choice, and so are the conclusions of Paper~\#66.
+\textbf{[0SM reading]} The kinematics of the transport was the root of correction C3, and it has three layers.
+
+\paragraph{The origin of the phase.} Paper~\#10 writes the transport velocity as $v = v_0\cos\omega t$, at rest at $\omega t = \pi/2$; the energy description from Paper~\#49 to Paper~\#65 places the maximum of the transit energy, and hence the fastest transport, at $\theta = \pi/2$ (Fig.~\ref{fig:kernel}). With kernel $A$ at $\theta = 0$, as in Paper~\#65, the transit energy $K = \tfrac12E_0\sin^{2}\theta$ read as kinetic energy gives $|v|\propto|\sin\theta|$, and Paper~\#10's form describes the same motion with its time origin at the midpoint, $\omega t = \theta - \pi/2$. Paper~\#58 combined the velocity of the first with the energy of the second at the same $\theta$. The overview adopts the origin of Paper~\#65.
+
+\paragraph{The count of the cycle.} One period of $\theta$ is one cycle of the energy identity, which is one round trip of the photon sphere (Sec.~\ref{sec:clock}). The angular frequency of $\theta$ is therefore $2\pi\nuZB = 3.14\times10^{19}$~rad/s, the value Paper~\#58 uses, and a single passage $A\to B$ is $\Delta\theta = \pi$.
+
+\paragraph{The direction of the acceleration.} This layer is not a convention but an open derivation, task~(viii) of Paper~\#49. Two descriptions of the same transport give opposite answers (Fig.~\ref{fig:frames}). Referred to the two kernels, the transport is a harmonic oscillation between two points, like a mass on a spring: velocity and acceleration lie on the line joining the kernels, $\mathbf v\times\mathbf a = 0$, and there is no Thomas precession. Referred to the winding of the internal amplitude, $z = \cos(\theta/2) + i\sin(\theta/2)$ is uniform circular motion: velocity and acceleration are perpendicular, $|\mathbf v\times\mathbf a|$ is constant, and so is $\OmT$. The form of Papers~\#10, \#49 and~\#58, $\mathbf v = v_0\cos\omega t\,\hat e_x$ with $\mathbf a = -v_0\omega\sin\omega t\,\hat e_y$, takes its magnitudes from the spring and its directions from the circle; $\mathbf a$ is not the time derivative of $\mathbf v$, and the product $\sin2\theta$ arises from the combination. A single motion that keeps both, the speed of the spring and the turning of the circle, is transport along a curved path at a varying speed. Along an arc of radius $R$ at speed $s = v_0|\sin\theta|$ only the normal acceleration $s^{2}/R$ enters the cross product, $\mathbf v\times\mathbf a = s^{3}/R$, and $\OmT\simeq s^{3}/(2c^{2}R)\propto|\sin\theta|^{3}$. If the return leg retraces the outward arc, $\OmT$ changes sign between the legs; if it runs along the other side, so that the round trip closes a loop as drawn in Fig.~\ref{fig:kernel}(a), $\OmT$ keeps one sign over the whole cycle and the precession is a vortex with the same orientation as the winding of Sec.~\ref{sec:charge}. The candidate keeps the period $\pi$ that Paper~\#48 reads as spin~2, and it changes the sign pattern within a cycle and the amplitude, which now contains $R$. For $R$ of order $\lambdaC$ the amplitude still scales as $\vZB^{2}\nuZB$ and the integral over a cycle as $\betaZB^{2}$, so the conclusions of Paper~\#66 are unchanged. Whether $|\sin\theta|^{3}$ replaces $\sin2\theta$ is not decided here.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=8.4cm, height=4.8cm, xmin=0, xmax=6.2832, ymin=-1.15, ymax=1.35,
+  xtick={0,1.5708,3.1416,4.7124,6.2832}, xticklabels={$0$,$\pi/2$,$\pi$,$3\pi/2$,$2\pi$},
+  xlabel={internal phase $\theta$}, ylabel={$\OmT$ (normalised)}, label style={font=\small}, tick label style={font=\footnotesize},
+  legend style={font=\scriptsize, at={(0.5,1.02)}, anchor=south, legend columns=2, draw=none}, axis lines=left]
+\addplot[domain=0:6.2832, samples=2, very thick, neutral] {0};
+\addplot[domain=0:6.2832, samples=2, very thick, kA, dashed] {1};
+\addplot[domain=0:6.2832, samples=161, very thick, kB] {sin(deg(2*x))};
+\addplot[domain=0:6.2832, samples=161, very thick, pass] {abs(sin(deg(x)))^3};
+\legend{spring ($\mathbf v\parallel\mathbf a$), circle (winding), \#10/\#58: $\sin2\theta$, closed loop: $|\sin\theta|^{3}$}
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{Thomas precession over one round trip in four descriptions}}
+\label{fig:frames}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+Grey: the transport as a spring between the kernels, with no precession. Dashed blue: the winding of the internal amplitude, uniform circular motion with constant precession. Orange: the form of Papers~\#10, \#49 and~\#58, which takes magnitudes from the spring and directions from the circle and changes sign four times per cycle. Green: a closed loop traversed at the varying speed of the spring, one sign over the cycle with one peak per passage. All curves are normalised to unit peak; the green curve is the candidate stated in the text, not a result.
+\end{minipage}
+\end{figure}
 
 \subsection{Items left open by Paper~\#65}
 
@@ -1281,6 +1312,7 @@ the bridge equation beyond the electron & $\star$\#10 $\to$ \#47 $\to$ \#61 $\to
 \midrule
 internal speed $0.040374c$ & one speed, $0.04047c$ (Eq.~\eqref{eq:bridge}) & \#10; Table~\ref{tab:retract} \\
 Dirac frequency $3.93\times10^{20}$ or $1.6\times10^{20}$~Hz & $2m_ec^{2}/h = 2.47\times10^{20}$~Hz, $49.4\,\nuZB$ & Table~\ref{tab:corrections} \\
+one passage $A\to B$ per $2.00\times10^{-19}$~s; kernels $\lambdaC$ apart & one round trip per $2.00\times10^{-19}$~s; path $\lambdaC$ per cycle, kernels $\lambdaC/2$ apart & \#51; Table~\ref{tab:corrections} \\
 internal clock at $c/\lambdaC$ or at the Dirac frequency & $\nuZB = \betaZB c/\lambdaC = 5.00\times10^{18}$~Hz; the others are references & \#10, \#33; Table~\ref{tab:clocks} \\
 the fourth power as black-body radiation & a quadratic form seen through the double cover & \#65 \\
 the reversed rotor, or the sheets of the exchange, as spin & charge partner; radiating and absorbing roles & \#65 \\

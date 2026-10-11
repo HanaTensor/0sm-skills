@@ -602,7 +602,7 @@ about $1.21\times10^{7}$~m/s. This is not the speed of the electron as a whole; 
 \Ttr &\;=\; 1/\nuZB \;=\; 1.9997\times10^{-19}\ \text{s},
 \label{eq:g_tick}
 \end{align}
-exactly $\betaZB$ times the branch rate. One tick is one transport from $A$ to $B$, and the kernel separation is the distance covered in one tick, $\lambdaC = \betaZB c\,\Ttr$. Read as a definition this is speed times time; its content is the reversal of the order, in which distance is built from the clock rather than the clock from a given distance. The speed itself is a prediction, fixed by $a_e$ with no free parameter and not yet measured. Equation~\eqref{eq:g_beta} is a relation of the model, not of the standard theory.
+exactly $\betaZB$ times the branch rate. One tick is one cycle of the identity, a round trip of the photon sphere from $A$ to $B$ and back, and the path covered in one tick is $\lambdaC = \betaZB c\,\Ttr$; the kernels themselves are $\lambdaC/2$ apart, as in Paper~\#51~\cite{hanamura51}. Read as a definition this is speed times time; its content is the reversal of the order, in which distance is built from the clock rather than the clock from a given distance. The speed itself is a prediction, fixed by $a_e$ with no free parameter and not yet measured. Equation~\eqref{eq:g_beta} is a relation of the model, not of the standard theory.
 
 \begin{table}[t!]
 \centering
@@ -615,7 +615,7 @@ exactly $\betaZB$ times the branch rate. One tick is one transport from $A$ to $
 \midrule
 Dirac branch phase & $1.2356\times10^{20}$~Hz & phase of each branch; light-speed reference $\nuC$ \\
 \addlinespace[0.2cm]
-transport cycle & $5.0007\times10^{18}$~Hz & one transport per tick; internal time \\
+transport cycle & $5.0007\times10^{18}$~Hz & one round trip $A\to B\to A$ per tick; internal time \\
 \addlinespace[0.2cm]
 ratio & $\betaZB = 0.040472$ & fixed by $a_e$ \\
 \addlinespace[0.2cm]
@@ -795,7 +795,7 @@ about $12{,}133$~km/s, and the number of transports per second is the distance d
 \nuZB \;=\; \frac{\betaZB\,c}{\lambdaC} \;=\; 5.0007\times10^{18}\ \text{Hz}.
 \label{eq:nuZB}
 \end{equation}
-Equation~\eqref{eq:nuZB} is the frequency convention of the whole paper. One transport, from one kernel to the other, lasts $\Ttr = 1/\nuZB = 1.9997\times10^{-19}$~s. Paper~\#65 reads this tick as the internal time of the electron, so that Eq.~\eqref{eq:nuZB} can be read the other way round: the kernel separation is the transport speed times one tick,
+Equation~\eqref{eq:nuZB} is the frequency convention of the whole paper. One cycle, from one kernel to the other and back, lasts $\Ttr = 1/\nuZB = 1.9997\times10^{-19}$~s, so that a single passage takes half of it. The cycle is fixed by the energy identity: $E_A = E_0\cos^{4}(\iphase/2)$ returns to $E_0$ only at $\iphase = 2\pi$, after a full round trip. Paper~\#65 reads this tick as the internal time of the electron, so that Eq.~\eqref{eq:nuZB} can be read the other way round: the path of one round trip is the transport speed times one tick,
 \begin{equation}
 \lambdaC \;=\; \betaZB\,c\,\Ttr .
 \label{eq:clock}
@@ -823,7 +823,7 @@ Paper~\#10 introduced exactly this comparison when it first computed Eq.~\eqref{
 \draw[very thick, kB, -{Stealth[length=3mm]}] (5.25,-0.25) .. controls (3.7,-1.05) and (1.9,-1.05) .. (0.35,-0.25);
 \node[font=\small, kA] at (2.8,1.3) {$A$ radiates, $B$ absorbs};
 \node[font=\small, kB] at (2.8,-1.3) {$B$ radiates, $A$ absorbs};
-\draw[|<->|, neutral] (0,-1.85) -- node[below, font=\small, text=black] {$\lambdaC = h/mc = 2.426\times10^{-12}$\,m} (5.6,-1.85);
+\draw[|<->|, neutral] (0,-1.85) -- node[below, font=\small, text=black] {$\lambdaC/2$; one round trip covers $\lambdaC = 2.426\times10^{-12}$\,m} (5.6,-1.85);
 \node[box, text width=2.7cm] at (1.2,-3.45) {speed $\vZB = \betaZB c$\\$\betaZB = 0.040472$\\(Paper~\#10)};
 \node[box, text width=2.9cm] at (4.6,-3.45) {tick $\Ttr = 1.9997\times10^{-19}$\,s\\$\lambdaC = \betaZB c\,\Ttr$\\(Paper~\#65)};
 \node[font=\small\bfseries] at (-0.7,1.6) {(a)};
@@ -850,7 +850,7 @@ Paper~\#10 introduced exactly this comparison when it first computed Eq.~\eqref{
 \vspace{0.4em}
 \begin{minipage}{0.95\textwidth}
 \justifying\small
-(a) The electron's energy is carried between kernels $A$ and $B$, a Compton wavelength apart, at the average speed $\betaZB c$ fixed by the anomalous magnetic moment (Paper~\#10). While one kernel radiates the other absorbs, so the total is conserved at every instant. One transport is one tick of the internal clock, and Eq.~\eqref{eq:clock} reads the kernel separation as speed times tick. (b) The occupations $n_A = \cos^{2}(\iphase/2) = \tfrac14 + \tfrac14 + \tfrac12\cos\iphase$ and $n_B = 1 - n_A$ over one return cycle. The two constant quarters come from the two Dirac branches separately; the oscillating half is their interference, which the model reads as the energy exchange (Paper~\#65). The phase advances by $\pi$ per tick.
+(a) The electron's energy is carried between kernels $A$ and $B$, half a Compton wavelength apart, at the average speed $\betaZB c$ fixed by the anomalous magnetic moment (Paper~\#10). While one kernel radiates the other absorbs, so the total is conserved at every instant. One round trip is one tick of the internal clock, and Eq.~\eqref{eq:clock} reads its path, $\lambdaC$, as speed times tick. (b) The occupations $n_A = \cos^{2}(\iphase/2) = \tfrac14 + \tfrac14 + \tfrac12\cos\iphase$ and $n_B = 1 - n_A$ over one return cycle. The two constant quarters come from the two Dirac branches separately; the oscillating half is their interference, which the model reads as the energy exchange (Paper~\#65). The phase advances by $2\pi$ per tick, $\pi$ per passage.
 \end{minipage}
 \end{figure*}
 
@@ -903,7 +903,7 @@ The property of $\betaZB$ on which both tests turn is visible in Eq.~\eqref{eq:b
 \end{equation}
 The factor $\sin 2\iphase$ has half the period of the transport cycle. Paper~\#48~\cite{hanamura48} reads the three periodicities $4\pi$, $2\pi$ and $\pi$ present in the cycle as spin $\tfrac12$, $1$ and $2$, which makes the $\pi$-periodic $\OmT$ the series' candidate for the spin-2, gravitational sector. The identification is a candidate: the demonstration that the $\pi$-periodic structure carries rank-2 tensor transformation properties has been open since Paper~\#48, and Paper~\#65 records the correspondence of the layers $\tfrac12$, $1$, $2$ with spin, charge and quadrupole as open. Section~\ref{subsec:rank2} returns to it.
 
-Two features of Eq.~\eqref{eq:OmT} are used below and both are robust. Its amplitude is proportional to $\vZB^{2}\omZB$, and its integral over one period $2\pi/\omZB$ is $\vZB^{2}/c^{2}$, independent of $\omZB$. Paper~\#58 writes $\omZB = 2\pi\nuZB$; how many transports one period of $\iphase$ contains is the convention question of entry C3 of Sec.~\ref{sec:corrections}, and it changes the amplitude of $\OmT$ by a fixed factor without changing either feature.
+Two features of Eq.~\eqref{eq:OmT} are used below and both are robust. Its amplitude is proportional to $\vZB^{2}\omZB$, and its integral over one period $2\pi/\omZB$ is $\vZB^{2}/c^{2}$, independent of $\omZB$. Paper~\#58 writes $\omZB = 2\pi\nuZB$, which is the angular frequency of $\iphase$ when one period of $\iphase$ is one round trip of the transport, as the energy identity requires. The direction of the acceleration relative to the velocity is the open part of entry C3 of Sec.~\ref{sec:corrections}; it can change the form and amplitude of $\OmT$, but not the two features used here.
 
 \subsection{How the Series Proposes That Gravity Is Generated}
 \label{subsec:primer_gravity}
@@ -1173,7 +1173,7 @@ Green: established within the framework or standard. Orange: proposed within the
 \end{minipage}
 \end{table*}
 
-\established{The electron's energy is carried between two kernels a Compton wavelength apart at the average speed $\betaZB c$, with $\betaZB = 0.040472$ a pure number fixed by the anomalous moment. The internal clock ticks at $\nuZB = \betaZB c/\lambdaC$, a factor $\betaZB$ below the light-speed reference $c/\lambdaC$. Paper~\#52's force is $mg\,\betaZB$: one momentum transfer per transport tick. The standard benchmarks are the Dirac energy of a bound electron and the E\"otv\"os parameter.}
+\established{The electron's energy is carried back and forth between two kernels half a Compton wavelength apart at the average speed $\betaZB c$, with $\betaZB = 0.040472$ a pure number fixed by the anomalous moment. The internal clock ticks at $\nuZB = \betaZB c/\lambdaC$, a factor $\betaZB$ below the light-speed reference $c/\lambdaC$. Paper~\#52's force is $mg\,\betaZB$: one momentum transfer per transport tick. The standard benchmarks are the Dirac energy of a bound electron and the E\"otv\"os parameter.}
 
 % ========================================
 \section{Test 2: The Cancellation for a Bound Electron}
@@ -2036,11 +2036,11 @@ The paper splits the principle into three requirements (Table~\ref{tab:threetest
 
 \subsection{The model in one paragraph}
 
-The model describes the electron by two kernels, $A$ and $B$, a Compton wavelength apart, and the energy carried between them; Part~I explains the construction, published as Paper~\#65. The energy is not fixed at either kernel. It is carried back and forth, and the energy in transit is counted as a term of its own. The existence of the two kernels is an assumption of the model, not an experimental fact, and the paper keeps mathematics, the model and nature apart throughout (Table~\ref{tab:layers}).
+The model describes the electron by two kernels, $A$ and $B$, half a Compton wavelength apart, and the energy carried between them; Part~I explains the construction, published as Paper~\#65. The energy is not fixed at either kernel. It is carried back and forth, and the energy in transit is counted as a term of its own. The existence of the two kernels is an assumption of the model, not an experimental fact, and the paper keeps mathematics, the model and nature apart throughout (Table~\ref{tab:layers}).
 
 \subsection{The internal clock}
 
-The bridge between Part~I and Part~II is the transport speed. From the measured anomalous magnetic moment of the electron, the series' bridge equation gives $\betaZB = 0.040472$: the energy inside the electron is carried at about $4\%$ of the speed of light, $1.21\times10^{7}$~m/s, while the electron as a whole may be at rest. The bridge equation is a relation of the 0-Sphere series, not of quantum electrodynamics, and using a measured input does not make the speed measured. Two frequencies follow (Table~\ref{tab:g_clocks}): the light-speed reference $\nuC = c/\lambdaC = 1.2356\times10^{20}$~Hz and the transport frequency $\nuZB = \betaZB c/\lambdaC = 5.0007\times10^{18}$~Hz, whose ratio is $\betaZB$. One transport takes $\Ttr = 2.00\times10^{-19}$~s, and the kernel separation is $\lambdaC = \vZB\Ttr$. Part~II asks whether, granting this clock, its use as the source of gravity is consistent with known physics.
+The bridge between Part~I and Part~II is the transport speed. From the measured anomalous magnetic moment of the electron, the series' bridge equation gives $\betaZB = 0.040472$: the energy inside the electron is carried at about $4\%$ of the speed of light, $1.21\times10^{7}$~m/s, while the electron as a whole may be at rest. The bridge equation is a relation of the 0-Sphere series, not of quantum electrodynamics, and using a measured input does not make the speed measured. Two frequencies follow (Table~\ref{tab:g_clocks}): the light-speed reference $\nuC = c/\lambdaC = 1.2356\times10^{20}$~Hz and the transport frequency $\nuZB = \betaZB c/\lambdaC = 5.0007\times10^{18}$~Hz, whose ratio is $\betaZB$. One round trip of the transported energy takes $\Ttr = 2.00\times10^{-19}$~s and covers the path $\lambdaC = \vZB\Ttr$; the kernels are $\lambdaC/2$ apart. Part~II asks whether, granting this clock, its use as the source of gravity is consistent with known physics.
 
 \subsection{How gravity is supposed to arise}
 
@@ -2060,7 +2060,7 @@ The same bridge equation gives the proton and the neutron transport speeds of ab
 
 \subsection{What the residual factor means}
 
-The residual factor has a reading in terms of the two clocks, $\betaZB = \nuZB/\nuC$. Paper~\#52's force counts one momentum transfer per transport; Newtonian free fall would need one per Compton cycle. The missing factor is therefore $\nuC/\nuZB = 1/\betaZB$: $24.71$ for the electron, $1.114$ for the proton, $1.105$ for the neutron. No single constant supplies it. The completing mechanism must remove the species-dependent speed from the force altogether. The internal transport itself need not be abandoned; what cannot be done is to use its speed as the definition of the coupling strength.
+The residual factor has a reading in terms of the two clocks, $\betaZB = \nuZB/\nuC$. Paper~\#52's force counts one momentum transfer per transport cycle; Newtonian free fall would need one per Compton cycle. The missing factor is therefore $\nuC/\nuZB = 1/\betaZB$: $24.71$ for the electron, $1.114$ for the proton, $1.105$ for the neutron. No single constant supplies it. The completing mechanism must remove the species-dependent speed from the force altogether. The internal transport itself need not be abandoned; what cannot be done is to use its speed as the definition of the coupling strength.
 
 \subsection{The internal clock in a gravitational field}
 
