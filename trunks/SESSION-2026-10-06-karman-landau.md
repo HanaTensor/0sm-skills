@@ -3,7 +3,7 @@
 - ファイル: `trunks/SESSION-2026-10-06-karman-landau.md`
 - 再現スクリプト: `trunks/SESSION-2026-10-06-karman-landau-verification.py`（numpy のみで動く。scipy があれば quad を使い、無ければ複合シンプソンに落ちる。両経路で全項目 OK、2026-10-06 実行済み）
 - 性格: **幹ではない。** Claude Chat のセッションを Claude Code に移すための一回限りの引き継ぎ。規約「HANDOFF 文書は作らない（成果物の外に状態を置くと乖離する）」に抵触するので、**Claude Code 側の最初の仕事は本書の内容を幹の新版（§6 の表）に吸収すること**。吸収が済んだら本書は記録にすぎず、以後の状態は幹と `wall-practice-index.md` にだけ置く。置き場は著者判断で `history/` に移してよい。
-- 前提とする幹（現行版）: `trunks/README.md` §0（著者宣言・バイアス境界）／T1 `T1-2026-09-24-identity-algebra.md`／T2 `T2-2026-09-15-quantum-numbers.md`／T4 `T4-2026-09-19-internal-dynamics.md`／T5 `T5-2026-09-15-interaction-picture.md`／T7 `T7-2026-09-15-two-particles.md`
+- 前提とする幹（現行版）: `trunks/README.md` §0（著者宣言・バイアス境界）／T1 `T1-2026-09-24-identity-algebra.md`／T2 `archive/T2-2026-09-15-quantum-numbers.md`／T4 `archive/T4-2026-09-19-internal-dynamics.md`／T5 `T5-2026-09-15-interaction-picture.md`／T7 `archive/T7-2026-09-15-two-particles.md`
 - 一次資料で実際に開いたもの: `tex-sources/1/main.tex`（#1）、`tex-sources/51/main.tex`（#51）。行番号は 2026-10-06 時点の clone のもの
 
 ---
@@ -195,7 +195,7 @@ $$
 手順:
 1. `skill-updates/0sm-wall-practice-SKILL.md` を読み、`wall-practice-index.md` の §0・§2、`trunks/README.md` の §0 を読む。
 2. `trunks/SESSION-2026-10-06-karman-landau.md` を丸ごと読み、`trunks/SESSION-2026-10-06-karman-landau-verification.py` を実行して全項目 OK を確認する。
-3. 現行幹を丸ごと読む: `T4-2026-09-19-internal-dynamics.md`、`T7-2026-09-15-two-particles.md`（この二本は今日書く）。参照のみ: `T1-2026-09-24-identity-algebra.md`、`T2-2026-09-15-quantum-numbers.md`、`T5-2026-09-15-interaction-picture.md`。
+3. 現行幹を丸ごと読む: `archive/T4-2026-09-19-internal-dynamics.md`、`archive/T7-2026-09-15-two-particles.md`（この二本は今日書く）。参照のみ: `T1-2026-09-24-identity-algebra.md`、`archive/T2-2026-09-15-quantum-numbers.md`、`T5-2026-09-15-interaction-picture.md`。
 4. 最初の仕事: 引き継ぎ §6 の表の順で **T4 と T7 の新版（日付 2026-10-06）** を起こす。旧版は残す。T4 は T4.2 の補と K3 への材料と開始時刻の補題、T7 は T7.2（一粒の Malus 検定、KS 1967）と K3 の具体化と K5（準備後の軸の分布、著者判断待ち）。`trunks/README.md` の幹一覧と `wall-practice-index.md` §0 の該当行を更新し、再開手順の節から新しい資料を指す。
 5. 書き終えたら、引き継ぎ §5 の著者判断四件を提示して止まる。T1・T2・T5 への書き戻しは判断の後。
 6. 引き継ぎ §4 の訂正三件は、該当箇所（T2 K16 の注、T1-2026-09-24 の注、index §7.10）に「#51 の 191・568 行も見よ」を付す形で記帳する。
