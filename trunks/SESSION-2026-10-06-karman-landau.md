@@ -3,7 +3,7 @@
 - ファイル: `trunks/SESSION-2026-10-06-karman-landau.md`
 - 再現スクリプト: `trunks/SESSION-2026-10-06-karman-landau-verification.py`（numpy のみで動く。scipy があれば quad を使い、無ければ複合シンプソンに落ちる。両経路で全項目 OK、2026-10-06 実行済み）
 - 性格: **幹ではない。** Claude Chat のセッションを Claude Code に移すための一回限りの引き継ぎ。規約「HANDOFF 文書は作らない（成果物の外に状態を置くと乖離する）」に抵触するので、**Claude Code 側の最初の仕事は本書の内容を幹の新版（§6 の表）に吸収すること**。吸収が済んだら本書は記録にすぎず、以後の状態は幹と `wall-practice-index.md` にだけ置く。置き場は著者判断で `history/` に移してよい。
-- 前提とする幹（現行版）: `trunks/README.md` §0（著者宣言・バイアス境界）／T1 `T1-2026-09-24-identity-algebra.md`／T2 `archive/T2-2026-09-15-quantum-numbers.md`／T4 `archive/T4-2026-09-19-internal-dynamics.md`／T5 `T5-2026-09-15-interaction-picture.md`／T7 `archive/T7-2026-09-15-two-particles.md`
+- 前提とする幹（現行版）: `trunks/README.md` §0（著者宣言・バイアス境界）／T1 `T1-2026-09-24-identity-algebra.md`／T2 `archive/T2-2026-09-15-quantum-numbers.md`／T4 `archive/T4-2026-09-19-internal-dynamics.md`／T5 `archive/T5-2026-09-15-interaction-picture.md`／T7 `archive/T7-2026-09-15-two-particles.md`
 - 一次資料で実際に開いたもの: `tex-sources/1/main.tex`（#1）、`tex-sources/51/main.tex`（#51）。行番号は 2026-10-06 時点の clone のもの
 
 ---
