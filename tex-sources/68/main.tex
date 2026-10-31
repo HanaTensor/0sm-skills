@@ -1,0 +1,568 @@
+% =============================================================================
+% Paper #68 (0-Sphere model corpus) — structural short note
+% STATUS (2026-10-31): drafted from trunk T1 (T1.26–T1.31, K17–K19) and the
+%   working record trunks/SESSION-2026-10-31-nucleon-five-term.md.
+%   〔max探索｜2026-10-31｜Opus 5.5・Effort = Max〕
+%   Not deposited. Number #68 assigned by the author (2026-10-31); the deposit
+%   order relative to #66/#67 (both pending) is the author's decision.
+% PENDING:
+%   - Sec. IV D (visibility): scoped to the nucleon on purpose. Revise after the
+%     re-examination of the visibility statement of Paper #38 (trunk T1, K2;
+%     trunks/SESSION-2026-10-31-visibility-bound.md, draft, not yet committed).
+% REPRODUCTION: python3 -I verify68.py  (47 checks, H1–H16; same as
+%   trunks/SESSION-2026-10-31-nucleon-five-term-verification.py)
+% FIGURE: fig_five_terms.png (= trunks/SESSION-2026-10-31-nucleon-five-term.png)
+% =============================================================================
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+% 基本パッケージ
+\usepackage{graphicx}
+\usepackage{bm}
+% 量子力学記法
+\usepackage{physics}
+% ハイパーリンク
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+% キャプション設定
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+% 数式番号をセクションごとに
+\numberwithin{equation}{section}
+% タイポグラフィ調整
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+% マイクロタイポグラフィ
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+% \midrule、\addlinespace、\bottomruleを使う
+\usepackage{booktabs}
+\usepackage{enumitem}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+% --- paragraph heading: run-in italic with extra top skip for block readability ---
+\makeatletter
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+    {3mm \@plus 1ex \@minus .2ex}%   前 (block separator)
+    {-1em}%                          後 (負値で run-in 維持)
+    {\normalfont\normalsize\itshape}}
+\makeatother
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+% 色定義 (薄いブルー系 - 学術論文向け)
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+% Pythonスタイル定義
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
+\lstset{style=pythonstyle}
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+% --- Custom Macros ---
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+% Fundamental 1-form
+% \newcommand{\Pi}{\boldsymbol{\Pi}}
+% Field strength 2-form
+\newcommand{\FF}{\mathbf{F}}
+% Open Wilson line
+\newcommand{\WL}{\mathcal{W}}
+% Hodge dual
+\newcommand{\hodge}{\star}
+
+\begin{document}
+
+\title{A Five-Term Chain from the Energy Identity of the 0-Sphere Model:\\ Classification, Carrier Resolution, and Constraints from Nucleon Data}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+
+\date{October 31, 2026}
+
+\begin{abstract}
+The 0-Sphere model writes the rest energy of the electron as the identity $\cos^4(\theta/2)+\sin^4(\theta/2)+\tfrac12\sin^2\theta=1$, assigning the two fourth-power terms to the thermal potential energies of two kernels and the cross term to the kinetic energy of the photon sphere that carries energy between them.
+We ask whether the same construction can be extended to the nucleon by an identity with three principal terms and two linking terms between them.
+All identities $\sum a_{ij}\cos^{2i}(\theta/2)\sin^{2j}(\theta/2)=1$ with positive integer coefficients form a finite set at each degree; we enumerate them up to the twelfth power.
+Requiring symmetry under exchange of the kernels and a strict alternation of principal (even--even) and linking (odd--odd) terms leaves exactly two five-term identities.
+One, P4, is the square of the electron identity and coincides with the completeness relation of a spin-2 coherent state; the other, C5, keeps the two kernels of the electron unchanged and resolves only the carrier term, $\mathrm{KE}\to\mathrm{KE}\,(\mathrm{TPE}+\mathrm{KE})$, giving a third principal term $\mathrm{KE}^2$ and two kernel--carrier links.
+The chain has two links rather than three because the end-to-end interference carries the same index as the middle term and is absorbed into it, and identities containing odd powers such as $\cos^6$ cannot support a symmetric chain because half-integer spin exchanges principal and linking terms.
+By the model's own criteria, a harmonic kernel difference and the phase-averaged $3{:}1$ split, C5 is preferred; at the emission phase its three principal terms are equal.
+Confronted with nucleon data, numerical coincidences with QCD fractions carry no weight (random fractions match as often), the $3{:}1$ split is kinematic, the neutron lifetime is not a beat of detuned kernels, the principal terms are not valence quarks, and an interference-visibility mechanism proposed earlier for the electron cannot be carried to the nucleon's principal terms, since neutron interferometers reach a contrast of $0.92$.
+What survives is a consistent ledger and two measurable doors: the total gravitational $D$-term of the nucleon, which could decide an open fourfold ambiguity in the model's boundary stress, and the neutron magnetic moment read as a cross-term quantity.
+No parameter is fitted, no new number is claimed, and all statements are checked by a script supplied with the paper.
+\end{abstract}
+
+\maketitle
+
+\section{Introduction}
+\label{sec:intro}
+
+The 0-Sphere model describes the electron as two separated kernels that exchange a captured photon. Its central relation is the energy identity~\cite{ref:p1}
+\begin{equation}
+E_0=E_0\left[\cos^4\tfrac{\theta}{2}+\sin^4\tfrac{\theta}{2}+\tfrac12\sin^2\theta\right],
+\label{eq:E0}
+\end{equation}
+in which the two fourth-power terms are the thermal potential energies $\mathrm{TPE}_A$ and $\mathrm{TPE}_B$ of kernels $A$ and $B$, and the cross term is the kinetic energy $\mathrm{KE}$ of the photon sphere that carries energy between them~\cite{ref:p10,ref:p65}. As mathematics, Eq.~\eqref{eq:E0} is the expansion of $1=(\cos^2\frac{\theta}{2}+\sin^2\frac{\theta}{2})^2$ and says nothing; all physics lies in the assignment of its terms and in the reading of $\theta$ as an internal time~\cite{ref:trunks}.
+
+For the proton, an earlier paper of the series~\cite{ref:p61} applied the bridge equation $\gamma=1+|a|$ of the model~\cite{ref:p10,ref:p62} to the proton's anomalous magnetic moment and obtained a kernel rest mass $m_p/\gamma_p\approx336$~MeV inside the constituent-quark band. That paper treated the proton as a single kernel oscillator and left its internal structure, and the connection to the strong sector, to future work. The present note asks the next question: can the identity itself be extended so that it has three principal terms, as for three constituents, and two terms between them that play the role of the interactions? We call the three terms \emph{principal} and the two \emph{linking}.
+
+The note reports four results.
+\begin{enumerate}[leftmargin=*,itemsep=1pt]
+\item \emph{Classification.} Among all identities with positive integer coefficients up to the twelfth power, exactly two five-term identities are symmetric under exchange of the kernels and alternate strictly between principal and linking terms (Sec.~\ref{sec:enum}).
+\item \emph{Two chains.} One (P4) is the squared identity and the spin-2 coherent state; the other (C5) resolves only the carrier and keeps the electron's kernels (Sec.~\ref{sec:chains}). The model's own criteria prefer C5.
+\item \emph{Why three plus two.} The end-to-end interference is absorbed into the middle principal term; odd powers cannot carry a symmetric chain (Secs.~\ref{sec:threeplustwo}--\ref{sec:odd}).
+\item \emph{Confrontation.} Several tempting readings are closed by external data, each with the type of its closure; what survives is a consistent ledger and two measurable doors (Secs.~\ref{sec:confront}--\ref{sec:survive}).
+\end{enumerate}
+
+We do not derive the nucleon from the model, and the note contains no new number to be compared with experiment. It fixes the algebra, closes readings that would otherwise be retried, and states in advance what a future computation has to reproduce (Sec.~\ref{sec:concl}).
+
+\paragraph{Conventions.} The angle $\theta$ is the angle of Eq.~\eqref{eq:E0}, read in the model as internal time. The amplitudes $\cos\frac{\theta}{2}$ and $\sin\frac{\theta}{2}$ are half-angle quantities with period $4\pi$ (the $720^\circ$ of a spinor); the occupations $c\equiv\cos^2\frac{\theta}{2}=\frac{1}{2}(1+\cos\theta)$ and $s\equiv\sin^2\frac{\theta}{2}$ obey $c+s=1$; the difference $D\equiv c-s=\cos\theta$ is a full-angle quantity; and the cross term $2cs=\frac12\sin^2\theta$ is written with the full angle, which is the double of the half angle. We write $\mathrm{TPE}\equiv c^2+s^2$ and $\mathrm{KE}\equiv2cs$. Reference~\cite{ref:p38} uses an angle equal to $\theta/2$, and part of the working notes~\cite{ref:trunks} uses the amplitude angle; in those conventions every multiple angle below appears doubled. A monomial $c^is^j$ is called \emph{principal} if $i$ and $j$ are both even (a square, like $\mathrm{TPE}$), \emph{linking} if both are odd (a cross term, like $\mathrm{KE}$), and \emph{mixed} otherwise.
+
+\section{All Identities up to the Twelfth Power}
+\label{sec:enum}
+
+\subsection{A finite search}
+
+Consider identities
+\begin{equation}
+\sum_{i,j}a_{ij}\,c^is^j=1,\qquad a_{ij}\in\{1,2,3,\dots\},\quad 1\le i+j\le N.
+\label{eq:general}
+\end{equation}
+Evaluating at $c=s=\frac12$ gives $\sum a_{ij}2^{-(i+j)}=1$, hence $a_{ij}\le2^{i+j}$, so the search at each degree is finite and can be made exhaustive. Up to $\cos^8$ ($N=4$) there are $1$, $4$, $16$ and $79$ identities with two, three, four and five terms, of which seven five-term identities are symmetric under $c\leftrightarrow s$. The four three-term identities are $c^2+2cs+s^2$ (the electron), $c+cs+s^2$, $c^2+cs+s$, and
+\begin{equation}
+\cos^6\tfrac{\theta}{2}+\sin^6\tfrac{\theta}{2}+\tfrac34\sin^2\theta=1,
+\label{eq:cubic}
+\end{equation}
+the cubic analogue of Eq.~\eqref{eq:E0}. Every monomial of odd total degree $i+j$ is mixed; in particular every identity built with $\cos^6$-level terms contains mixed terms, and its terms cannot all be sorted into principal and linking ones.
+
+\subsection{Two chains}
+
+\begin{theorem}
+\label{thm:two}
+Among the identities~\eqref{eq:general} with five terms and $N\le6$ (powers up to $\cos^{12}$), exactly two are (a) symmetric under $c\leftrightarrow s$, (b) made only of principal and linking terms, and (c) strictly alternating principal--linking--principal--linking--principal in order of the cosine share $i/(i+j)$:
+\begin{align}
+\mathrm{C5}:&\quad c^2+2c^3s+4c^2s^2+2cs^3+s^2=1,
+\label{eq:C5}\\
+\mathrm{P4}:&\quad c^4+4c^3s+6c^2s^2+4cs^3+s^4=1.
+\label{eq:P4}
+\end{align}
+\end{theorem}
+
+\begin{proof}[Sketch]
+The middle term must be the only symmetric principal monomial available, $c^2s^2$. With $x\equiv cs$ the symmetric sums are $c^2+s^2=1-2x$, $c^4+s^4=1-4x+2x^2$, $c^6+s^6=1-6x+9x^2-2x^3$, $c^3s+cs^3=x(1-2x)$ and $c^5s+cs^5=x(1-4x+2x^2)$. The coefficient of the end terms is fixed to one by evaluating at $c=1$. The coefficients of $x$, $x^2$ and $x^3$ vanish only for ends $c^2$ with links $2c^3s$ and middle $4c^2s^2$, and for ends $c^4$ with links $4c^3s$ and middle $6c^2s^2$; every other combination leaves an $x^3$ term. The exhaustive search of Sec.~II\,A confirms the statement (check H1 of the verification script).
+\end{proof}
+
+\section{The Two Chains}
+\label{sec:chains}
+
+\subsection{P4: the squared identity and the spin-2 coherent state}
+
+The identity~\eqref{eq:P4} is the square of the electron identity, $\mathrm{P4}=(\mathrm{TPE}+\mathrm{KE})^2$. Its five terms coincide with $|d^{\,2}_{m2}(\theta)|^2$ for $m=2,1,0,-1,-2$, where $d^{\,j}_{mm'}$ is the Wigner small $d$-function~\cite{ref:sakurai}; Eq.~\eqref{eq:P4} is therefore the completeness relation of a spin-2 coherent state~\cite{ref:radcliffe,ref:acgt}. In the same way the electron identity is the spin-1 row, $|d^{\,1}_{m1}|^2$, and the cubic expansion $c^3+3c^2s+3cs^2+s^3$ behind Eq.~\eqref{eq:cubic} is the spin-$\frac32$ row. Principal terms are those with even $m$ and linking terms those with odd $m$. Here $j$ and $m$ label the symmetric powers of the two-kernel amplitude; they are not the spin of the nucleon. With $N$ and $L$ the sums of the principal and linking terms,
+\begin{equation}
+N_{\mathrm{P4}}=\tfrac12(1+D^4),\qquad L_{\mathrm{P4}}=\tfrac12(1-D^4),
+\label{eq:NLP4}
+\end{equation}
+so that $N-L=D^4$, against $D^2$ for the electron. The difference of the end terms, $c^4-s^4=\frac78\cos\theta+\frac18\cos3\theta$, is not harmonic.
+
+\subsection{C5: the carrier resolved}
+
+The identity~\eqref{eq:C5} keeps the kernels of the electron and multiplies the identity into the carrier term only, $\mathrm{KE}\to\mathrm{KE}\,(\mathrm{TPE}+\mathrm{KE})$. Written in the style of Eq.~\eqref{eq:E0}, with half-angle powers and full-angle cross terms,
+\begin{align}
+E_0=E_0\Big[&\cos^4\tfrac{\theta}{2}+\tfrac12\cos^4\tfrac{\theta}{2}\,\sin^2\theta
+\notag\\
+&+\tfrac14\sin^4\theta+\tfrac12\sin^4\tfrac{\theta}{2}\,\sin^2\theta
+\notag\\
+&+\sin^4\tfrac{\theta}{2}\Big]
+\notag\\
+=E_0\Big[&\mathrm{TPE}_A+\mathrm{TPE}_A\mathrm{KE}+\mathrm{KE}^2
+\notag\\
+&+\mathrm{TPE}_B\mathrm{KE}+\mathrm{TPE}_B\Big].
+\label{eq:C5full}
+\end{align}
+The middle principal term $\mathrm{KE}^2$ is the carrier squared, a third seat; the two links are kernel--carrier products. Since the middle term and the links add up to $\mathrm{KE}$, C5 is the electron's ledger with the carrier resolved. Table~\ref{tab:terms} gives every term of both chains in three equivalent forms, and Fig.~\ref{fig:five} shows them over one internal cycle. For C5,
+\begin{equation}
+N_{\mathrm{C5}}=\tfrac14(3+D^4),\qquad L_{\mathrm{C5}}=\tfrac14(1-D^4)=\tfrac12L_{\mathrm{P4}}.
+\label{eq:NLC5}
+\end{equation}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The terms of C5 and P4 in three equivalent forms}}
+\label{tab:terms}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{2.6cm}p{2.9cm}p{3.0cm}p{7.0cm}}
+\toprule
+\textbf{Term} & \textbf{Half-angle power} & \textbf{Full-angle form} & \textbf{Multiple-angle expansion} \\
+\midrule
+C5, kernel $A$
+& $\cos^4\frac{\theta}{2}$
+& $\frac14(1+\cos\theta)^2$
+& $\frac38+\frac12\cos\theta+\frac18\cos2\theta$ \\
+\addlinespace[0.3cm]
+C5, link $A$
+& $2\cos^6\frac{\theta}{2}\sin^2\frac{\theta}{2}$
+& $\frac18(1+\cos\theta)^2\sin^2\theta$
+& $\frac{5}{64}+\frac{1}{16}\cos\theta-\frac{1}{16}\cos2\theta-\frac{1}{16}\cos3\theta-\frac{1}{64}\cos4\theta$ \\
+\addlinespace[0.3cm]
+C5, middle
+& $4\cos^4\frac{\theta}{2}\sin^4\frac{\theta}{2}$
+& $\frac14\sin^4\theta$
+& $\frac{3}{32}-\frac18\cos2\theta+\frac{1}{32}\cos4\theta$ \\
+\addlinespace[0.3cm]
+C5, link $B$
+& $2\cos^2\frac{\theta}{2}\sin^6\frac{\theta}{2}$
+& $\frac18(1-\cos\theta)^2\sin^2\theta$
+& $\frac{5}{64}-\frac{1}{16}\cos\theta-\frac{1}{16}\cos2\theta+\frac{1}{16}\cos3\theta-\frac{1}{64}\cos4\theta$ \\
+\addlinespace[0.3cm]
+C5, kernel $B$
+& $\sin^4\frac{\theta}{2}$
+& $\frac14(1-\cos\theta)^2$
+& $\frac38-\frac12\cos\theta+\frac18\cos2\theta$ \\
+\midrule
+P4, $m=+2$
+& $\cos^8\frac{\theta}{2}$
+& $\frac{1}{16}(1+\cos\theta)^4$
+& $\frac{35}{128}+\frac{7}{16}\cos\theta+\frac{7}{32}\cos2\theta+\frac{1}{16}\cos3\theta+\frac{1}{128}\cos4\theta$ \\
+\addlinespace[0.3cm]
+P4, $m=+1$
+& $4\cos^6\frac{\theta}{2}\sin^2\frac{\theta}{2}$
+& $\cos^4\frac{\theta}{2}\,\sin^2\theta$
+& $\frac{5}{32}+\frac18\cos\theta-\frac18\cos2\theta-\frac18\cos3\theta-\frac{1}{32}\cos4\theta$ \\
+\addlinespace[0.3cm]
+P4, $m=0$
+& $6\cos^4\frac{\theta}{2}\sin^4\frac{\theta}{2}$
+& $\frac38\sin^4\theta$
+& $\frac{9}{64}-\frac{3}{16}\cos2\theta+\frac{3}{64}\cos4\theta$ \\
+\addlinespace[0.3cm]
+P4, $m=-1$
+& $4\cos^2\frac{\theta}{2}\sin^6\frac{\theta}{2}$
+& $\sin^4\frac{\theta}{2}\,\sin^2\theta$
+& $\frac{5}{32}-\frac18\cos\theta-\frac18\cos2\theta+\frac18\cos3\theta-\frac{1}{32}\cos4\theta$ \\
+\addlinespace[0.3cm]
+P4, $m=-2$
+& $\sin^8\frac{\theta}{2}$
+& $\frac{1}{16}(1-\cos\theta)^4$
+& $\frac{35}{128}-\frac{7}{16}\cos\theta+\frac{7}{32}\cos2\theta-\frac{1}{16}\cos3\theta+\frac{1}{128}\cos4\theta$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The angle $\theta$ is that of Eq.~\eqref{eq:E0}. Fourth powers carry the half angle $\theta/2$; the cross term $\sin^2\theta$ carries the full angle. The electron's terms stop at $\cos2\theta$; both five-term chains stop at $\cos4\theta$. The constant terms are the phase averages. Only the middle terms contain even harmonics alone (period $\pi$); the ends and links contain odd harmonics (period $2\pi$). In an angle equal to $\theta/2$, as used in Ref.~\cite{ref:p38}, every harmonic number is doubled. Checks H4--H9 and H15.
+\end{minipage}
+\end{table*}
+
+\begin{figure*}[t!]
+\centering
+\includegraphics[width=\textwidth]{fig_five_terms.png}
+\caption{\textbf{The five terms of C5 and P4 over one internal cycle}}
+\label{fig:five}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+(Left) C5: the kernels $\mathrm{TPE}_A=\cos^4\frac{\theta}{2}$ and $\mathrm{TPE}_B=\sin^4\frac{\theta}{2}$ of the electron (solid blue and green), the carrier squared $\mathrm{KE}^2$ (solid red), and the two kernel--carrier links (dashed). (Right) P4: the five components of the spin-2 coherent state; solid lines are the principal terms ($m$ even) and dashed lines the links ($m$ odd). Dotted vertical lines mark the equator $\theta=\pi/2,3\pi/2$, where the carrier term of Eq.~\eqref{eq:E0} is largest and where C5 has three equal principal terms; the dash-dotted line marks the reading $\cos\theta=1/\gamma_p$ of Sec.~\ref{sec:doors}. At $\theta=0$ and $\pi$ all energy sits in one end term.
+\end{minipage}
+\end{figure*}
+
+\paragraph{Why C5 is preferred.} Three criteria of the model separate the chains. First, the kernel difference of C5 is $\mathrm{TPE}_A-\mathrm{TPE}_B=D=\cos\theta$, exactly harmonic, so the gradient relation $\partial_\theta(\mathrm{TPE}_B-\mathrm{TPE}_A)=E_0\sin\theta$ of Ref.~\cite{ref:p1} is untouched, whereas P4 acquires a third harmonic with $a_3/a_1=1/7$; harmonicity is the second of the two criteria that select the degree of the electron identity in the working notes~\cite{ref:trunks}. Second, the phase averages of C5 are $\frac38,\frac{5}{64},\frac{3}{32},\frac{5}{64},\frac38$, so that the middle term and the links average to exactly $\frac14$, the electron's $\langle\mathrm{KE}\rangle$, and the $3{:}1$ split between kernels and carrier survives; no subset of the P4 averages $\frac{35}{128},\frac{5}{32},\frac{9}{64},\frac{5}{32},\frac{35}{128}$ adds up to $\frac14$. Among the even binomials $(c+s)^{2m}$ the principal average $\langle N\rangle=\frac12[1+\binom{2m}{m}4^{-m}]$ equals $\frac34$ only for $m=1$. Third, in the language of seats: the electron needs a carrier seat because its two kernels are separated; if the carrier itself becomes localized, transport between kernel and carrier needs two further seats, and C5 adds exactly these three while P4 also re-splits the kernels. The third criterion is a reading; the first two are algebra.
+
+\paragraph{Three equal seats at the emission phase.} At $\theta=\pi/2$, where the carrier term is largest and where the model places its emission events~\cite{ref:p58}, the C5 terms are $\frac14,\frac18,\frac14,\frac18,\frac14$: three equal principal terms and two equal links. The P4 terms there are $\frac{1}{16},\frac14,\frac38,\frac14,\frac{1}{16}$.
+
+\paragraph{A mechanical reading.} With $x=D=\cos t$ and $\dot x^2=1-x^2$, the electron identity is the harmonic oscillator $T=\frac12\dot x^2$, $V=\frac12x^2$ above a constant floor~\cite{ref:p46}. For C5 the links are a kinetic energy with position-dependent inertia and the principal terms above their floor $\frac34$ are a quartic potential,
+\begin{equation}
+T=\tfrac14(1+x^2)\,\dot x^2,\qquad V=\tfrac14x^4,\qquad T+V=\tfrac14,
+\label{eq:mech}
+\end{equation}
+so that $x=\cos t$ is the exact motion; P4 has the same form with $\frac12$ in place of $\frac14$. The ratio $\langle T\rangle:\langle V\rangle=5:3$ differs from the value $2:1$ of a quartic oscillator with constant inertia, and the generalized virial relation $\langle m\dot x^2\rangle+\langle\frac12xm'\dot x^2\rangle=\langle xV'\rangle$ holds exactly ($\frac38=\frac38$ for C5). The price of the third seat is an inertia that grows towards the kernels and a quartic potential.
+
+\subsection{Why three plus two}
+\label{sec:threeplustwo}
+
+Square any three-seat identity $n_++n_0+n_-=1$ and group the six products by the index $M=m_1+m_2$:
+\begin{align}
+(n_++n_0+n_-)^2=\;&n_+^2+2n_+n_0+\big(n_0^2+2n_+n_-\big)
+\notag\\
+&+2n_0n_-+n_-^2 .
+\label{eq:Mgroup}
+\end{align}
+The end-to-end interference $2n_+n_-$ has $M=0$ and joins the middle principal term. On the electron's seats, $n_+=c^2$, $n_0=2cs$, $n_-=s^2$, which satisfy $n_0^2=4n_+n_-$ (the Hardy--Weinberg relation of population genetics~\cite{ref:hardy}), the five groups are exactly the terms of P4, with the middle term $6c^2s^2=4c^2s^2+2c^2s^2$, the carrier squared plus the end-to-end interference in the ratio $2{:}1$. In group language, the square of a spin-1 coherent state has no spin-0 component: the projection $(2x_+x_--x_0^2)/\sqrt3$ with $(x_+,x_0,x_-)=(c,\sin\theta/\sqrt2,s)$ vanishes identically, which is why the count is five and not six. In C5 the end-to-end interference does not appear at all.
+
+The static three-quark potential of lattice QCD is of the $Y$ type, a Coulomb sum plus a linear term proportional to the minimal total length of the flux tubes~\cite{ref:takahashi01,ref:takahashi02}. When one angle of the quark triangle exceeds $120^\circ$, the junction of the $Y$ sits on that quark and the flux tube consists of two segments. The three-plus-two chain is the algebraic image of this configuration, the absorption of the end-to-end interference into the middle term corresponding to the junction sitting on the middle quark. This is an analogy, not a derivation; a general configuration, with the junction inside the triangle, cannot be represented by a binomial in two occupations and needs three independent occupations (Sec.~\ref{sec:survive}).
+
+\subsection{Odd powers cannot carry a symmetric chain}
+\label{sec:odd}
+
+The principal/linking parity of the spin-$j$ row is $(-1)^{j-m}$. Exchange of the kernels sends $m\to-m$, and the parity is invariant only when $2j$ is even. For the spin-$\frac32$ row ($\cos^6$ level) the exchange turns the end term $\cos^6\frac{\theta}{2}$ into the position of a link. Hence no identity built on $\cos^6$-level terms, including Eq.~\eqref{eq:cubic}, can carry a chain that is symmetric under exchange of the kernels. An earlier objection in the working notes, that the two middle terms of $(n_A+n_B)^3$ are an asymmetric pair rather than two symmetric carriers~\cite{ref:trunks}, is exactly this half-integer exchange: it holds for odd degree and is lifted for even degree, where the two links of a chain are mirror images of each other by construction.
+
+\subsection{Two series}
+
+Both chains belong to infinite families. The squared series $P_{2m}=(\mathrm{TPE}+\mathrm{KE})^m=(c+s)^{2m}$ has $m+1$ principal and $m$ linking terms and is the spin-$m$ coherent state; its kernel difference is anharmonic for $m\ge2$. The carrier series
+\begin{equation}
+C_k=\mathrm{TPE}\sum_{n=0}^{k}\mathrm{KE}^n+\mathrm{KE}^{k+1}=1
+\label{eq:Cseries}
+\end{equation}
+opens the carrier $k$ times, a truncated geometric series; it alternates $k+2$ principal and $k+1$ linking terms and keeps harmonic kernels for every $k$. The electron is $C_0$ and C5 is $C_1$.
+
+\section{Confrontation with Nucleon Data}
+\label{sec:confront}
+
+\subsection{Numerical coincidences carry no weight}
+
+QCD offers many fractions of the nucleon: the decomposition of the mass at $\mu=2$~GeV into quark condensate $9(2)(1)\%$, quark energy $33(4)(4)\%$, gluon field energy $37(5)(4)\%$ and trace anomaly $23(1)(1)\%$~\cite{ref:ji95,ref:chiqcd}; momentum fractions $\langle x\rangle_q=0.618(60)$ and $\langle x\rangle_g=0.427(92)$, the quark spin $\Delta\Sigma=0.382(30)$ and $J_g=0.187(46)(10)$~\cite{ref:etmc}; the gravitational form factors $A_q(0)=0.510(25)$ and $A_g(0)=0.501(27)$~\cite{ref:hps}; and the asymptotic gluon momentum fraction $16/(16+3n_f)$~\cite{ref:esw}. The two chains and the electron identity offer, through phase averages, values at the equator, values at the reading of Sec.~\ref{sec:doors} and sums of terms, 97 distinct fractions. Against 14 such QCD numbers, 70 pairs agree to within $5\%$ and every one of the 14 numbers is hit. Replacing the 97 model fractions by as many uniform random numbers gives on average $58.8$ such pairs and hits $13.3$ of the 14 numbers. A match such as the C5 middle average $\frac{3}{32}=0.094$ against the quark condensate $9(2)\%$ is therefore expected by chance, and no numerical agreement at this level is evidence (check H11). A comparison becomes meaningful only after the model states which observable, at which scale $\mu$, a linking term measures; scale-independent quantities are the totals and the asymptotic fractions.
+
+\subsection{The 3:1 split is kinematic}
+
+The C5 ledger keeps the electron's average $3{:}1$ between kernels and carrier, and the QCD mass decomposition is built on a $3{:}1$ split between the traceless and the trace parts of the energy--momentum tensor~\cite{ref:ji95}. The latter follows for every system at rest from Lorentz covariance and the von Laue condition $\int T^{ij}d^3x=0$~\cite{ref:ps18}, so it cannot discriminate between internal models. In addition, a carrier read as radiation is traceless and cannot be the trace part. The coincidence is closed as kinematic.
+
+\subsection{The neutron lifetime is not a beat}
+
+In the model, normalization of the identity is equivalent to equal kernel frequencies, and detuned kernels produce a beat~\cite{ref:trunks}. Reading the proton--neutron difference as a detuning and the neutron lifetime $\tau_n=878.4$~s~\cite{ref:pdg} as the beat period requires $\Delta\omega/\omega=2\pi/(\omega\tau_n)=5.0\times10^{-27}$ with $\hbar\omega=m_nc^2$, whereas the mass splitting gives $(m_n-m_p)/m_n=1.38\times10^{-3}$~\cite{ref:codata}; the beat period would be $3.2\times10^{-21}$~s. The reading misses by $23$ orders of magnitude and is closed numerically, as the same reading was for the muon (check H12).
+
+\subsection{Interference visibility}
+
+Reference~\cite{ref:p38}, following Ref.~\cite{ref:p4}, reads the two kernels as two interfering beams of unequal intensities and obtains, for internal phases that are not controlled at emission, the phase-averaged visibility $\langle V\rangle=\sqrt2-1=0.414$. Applied to the end terms of the nucleon chains, the same mechanism gives $\langle V\rangle=\sqrt2-1$ for C5, whose ends are the electron's kernels, and $0.2346$ for P4. Neutrons in perfect-crystal silicon interferometers, emitted with uncontrolled internal phase, reach a fringe contrast of $0.92$~\cite{ref:huber}. The mechanism therefore cannot be carried to the principal terms of a nucleon chain (check H14). This statement concerns the nucleon only; whether, and under which conditions, the mechanism holds for the electron is outside the scope of this note and is being re-examined separately against electron interferometry.
+
+\subsection{Principal terms are not valence quarks}
+
+With a single angle the chain passes, over one internal cycle, from one body ($\theta=0$ and $\pi$, all energy in one end term) to three equal bodies (the equator) and back (Fig.~\ref{fig:five}). The principal terms are seats of energy, not constituents that are always present, as the three valence quarks of a baryon are. A single angle also gives a single degree of freedom: the model's own corollary that the electron identity leaves no room for an independently excitable mode~\cite{ref:trunks} applies unchanged, whereas the nucleon has excited states, the $\Delta(1232)$ $293$~MeV above it and the $N(1440)$~\cite{ref:pdg}. Finally, on the amplitude circle $\varphi=\theta/2$ the principal terms of both chains peak on a lattice of one eighth of a turn, and the set of terms is invariant under $\varphi\to\varphi+\pi/2$ and $\varphi\to-\varphi$ but not under a rotation by one third of a turn (check H16). Fractional charges, which the working notes place on arcs of one third of a turn that close only in threes~\cite{ref:trunks}, cannot sit between the principal terms of a two-kernel chain. Table~\ref{tab:closed} summarizes the closed readings.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Readings of the five-term chain that are closed, with the type of closure}}
+\label{tab:closed}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.4cm}p{7.6cm}p{2.5cm}}
+\toprule
+\textbf{Reading} & \textbf{Result} & \textbf{Closure} \\
+\midrule
+Fractions of the chain equal QCD fractions of the nucleon
+& 97 model fractions against 14 QCD numbers give 70 pairs within $5\%$; random fractions give $58.8$ pairs and hit $13.3$ of 14 numbers
+& Statistics \\
+\addlinespace[0.3cm]
+The $3{:}1$ kernel--carrier split is the traceless--trace split of QCD
+& Holds for every system at rest (von Laue); a radiative carrier is traceless
+& Kinematics \\
+\addlinespace[0.3cm]
+Proton and neutron differ by detuning; $\tau_n$ is the beat period
+& Required $\Delta\omega/\omega=5.0\times10^{-27}$ against $1.38\times10^{-3}$
+& Numbers \\
+\addlinespace[0.3cm]
+The visibility mechanism of Ref.~\cite{ref:p38} applies to the nucleon's end terms
+& $\langle V\rangle=0.414$ (C5) or $0.235$ (P4) against a measured neutron contrast of $0.92$
+& Measurement \\
+\addlinespace[0.3cm]
+Principal terms are the three valence quarks
+& A single angle passes between one body and three bodies in each cycle
+& Structure \\
+\addlinespace[0.3cm]
+A single angle carries the excitation spectrum
+& One degree of freedom; no independently excitable mode
+& Structure \\
+\addlinespace[0.3cm]
+Fractional charges are arcs between principal terms
+& Principal terms lie on a lattice of $1/8$ turn; no symmetry under $1/3$ turn
+& Domain \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Closure types follow the working notes~\cite{ref:trunks}: a closure by kinematics or statistics does not move with further development of the model, whereas a closure by measurement or by structure can move if the assignment of the terms changes. The visibility row concerns the nucleon only (Sec.~IV\,D).
+\end{minipage}
+\end{table*}
+
+\section{What Survives: A Consistent Ledger and Two Doors}
+\label{sec:survive}
+
+\subsection{A consistent ledger}
+
+Read as a ledger of the nucleon's rest energy, C5 is consistent with the following, none of which is a test. (i) It is symmetric under exchange of the kernels, so proton and neutron share one ledger; their mass difference of $1.293$~MeV, $1.4\times10^{-3}$ of the mass, lies outside the identity, as isospin breaking lies outside the isospin-symmetric limit. (ii) It keeps the electron's two kernels, so the protected winding number of the working notes, which gives an integer charge whenever the kernels are locked and the identity normalized~\cite{ref:trunks}, applies unchanged and gives the proton its unit charge; the neutral neutron requires a second, closed layer whose placement in the middle seat of C5 is a candidate reading only. (iii) The double cover ($720^\circ$) does not depend on the degree of the identity, so the chain is consistent with a spin-$\frac12$ nucleon. (iv) It refines, and does not replace, the single kernel oscillator of Ref.~\cite{ref:p61}: the principal terms are seats of energy, not three particles of $336$~MeV each. (v) A locked chain has no internal decay channel, consistent with the stability of the proton; the decay of the neutron lies outside the identity. (vi) The boundary stress of the model, $\langle S\rangle$, is negative over the whole cycle and largest in magnitude at $\theta=\pi/2$~\cite{ref:trunks}, where C5 has three equal seats, and the nucleon's total $D$-term is negative as well; this is a qualitative agreement only.
+
+\subsection{Two doors to measured quantities}
+\label{sec:doors}
+
+\paragraph{The total D-term.} Among the gravitational form factors of the nucleon, the total $D(0)$ is the one global quantity not fixed by a conservation law~\cite{ref:ps18}; it is scheme- and scale-independent. Lattice QCD gives $D(0)=-3.87(97)$ in a dipole fit and $-3.35(58)$ in a $z$-expansion fit, with quark and gluon parts $-1.30(49)$ and $-2.57(84)$ at $\mu=2$~GeV~\cite{ref:hps}, and the quark part has been extracted from deeply virtual Compton scattering~\cite{ref:burkert}. In the model, the tensor-virial boundary term is $\langle S\rangle=-\frac{E_0}{2}[1+\frac{405\pi^2}{256}\beta^2]=-0.513\,E_0$ when the kernels are read as matter and $-2E_0$ when they are read as radiation~\cite{ref:trunks}: a factor of four that the electron cannot decide, because the electron's $D$-term is not measured. The nucleon's is. Rebuilding the tensor virial on the C5 configuration, with the kernel length $\hbar/(m_0c)\approx0.59$~fm of Ref.~\cite{ref:p61}, would turn the boundary stress, a zeroth moment, into the $r^2$ moment of the pressure that defines $D$, and compare it with a scale-independent number. This is the measurable door we propose. A first step towards it is the reading $\cos\theta=1/\gamma_p$, borrowed from the static mixing angle of the working notes with $\gamma_p=1+a_p=2.7928$~\cite{ref:p61}: $D=0.358$, $\theta=69.0^\circ$ (an amplitude angle of $34.5^\circ$), and C5 terms $0.461,0.201,0.190,0.045,0.103$ (Fig.~\ref{fig:five}). The reading raises its own question, whether the part of $a_p$ that comes from the structure of a composite particle must be removed before the bridge equation is applied, as for a bound electron.
+
+\paragraph{The neutron magnetic moment.} The working notes state that the magnetic moment of a neutral system exists only as a cross term between two subsystems~\cite{ref:trunks}. Applied to the neutron, $\mu_n=-1.913\,\mu_N$~\cite{ref:codata} would live in the links of C5, the kernel--carrier products. The target is the ratio $\mu_n/\mu_p=-0.685$, close to the value $-\frac23$ of the SU(6) quark model~\cite{ref:blp}. No number follows until the coupling of the winding number to the electromagnetic potential, open in the model, is written.
+
+\subsection{Three kernels}
+
+The readings closed in Sec.~\ref{sec:confront} for structural reasons, excitations, fractional charges and the general $Y$ configuration, share one remedy: three independent occupations, a point on the sphere $S^2$ of three real amplitudes rather than on the curve $n_0^2=4n_+n_-$ of the electron's seats. Off that curve the end-to-end interference separates from the middle term and the square of the identity has six independent terms; averaged uniformly over the sphere, the principal terms take $\frac35$ and the links $\frac25$. A reading in which the ground state lies on the curve and excitations leave it is natural, but its energy cost is not contained in the identity, and the old caution of the working notes applies: three kernels with locked frequencies favor the wrong baryons by many orders of magnitude~\cite{ref:trunks}.
+
+\section{Conclusion}
+\label{sec:concl}
+
+The energy identity of the 0-Sphere model admits, among all identities with positive integer coefficients up to the twelfth power, exactly two five-term chains with three principal and two linking terms: the squared identity P4, a spin-2 coherent state, and the carrier-resolved identity C5, which keeps the electron's kernels. The model's own criteria prefer C5. The chain has two links because the end-to-end interference is absorbed into the middle term, and odd powers cannot carry it at all. Confronted with nucleon data, the chain closes several tempting readings, each with a stated type of closure, and leaves a consistent ledger and two measurable doors.
+
+We state in advance what would remove the C5 reading of the nucleon. If a computation of the nucleon's total $D$-term from the C5 configuration, with the kernel length of Ref.~\cite{ref:p61} and no adjustable parameter, falls outside the lattice range of Ref.~\cite{ref:hps}, the C5 ledger is excluded as a description of the nucleon; if it falls inside, the same computation decides between the matter and radiation readings of the kernels. Until then this note adds no number, only the algebra and the closures on which such a computation has to stand.
+
+\appendix
+
+\section{Verification Map}
+\label{app:verify}
+
+All statements are checked by the script \texttt{verify68.py} supplied with this paper, identical to the verification script of the working-notes session record~\cite{ref:session}; it uses \texttt{sympy} and \texttt{mpmath} and prints 47 checks. H1: enumeration of the identities~\eqref{eq:general} and Theorem~\ref{thm:two}. H2: Wigner $d$-functions for spin $1$, $\frac32$, $2$ and the exchange parity. H3: the grouping~\eqref{eq:Mgroup}, the ratio $2{:}1$ and the vanishing spin-0 component. H4: Eqs.~\eqref{eq:NLP4}, \eqref{eq:NLC5}, the two readings $(\mathrm{TPE}+\mathrm{KE})^2$ and $\mathrm{TPE}+\mathrm{KE}(\mathrm{TPE}+\mathrm{KE})$, and the series~\eqref{eq:Cseries}. H5: phase averages and the $3{:}1$ subsets. H6: harmonics of the end and link differences. H7: the mechanical reading~\eqref{eq:mech} and the generalized virial. H8: the equator. H9: the reading $\cos\theta=1/\gamma_p$. H10: averages over $S^2$. H11: the look-elsewhere test. H12: the neutron beat. H13: the exchange of the middle terms of the cubic. H14: visibilities. H15: Table~\ref{tab:terms}. H16: the symmetry of the terms on the amplitude circle.
+
+\begin{acknowledgments}
+This note grew out of the working notes of the series, where the identity algebra and its open branches are kept, and it relies on the precision with which earlier papers stated what they had not shown. Large language models (Claude, Anthropic) assisted with the enumeration, the numerical checks, the figure and the drafting. Their role was supportive; the physical content, the choices of reading, and the responsibility for every statement rest with the author.
+\end{acknowledgments}
+
+\begin{thebibliography}{99}
+
+\bibitem{ref:p1}
+S.~Hanamura,
+\emph{A Model of an Electron Including Two Perfect Black Bodies},
+Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}.
+
+\bibitem{ref:p10}
+S.~Hanamura,
+\emph{Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction},
+Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}.
+
+\bibitem{ref:p65}
+S.~Hanamura,
+\emph{From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{doi:10.5281/zenodo.23257458}.
+
+\bibitem{ref:trunks}
+S.~Hanamura,
+\emph{0-Sphere Model Working Notes: Trunks T1--T8}, in particular trunk T1 (identity algebra, versions of 2026-09-24 and 2026-10-31), T2 (quantum numbers), T3 ($\beta$ hierarchy) and T4 (internal dynamics),
+GitHub repository HanaTensor/0sm-skills, directory \texttt{trunks} (2026), \href{https://github.com/HanaTensor/0sm-skills}{github.com/HanaTensor/0sm-skills}.
+
+\bibitem{ref:p61}
+S.~Hanamura,
+\emph{Application of the $\gamma$-Equation to the Proton: A Parameter-Free Hadronic Mass Scale},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19934138}{doi:10.5281/zenodo.19934138}.
+
+\bibitem{ref:p62}
+S.~Hanamura,
+\emph{The Bridge Equation $\gamma=1+a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20091680}{doi:10.5281/zenodo.20091680}.
+
+\bibitem{ref:p38}
+S.~Hanamura,
+\emph{Electron Interference from Internal Geometry: Two-Kernel SU(2) Structure, Quartic Energy Flow, and an Intrinsic Visibility Limit},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18718174}{doi:10.5281/zenodo.18718174}.
+
+\bibitem{ref:sakurai}
+J.~J.~Sakurai and J.~Napolitano,
+\emph{Modern Quantum Mechanics}, 2nd ed.
+(Addison-Wesley, San Francisco, 2011).
+
+\bibitem{ref:radcliffe}
+J.~M.~Radcliffe,
+\emph{Some properties of coherent spin states},
+J.~Phys.~A \textbf{4}, 313 (1971).
+
+\bibitem{ref:acgt}
+F.~T.~Arecchi, E.~Courtens, R.~Gilmore, and H.~Thomas,
+\emph{Atomic coherent states in quantum optics},
+Phys.~Rev.~A \textbf{6}, 2211 (1972).
+
+\bibitem{ref:p58}
+S.~Hanamura,
+\emph{Spin-2 Structure of the Gravitational Mediator: Phase-Stable Pair Emission and Quadrupole Radiation in the 0-Sphere Model},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19932861}{doi:10.5281/zenodo.19932861}.
+
+\bibitem{ref:p46}
+S.~Hanamura,
+\emph{Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model --- A Conceptual Clarification},
+Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19010945}{doi:10.5281/zenodo.19010945}.
+
+\bibitem{ref:hardy}
+G.~H.~Hardy,
+\emph{Mendelian proportions in a mixed population},
+Science \textbf{28}, 49 (1908).
+
+\bibitem{ref:takahashi01}
+T.~T.~Takahashi, H.~Matsufuru, Y.~Nemoto, and H.~Suganuma,
+\emph{The three-quark potential in the SU(3) lattice QCD},
+Phys.~Rev.~Lett.~\textbf{86}, 18 (2001).
+
+\bibitem{ref:takahashi02}
+T.~T.~Takahashi, H.~Suganuma, Y.~Nemoto, and H.~Matsufuru,
+\emph{Detailed analysis of the three-quark potential in SU(3) lattice QCD},
+Phys.~Rev.~D \textbf{65}, 114509 (2002).
+
+\bibitem{ref:ji95}
+X.~Ji,
+\emph{A QCD analysis of the mass structure of the nucleon},
+Phys.~Rev.~Lett.~\textbf{74}, 1071 (1995).
+
+\bibitem{ref:chiqcd}
+Y.-B.~Yang, J.~Liang, Y.-J.~Bi, Y.~Chen, T.~Draper, K.-F.~Liu, and Z.~Liu,
+\emph{Proton mass decomposition from the QCD energy momentum tensor},
+Phys.~Rev.~Lett.~\textbf{121}, 212001 (2018).
+
+\bibitem{ref:etmc}
+C.~Alexandrou \emph{et al.},
+\emph{Complete flavor decomposition of the spin and momentum fraction of the proton using lattice QCD simulations at physical pion mass},
+Phys.~Rev.~D \textbf{101}, 094513 (2020).
+
+\bibitem{ref:hps}
+D.~C.~Hackett, D.~A.~Pefkou, and P.~E.~Shanahan,
+\emph{Gravitational form factors of the proton from lattice QCD},
+Phys.~Rev.~Lett.~\textbf{132}, 251904 (2024).
+
+\bibitem{ref:esw}
+R.~K.~Ellis, W.~J.~Stirling, and B.~R.~Webber,
+\emph{QCD and Collider Physics}
+(Cambridge University Press, Cambridge, 1996).
+
+\bibitem{ref:ps18}
+M.~V.~Polyakov and P.~Schweitzer,
+\emph{Forces inside hadrons: pressure, surface tension, mechanical radius, and all that},
+Int.~J.~Mod.~Phys.~A \textbf{33}, 1830025 (2018).
+
+\bibitem{ref:pdg}
+S.~Navas \emph{et al.} (Particle Data Group),
+\emph{Review of Particle Physics},
+Phys.~Rev.~D \textbf{110}, 030001 (2024).
+
+\bibitem{ref:codata}
+CODATA 2022 recommended values of the fundamental physical constants, National Institute of Standards and Technology, \href{https://physics.nist.gov/cuu/Constants/}{physics.nist.gov/cuu/Constants}.
+
+\bibitem{ref:p4}
+S.~Hanamura,
+\emph{Perfect Contrast cannot be obtained in the Electron Double-Slit Experiment},
+Zenodo (2019), \href{https://doi.org/10.5281/zenodo.17759699}{doi:10.5281/zenodo.17759699}.
+
+\bibitem{ref:huber}
+M.~G.~Huber, I.~Taminiau, D.~G.~Cory, B.~Heacock, D.~Sarenac, R.~Valdillez, and D.~A.~Pushin,
+\emph{Achieving a near-ideal silicon crystal neutron interferometer using sub-micron fabrication techniques},
+\href{https://arxiv.org/abs/2402.16127}{arXiv:2402.16127} (2024).
+
+\bibitem{ref:burkert}
+V.~D.~Burkert, L.~Elouadrhiri, and F.~X.~Girod,
+\emph{The pressure distribution inside the proton},
+Nature \textbf{557}, 396 (2018).
+
+\bibitem{ref:blp}
+M.~A.~B.~B\'eg, B.~W.~Lee, and A.~Pais,
+\emph{SU(6) and electromagnetic interactions},
+Phys.~Rev.~Lett.~\textbf{13}, 514 (1964).
+
+\bibitem{ref:session}
+S.~Hanamura,
+\emph{0-Sphere Model Working Notes: Session Record ``Five-Term Model for the Nucleon'' (2026-10-31) and Verification Script},
+GitHub repository HanaTensor/0sm-skills, directory \texttt{trunks}, files \texttt{SESSION-\allowbreak 2026-\allowbreak 10-\allowbreak 31-\allowbreak nucleon-\allowbreak five-\allowbreak term.md} and \texttt{SESSION-\allowbreak 2026-\allowbreak 10-\allowbreak 31-\allowbreak nucleon-\allowbreak five-\allowbreak term-\allowbreak verification.py} (2026), \href{https://github.com/HanaTensor/0sm-skills}{github.com/HanaTensor/0sm-skills}.
+
+\end{thebibliography}
+
+\end{document}
