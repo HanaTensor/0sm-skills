@@ -1,31 +1,40 @@
+% ========================================
+% Paper #67 of the 0-Sphere Model series
+% Why the 0-Sphere Electron Begins at the Quadrupole: Monopole, Dipole and Quadrupole Channels of the Energy Identity
+% Author: Satoshi Hanamura (ORCID 0009-0000-2687-0918)
+% Verification script: verify67.py
+% ========================================
+% ========================================
+% Document Class and Package Setup
+% ========================================
 \documentclass[%
  reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
-% 基本パッケージ
+% Basic packages
 \usepackage{graphicx}
 \usepackage{bm}
-% 量子力学記法
+% Quantum-mechanics notation
 \usepackage{physics}
-% ハイパーリンク
+% Hyperlinks
 \usepackage[colorlinks=true,
             linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
-% キャプション設定
+% Caption settings
 \usepackage{caption}
 \captionsetup[figure]{
     justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
 \captionsetup[table]{
     labelfont={bf}, name={Table}, labelsep=period }
-% 数式番号をセクションごとに
+% Equation numbering by section
 \numberwithin{equation}{section}
-% タイポグラフィ調整
+% Typography adjustments
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=3000
 \exhyphenpenalty=3000
 \flushbottom
-% マイクロタイポグラフィ
+% Microtypography
 \usepackage[final]{microtype}
 \usepackage{ragged2e}  % for \justifying command
-% \midrule、\addlinespace、\bottomruleを使う
+% Table rules (\midrule, \addlinespace, \bottomrule)
 \usepackage{booktabs}
 \usepackage{enumitem}
 % Theorem environment
@@ -35,20 +44,20 @@
 \makeatletter
 \renewcommand\paragraph{%
   \@startsection{paragraph}{4}{\z@}%
-    {3mm \@plus 1ex \@minus .2ex}%   前 (block separator)
-    {-1em}%                          後 (負値で run-in 維持)
+    {3mm \@plus 1ex \@minus .2ex}%   space before (block separator)
+    {-1em}%                          space after (negative value keeps the heading run-in)
     {\normalfont\normalsize\itshape}}
 \makeatother
 % Code listings with syntax highlighting
 \usepackage{listings}
 \usepackage{xcolor}
-% 色定義 (薄いブルー系 - 学術論文向け)
+% Colour definitions (light blue palette for listings)
 \definecolor{backcolour}{rgb}{0.96,0.97,0.98}
 \definecolor{deepblue}{rgb}{0,0,0.5}
 \definecolor{deepgreen}{rgb}{0,0.5,0.3}
 \definecolor{deepgray}{rgb}{0.4,0.4,0.4}
 \definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
-% Pythonスタイル定義
+% Python listing style
 \lstdefinestyle{pythonstyle}{
     backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
 \lstset{style=pythonstyle}
@@ -61,7 +70,6 @@
 \newcommand{\EphS}{E_{\text{ph}}}
 \newcommand{\Egrad}{\Delta E_{\text{AB}}}
 % Fundamental 1-form
-% \newcommand{\Pi}{\boldsymbol{\Pi}}
 % Field strength 2-form
 \newcommand{\FF}{\mathbf{F}}
 % Open Wilson line
@@ -69,8 +77,14 @@
 % Hodge dual
 \newcommand{\hodge}{\star}
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Why the 0-Sphere Electron Begins at the Quadrupole:\\Monopole, Dipole and Quadrupole Channels of the Energy Identity}
 
 \author{Satoshi Hanamura}
@@ -78,6 +92,9 @@
 
 \date{\today}
 
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 In general relativity the multipoles of a source play sharply different roles: the monopole is conserved, the mass dipole cannot radiate because its rate of change is the total momentum, and gravitational radiation begins at the quadrupole, at twice the orbital frequency.
 This paper shows that the internal energy transfer of the 0-Sphere electron has the same hierarchy, and that each level follows from the energy identity $\cos^4(\theta/2) + \sin^4(\theta/2) + \tfrac12\sin^2\theta = 1$ of the model.
@@ -91,6 +108,9 @@ The paper addresses the form of the gravitational source, not its coupling stren
 
 \maketitle
 
+% ========================================
+% Section 1: Introduction
+% ========================================
 \section{Introduction}
 
 A source of gravitational radiation in general relativity is characterized by its multipole moments, and the three lowest moments behave in three different ways~\cite{MTW,Maggiore}. The monopole, the total mass-energy, is conserved and does not radiate. The mass dipole $\bm{D} = \sum_i E_i\bm{x}_i/c^2$ does not radiate either, for a reason that has no counterpart in electrodynamics: its time derivative is the total momentum, $d\bm{D}/dt = \bm{P}$, which is conserved, so that $\ddot{\bm{D}} = 0$. Gravitational radiation therefore begins at the quadrupole. For a binary in a circular orbit, the quadrupole moment is a quadratic function of the positions, and it oscillates at twice the orbital frequency; the waves observed by the LIGO and Virgo detectors~\cite{LIGO2016} carry exactly this doubled frequency.
@@ -109,6 +129,9 @@ Appendix~\ref{app:numbers} reproduces the numbers, Appendix~\ref{app:blind} reco
 
 \paragraph{Scope.} The paper concerns the form of the gravitational source of the 0-Sphere electron: which multipoles oscillate, at which frequencies, and with which weights. It does not define the gravitational charge, which the weak equivalence principle requires to be proportional to the total energy, and it does not derive the curvature side of the Einstein equations. The internal oscillation is taken as given; its origin is not addressed, and the identity describes its persistence. The word radiation is used for gravitational radiation and, where stated, for the internal transfer between the kernels; electromagnetic emission is not discussed. In particular, the recoiling kernels do not form an oscillating electric dipole: in the 0-Sphere model the charge is not located at the kernels but is a winding number carried by the system as a whole~\cite{H65}, and an electric dipole of the size of the core separation, of order $e\lambda_C \approx 2.4\times10^{-10}\,e$~cm, is excluded by the electron electric-dipole-moment bound $4.1\times10^{-30}\,e$~cm~\cite{Roussy2023} by twenty orders of magnitude.
 
+% ========================================
+% Section 2: Three Channels of the Energy Identity
+% ========================================
 \section{Three Channels of the Energy Identity}
 \label{sec:channels}
 
@@ -140,6 +163,9 @@ Equation~(\ref{eq:fourier}) balances separately at each frequency, and each freq
 
 \textbf{[0SM reading]} The exchange of the kernels corresponds to the shift $\theta \to \theta + \pi$, under which $\cos k\theta$ changes sign for odd $k$ and is unchanged for even $k$. Any quantity that is symmetric under the exchange, such as a second moment of the energy distribution, can therefore contain only even harmonics of $\omega$. This selection rule, rather than any detail of the distribution, is what removes the odd harmonics from the quadrupole in Sec.~\ref{sec:quadrupole}.
 
+% ========================================
+% Section 3: The Dipole Channel Is Silent
+% ========================================
 \section{The Dipole Channel Is Silent}
 \label{sec:dipole}
 
@@ -166,6 +192,9 @@ The fundamental channel of Sec.~\ref{sec:channels}, which moves the centre of en
 
 \paragraph{Speed of the recoil.} \textbf{[standard]} From Eq.~(\ref{eq:recoil}), $dX/dt = -\tfrac34\omega d\sin^3\theta$, so that the largest speed of the kernels is $\tfrac34\omega d$ at $\theta = \pi/2$. For the core separation $d = \lambda_C/2$ of the series this is $0.0954\,c$; for $d = \lambda_C$ it would be $0.191\,c$. The photon sphere moves at most at $\tfrac14\omega d$, $0.032\,c$ for $d = \lambda_C/2$. All speeds are below $c$.
 
+% ----------------------------------------
+% Subsection 3.1: Momentum Bookkeeping
+% ----------------------------------------
 \subsection{Momentum Bookkeeping}
 \label{sec:bookkeeping}
 
@@ -189,6 +218,9 @@ Three conclusions follow.
 
 \paragraph{The photon sphere moves as a slow body.} If the photon sphere is assigned the momentum of free light, $K/c$, the bookkeeping fails: that momentum exceeds $Kv_\gamma/c^2$ by an order of magnitude or more, and restoring zero total momentum would require the kernels to move faster than light. The bookkeeping closes only if the photon sphere carries the momentum $Kv_\gamma/c^2$ of a body of invariant mass $K/c^2$ moving well below $c$, closer to a confined standing wave than to free light. This is the reading of the companion Letter, Paper \#66~\cite{H66}, in which the internal carrier propagates at a group velocity $c/n$ with $n \approx 25$; the form $Kv/c^2$ is also the form of the Abraham momentum of light in a medium.
 
+% ========================================
+% Section 4: The Quadrupole Channel
+% ========================================
 \section{The Quadrupole Channel}
 \label{sec:quadrupole}
 
@@ -221,6 +253,9 @@ Three features of Eq.~(\ref{eq:J}) carry the argument.
 \end{align}
 so that the dominant line of the radiated power is $4\omega$, at $4\nu_{\text{ZB}} = 2.00\times10^{19}$~Hz ($82.7$~keV). The mean square of the third derivative of Eq.~(\ref{eq:J}) with respect to $\theta$ is exactly $4045/4096$.
 
+% ----------------------------------------
+% Figure 1: The recoil that silences the dipole, and the quadrupole that remains
+% ----------------------------------------
 \begin{figure*}[t!]
 \centering
 \begin{tikzpicture}[>=Stealth, font=\small]
@@ -271,11 +306,17 @@ P = \frac{G}{5c^5}\,\frac23\,M^2d^4\omega^6\,\frac{4045}{4096}.
 \end{equation}
 With $M = m_e$ and the core separation $d = \lambda_C/2$ of the series, $P = 6.3\times10^{-45}$~W; with $d = \lambda_C$ the power would be sixteen times larger, $1.00\times10^{-43}$~W, because $P \propto d^4$. Over the age of the universe the smaller value removes $1.7\times10^{-8}$~eV from an electron of rest energy $511$~keV. The internal oscillation is stable against gravitational radiation by a wide margin, and the radiation itself is far beyond any conceivable detection. The value of the result lies in its structure.
 
+% ========================================
+% Section 5: The Correspondence with General Relativity
+% ========================================
 \section{The Correspondence with General Relativity}
 \label{sec:gr}
 
 Table~\ref{tab:corr} sets the three channels of the identity beside the multipoles of a gravitational source.
 
+% ----------------------------------------
+% Table 1: The channels of the energy identity and the multipoles of a gravitational source
+% ----------------------------------------
 \begin{table*}[t!]
 \centering
 \caption{\textbf{The channels of the energy identity and the multipoles of a gravitational source}}
@@ -313,6 +354,9 @@ The correspondence concerns the source side only. The curvature side, in which $
 
 \paragraph{What the correspondence supplies.} The open question of the series on the gravitational sector has been how a rank-two source can arise from the internal structure of the electron. The correspondence supplies the source side of that question with definite content: the source oscillates only at even harmonics of the internal frequency, its spectrum is finite and fixed in advance, its amplitudes are given by Eq.~(\ref{eq:J}), and the dipole that would otherwise dominate is removed by a conservation law rather than by an assumption.
 
+% ========================================
+% Section 6: Limitations
+% ========================================
 \section{Limitations}
 \label{sec:limits}
 
@@ -330,6 +374,9 @@ The correspondence concerns the source side only. The curvature side, in which $
 
 \paragraph{The scale of the energy.} Equation~(\ref{eq:P}) takes $E_0 = m_ec^2$ and $d = \lambda_C/2$. Other identifications of the energy scale in the series rescale $P$ but leave the harmonic structure and the shares~(\ref{eq:shares}) unchanged. If the kernels carry a rest energy of their own in addition to $E_0$, the amplitude and the speed of the recoil are reduced in proportion, and the shares change.
 
+% ========================================
+% Section 7: Conclusion
+% ========================================
 \section{Conclusion}
 \label{sec:conclusion}
 
@@ -337,11 +384,17 @@ The energy identity of the 0-Sphere model, resolved into frequencies, separates 
 
 \appendix
 
+% ========================================
+% Appendix A: Numbers and Their Reproduction
+% ========================================
 \section{Numbers and Their Reproduction}
 \label{app:numbers}
 
 With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}: $\nu_{\text{ZB}} = 5.0007\times10^{18}$~Hz, and the harmonics $2\omega$, $4\omega$, $6\omega$ lie at $1.0001\times10^{19}$, $2.0003\times10^{19}$ and $3.0004\times10^{19}$~Hz, or $41.4$, $82.7$ and $124.1$~keV. The script \texttt{verify67.py} deposited with this paper checks the identity~(\ref{eq:fourier}), the vanishing of the dipole~(\ref{eq:dipole}) under the closure~(\ref{eq:recoil}) to machine precision, the two parts~(\ref{eq:twoparts}) of the momentum and their sum, the largest speeds of the kernels and of the photon sphere, the closed form~(\ref{eq:J}), the coefficient $4045/4096$, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}) for $d = \lambda_C/2$ and $d = \lambda_C$.
 
+% ========================================
+% Appendix B: Blind Verification
+% ========================================
 \section{Blind Verification}
 \label{app:blind}
 
@@ -356,6 +409,9 @@ The kinematic content of Secs.~\ref{sec:dipole}--\ref{sec:quadrupole} was checke
 
 \paragraph{Points raised.} The verifiers raised the points that are now stated in Sec.~\ref{sec:bookkeeping} and Sec.~\ref{sec:limits}: that the vanishing of the dipole is true by construction and that the non-trivial test is the bookkeeping of momentum (both); that the fundamental survives in the momentum of each element (both); that the momentum $K/c$ of free light is incompatible with the bookkeeping (both); that the energy in transit lies outside the budget at order $\omega d/c$ (A), and that the kinetic energy of the recoil does as well (B); that the quadrupole formula is at the edge of its validity for $d = \lambda_C$ (A); that the recoil is kinematic and lacks a force law (B); and that the result depends on the placement of the photon sphere (both). Verifier B also noted that an electric charge located at the kernels would produce an oscillating electric dipole; the Scope paragraph of Sec.~I records why the 0-Sphere model does not place the charge there. The comparison also exposed an inconsistency in an earlier draft of this paper, which used $d = \lambda_C$ for the power while taking the core separation to be $\lambda_C/2$; the present version uses $\lambda_C/2$ throughout. The reports and scripts of both verifiers are deposited with this paper.
 
+% ========================================
+% Appendix C: Inputs, Results and Open Items
+% ========================================
 \section{Inputs, Results and Open Items}
 \label{app:interface}
 
@@ -389,10 +445,16 @@ The kinematic content of Secs.~\ref{sec:dipole}--\ref{sec:quadrupole} was checke
 \item[O7.] Corrections beyond the quadrupole formula at the dominant harmonic.
 \end{itemize}
 
+% ========================================
+% Acknowledgments
+% ========================================
 \begin{acknowledgments}
 The conception of this paper, the framing of its questions and every decision to adopt or reject a result are the author's. The manuscript was drafted, and several derivations were first proposed, in dialogue with the language model Claude Opus 5.5 (Anthropic); among them are the separation of the energy identity into an antisymmetric fundamental and a symmetric second harmonic and the correspondence of the three channels with the multipoles of a gravitational source (Sec.~\ref{sec:gr}). The kinematic results were verified blind by Claude Opus 5.5 and Claude Fable 5.2 (Anthropic), each run with reasoning effort medium and given only a brief from which the results were withheld (Appendix~\ref{app:blind}); the points they raised are incorporated in Secs.~\ref{sec:bookkeeping} and~\ref{sec:limits}. Every derivation adopted here was checked by the author and is reproduced by the verification script deposited with this paper. A record of the dialogue and of the blind verification is deposited with this paper as a companion document.
 \end{acknowledgments}
 
+% ========================================
+% Bibliography
+% ========================================
 \begin{thebibliography}{99}
 
 \bibitem{MTW} C. W. Misner, K. S. Thorne, and J. A. Wheeler, \textit{Gravitation} (W. H. Freeman, San Francisco, 1973), Ch.~36.
@@ -401,22 +463,25 @@ The conception of this paper, the framing of its questions and every decision to
 
 \bibitem{LIGO2016} B. P. Abbott \textit{et al.} (LIGO Scientific Collaboration and Virgo Collaboration), Observation of gravitational waves from a binary black hole merger, Phys. Rev. Lett. \textbf{116}, 061102 (2016).
 
-\bibitem{H65} S. Hanamura, From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model (Paper \#65), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{doi:10.5281/zenodo.23257458}.
+\bibitem{H65} S. Hanamura, From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model (Paper \#65), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{DOI: 10.5281/zenodo.23257458}.
 
-\bibitem{H51} S. Hanamura, Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model (Paper \#51), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20388056}{doi:10.5281/zenodo.20388056}.
+\bibitem{H51} S. Hanamura, Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model (Paper \#51), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20388056}{DOI: 10.5281/zenodo.20388056}.
 
-\bibitem{H66} S. Hanamura, Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model (Paper \#66), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23750210}{doi:10.5281/zenodo.23750210}.
+\bibitem{H66} S. Hanamura, Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model (Paper \#66), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23750210}{DOI: 10.5281/zenodo.23750210}.
 
-\bibitem{H10} S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction (Paper \#10), Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}.
+\bibitem{H10} S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction (Paper \#10), Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{DOI: 10.5281/zenodo.17764997}.
 
-\bibitem{H62} S. Hanamura, The Bridge Equation $\gamma = 1 + a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model (Paper \#62), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20091680}{doi:10.5281/zenodo.20091680}.
+\bibitem{H62} S. Hanamura, The Bridge Equation $\gamma = 1 + a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model (Paper \#62), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20091680}{DOI: 10.5281/zenodo.20091680}.
 
 \bibitem{Schrodinger1930} E. Schr\"odinger, \"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik, Sitzungsber. Preuss. Akad. Wiss. Phys.-Math. Kl. \textbf{24}, 418 (1930).
 
-\bibitem{Roussy2023} T. S. Roussy \textit{et al.}, An improved bound on the electron's electric dipole moment, Science \textbf{381}, 46 (2023), \href{https://doi.org/10.1126/science.adg4084}{doi:10.1126/science.adg4084}.
+\bibitem{Roussy2023} T. S. Roussy \textit{et al.}, An improved bound on the electron's electric dipole moment, Science \textbf{381}, 46 (2023), \href{https://doi.org/10.1126/science.adg4084}{DOI: 10.1126/science.adg4084}.
 
 \bibitem{CODATA2022} P. J. Mohr, D. B. Newell, B. N. Taylor, and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Rev. Mod. Phys. \textbf{97}, 025002 (2025).
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}

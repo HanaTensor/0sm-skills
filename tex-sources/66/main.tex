@@ -1,38 +1,42 @@
 % ========================================
-% Paper #66: Subluminal Zitterbewegung and the Invariant Speed:
-%   An Internal Refractive Index for the 0-Sphere Model
-% DOI    : 10.5281/zenodo.23750210
-% Companion record: companion-66-ja.docx / companion-66-en.docx (deposited with this paper)
-% Citation policy: only papers deposited on Zenodo with a fixed DOI are cited; no forward references.
+% Paper #66 of the 0-Sphere Model series
+% Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model
+% Author: Satoshi Hanamura (ORCID 0009-0000-2687-0918)
+% Date  : November 14, 2026
+% DOI   : 10.5281/zenodo.23750210
+% Verification script: verify66.py
+% ========================================
+% ========================================
+% Document Class and Package Setup
 % ========================================
 \documentclass[%
  reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
-% 基本パッケージ
+% Basic packages
 \usepackage{graphicx}
 \usepackage{bm}
-% 量子力学記法
+% Quantum-mechanics notation
 \usepackage{physics}
-% ハイパーリンク
+% Hyperlinks
 \usepackage[colorlinks=true,
             linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
-% キャプション設定
+% Caption settings
 \usepackage{caption}
 \captionsetup[figure]{
     justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
 \captionsetup[table]{
     labelfont={bf}, name={Table}, labelsep=period }
-% 数式番号をセクションごとに
+% Equation numbering by section
 \numberwithin{equation}{section}
-% タイポグラフィ調整
+% Typography adjustments
 \tolerance=1000
 \emergencystretch=1em
 \hyphenpenalty=3000
 \exhyphenpenalty=3000
 \flushbottom
-% マイクロタイポグラフィ
+% Microtypography
 \usepackage[final]{microtype}
 \usepackage{ragged2e}  % for \justifying command
-% \midrule、\addlinespace、\bottomruleを使う
+% Table rules (\midrule, \addlinespace, \bottomrule)
 \usepackage{booktabs}
 \usepackage{enumitem}
 % Theorem environment
@@ -42,20 +46,20 @@
 \makeatletter
 \renewcommand\paragraph{%
   \@startsection{paragraph}{4}{\z@}%
-    {3mm \@plus 1ex \@minus .2ex}%   前 (block separator)
-    {-1em}%                          後 (負値で run-in 維持)
+    {3mm \@plus 1ex \@minus .2ex}%   space before (block separator)
+    {-1em}%                          space after (negative value keeps the heading run-in)
     {\normalfont\normalsize\itshape}}
 \makeatother
 % Code listings with syntax highlighting
 \usepackage{listings}
 \usepackage{xcolor}
-% 色定義 (薄いブルー系 - 学術論文向け)
+% Colour definitions (light blue palette for listings)
 \definecolor{backcolour}{rgb}{0.96,0.97,0.98}
 \definecolor{deepblue}{rgb}{0,0,0.5}
 \definecolor{deepgreen}{rgb}{0,0.5,0.3}
 \definecolor{deepgray}{rgb}{0.4,0.4,0.4}
 \definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
-% Pythonスタイル定義
+% Python listing style
 \lstdefinestyle{pythonstyle}{
     backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
 \lstset{style=pythonstyle}
@@ -68,7 +72,6 @@
 \newcommand{\EphS}{E_{\text{ph}}}
 \newcommand{\Egrad}{\Delta E_{\text{AB}}}
 % Fundamental 1-form
-% \newcommand{\Pi}{\boldsymbol{\Pi}}
 % Field strength 2-form
 \newcommand{\FF}{\mathbf{F}}
 % Open Wilson line
@@ -76,8 +79,14 @@
 % Hodge dual
 \newcommand{\hodge}{\star}
 
+% ========================================
+% Document Begin
+% ========================================
 \begin{document}
 
+% ========================================
+% Title, Author, and Date
+% ========================================
 \title{Subluminal Zitterbewegung and the Invariant Speed:\\An Internal Refractive Index for the 0-Sphere Model}
 
 \author{Satoshi Hanamura}
@@ -85,6 +94,9 @@
 
 \date{November 14, 2026}
 
+% ========================================
+% Abstract
+% ========================================
 \begin{abstract}
 The 0-Sphere model assigns to the electron an internal oscillation whose speed, fixed by the anomalous magnetic moment alone, is $v_{\text{ZB}} = 0.04047\,c$, giving a Zitterbewegung frequency $\nu_{\text{ZB}} = v_{\text{ZB}}/\lambda_C = 5.00\times10^{18}$~Hz in the X-ray band.
 The Dirac equation attaches the speed $c$ to the Zitterbewegung through the eigenvalues $\pm c$ of its velocity operator and predicts $2m_ec^2/h = 2.47\times10^{20}$~Hz.
@@ -97,6 +109,9 @@ The index is assigned, not derived; its derivation from the internal temperature
 
 \maketitle
 
+% ========================================
+% Section 1: Introduction
+% ========================================
 \section{Introduction}
 
 The Zitterbewegung (ZB) of the free Dirac electron was identified by Schr\"odinger~\cite{Schrodinger1930} as an interference between positive- and negative-energy components. Its angular frequency is set by the energy gap $2m_ec^2$, and its amplitude is of order $\hbar/(2m_ec)$. Breit~\cite{Breit1928} had already noted that the velocity operator of the Dirac equation~\cite{Dirac1928},
@@ -126,6 +141,9 @@ The two predictions are in direct competition, and the natural objection is imme
 
 \paragraph{Scope.} The Letter takes two inputs from the series: the value~(\ref{eq:beta}) of Paper \#10 and the optical metric of Paper \#51. It delivers three outputs: the separation of the invariant speed from the carrier speed (Secs.~\ref{sec:two}--\ref{sec:fw}), the assignment of an internal refractive index $n = 1/\beta_{\text{ZB}}$ within that metric (Sec.~\ref{sec:optical}), and the consequences of that index that do not depend on the shape of the internal region (Sec.~\ref{sec:snell}). Three questions are outside its scope: the shape and structure of the boundary of the internal region, the rate at which energy leaks across it, and the coupling of the internal carrier to gravitation. The origin of the internal oscillation is not addressed either; the energy identity of the model describes its persistence, not its beginning. Appendix~\ref{app:model} summarizes the elements of the 0-Sphere model on which the argument rests, Appendix~\ref{app:why} sets out why a group velocity belongs in this model and which questions it opens, Appendix~\ref{app:numbers} reproduces every number with its formula, and Appendix~\ref{app:interface} lists the inputs, results and open items in a form that later papers of the series can cite directly.
 
+% ========================================
+% Section 2: Two Meanings of c
+% ========================================
 \section{Two Meanings of $c$}
 \label{sec:two}
 
@@ -144,6 +162,9 @@ The statement that the internal carrier does not travel at $c$ is accordingly to
 
 \paragraph{Why a group velocity.} A wave of a single frequency that has neither beginning nor end has a phase velocity but no group velocity; a group velocity exists only for a superposition of frequencies, that is, for a wave of finite duration. In the 0-Sphere model the energy does not jump from kernel $A$ to kernel $B$. It passes gradually, through the internal phase: the share held at $A$ falls while the share held at $B$ rises, and the energy in transit rises from zero to a maximum and falls back to zero (Appendix~\ref{app:split}). Each transfer is therefore a wave group of finite duration, and it is the group velocity of that wave group that Eq.~(\ref{eq:n}) refers to (Fig.~\ref{fig:group} and Appendix~\ref{app:why}). The shape of the wave group is not chosen: it is fixed by the energy identity of the model, and its amplitude is not constant over the transfer (Appendix~\ref{app:envelope}).
 
+% ----------------------------------------
+% Table 1: Shape-independent quantities fixed by the internal refractive index n = 1/beta_ZB
+% ----------------------------------------
 \begin{table*}[t!]
 \centering
 \caption{\textbf{Shape-independent quantities fixed by the internal refractive index $n = 1/\beta_{\text{ZB}}$}}
@@ -182,6 +203,9 @@ Values use $\beta_{\text{ZB}}^2 = 0.00163798087$ from Paper \#10 and CODATA 2022
 \end{minipage}
 \end{table*}
 
+% ========================================
+% Section 3: Precedent: Light in a Moving Medium
+% ========================================
 \section{Precedent: Light in a Moving Medium}
 \label{sec:fizeau}
 
@@ -201,6 +225,9 @@ For the electron the medium is internal, and its rest frame is the electron rest
 \end{equation}
 The electron as a whole remains a Lorentz-covariant object. The only frame-dependent statement, that the carrier speed equals $c/n$, refers to the frame in which the electron is at rest, exactly as the statement that light in water travels at $c/1.33$ refers to the frame in which the water is at rest. The departure of the drag coefficient from unity lies on the $\beta^2$ layer of the three-layer hierarchy of the model (Appendix~\ref{app:layers}), the layer that carries the anomalous magnetic moment.
 
+% ========================================
+% Section 4: The Dirac Eigenvalues Do Not Fix the Carrier Speed
+% ========================================
 \section{The Dirac Eigenvalues Do Not Fix the Carrier Speed}
 \label{sec:fw}
 
@@ -215,6 +242,9 @@ The Dirac theory therefore does not determine the speed of an internal carrier a
 
 \paragraph{Independence of the two statements.} The water analogy invites the expectation that the vacuum limit $n \to 1$ recovers the Dirac ZB. That expectation is not adopted here. In the bridge equation of Appendix~\ref{app:bridge}, the limit $\beta_{\text{ZB}} \to 1$ sends the Lorentz factor, and with it the anomalous moment, to infinity rather than to the Dirac value $a_e = 0$. The argument of Sec.~\ref{sec:fizeau} (a carrier speed $c/n$ is relativistically admissible) and the argument of the present section (the Dirac eigenvalues $\pm c$ are not a carrier speed) are therefore stated independently, and neither relies on the other.
 
+% ========================================
+% Section 5: The Optical Metric of the Internal Region
+% ========================================
 \section{The Optical Metric of the Internal Region}
 \label{sec:optical}
 
@@ -230,6 +260,9 @@ n(T_{\text{int}}) = \frac{c}{v_{\text{ZB}}} = \frac{1}{\beta_{\text{ZB}}}.
 \end{equation}
 With $n^2 = 610.51$, the index also satisfies $n^2 \simeq \sqrt{2}\,\pi/\alpha = 608.83$ to $0.28\%$, which restates the first-order relation $\beta_{\text{ZB}} \simeq [\alpha/(\sqrt{2}\pi)]^{1/2}$ of the series. The question why the internal index is about $25$ is the same question as why the internal speed is about $\alpha^{1/2}$.
 
+% ========================================
+% Section 6: Shape-Independent Consequences
+% ========================================
 \section{Shape-Independent Consequences}
 \label{sec:snell}
 
@@ -240,6 +273,9 @@ Wherever the index falls from its internal value to unity, Snell's law $n\sin\th
 \end{equation}
 For comparison, the critical angle of water is $48.8^\circ$ and that of diamond $24.4^\circ$; an index of $24.7$ returns to the interior almost every ray that meets the boundary. This statement depends only on the two values of the index and not on the shape of the region in which the higher value holds. Together with the drag coefficient~(\ref{eq:drag}) it forms the set of consequences of Eq.~(\ref{eq:n}) that require no further assumption, collected in Table~\ref{tab:layers}. Quantities that do depend on the shape, such as the fraction of the internal flux that escapes per boundary encounter or the degree to which the internal region confines the carrier, require a model of the boundary and are outside the scope of this Letter.
 
+% ========================================
+% Section 7: Limitations
+% ========================================
 \section{Limitations}
 \label{sec:limits}
 
@@ -249,6 +285,9 @@ For comparison, the critical angle of water is $48.8^\circ$ and that of diamond 
 
 \paragraph{A factor of two.} With $n = 1$, Eq.~(\ref{eq:nuZB}) gives $c/\lambda_C = m_ec^2/h = 1.236\times10^{20}$~Hz, one half of the Dirac value~(\ref{eq:nuD}). The factor $2/\beta_{\text{ZB}} = 49.42$ between the two predictions thus decomposes into $1/\beta_{\text{ZB}}$, attributed here to the internal index, and a factor of two that the present argument does not account for.
 
+% ========================================
+% Section 8: Conclusion
+% ========================================
 \section{Conclusion}
 
 The objection that the Dirac equation employs $c$ while the 0-Sphere model assigns $0.04047\,c$ to the internal motion rests on identifying the invariant speed of the Lorentz group with the speed of an internal carrier. Once the two are separated, the 0-Sphere model retains the former and revises only the latter, in the manner of a refractive medium whose rest frame is the electron rest frame. Fizeau's experiment establishes that such a medium-internal speed is relativistically admissible, and the Foldy--Wouthuysen representation establishes that the Dirac eigenvalues $\pm c$ do not fix it. The optical metric $\mathcal{G} = n^2(T)\,g$ of Paper \#51 provides the geometric setting, in which the internal index takes the value $1/\beta_{\text{ZB}} = 24.71$.
@@ -257,11 +296,17 @@ The two theories make competing predictions for the same phenomenon: $5.00\times
 
 \appendix
 
+% ========================================
+% Appendix A: The 0-Sphere Model in Brief
+% ========================================
 \section{The 0-Sphere Model in Brief}
 \label{app:model}
 
 This appendix collects the elements of the 0-Sphere model that the Letter uses. Each statement is marked by its standing: \textbf{[standard]} for mathematics or standard physics, and \textbf{[0SM reading]} for the interpretation that the model places on it. The two kinds stand or fall separately.
 
+% ----------------------------------------
+% Figure 1: The electron of the 0-Sphere model and the two meanings of c
+% ----------------------------------------
 \begin{figure*}[t!]
 \centering
 \begin{tikzpicture}[>=Stealth, font=\small]
@@ -298,6 +343,9 @@ This appendix collects the elements of the 0-Sphere model that the Letter uses. 
 \end{minipage}
 \end{figure*}
 
+% ----------------------------------------
+% Appendix A.1: Two Kernels and the Photon Sphere
+% ----------------------------------------
 \subsection{Two Kernels and the Photon Sphere}
 \label{app:split}
 
@@ -312,6 +360,9 @@ holds for every $\theta$.
 
 \textbf{[0SM reading]} The three terms of Eq.~(\ref{eq:identity}) are read as the energy held at $A$, the energy held at $B$, and the energy in transit~\cite{H65}. At $\theta = 0$ all the energy is at $A$ and nothing moves. At $\theta = \pi/2$ each kernel holds one quarter and one half is in transit. At $\theta = 2\pi/3$ the three shares are $1/16$, $9/16$ and $6/16$. At $\theta = \pi$ all the energy is at $B$ and the transport has stopped again. The energy therefore does not jump from $A$ to $B$: the transit term rises from zero to its maximum and falls back. This gradual passage is the reason, used in Sec.~\ref{sec:two}, that each transfer is a wave group of finite duration.
 
+% ----------------------------------------
+% Appendix A.2: The Internal Clock
+% ----------------------------------------
 \subsection{The Internal Clock}
 \label{app:clock}
 
@@ -322,6 +373,9 @@ holds for every $\theta$.
 \end{equation}
 The transport of energy from one kernel to the other runs at the speed $\beta_{\text{ZB}}c$. One cycle of Eq.~(\ref{eq:identity}) is a round trip of the photon sphere from $A$ to $B$ and back, a path of length $\lambda_C$, so that the transport frequency is $\nu_{\text{ZB}} = \beta_{\text{ZB}}c/\lambda_C = \beta_{\text{ZB}}\nu_C$, Eq.~(\ref{eq:nuZB}). The speed $\beta_{\text{ZB}}c$ is not the speed of the electron as a whole; the electron may be at rest while the energy inside it is carried between the kernels. In the language of the present Letter, $\nu_C$ is the frequency that the carrier would have at the invariant speed and $\nu_{\text{ZB}}$ the frequency that it has at the group velocity $c/n$, so that $\nu_C/\nu_{\text{ZB}} = n$.
 
+% ----------------------------------------
+% Appendix A.3: The Bridge Equation
+% ----------------------------------------
 \subsection{The Bridge Equation}
 \label{app:bridge}
 
@@ -332,6 +386,9 @@ The transport of energy from one kernel to the other runs at the speed $\beta_{\
 \end{equation}
 For the electron, $a_e = 1.15965218059\times10^{-3}$~\cite{Fan2023} gives $\beta_{\text{ZB}}^2 = 0.0016379809$ and $\beta_{\text{ZB}} = 0.040472$, the canonical value of the series. To first order, $\beta_{\text{ZB}} \simeq [\alpha/(\sqrt{2}\pi)]^{1/2} = 0.04053$, because $a_e \simeq \alpha/(2\pi)$. The bridge equation is a relation of the model and not of the standard theory; it is checked by measuring $\beta_{\text{ZB}}$.
 
+% ----------------------------------------
+% Appendix A.4: The Three-Layer Hierarchy
+% ----------------------------------------
 \subsection{The Three-Layer Hierarchy}
 \label{app:layers}
 
@@ -346,6 +403,9 @@ For the electron, $a_e = 1.15965218059\times10^{-3}$~\cite{Fan2023} gives $\beta
 \end{align}
 The first is the rest energy, the second the energy of the internal line at $\nu_{\text{ZB}}$, and the third the floor identified in Paper \#46~\cite{H46}. The anomalous magnetic moment lives on the $\beta^2$ layer, since $a_e \simeq \gamma - 1 \simeq \beta_{\text{ZB}}^2/2$ up to the factor of Eq.~(\ref{eq:bridge}). The departure of the drag coefficient from unity, $1/n^2 = \beta_{\text{ZB}}^2$, falls on the same layer.
 
+% ----------------------------------------
+% Appendix A.5: Thermal Geodesics and the Optical Metric
+% ----------------------------------------
 \subsection{Thermal Geodesics and the Optical Metric}
 \label{app:optical}
 
@@ -353,6 +413,9 @@ The first is the rest energy, the second the energy of the internal line at $\nu
 
 \textbf{[0SM reading]} Paper \#24~\cite{H24} introduced thermal geodesics, the paths along which internal energy is transported, determined by the internal temperature $T$. Paper \#51~\cite{H51} showed that the thermal metric coincides with the optical metric of a medium with index $n(T)$, Eq.~(\ref{eq:optical}), and that thermal geodesics obey the corresponding Fermat principle. The present Letter does not add this structure. It assigns to the index the value $n = 1/\beta_{\text{ZB}}$ in the internal region, Eq.~(\ref{eq:nT}), and draws the consequences that do not depend on how $n(T)$ varies.
 
+% ----------------------------------------
+% Appendix A.6: Two Uses of the Word Radiation
+% ----------------------------------------
 \subsection{Two Uses of the Word Radiation}
 \label{app:radiation}
 
@@ -360,9 +423,15 @@ The first is the rest energy, the second the energy of the internal line at $\nu
 
 A free electron at rest does not emit electromagnetic waves, and nothing in this Letter implies that it does. The transfer between the kernels is internal: the energy identity~(\ref{eq:identity}) holds at every phase, the total $E_0$ is conserved, and no part of the transferred energy leaves the electron. Every statement made here about the radiation gradient, the wave group and its envelope refers to this internal transfer. Whether, and how, the internal transfer couples to external photons, through absorption or scattering, is a separate question, which this Letter does not address.
 
+% ========================================
+% Appendix B: Why a Group Velocity, and What It Opens
+% ========================================
 \section{Why a Group Velocity, and What It Opens}
 \label{app:why}
 
+% ----------------------------------------
+% Figure 2: The transfer from one kernel to the other is a wave group
+% ----------------------------------------
 \begin{figure*}[t!]
 \centering
 \begin{tikzpicture}[>=Stealth, font=\small]
@@ -411,6 +480,9 @@ A free electron at rest does not emit electromagnetic waves, and nothing in this
 \end{minipage}
 \end{figure*}
 
+% ----------------------------------------
+% Appendix B.1: Why a Group Velocity Belongs in This Model
+% ----------------------------------------
 \subsection{Why a Group Velocity Belongs in This Model}
 \label{app:why_belongs}
 
@@ -420,6 +492,9 @@ The identity~(\ref{eq:identity}) describes how the energy moves from kernel $A$ 
 
 For such a signal two speeds are defined. The phase velocity is the speed of an individual crest, and the group velocity is the speed of the envelope that contains the crests (Fig.~\ref{fig:group}b). The energy travels with the envelope. A familiar example is a light pulse in an optical fibre: in silica at telecommunication wavelengths the group index is about $1.47$, so that the pulse, and the information and energy it carries, advances at about $2.0\times10^{8}$~m/s, while the crests inside it move at a slightly different speed. The quantity that the 0-Sphere model fixes from the anomalous magnetic moment is the speed at which the energy is carried from one kernel to the other~\cite{H65}, which is the speed of the envelope. The group velocity is therefore not imported into the model from outside; it is the name, in the language of wave propagation, for the speed that the model already defines.
 
+% ----------------------------------------
+% Appendix B.2: The Question That Was Open
+% ----------------------------------------
 \subsection{The Question That Was Open}
 \label{app:why_open}
 
@@ -431,6 +506,9 @@ Since Paper \#10 the series has carried the value $v_{\text{ZB}} = 0.04047\,c$, 
 
 \paragraph{Between two clocks.} Paper \#65 separated two rates inside the electron, the light-speed reference $\nu_C = c/\lambda_C$ and the transport frequency $\nu_{\text{ZB}}$. Their ratio is $\beta_{\text{ZB}}$, but the two rates were recorded as separate entries, and the ratio had no physical reading of its own.
 
+% ----------------------------------------
+% Appendix B.3: What the Concept Opens
+% ----------------------------------------
 \subsection{What the Concept Opens}
 \label{app:why_opens}
 
@@ -448,6 +526,9 @@ Reading $v_{\text{ZB}}$ as the group velocity of a carrier in an internal medium
 
 Figure~\ref{fig:flow} summarizes these five changes.
 
+% ----------------------------------------
+% Figure 3: What the group-velocity reading changes
+% ----------------------------------------
 \begin{figure*}[t!]
 \centering
 \begin{tikzpicture}[>=Stealth, font=\scriptsize,
@@ -478,9 +559,15 @@ Left: the value $0.04047\,c$ of the 0-Sphere model and the speed $c$ attached to
 \end{minipage}
 \end{figure*}
 
+% ----------------------------------------
+% Appendix B.4: The Envelope Is Fixed by the Identity
+% ----------------------------------------
 \subsection{The Envelope Is Fixed by the Identity}
 \label{app:envelope}
 
+% ----------------------------------------
+% Figure 4: The amplitude of the transfer is not constant, and its spectral weights are fixed
+% ----------------------------------------
 \begin{figure*}[t!]
 \centering
 \begin{tikzpicture}[>=Stealth, font=\small]
@@ -559,6 +646,9 @@ The energy held at a kernel is a superposition of the fundamental and the second
 
 \paragraph{Comparison with a Gaussian wave packet.} In quantum mechanics a localized particle is commonly represented by a plane wave multiplied by a Gaussian envelope. The envelope acts as a window, and its width is chosen as an initial condition. Under the free Schr\"odinger equation the window widens with time, because the frequency depends quadratically on the wave number: a packet of initial width $\sigma_0$ has width $\sigma(t) = \sigma_0[1 + (\hbar t/2m\sigma_0^2)^2]^{1/2}$. The envelope of the 0-Sphere transfer is of a different kind. It is not an initial condition but a consequence of the identity, and the identity holds at every cycle, so that the same envelope is restored at each transfer. The model therefore contains no mechanism by which the transfer would widen from one cycle to the next. A Gaussian window may serve as a convenient approximation in future numerical work, but the envelope it approximates is fixed in advance, and in the reading of the model it is this recurrence of one and the same envelope, cycle after cycle, that keeps the electron a localized object over time.
 
+% ----------------------------------------
+% Appendix B.5: Continuous in Phase, Discrete in Frequency
+% ----------------------------------------
 \subsection{Continuous in Phase, Discrete in Frequency}
 \label{app:discrete}
 
@@ -590,6 +680,9 @@ and in the same way $\sin^4(\theta/2) = \tfrac38 - \tfrac12\cos\theta + \tfrac18
 
 \paragraph{Step 3: the identity, frequency by frequency.} Adding the three expansions, each frequency balances on its own (Table~\ref{tab:lines}). The constant parts add to $\tfrac38 + \tfrac38 + \tfrac14 = 1$. The parts at $\omega$ cancel between $A$ and $B$, $+\tfrac12 - \tfrac12 = 0$. The parts at $2\omega$ cancel between the two kernels and the photon sphere, $\tfrac18 + \tfrac18 - \tfrac14 = 0$. The identity~(\ref{eq:identity}) is therefore not one balance but three, one for each frequency, and the frequency $\omega$ and the frequency $2\omega$ each describe a separate exchange. The fundamental is the exchange between $A$ and $B$, antisymmetric in the two kernels; it is the only part that moves the energy from one side to the other. The second harmonic is the exchange between the kernels taken together and the photon sphere, symmetric in the two kernels; it moves energy into transit and back without moving it from one side to the other.
 
+% ----------------------------------------
+% Table 2: Frequency content of the energy identity, line by line
+% ----------------------------------------
 \begin{table*}[t!]
 \centering
 \caption{\textbf{Frequency content of the energy identity, line by line}}
@@ -652,6 +745,9 @@ v_g = \frac{c}{2n_2 - n_1}, \qquad n_g = 2n(2\omega) - n(\omega).
 \end{equation}
 The group index of the internal carrier is thus a discrete quantity, determined by the index at two frequencies only. When the index is the same at both, $n_g = n$ and the group velocity equals $c/n$, which is the identification made in Eq.~(\ref{eq:n}). Whether $n(2\omega)$ equals $n(\omega)$ is the precise form of open item O2.
 
+% ----------------------------------------
+% Figure 5: A continuous band and a discrete set of lines
+% ----------------------------------------
 \begin{figure*}[t!]
 \centering
 \begin{tikzpicture}[>=Stealth, font=\small]
@@ -692,6 +788,9 @@ The group index of the internal carrier is thus a discrete quantity, determined 
 
 \paragraph{What the discreteness adds.} The transfer is continuous when it is followed through the phase and discrete when it is resolved into frequencies. Both descriptions are exact, and they are two readings of the same identity. The second reading carries information that the first does not show at a glance: the identity holds separately at each frequency; the exchange between the two kernels and the exchange between the kernels and the photon sphere are distinct and occur at distinct frequencies; the number of frequencies is set by the power of the energy; and the group velocity of the carrier is fixed by the index at two frequencies only. In the reading of the model, the internal transfer of the electron is continuous in its course and discrete in its composition.
 
+% ========================================
+% Appendix C: Numbers and Their Reproduction
+% ========================================
 \section{Numbers and Their Reproduction}
 \label{app:numbers}
 
@@ -750,6 +849,9 @@ print(f"drag 1-1/n^2 = {1-1/n**2:.6f}")
 print(f"theta_c    = {math.degrees(math.asin(1/n)):.2f} deg")
 \end{lstlisting}
 
+% ========================================
+% Appendix D: Inputs, Results and Open Items
+% ========================================
 \section{Inputs, Results and Open Items}
 \label{app:interface}
 
@@ -785,10 +887,16 @@ This appendix restates the content of the Letter as a list, so that later papers
 \item[O6.] The coupling of the internal transfer to external photons, through absorption or scattering. The word radiation in this Letter denotes the internal transfer only (Appendix~\ref{app:radiation}).
 \end{itemize}
 
+% ========================================
+% Acknowledgments
+% ========================================
 \begin{acknowledgments}
 The conception of this Letter, the framing of its questions and every decision to adopt or reject a result are the author's. The manuscript was drafted, and several derivations were first proposed, in dialogue with the language model Claude Opus 5.5 (Anthropic). Among the derivations proposed in that dialogue are the separation of the invariant speed from the speed of the internal carrier together with the precedents of Fizeau and of Foldy and Wouthuysen (Secs.~\ref{sec:two}--\ref{sec:fw}), the decomposition of the kernel energies into two frequencies (Appendix~\ref{app:envelope}) and the discrete form of the group index (Appendix~\ref{app:discrete}). Every derivation adopted here was checked by the author and is reproduced by the verification script deposited with this Letter. A record of the dialogue, including the errors made and corrected along the way and the origin of each idea, is deposited with this Letter as a companion document.
 \end{acknowledgments}
 
+% ========================================
+% Bibliography
+% ========================================
 \begin{thebibliography}{99}
 
 \bibitem{Schrodinger1930} E. Schr\"odinger, \"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik, Sitzungsber. Preuss. Akad. Wiss. Phys.-Math. Kl. \textbf{24}, 418 (1930).
@@ -797,13 +905,13 @@ The conception of this Letter, the framing of its questions and every decision t
 
 \bibitem{Dirac1928} P. A. M. Dirac, The quantum theory of the electron, Proc. R. Soc. London A \textbf{117}, 610 (1928).
 
-\bibitem{H10} S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction (Paper \#10), Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}.
+\bibitem{H10} S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction (Paper \#10), Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{DOI: 10.5281/zenodo.17764997}.
 
-\bibitem{H51} S. Hanamura, Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model (Paper \#51), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20388056}{doi:10.5281/zenodo.20388056}.
+\bibitem{H51} S. Hanamura, Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model (Paper \#51), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20388056}{DOI: 10.5281/zenodo.20388056}.
 
-\bibitem{H33} S. Hanamura, Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass and Zitterbewegung (Paper \#33), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18356895}{doi:10.5281/zenodo.18356895}.
+\bibitem{H33} S. Hanamura, Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass and Zitterbewegung (Paper \#33), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.18356895}{DOI: 10.5281/zenodo.18356895}.
 
-\bibitem{H46} S. Hanamura, Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model --- A Conceptual Clarification (Paper \#46), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19010945}{doi:10.5281/zenodo.19010945}.
+\bibitem{H46} S. Hanamura, Geometric Origin of the One-Half Factor: Thermal Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model --- A Conceptual Clarification (Paper \#46), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19010945}{DOI: 10.5281/zenodo.19010945}.
 
 \bibitem{CODATA2022} P. J. Mohr, D. B. Newell, B. N. Taylor, and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Rev. Mod. Phys. \textbf{97}, 025002 (2025).
 
@@ -817,18 +925,21 @@ The conception of this Letter, the framing of its questions and every decision t
 
 \bibitem{DiracPrinciples} P. A. M. Dirac, \textit{The Principles of Quantum Mechanics}, 4th ed. (Oxford University Press, Oxford, 1958), Chap.~XI.
 
-\bibitem{H24} S. Hanamura, Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure (Paper \#24), Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765349}{doi:10.5281/zenodo.17765349}.
+\bibitem{H24} S. Hanamura, Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure (Paper \#24), Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765349}{DOI: 10.5281/zenodo.17765349}.
 
 \bibitem{Gerritsma2010} R. Gerritsma, G. Kirchmair, F. Z\"ahringer, E. Solano, R. Blatt, and C. F. Roos, Quantum simulation of the Dirac equation, Nature \textbf{463}, 68 (2010).
 
-\bibitem{H65} S. Hanamura, From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model (Paper \#65), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{doi:10.5281/zenodo.23257458}.
+\bibitem{H65} S. Hanamura, From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model (Paper \#65), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{DOI: 10.5281/zenodo.23257458}.
 
-\bibitem{H62} S. Hanamura, The Bridge Equation $\gamma = 1 + a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model (Paper \#62), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20091680}{doi:10.5281/zenodo.20091680}.
+\bibitem{H62} S. Hanamura, The Bridge Equation $\gamma = 1 + a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model (Paper \#62), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20091680}{DOI: 10.5281/zenodo.20091680}.
 
 \bibitem{Fan2023} X. Fan, T. G. Myers, B. A. D. Sukra, and G. Gabrielse, Measurement of the electron magnetic moment, Phys. Rev. Lett. \textbf{130}, 071801 (2023).
 
-\bibitem{H01} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies (Paper \#1), Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}.
+\bibitem{H01} S. Hanamura, A Model of an Electron Including Two Perfect Black Bodies (Paper \#1), Zenodo (2018), \href{https://doi.org/10.5281/zenodo.16759284}{DOI: 10.5281/zenodo.16759284}.
 
 \end{thebibliography}
 
+% ========================================
+% End of Document
+% ========================================
 \end{document}
