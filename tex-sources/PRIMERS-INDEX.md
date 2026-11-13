@@ -12,9 +12,11 @@
 | #52 | `tex-sources/52/` | `primer_ja.docx` | `primer_en.docx` |
 | #62 | `tex-sources/62/` | `primer_ja.docx` | `primer_en.docx` |
 | #65 | `tex-sources/65/` | `primer_ja.docx` | `primer_en.docx` |
+| #66 | `tex-sources/66/` | `primer_ja.docx` | `primer_en.docx` |
 
 - 英語版は `primer_en.docx` という名前で同じフォルダに置いています。
-- #66 は未公開のため、この索引にもリポジトリにも含めていません。
+- #66（亜光速のツィッターベヴェーグングと不変速度、2026-11-14 追加）から、論文ごとの概要（guide の html・docx）は作らず、この基礎知識解説に一本化しました。
+- Zenodo には英語版（`primer_en.docx`）だけを論文と同じ記録に寄託し、GitHub には日英の両方を置きます。
 
 ## 命名規則
 

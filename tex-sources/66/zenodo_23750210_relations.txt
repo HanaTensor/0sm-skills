@@ -1,0 +1,156 @@
+================================================================================
+zenodo_23750210_relations.txt — Paper #66
+"Subluminal Zitterbewegung and the Invariant Speed:
+ An Internal Refractive Index for the 0-Sphere Model"
+Author: Satoshi Hanamura
+Date: November 14, 2026
+DOI (this paper): 10.5281/zenodo.23750210
+================================================================================
+NOTE: Mode = manual fallback (context/papers/066.md is not yet curated).
+      Rule applied: one relation type per counterpart (relation-types.md
+      Section 0). No paper appears in two sections below.
+
+NOTE: Citation policy of the series (2026-11-13): only papers deposited on
+  Zenodo with a DOI are cited. The bibliography of #66 contains no
+  "in preparation" entry and no forward reference.
+
+NOTE: Paper #65 (10.5281/zenodo.23257458) lists in its bibliography an entry
+  "#66 = Three Tests of the Weak Equivalence Principle in the 0-Sphere Model
+  ... (in preparation)". That working title now belongs to #68 (renumbering of
+  2026-11-13). The entry of #65 is corrected in the next version of #65. No
+  relation is entered here for it.
+
+NOTE: verify66.py (the numerical-verification script of Appendix C) and
+  primer_en.docx (a primer for undergraduate readers) are uploaded as files
+  IN THIS SAME RECORD, so no relation entry is needed. The Japanese primer
+  (primer_ja.docx) is kept on GitHub only.
+
+[Summary]
+  [1] Continues:         3 entries
+  [2] References:        4 entries
+  [3] Cites:             0 entries (every Hanamura paper cited is listed above)
+  [4] Is part of:        1 entry  (#1)
+  External (non-Zenodo): standard literature, 11 entries — no relation needed
+  [Reverse Relations]:   7 target papers listed for update
+================================================================================
+
+[1] Continues
+  — Papers whose central results this paper takes over and extends —
+
+  #10 Hanamura 2024 — Redefining Electron Spin and Anomalous Magnetic Moment
+      Through Harmonic Oscillation and Lorentz Contraction
+      DOI: 10.5281/zenodo.17764997
+      Reason: #10 fixes the internal speed v_ZB = 0.04047 c from the anomalous
+              magnetic moment alone (Input I1). #66 answers the objection that
+              this value contradicts the speed c of the Dirac equation, by
+              reading it as the group velocity c/n of an internal carrier with
+              n = 1/beta_ZB = 24.71 (Sec. II, Results R1-R2).
+
+  #51 Hanamura 2026 — Helical Trajectory, Fixed-Endpoint Line Integrals, and
+      the Emergence of the Spacetime Metric in the 0-Sphere Model
+      DOI: 10.5281/zenodo.20388056
+      Reason: #51 establishes, as an identity, that the thermal metric is the
+              optical metric G = n^2(T) g (Input I2), and fixes the round-trip
+              path lambda_C of one transport cycle (Input I3). #66 assigns the
+              value n(T_int) = 1/beta_ZB within that metric (Sec. V, R5) and
+              draws the shape-independent consequences (Sec. VI, R6).
+
+  #65 Hanamura 2026 — From Zero and One to the Electron: Path-Connectedness,
+      the Double Cover, and the Geometric Origin of the Quartic Energy in the
+      0-Sphere Model
+      DOI: 10.5281/zenodo.23257458
+      Reason: Immediate predecessor. #65 separates two internal rates (the
+              light-speed reference c/lambda_C and the transport frequency
+              nu_ZB) and fixes the quartic energy as the square of the share.
+              #66 relates the two rates by the index, nu_C / nu_ZB = n
+              (App. A.2, B.3), and resolves the quartic energies into a
+              constant, a fundamental and a second harmonic (App. B.4-B.5,
+              Results R8-R9).
+
+================================================================================
+
+[2] References
+  — Papers whose specific results are used as inputs or are corrected —
+
+  #24 Hanamura 2025 — Thermal Geodesics in the 0-Sphere Model: Extending
+      General Relativity through Internal Thermodynamic Structure
+      DOI: 10.5281/zenodo.17765349
+      Reason: Thermal geodesics and the internal temperature profile n(T)
+              (Sec. V, App. A.5). The derivation of n(T) from that profile is
+              open item O1 of #66.
+
+  #62 Hanamura 2026 — The Bridge Equation gamma = 1 + a from First Principles:
+      Representation Duality of the Anomalous Moment and the Geometric Origin
+      of the Root-Mean-Square Factor in the 0-Sphere Model
+      DOI: 10.5281/zenodo.20091680
+      Reason: Root-mean-square placement that gives gamma_v = 1 + |a|/sqrt(2)
+              and beta_ZB = 0.040472 (bridge equation, App. A.3).
+
+  #33 Hanamura 2026 — Geometrical Confinement of Energy in the 0-Sphere Model:
+      A Topological Mechanism Underlying Rest Mass and Zitterbewegung
+      DOI: 10.5281/zenodo.18356895
+      Reason: Two kernels joined by an internal carrier (Sec. II). In addition,
+              the 0-Sphere ZB frequency and its ratio to the Dirac value stated
+              in Appendix G of #33 contain an arithmetic error; #66 Eq. (I.4),
+              nu_ZB = beta_ZB c / lambda_C = 5.0007e18 Hz, supersedes them
+              (Sec. I).
+
+  #46 Hanamura 2026 — Geometric Origin of the One-Half Factor: Thermal
+      Potential Energy Floor and Zero-Point Energy in the 0-Sphere Model —
+      A Conceptual Clarification
+      DOI: 10.5281/zenodo.19010945
+      Reason: The beta^2 layer, the floor of 419 eV (App. A.4). In addition,
+              the ZB frequency and its ratio to the Dirac value stated in #46
+              contain the same arithmetic error and are superseded by
+              #66 Eq. (I.4) (Sec. I).
+
+================================================================================
+
+[3] Cites
+  — Hanamura papers cited in the bibliography and not listed above —
+
+  None. Every Hanamura paper in the bibliography of #66 is listed under
+  [1], [2] or [4].
+
+  External (not Zenodo — no Zenodo relation entry required):
+      Schrodinger 1930, Sitzungsber. Preuss. Akad. Wiss. 24, 418
+      Breit 1928, Proc. Natl. Acad. Sci. USA 14, 553
+      Dirac 1928, Proc. R. Soc. London A 117, 610
+      Dirac, The Principles of Quantum Mechanics, 4th ed. (1958), Chap. XI
+      Fizeau 1851, C. R. Acad. Sci. 33, 349
+      Laue 1907, Ann. Phys. 328, 989
+      Foldy & Wouthuysen 1950, Phys. Rev. 78, 29
+      Newton & Wigner 1949, Rev. Mod. Phys. 21, 400
+      Gerritsma et al. 2010, Nature 463, 68
+      Fan et al. 2023, Phys. Rev. Lett. 130, 071801 (a_e)
+      CODATA 2022, Rev. Mod. Phys. 97, 025002 (2025)
+
+================================================================================
+
+[4] Is part of
+  — 0-Sphere Model series membership (#1 only; not repeated under Cites) —
+
+  #1  Hanamura 2018 — A Model of an Electron Including Two Perfect Black Bodies
+      DOI: 10.5281/zenodo.16759284
+      (Cited in App. A.6 for the radiation gradient of #1.)
+
+================================================================================
+
+[Reverse Relations — Recommended Updates to Target Papers]
+
+Add on each target record, pointing to the DOI of #66 (10.5281/zenodo.23750210).
+(Cites and Is part of have no reverse entry, per Section 0.)
+
+  #10 (10.5281/zenodo.17764997) — Add: Is continued by → 10.5281/zenodo.23750210
+  #51 (10.5281/zenodo.20388056) — Add: Is continued by → 10.5281/zenodo.23750210
+  #65 (10.5281/zenodo.23257458) — Add: Is continued by → 10.5281/zenodo.23750210
+
+  #24 (10.5281/zenodo.17765349) — Add: Is referenced by → 10.5281/zenodo.23750210
+  #62 (10.5281/zenodo.20091680) — Add: Is referenced by → 10.5281/zenodo.23750210
+  #33 (10.5281/zenodo.18356895) — Add: Is referenced by → 10.5281/zenodo.23750210
+  #46 (10.5281/zenodo.19010945) — Add: Is referenced by → 10.5281/zenodo.23750210
+
+  For #65, the reverse entry can be added together with the correction of its
+  ref:p66 entry when the next version of #65 is deposited.
+
+================================================================================
