@@ -1,6 +1,6 @@
 # 0sm-skills — 0-Sphere Model reference repository
 
-Satoshi Hanamura の 0-Sphere Model 論文系列の参照リポジトリ。**寄託済み 63 本**（#1–#64、#16 永久欠番）＋**未寄託 4 本**（#65–#68）。
+Satoshi Hanamura の 0-Sphere Model 論文系列の参照リポジトリ。**寄託済み 63 本**（#1–#64、#16 永久欠番）＋**未寄託**（#65 は 2026-10-10 寄託済み、#66–#70 は未寄託。2026-11-13 に改番 → `tex-sources/RENUMBER-2026-11-13.md`）。
 
 ## 現行構成（これだけ見ればよい）
 

@@ -1,0 +1,1496 @@
+% ========================================
+% Paper #67: The 0-Sphere Model: A Structural Overview
+%   Survey of Papers #1-#66 (#16 is a permanent numbering gap).
+%   Deposited after #66. Paper #65 (10.5281/zenodo.23257458) cites
+%   this paper by this title.
+% Frequency convention: Paper #10, nu_ZB = beta c / lambda_C per
+%   transport (subluminal); c / lambda_C and the Dirac 2 m c^2 / h
+%   appear only as references.
+% Numerical checks: verify67.py (every number in the text and tables).
+% ========================================
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+\usepackage{graphicx}
+\usepackage{bm}
+\usepackage{physics}
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+\numberwithin{equation}{section}
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+\usepackage[final]{microtype}
+\usepackage{ragged2e}
+\usepackage{booktabs}
+\usepackage{array}
+\usepackage{enumitem}
+\makeatletter
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+    {3mm \@plus 1ex \@minus .2ex}%
+    {-1em}%
+    {\normalfont\normalsize\itshape}}
+\makeatother
+\usepackage{xcolor}
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, positioning, decorations.pathmorphing, decorations.pathreplacing, fit, backgrounds}
+\usepackage{pgfplots}
+\pgfplotsset{compat=1.18}
+\usepgfplotslibrary{fillbetween}
+% --- notation shared with Papers #65 and #66 ---
+\newcommand{\vZB}{v_{\text{ZB}}}
+\newcommand{\betaZB}{\beta_{\text{ZB}}}
+\newcommand{\lambdaC}{\lambda_{\text{C}}}
+\newcommand{\lambdaZB}{\lambda_{\text{ZB}}}
+\newcommand{\nuZB}{\nu_{\text{ZB}}}
+\newcommand{\nuC}{\nu_{\text{C}}}
+\newcommand{\nuD}{\nu_{\text{D}}}
+\newcommand{\Ttr}{T_{\text{tr}}}
+\newcommand{\OmT}{\Omega_{\text{T}}}
+\newcommand{\gv}{\gamma_v}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\hodge}{\star}
+\newcommand{\zrec}[1]{\href{https://doi.org/10.5281/zenodo.#1}{\texttt{\detokenize{#1}}}}
+% --- palette shared by all figures ---
+\definecolor{kA}{RGB}{31,94,168}
+\definecolor{kB}{RGB}{204,102,0}
+\definecolor{pass}{RGB}{0,128,80}
+\definecolor{fail}{RGB}{190,30,45}
+\definecolor{neutral}{RGB}{110,110,110}
+\definecolor{soft}{RGB}{244,246,250}
+\definecolor{wone}{RGB}{31,94,168}
+\definecolor{wtwo}{RGB}{0,128,80}
+\definecolor{wthree}{RGB}{204,102,0}
+\definecolor{wfour}{RGB}{128,60,150}
+\definecolor{wfive}{RGB}{190,30,45}
+\tikzset{
+  box/.style={draw=neutral, rounded corners=2pt, fill=soft, align=center, inner sep=4pt, font=\small},
+  passbox/.style={box, draw=pass, fill=pass!8},
+  failbox/.style={box, draw=fail, fill=fail!7},
+  openbox/.style={box, draw=kB, fill=kB!8},
+  arr/.style={-{Stealth[length=2.2mm]}, thick},
+  kernel/.style={circle, inner sep=0pt, minimum size=3.2mm},
+}
+\newcommand{\inbrief}[1]{\par\medskip\noindent\fbox{\parbox{0.95\columnwidth}{\justifying\small\textbf{In brief.} #1}}\par\medskip}
+
+\begin{document}
+
+\title{The 0-Sphere Model: A Structural Overview}
+
+\author{Satoshi Hanamura}
+\email{hana.tensor@gmail.com}
+\date{\today}
+
+\begin{abstract}
+The 0-Sphere model describes the electron as two kernels, $A$ and $B$, half a Compton wavelength apart, together with the energy carried between them, and asks how much of established physics follows from that internal structure without a spacetime metric assumed in advance.
+This overview surveys the sixty-five deposited papers of the series, Papers~\#1--\#66 with \#16 a permanent numbering gap, as a single argument and as a corpus.
+The first part states the model in six steps: the energy identity of the two kernels and its reading as a quadratic form seen through the spinor double cover; the internal clock, whose transport speed $\betaZB = 0.0404720$ is fixed by the measured anomalous magnetic moment through the bridge equation and whose transport frequency $\nuZB = \betaZB c/\lambdaC = 5.0007\times10^{18}$~Hz lies a factor of $49.4$ below the Dirac Zitterbewegung frequency $2m_ec^{2}/h$; charge as a protected winding number and spin as the direction in which the transport progresses; the internal clock under gravity; the line-integral route from accumulated phase to the metric and the Maxwell equations; and the contact of the gravitational sector with the weak equivalence principle, which the sector passes for mass and binding and fails for composition by ten orders of magnitude.
+The second part records the corpus: its waves of development, a catalog with canonical DOIs, nine concept threads, the dependency structure, a corrections log that now includes an arithmetic error in the Dirac reference frequency of Papers~\#33, \#43 and~\#46, the open problems of the narrowed programme, and a reading roadmap.
+Every statement is marked as standard physics or as a reading of the model, and the overview closes by separating what the series has shown, what it has not demonstrated, and what remains to be done.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+% ========================================
+
+\paragraph{The question the series asks.} Physics ordinarily begins with a spacetime: a metric is given, and particles and fields are placed on it. The 0-Sphere model reverses the order. It begins inside a single electron, with two points between which energy is carried, and treats the phase accumulated along that transport as the primary object. The metric, electromagnetism and gravity are then to be recovered as large-scale features of that internal structure. The series calls this the reverse route. Sixty-five papers, written between November 2018 and October 2026, develop it.
+
+\paragraph{Why an overview is needed.} A corpus of that size cannot be read front to back. Its results were obtained in an order dictated by discovery rather than by logic, several were corrected or withdrawn later, and a reader who opens an individual paper meets terms (the photon sphere, the bridge equation, the thermal geodesic) whose definitions sit elsewhere. This overview gives the logical order, says where each piece is established, and records what did not survive.
+
+\paragraph{Two kinds of statement.} Throughout, a statement that belongs to textbook mathematics or physics is marked \textbf{[standard]}, and a statement that belongs to the interpretation of the 0-Sphere model is marked \textbf{[0SM reading]}. A reader may accept every standard statement and still reject the model. Paper~\#65~\cite{hanamura65} adds a third distinction, between the mathematics, the model, and nature: a mathematical structure can be exhibited without being found in the model, and a structure of the model can be exhibited without being found in nature. Table~\ref{tab:layers} uses that distinction for the main claims of the series.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Three layers of every claim in the series}}
+\label{tab:layers}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{4.2cm}>{\raggedright\arraybackslash}p{4.4cm}>{\raggedright\arraybackslash}p{4.3cm}}
+\toprule
+\textbf{Topic} & \textbf{Mathematics} & \textbf{Model} & \textbf{Nature} \\
+\midrule
+energy split & $\cos^{4}+\sin^{4}+\tfrac12\sin^{2}=1$ is an identity & the two quartic terms are kernel energies, the third is energy in transit & not observed \\
+\addlinespace[0.2cm]
+double cover & the Hopf map $\mathrm{SU}(2)\to\mathrm{SO}(3)$ is two-to-one & the quartic energy is a quadratic form pulled back through it & spin-$\tfrac12$ behaviour is observed; the kernels are not \\
+\addlinespace[0.2cm]
+charge & a winding number is an integer and is conserved & the winding of the internal amplitude is the sign of charge & charge is quantized; its size $\alpha$ is not derived \\
+\addlinespace[0.2cm]
+transport speed & $\sqrt{1-\beta^{2}} = 1/(1+a/\sqrt2)$ has one solution & the energy moves between the kernels at $\betaZB c$ & $a_e$ is measured; $\betaZB c$ is not \\
+\addlinespace[0.2cm]
+gravity & a force $\propto m$ can carry a species-dependent coefficient & the coefficient is $\betaZB$ & composition dependence is bounded at $10^{-15}$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The right-hand column states what is known from experiment. In each row the mathematical statement is not in question; the claims of the series sit in the middle column, and the right-hand column shows how far nature has been reached.
+\end{minipage}
+\end{table*}
+
+\paragraph{The organisation of the overview.} Section~\ref{sec:stand} states where the programme stands in October 2026. Part~I, Secs.~\ref{sec:kernel}--\ref{sec:wep}, gives the model in six steps, each opening with a short summary. Part~II, Secs.~\ref{sec:waves}--\ref{sec:roadmap}, records the corpus. Section~\ref{sec:status} separates what has been shown from what has not, and Sec.~\ref{sec:conclusion} closes with a single picture of the whole argument (Fig.~\ref{fig:flow}). Figure~\ref{fig:timeline} places the papers in time.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[x=0.232cm, y=1cm]
+% time axis by paper number
+\draw[neutral, thick] (0.5,0) -- (67.5,0);
+\foreach \n in {1,...,66}{
+  \ifnum\n=16\relax
+    \draw[neutral] (\n,-0.12) -- (\n,0.12);
+  \else
+    \pgfmathsetmacro{\col}{\n<11 ? 1 : (\n<29 ? 2 : (\n<48 ? 3 : (\n<63 ? 4 : 5)))}
+    \ifdim\col pt=1pt \fill[wone] (\n,0) circle (2.6pt);\fi
+    \ifdim\col pt=2pt \fill[wtwo!80!black] (\n,0) circle (2.6pt);\fi
+    \ifdim\col pt=3pt \fill[wthree] (\n,0) circle (2.6pt);\fi
+    \ifdim\col pt=4pt \fill[wfour] (\n,0) circle (2.6pt);\fi
+    \ifdim\col pt=5pt \fill[wfive] (\n,0) circle (2.6pt);\fi
+  \fi
+}
+\foreach \n in {1,10,20,29,31,40,48,51,60,66}{ \node[font=\scriptsize, below] at (\n,-0.15) {\#\n}; }
+% year marks
+\foreach \n/\y in {1/2018, 6/2020, 10/2024, 13/2025, 31/2026}{
+  \draw[neutral] (\n,0.25) -- (\n,0.45); \node[font=\scriptsize, above, neutral] at (\n,0.45) {\y};
+}
+% wave brackets
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, wone, thick] (0.7,-0.75) -- (10.3,-0.75) node[midway, below=4pt, font=\scriptsize, align=center] {foundations\\\#1--\#10};
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, wtwo!80!black, thick] (10.7,-0.75) -- (28.3,-0.75) node[midway, below=4pt, font=\scriptsize, align=center] {relativistic extension\\\#11--\#28};
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, wthree, thick] (28.7,-0.75) -- (47.3,-0.75) node[midway, below=4pt, font=\scriptsize, align=center] {line-integral turn and consolidation\\\#29--\#47};
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, wfour, thick] (47.7,-0.75) -- (62.3,-0.75) node[midway, below=4pt, font=\scriptsize, align=center] {geometry, gravity, hadrons\\\#48--\#62};
+\draw[decorate, decoration={brace, amplitude=4pt, mirror}, wfive, thick] (62.7,-0.75) -- (66.3,-0.75) node[midway, below=4pt, font=\scriptsize, align=center, yshift=-0.75cm] {maps, foundations,\\audit \#63--\#66};
+% density note
+\node[font=\scriptsize, neutral, align=left, anchor=west] at (40,0.75) {2026: Papers \#31--\#66};
+\draw[neutral, -{Stealth[length=1.5mm]}] (39.6,0.75) -- (33.5,0.75);
+\end{tikzpicture}
+\caption{\textbf{The series in time}}
+\label{fig:timeline}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Each dot is a deposited paper, in order of its number; \#16 is a permanent numbering gap and is shown as a tick. Year marks give the first paper of each year. The first ten papers span six years; the line-integral turn of late 2025 is followed by thirty-six papers in 2026. The colours mark the five phases of Sec.~\ref{sec:waves}.
+\end{minipage}
+\end{figure*}
+
+% ========================================
+\section{Where the Programme Stands}
+\label{sec:stand}
+% ========================================
+
+\inbrief{The internal model of the electron and its clock stand. The attempt to build gravity from the internal motion met an experimental bound it cannot pass, and the gravitational formalisation has been restarted from the line-integral papers. Several numerical statements of earlier papers have been corrected.}
+
+\paragraph{What stands.} The two-kernel description of the electron, its energy identity and the reading of the quartic energy as a quadratic form seen through the double cover~\cite{hanamura01,hanamura65}; the bridge equation that fixes the transport speed from the measured anomalous moment~\cite{hanamura10,hanamura62}; charge as a protected winding number~\cite{hanamura65}; the operator foundation of spin two-valuedness~\cite{hanamura64}; and the line-integral ontology with its derivation of Maxwell electrodynamics as a low-energy limit~\cite{hanamura31,hanamura54,hanamura55}. None of these depends on the gravitational result below.
+
+\paragraph{What failed, and why.} From Paper~\#34 on, the series tried to build gravity from the internal motion: the transported energy precesses, fragments are emitted, and the synchronisation between neighbouring electrons turns into a drift read as free fall~\cite{hanamura34,hanamura49,hanamura58}. Paper~\#52 showed that the resulting force is proportional to mass, with a residual factor, $F = mg\,\betaZB$~\cite{hanamura52}. Paper~\#66 tested this force against the weak equivalence principle~\cite{hanamura66}. It passes for binding, because $\betaZB$ is a pure number. It fails for composition, because the bridge equation gives a different pure number for electrons and for nucleons, and the predicted difference in free fall between titanium and platinum, $3.13\times10^{-5}$, exceeds the MICROSCOPE bound of $2.7\times10^{-15}$ by ten orders of magnitude. A speed of the internal motion cannot define the gravitational charge.
+
+\paragraph{What follows.} The internal motion is kept as a physical picture. The definition of the gravitational source is moved to the line-integral route of Papers~\#29--\#31~\cite{hanamura29,hanamura30,hanamura31}, under four acceptance criteria (Sec.~\ref{sec:open}). The open-task registry that was kept through mid-2026 is closed as a ledger and retained as a record.
+
+\paragraph{What was corrected.} The corrections log of Sec.~\ref{sec:corrections} collects every correction and retraction of the series. Three are recent: the corrections C1--C3 of Paper~\#66 to Papers~\#58 and~\#59, the retraction of the refined velocity $0.040374c$ with the lepton critical radii, and an arithmetic error in the Dirac reference frequency, quoted as $3.93\times10^{20}$~Hz in Papers~\#33 and~\#46 and as $1.6\times10^{20}$~Hz in Paper~\#43, for the correct $2m_ec^{2}/h = 2.47\times10^{20}$~Hz.
+
+\begin{table}[t!]
+\centering
+\caption{\textbf{The state of the programme, October 2026}}
+\label{tab:stand}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{1.4cm}>{\raggedright\arraybackslash}p{3.1cm}}
+\toprule
+\textbf{Sector} & \textbf{Papers} & \textbf{Status} \\
+\midrule
+two kernels, energy identity & \#1, \#65 & \textcolor{pass}{\textbf{stands}}; quartic derived from three relations \\
+\addlinespace[0.15cm]
+transport speed & \#10, \#62 & \textcolor{pass}{\textbf{stands}}; unmeasured \\
+\addlinespace[0.15cm]
+charge, spin & \#50, \#64, \#65 & \textcolor{pass}{\textbf{stands}}; size of charge open \\
+\addlinespace[0.15cm]
+line integrals, Maxwell & \#29--\#31, \#54, \#55 & \textcolor{pass}{\textbf{stands}} \\
+\addlinespace[0.15cm]
+metric from two points & \#51, \#60, \#63 & \textcolor{kB}{\textbf{proposed}}; closure open \\
+\addlinespace[0.15cm]
+gravity from internal motion & \#34--\#59 & \textcolor{fail}{\textbf{fails}} composition; kept as picture \\
+\addlinespace[0.15cm]
+gravitational source & \#29--\#31, \#66 & \textcolor{kB}{\textbf{restarted}} \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\end{table}
+
+% ============================================================
+% PART I
+% ============================================================
+\part{The Model in Six Steps}
+\label{part:model}
+
+% ========================================
+\section{Step 1: Two Kernels and One Energy}
+\label{sec:kernel}
+% ========================================
+
+\inbrief{The electron's energy is not held at one point. It is carried back and forth between two kernels, and at every instant it is split three ways: at $A$, at $B$, and in transit. The split obeys a fourth-power law, and the fourth power is what an ordinary quadratic energy looks like when it is written in a spinor variable.}
+
+\subsection{The two kernels}
+
+\textbf{[standard]} The zero-dimensional sphere $S^{0}$ is the pair of points $\{-1,+1\}$, the boundary of the segment $D^{1}=[-1,1]$. \textbf{[0SM reading]} The model takes the two points as two kernels, $A$ and $B$, between which a single electron's energy is transported~\cite{hanamura01,hanamura06}. The pair is not two particles joined by a string. It is one electron whose energy is never at rest: an internal phase $\theta$ records how far the transport has progressed, with $\theta = 0$ at kernel $A$ and $\theta = \pi$ at kernel $B$ in the convention of Paper~\#65~\cite{hanamura65}.
+
+\subsection{The energy identity}
+
+The fraction of the energy attributed to each kernel is the occupation
+\begin{equation}
+n_A = \cos^{2}\!\frac{\theta}{2}, \qquad n_B = \sin^{2}\!\frac{\theta}{2}, \qquad n_A + n_B = 1 .
+\label{eq:occ}
+\end{equation}
+Squaring the normalisation splits the energy into three terms,
+\begin{equation}
+E_0 = E_0(n_A+n_B)^{2} = \underbrace{E_0\cos^{4}\!\tfrac{\theta}{2}}_{E_A} + \underbrace{E_0\sin^{4}\!\tfrac{\theta}{2}}_{E_B} + \underbrace{\tfrac12 E_0\sin^{2}\theta}_{K} ,
+\label{eq:identity}
+\end{equation}
+which is the founding identity of the series~\cite{hanamura01}. \textbf{[0SM reading]} $E_A$ and $E_B$ are the energies held at the kernels and $K = 2E_0 n_A n_B$ is the energy in transit, carried by the collective radiative structure the series calls the photon sphere. At $\theta = 0$ all of the energy is at $A$; at $\theta = \pi/2$ half is in transit; at $\theta = \pi$ all is at $B$ (Fig.~\ref{fig:kernel}).
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}
+% panel (a): two kernels and the arc
+\begin{scope}[xshift=-4.6cm]
+\node[kernel, fill=kA] (A) at (-2.2,0) {};
+\node[kernel, fill=kB] (B) at (2.2,0) {};
+\node[left=3pt, font=\small, text=kA] at (A) {$A$};
+\node[right=3pt, font=\small, text=kB] at (B) {$B$};
+\draw[thick, -{Stealth[length=2mm]}, decorate, decoration={snake, amplitude=0.5mm, segment length=2.6mm, post length=2mm}] (-2.0,0.18) .. controls (-1.0,1.5) and (1.0,1.5) .. (2.0,0.18);
+\draw[thick, -{Stealth[length=2mm]}, decorate, decoration={snake, amplitude=0.5mm, segment length=2.6mm, post length=2mm}] (2.0,-0.18) .. controls (1.0,-1.5) and (-1.0,-1.5) .. (-2.0,-0.18);
+\node[font=\small] at (0,1.5) {transit $K$: photon sphere};
+\draw[neutral, dashed] (A) -- (B);
+\node[font=\scriptsize, neutral, fill=white, inner sep=1pt] at (0,0) {$\lambdaC/2$};
+\node[font=\small] at (0,-1.6) {$\theta=0$ at $A$, $\theta=\pi$ at $B$};
+\node[font=\bfseries] at (-2.9,1.7) {(a)};
+\end{scope}
+% panel (b): energy split
+\begin{scope}[xshift=1.4cm, yshift=-1.6cm]
+\begin{axis}[width=8.6cm, height=4.6cm, xmin=0, xmax=6.2832, ymin=0, ymax=1.08,
+  xtick={0,1.5708,3.1416,4.7124,6.2832}, xticklabels={$0$,$\pi/2$,$\pi$,$3\pi/2$,$2\pi$},
+  xlabel={internal phase $\theta$}, ylabel={energy $/E_0$}, label style={font=\small}, tick label style={font=\footnotesize},
+  legend style={font=\scriptsize, at={(0.5,1.03)}, anchor=south, legend columns=3, draw=none}, axis lines=left]
+\addplot[domain=0:6.2832, samples=121, very thick, kA] {cos(deg(x/2))^4};
+\addplot[domain=0:6.2832, samples=121, very thick, kB] {sin(deg(x/2))^4};
+\addplot[domain=0:6.2832, samples=121, very thick, pass, dashed] {0.5*sin(deg(x))^2};
+\legend{$E_A$ at kernel $A$, $E_B$ at kernel $B$, $K$ in transit}
+\end{axis}
+\node[font=\bfseries] at (-0.9,3.5) {(b)};
+\end{scope}
+\end{tikzpicture}
+\caption{\textbf{The two kernels and the three-way energy split}}
+\label{fig:kernel}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+(a) The electron's energy is carried between kernels $A$ and $B$, half a Compton wavelength apart, along a curved path, and one round trip covers $\lambdaC$; the curvature of the path is what later produces the Thomas precession (Sec.~\ref{sec:wep}). (b) The energy identity, Eq.~\eqref{eq:identity}. The three curves add to one at every phase. The energy in transit is largest at $\theta = \pi/2$ and $3\pi/2$, where it equals half the total, and vanishes when the energy sits at a kernel.
+\end{minipage}
+\end{figure*}
+
+\subsection{Why the fourth power}
+
+The fourth power was introduced in Paper~\#1 by analogy with the Stefan--Boltzmann law of black-body radiation, with a kernel temperature proportional to $\cos(\theta/2)$~\cite{hanamura01}. Paper~\#65 replaced the analogy with a derivation~\cite{hanamura65}.
+
+\textbf{[standard]} For a two-level amplitude $\chi$, the Bloch vector $\mathbf s = \chi^{\dagger}\bm\sigma\chi$ is quadratic in $\chi$ and turns at the full angle while $\chi$ turns at the half angle; the map $\chi\mapsto\mathbf s$ is the two-to-one Hopf map. \textbf{[0SM reading]} With $\mathbf s = (\sin\theta, 0, \cos\theta)$ the three terms of Eq.~\eqref{eq:identity} become
+\begin{equation}
+E_A = \tfrac14E_0(1+s_z)^{2}, \quad E_B = \tfrac14E_0(1-s_z)^{2}, \quad K = \tfrac12E_0 s_x^{2},
+\label{eq:bloch}
+\end{equation}
+ordinary quadratic forms. The fourth power in the half angle is a second power in the full angle, seen through the double cover. Equation~\eqref{eq:bloch} is forced by three relations the model already holds: the radiation-gradient relation $\partial_\theta(E_B-E_A) = E_0\sin\theta$ of Paper~\#1, the harmonic form of the transit energy from Paper~\#10, and conservation of energy. No thermodynamic postulate enters. The literal kernel temperature $\propto\cos(\theta/2)$ is withdrawn, since it would turn negative for $\theta>\pi$; temperature belongs to the occupation layer, $T\propto n$. The assumption that remains is the radiation-gradient relation itself, whose origin is open.
+
+\subsection{Boson and fermion: the segment and its ends}
+
+\textbf{[0SM reading]} Paper~\#65 starts from the arithmetic of $0$ and $1$. The normalisation $n_A + n_B = 1$ read at degree one is solved by every point of the segment $D^{1}$. Read at degree two, its kernel terms alone, $n_A^{2}+n_B^{2} = 1$, are solved only by the two endpoints, $S^{0} = \partial D^{1}$, and the cross term $2n_An_B$ is the seat of transport that joins them. The photon's identity, $\cos^{2}+\sin^{2}=1$, has no cross term~\cite{hanamura38}. The boson is the segment; the fermion's kernels are its boundary, and the fermion needs transport to be one object. Table~\ref{tab:states} lists the three states of the cycle.
+
+\begin{table}[t!]
+\centering
+\caption{\textbf{Three points of the transport cycle}}
+\label{tab:states}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.9cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{2.4cm}}
+\toprule
+$\theta$ & $(n_A, n_B)$ & $(E_A,E_B,K)$ in units of $E_0$ & \textbf{reading} \\
+\midrule
+$0$ & $(1,0)$ & $(1,0,0)$ & all energy at $A$ \\
+\addlinespace[0.1cm]
+$\pi/2$ & $(\tfrac12,\tfrac12)$ & $(\tfrac14,\tfrac14,\tfrac12)$ & half the energy in transit \\
+\addlinespace[0.1cm]
+$\pi$ & $(0,1)$ & $(0,1,0)$ & all energy at $B$ \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\end{table}
+
+\subsection{The exchange as the interference of the Dirac branches}
+
+\textbf{[0SM reading]} The amplitude behind Eq.~\eqref{eq:occ} is a rotor obeying the first-order equation $i\partial_t\chi = (\omega/2)\sigma_y\chi$. Paper~\#65 shows that this rotor is unitarily equivalent, at rest, to the equal-weight superposition of the positive- and negative-energy rest solutions of the Dirac equation~\cite{hanamura65}. In that frame $n_A = \tfrac14+\tfrac14+\tfrac12\cos\omega t$: each branch alone contributes a constant, and everything that changes in time is the cross term. \textbf{[standard]} The cross term of the two branches is the Zitterbewegung of the Dirac electron~\cite{Dirac1928,Schrodinger1930}. \textbf{[0SM reading]} The exchange between the kernels is that Zitterbewegung, read as a real motion of the interior. The sign of an energy eigenvalue is read as the sign of a frequency, and the negative branch as the absorbing half of a paired emission and absorption, not as a second particle. The model does not invoke a Dirac sea and does not deny the antiparticle. Paper~\#7 had identified the two kernels with the two Dirac branches~\cite{hanamura07}; Paper~\#65 upgrades the identification to an equivalence in the zero-momentum sector, without deriving the kinetic term, Lorentz covariance or the Clifford algebra.
+
+% ========================================
+\section{Step 2: The Internal Clock}
+\label{sec:clock}
+% ========================================
+
+\inbrief{The transport between the kernels takes time, and the series fixes its speed from one measured number, the anomalous magnetic moment of the electron: $4.05\%$ of the speed of light. One round trip of the energy, from $A$ to $B$ and back, takes $2.00\times10^{-19}$~s, a frequency of $5.00\times10^{18}$~Hz. This subluminal frequency is the clock of every paper in the series; the light-speed value $c/\lambdaC$ and the Dirac value $2m_ec^{2}/h$ appear only as references.}
+
+\subsection{The bridge equation}
+
+\textbf{[0SM reading]} Paper~\#10 reads the anomalous magnetic moment $a_e = (g-2)/2$ as a rotational Lorentz contraction of the internal transport~\cite{hanamura10}. The transported energy moves at speed $\vZB$, and the contraction it suffers is identified with the measured anomaly. For a speed, the relevant contraction is the root-mean-square one, and the bridge equation reads
+\begin{equation}
+\sqrt{1-\betaZB^{2}} = \frac{1}{1 + a_e/\sqrt2}, \qquad \betaZB = \frac{\vZB}{c} = 0.0404720 .
+\label{eq:bridge}
+\end{equation}
+With $a_e = 1.15965218\times10^{-3}$~\cite{codata2022} this gives $\vZB = 1.2133\times10^{7}$~m/s, with no adjustable parameter. The mass-determining form $\gamma = 1 + a$, without the factor $1/\sqrt2$, would give $0.0481$; the series uses the two forms for two different roles~\cite{hanamura61}, and Paper~\#62 derives the bridge relation and the origin of the root-mean-square factor from first principles~\cite{hanamura62}. Paper~\#47 extends the contraction reading to a structural correspondence with the muon lifetime~\cite{hanamura47}. The value $\betaZB$ is a prediction: it is fixed by $a_e$ and has not been measured.
+
+\subsection{Two frequencies and one length}
+
+The transport length is the Compton wavelength $\lambdaC = h/m_ec = 2.42631\times10^{-12}$~m. Paper~\#33 compared it with the shorter Zitterbewegung amplitude $\lambdaZB = \lambdaC/4\pi = 1.931\times10^{-13}$~m and chose $\lambdaC$ (Appendices E--G of Paper~\#33~\cite{hanamura33}). What one cycle is follows from the energy identity, Eq.~\eqref{eq:identity}: the kernel energy $E_A = E_0\cos^{4}(\theta/2)$ returns to its starting value only at $\theta = 2\pi$, after the energy has gone from $A$ to $B$ and back. One cycle of the identity is one round trip of the photon sphere, and $\lambdaC$ is the path covered in one cycle; the kernels are $\lambdaC/2$ apart, the separation Paper~\#51 uses~\cite{hanamura51}. Dividing the transport speed by the path of one cycle gives the clock of the series, Paper~\#10's transport frequency,
+\begin{align}
+\nuZB &= \frac{\betaZB c}{\lambdaC} = 5.0007\times10^{18}~\text{Hz},
+\label{eq:nuZB}\\
+\Ttr &= \frac{1}{\nuZB} = 1.9997\times10^{-19}~\text{s},
+\notag
+\end{align}
+so that $\lambdaC = \vZB\Ttr$: the path of one round trip is built from the clock. A single passage $A\to B$ takes $\Ttr/2 = 1.00\times10^{-19}$~s, and the phase $\theta$ advances at $2\pi\nuZB = 3.14\times10^{19}$~rad/s. The light-speed value $\nuC = c/\lambdaC = m_ec^{2}/h = 1.2356\times10^{20}$~Hz enters only as a reference, and the ratio of the two clocks is
+\begin{equation}
+\frac{\nuZB}{\nuC} = \betaZB .
+\label{eq:ratio}
+\end{equation}
+The energy quantum of one cycle is $h\nuZB = \betaZB m_ec^{2} = 20.68$~keV, about $1/24.7$ of the rest energy. \textbf{[standard]} The Dirac Zitterbewegung oscillates at $\nuD = 2m_ec^{2}/h = 2.4712\times10^{20}$~Hz~\cite{Schrodinger1930}, with angular frequency $2m_ec^{2}/\hbar = 1.5527\times10^{21}$~rad/s. The 0-Sphere transport frequency lies a factor $49.4$ below it. Table~\ref{tab:clocks} collects the quantities and Fig.~\ref{fig:ladder} places them on one axis.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Clocks and lengths of the internal structure}}
+\label{tab:clocks}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.8cm}>{\raggedright\arraybackslash}p{2.9cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{6.1cm}}
+\toprule
+\textbf{Quantity} & \textbf{Formula} & \textbf{Value} & \textbf{Role} \\
+\midrule
+transport speed & Eq.~\eqref{eq:bridge} & $0.0404720\,c$ & fixed by $a_e$; unmeasured \\
+\addlinespace[0.15cm]
+path of one cycle & $\lambdaC = h/m_ec$ & $2.42631\times10^{-12}$~m & chosen in \#33; kernels $\lambdaC/2$ apart (\#51) \\
+\addlinespace[0.15cm]
+transport frequency & $\nuZB = \betaZB c/\lambdaC$ & $5.0007\times10^{18}$~Hz & \textbf{the clock of the series} (\#10) \\
+\addlinespace[0.15cm]
+cycle time & $\Ttr = 1/\nuZB$ & $1.9997\times10^{-19}$~s & one round trip $A\to B\to A$ \\
+\addlinespace[0.15cm]
+energy of one cycle & $h\nuZB = \betaZB m_ec^{2}$ & $20.68$~keV & X-ray range \\
+\addlinespace[0.15cm]
+light-speed reference & $\nuC = c/\lambdaC$ & $1.2356\times10^{20}$~Hz & reference only; $\nuZB/\nuC = \betaZB$ \\
+\addlinespace[0.15cm]
+Dirac Zitterbewegung & $\nuD = 2m_ec^{2}/h$ & $2.4712\times10^{20}$~Hz & [standard] reference; $\nuD/\nuZB = 49.4$ \\
+\addlinespace[0.15cm]
+alternative length & $\lambdaZB = \lambdaC/4\pi$ & $1.931\times10^{-13}$~m & not adopted (\#33); would give $6.28\times10^{19}$~Hz \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Frequencies are counted per cycle of the energy identity, that is, per round trip of the photon sphere; the angular frequency of $\theta$ is $2\pi\nuZB$. Papers~\#65 and~\#66 described $\Ttr$ as one passage $A\to B$ and the kernel separation as $\lambdaC$; the correction is recorded in Table~\ref{tab:corrections}. No value in this table changes.
+\end{minipage}
+\end{table*}
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=8.6cm, height=4.4cm, xmode=log, xmin=2e18, xmax=8e20, ymin=0, ymax=4.6, ytick=\empty, axis y line=none, axis x line=bottom,
+  xlabel={frequency (Hz)}, label style={font=\small}, tick label style={font=\footnotesize}, clip=false]
+\addplot[only marks, mark=*, mark size=2.6pt, pass] coordinates {(5.0007e18,1)};
+\addplot[only marks, mark=*, mark size=2.2pt, neutral] coordinates {(6.284e19,2)};
+\addplot[only marks, mark=*, mark size=2.2pt, kA] coordinates {(1.2356e20,3)};
+\addplot[only marks, mark=*, mark size=2.2pt, kB] coordinates {(2.4712e20,4)};
+\addplot[only marks, mark=x, mark size=3.2pt, fail, very thick] coordinates {(3.93e20,4)};
+\draw[pass, thin] (axis cs:5.0007e18,0) -- (axis cs:5.0007e18,1);
+\draw[neutral, thin] (axis cs:6.284e19,0) -- (axis cs:6.284e19,2);
+\draw[kA, thin] (axis cs:1.2356e20,0) -- (axis cs:1.2356e20,3);
+\draw[kB, thin] (axis cs:2.4712e20,0) -- (axis cs:2.4712e20,4);
+\node[font=\scriptsize, anchor=south west, text=pass, align=left] at (axis cs:4.0e18,1.15) {$\nuZB = \betaZB c/\lambdaC$, 0-Sphere clock};
+\node[font=\scriptsize, anchor=east, text=neutral] at (axis cs:5.6e19,2) {$\betaZB c/\lambdaZB$ (not adopted)};
+\node[font=\scriptsize, anchor=east, text=kA] at (axis cs:1.1e20,3) {$\nuC = c/\lambdaC$ (reference)};
+\node[font=\scriptsize, anchor=east, text=kB] at (axis cs:2.2e20,4) {Dirac $2m_ec^{2}/h$};
+\node[font=\scriptsize, anchor=west, text=fail] at (axis cs:4.3e20,4) {$3.93\times10^{20}$};
+\draw[{Stealth[length=1.6mm]}-{Stealth[length=1.6mm]}, neutral] (axis cs:5.0007e18,0.5) -- node[above, font=\scriptsize, fill=white, inner sep=1pt, pos=0.45] {$\times 49.4$} (axis cs:2.4712e20,0.5);
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{The frequency ladder of the internal structure}}
+\label{fig:ladder}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+Green: the transport frequency of Paper~\#10, the clock of the series. Blue and orange: the light-speed reference and the Dirac Zitterbewegung frequency, both of order $10^{20}$~Hz because both move at $c$. Grey: the value Paper~\#33 obtained for the shorter length $\lambdaZB$ and did not adopt. Red cross: the value $3.93\times10^{20}$~Hz printed in Papers~\#33 and~\#46 for the Dirac frequency, an arithmetic error (Sec.~\ref{sec:corrections}).
+\end{minipage}
+\end{figure}
+
+\subsection{One speed, two components}
+
+\textbf{[0SM reading]} A Dirac electron's velocity operator has eigenvalues $\pm c$, and the series' $0.04c$ must be compatible with that. Paper~\#51 gives the internal path one more dimension: the transport advances along a helix~\cite{hanamura51}. The transverse component is $\vZB = 0.04047c$; the carrier traverses the helix at $c$, so the longitudinal pitch speed is $c\sqrt{1-\betaZB^{2}} = 0.99918c$. Projected on one axis, the fast pitch dominates and reproduces Dirac's $\pm c$. The slow transverse scale is invisible in that projection and is the specifically 0-Sphere prediction.
+
+\subsection{The same equation across species}
+
+\textbf{[0SM reading]} Equation~\eqref{eq:bridge} contains only a dimensionless measured input, so it can be evaluated for any spin-$\tfrac12$ particle whose anomalous moment is known. Paper~\#61 applies it to the proton~\cite{hanamura61}, and Paper~\#62 gives the modulus form that includes the neutron~\cite{hanamura62}. Figure~\ref{fig:species} shows the result. The two leptons agree to $0.27\%$ and the two nucleons to $0.85\%$, while leptons and nucleons differ by a factor of $22.2$. The same paper derives a kernel rest mass for the proton, $m_p/(1+a_p) = 336$~MeV$/c^{2}$, inside the constituent-quark band. For a spin-$\tfrac12$ particle $1 + a_p = \mu_p/\mu_N$ identically, so this value is algebraically the same as the naive quark-model determination from the proton moment; the agreement at the $336$~MeV benchmark is an identity and not an independent confirmation (Sec.~\ref{sec:corrections}). The species dependence of $\betaZB$ becomes decisive in Sec.~\ref{sec:wep}.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}
+\begin{loglogaxis}[width=8.4cm, height=5.4cm, xmin=1e-4, xmax=5, ymin=0.01, ymax=1.2,
+  xlabel={anomalous moment $|a|$}, ylabel={transport speed $\betaZB$}, label style={font=\small}, tick label style={font=\footnotesize}, axis lines=left]
+\addplot[domain=1e-4:5, samples=200, thick, neutral] {sqrt(1-1/(1+x/sqrt(2))^2)};
+\addplot[only marks, mark=*, mark size=2.4pt, kA] coordinates {(1.1597e-3,0.040472)};
+\addplot[only marks, mark=o, mark size=3.6pt, kA, thick] coordinates {(1.1659e-3,0.040581)};
+\addplot[only marks, mark=square*, mark size=2.2pt, kB] coordinates {(1.7928,0.89752)};
+\addplot[only marks, mark=square, mark size=3.2pt, kB, thick] coordinates {(1.9130,0.90518)};
+\node[font=\scriptsize, anchor=west, text=kA, align=left] at (axis cs:2.2e-3,0.03) {electron $0.04047$\\muon $0.04058$};
+\node[font=\scriptsize, anchor=east, text=kB, align=right] at (axis cs:0.12,0.55) {proton $0.898$\\neutron $0.905$};
+\draw[{Stealth[length=1.6mm]}-{Stealth[length=1.6mm]}, fail] (axis cs:0.6,0.045) -- node[right, font=\scriptsize, text=fail] {$\times 22.2$} (axis cs:0.6,0.85);
+\end{loglogaxis}
+\end{tikzpicture}
+\caption{\textbf{One bridge equation, four species}}
+\label{fig:species}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+The curve is Eq.~\eqref{eq:bridge}. Filled and open circles: electron and muon, whose anomalous moments are dominated by the same QED term $\alpha/2\pi$ and nearly coincide. Squares: proton and neutron, whose moments are of order unity. The bridge equation is a relation of the series, not of quantum electrodynamics, and a measured input does not make the speed measured.
+\end{minipage}
+\end{figure}
+
+% ========================================
+\section{Step 3: Charge and Spin}
+\label{sec:charge}
+% ========================================
+
+\inbrief{Charge is a winding number of the internal amplitude: an integer that cannot change continuously, whose sign is the sign of charge. Its size, the fine-structure constant, is not derived. Spin is not the sense of the internal rotation, which belongs to charge; it is the direction in which the transport advances in space.}
+
+\subsection{Charge as a winding number}
+
+\textbf{[standard]} A closed curve in the plane that avoids the origin winds around it an integer number of times, and the integer cannot change under continuous deformation. \textbf{[0SM reading]} Paper~\#65 writes the internal amplitude as a point $z = a + ib$ of the plane~\cite{hanamura65}. Over one cycle it closes around the origin, and the winding number, written through the Wronskian
+\begin{equation}
+Q = \frac{2}{\omega}\,(a\dot b - b\dot a),
+\label{eq:wronskian}
+\end{equation}
+is conserved, quantized to $\pm1$ and bounded by $|Q|\le1$. Its sign is identified with the sign of charge. Existence, quantization, conservation, the bound and the sign of charge follow; the size of charge, $\alpha$, does not, and the coupling of the winding to the electromagnetic potential is open. Detuned kernel pairs, $z = \cos p\tau + i\sin q\tau$, behave differently: for even $q$ the curve passes through the origin, and for odd $q$ the winding is $0$ when $p$ is even and the mod-4 character $\chi_4(q)$ when $p$ is odd. Paper~\#65 reads the zero-winding detuned pair as the neutral neutrino, extending the two-frequency scaffold of Paper~\#9~\cite{hanamura09}.
+
+\subsection{The sheets of the exchange}
+
+\textbf{[0SM reading]} The exchange is two-valued, $\dot n_A = \mp\omega\sqrt{n_An_B}$, and Paper~\#65 draws it on a two-sheeted Riemann surface with branch points $\{0,1\} = S^{0}$ and cut $D^{1}$. On one sheet kernel $A$ radiates and $B$ absorbs; on the other, the reverse. The order in which the exchange runs over the two sheets is the same quantity as the winding: it is charge. The sheets are radiating and absorbing roles, not spin states, and they should not be confused with the two sheets of Paper~\#64 below.
+
+\subsection{Spin as the direction of progression}
+
+\textbf{[0SM reading]} The rotor traversed in the opposite sense reproduces the form of the Dirac rest polynomial, so it is tempting to read it as the spin partner. Its degeneracy is between the two senses of rotation; it is the charge partner. Paper~\#65 assigns spin instead to the spatial direction in which radiation and absorption progress along the helix of Paper~\#51, a quantity the rotor does not carry. The four Dirac rest solutions are then the radiating or absorbing role taken together with spin, the same count $2\times2$ that Paper~\#50 obtained from chirality and spin~\cite{hanamura50}. Paper~\#64 grounds the two-valuedness of spin at the operator level: the Dirac operator on the compact space $S^{3}$ is the square root of the scalar Laplacian, and its eigenvalues come in signed pairs $\pm(\ell+\tfrac32)$~\cite{hanamura64}. Paper~\#48 obtains $g=2$ from a $\mathrm{U}(1)$ bundle with Berry connection $\tfrac12\cos\theta$ and holonomy $\pi$~\cite{hanamura48}. How the spin candidate responds to spatial rotations, and how the Stern--Gerlach projection law $\cos^{2}(\theta/2)$ follows, are open. Figure~\ref{fig:charge} and Table~\ref{tab:charge} summarise the separation.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}
+% (a) winding in the amplitude plane
+\begin{scope}[xshift=-5.6cm]
+\draw[neutral, -{Stealth[length=1.6mm]}] (-1.7,0) -- (1.8,0) node[right, font=\scriptsize] {$a$};
+\draw[neutral, -{Stealth[length=1.6mm]}] (0,-1.7) -- (0,1.8) node[above, font=\scriptsize] {$b$};
+\draw[very thick, kA, -{Stealth[length=2.4mm]}] (1.3,0) arc (0:340:1.3);
+\fill[black] (0,0) circle (1.6pt);
+\node[font=\small, text=kA, align=center] at (0,-2.25) {winding $Q=+1$};
+\node[font=\bfseries] at (-1.9,1.9) {(a)};
+\end{scope}
+\begin{scope}[xshift=-1.6cm]
+\draw[neutral, -{Stealth[length=1.6mm]}] (-1.7,0) -- (1.8,0) node[right, font=\scriptsize] {$a$};
+\draw[neutral, -{Stealth[length=1.6mm]}] (0,-1.7) -- (0,1.8) node[above, font=\scriptsize] {$b$};
+\draw[very thick, kB, -{Stealth[length=2.4mm]}] (1.3,0) arc (0:-340:1.3);
+\fill[black] (0,0) circle (1.6pt);
+\node[font=\small, text=kB, align=center] at (0,-2.25) {winding $Q=-1$: charge partner};
+\end{scope}
+% (b) helix: spin as direction of progression
+\begin{scope}[xshift=3.4cm]
+\draw[neutral, -{Stealth[length=1.6mm]}] (-0.3,0) -- (4.6,0) node[right, font=\scriptsize] {progression};
+\draw[thick, pass, domain=0:4.2, samples=160, smooth, variable=\t] plot ({\t},{0.7*sin(\t*3*180/3.1416)});
+\draw[very thick, pass, -{Stealth[length=2.6mm]}] (3.9,1.25) -- (4.6,1.25);
+\node[font=\small, text=pass, align=center] at (2.1,-1.35) {spin: the spatial direction\\in which the transport advances};
+\node[font=\bfseries] at (-0.4,1.9) {(b)};
+\end{scope}
+\end{tikzpicture}
+\caption{\textbf{Charge and spin are different quantities}}
+\label{fig:charge}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+(a) The internal amplitude $z=a+ib$ closes around the origin once per cycle. The winding number is an integer, conserved, and its sign is read as the sign of charge; reversing the sense of rotation gives the charge partner. (b) Spin is assigned to the direction in which radiation and absorption progress along the helix of Paper~\#51, which the internal rotor does not carry. The response of this quantity to spatial rotations is open.
+\end{minipage}
+\end{figure*}
+
+\begin{table}[t!]
+\centering
+\caption{\textbf{Charge and spin in Paper~\#65}}
+\label{tab:charge}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{5pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.9cm}>{\raggedright\arraybackslash}p{2.8cm}>{\raggedright\arraybackslash}p{2.6cm}}
+\toprule
+ & \textbf{charge} & \textbf{spin} \\
+\midrule
+carrier & sense of the internal rotation & direction of progression in space \\
+\addlinespace[0.1cm]
+mathematics & winding number, Wronskian & square root of the $S^{3}$ Laplacian (\#64) \\
+\addlinespace[0.1cm]
+shown & integer, sign, conservation, bound & two-valuedness \\
+\addlinespace[0.1cm]
+open & size $\alpha$; coupling to $A_\mu$ & rotation response; $\cos^{2}(\theta/2)$ \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\end{table}
+
+\paragraph{What a winding number counts.} \textbf{[0SM reading]} A winding number is the integer-valued member of the family of closed line integrals of a phase, to which the Aharonov--Bohm phase and the Berry phase belong and which Papers~\#29--\#31 took as fundamental observables. Around the origin of the amplitude plane it counts the sign of charge, the same for bound and free electrons. Around a closed orbit it counts the energy level; the corresponding level spacing is $10.2$~eV for the first excitation of hydrogen and $8.6\times10^{-10}$~eV for a storage ring of circumference $1436$~m~\cite{hanamura65}. Whether the internal windings of order $\tfrac12$, $1$ and $2$ are spin, charge and the quadrupole is recorded as open.
+
+% ========================================
+\section{Step 4: The Internal Clock Under Gravity}
+\label{sec:gravclock}
+% ========================================
+
+\inbrief{If the transport is a real motion, the electron carries a clock, and clocks respond to gravity. The series predicts that the internal frequency shifts between gravitational potentials exactly as general relativity requires for proper time. The stronger claim, that the clock freezes locally near a horizon, is excluded by atomic clock comparisons.}
+
+\paragraph{The weak field.} \textbf{[0SM reading]} The internal phase advances with the proper time of the electron, so the oscillation is a proper-time meter~\cite{hanamura11}, with a Hamiltonian formulation in which the kernel energies are modulated in time~\cite{hanamura18}. Paper~\#22 draws the consequence: the internal frequency at two gravitational potentials differs by the proper-time factor of general relativity~\cite{hanamura22}. \textbf{[standard]} At the Earth's surface $1 - d\tau/dt = GM_\oplus/R_\oplus c^{2} = 6.96\times10^{-10}$, and at the altitude of the GPS satellites the gravitational part is $1.67\times10^{-10}$; the difference, $5.29\times10^{-10}$, is the shift applied daily to satellite clocks~\cite{Ashby2003} (Fig.~\ref{fig:clockrate}). The internal speed cancels from this ratio, so the prediction does not depend on the numerical value of $\betaZB$. Paper~\#24 extends the statement from clock rates to paths: the internal transport follows thermal geodesics, and the machinery of general relativity is carried inside the particle~\cite{hanamura24}.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=8.4cm, height=4.6cm, xmin=6.371, xmax=27, ymin=0, ymax=7.6,
+  xlabel={distance from the Earth's centre ($10^{6}$~m)}, ylabel={$1-d\tau/dt$ ($10^{-10}$)}, label style={font=\small}, tick label style={font=\footnotesize}, axis lines=left, clip=false]
+\addplot[domain=6.371:27, samples=120, very thick, kA] {3.986004418e14/(x*1e6*299792458^2)*1e10};
+\addplot[only marks, mark=*, mark size=2.4pt, kA] coordinates {(6.371,6.961) (26.561,1.670)};
+\node[font=\scriptsize, anchor=west] at (axis cs:7.2,6.9) {surface $6.96$};
+\node[font=\scriptsize, anchor=south] at (axis cs:24.2,1.9) {GPS orbit $1.67$};
+\draw[{Stealth[length=1.6mm]}-{Stealth[length=1.6mm]}, kB, thick] (axis cs:26.0,1.67) -- node[left, font=\scriptsize, text=kB] {$5.29$} (axis cs:26.0,6.96);
+\draw[kB, dashed] (axis cs:6.371,6.961) -- (axis cs:26.0,6.961);
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{The proper-time factor that the internal clock must follow}}
+\label{fig:clockrate}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+The gravitational slowing of clocks, $GM_\oplus/rc^{2}$, from the Earth's surface to the GPS orbit. Paper~\#22 predicts that the transport frequency of every electron shifts by the same factor; the $\Delta\nu/\nu = 5.29\times10^{-10}$ between the two marks is independent of $\betaZB$.
+\end{minipage}
+\end{figure}
+
+\paragraph{The strong field.} Paper~\#63 followed the clock into the strong field and proposed that, at a horizon, the internal clock is redshifted to zero, so that gravitational coupling freezes rather than diverges~\cite{hanamura63}. Paper~\#66 separated two readings of this statement~\cite{hanamura66}. Read as what a distant observer sees, it is ordinary general relativity: a falling clock appears to stop while its own proper time does not. Read as a local statement, that $\vZB$ itself goes to zero, it requires the anomalous moment to change with the gravitational potential at order unity through Eq.~\eqref{eq:bridge}, whereas comparisons of atomic clocks bound the corresponding coefficient at the level of $10^{-8}$. The local reading is excluded by eight orders of magnitude, and the horizon freezing is no longer a point of divergence from general relativity.
+
+\paragraph{A retracted refinement.} Paper~\#14 computed a gravitationally refined internal speed, $0.040374c$, from lepton critical radii in which the mass had been inserted in kilograms where the geometrized mass $GM/c^{2}$ belongs~\cite{hanamura14}. Paper~\#28 corrected the dimension~\cite{hanamura28}; the radii, the refined speed and the decay account built on them are retracted corpus-wide (Sec.~\ref{sec:corrections}). The series recognises one internal speed, Eq.~\eqref{eq:bridge}. The weak-field prediction of Paper~\#22 is unaffected, since the speed cancels from it.
+
+% ========================================
+\section{Step 5: From Line Integrals to the Metric}
+\label{sec:route}
+% ========================================
+
+\inbrief{The series takes the phase accumulated along a path, rather than the value of a field at a point, as the primary observable. Two of Maxwell's four equations need no metric, so the construction can start before spacetime exists. The metric is then to be read off from the two-point phase, and the remaining Maxwell equations follow once it is available. The step that would join this to gravity is still open.}
+
+\subsection{The line-integral turn}
+
+\textbf{[standard]} In the language of forms the electromagnetic field is a two-form $\FF$, and Maxwell's equations split as
+\begin{equation}
+d\FF = 0, \qquad d\,{\hodge}\FF = \mathbf J .
+\label{eq:maxwell}
+\end{equation}
+The first uses only the exterior derivative and needs no lengths or angles; the second needs the Hodge star, which is where the metric enters~\cite{HehlObukhov2003}. The Aharonov--Bohm effect shows that a line integral of the potential, $\oint\mathbf A\cdot d\mathbf l$, can be observed where the local field vanishes~\cite{AharonovBohm1959}.
+
+\textbf{[0SM reading]} The series makes this priority of path over point its ontology. $\mathrm{U}(1)$ gauge structure appears as a clock-synchronisation condition between the kernels~\cite{hanamura17}. Paper~\#29 shows that the one-way transport $A\to B$ completes half a turn of the external motion while the line integral of the spinorial connection accumulates a full $2\pi$, with $4\pi$ for the round trip~\cite{hanamura29}. Paper~\#30 rereads the Einstein equation as a consistency condition on accumulated phase, a geometric checksum, rather than as a law that generates curvature from matter~\cite{hanamura30}. Paper~\#31 places the Aharonov--Bohm effect, the Berry phase and Wilson loops under one principle: observables are holonomies of connections along histories~\cite{hanamura31}. Paper~\#37 reads the potential energy $mgh$ as an internal line-integral quantity~\cite{hanamura37}. Paper~\#54 derives Maxwell electrodynamics as the low-energy limit of the open-Wilson-line structure, valid at scales large compared with $\lambdaC$~\cite{hanamura54}, and Paper~\#55 separates four functions of the open Wilson line: phase-history carrier, gauge localisation, holonomy composition, and boundary data for both the Maxwell and the metric sectors~\cite{hanamura55}.
+
+\subsection{Securing the path}
+
+\textbf{[0SM reading]} A line integral needs a path, and a path needs a connected space. \textbf{[standard]} $S^{0}$ is not arcwise connected. \textbf{[0SM reading]} The integral therefore lives in an embedding region, the photon sphere, which Paper~\#33 introduced as a compact, arcwise-connected domain of Compton size~\cite{hanamura33}. Paper~\#51 turns this into a chain of theorems~\cite{hanamura51}: modelled as a positively curved $S^{n}$, the region obeys the Bonnet--Myers bound $\mathrm{diam}\le\pi/\sqrt{k}$~\cite{Myers1941}, which gives $\mathrm{diam}\le\pi\lambdaC$ for $k\sim\lambdaC^{-2}$; the kernels sit at non-antipodal points, so the extremal arc between them is unique, and the accumulated phase $\mathcal S(x_A,x_B)$ is a genuine two-point functional. Two qualifications remain. The curvature scale is put in by taking the region to be of Compton size, so the theorem converts an assumed scale into confinement rather than deriving the scale; and Bonnet--Myers holds in Riemannian signature, while the metric to be produced is Lorentzian.
+
+\subsection{The metric from two points}
+
+\textbf{[standard]} Synge's world function $\sigma(x,x')$~\cite{Synge1960} is one half of the squared geodesic distance. Its coincidence limits return the metric, $[\sigma_{;\mu\nu}] = g_{\mu\nu}$ and $[\sigma_{;\mu\nu'}] = -g_{\mu\nu}$. \textbf{[0SM reading]} Paper~\#51 reads this identity in reverse~\cite{hanamura51}: the two-point phase is primary, the correspondence $\sigma\leftrightarrow\mathcal S$ identifies it with the world function, and the metric is defined as
+\begin{equation}
+g_{\mu\nu} = \partial_{A\mu}\partial_{B\nu}\,\mathcal S_s ,
+\label{eq:synge}
+\end{equation}
+with $\mathcal S_s$ the part symmetric under exchange of the two directed arcs. The functional satisfies the axioms of a generalised world function and returns $\eta_{\mu\nu}$ in the flat limit. Three things are open: the constant that converts a phase into a squared length; the explicit computation in a curved case; and the expansion of Eq.~\eqref{eq:synge} about the fixed kernel separation $\sim\lambdaC/2$ rather than about coincidence. Once a metric exists, it supplies the Hodge star, and the second Maxwell equation of Eq.~\eqref{eq:maxwell} follows: the operator that closes Maxwell's equations is the operator that carries the metric.
+
+\subsection{The two doors and the triangle}
+
+\textbf{[0SM reading]} Paper~\#63 separates two routes from the two-point phase to curvature~\cite{hanamura63}: the metric door, $\mathcal S\to g_{\mu\nu}\to R$, and the connection door, $\mathcal S = \int A_\mu dx^\mu\to\nabla\to R$. The decisive question is whether they meet: whether the Levi-Civita connection of the emergent metric agrees, up to gauge, with the connection read from $A_\mu$. The physical identity of $A_\mu$ is the bottleneck. Because the thermal geodesic between two kernels is unique, the family in which curvature lives cannot be a congruence of neighbouring geodesics; Paper~\#63 places it in the internal winding instead. Paper~\#60 arranges three established results as the vertices of a triangle, the Berry curvature (\#48), the world-function reconstruction (\#51) and the Bonnet--Myers confinement (\#51), and states the three edges between them as conditions still to be proven~\cite{hanamura60}. Figure~\ref{fig:route} draws both constructions.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}
+% (a) two doors
+\begin{scope}[xshift=-4.4cm]
+\node[box, text width=3.0cm] (S) at (0,0) {\textbf{two-point phase}\\$\mathcal S(x_A,x_B)$};
+\node[box, text width=2.6cm] (g) at (-2.2,-1.9) {metric door\\$g_{\mu\nu}=\partial_A\partial_B\mathcal S_s$};
+\node[box, text width=2.6cm] (A) at (2.2,-1.9) {connection door\\$\mathcal S=\int A_\mu dx^\mu$};
+\node[box, text width=2.4cm] (LC) at (-2.2,-3.7) {Levi-Civita $\Gamma[g]$\\$\to R$};
+\node[box, text width=2.4cm] (N) at (2.2,-3.7) {$\nabla$ from $A_\mu$\\$\to R$};
+\node[openbox, text width=4.4cm] (Q) at (0,-5.4) {\textbf{do they agree up to gauge}\\remainder $=$ torsion; identity of $A_\mu$ is the bottleneck};
+\draw[arr] (S) -- (g); \draw[arr] (S) -- (A);
+\draw[arr] (g) -- (LC); \draw[arr] (A) -- (N);
+\draw[arr, kB] (LC) -- (Q); \draw[arr, kB] (N) -- (Q);
+\node[font=\bfseries] at (-3.6,0.4) {(a)};
+\end{scope}
+% (b) triangle
+\begin{scope}[xshift=4.2cm, yshift=-2.4cm]
+\node[passbox, text width=2.7cm] (vA) at (90:2.6) {Berry curvature\\connection $\tfrac12\cos\theta$, holonomy $\pi$ (\#48)};
+\node[passbox, text width=2.5cm] (vB) at (210:2.7) {world function\\$\mathcal S\to g$ (\#51)};
+\node[passbox, text width=2.5cm] (vC) at (330:2.7) {Bonnet--Myers\\$\mathrm{diam}\le\pi\lambdaC$ (\#51)};
+\draw[arr, dashed, kB] (vA) -- node[left=2pt, font=\scriptsize, text=kB, align=right] {generates\\$\mathcal S$} (vB);
+\draw[arr, dashed, kB] (vB) -- node[below=2pt, font=\scriptsize, text=kB] {$\mathrm{Ric}[g]\ge K$} (vC);
+\draw[arr, dashed, kB] (vA) -- node[right=2pt, font=\scriptsize, text=kB, align=left] {$\mathcal F_{\mu\nu}$ is\\Riemann} (vC);
+\node[font=\bfseries] at (-3.0,2.8) {(b)};
+\end{scope}
+\end{tikzpicture}
+\caption{\textbf{From the two-point phase to curvature: two doors and one triangle}}
+\label{fig:route}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+(a) Paper~\#63's map. The metric door extracts $g_{\mu\nu}$ by the reversed Synge identity and computes its curvature; the connection door reads a connection directly from the accumulated phase. Whether the two curvatures agree is the decisive open problem. (b) Paper~\#60's triangle. Green vertices are results of earlier papers; dashed orange edges are conditions not yet proven. Closing all three edges would derive the gauge and gravitational sectors from one phase functional.
+\end{minipage}
+\end{figure*}
+
+% ========================================
+\section{Step 6: Gravity and the Equivalence Principle}
+\label{sec:wep}
+% ========================================
+
+\inbrief{From Paper~\#34 to Paper~\#59 the series built gravity from the internal motion. The force it obtained is proportional to mass and carries a residual factor $\betaZB$. Tested against the weak equivalence principle, it passes for mass and for binding and fails for composition, because $\betaZB$ differs between electrons and nucleons. The internal speed cannot define the gravitational charge.}
+
+\subsection{The mechanism that was proposed}
+
+\textbf{[0SM reading]} The proposal runs in three stages~\cite{hanamura34,hanamura49,hanamura58}. The transport path is curved, so the velocity and acceleration of the transported energy are not parallel and it undergoes Thomas precession~\cite{Thomas1926}; a purely one-dimensional oscillation would have none~\cite{hanamura49}. Paper~\#58 writes the precession as $\OmT = -(\vZB^{2}\omega/4c^{2})\sin2\theta\,\hat e_z$, with half the period of the cycle. The precession builds an outward stress; when it reaches the binding floor a fragment of energy is emitted, two per cycle in opposite directions; and a neighbouring system that absorbs the fragment shifts its phase, a change of synchronisation read as a drift, that is, as free fall. Paper~\#48 had read the periodicities $4\pi$, $2\pi$ and $\pi$ of the cycle as spin $\tfrac12$, $1$ and $2$, which made the $\pi$-periodic precession the series' candidate for the spin-2 gravitational sector~\cite{hanamura48}. None of the three stages is established by experiment, and Newton's constant has not been derived.
+
+\subsection{Three tests}
+
+\textbf{[standard]} The weak equivalence principle says that free fall does not depend on what a body is made of. It contains three requirements: bodies of any mass fall alike; the energy lost in binding is missing from the gravitational mass too; and bodies with different proportions of electrons and nucleons fall alike per unit mass. A force can satisfy the first and fail the others: if $F = mgC$, the first holds for any $C$, the second fails if $C$ changes with binding, and the third fails if $C$ differs between species.
+
+\textbf{[0SM reading]} Paper~\#52 carried out the first test~\cite{hanamura52}. The Compton wavelength enters the force twice, once as the lever arm and once through the transport rate, and cancels, so the force is proportional to mass, $F = mg\,\betaZB$. Paper~\#66 carried out the other two~\cite{hanamura66}. For a bound electron the cancellation returns $F = (E/c^{2})\,g\,\betaZB$, linear in the total energy; the binding test passes, because $\betaZB$ is a pure number that does not change with binding. A standard identity of Dirac theory, $\langle\beta\rangle = E/m_ec^{2}$ for every Coulomb bound state, verified in Paper~\#66 by direct integration, equates the negative-energy admixture of a bound state with half its fractional binding energy. For composition, the bridge equation gives $\betaZB = 0.0405$ for electrons and $0.898$ for nucleons (Fig.~\ref{fig:species}), so a body with more electrons per unit mass falls more slowly. For titanium against platinum the predicted difference is $\eta = 3.13\times10^{-5}$; the MICROSCOPE satellite bounds it at $2.7\times10^{-15}$~\cite{microscope2022}. The composition test fails by ten orders of magnitude. Table~\ref{tab:threetests} and Fig.~\ref{fig:tests} summarise.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The equivalence principle as three tests}}
+\label{tab:threetests}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{4.9cm}>{\raggedright\arraybackslash}p{1.6cm}>{\raggedright\arraybackslash}p{2.0cm}>{\raggedright\arraybackslash}p{4.6cm}}
+\toprule
+\textbf{Test} & \textbf{Requirement} & \textbf{Paper} & \textbf{Result} & \textbf{Why} \\
+\midrule
+1. mass & bodies of any mass fall alike & \#52 & \textcolor{pass}{\textbf{passes}} & $\lambdaC$ cancels; residual $\betaZB$ \\
+\addlinespace[0.2cm]
+2. binding & the binding defect is missing from the gravitational mass & \#66 & \textcolor{pass}{\textbf{passes}} & $\betaZB$ is a pure number \\
+\addlinespace[0.2cm]
+3. composition & electron-rich and nucleon-rich bodies fall alike per unit mass & \#66 & \textcolor{fail}{\textbf{fails}} & $\betaZB$ differs by species; $\eta = 3.13\times10^{-5}$ \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=6.0cm, height=4.4cm, xbar, xmode=log, xmin=1e-16, xmax=1e-2, ymin=0.4, ymax=2.6, ytick={1,2}, yticklabels={MICROSCOPE bound, predicted by $F=mg\betaZB$}, yticklabel style={font=\scriptsize, align=right, text width=1.9cm}, xlabel={$\eta(\mathrm{Ti},\mathrm{Pt})$}, label style={font=\small}, tick label style={font=\footnotesize}, bar width=9pt, axis x line=bottom, axis y line=left, clip=false]
+\addplot[fill=kA!60, draw=kA] coordinates {(2.7e-15,1)};
+\addplot[fill=fail!60, draw=fail] coordinates {(3.13e-5,2)};
+\node[font=\scriptsize, anchor=west] at (axis cs:4e-15,1) {$2.7\times10^{-15}$};
+\node[font=\scriptsize, anchor=west] at (axis cs:4.5e-5,2) {$3.13\times10^{-5}$};
+\draw[{Stealth[length=1.6mm]}-{Stealth[length=1.6mm]}, fail] (axis cs:2.7e-15,1.5) -- node[above, font=\scriptsize, text=fail] {ten orders of magnitude} (axis cs:3.13e-5,1.5);
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{The composition test}}
+\label{fig:tests}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+Difference in free fall between titanium and platinum. Red: the prediction of the force law of Paper~\#52 with the species-dependent $\betaZB$ of the bridge equation. Blue: the measured bound. The horizontal axis spans thirteen decades.
+\end{minipage}
+\end{figure}
+
+\subsection{One cause}
+
+\textbf{[0SM reading]} Paper~\#66 reads four difficulties as one: the composition dependence; the failure of charges non-linear in energy, which nuclear binding excludes by a still larger margin; the excluded local horizon freezing of Sec.~\ref{sec:gravclock}; and the residual factor of Paper~\#52 itself. In each, a kinematic quantity of the internal motion, fixed by the anomalous moment and therefore by the species, has been asked to carry a charge that must be the total energy alone. The same property explains both test results: the speed is constant, so binding cannot spoil linearity; the speed differs by species, so the response is not universal. The residual factor has a reading in terms of the two clocks of Eq.~\eqref{eq:ratio}: $\betaZB = \nuZB/\nuC$, so the force counts one transfer per transport cycle where Newtonian free fall would need one per Compton cycle, and the missing factor $1/\betaZB$ is $24.7$ for the electron and $1.11$ for a nucleon. No single constant supplies it.
+
+\subsection{The restart}
+
+\textbf{[0SM reading]} The route that builds the gravitational charge from the internal speed, rotation and emission is set aside as a definition of the charge; the internal transport, emission and absorption are kept as a possible microscopic picture. The formalisation of the gravitational source restarts from Papers~\#29--\#31, on which the source is read off from accumulated phase rather than assembled from internal kinematics. Paper~\#66 also splits the spin-2 question in two: the tensor structure of the source is available through the mass quadrupole of Paper~\#59, while the identification of the Berry curvature with the Riemann tensor cannot be a linear map, since an antisymmetric two-form does not map linearly onto a symmetric traceless tensor, and belongs to the closure edge of the triangle of Fig.~\ref{fig:route}. The four acceptance criteria for the restart are listed in Sec.~\ref{sec:open}.
+
+% ============================================================
+% PART II
+% ============================================================
+\part{The Corpus}
+\label{part:corpus}
+
+% ========================================
+\section{Waves of Development}
+\label{sec:waves}
+% ========================================
+
+The series falls into five phases, each organised around one methodological step (Fig.~\ref{fig:timeline}, Table~\ref{tab:waves}). The division is a reading aid and not a ranking; the papers between the turning points carry much of the applied and structural content.
+
+\paragraph{Foundations, \#1--\#10 (2018--2024).} Paper~\#1 introduced the two kernels and the energy identity. Papers~\#2--\#8 drew the first consequences: spin as a real vector, the $4\pi$ periodicity read on a Riemann surface, an intrinsic limit on interference contrast, the positive- and negative-energy Dirac solutions as the two orientations of the internal transport, and pair annihilation. Paper~\#9 introduced two oscillators of different frequency for neutrino oscillations. Paper~\#10 replaced uniform circular motion by harmonic oscillation in the Thomas precession, obtained the double-angle form $\sin2\omega t$, stated the rotational Lorentz contraction that became the bridge equation, and fixed $\vZB = 0.04047c$ and the clock $\nuZB = \betaZB c/\lambdaC$.
+
+\paragraph{Relativistic extension, \#11--\#28 (2024--2025).} The internal oscillation was tied to proper time (\#11) and to a Hamiltonian with time-dependent mass (\#18); spin dynamics was unified and its vector form corrected (\#13, \#19); $\mathrm{U}(1)$ gauge structure was built from clock synchronisation (\#17); conservation laws were read as consequences of internal geometry (\#20, \#25); internal clocks were given a gravitational redshift (\#22); thermal geodesics carried general relativity inside the particle (\#23, \#24); spin was obtained from an internal Berry phase (\#26); and the uncertainty principle was given a deterministic reading (\#27). Paper~\#28 corrected the dimensional error of \#14.
+
+\paragraph{The line-integral turn and its consolidation, \#29--\#47 (late 2025 -- March 2026).} Papers~\#29--\#31 made the line integral of a connection the fundamental observable (Sec.~\ref{sec:route}). The papers that followed worked out the consequences: the vacuum-energy problem read as a category error, with a geometric origin for the residual one-half (\#32, \#39, \#46); topological confinement of the rest energy in a Compton-scale domain (\#33--\#35); the methodological scope of a non-perturbative model (\#36, \#42); potential energy as a line integral (\#37); interference from internal geometry (\#38); the derivative-order mismatch between gauge theory and gravity (\#40, \#41); torsion and open-path transport (\#43--\#45); and the contraction reading of the anomalous moment with its correspondence to the muon lifetime (\#47).
+
+\paragraph{Geometry, gravity and hadrons, \#48--\#62 (March -- June 2026).} Papers~\#48--\#51 built a chain from scalar oscillation to geometry: $g = 2$ from a fibre bundle (\#48), the curved transport path and the emitted fragment as a gravitational mediator (\#49), chirality as a Lorentz-invariant topological binary and rotation from phase-staggered scalar oscillators (\#50), and the helix, the confinement theorem and the metric-emergence formula (\#51). Three strands followed in parallel. The gravitational strand: the equivalence principle for mass (\#52), directional force classification (\#53), spherical-harmonic imprinting (\#57), the spin-2 structure of the mediator (\#58) and the proton-trapped electron as a spin-2 source (\#59). The electromagnetic strand: Maxwell electrodynamics as a low-energy limit (\#54), the four functions of the open Wilson line (\#55), the framework boundary between local-field and directed-path descriptions (\#56) and the triangle (\#60). The hadronic strand: the bridge equation applied to the proton (\#61) and derived from first principles (\#62).
+
+\paragraph{Maps, foundations and the audit, \#63--\#66 (June -- October 2026).} Paper~\#63 drew the map of the two routes to curvature; Paper~\#64 grounded spin two-valuedness in the square root of the Laplacian on $S^{3}$; Paper~\#65 rebuilt the foundations from the arithmetic of $0$ and $1$, with charge as a winding number and the quartic energy as a double-cover pullback; and Paper~\#66 tested the gravitational sector against the equivalence principle and restarted its formalisation.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Five phases of the series}}
+\label{tab:waves}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{1.8cm}>{\raggedright\arraybackslash}p{5.8cm}>{\raggedright\arraybackslash}p{5.2cm}}
+\toprule
+\textbf{Phase} & \textbf{Papers} & \textbf{Central result} & \textbf{Question passed forward} \\
+\midrule
+\textcolor{wone}{\textbf{foundations}} \newline 2018--2024 & \#1--\#10 & two kernels; energy identity; Dirac branches as the two orientations; bridge equation; $\vZB = 0.04047c$ & how scalar oscillation produces angular momentum \\
+\addlinespace[0.2cm]
+\textcolor{wtwo!80!black}{\textbf{relativistic extension}} \newline 2024--2025 & \#11--\#28 & proper-time clock; $\mathrm{U}(1)$ from synchronisation; thermal geodesics; conservation laws as consequences & what the accumulated phase computes \\
+\addlinespace[0.2cm]
+\textcolor{wthree}{\textbf{line-integral turn}} \newline late 2025 -- Mar 2026 & \#29--\#47 & line integral as observable; field equation as consistency condition; confinement; vacuum energy & whether the metric follows from the phase \\
+\addlinespace[0.2cm]
+\textcolor{wfour}{\textbf{geometry, gravity, hadrons}} \newline Mar -- Jun 2026 & \#48--\#62 & $g=2$; chirality theorem; helix and metric formula; equivalence principle for mass; spin-2 mediator; Maxwell as a limit; proton scale & closure of the triangle; species dependence of $\betaZB$ \\
+\addlinespace[0.2cm]
+\textcolor{wfive}{\textbf{maps, foundations, audit}} \newline Jun -- Oct 2026 & \#63--\#66 & two routes to curvature; $S^{3}$ square root; charge as winding; quartic as pullback; three tests; restart & a species-blind source from the line-integral route \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ========================================
+\section{Catalog}
+\label{sec:catalog}
+% ========================================
+
+Tables~\ref{tab:cat1}--\ref{tab:cat4} list every paper with its date and Zenodo record. Paper~\#16 is a permanent numbering gap, not a missing document. Papers~\#30 and~\#51 exist in two versions; the catalog lists the second, and published papers that cite the first are left as deposited. Cross-references in the corpus use Zenodo DOIs; identifiers from an earlier preprint server are not used. All papers are collected in the Zenodo community \texttt{satoshi-hanamura-papers}.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Catalog of the series, Papers \#1--\#20}}
+\label{tab:cat1}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{11.4cm}>{\raggedright\arraybackslash}p{1.8cm}}
+\toprule
+\textbf{\#} & \textbf{Date} & \textbf{Title (shortened)} & \textbf{Zenodo} \\
+\midrule
+1$^{\star}$ & 2018-11 & A Model of an Electron Including Two Perfect Black Bodies & \zrec{16759284} \\
+2 & 2018-12 & A New Representation of Spin Angular Momentum & \zrec{16783727} \\
+3$^{\star}$ & 2019-03 & Uniquely Distinguishing an Electron's Spin via Riemann Surface & \zrec{17759634} \\
+4 & 2019-07 & Perfect Contrast Cannot Be Obtained in the Electron Double-Slit Experiment & \zrec{17759699} \\
+5 & 2019-09 & Transition Theory from Uncertain to Causal Basis & \zrec{17759726} \\
+6 & 2020-01 & Correspondence Between a 0-Sphere and the Electron Model & \zrec{17759908} \\
+7$^{\star}$ & 2020-07 & Coexistence of Positive and Negative-Energy States in the Dirac Equation & \zrec{17760132} \\
+8 & 2021-07 & Electron--Positron Pair Annihilation by Thermal Oscillations & \zrec{17760445} \\
+9 & 2023-04 & Beyond the Standard Model: Neutrino Oscillations & \zrec{17764952} \\
+10$^{\star}$ & 2024-06 & Redefining Electron Spin and AMM Through Harmonic Oscillation and Lorentz Contraction & \zrec{17764997} \\
+11 & 2024-11 & Quantum Oscillations: Bridging Zitterbewegung, Geodesic Paths, and Proper Time & \zrec{17765017} \\
+12 & 2024-12 & Radiation-Mediated Quantum Tunneling: A Zitterbewegung Perspective & \zrec{17765039} \\
+13$^{\star}$ & 2025-01 & Unified Spin Dynamics: From Pseudovector Nature to Relativistic Constraints & \zrec{17765079} \\
+14 & 2025-01 & Bridging QM and GR: AMM and Geodetic Precession & \zrec{17765097} \\
+15 & 2025-04 & Spin-Induced Inertial Resistance: A Gyroscopic Interpretation & \zrec{17765121} \\
+16 & --- & \textit{permanent numbering gap} & --- \\
+17$^{\star}$ & 2025-06 & From Clock Synchronization to Electromagnetism: U(1) Gauge Theory & \zrec{17765136} \\
+18 & 2025-06 & Time-Dependent Mass: A Hamiltonian Approach to Thermal Modulation & \zrec{17765200} \\
+19$^{\star}$ & 2025-06 & Spin as a Real Vector: Geometric Origin of U(1) Gauge and SU(2) Periodicity & \zrec{17765238} \\
+20$^{\star}$ & 2025-06 & Emergent Conservation Laws: A Noetherian Reinterpretation & \zrec{17765244} \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+$^{\star}$ Foundational papers that the rest of the series presupposes. The Zenodo column gives the record number; the DOI is \texttt{10.5281/zenodo.} followed by that number. Where a paper exists in two versions the latest is listed (Table~\ref{tab:corrections}).
+\end{minipage}
+\end{table*}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Catalog of the series, Papers \#21--\#40}}
+\label{tab:cat2}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{11.4cm}>{\raggedright\arraybackslash}p{1.8cm}}
+\toprule
+\textbf{\#} & \textbf{Date} & \textbf{Title (shortened)} & \textbf{Zenodo} \\
+\midrule
+21 & 2025-06 & Anomalous Magnetic Moments Without Fields & \zrec{17765305} \\
+22 & 2025-07 & Gravitational Redshift of Internal Quantum Clocks & \zrec{17765318} \\
+23 & 2025-07 & From Zero-Sphere to Emergent Spacetime & \zrec{17765336} \\
+24$^{\star}$ & 2025-07 & Thermal Geodesics: Extending GR Through Internal Thermodynamic Structure & \zrec{17765349} \\
+25 & 2025-07 & A Noetherian Inversion: From Einsteinian Geometry to Emergent Symmetry & \zrec{18064535} \\
+26 & 2025-09 & Spin from Geometry: Emergence of Spin via Internal Berry Phase & \zrec{17765409} \\
+27 & 2025-09 & Challenging the Uncertainty Principle: A Deterministic Interpretation & \zrec{17765439} \\
+28 & 2025-09 & Supplementary Correction: Dimensional Consistency of $G$ and $c^2$ & \zrec{18636509} \\
+29 & 2025-12 & Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics & \zrec{18067760} \\
+30 & 2026-03 & From Curvature to Connection: Geometric Origin of Conservation Laws & \zrec{18819682} \\
+31 & 2026-01 & Line Integrals as Fundamental Observables in Physics & \zrec{18203433} \\
+32 & 2026-01 & Dissolution of the Vacuum Energy Problem in an Integral-Based Ontology & \zrec{18275142} \\
+33 & 2026-01 & Geometrical Confinement: Rest Mass and Zitterbewegung & \zrec{18356895} \\
+34 & 2026-01 & Geometrical Confinement: Emergent Gravitational Dynamics & \zrec{18437010} \\
+35 & 2026-02 & Detailed Exposition of the 0-Sphere Model for Gravitational-Like Phenomena & \zrec{18511664} \\
+36 & 2026-02 & Non-Perturbative Nature and Fine-Structure Constant: Methodological Scope & \zrec{18603340} \\
+37 & 2026-02 & Reinterpreting Gravitational Potential Energy as Internal Line-Integral Quantity & \zrec{18637487} \\
+38 & 2026-02 & Electron Interference from Internal Geometry & \zrec{18718174} \\
+39 & 2026-02 & On Vacuum Energy, Integral Ontology, and the Cosmological Constant & \zrec{18727981} \\
+40 & 2026-02 & On the Derivative-Order Mismatch Between Gauge Theory and Gravity & \zrec{18736670} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Catalog of the series, Papers \#41--\#55}}
+\label{tab:cat3}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{11.4cm}>{\raggedright\arraybackslash}p{1.8cm}}
+\toprule
+\textbf{\#} & \textbf{Date} & \textbf{Title (shortened)} & \textbf{Zenodo} \\
+\midrule
+41 & 2026-02 & Derivative Hierarchy in Gauge Theory and Gravity: Historical Supplement & \zrec{18809117} \\
+42 & 2026-03 & On the Non-Perturbative Nature and Magnetic Monopole Absence & \zrec{18857609} \\
+43 & 2026-03 & Observer-Dependent Torsion, Zitterbewegung, and Phase Accumulation & \zrec{18896784} \\
+44 & 2026-03 & Internal Energy Stabilization, Charge Localization, and Superradiant Rephasing & \zrec{18905344} \\
+45 & 2026-03 & Open-Path Spinorial Transport and the Status of Torsion: Holonomy Sufficiency & \zrec{18950974} \\
+46 & 2026-03 & Geometric Origin of the One-Half Factor: Thermal PE Floor and Zero-Point Energy & \zrec{19010945} \\
+47 & 2026-03 & Rotational Lorentz Contraction as Geometric Origin of the AMM: Correspondence with the Muon Lifetime & \zrec{19120057} \\
+48 & 2026-03 & Geometric Origin of $g=2$: U(1) Fiber Bundle and Dual-Frame Phase Decomposition & \zrec{19227518} \\
+49 & 2026-04 & Photon-Sphere Fragmentation as Gravitational Mediator & \zrec{19393391} \\
+50 & 2026-04 & Rotation from Scalar Oscillation: Angular Momentum, Chirality and Helicity & \zrec{19482145} \\
+51 & 2026-04 & Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric & \zrec{20388056} \\
+52 & 2026-04 & Geometric Origin of the Weak Equivalence Principle & \zrec{19583032} \\
+53 & 2026-04 & From Gravitational Mediation to Directional Force Classification & \zrec{19616971} \\
+54 & 2026-04 & Maxwell Electrodynamics as a Derived Low-Energy Limit of the Line-Integral Ontology & \zrec{19701297} \\
+55 & 2026-04 & Four Functions of the Open Wilson Line in the 0-Sphere Model & \zrec{19800797} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Catalog of the series, Papers \#56--\#67}}
+\label{tab:cat4}
+\renewcommand{\arraystretch}{1.18}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.8cm}>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{11.4cm}>{\raggedright\arraybackslash}p{1.8cm}}
+\toprule
+\textbf{\#} & \textbf{Date} & \textbf{Title (shortened)} & \textbf{Zenodo} \\
+\midrule
+56 & 2026-05 & The Framework Boundary: Local-Field and Directed-Path Descriptions & \zrec{19900974} \\
+57 & 2026-04 & Spherical Harmonic Imprinting and Gravitational Coupling & \zrec{19932176} \\
+58 & 2026-04 & Spin-2 Structure of the Gravitational Mediator & \zrec{19932861} \\
+59 & 2026-04 & Proton-Trapped Electron as the Generator of Spin-2 Gravitational Radiation & \zrec{19932907} \\
+60 & 2026-04 & The Berry--Synge--Bonnet--Myers Triangle & \zrec{19932922} \\
+61 & 2026-05 & Application of the $\gamma$-Equation to the Proton: A Parameter-Free Hadronic Mass Scale & \zrec{19934138} \\
+62 & 2026-06 & The Bridge Equation $\gamma=1+a$ from First Principles & \zrec{20091680} \\
+63 & 2026-06 & From Line Integral to Covariant Derivative: A Reader's Map of the Bridge to Riemannian Curvature & \zrec{20767589} \\
+64 & 2026-06 & The Square Root of the Hyperspherical Laplacian: Spin Two-Valuedness on $S^3$ & \zrec{20820646} \\
+65 & 2026-10 & From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Quartic Energy & \zrec{23257458} \\
+66 & 2026-10 & Three Tests of the Weak Equivalence Principle: Binding Passes, Composition Fails, and the Formalisation Restarts & \textit{pending} \\
+67 & 2026-10 & The 0-Sphere Model: A Structural Overview (this paper) & \textit{pending} \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+
+% ========================================
+\section{Corrections and Retractions}
+\label{sec:corrections}
+% ========================================
+
+\paragraph{Vocabulary.} Four dispositions are kept apart. A result is \emph{corrected} when an error is fixed and the paper otherwise stands. It is \emph{retracted} when the author withdraws the claim itself, and \emph{retracted corpus-wide} when the claim recurs in several papers. It is \emph{superseded} when a later derivation replaces it without the earlier statement having been wrong. And a line of work is \emph{set aside} when the author decides not to pursue it, without its having been shown wrong. Table~\ref{tab:corrections} lists every entry.
+
+\begin{table*}[p]
+\centering
+\caption{\textbf{Corrections log of the series}}
+\label{tab:corrections}
+\renewcommand{\arraystretch}{1.32}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.5cm}>{\raggedright\arraybackslash}p{5.5cm}>{\raggedright\arraybackslash}p{7.3cm}>{\raggedright\arraybackslash}p{1.8cm}}
+\toprule
+\textbf{Paper} & \textbf{Statement} & \textbf{Disposition} & \textbf{Recorded in} \\
+\midrule
+\#10 & the Thomas angular velocity written as a scalar & corrected: vector form with $\hat e_z$ & \#19 \\
+\addlinespace[0.12cm]
+\#14 & lepton critical radii, with the mass in kilograms where $GM/c^{2}$ belongs; the refined speed $0.040374c$ derived from them; a lepton-decay account resting on them & the factor $G/c^{2} = 7.43\times10^{-28}$~m/kg was missing, a ratio $c^{2}/G = 1.35\times10^{27}$; the radii, the refined speed and the decay account are \textbf{retracted corpus-wide}. They recur in \#15, \#17, \#20, \#21, \#22, \#23, \#27 and \#37 (Table~\ref{tab:retract}). The canonical speed is $0.04047c$ of \#10 & \#28; this paper \\
+\addlinespace[0.12cm]
+\#1 & the quartic split justified by the Stefan--Boltzmann law, with a kernel temperature $\propto\cos(\theta/2)$ & \textbf{superseded} as a justification by the double-cover derivation; the literal temperature is \textbf{withdrawn}; the residual assumption is the radiation-gradient relation & \#65 \\
+\addlinespace[0.12cm]
+\#49 (draft) & linear motion generates angular momentum through Thomas precession in the co-moving frame & \textbf{retracted} before publication; the published argument uses the curvature of the transport path, so that $\mathbf v\times\mathbf a\neq0$ & \#49 \\
+\addlinespace[0.12cm]
+\#61 & the kernel mass $336$~MeV and the constituent-quark benchmark come from disjoint inputs & not sustainable: $1+a_p = \mu_p/\mu_N$ identically, so the two routes give the same expression; the band-level check and the reinterpretation stand & this paper \\
+\addlinespace[0.12cm]
+\#59 & the locking ratio of the Zitterbewegung axis, $\sim10^{39}$; $\omega\approx1.55\times10^{20}$~rad/s in App.~B & \textbf{corrected} (C1): $9.2\times10^{21}$ with the terrestrial $g$; the quoted $\omega$ matches neither $2\pi\nuZB = 3.14\times10^{19}$ nor $2m_ec^{2}/\hbar = 1.55\times10^{21}$~rad/s; Coulomb locking stands & \#66 \\
+\addlinespace[0.12cm]
+\#58 & chirality from $da/dt = \omega\cos\theta$ & \textbf{corrected} (C2): the symbol $a$ carries four meanings across the series (internal phase, kinematic convention, anomalous moment, kernel amplitude) & \#66 \\
+\addlinespace[0.12cm]
+\#58, \#60 & ejection at $\theta=\pi/2$ read as a chirality-degenerate point, so that the mediator is its own antiparticle & \textbf{retracted} (C3): the same point is assigned maximal transit energy and zero velocity; of the three layers behind it, the origin of the phase and the count of the cycle are fixed here, and the direction of the acceleration remains open (Sec.~\ref{sec:open}) & \#66 \\
+\addlinespace[0.12cm]
+\#33, \#46 & the Dirac Zitterbewegung frequency $\approx3.93\times10^{20}$~Hz, about $80$ (or $78$) times $\nuZB$ & \textbf{corrected}: $2m_ec^{2}/h = 2.471\times10^{20}$~Hz, a factor $49.4$ above $\nuZB$; the angular frequency $1.55\times10^{21}$~rad/s quoted in \#46 is right, and the slip is a division by about $4$ instead of $2\pi$. The conclusion that the two frequencies are different quantities is unchanged & this paper \\
+\addlinespace[0.12cm]
+\#43 & the Dirac frequency $2m_ec^{2}/h\approx1.6\times10^{20}$~Hz & \textbf{corrected}: $2.471\times10^{20}$~Hz & this paper \\
+\addlinespace[0.12cm]
+\#65 & the tick $\Ttr = 1/\nuZB$ described as one transport from $A$ to $B$, and the kernel separation as $\lambdaC = \betaZB c\,\Ttr$ & \textbf{corrected}: one cycle of the energy identity is a round trip $A\to B\to A$, so $\Ttr$ is the round-trip time and $\lambdaC$ the path of one round trip; the kernels are $\lambdaC/2$ apart, as in \#51. The equation $\lambdaC = \betaZB c\,\Ttr$ and every numerical value stand; \#66 is written in the corrected form & this paper \\
+\addlinespace[0.12cm]
+\#63 & horizon freezing of the gravitational coupling as an observable signature & local reading \textbf{excluded} by clock comparisons; the distant-observer reading coincides with general relativity & \#66 \\
+\addlinespace[0.12cm]
+\#30, \#51 & first versions (\zrec{18135855}, \zrec{19489126}) & \textbf{superseded} by second versions (\zrec{18819682}, \zrec{20388056}) & catalog \\
+\addlinespace[0.08cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Entries marked ``this paper'' are recorded here for the first time. The values in the last column of the \#59 row use $e^{2}/4\pi\epsilon_0a_0^{2} = 8.24\times10^{-8}$~N and $m_eg = 8.93\times10^{-30}$~N; the quoted $\sim10^{39}$ corresponds to $e^{2}/(4\pi\epsilon_0 Gm_em_p) = 2.27\times10^{39}$, the electric-to-gravitational force ratio in hydrogen.
+\end{minipage}
+\end{table*}
+
+\paragraph{What the retraction of $0.040374c$ takes.} The retraction is not uniform. Table~\ref{tab:retract} states, for each paper that carries the retracted figures, what is lost and what stands. Two rows point in opposite directions. Paper~\#23 loses a conclusion: it argued from the refinement that general-relativistic corrections are observable at the quantum scale, and Paper~\#28 shows the opposite, a geodetic precession of order $10^{-29}$~rad. Paper~\#15 loses one sentence: its stated key contribution, the bridge equation, does not depend on the geodetic route. Retracting the second figure leaves a single predicted internal speed, which can be falsified by a single measurement.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{What the retraction of $0.040374c$ and the critical radii takes from each paper}}
+\label{tab:retract}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{1.2cm}>{\raggedright\arraybackslash}p{7.2cm}>{\raggedright\arraybackslash}p{7.6cm}}
+\toprule
+\textbf{Paper} & \textbf{Retracted} & \textbf{Stands} \\
+\midrule
+\#14 & critical radii, refined speed, decay account & the special-relativistic $0.040472c$ it also reports \\
+\#15 & the refined speed in the abstract & \textbf{the bridge equation}, its key contribution \\
+\#17 & the quoted speed and kernel radius & $\mathrm{U}(1)$ from internal clock synchronisation \\
+\#20 & the decay-endpoint account & the reading of conservation laws as consequences \\
+\#21 & critical radii as the cause of lepton stability & the field-free reading of the anomalous moment \\
+\#22 & the quoted baseline speed & \textbf{the clock shift $\Delta\nu/\nu = 5.29\times10^{-10}$}, in which the speed cancels \\
+\#23 & \textbf{the conclusion} that relativistic corrections are observable at the quantum scale & the framework of emergent space and time \\
+\#27 & the refined speed as an experimental prediction & the deterministic reading of measurement \\
+\#37 & the proposed critical radii & the line-integral reading of potential energy \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ========================================
+\section{Nine Concept Threads}
+\label{sec:threads}
+% ========================================
+
+A concept thread follows one idea from the paper that introduced it to its present state. The threads share papers and support one another. Figure~\ref{fig:threads} draws them against the paper numbers and Table~\ref{tab:threads} states, for each, its present end and what it leaves open.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[x=0.196cm, y=0.62cm]
+\foreach \x in {10,20,...,60}{ \draw[neutral!30] (\x,0.4) -- (\x,-9.4); \node[font=\scriptsize, neutral] at (\x,0.75) {\#\x}; }
+\def\T#1#2#3#4{%
+  \node[font=\scriptsize, anchor=east, text=#2] at (-0.8,-#1) {#3};
+  \foreach \p in {#4}{ \fill[#2] (\p,-#1) circle (2.3pt); }
+}
+\T{1}{wone}{1 spin}{1,2,10,13,19,20,26,47,48,50,64,65}
+\T{2}{neutral}{2 determinism}{5,20,25,27,56,65}
+\T{3}{wthree}{3 line integrals}{17,23,24,29,30,31,37,40,41,43,45,51,54,55}
+\T{4}{wtwo!80!black}{4 Noether inversion}{20,25,30,65}
+\T{5}{wfive}{5 gravity}{22,24,33,34,35,37,49,52,53,57,58,59,66}
+\T{6}{kA}{6 vacuum energy}{32,39,46}
+\T{7}{wfour}{7 torsion}{43,45}
+\T{8}{kB}{8 chirality, charge}{7,50,56,65}
+\T{9}{pass}{9 bridge equation}{10,47,61,62}
+\foreach \r/\a/\b/\c in {1/1/65/wone,2/5/65/neutral,3/17/55/wthree,4/20/65/wtwo!80!black,5/22/66/wfive,6/32/46/kA,7/43/45/wfour,8/7/65/kB,9/10/62/pass}{ \draw[\c, thick] (\a,-\r) -- (\b,-\r); }
+\draw[wfive, very thick, -{Stealth[length=2mm]}] (66,-5) -- (69,-5) node[right, font=\scriptsize, text=wfive] {restart};
+\end{tikzpicture}
+\caption{\textbf{Nine concept threads across the series}}
+\label{fig:threads}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Each row is one thread; dots are the papers that carry it, placed at their numbers. The line-integral thread (3) and the gravity thread (5) are the longest. The gravity thread ends at Paper~\#66, where the source of gravity is moved onto the line-integral thread.
+\end{minipage}
+\end{figure*}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{The nine threads: question, present end, open part}}
+\label{tab:threads}
+\renewcommand{\arraystretch}{1.35}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{2.4cm}>{\raggedright\arraybackslash}p{4.0cm}>{\raggedright\arraybackslash}p{5.0cm}>{\raggedright\arraybackslash}p{4.8cm}}
+\toprule
+\textbf{Thread} & \textbf{Question} & \textbf{Present end} & \textbf{Open} \\
+\midrule
+1 spin & the geometric origin of spin and $g$ & \#64: square root on $S^{3}$; \#65: rotor equivalent to Dirac rest solutions; spin as direction of progression & rotation response; $\cos^{2}(\theta/2)$; $\betaZB$ without measured input \\
+\addlinespace[0.1cm]
+2 determinism & whether probability is fundamental & \#65: no local hidden variable; a global one, physical only if $\betaZB c$ is observed; $-\cos\varphi$ as an outlook & detector mechanism for the pair correlation \\
+\addlinespace[0.1cm]
+3 line integrals & whether accumulated phase replaces field values & \#54, \#55: Maxwell as a limit; four functions of the Wilson line & curved metric from Eq.~\eqref{eq:synge}; closure of the triangle \\
+\addlinespace[0.1cm]
+4 Noether inversion & whether conservation laws are consequences & \#30: field equation as consistency; \#65: charge conservation as a constant Wronskian & complete within present scope \\
+\addlinespace[0.1cm]
+5 gravity & whether free fall emerges from internal transport & \#66: binding passes, composition fails; source moved to thread 3 & a species-blind source \\
+\addlinespace[0.1cm]
+6 vacuum energy & the size of the cosmological constant & \#46: geometric origin of the residual $\tfrac12$ & complete within present scope \\
+\addlinespace[0.1cm]
+7 torsion & whether torsion is required & \#45: $\mathrm{SU}(2)$ holonomy suffices & whether the directed arc length is a scalar \\
+\addlinespace[0.1cm]
+8 chirality, charge & whether internal directedness is real & \#65: charge as a protected winding number & size of charge $\alpha$; coupling to $A_\mu$ \\
+\addlinespace[0.1cm]
+9 bridge equation & how far the bridge equation reaches & \#62: first-principles derivation; \#61: proton scale & neutron; stability of equal versus unequal frequencies \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ========================================
+\section{Dependency Structure}
+\label{sec:deps}
+% ========================================
+
+Figure~\ref{fig:deps} shows the principal dependencies among the papers from the line-integral turn onwards, with the foundations they rest on. Arrows run from a paper to the papers that build on it; dependencies implied by a chain are not drawn twice.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[
+  pn/.style={draw, rounded corners=3pt, font=\small, inner sep=3pt, minimum width=1.05cm, minimum height=0.55cm},
+  f/.style={pn, fill=wone!12, draw=wone},
+  t/.style={pn, fill=wthree!12, draw=wthree},
+  g/.style={pn, fill=wfour!12, draw=wfour},
+  c/.style={pn, fill=wfive!10, draw=wfive},
+  e/.style={-{Stealth[length=1.8mm]}, draw=black!35},
+  cp/.style={-{Stealth[length=1.8mm]}, dashed, draw=kA!70, thick}]
+% foundations
+\node[f] (1) at (0,0) {\#1}; \node[f] (7) at (1.6,0) {\#7}; \node[f] (10) at (3.2,0) {\#10};
+\node[f] (17) at (4.8,0) {\#17}; \node[f] (24) at (6.4,0) {\#24}; \node[f] (26) at (8.0,0) {\#26};
+\node[f] (34) at (9.6,0) {\#34}; \node[f] (38) at (11.2,0) {\#38};
+% turn
+\node[t] (29) at (2.4,-1.5) {\#29}; \node[t] (30) at (4.0,-1.5) {\#30}; \node[t] (31) at (5.6,-1.5) {\#31}; \node[t] (33) at (7.2,-1.5) {\#33};
+% third
+\node[g] (48) at (1.2,-3.0) {\#48}; \node[g] (49) at (3.6,-3.0) {\#49}; \node[g] (50) at (6.0,-3.0) {\#50}; \node[g] (51) at (8.4,-3.0) {\#51};
+% fourth
+\node[g] (52) at (0,-4.6) {\#52}; \node[g] (57) at (1.5,-4.6) {\#57}; \node[g] (58) at (3.0,-4.6) {\#58}; \node[g] (59) at (4.5,-4.6) {\#59};
+\node[g] (54) at (6.4,-4.6) {\#54}; \node[g] (55) at (7.9,-4.6) {\#55}; \node[g] (56) at (9.4,-4.6) {\#56};
+\node[g] (60) at (5.6,-6.0) {\#60}; \node[g] (61) at (10.6,-6.0) {\#61}; \node[g] (62) at (12.1,-6.0) {\#62};
+% capstones
+\node[c] (63) at (6.4,-7.5) {\#63}; \node[c] (64) at (2.0,-7.5) {\#64}; \node[c] (65) at (11.2,-7.5) {\#65}; \node[c] (66) at (3.8,-9.0) {\#66};
+% edges
+\draw[e] (1) -- (48); \draw[e] (10) -- (48); \draw[e] (10) -- (49); \draw[e] (26) -- (48); \draw[e] (34) -- (49);
+\draw[e] (24) -- (51); \draw[e] (29) -- (51); \draw[e] (30) -- (51); \draw[e] (31) -- (51); \draw[e] (33) -- (51);
+\draw[e] (17) -- (54); \draw[e] (31) -- (54);
+\draw[e] (49) -- (52); \draw[e] (49) -- (57); \draw[e] (49) -- (58); \draw[e] (49) -- (59);
+\draw[e] (51) -- (54); \draw[e] (51) -- (55); \draw[e] (50) -- (56);
+\draw[e] (48) -- (60); \draw[e] (51) -- (60); \draw[e] (60) -- (63); \draw[e] (51) to[bend left=10] (63);
+\draw[e] (48) -- (64); \draw[e] (29) to[bend right=20] (64);
+\draw[e] (10) to[bend left=12] (61);
+\draw[e] (1) to[bend left=8] (65); \draw[e] (7) to[bend left=8] (65); \draw[e] (38) -- (65); \draw[e] (64) to[bend right=12] (65);
+\draw[e] (52) -- (66); \draw[e] (58) -- (66); \draw[e] (59) -- (66); \draw[e] (61) to[bend left=8] (66); \draw[e] (63) -- (66); \draw[e] (65) to[bend left=10] (66);
+% companions
+\draw[cp] (48) -- (49); \draw[cp] (50) -- (51); \draw[cp] (61) -- (62); \draw[cp, draw=pass] (49) -- (50);
+% restart
+\draw[-{Stealth[length=2.2mm]}, wfive, very thick] (66.west) .. controls (-1.4,-9.0) and (-1.4,-1.5) .. (29.west);
+\node[font=\scriptsize, text=wfive, align=center, rotate=90] at (-1.75,-5.3) {restart of the gravitational source};
+\end{tikzpicture}
+\caption{\textbf{Dependencies from the line-integral turn to the audit}}
+\label{fig:deps}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Blue: foundations. Orange: the line-integral turn and the confinement domain. Violet: the geometry, gravity and hadron papers. Red: maps, foundations and the audit. Grey arrows: dependency. Dashed blue: companion papers written as pairs (\#48/\#49, \#50/\#51, \#61/\#62). Dashed green: the curved transport path of \#49 that underlies the chirality theorem of \#50. The thick red arrow marks the restart of Paper~\#66, which returns the definition of the gravitational source to Papers~\#29--\#31.
+\end{minipage}
+\end{figure*}
+
+% ========================================
+\section{Open Problems of the Narrowed Programme}
+\label{sec:open}
+% ========================================
+
+\inbrief{The open problems are now organised around one target: a gravitational source, read off from accumulated phase, that meets four acceptance criteria. Four construction tasks lead to it. The twenty-two entries of the earlier registry are kept as a record with a disposition for each.}
+
+\subsection{Four acceptance criteria}
+
+Paper~\#66 states four conditions that any gravitational source of the restarted programme must meet~\cite{hanamura66}. They are stated before the construction, so that the construction can be seen to fail them.
+\begin{enumerate}[label=(\roman*),leftmargin=*]
+\item \textbf{No dependence on composition.} The source is the total energy and contains no internal speed; $\eta = 0$ holds as an identity, not to some order.
+\item \textbf{Linearity in the total energy.} Binding defects are carried without adjustment.
+\item \textbf{A transformation law.} The source is an object whose tensor character can be tested, which requires the identification of $A_\mu$ that Paper~\#63 names as the bottleneck.
+\item \textbf{No environmental response.} The internal speed stays a local invariant, since the alternative is a measured constant that varies with the gravitational potential, bounded at the level of $10^{-8}$.
+\end{enumerate}
+A stress--energy tensor assembled from an energy distribution satisfies (i) and (ii) by construction, because no internal speed can enter it. That is the structural reason for the choice of route.
+
+\subsection{Four construction tasks}
+
+Every ingredient of the construction is already in the corpus, and two of the papers that supply them proposed the construction and deferred it (Fig.~\ref{fig:restart}, Table~\ref{tab:ntasks}). Paper~\#24 expanded the energy density of the photon sphere in spherical harmonics, $\rho = \sum a_{\ell m}Y_{\ell m}$, evaluated its $\ell = 1$ moment, and deferred the thermal stress--energy tensor~\cite{hanamura24}; Paper~\#30 asked for the Einstein equation to be recovered as a consistency condition and deferred the formalisation~\cite{hanamura30}.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Tasks of the narrowed programme}}
+\label{tab:ntasks}
+\renewcommand{\arraystretch}{1.4}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.7cm}>{\raggedright\arraybackslash}p{3.0cm}>{\raggedright\arraybackslash}p{9.8cm}>{\raggedright\arraybackslash}p{2.4cm}}
+\toprule
+\textbf{ID} & \textbf{Task} & \textbf{Content} & \textbf{Inputs} \\
+\midrule
+N1 & thermal stress--energy tensor & carry the multipole hierarchy of $\rho = \sum a_{\ell m}Y_{\ell m}$ from $\ell=1$, the energy centroid that \#24 already evaluates, to $\ell=2$, the quadrupole source; this is where the route meets the spin-2 work of \#57--\#59 from the other side & \#24 \S5.1, \#33, \#57 \\
+\addlinespace[0.15cm]
+N2 & finite-separation expansion & organise the two-point expansion of Eq.~\eqref{eq:synge} about the fixed separation $\sim\lambdaC/2$ rather than about coincidence, and locate the Ricci tensor & \#33, \#51 \\
+\addlinespace[0.15cm]
+N3 & tensorial constitutive structure & generalise the scalar index $n(T)$ to a constitutive tensor that fixes a light cone without a prior metric; this would remove the imported Hodge operator of \#54, and Paper~\#65 places the size of charge, $\alpha$, in the same constitutive relation & \#24, \#51, \#54, \#65 \\
+\addlinespace[0.15cm]
+N4 & the field equation as consistency & close the gap between \#24, which adds to the Einstein equation, and \#30, which asks for it to be recovered & \#24, \#30 \\
+\addlinespace[0.1cm]
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}
+\node[passbox, text width=2.5cm] (i1) at (-6.6,1.2) {\#33\\compact domain $\mathcal D$};
+\node[passbox, text width=2.5cm] (i2) at (-6.6,0) {\#57\\coefficients $a_{\ell m}$};
+\node[passbox, text width=2.5cm] (i3) at (-6.6,-1.2) {\#24\\$\rho = \sum a_{\ell m}Y_{\ell m}$, $\ell=1$};
+\node[openbox, text width=2.5cm] (n1) at (-3.0,0) {\textbf{N1}\\$T_{\mu\nu}$ from the $\ell=2$ moment};
+\node[openbox, text width=2.5cm] (n2) at (0.4,0.9) {\textbf{N2}\\expansion about $\lambdaC/2$};
+\node[openbox, text width=2.5cm] (n3) at (0.4,-0.9) {\textbf{N3}\\constitutive tensor};
+\node[openbox, text width=2.5cm] (n4) at (3.8,0) {\textbf{N4}\\field equation as consistency (\#30)};
+\node[box, text width=2.6cm] (cr) at (7.2,0) {\textbf{criteria}\\(i) species-blind\\(ii) linear in $E$\\(iii) transformation law\\(iv) local invariance};
+\draw[arr] (i1) -- (n1); \draw[arr] (i2) -- (n1); \draw[arr] (i3) -- (n1);
+\draw[arr] (n1) -- (n2); \draw[arr] (n1) -- (n3); \draw[arr] (n2) -- (n4); \draw[arr] (n3) -- (n4);
+\draw[arr, kB] (n4) -- (cr);
+\node[font=\scriptsize, neutral, align=center] at (0.4,-2.2) {\#51: two-point functional, Bonnet--Myers; \#54: Maxwell limit};
+\end{tikzpicture}
+\caption{\textbf{The restarted construction and the conditions it must meet}}
+\label{fig:restart}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Green: inputs already established in the corpus. Orange: the four tasks of Table~\ref{tab:ntasks}. Grey: the acceptance criteria of Paper~\#66, against which the result is to be checked. A source built as a stress--energy tensor meets criteria (i) and (ii) by construction; criteria (iii) and (iv) are where it can still fail.
+\end{minipage}
+\end{figure*}
+
+\subsection{The velocity convention and the direction of the acceleration}
+
+\textbf{[0SM reading]} The kinematics of the transport was the root of correction C3, and it has three layers.
+
+\paragraph{The origin of the phase.} Paper~\#10 writes the transport velocity as $v = v_0\cos\omega t$, at rest at $\omega t = \pi/2$; the energy description from Paper~\#49 to Paper~\#65 places the maximum of the transit energy, and hence the fastest transport, at $\theta = \pi/2$ (Fig.~\ref{fig:kernel}). With kernel $A$ at $\theta = 0$, as in Paper~\#65, the transit energy $K = \tfrac12E_0\sin^{2}\theta$ read as kinetic energy gives $|v|\propto|\sin\theta|$, and Paper~\#10's form describes the same motion with its time origin at the midpoint, $\omega t = \theta - \pi/2$. Paper~\#58 combined the velocity of the first with the energy of the second at the same $\theta$. The overview adopts the origin of Paper~\#65.
+
+\paragraph{The count of the cycle.} One period of $\theta$ is one cycle of the energy identity, which is one round trip of the photon sphere (Sec.~\ref{sec:clock}). The angular frequency of $\theta$ is therefore $2\pi\nuZB = 3.14\times10^{19}$~rad/s, the value Paper~\#58 uses, and a single passage $A\to B$ is $\Delta\theta = \pi$.
+
+\paragraph{The direction of the acceleration.} This layer is not a convention but an open derivation, task~(viii) of Paper~\#49. Two descriptions of the same transport give opposite answers (Fig.~\ref{fig:frames}). Referred to the two kernels, the transport is a harmonic oscillation between two points, like a mass on a spring: velocity and acceleration lie on the line joining the kernels, $\mathbf v\times\mathbf a = 0$, and there is no Thomas precession. Referred to the winding of the internal amplitude, $z = \cos(\theta/2) + i\sin(\theta/2)$ is uniform circular motion: velocity and acceleration are perpendicular, $|\mathbf v\times\mathbf a|$ is constant, and so is $\OmT$. The form of Papers~\#10, \#49 and~\#58, $\mathbf v = v_0\cos\omega t\,\hat e_x$ with $\mathbf a = -v_0\omega\sin\omega t\,\hat e_y$, takes its magnitudes from the spring and its directions from the circle; $\mathbf a$ is not the time derivative of $\mathbf v$, and the product $\sin2\theta$ arises from the combination. A single motion that keeps both, the speed of the spring and the turning of the circle, is transport along a curved path at a varying speed. Along an arc of radius $R$ at speed $s = v_0|\sin\theta|$ only the normal acceleration $s^{2}/R$ enters the cross product, $\mathbf v\times\mathbf a = s^{3}/R$, and $\OmT\simeq s^{3}/(2c^{2}R)\propto|\sin\theta|^{3}$. If the return leg retraces the outward arc, $\OmT$ changes sign between the legs; if it runs along the other side, so that the round trip closes a loop as drawn in Fig.~\ref{fig:kernel}(a), $\OmT$ keeps one sign over the whole cycle and the precession is a vortex with the same orientation as the winding of Sec.~\ref{sec:charge}. The candidate keeps the period $\pi$ that Paper~\#48 reads as spin~2, and it changes the sign pattern within a cycle and the amplitude, which now contains $R$. For $R$ of order $\lambdaC$ the amplitude still scales as $\vZB^{2}\nuZB$ and the integral over a cycle as $\betaZB^{2}$, so the conclusions of Paper~\#66 are unchanged. Whether $|\sin\theta|^{3}$ replaces $\sin2\theta$ is not decided here.
+
+\begin{figure}[t!]
+\centering
+\begin{tikzpicture}
+\begin{axis}[width=8.4cm, height=4.8cm, xmin=0, xmax=6.2832, ymin=-1.15, ymax=1.35,
+  xtick={0,1.5708,3.1416,4.7124,6.2832}, xticklabels={$0$,$\pi/2$,$\pi$,$3\pi/2$,$2\pi$},
+  xlabel={internal phase $\theta$}, ylabel={$\OmT$ (normalised)}, label style={font=\small}, tick label style={font=\footnotesize},
+  legend style={font=\scriptsize, at={(0.5,1.02)}, anchor=south, legend columns=2, draw=none}, axis lines=left]
+\addplot[domain=0:6.2832, samples=2, very thick, neutral] {0};
+\addplot[domain=0:6.2832, samples=2, very thick, kA, dashed] {1};
+\addplot[domain=0:6.2832, samples=161, very thick, kB] {sin(deg(2*x))};
+\addplot[domain=0:6.2832, samples=161, very thick, pass] {abs(sin(deg(x)))^3};
+\legend{spring ($\mathbf v\parallel\mathbf a$), circle (winding), \#10/\#58: $\sin2\theta$, closed loop: $|\sin\theta|^{3}$}
+\end{axis}
+\end{tikzpicture}
+\caption{\textbf{Thomas precession over one round trip in four descriptions}}
+\label{fig:frames}
+\vspace{0.4em}
+\begin{minipage}{0.95\columnwidth}
+\justifying\small
+Grey: the transport as a spring between the kernels, with no precession. Dashed blue: the winding of the internal amplitude, uniform circular motion with constant precession. Orange: the form of Papers~\#10, \#49 and~\#58, which takes magnitudes from the spring and directions from the circle and changes sign four times per cycle. Green: a closed loop traversed at the varying speed of the spring, one sign over the cycle with one peak per passage. All curves are normalised to unit peak; the green curve is the candidate stated in the text, not a result.
+\end{minipage}
+\end{figure}
+
+\subsection{Items left open by Paper~\#65}
+
+Paper~\#65 lists its own open problems~\cite{hanamura65}: (a) the spin sector, an equation that carries the direction of progression alongside the rotor with the right response to spatial rotations, and the Stern--Gerlach law $\cos^{2}(\theta/2)$; (b) the coupling of the charge winding to $A_\mu$, which meets criterion (iii) from the side of charge; (c) the size of charge, $\alpha$, located in the constitutive relation and therefore in task N3; (d) the mechanism by which a detector turns the uncancelled part of an entangled pair into an outcome, the same task as (a)'s projection law; (e) whether the internal windings $\tfrac12$, $1$, $2$ are spin, charge and the quadrupole; and the origin of the radiation-gradient relation $\partial_\theta(E_B-E_A) = E_0\sin\theta$, the residual assumption of the quartic energy.
+
+\subsection{The closed registry}
+
+Until mid-2026 the open problems of the series were kept as a registry of twenty-two entries, O1--O22. With the restart the registry is closed as a ledger and kept as a record; Table~\ref{tab:registry} gives each entry in one line with its disposition. Ten entries belong to the two-point geometry and line-integral route and are carried forward; five presupposed the mediator route or were answered by Paper~\#66; seven belong to sectors the restart does not touch. One entry needs a correction rather than a disposition. O19 asked for a continuous family of endpoint pairs on which $\mathcal S$ is defined, on the ground that the model supplies only two kernels. Papers~\#33 and~\#51 already supply the family, the non-antipodal pairs of the compact domain; what remains of O19 is the expansion about a finite separation, which is task N2.
+
+\begin{table*}[p]
+\centering
+\caption{\textbf{The closed registry O1--O22 and its disposition}}
+\label{tab:registry}
+\renewcommand{\arraystretch}{1.22}
+\setlength{\tabcolsep}{6pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{0.7cm}>{\raggedright\arraybackslash}p{10.2cm}>{\raggedright\arraybackslash}p{2.2cm}>{\raggedright\arraybackslash}p{2.6cm}}
+\toprule
+\textbf{ID} & \textbf{Entry} & \textbf{Source} & \textbf{Disposition} \\
+\midrule
+O1 & derive $\betaZB$ from Thomas precession alone, without $a_e$ as input; the bridge relation itself is derived (\#62) & \#47, \#62 & unaffected \\
+O2 & derive $E_0 = \hbar\omega$ from the Hamiltonian of \#18 & \#46 & unaffected \\
+O3 & compute Eq.~\eqref{eq:synge} for a curved case; fix the sign of the mixed limit and the phase-to-length constant & \#51 & \textcolor{pass}{carried} \\
+O4 & bridge from the Berry curvature to the Riemann tensor of the emergent metric & \#51 & \textcolor{pass}{carried}, reframed \\
+O5 & whether the directed arc length $L_{\text{spin}}$ is a scalar or a directed quantity & \#45 & \textcolor{pass}{carried} \\
+O6 & the $\gamma$-matrix algebra as a limit of the helical line-integral structure & \#51 & \textcolor{pass}{carried} \\
+O7 & $1/r^{2}$ from near-neighbour ejection & \#49 & \textcolor{fail}{lapsed} \\
+O8 & composition independence of the ejection rate & \#49, \#52 & \textcolor{fail}{answered by \#66} \\
+O9 & second law from the protection of chirality & \#50, \#56 & unaffected \\
+O10 & a covariant rotation plane of the photon sphere & \#50, \#51 & unaffected \\
+O11 & the two-frequency (Lissajous) helix & \#51, \#9 & unaffected \\
+O12 & first-principles curvature of the path and the ejection stress & \#49, \#50 & \textcolor{fail}{lapsed} \\
+O13 & closure of the Berry--Synge--Bonnet--Myers triangle & \#60, \#63 & \textcolor{pass}{carried}, reframed \\
+O14 & the bridge equation for the neutron; a discrepancy of order $13$~MeV & \#61, \#62 & unaffected \\
+O15 & stability of equal versus unequal internal frequencies & \#9 & unaffected \\
+O16 & the physical identity of $A_\mu$ & \#63 & \textcolor{pass}{carried}; criterion (iii) \\
+O17 & an Aharonov--Bohm phase on an open segment & \#31, \#55 & \textcolor{pass}{carried} \\
+O18 & Riemannian confinement against a Lorentzian emergent metric & \#51, \#64 & \textcolor{pass}{carried} \\
+O19 & the continuum presupposed by Eq.~\eqref{eq:synge} & \#51 & \textcolor{pass}{carried} as N2 \\
+O20 & the origin of the radiation-gradient relation & \#1, \#65 & \textcolor{pass}{carried} \\
+O21 & a species-blind gravitational charge & \#52, \#66 & criterion (i) \\
+O22 & whether the exchange probability can carry $1/\betaZB$ & \#34, \#49 & \textcolor{fail}{set aside} \\
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+``Carried'': part of the narrowed programme. ``Lapsed'': presupposed the ejection mechanism as the source of the coupling. ``Set aside'': not pursued by decision; a rate parameter cannot repair a problem about the strength of a charge. ``Unaffected'': belongs to the anomalous-moment, thermodynamic, chirality or stability threads, which the restart does not touch.
+\end{minipage}
+\end{table*}
+
+% ========================================
+\section{Method and Scope}
+\label{sec:method}
+% ========================================
+
+\paragraph{Non-perturbative.} The model uses no expansion in a coupling constant: no Feynman diagrams and no loop integrals. Quantities are computed from line integrals along paths, energy conservation and geometric relations. There is accordingly no natural place for the fine-structure constant, which lies outside the present scope~\cite{hanamura36}. The bridge relation is derived~\cite{hanamura62}; the numerical value of $a_e$ is an input.
+
+\paragraph{Directed paths before local fields.} The primary objects are directed path integrals $\int_\gamma\omega$, not field values $\phi(x)$; field values are projections of the directed structure onto a description by points. Paper~\#56 states the divide precisely~\cite{hanamura56}: the same identity, zero net torque on the internal amplitude, implies decoupling of the internal modes in the local-field description and protection of the chirality in the directed-path description. Which conclusion holds depends on which object carries the physical information.
+
+\paragraph{Outside the present scope.} The fine-structure constant; the numerical values of $a_e$ and $m_e$, which the model takes as inputs; the non-Abelian gauge structure of the strong and weak interactions, although the bridge equation yields a hadronic mass scale~\cite{hanamura61}; quantitative radiation spectra; and the lepton mass hierarchy, whose earlier account rested on the retracted critical radii.
+
+% ========================================
+\section{Reading Roadmap}
+\label{sec:roadmap}
+% ========================================
+
+Table~\ref{tab:roadmap} gives reading sequences by topic, in logical rather than chronological order. A star marks the minimum set; papers in parentheses add depth. Table~\ref{tab:superseded} lists statements that recur in the corpus in a form that has since been corrected, with the form that replaces them.
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Reading sequences by topic}}
+\label{tab:roadmap}
+\renewcommand{\arraystretch}{1.3}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{5.6cm}>{\raggedright\arraybackslash}p{10.8cm}}
+\toprule
+\textbf{Topic} & \textbf{Sequence} \\
+\midrule
+architecture of the model & $\star$\#1 $\to$ \#6 $\to$ \#10 $\to$ \#65 (\#36) \\
+why the energy is a fourth power & $\star$\#1 $\to$ \#65 (\#38 for the photon, \#64 for the $S^{3}$ square root) \\
+spin, $g$, anomalous moment & $\star$\#1 $\to$ \#10 $\to$ \#19 $\to$ \#26 $\to$ \#47 $\to$ \#48 $\to$ \#64 $\to$ \#65 \\
+transport speed and the clock & $\star$\#10 $\to$ \#33 (App.~E--G) $\to$ \#47 $\to$ \#62 (\#51 for the helix) \\
+charge as a winding number & $\star$\#50 $\to$ \#65 (\#7, \#56) \\
+the clock under gravity & $\star$\#11 $\to$ \#18 $\to$ \#22 $\to$ \#24 (\#63, \#66) \\
+line integrals as observables & $\star$\#29 $\to$ \#30 $\to$ \#31 $\to$ \#55 (\#40, \#41, \#45) \\
+the metric from two points & $\star$\#29 $\to$ \#31 $\to$ \#51 $\to$ \#60 $\to$ \#63 (\#24, \#33) \\
+Maxwell from Wilson lines & $\star$\#17 $\to$ \#31 $\to$ \#54 (\#55) \\
+zero-point and vacuum energy & $\star$\#1 $\to$ \#32 $\to$ \#46 (\#39) \\
+gravity from internal transport, and its test & $\star$\#34 $\to$ \#49 $\to$ \#52 $\to$ \#58 $\to$ \#66 (\#35, \#53, \#57, \#59) \\
+the bridge equation beyond the electron & $\star$\#10 $\to$ \#47 $\to$ \#61 $\to$ \#62 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Statements that recur in the corpus in a superseded form}}
+\label{tab:superseded}
+\renewcommand{\arraystretch}{1.32}
+\setlength{\tabcolsep}{7pt}
+\begin{tabular}{>{\raggedright\arraybackslash}p{6.0cm}>{\raggedright\arraybackslash}p{6.6cm}>{\raggedright\arraybackslash}p{3.4cm}}
+\toprule
+\textbf{Superseded form} & \textbf{Current form} & \textbf{Where} \\
+\midrule
+internal speed $0.040374c$ & one speed, $0.04047c$ (Eq.~\eqref{eq:bridge}) & \#10; Table~\ref{tab:retract} \\
+Dirac frequency $3.93\times10^{20}$ or $1.6\times10^{20}$~Hz & $2m_ec^{2}/h = 2.47\times10^{20}$~Hz, $49.4\,\nuZB$ & Table~\ref{tab:corrections} \\
+one passage $A\to B$ per $2.00\times10^{-19}$~s; kernels $\lambdaC$ apart & one round trip per $2.00\times10^{-19}$~s; path $\lambdaC$ per cycle, kernels $\lambdaC/2$ apart & \#51; Table~\ref{tab:corrections} \\
+internal clock at $c/\lambdaC$ or at the Dirac frequency & $\nuZB = \betaZB c/\lambdaC = 5.00\times10^{18}$~Hz; the others are references & \#10, \#33; Table~\ref{tab:clocks} \\
+the fourth power as black-body radiation & a quadratic form seen through the double cover & \#65 \\
+the reversed rotor, or the sheets of the exchange, as spin & charge partner; radiating and absorbing roles & \#65 \\
+negative energy as a second particle or a Dirac sea & the absorbing half of one exchange & \#65 \\
+the model derives $\alpha$ & the integer of charge follows; its size does not & \#65 \\
+$-\cos\varphi$ derived for entangled pairs & an outlook under one identification step & \#65 \\
+$336$~MeV agreement as confirmation & an algebraic identity & Table~\ref{tab:corrections} \\
+horizon freezing as a test of general relativity & a distant-observer statement that general relativity shares & \#66 \\
+the internal motion as the source of gravity & a physical picture; the source is restarted on the line-integral route & \#66 \\
+linear motion generates angular momentum & the curved path makes $\mathbf v\times\mathbf a\neq0$ & \#49 \\
+\bottomrule
+\end{tabular}
+\end{table*}
+
+% ========================================
+\section{What Has Been Shown and What Has Not}
+\label{sec:status}
+% ========================================
+
+\paragraph{Standard mathematics used.} The split of Maxwell's equations into a metric-free and a metric-dependent part; Synge's coincidence limits; the Bloch vector and the Hopf double cover; winding numbers and the conservation of the Wronskian; the Zitterbewegung as the cross term of the two Dirac branches; Thomas precession; the Bonnet--Myers theorem; and the identity $\langle\beta\rangle = E/m_ec^{2}$ for Dirac--Coulomb states. None is claimed as original.
+
+\paragraph{Shown within the model.} The energy identity and its three-way split; the quartic energy as a quadratic form pulled back through the double cover, from three relations of the model; charge as a protected winding number, with its sign, quantization, conservation and bound; the rotor's equivalence to the Dirac rest superposition; a transport speed fixed by $a_e$ with no free parameter, and the clock and length built from it; Maxwell electrodynamics as the low-energy limit of the open-Wilson-line structure; the linearity of the force of Paper~\#52 in the total energy of a bound electron, under one assumption; and the conflict of that force with the MICROSCOPE bound, traced to one cause.
+
+\paragraph{Not demonstrated.} That the electron consists of two kernels with energy transported between them; that the transport speed $0.0404720c$ is a physical quantity; that the metric of spacetime follows from the two-point phase in a curved case; that the triangle closes; that any part of the proposed gravitational mechanism operates in nature; and that the line-integral route yields a source that respects the equivalence principle.
+
+\paragraph{Contact with experiment.} The series has three points of contact. The transport speed is a parameter-free prediction that has not been measured; the routes to it are the helicity-flip condition of Paper~\#50~\cite{hanamura50} and the transverse channel at $\nuZB = 5.00\times10^{18}$~Hz, which Paper~\#51 connects to trapped-ion simulations of the Dirac equation~\cite{hanamura51}. The gravitational shift of the internal clock agrees with general relativity by construction, so it confirms the premise without discriminating the model. The equivalence-principle tests are the first contact of the gravitational sector with precision measurement, and the sector as written does not survive it.
+
+% ========================================
+\section{Conclusion}
+\label{sec:conclusion}
+% ========================================
+
+The series began with a pair of points and an energy identity and has followed one argument from it. The identity splits the electron's energy between two kernels and a transit term, and its fourth power is a quadratic form seen through the spinor double cover. The internal amplitude winds around the origin, and its winding is the sign of charge; spin is the direction in which the transport advances. The transport has a speed, $0.0404720c$, fixed by the anomalous magnetic moment, and a clock, $\nuZB = \betaZB c/\lambdaC = 5.00\times10^{18}$~Hz, a factor $49.4$ below the Dirac frequency. The accumulated phase of the transport is taken as the primary observable, Maxwell electrodynamics follows as a low-energy limit, and the metric is proposed as what the two-point phase yields. The attempt to build gravity from the internal motion produced a force proportional to mass that respects binding and violates composition by ten orders of magnitude, because the transport speed differs between electrons and nucleons. The source of gravity has therefore been moved to the line-integral route, under four criteria stated in advance.
+
+The reach of the series can be stated in three tiers. Shown: the internal bookkeeping of the electron, the winding structure of its charge, a parameter-free transport speed and clock, and Maxwell electrodynamics as a limit of the line-integral structure. Not demonstrated: the existence of the kernels and of the transport, the physical reality of the speed, the emergence of a curved metric, and any gravitational mechanism. To be done: a gravitational source independent of the transport speed and linear in the total energy, an object with a transformation law and its relation to the emergent metric, and a measurement of the transport speed. Figure~\ref{fig:flow} draws the whole argument.
+
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}
+\node[box, text width=2.6cm] (s0) at (-6.6,2.2) {\textbf{two kernels}\\$S^{0}=\{A,B\}$ (\#1, \#6)};
+\node[passbox, text width=2.7cm] (id) at (-6.6,0.2) {\textbf{energy identity}\\quadratic form through the double cover (\#65)};
+\node[passbox, text width=2.7cm] (ch) at (-6.6,-2.0) {\textbf{charge}: winding number\\\textbf{spin}: direction of progression (\#64, \#65)};
+\node[box, text width=2.4cm] (ae) at (-2.4,2.2) {measured $a_e$};
+\node[passbox, text width=2.7cm] (cl) at (-2.4,0.2) {\textbf{clock}\\$\betaZB = 0.0404720$\\$\nuZB = 5.00\times10^{18}$~Hz (\#10, \#62)};
+\node[box, text width=2.7cm] (gm) at (-2.4,-2.0) {\textbf{gravity from internal motion}\\$F = mg\betaZB$ (\#34--\#59)};
+\node[failbox, text width=2.7cm] (wep) at (-2.4,-4.2) {\textbf{three tests} (\#66)\\mass and binding pass; composition fails};
+\node[passbox, text width=2.7cm] (li) at (1.8,2.2) {\textbf{line integrals}\\observables (\#29--\#31)};
+\node[passbox, text width=2.7cm] (mx) at (1.8,0.2) {\textbf{Maxwell}\\low-energy limit (\#54, \#55)};
+\node[openbox, text width=2.7cm] (mt) at (1.8,-2.0) {\textbf{metric}\\$g=\partial_A\partial_B\mathcal S_s$ proposed (\#51, \#60, \#63)};
+\node[openbox, text width=3.0cm] (rs) at (6.0,-1.0) {\textbf{restart}\\source from accumulated phase; criteria (i)--(iv); tasks N1--N4};
+\node[box, text width=2.6cm] (ms) at (-6.6,-4.2) {\textbf{to measure}\\transport speed $0.04c$};
+\draw[arr] (s0) -- (id); \draw[arr] (id) -- (ch);
+\draw[arr] (ae) -- (cl); \draw[arr] (id) -- (cl);
+\draw[arr] (cl.north east) -- (li.south west); \draw[arr] (li) -- (mx); \draw[arr] (mx) -- (mt);
+\draw[arr] (cl) -- (gm); \draw[arr] (gm) -- (wep);
+\draw[arr, wfive] (wep.east) -| node[pos=0.25, below, font=\scriptsize, text=wfive] {one cause: $\betaZB$ in the charge} (rs.south);
+\draw[arr, kB] (li.east) -| (rs.north);
+\draw[arr, kB] (mt.east) -- (rs.west);
+\draw[arr, neutral, dashed] (cl.south west) -- (ms.north east);
+\end{tikzpicture}
+\caption{\textbf{The argument of the series in one picture}}
+\label{fig:flow}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+Green: shown within the model. Orange: proposed or under construction. Red: the failed test. Grey: inputs and predictions. The internal structure (left) and the measured anomalous moment yield the clock (centre), which feeds two routes: the line-integral route to Maxwell electrodynamics and the metric (centre right), and the internal-motion route to gravity (centre), which fails the composition test. The restart (right) moves the source of gravity onto the line-integral route. The transport speed itself awaits measurement (lower left).
+\end{minipage}
+\end{figure*}
+
+\clearpage
+\appendix
+
+% ========================================
+\section{Reproducing the Numbers}
+\label{app:repro}
+% ========================================
+
+Every number in the text, tables and figures follows from measured inputs and no fitted parameter: the CODATA 2022 constants~\cite{codata2022}, the anomalous moments of the electron, muon, proton and neutron, the Earth's gravitational parameter, and the bridge equation, Eq.~\eqref{eq:bridge}. The script \texttt{verify67.py}, deposited with this paper, recomputes them and prints \texttt{all checks passed}. Values quoted from other papers of the series, such as $\eta(\mathrm{Ti},\mathrm{Pt})$ from Paper~\#66, are recomputed by the script deposited with that paper. Reproducing the numbers checks the arithmetic, not the physics of the model.
+
+\begin{acknowledgments}
+Large language models (Claude, Anthropic) assisted with collating material from the papers of the series, drafting, figure preparation and numerical checking. Their role was supportive; the physical content, the choices of reading and the responsibility for every statement rest with the author.
+\end{acknowledgments}
+
+\begin{thebibliography}{99}
+
+\bibitem{hanamura65} S.~Hanamura, \emph{From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model}, Zenodo (2026), Paper~\#65 of the series, \href{https://doi.org/10.5281/zenodo.23257458}{doi:10.5281/zenodo.23257458}.
+
+\bibitem{hanamura01} S.~Hanamura, \emph{A Model of an Electron Including Two Perfect Black Bodies}, Zenodo (2018), Paper~\#1 of the series, \href{https://doi.org/10.5281/zenodo.16759284}{doi:10.5281/zenodo.16759284}.
+
+\bibitem{hanamura10} S.~Hanamura, \emph{Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction}, Zenodo (2024), Paper~\#10 of the series, \href{https://doi.org/10.5281/zenodo.17764997}{doi:10.5281/zenodo.17764997}.
+
+\bibitem{hanamura62} S.~Hanamura, \emph{The Bridge Equation $\gamma = 1 + a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model}, Zenodo (2026), Paper~\#62 of the series, \href{https://doi.org/10.5281/zenodo.20091680}{doi:10.5281/zenodo.20091680}.
+
+\bibitem{hanamura64} S.~Hanamura, \emph{The Square Root of the Hyperspherical Laplacian: A Geometric Foundation for Spin Two-Valuedness on $S^3$ in the 0-Sphere Model}, Zenodo (2026), Paper~\#64 of the series, \href{https://doi.org/10.5281/zenodo.20820646}{doi:10.5281/zenodo.20820646}.
+
+\bibitem{hanamura31} S.~Hanamura, \emph{Line Integrals as Fundamental Observables in Physics: A Unified Principle Behind the Aharonov-Bohm Effect, Berry Phase, and Wilson Loops}, Zenodo (2026), Paper~\#31 of the series, \href{https://doi.org/10.5281/zenodo.18203433}{doi:10.5281/zenodo.18203433}.
+
+\bibitem{hanamura54} S.~Hanamura, \emph{Maxwell Electrodynamics as a Derived Low-Energy Limit of the 0-Sphere Line-Integral Ontology}, Zenodo (2026), Paper~\#54 of the series, \href{https://doi.org/10.5281/zenodo.19701297}{doi:10.5281/zenodo.19701297}.
+
+\bibitem{hanamura55} S.~Hanamura, \emph{Four Functions of the Open Wilson Line in the 0-Sphere Model: Phase-History Carrier, Gauge Localization, Holonomy Composition, and Boundary Data Generating Both Maxwell and Metric Sectors}, Zenodo (2026), Paper~\#55 of the series, \href{https://doi.org/10.5281/zenodo.19800797}{doi:10.5281/zenodo.19800797}.
+
+\bibitem{hanamura34} S.~Hanamura, \emph{Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass, Zitterbewegung, and Gravitational-Like Phenomena --- Emergent Gravitational Dynamics Without Additional Mediators}, Zenodo (2026), Paper~\#34 of the series, \href{https://doi.org/10.5281/zenodo.18437010}{doi:10.5281/zenodo.18437010}.
+
+\bibitem{hanamura49} S.~Hanamura, \emph{Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the $\pi$-Cycle of the 0-Sphere Model}, Zenodo (2026), Paper~\#49 of the series, \href{https://doi.org/10.5281/zenodo.19393391}{doi:10.5281/zenodo.19393391}.
+
+\bibitem{hanamura58} S.~Hanamura, \emph{Spin-2 Structure of the Gravitational Mediator: Phase-Stable Pair Emission and Quadrupole Radiation in the 0-Sphere Model}, Zenodo (2026), Paper~\#58 of the series, \href{https://doi.org/10.5281/zenodo.19932861}{doi:10.5281/zenodo.19932861}.
+
+\bibitem{hanamura52} S.~Hanamura, \emph{Geometric Origin of the Weak Equivalence Principle in the 0-Sphere Model: Force Classification and the $\lambda_{\mathrm C}$ Cancellation Theorem in the Helical Geometry}, Zenodo (2026), Paper~\#52 of the series, \href{https://doi.org/10.5281/zenodo.19583032}{doi:10.5281/zenodo.19583032}.
+
+\bibitem{hanamura66} S.~Hanamura, \emph{Three Tests of the Weak Equivalence Principle in the 0-Sphere Model: Binding Passes, Composition Fails, and the Formalisation Restarts}, Zenodo (2026), Paper~\#66 of the series, in preparation.
+
+\bibitem{hanamura29} S.~Hanamura, \emph{Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics}, Zenodo (2025), Paper~\#29 of the series, \href{https://doi.org/10.5281/zenodo.18067760}{doi:10.5281/zenodo.18067760}.
+
+\bibitem{hanamura30} S.~Hanamura, \emph{From Curvature to Connection: Revisiting the Geometric Origin of Conservation Laws}, Zenodo (2026), Paper~\#30 of the series, \href{https://doi.org/10.5281/zenodo.18819682}{doi:10.5281/zenodo.18819682}.
+
+\bibitem{hanamura06} S.~Hanamura, \emph{Correspondence between a 0-Sphere and the Electron Model}, Zenodo (2020), Paper~\#6 of the series, \href{https://doi.org/10.5281/zenodo.17759908}{doi:10.5281/zenodo.17759908}.
+
+\bibitem{hanamura38} S.~Hanamura, \emph{Electron Interference from Internal Geometry: Two-Kernel SU(2) Structure, Quartic Energy Flow, and an Intrinsic Visibility Limit}, Zenodo (2026), Paper~\#38 of the series, \href{https://doi.org/10.5281/zenodo.18718174}{doi:10.5281/zenodo.18718174}.
+
+\bibitem{Dirac1928} P.~A.~M. Dirac, The quantum theory of the electron, Proc.\ R.\ Soc.\ Lond.\ A \textbf{117}, 610 (1928).
+
+\bibitem{Schrodinger1930} E.~Schr\"odinger, \"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik, Sitzungsber.\ Preuss.\ Akad.\ Wiss.\ Phys.-Math.\ Kl.\ \textbf{24}, 418 (1930).
+
+\bibitem{hanamura07} S.~Hanamura, \emph{Coexistence positive and negative-energy states in the Dirac equation with one electron}, Zenodo (2020), Paper~\#7 of the series, \href{https://doi.org/10.5281/zenodo.17760132}{doi:10.5281/zenodo.17760132}.
+
+\bibitem{codata2022} P.~J. Mohr, D.~B. Newell, B.~N. Taylor, and E.~Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Rev.\ Mod.\ Phys.\ \textbf{97}, 025002 (2025).
+
+\bibitem{hanamura61} S.~Hanamura, \emph{Application of the $\gamma$-Equation to the Proton: A Parameter-Free Hadronic Mass Scale}, Zenodo (2026), Paper~\#61 of the series, \href{https://doi.org/10.5281/zenodo.19934138}{doi:10.5281/zenodo.19934138}.
+
+\bibitem{hanamura47} S.~Hanamura, \emph{Rotational Lorentz Contraction as the Geometric Origin of the Anomalous Magnetic Moment: A Structural Correspondence with the Muon Lifetime Problem (Structural Clarification Note)}, Zenodo (2026), Paper~\#47 of the series, \href{https://doi.org/10.5281/zenodo.19120057}{doi:10.5281/zenodo.19120057}.
+
+\bibitem{hanamura33} S.~Hanamura, \emph{Geometrical Confinement of Energy in the 0-Sphere Model: A Topological Mechanism Underlying Rest Mass and Zitterbewegung}, Zenodo (2026), Paper~\#33 of the series, \href{https://doi.org/10.5281/zenodo.18356895}{doi:10.5281/zenodo.18356895}.
+
+\bibitem{hanamura51} S.~Hanamura, \emph{Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model}, Zenodo (2026), Paper~\#51 of the series, \href{https://doi.org/10.5281/zenodo.20388056}{doi:10.5281/zenodo.20388056}.
+
+\bibitem{hanamura09} S.~Hanamura, \emph{Beyond the Standard Model: Neutrino Oscillations and the Search for New Physics}, Zenodo (2023), Paper~\#9 of the series, \href{https://doi.org/10.5281/zenodo.17764952}{doi:10.5281/zenodo.17764952}.
+
+\bibitem{hanamura50} S.~Hanamura, \emph{Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model}, Zenodo (2026), Paper~\#50 of the series, \href{https://doi.org/10.5281/zenodo.19482145}{doi:10.5281/zenodo.19482145}.
+
+\bibitem{hanamura48} S.~Hanamura, \emph{Geometric Origin of $g = 2$ in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition}, Zenodo (2026), Paper~\#48 of the series, \href{https://doi.org/10.5281/zenodo.19227518}{doi:10.5281/zenodo.19227518}.
+
+\bibitem{hanamura11} S.~Hanamura, \emph{Quantum Oscillations in the 0-Sphere Model: Bridging Zitterbewegung, Geodesic Paths, and Proper Time Through Radiative Energy Transfer}, Zenodo (2024), Paper~\#11 of the series, \href{https://doi.org/10.5281/zenodo.17765017}{doi:10.5281/zenodo.17765017}.
+
+\bibitem{hanamura18} S.~Hanamura, \emph{Time-Dependent Mass in the 0-Sphere Model: A Hamiltonian Approach to Thermal Modulation}, Zenodo (2025), Paper~\#18 of the series, \href{https://doi.org/10.5281/zenodo.17765200}{doi:10.5281/zenodo.17765200}.
+
+\bibitem{hanamura22} S.~Hanamura, \emph{Gravitational Redshift of Internal Quantum Clocks: A Zitterbewegung-Based Model}, Zenodo (2025), Paper~\#22 of the series, \href{https://doi.org/10.5281/zenodo.17765318}{doi:10.5281/zenodo.17765318}.
+
+\bibitem{Ashby2003} N.~Ashby, Relativity in the Global Positioning System, Living Rev.\ Relativ.\ \textbf{6}, 1 (2003).
+
+\bibitem{hanamura24} S.~Hanamura, \emph{Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure}, Zenodo (2025), Paper~\#24 of the series, \href{https://doi.org/10.5281/zenodo.17765349}{doi:10.5281/zenodo.17765349}.
+
+\bibitem{hanamura63} S.~Hanamura, \emph{From Line Integral to Covariant Derivative: A Reader's Map of the Bridge from the 0-Sphere Model to Riemannian Curvature}, Zenodo (2026), Paper~\#63 of the series, \href{https://doi.org/10.5281/zenodo.20767589}{doi:10.5281/zenodo.20767589}.
+
+\bibitem{hanamura14} S.~Hanamura, \emph{Bridging Quantum Mechanics and General Relativity: A First-Principles Approach to Anomalous Magnetic Moments and Geodetic Precession}, Zenodo (2025), Paper~\#14 of the series, \href{https://doi.org/10.5281/zenodo.17765097}{doi:10.5281/zenodo.17765097}.
+
+\bibitem{hanamura28} S.~Hanamura, \emph{A Supplementary Correction to the 0-Sphere Model: Dimensional Consistency of G and c²}, Zenodo (2025), Paper~\#28 of the series, \href{https://doi.org/10.5281/zenodo.18636509}{doi:10.5281/zenodo.18636509}.
+
+\bibitem{HehlObukhov2003} F.~W. Hehl and Y.~N. Obukhov, \emph{Foundations of Classical Electrodynamics: Charge, Flux, and Metric} (Birkh\"auser, Boston, 2003).
+
+\bibitem{AharonovBohm1959} Y.~Aharonov and D.~Bohm, Significance of electromagnetic potentials in the quantum theory, Phys.\ Rev.\ \textbf{115}, 485 (1959).
+
+\bibitem{hanamura17} S.~Hanamura, \emph{From Clock Synchronization to Electromagnetism: A Realist Construction of U(1) Gauge Theory}, Zenodo (2025), Paper~\#17 of the series, \href{https://doi.org/10.5281/zenodo.17765136}{doi:10.5281/zenodo.17765136}.
+
+\bibitem{hanamura37} S.~Hanamura, \emph{Reinterpreting Gravitational Potential Energy as an Internal Line-Integral Quantity in the 0-Sphere Model}, Zenodo (2026), Paper~\#37 of the series, \href{https://doi.org/10.5281/zenodo.18637487}{doi:10.5281/zenodo.18637487}.
+
+\bibitem{Myers1941} S.~B. Myers, Riemannian manifolds with positive mean curvature, Duke Math.\ J.\ \textbf{8}, 401 (1941).
+
+\bibitem{Synge1960} J.~L. Synge, \emph{Relativity: The General Theory} (North-Holland, Amsterdam, 1960).
+
+\bibitem{hanamura60} S.~Hanamura, \emph{The Berry--Synge--Bonnet--Myers Triangle: Structural Conditions for the Unification of Gauge and Gravitational Sectors in the 0-Sphere Model}, Zenodo (2026), Paper~\#60 of the series, \href{https://doi.org/10.5281/zenodo.19932922}{doi:10.5281/zenodo.19932922}.
+
+\bibitem{Thomas1926} L.~H. Thomas, The motion of the spinning electron, Nature \textbf{117}, 514 (1926).
+
+\bibitem{microscope2022} P.~Touboul \emph{et al.} (MICROSCOPE Collaboration), MICROSCOPE mission: Final results of the test of the equivalence principle, Phys.\ Rev.\ Lett.\ \textbf{129}, 121102 (2022).
+
+\bibitem{hanamura36} S.~Hanamura, \emph{On the Non-Perturbative Nature of the 0-Sphere Model and the Fine-Structure Constant: A Supplement on Methodological Scope and Realist Foundations}, Zenodo (2026), Paper~\#36 of the series, \href{https://doi.org/10.5281/zenodo.18603340}{doi:10.5281/zenodo.18603340}.
+
+\bibitem{hanamura56} S.~Hanamura, \emph{The Framework Boundary: How Local-Field and Directed-Path Descriptions Diverge in the 0-Sphere Model --- with Application to Microscopic Time Reversibility}, Zenodo (2026), Paper~\#56 of the series, \href{https://doi.org/10.5281/zenodo.19900974}{doi:10.5281/zenodo.19900974}.
+
+\end{thebibliography}
+\end{document}
