@@ -48,6 +48,25 @@ check("total momentum = 0", np.allclose(bodies + transfer, 0, atol=1e-5))
 check("largest kernel speed = (3/4) omega d", abs(np.abs(g(X)).max() - 0.75) < 1e-4)
 check("largest photon-sphere speed = (1/4) omega d", abs(np.abs(g(xg)).max() - 0.25) < 1e-4)
 
+# The form of Paper #58: Q proportional to T_A - T_B with fixed kernels
+dE = TA - TB
+check("T_A - T_B = cos(theta)", np.allclose(dE, np.cos(t)))
+check("T_A - T_B is odd under exchange (theta -> theta + pi)",
+      np.allclose(np.roll(dE, N//2), -dE))
+
+# Largest kernel speed against the group velocity c/n = beta c of Paper #66 (d = lambda_C/2)
+# (3/4) omega d / (beta c) with omega = 2 pi beta c / lambda_C and d = lambda_C/2 gives 3 pi / 4
+ratio = 3*math.pi/4
+for b_test in (math.sqrt(0.00163798087), 0.01, 0.1):
+    lam_test = 1.0
+    v_max = 0.75*(2*math.pi*b_test/lam_test)*(lam_test/2)     # in units of c
+    check("v_kernel,max / (c/n) = 3 pi / 4 = %.4f for beta = %.5f" % (v_max/b_test, b_test),
+          abs(v_max/b_test - ratio) < 1e-12)
+above = np.abs(np.sin(t))**3 > 1/ratio
+frac_closed = 1 - 2*math.asin((1/ratio)**(1/3))/math.pi
+check("fraction of the cycle with v_kernel > c/n = %.3f (closed form %.4f)" % (above.mean(), frac_closed),
+      abs(above.mean() - frac_closed) < 1e-3)
+
 G, c0 = 6.67430e-11, 299792458.0
 me, lamC = 9.1093837139e-31, 2.42631023538e-12
 beta = math.sqrt(0.00163798087)
