@@ -28,9 +28,10 @@ NOTE: verify66.py (the numerical-verification script of Appendix C) and
 [Summary]
   [1] Continues:         3 entries
   [2] References:        4 entries
-  [3] Cites:             0 entries (every Hanamura paper cited is listed above)
+  [3] Cites:             8 entries (standard literature with a DOI; every
+                         Hanamura paper cited is listed under [1], [2], [4])
   [4] Is part of:        1 entry  (#1)
-  External (non-Zenodo): standard literature, 11 entries — no relation needed
+  Not entered:           3 standard references without a DOI (see [3])
   [Reverse Relations]:   7 target papers listed for update
 ================================================================================
 
@@ -107,23 +108,39 @@ NOTE: verify66.py (the numerical-verification script of Appendix C) and
 ================================================================================
 
 [3] Cites
-  — Hanamura papers cited in the bibliography and not listed above —
+  — Standard literature cited in the bibliography (entered 2026-11-14 at the
+    author's request; each DOI checked against Crossref). Every Hanamura
+    paper cited is listed under [1], [2] or [4]. —
 
-  None. Every Hanamura paper in the bibliography of #66 is listed under
-  [1], [2] or [4].
+  Dirac 1928 — The quantum theory of the electron,
+      Proc. R. Soc. London A 117, 610
+      DOI: 10.1098/rspa.1928.0023           Resource type: Journal article
+  Breit 1928 — An interpretation of Dirac's theory of the electron,
+      Proc. Natl. Acad. Sci. USA 14, 553
+      DOI: 10.1073/pnas.14.7.553            Resource type: Journal article
+  Laue 1907 — Die Mitfuhrung des Lichtes durch bewegte Korper nach dem
+      Relativitatsprinzip, Ann. Phys. 328, 989
+      DOI: 10.1002/andp.19073281015         Resource type: Journal article
+  Newton & Wigner 1949 — Localized states for elementary systems,
+      Rev. Mod. Phys. 21, 400
+      DOI: 10.1103/RevModPhys.21.400        Resource type: Journal article
+  Foldy & Wouthuysen 1950 — On the Dirac theory of spin 1/2 particles and its
+      non-relativistic limit, Phys. Rev. 78, 29
+      DOI: 10.1103/PhysRev.78.29            Resource type: Journal article
+  Gerritsma et al. 2010 — Quantum simulation of the Dirac equation,
+      Nature 463, 68
+      DOI: 10.1038/nature08688              Resource type: Journal article
+  Fan et al. 2023 — Measurement of the electron magnetic moment,
+      Phys. Rev. Lett. 130, 071801
+      DOI: 10.1103/PhysRevLett.130.071801   Resource type: Journal article
+  Mohr et al. (CODATA 2022), Rev. Mod. Phys. 97, 025002 (2025)
+      DOI: 10.1103/RevModPhys.97.025002     Resource type: Journal article
 
-  External (not Zenodo — no Zenodo relation entry required):
+  Not entered (no DOI for the work cited):
       Schrodinger 1930, Sitzungsber. Preuss. Akad. Wiss. 24, 418
-      Breit 1928, Proc. Natl. Acad. Sci. USA 14, 553
-      Dirac 1928, Proc. R. Soc. London A 117, 610
-      Dirac, The Principles of Quantum Mechanics, 4th ed. (1958), Chap. XI
-      Fizeau 1851, C. R. Acad. Sci. 33, 349
-      Laue 1907, Ann. Phys. 328, 989
-      Foldy & Wouthuysen 1950, Phys. Rev. 78, 29
-      Newton & Wigner 1949, Rev. Mod. Phys. 21, 400
-      Gerritsma et al. 2010, Nature 463, 68
-      Fan et al. 2023, Phys. Rev. Lett. 130, 071801 (a_e)
-      CODATA 2022, Rev. Mod. Phys. 97, 025002 (2025)
+      Fizeau 1851, C. R. Acad. Sci. 33, 349 (Crossref lists only an English
+          translation in J. Franklin Inst., a different item from the one cited)
+      Dirac, The Principles of Quantum Mechanics, 4th ed. (1958), Chap. XI (book)
 
 ================================================================================
 
