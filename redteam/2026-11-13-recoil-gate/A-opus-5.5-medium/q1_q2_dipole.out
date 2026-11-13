@@ -1,0 +1,41 @@
+T_A+T_B+K-E0 = 0
+c²D = -E_0*(-2*d*sin(theta/2)**4 + d*sin(theta)**2*cos(theta) + 2*d*cos(theta/2)**4 - 4*x_m(theta)*sin(theta/2)**4 - 2*x_m(theta)*sin(theta)**2 - 4*x_m(theta)*cos(theta/2)**4)/4
+
+=== Q1: 核を固定（x_m=0） ===
+c²D(θ) = E_0*d*(-9*cos(theta) + cos(3*theta))/16   （期待: -(E0 d/2) cosθ (1 + ½ sin²θ)）
+  照合: 0
+  c²D/(E0 d) = -9/16·cos1θ + 1/16·cos3θ
+  c²P/(ω E0 d) = 9/16·sin1θ + -3/16·sin3θ
+  c²F_ext/(ω² E0 d) = 9/16·cos1θ + -9/16·cos3θ
+  max|c²P/(ω E0 d)| = 0.750000  (θ=1.5708)
+  d=λC/2: max|P| = 2.6042e-23 kg m/s = 0.0954 E0/c
+  d=λC: max|P| = 5.2084e-23 kg m/s = 0.1907 E0/c
+
+=== Q2: 核対の反跳を許す ===
+x_m(θ) = C - d*sin(theta/2)**2 + d*sin(theta)**2*cos(theta)/4 + d/2
+  (x_m - C)/(d/2) = f(θ) = 9*cos(theta)/8 - cos(3*theta)/8
+  照合 f - cosθ(1+½sin²θ) = 0
+  f を cosθ=u の多項式で: f = (3u - u³)/2 → 9*cos(theta)/8 - cos(3*theta)/8
+  f = 9/8·cos1θ + -1/8·cos3θ
+  f の値域: [-1.000000, 1.000000]  → x_m の振幅 d/2・全幅 d
+  x_m について一次方程式（係数 = E_0 ）なので、C を除いて一意
+
+  dx_m/dθ = -3*d*sin(theta)**3/4  （期待 -(3/4) d sin³θ）
+  照合: 0
+  νλC/c = 0.040472   ωλC/c = 0.254294
+  d=λC/2: v_max(核) = (3/4)ωd = 2.8588e+07 m/s = 0.09536 c, γ = 1.00458,  振幅 d/2 = 6.0658e-13 m
+  d=λC: v_max(核) = (3/4)ωd = 5.7177e+07 m/s = 0.19072 c, γ = 1.01870,  振幅 d/2 = 1.2132e-12 m
+
+  x_γ - C = -d*(-cos(theta) + cos(3*theta))/16  （d/4 · cosθ sin²θ）
+  max|dx_γ/dθ|/d = 0.250000
+  d=λC/2: v_max(光子球) = 0.03179 c
+  d=λC: v_max(光子球) = 0.06357 c
+  θ=0 で A は 0 、θ=π で B は 0 （重心 C からのずれ）
+  c²D/(E0 d) [Q2] = 0
+
+=== 読み B: 核それぞれに T とは別の静止エネルギー Mc² がある ===
+  (x_m - C) = -d*(-9*cos(theta) + cos(3*theta))/(16*(2*M + 1))
+  → 形は同じ f(θ)、振幅だけ μ = E0/(E0+2Mc²) 倍
+  M=0: μ=1, d=λC での v_max = 0.19072 c
+  Mc²=E0 (電子程度): μ=0.33333, d=λC での v_max = 0.063574 c
+  Mc²=陽子/電子 比 ×E0: μ=0.00027223, d=λC での v_max = 5.1921e-05 c

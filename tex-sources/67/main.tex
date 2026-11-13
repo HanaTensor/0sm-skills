@@ -82,11 +82,11 @@
 In general relativity the multipoles of a source play sharply different roles: the monopole is conserved, the mass dipole cannot radiate because its rate of change is the total momentum, and gravitational radiation begins at the quadrupole, at twice the orbital frequency.
 This paper shows that the internal energy transfer of the 0-Sphere electron has the same hierarchy, and that each level follows from the energy identity $\cos^4(\theta/2) + \sin^4(\theta/2) + \tfrac12\sin^2\theta = 1$ of the model.
 Resolved into frequencies, the identity balances separately in three channels: a constant (the conserved total), a fundamental $\omega$ that is antisymmetric in the two kernels (the exchange from one kernel to the other), and a second harmonic $2\omega$ that is symmetric (the exchange between the kernels and the photon sphere).
-The fundamental moves the centre of energy; conservation of the mass dipole therefore forces the kernels to recoil, and the recoil closure $X(\theta) = \tfrac{d}{2}\cos\theta\,(1 + \tfrac12\sin^2\theta)$ cancels the dipole identically, so that the fundamental channel is gravitationally silent.
+The fundamental moves the centre of energy; conservation of the mass dipole therefore forces the kernels to recoil, and the recoil closure $X(\theta) = \tfrac{d}{2}\cos\theta\,(1 + \tfrac12\sin^2\theta)$ cancels the dipole identically. The fundamental remains in the momentum of each element, and the cancellation holds for the total, which is the quantity to which gravitation couples; it requires the momentum carried by the transfer of energy between separated elements, and it requires the photon sphere to carry the momentum of a slow body, $Kv/c^2$, rather than the momentum $K/c$ of free light, in agreement with the group-velocity reading of the companion Letter.
 The second moment that remains is $J(\theta) = E_0d^2\sin^4\theta\,(1 + \sin^2\theta)/16$, which contains only the even harmonics $2\omega$, $4\omega$ and $6\omega$ and no others.
 Its amplitude is largest at $2\omega$; because quadrupole radiation weights each harmonic by the sixth power of its frequency, $79.11\%$ of the radiated power lies at $4\omega$ ($82.7$~keV).
-The power is $1.0\times10^{-43}$~W, unobservable and harmless to stability; the result is structural rather than observational.
-The paper addresses the form of the gravitational source, not its coupling strength, and records which parts of the correspondence with general relativity remain open.
+For a core separation $\lambda_C/2$ the power is $6.3\times10^{-45}$~W, unobservable and harmless to stability; the result is structural rather than observational.
+The paper addresses the form of the gravitational source, not its coupling strength, and records which parts of the correspondence with general relativity remain open. The kinematic results were reproduced independently, without access to them, by two blind verifications whose findings are recorded in an appendix.
 \end{abstract}
 
 \maketitle
@@ -97,7 +97,7 @@ A source of gravitational radiation in general relativity is characterized by it
 
 The 0-Sphere model describes the electron as two kernels, $A$ and $B$, and an amount of energy, the photon sphere, carried between them~\cite{H65,H51}. The companion Letter, Paper \#66~\cite{H66}, showed that the transfer is continuous in its course but discrete in its composition: resolved into frequencies, the energy identity of the model contains only a constant, a fundamental and a second harmonic. The present paper asks whether this discrete structure reproduces the multipole hierarchy of general relativity, and finds that it does at every level that can be computed without further assumptions.
 
-\paragraph{Scope.} The paper concerns the form of the gravitational source of the 0-Sphere electron: which multipoles oscillate, at which frequencies, and with which weights. It does not define the gravitational charge, which must be the total energy alone~\cite{H66}, and it does not derive the curvature side of the Einstein equations. The internal oscillation is taken as given; its origin is not addressed, and the identity describes its persistence. The word radiation is used for gravitational radiation and, where stated, for the internal transfer between the kernels; electromagnetic emission is not discussed.
+\paragraph{Scope.} The paper concerns the form of the gravitational source of the 0-Sphere electron: which multipoles oscillate, at which frequencies, and with which weights. It does not define the gravitational charge, which must be the total energy alone~\cite{H66}, and it does not derive the curvature side of the Einstein equations. The internal oscillation is taken as given; its origin is not addressed, and the identity describes its persistence. The word radiation is used for gravitational radiation and, where stated, for the internal transfer between the kernels; electromagnetic emission is not discussed. In particular, the recoiling kernels do not form an oscillating electric dipole: in the 0-Sphere model the charge is not located at the kernels but is a winding number carried by the system as a whole~\cite{H65}, and an electric dipole of the size of the core separation, of order $e\lambda_C \approx 2.4\times10^{-10}\,e$~cm, is excluded by the electron electric-dipole-moment bound $4.1\times10^{-30}\,e$~cm~\cite{Roussy2023} by twenty orders of magnitude.
 
 \section{Three Channels of the Energy Identity}
 \label{sec:channels}
@@ -153,6 +153,31 @@ then fixes the recoil uniquely:
 With Eq.~(\ref{eq:recoil}) the dipole vanishes identically at every phase. The kernel that holds the energy sits at the centre of energy, and the pair swings through $\pm d/2$. The amplitude of this swing is the core separation itself, not a free parameter, and the swing is the internal counterpart of the Zitterbewegung~\cite{Schrodinger1930}.
 
 The fundamental channel of Sec.~\ref{sec:channels}, which moves the centre of energy, is thereby compensated by the recoil of the kernels. In the language of general relativity, the 0-Sphere electron carries no time-dependent mass dipole, and its fundamental channel does not radiate gravitationally. This is the same conclusion, for the same reason, as the absence of dipole gravitational radiation in general relativity.
+
+\paragraph{Speed of the recoil.} \textbf{[standard]} From Eq.~(\ref{eq:recoil}), $dX/dt = -\tfrac34\omega d\sin^3\theta$, so that the largest speed of the kernels is $\tfrac34\omega d$ at $\theta = \pi/2$. For the core separation $d = \lambda_C/2$ of the series this is $0.0954\,c$; for $d = \lambda_C$ it would be $0.191\,c$. The photon sphere moves at most at $\tfrac14\omega d$, $0.032\,c$ for $d = \lambda_C/2$. All speeds are below $c$.
+
+\subsection{Momentum Bookkeeping}
+\label{sec:bookkeeping}
+
+The vanishing of the dipole is imposed in Eq.~(\ref{eq:dipole}), and in that sense it is true by construction. A test that is not automatic is obtained by assigning a momentum to each element and asking whether the assignments are consistent. Differentiating the dipole gives
+\begin{equation}
+c^2\frac{dD}{dt} = \sum_i E_i\,\dot x_i + \sum_i \dot E_i\,x_i ,
+\label{eq:bookkeeping}
+\end{equation}
+where the first sum is the momentum of the elements as moving bodies and the second is the momentum carried by the transfer of energy between separated places, the energy current divided by $c^2$. Evaluated on the closure~(\ref{eq:recoil}), the two parts are
+\begin{align}
+\sum_i E_i\,\dot x_i &= -\frac{E_0\omega d}{2}\sin^3\theta,
+\notag\\
+\sum_i \dot E_i\,x_i &= +\frac{E_0\omega d}{2}\sin^3\theta .
+\label{eq:twoparts}
+\end{align}
+Three conclusions follow.
+
+\paragraph{The silence is a silence of the total.} The momentum of the pair of kernels, the momentum of the photon sphere and the force on the pair each contain the fundamental $\omega$, together with $3\omega$ and $5\omega$. Only their sum, with the transfer term included, vanishes. Gravitation couples to the total energy and therefore sees only the total, so the conclusion of Sec.~\ref{sec:dipole} stands; the two stars of a binary likewise move at the orbital frequency while the binary emits no dipole radiation. The statement is nonetheless conditional on the bookkeeping: if one element is assigned a different momentum, a dipole at $\omega$ reappears.
+
+\paragraph{The transfer carries momentum.} Omitting the transfer term and requiring the momenta of the bodies alone to vanish gives a different recoil, under which the dipole oscillates and $dD/dt = P$ is violated. A placement of the photon sphere for which the transfer term vanishes, so that energy is handed over only where the photon sphere is, requires $x_\gamma - X = -(d/2)/\cos\theta$, which lies outside the kernels and diverges at $\theta = \pi/2$. The momentum of the transfer cannot be avoided in a model of point-like elements.
+
+\paragraph{The photon sphere moves as a slow body.} If the photon sphere is assigned the momentum of free light, $K/c$, the bookkeeping fails: that momentum exceeds $Kv_\gamma/c^2$ by an order of magnitude or more, and restoring zero total momentum would require the kernels to move faster than light. The bookkeeping closes only if the photon sphere carries the momentum $Kv_\gamma/c^2$ of a body of invariant mass $K/c^2$ moving well below $c$, closer to a confined standing wave than to free light. This is the reading of the companion Letter, Paper \#66~\cite{H66}, in which the internal carrier propagates at a group velocity $c/n$ with $n \approx 25$; the form $Kv/c^2$ is also the form of the Abraham momentum of light in a medium.
 
 \section{The Quadrupole Channel}
 \label{sec:quadrupole}
@@ -234,7 +259,7 @@ so that the dominant line of the radiated power is $4\omega$, at $4\nu_{\text{ZB
 P = \frac{G}{5c^5}\,\frac23\,M^2d^4\omega^6\,\frac{4045}{4096}.
 \label{eq:P}
 \end{equation}
-With $M = m_e$ and $d = \lambda_C$, $P = 1.00\times10^{-43}$~W. Over the age of the universe this removes $2.7\times10^{-7}$~eV from an electron of rest energy $511$~keV. The internal oscillation is stable against gravitational radiation by a wide margin, and the radiation itself is far beyond any conceivable detection. The value of the result lies in its structure.
+With $M = m_e$ and the core separation $d = \lambda_C/2$ of the series, $P = 6.3\times10^{-45}$~W; with $d = \lambda_C$ the power would be sixteen times larger, $1.00\times10^{-43}$~W, because $P \propto d^4$. Over the age of the universe the smaller value removes $1.7\times10^{-8}$~eV from an electron of rest energy $511$~keV. The internal oscillation is stable against gravitational radiation by a wide margin, and the radiation itself is far beyond any conceivable detection. The value of the result lies in its structure.
 
 \section{The Correspondence with General Relativity}
 \label{sec:gr}
@@ -258,7 +283,7 @@ Constant
 Fundamental, $\omega$
 & antisymmetric exchange $A \leftrightarrow B$; dipole cancelled by the recoil closure
 & mass dipole conserved, $\dot{\bm D} = \bm P$; no dipole radiation ($\ell = 1$)
-& exact for the closure~(\ref{eq:recoil}) \\
+& exact in total for the closure~(\ref{eq:recoil}); each element retains $\omega$ \\
 \addlinespace[0.3cm]
 Second harmonic and above
 & symmetric exchange kernels $\leftrightarrow$ photon sphere; second moment at $2\omega$, $4\omega$, $6\omega$
@@ -281,24 +306,44 @@ The correspondence concerns the source side only. The curvature side, in which $
 \section{Limitations}
 \label{sec:limits}
 
-\paragraph{A point-carrier model.} The photon sphere is placed at a single point, $X - \tfrac d2\cos\theta$. The amplitudes of Eq.~(\ref{eq:J}) depend on this choice; other closures change the total power by up to a factor of eight, while the share of the dominant harmonic stays between about $72\%$ and $81\%$. A definite amplitude requires the energy distribution built from the multipole coefficients of the internal structure, which is not attempted here.
+\paragraph{A point-carrier model.} The photon sphere is placed at a single point, $X - \tfrac d2\cos\theta$. The amplitudes of Eq.~(\ref{eq:J}) depend on this choice. If the photon sphere is spread uniformly between the kernels, the recoil contains $\omega$ alone and the second moment $J = \tfrac16E_0d^2\sin^2\theta$ contains $2\omega$ alone; if it travels between the kernels at constant speed, the recoil contains all odd harmonics and the second moment all even harmonics. The finite spectrum ending at $6\omega$ and the shares~(\ref{eq:shares}) are therefore properties of the placement used here, not of the model as a whole. What does not depend on the placement is the existence and uniqueness of the recoil, its amplitude $d/2$, and the absence of odd harmonics in the second moment, which follows whenever the placement respects the exchange of the kernels, $g(\theta + \pi) = -g(\theta)$ for $x_\gamma = X + \tfrac d2g(\theta)$.
+
+\paragraph{The energy budget in transit.} Energy moved between separated points at a speed $u \le c$ occupies the path while it travels. With the rate of transfer fixed by the identity, the energy in transit is at least $(\omega d/2c)E_0$ at $\theta = \pi/2$, which is $6.4\%$ of $E_0$ for $d = \lambda_C/2$, whatever the placement. The three terms of the identity do not contain this energy, and the energy budget of the point-element model therefore fails to close at order $\omega d/c$. The kinetic energy of the recoil, at most $0.25\%$ of $E_0$ for $d = \lambda_C/2$, also lies outside the budget. A model in which the photon sphere is a continuous distribution with an energy density $u$ and an energy current $S$ satisfying $\partial_tu + \partial_xS = 0$ locally is required to remove these discrepancies.
+
+\paragraph{Kinematics without a force law.} The recoil~(\ref{eq:recoil}) is the motion that the conservation of the mass dipole requires; it is not obtained from an equation of motion. The paper shows that this motion is possible, bounded and subluminal, not that the kernels are driven to perform it. An equation of motion for the kernels would allow Eq.~(\ref{eq:recoil}) to be tested as a solution.
+
+\paragraph{Validity of the quadrupole formula.} The quadrupole formula assumes a source small compared with the reduced wavelength of the radiation. The relevant parameter is $k\omega d/c$ for the $k$-th harmonic, which for $d = \lambda_C/2$ is $0.25$, $0.51$ and $0.76$ at $2\omega$, $4\omega$ and $6\omega$. The shares~(\ref{eq:shares}) and the power~(\ref{eq:P}) are therefore estimates whose corrections from higher multipoles and retardation may reach tens of percent at the dominant harmonic; for $d = \lambda_C$ the parameter reaches unity at $4\omega$.
 
 \paragraph{The curvature side.} The paper derives which moments of the source oscillate. It does not derive the field equations, and the association of the channels with the Ricci and Weyl parts of the curvature in Table~\ref{tab:corr} is a correspondence, not a derivation.
 
 \paragraph{The coupling strength.} The form of the source and the strength of its coupling are separate questions. The gravitational charge must be the total energy alone, independent of the internal speed, and the present paper does not address how the model meets that requirement.
 
-\paragraph{The scale of the energy.} Equation~(\ref{eq:P}) takes $E_0 = m_ec^2$ and $d = \lambda_C$. Other identifications of the energy scale in the series rescale $P$ but leave the harmonic structure and the shares~(\ref{eq:shares}) unchanged.
+\paragraph{The scale of the energy.} Equation~(\ref{eq:P}) takes $E_0 = m_ec^2$ and $d = \lambda_C/2$. Other identifications of the energy scale in the series rescale $P$ but leave the harmonic structure and the shares~(\ref{eq:shares}) unchanged. If the kernels carry a rest energy of their own in addition to $E_0$, the amplitude and the speed of the recoil are reduced in proportion, and the shares change.
 
 \section{Conclusion}
 
-The energy identity of the 0-Sphere model, resolved into frequencies, separates into three channels with the roles of the three lowest multipoles of a gravitational source. The constant channel is the conserved total. The fundamental channel, the exchange from one kernel to the other, moves the centre of energy, and the conservation of the mass dipole forces the kernels to recoil in exactly the way that cancels it, so that the channel is gravitationally silent. What remains is a quadrupole that oscillates only at even harmonics of the internal frequency, with a finite spectrum ending at $6\omega$, its amplitude largest at $2\omega$ and its radiated power dominated by $4\omega$. The 0-Sphere electron, in other words, begins at the quadrupole for the same reason that gravitational radiation in general relativity does.
+The energy identity of the 0-Sphere model, resolved into frequencies, separates into three channels with the roles of the three lowest multipoles of a gravitational source. The constant channel is the conserved total. The fundamental channel, the exchange from one kernel to the other, moves the centre of energy, and the conservation of the mass dipole forces the kernels to recoil in exactly the way that cancels it, so that the channel is gravitationally silent. What remains is a quadrupole that oscillates only at even harmonics of the internal frequency, with a finite spectrum ending at $6\omega$, its amplitude largest at $2\omega$ and its radiated power dominated by $4\omega$. The 0-Sphere electron, in other words, begins at the quadrupole for the same reason that gravitational radiation in general relativity does. The silence of the dipole is a silence of the total momentum, which requires the momentum of the transfer and a photon sphere that moves as a slow body; the remaining discrepancies in the energy budget are of order $\omega d/c$ and point to a continuous description of the photon sphere as the next step.
 
 \appendix
 
 \section{Numbers and Their Reproduction}
 \label{app:numbers}
 
-With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}: $\nu_{\text{ZB}} = 5.0007\times10^{18}$~Hz, and the harmonics $2\omega$, $4\omega$, $6\omega$ lie at $1.0001\times10^{19}$, $2.0003\times10^{19}$ and $3.0004\times10^{19}$~Hz, or $41.4$, $82.7$ and $124.1$~keV. The script \texttt{verify67.py} deposited with this paper checks the identity~(\ref{eq:fourier}), the vanishing of the dipole~(\ref{eq:dipole}) under the closure~(\ref{eq:recoil}) to machine precision, the closed form~(\ref{eq:J}), the coefficient $4045/4096$, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}).
+With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}: $\nu_{\text{ZB}} = 5.0007\times10^{18}$~Hz, and the harmonics $2\omega$, $4\omega$, $6\omega$ lie at $1.0001\times10^{19}$, $2.0003\times10^{19}$ and $3.0004\times10^{19}$~Hz, or $41.4$, $82.7$ and $124.1$~keV. The script \texttt{verify67.py} deposited with this paper checks the identity~(\ref{eq:fourier}), the vanishing of the dipole~(\ref{eq:dipole}) under the closure~(\ref{eq:recoil}) to machine precision, the two parts~(\ref{eq:twoparts}) of the momentum and their sum, the largest speeds of the kernels and of the photon sphere, the closed form~(\ref{eq:J}), the coefficient $4045/4096$, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}) for $d = \lambda_C/2$ and $d = \lambda_C$.
+
+\section{Blind Verification}
+\label{app:blind}
+
+The kinematic content of Secs.~\ref{sec:dipole}--\ref{sec:quadrupole} was checked by two independent verifications carried out before the results above were shown to them. Each verifier received the same brief, which stated the energies~(\ref{eq:energies}), the placement of the kernels and of the photon sphere, the conservation of the mass dipole, and six questions, and which contained none of the results. Each worked in a separate folder containing only the brief, with no access to the web, to earlier conversations or to stored memory, and wrote its report and scripts into that folder.
+
+\begin{itemize}[leftmargin=1.2em]
+\item Verifier A: Claude Opus 5.5 (Anthropic), reasoning effort medium, run in Claude Code on 13 November 2026, about ten minutes.
+\item Verifier B: Claude Fable 5.2 (Anthropic), reasoning effort medium, run in Claude Code on 13 November 2026, about sixteen minutes.
+\end{itemize}
+
+\paragraph{Agreement.} Both verifiers obtained, independently and by different routes, the oscillation of the dipole for fixed kernels, the recoil~(\ref{eq:recoil}) in the form $\tfrac d{16}(9\cos\theta - \cos3\theta)$, its uniqueness up to a constant, its amplitude $d/2$ and largest speed $\tfrac34\omega d$, the closed form~(\ref{eq:J}), the absence of odd harmonics, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}). Verifier A solved the problem symbolically and confirmed it numerically; verifier B combined symbolic and numerical work and changed from symbolic integration to a fast Fourier transform when the former proved too slow.
+
+\paragraph{Points raised.} The verifiers raised the points that are now stated in Sec.~\ref{sec:bookkeeping} and Sec.~\ref{sec:limits}: that the vanishing of the dipole is true by construction and that the non-trivial test is the bookkeeping of momentum (both); that the fundamental survives in the momentum of each element (both); that the momentum $K/c$ of free light is incompatible with the bookkeeping (both); that the energy in transit lies outside the budget at order $\omega d/c$ (A), and that the kinetic energy of the recoil does as well (B); that the quadrupole formula is at the edge of its validity for $d = \lambda_C$ (A); that the recoil is kinematic and lacks a force law (B); and that the result depends on the placement of the photon sphere (both). Verifier B also noted that an electric charge located at the kernels would produce an oscillating electric dipole; the Scope paragraph of Sec.~I records why the 0-Sphere model does not place the charge there. The comparison also exposed an inconsistency in an earlier draft of this paper, which used $d = \lambda_C$ for the power while taking the core separation to be $\lambda_C/2$; the present version uses $\lambda_C/2$ throughout. The reports and scripts of both verifiers are deposited with this paper.
 
 \section{Inputs, Results and Open Items}
 \label{app:interface}
@@ -314,10 +359,12 @@ With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODAT
 \begin{itemize}[leftmargin=2.4em]
 \item[R1.] The identity balances in three channels: constant, antisymmetric fundamental, symmetric second harmonic (Sec.~\ref{sec:channels}).
 \item[R2.] Fixed kernels violate the conservation of the mass dipole, Eq.~(\ref{eq:fixed}).
-\item[R3.] The recoil closure~(\ref{eq:recoil}) cancels the dipole identically; the fundamental channel is gravitationally silent.
+\item[R3.] The recoil closure~(\ref{eq:recoil}) cancels the dipole identically; the fundamental channel is gravitationally silent in total, while each element retains it. The kernels move at most at $0.0954\,c$ for $d = \lambda_C/2$.
 \item[R4.] The second moment~(\ref{eq:J}) contains only $2\omega$, $4\omega$, $6\omega$; amplitude peaks at $2\omega$, radiated power at $4\omega$ ($79.11\%$, $82.7$~keV).
-\item[R5.] $P = 1.00\times10^{-43}$~W for $M = m_e$, $d = \lambda_C$; stability is unaffected.
+\item[R5.] $P = 6.3\times10^{-45}$~W for $M = m_e$, $d = \lambda_C/2$ ($1.00\times10^{-43}$~W for $d = \lambda_C$); stability is unaffected.
 \item[R6.] The hierarchy monopole, silent dipole, quadrupole coincides with that of a gravitational source in general relativity (Table~\ref{tab:corr}).
+\item[R7.] The momentum bookkeeping closes only with the momentum of the transfer, Eq.~(\ref{eq:twoparts}), and only if the photon sphere carries the momentum $Kv/c^2$ of a slow body, consistent with the group velocity $c/n$ of Paper \#66.
+\item[R8.] The kinematic results were reproduced by two blind verifications (Appendix~\ref{app:blind}).
 \end{itemize}
 
 \paragraph{Open items.}
@@ -326,6 +373,9 @@ With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODAT
 \item[O2.] The curvature side: derivation of the field equations, and of the Ricci and Weyl association.
 \item[O3.] Whether the doubling in the energies and the doubling of the binary quadrupole share one origin.
 \item[O4.] The gravitational charge and its independence of the internal speed.
+\item[O5.] A continuous model of the photon sphere with local conservation $\partial_tu + \partial_xS = 0$, which would include the energy in transit and remove the discrepancy of order $\omega d/c$.
+\item[O6.] An equation of motion for the kernels, against which the recoil~(\ref{eq:recoil}) can be tested as a solution.
+\item[O7.] Corrections beyond the quadrupole formula at the dominant harmonic.
 \end{itemize}
 
 \begin{thebibliography}{99}
@@ -347,6 +397,8 @@ With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODAT
 \bibitem{H62} S. Hanamura, The Bridge Equation $\gamma = 1 + a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model (Paper \#62), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20091680}{doi:10.5281/zenodo.20091680}.
 
 \bibitem{Schrodinger1930} E. Schr\"odinger, \"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik, Sitzungsber. Preuss. Akad. Wiss. Phys.-Math. Kl. \textbf{24}, 418 (1930).
+
+\bibitem{Roussy2023} T. S. Roussy \textit{et al.}, An improved bound on the electron's electric dipole moment, Science \textbf{381}, 46 (2023).
 
 \bibitem{CODATA2022} P. J. Mohr, D. B. Newell, B. N. Taylor, and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Rev. Mod. Phys. \textbf{97}, 025002 (2025).
 

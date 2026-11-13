@@ -36,12 +36,28 @@ print("power shares 2w,4w,6w: %.4f %.4f %.4f" % (share[2], share[4], share[6]))
 J3 = sum((amp[k]*k**3)**2/2 for k in (2, 4, 6))
 check("mean square of d3J/dtheta3 = 4045/4096", abs(J3 - 4045/4096) < 1e-12)
 
+
+# Momentum bookkeeping on the closure (units E0 = omega = d = 1)
+g = lambda f: np.gradient(f, t, edge_order=2)
+xA, xB = X - d/2, X + d/2
+bodies = (TA + TB)*g(X) + K*g(xg)
+transfer = g(TA)*xA + g(TB)*xB + g(K)*xg
+check("bodies = -(1/2) sin^3",  np.allclose(bodies, -0.5*np.sin(t)**3, atol=1e-5))
+check("transfer = +(1/2) sin^3", np.allclose(transfer, 0.5*np.sin(t)**3, atol=1e-5))
+check("total momentum = 0", np.allclose(bodies + transfer, 0, atol=1e-5))
+check("largest kernel speed = (3/4) omega d", abs(np.abs(g(X)).max() - 0.75) < 1e-4)
+check("largest photon-sphere speed = (1/4) omega d", abs(np.abs(g(xg)).max() - 0.25) < 1e-4)
+
 G, c0 = 6.67430e-11, 299792458.0
 me, lamC = 9.1093837139e-31, 2.42631023538e-12
 beta = math.sqrt(0.00163798087)
 nu = beta*c0/lamC; w = 2*math.pi*nu
-P = G/(5*c0**5)*(2/3)*(me*lamC**2)**2*w**6*4045/4096
-print("nu_ZB = %.4e Hz, P = %.3e W" % (nu, P))
+for dd, name in ((lamC/2, "lambda_C/2"), (lamC, "lambda_C")):
+    P = G/(5*c0**5)*(2/3)*(me*dd**2)**2*w**6*4045/4096
+    age = 13.787e9*3.15576e7
+    print("d = %-10s P = %.3e W, loss over age = %.2e eV, v_kernel/c = %.4f, energy in transit/E0 >= %.4f"
+          % (name, P, P*age/1.602176634e-19, 0.75*w*dd/c0, w*dd/(2*c0)))
+print("nu_ZB = %.4e Hz" % nu)
 hkeV = 4.135667696e-18
 for n in (2, 4, 6):
     print("%dw: %.4e Hz, %.1f keV" % (n, n*nu, n*nu*hkeV))
