@@ -31,13 +31,11 @@
 
 ## 5. 番号と引用
 
-- [ ] 本文中の自己言及を #68 に。#66・#67 を引用に加える。
+- [ ] 本文中の自己言及を #68 に。#66・#67 を引用に加える（**DOI が確定したものだけ**。引用の規約 2026-11-13）。
 - [ ] 総説 #70 の本文中の「Paper #66」（等価原理の論文を指す、37 箇所）を #68 に直す。
 
 ## 6. どちらに決めても行うこと
 
-- [ ] **#65 の参考文献 ref:p66** は「#66 = Three Tests …（in preparation）」と書いている（#65 は寄託済み）。#65 の次の版で直す。
-  - #68 を**公開する**なら：「Paper #68」に直す。
-  - **破棄する**なら：該当する引用と、本文中でそれに触れている箇所を削る。
+- [ ] **#65 の参考文献 ref:p66** は「#66 = Three Tests …（in preparation）」と書いている（#65 は寄託済み）。**引用の規約（2026-11-13）により、#65 の次の版ではこの前方参照を削る**（#68 を公開するかどうかに依らない。公開した後に、DOI 付きで改めて引くのは可）。本文中でそれに触れている箇所も直す。
 - [ ] それまでの間、#66 の Zenodo の説明文には、#68 の行く末に依らない書き方で一行添える：
   > Paper #65 cites a planned paper under the working title "Three Tests of the Weak Equivalence Principle in the 0-Sphere Model" as Paper #66. That paper was not published under this number; the number #66 and this DOI were assigned to the present paper.

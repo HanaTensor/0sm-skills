@@ -34,7 +34,7 @@ const L = {
     about66: [
       ['h1', '0. この記録について'],
       ['p', 'この文書は、0-Sphere Model の論文 #66「Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model」が、どのような対話から生まれたかを記録したものである。論文は査読を受けずに Zenodo で公開される。査読の代わりに、結果がどう生まれ、どこで誤り、どう直されたかを、読者が自分の目で確かめられるようにしておくことが、この記録の目的である。'],
-      ['p', '対話の相手は Anthropic の言語モデル Claude（Opus 5.5）である。構想、問いの設定、採否の判断は著者が行い、Claude は原稿の起草と導出の候補の提示を担った。同じ日の対話の後半は論文 #67（四重極）につながった。その経緯は #67 の補遺に記録した。'],
+      ['p', '対話の相手は Anthropic の言語モデル Claude（Opus 5.5）である。構想、問いの設定、採否の判断は著者が行い、Claude は原稿の起草と導出の候補の提示を担った。同じ日の対話は、その後さらに別の主題へ進んだ。本書には #66 に関わる部分だけを収める。'],
       ['p', '書き方について三つの約束を置いた。第一に、発言を作らない。著者の言葉は原文のまま引く。第二に、成功だけでなく誤りと方向転換も残す。第三に、論文の主題と関係しない私的な文脈と、まだ記録の段階にない検討は省く。巻末に、誤りと訂正の一覧と、着想の出どころの一覧を付けた。'],
     ],
     about67: [
@@ -60,7 +60,7 @@ const L = {
     about66: [
       ['h1', '0. About This Record'],
       ['p', 'This document records the dialogue from which Paper #66 of the 0-Sphere Model arose: "Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model". The paper is published on Zenodo without peer review. In place of review, this record lets readers see for themselves how the results arose, where they went wrong, and how they were corrected.'],
-      ['p', 'The author\'s partner in the dialogue was Anthropic\'s language model Claude (Opus 5.5). The conception, the framing of the questions and every decision to adopt or reject a result were the author\'s; Claude drafted the manuscript and proposed candidate derivations. The later part of the same day\'s dialogue led to Paper #67 (the quadrupole), whose history is recorded in the companion to #67.'],
+      ['p', 'The author\'s partner in the dialogue was Anthropic\'s language model Claude (Opus 5.5). The conception, the framing of the questions and every decision to adopt or reject a result were the author\'s; Claude drafted the manuscript and proposed candidate derivations. The same day\'s dialogue went on to a further subject; this record contains only the part that concerns Paper #66.'],
       ['p', 'Three rules govern the record. No statement is invented, and the author\'s words are quoted; in this English version they are translated from the Japanese original. Errors and changes of direction are recorded as well as successes. Private context unrelated to the paper, and considerations not yet ready for the record, are omitted. A list of errors and corrections and a list of the origins of the ideas are given at the end.'],
     ],
     about67: [
