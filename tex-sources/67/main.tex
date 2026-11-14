@@ -167,6 +167,13 @@ Equation~(\ref{eq:fourier}) balances separately at each frequency, and each freq
 
 \textbf{[0SM reading]} The exchange of the kernels corresponds to the shift $\theta \to \theta + \pi$, under which $\cos k\theta$ changes sign for odd $k$ and is unchanged for even $k$. Any quantity that is symmetric under the exchange, such as a second moment of the energy distribution, can therefore contain only even harmonics of $\omega$. This selection rule, rather than any detail of the distribution, is what removes the odd harmonics from the quadrupole in Sec.~\ref{sec:quadrupole}.
 
+\paragraph{The amplitudes are fixed.} The coefficients $\tfrac38$, $\tfrac12$ and $\tfrac18$ in Eq.~(\ref{eq:fourier}) cannot be chosen freely. Write the energies in terms of amplitudes as $T_A = a^4$, $T_B = b^4$ and $K = 2a^2b^2$, so that $T_A + T_B + K = (a^2 + b^2)^2$, and demand three properties at every phase: the total is constant, $(a^2 + b^2)^2 = M$; the transfer obeys $\mathrm{d}(T_B - T_A)/\mathrm{d}\theta = s\sin\theta$, the rate that Eq.~(\ref{eq:energies}) gives with $s = E_0$; and each kernel empties completely once per cycle. The first two give
+\begin{align}
+a^2 = \frac{M - c + s\cos\theta}{2\sqrt{M}}, \qquad b^2 = \frac{M + c - s\cos\theta}{2\sqrt{M}},
+\label{eq:rigid}
+\end{align}
+with a constant $c$. The minima of $a^2$ and $b^2$ vanish together only for $M = s$ and $c = 0$, which returns $a^2 = \sqrt{M}\cos^2(\theta/2)$ and $b^2 = \sqrt{M}\sin^2(\theta/2)$, that is, Eq.~(\ref{eq:energies}) with $E_0 = M$. Within these three properties only the overall scale is free: no further harmonic can be added to the kernels without breaking the constant total, the transfer rate or the complete transfer, and the channel structure of this section is a consequence of the identity rather than a choice of description.
+
 % ========================================
 % Section 3: The Dipole Channel Is Silent
 % ========================================
@@ -378,6 +385,8 @@ The correspondence concerns the source side only. The curvature side, in which $
 
 \paragraph{The coupling strength.} The form of the source and the strength of its coupling are separate questions. The gravitational charge must be the total energy alone, independent of the internal speed, and the present paper does not address how the model meets that requirement.
 
+\paragraph{The frequency scale.} The frequencies of the lines are fixed by $\nu_{\text{ZB}}$ of Paper \#66~\cite{H66}. An electron-channeling experiment along the $\langle110\rangle$ direction of a silicon crystal reported an 8\% dip in the transmission near 80.874~MeV, the energy at which the frequency of atomic collisions matches an internal clock at $m_ec^2/h$~\cite{Gouanere2005,Catillon2008}. In the same crystal the frequency $\nu_{\text{ZB}}$ would place the corresponding resonance near 3.3~MeV. The observation rests on a single experiment, and the relation between a clock at $m_ec^2/h$ and the carrier frequency $\nu_{\text{ZB}}$ is not addressed here. The harmonic structure and the shares~(\ref{eq:shares}) do not depend on it; the frequencies and the power~(\ref{eq:P}) do.
+
 \paragraph{The scale of the energy.} Equation~(\ref{eq:P}) takes $E_0 = m_ec^2$ and $d = \lambda_C/2$. Other identifications of the energy scale in the series rescale $P$ but leave the harmonic structure and the shares~(\ref{eq:shares}) unchanged. If the kernels carry a rest energy of their own in addition to $E_0$, the amplitude and the speed of the recoil are reduced in proportion, and the shares change.
 
 % ========================================
@@ -396,7 +405,7 @@ The energy identity of the 0-Sphere model, resolved into frequencies, separates 
 \section{Numbers and Their Reproduction}
 \label{app:numbers}
 
-With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}: $\nu_{\text{ZB}} = 5.0007\times10^{18}$~Hz, and the harmonics $2\omega$, $4\omega$, $6\omega$ lie at $1.0001\times10^{19}$, $2.0003\times10^{19}$ and $3.0004\times10^{19}$~Hz, or $41.4$, $82.7$ and $124.1$~keV. The script \texttt{verify67.py} deposited with this paper checks the identity~(\ref{eq:fourier}), the vanishing of the dipole~(\ref{eq:dipole}) under the closure~(\ref{eq:recoil}) to machine precision, the two parts~(\ref{eq:twoparts}) of the momentum and their sum, the largest speeds of the kernels and of the photon sphere, the closed form~(\ref{eq:J}), the coefficient $4045/4096$, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}) for $d = \lambda_C/2$ and $d = \lambda_C$, the antisymmetry of the energy difference $T_A - T_B$ under the exchange of the kernels, and the ratio $3\pi/4$ of the largest speed of the kernels to $c/n$ with the fraction of the cycle in which it is exceeded.
+With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}: $\nu_{\text{ZB}} = 5.0007\times10^{18}$~Hz, and the harmonics $2\omega$, $4\omega$, $6\omega$ lie at $1.0001\times10^{19}$, $2.0003\times10^{19}$ and $3.0004\times10^{19}$~Hz, or $41.4$, $82.7$ and $124.1$~keV. The script \texttt{verify67.py} deposited with this paper checks the identity~(\ref{eq:fourier}), the rigidity of the amplitudes~(\ref{eq:rigid}), the vanishing of the dipole~(\ref{eq:dipole}) under the closure~(\ref{eq:recoil}) to machine precision, the two parts~(\ref{eq:twoparts}) of the momentum and their sum, the largest speeds of the kernels and of the photon sphere, the closed form~(\ref{eq:J}), the coefficient $4045/4096$, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}) for $d = \lambda_C/2$ and $d = \lambda_C$, the antisymmetry of the energy difference $T_A - T_B$ under the exchange of the kernels, and the ratio $3\pi/4$ of the largest speed of the kernels to $c/n$ with the fraction of the cycle in which it is exceeded.
 
 % ========================================
 % Appendix B: Blind Verification
@@ -488,6 +497,10 @@ The conception of this paper, the framing of its questions and every decision to
 \bibitem{Schrodinger1930} E. Schr\"odinger, \"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik, Sitzungsber. Preuss. Akad. Wiss. Phys.-Math. Kl. \textbf{24}, 418 (1930).
 
 \bibitem{Roussy2023} T. S. Roussy \textit{et al.}, An improved bound on the electron's electric dipole moment, Science \textbf{381}, 46 (2023), \href{https://doi.org/10.1126/science.adg4084}{DOI: 10.1126/science.adg4084}.
+
+\bibitem{Gouanere2005} M. Gouan\`ere \textit{et al.}, Experimental observation compatible with the particle internal clock, Ann. Fond. Louis de Broglie \textbf{30}, 109 (2005).
+
+\bibitem{Catillon2008} P. Catillon, N. Cue, M. J. Gaillard, R. Genre, M. Gouan\`ere, R. G. Kirsch, J.-C. Poizat, J. Remillieux, L. Roussel, and M. Spighel, A search for the de Broglie particle internal clock by means of electron channeling, Found. Phys. \textbf{38}, 659 (2008).
 
 \bibitem{CODATA2022} P. J. Mohr, D. B. Newell, B. N. Taylor, and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Rev. Mod. Phys. \textbf{97}, 025002 (2025).
 

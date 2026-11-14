@@ -80,3 +80,14 @@ print("nu_ZB = %.4e Hz" % nu)
 hkeV = 4.135667696e-18
 for n in (2, 4, 6):
     print("%dw: %.4e Hz, %.1f keV" % (n, n*nu, n*nu*hkeV))
+
+# Rigidity of the amplitudes, Eq. (2.3): constant total + transfer rate + complete transfer
+import sympy as sp
+th_, M_, c_, s_ = sp.symbols('theta M c s', real=True)
+D_ = (-s_*sp.cos(th_) + c_)/sp.sqrt(M_)                 # b^2 - a^2
+a2_ = (sp.sqrt(M_) - D_)/2; b2_ = (sp.sqrt(M_) + D_)/2
+sol_ = sp.solve([sp.Eq(a2_.subs(th_, sp.pi), 0), sp.Eq(b2_.subs(th_, 0), 0)], [c_, M_], dict=True)
+check("Eq. (2.3): minima of a^2, b^2 vanish together only for M = s, c = 0", sol_ == [{M_: s_, c_: 0}])
+check("Eq. (2.3): then a^2 = sqrt(M) cos^2(theta/2), b^2 = sqrt(M) sin^2(theta/2)",
+      sp.simplify(a2_.subs({c_: 0, s_: M_}) - sp.sqrt(M_)*sp.cos(th_/2)**2) == 0 and
+      sp.simplify(b2_.subs({c_: 0, s_: M_}) - sp.sqrt(M_)*sp.sin(th_/2)**2) == 0)
