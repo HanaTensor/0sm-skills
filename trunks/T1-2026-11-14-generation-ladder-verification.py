@@ -23,6 +23,8 @@ G12 Quadrupole-type rate Gamma = C alpha w (w R)^4 fitted to the muon lifetime: 
 G13 Same-day revision: harmonic amplitudes follow the radiation gradient (envelope).
     Envelope x carrier as a fixed Fourier combination; winding protected for any K;
     DC excess, K needed for mu and tau, and leakage into the fundamental
+G14 K20 formulations F1-F5: exact identity+gradient (F1), Hill/Mathieu (F3),
+    quartic + lock (F4), quartic + cos-theta potential (F5); exponent the data require
 """
 import numpy as np
 import sympy as sp
@@ -225,6 +227,60 @@ for lab, env, car in [('1/2 sin^2(2phi) cos3phi', sp.sin(2*p_)**2/2, sp.cos(3*p_
         print(f"      {nm}: K = {sols[0]:.1f}, leak into fundamental = {float(leak):+.1f}")
 check("G13 photon envelope = -1/8 cos phi + 1/4 cos 3phi - 1/8 cos 7phi (max residual < 1e-14)",
       np.max(np.abs(0.5*np.sin(2*phi)**2*np.cos(3*phi) - (-np.cos(phi)/8 + np.cos(3*phi)/4 - np.cos(7*phi)/8))) < 1e-14)
+
+# ---------------------------------------------------------------- G14 K20 formulations
+th_, M_, c_, s_ = sp.symbols('theta M c s', real=True)
+S_ = sp.sqrt(M_); D_ = (-s_*sp.cos(th_) + c_)/S_
+amin = sp.simplify(((S_ - D_)/2).subs(th_, sp.pi)); bmin = sp.simplify(((S_ + D_)/2).subs(th_, 0))
+sol = sp.solve([sp.Eq(amin, 0), sp.Eq(bmin, 0)], [c_, M_], dict=True)
+print("G14 F1 exact identity + exact gradient, both amplitudes vanish only for:", sol)
+check("G14 F1: only M = s, c = 0 (electron shape, scale free)", sol == [{M_: s_, c_: 0}])
+# F3 Hill/Mathieu: q = 0 limit gives cos phi, cos 3phi, cos 5phi with lambda 1, 9, 25
+msF = np.arange(1, 120, 2)
+def hill(q, step):
+    Hm = np.diag(msF.astype(float)**2); idx = {m: i for i, m in enumerate(msF)}
+    for i, m in enumerate(msF):
+        for mm in (m+step, abs(m-step)):
+            if mm in idx: Hm[idx[mm], i] += q
+    return np.linalg.eigh((Hm + Hm.T)/2)
+w0, _ = hill(0.0, 2)
+check("G14 F3: q=0 eigenvalues 1, 9, 25 (ce_1, ce_3, ce_5 = cos phi, cos 3phi, cos 5phi)", np.allclose(w0[:3], [1, 9, 25]))
+# F4/F5: a'' = -(alpha - 2q cos 2phi) a - a^3, even, a(pi/2) = 0, levels n = 0,1,2 ; mass = <H>
+def integ(A, alpha, q, nsteps=3000):
+    A = np.atleast_1d(A).astype(float); a = A.copy(); v = np.zeros_like(a); hstep = (np.pi/2)/nsteps
+    zc = np.zeros_like(a, dtype=int); Hs = np.zeros_like(a); pp = 0.0; prev = a.copy()
+    acc = lambda p, x: -(alpha - 2*q*np.cos(2*p))*x - x**3
+    Hf = lambda p, x, y: 0.5*y**2 + 0.5*(alpha - 2*q*np.cos(2*p))*x**2 + 0.25*x**4
+    for i in range(nsteps):
+        Hs += Hf(pp, a, v)*(0.5 if i == 0 else 1.0)
+        k1a = v; k1v = acc(pp, a); k2a = v + hstep/2*k1v; k2v = acc(pp + hstep/2, a + hstep/2*k1a)
+        k3a = v + hstep/2*k2v; k3v = acc(pp + hstep/2, a + hstep/2*k2a); k4a = v + hstep*k3v; k4v = acc(pp + hstep, a + hstep*k3a)
+        a = a + hstep/6*(k1a + 2*k2a + 2*k3a + k4a); v = v + hstep/6*(k1v + 2*k2v + 2*k3v + k4v); pp += hstep
+        if i < nsteps - 1: zc += (np.sign(a) != np.sign(prev)).astype(int)
+        prev = a
+    Hs += 0.5*Hf(pp, a, v)
+    return a, zc, Hs*hstep/(np.pi/2)
+def lev(alpha, q):
+    Ag = np.concatenate([np.linspace(1e-3, 2, 150), np.linspace(2.01, 30, 260)])
+    f, _, _ = integ(Ag, alpha, q)
+    idx = np.where(np.sign(f[:-1]) != np.sign(f[1:]))[0]
+    lo = Ag[idx].copy(); hi = Ag[idx+1].copy(); flo = f[idx].copy()
+    for _ in range(40):
+        mid = (lo + hi)/2; fm, _, _ = integ(mid, alpha, q)
+        sm = np.sign(fm) == np.sign(flo); lo = np.where(sm, mid, lo); flo = np.where(sm, fm, flo); hi = np.where(sm, hi, mid)
+    _, z, Hm = integ((lo + hi)/2, alpha, q, nsteps=6000)
+    out = {}
+    for zz, hm in zip(z, Hm):
+        out.setdefault(int(zz), hm)
+    return np.array([out[n] for n in range(3)])
+for al, qq in [(0.0, 0.0), (0.7, 0.0), (0.25, -0.5), (-1.0, -1.5), (1.25, 0.5)]:
+    E = lev(al, qq)
+    print(f"G14 F4/F5 alpha={al:5.2f} q={qq:5.2f}: mu/e={E[1]/E[0]:8.2f} tau/e={E[2]/E[0]:9.2f} tau/mu={E[2]/E[1]:5.2f}")
+E0 = lev(0.0, 0.0)
+check("G14 F4 pure quartic: 81 and 625 (= 3^4, 5^4)", abs(E0[1]/E0[0] - 81) < 0.5 and abs(E0[2]/E0[0] - 625) < 3)
+check("G14 F5: tau/mu stays near (5/3)^4 = 7.72 (observed 16.82)", 7 < lev(0.25, -0.5)[2]/lev(0.25, -0.5)[1] < 9)
+for lab, kk in [('e->mu', np.log(mmu/me)/np.log(3)), ('mu->tau', np.log(mtau/mmu)/np.log(5/3))]:
+    print(f"G14 data: E ~ omega^k needs k = {kk:.3f} ({lab}); pure power V ~ |a|^2p needs p = {kk/(kk-2):.3f}")
 
 print()
 print(f"{sum(o for _, o in OK)}/{len(OK)} checks OK")
