@@ -75,6 +75,7 @@
 | 63 | 2026-06-20 | From Line Integral to Covariant Derivative: A Reader's Map of the Bridge from the 0-Sphere Model to Riemannian Curvature | [10.5281/zenodo.20767589](https://doi.org/10.5281/zenodo.20767589) |
 | 64 | 2026-06-27 | The Square Root of the Hyperspherical Laplacian: A Geometric Foundation for Spin Two-Valuedness on S³ in the 0-Sphere Model | [10.5281/zenodo.20820646](https://doi.org/10.5281/zenodo.20820646) |
 | 65 | 2026-10-10 | From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model | [10.5281/zenodo.23257458](https://doi.org/10.5281/zenodo.23257458) |
+| 66 | 2026-11-14 | Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model | [10.5281/zenodo.23750210](https://doi.org/10.5281/zenodo.23750210) |
 
 ★ = Foundational (系列全体が前提する基盤論文 9本: #1, #3, #7, #10, #13, #17, #19, #20, #24)
 
