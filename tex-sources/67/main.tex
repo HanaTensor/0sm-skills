@@ -1,0 +1,592 @@
+% ========================================
+% Paper #67 of the 0-Sphere Model series (working draft)
+% From Thermal Rays to Matter Waves: The Hamilton Analogy, Phase and Group Indices, and the Schrodinger Envelope in the 0-Sphere Model
+% Author: Satoshi Hanamura (ORCID 0009-0000-2687-0918)
+% Date  : \today (working draft; not deposited)
+% DOI   : none
+% Verification script: verify67.py
+% ========================================
+\documentclass[%
+ reprint, amsmath,amssymb, aps, prb, ]{revtex4-2}
+% Basic packages
+\usepackage{graphicx}
+\usepackage{bm}
+% Quantum-mechanics notation
+\usepackage{physics}
+% Hyperlinks
+\usepackage[colorlinks=true,
+            linkcolor=blue, filecolor=blue, urlcolor=blue, citecolor=blue]{hyperref}
+% Caption settings
+\usepackage{caption}
+\captionsetup[figure]{
+    justification=raggedright, labelfont={bf}, name={Fig.}, labelsep=period }
+\captionsetup[table]{
+    labelfont={bf}, name={Table}, labelsep=period }
+% Equation numbering by section
+\numberwithin{equation}{section}
+% Typography adjustments
+\tolerance=1000
+\emergencystretch=1em
+\hyphenpenalty=3000
+\exhyphenpenalty=3000
+\flushbottom
+% Microtypography
+\usepackage[final]{microtype}
+\usepackage{ragged2e}  % for \justifying command
+% Table rules (\midrule, \addlinespace, \bottomrule)
+\usepackage{booktabs}
+\usepackage{enumitem}
+% Theorem environment
+\usepackage{amsthm}
+\newtheorem{theorem}{Theorem}[section]
+% --- paragraph heading: run-in italic with extra top skip for block readability ---
+\makeatletter
+\renewcommand\paragraph{%
+  \@startsection{paragraph}{4}{\z@}%
+    {3mm \@plus 1ex \@minus .2ex}%   space before (block separator)
+    {-1em}%                          space after (negative value keeps the heading run-in)
+    {\normalfont\normalsize\itshape}}
+\makeatother
+% Code listings with syntax highlighting
+\usepackage{listings}
+\usepackage{xcolor}
+\definecolor{backcolour}{rgb}{0.96,0.97,0.98}
+\definecolor{deepblue}{rgb}{0,0,0.5}
+\definecolor{deepgreen}{rgb}{0,0.5,0.3}
+\definecolor{deepgray}{rgb}{0.4,0.4,0.4}
+\definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
+\lstdefinestyle{pythonstyle}{
+    backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
+\lstset{style=pythonstyle}
+% Internal phase notation
+\newcommand{\iphase}{\theta}  % internal phase theta = omega_ZB t (one round trip per 2 pi)
+\usepackage{tikz}
+\usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
+% --- Custom Macros ---
+\newcommand{\omZB}{\omega_{\text{ZB}}}
+\newcommand{\EphS}{E_{\text{ph}}}
+\newcommand{\Egrad}{\Delta E_{\text{AB}}}
+\newcommand{\FF}{\mathbf{F}}
+\newcommand{\WL}{\mathcal{W}}
+\newcommand{\hodge}{\star}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+\newcommand{\bZB}{\beta_{\mathrm{ZB}}}
+\newcommand{\Sdyn}{\mathcal{S}_{\mathrm{dyn}}}
+\newcommand{\nph}{n_{\mathrm{ph}}}
+\newcommand{\ngr}{n_{\mathrm{g}}}
+
+\begin{document}
+
+\title{From Thermal Rays to Matter Waves:\\The Hamilton Analogy, Phase and Group Indices, and the Schr\"odinger Envelope in the 0-Sphere Model}
+
+\author{Satoshi Hanamura}
+\homepage{https://orcid.org/0009-0000-2687-0918}
+
+\date{\today}
+
+% ========================================
+% Abstract
+% ========================================
+\begin{abstract}
+Hamilton's analogy places classical mechanics beside geometrical optics and wave mechanics beside wave optics, and Schr\"odinger's equation was obtained by taking the step from the first pair to the second.
+The 0-Sphere model has so far stood on the first rung: internal energy transport follows thermal geodesics of an optical metric, and the accumulated internal phase is a Hamilton principal function of the arc between the two kernels.
+This paper takes the second step.
+Writing the internal wave as $A\,e^{i\mathcal{S}/\hbar}$ separates, order by order in $\hbar$, a Hamilton--Jacobi equation for the phase from a continuity equation for $A^2$ transported at the group velocity, and thereby separates two refractive indices that the series had identified: a phase index governing stationary phase and a group index governing energy transport.
+The group index $\ngr = 1/\bZB = 24.71$ does not depend on the origin of energy; the phase index of a matter wave does, taking the value $\bZB$ when the rest energy is kept and $2/\bZB$ when it is removed.
+The dynamical phase of the series accumulates exactly $2\pi$ per round trip of length $\lambdaC$, so that the internal carrier holds one wavelength and has action $J = h$, while the de~Broglie wave of a particle moving at $v_{\mathrm{ZB}}$ would hold $0.0405$ of a wavelength; the internal carrier is not the electron's own de~Broglie wave, its phase and group indices coincide, and the factor $\bZB$ in the rate of the dynamical phase is the inverse group index.
+Factoring out the rest-energy frequency $\nu_C = m_ec^2/h$, which de~Broglie attached to the electron as an internal periodic phenomenon, leaves an envelope that obeys the Schr\"odinger equation, a heat equation with imaginary diffusivity $\hbar/2m_e = (\lambdaC/2)(c/2\pi)$.
+The result is a two-tier structure: an external envelope with a continuous spectrum, whose spreading is real, and an internal transfer with a discrete spectrum fixed by the energy identity, which a Schr\"odinger packet of Compton size could not sustain, since such a packet doubles its width within $0.44$ of one internal cycle.
+Read as a bilinear density of the product of two identical amplitudes, the quartic energy has three equally spaced levels, so that the second internal line lies at exactly $2\nu_{\mathrm{ZB}}$ ($41.36$~keV), consistently with Heisenberg's multiplication rule. The internal transfer may not oscillate the charge dipole, and an electron of kinetic energy $419$~eV carries the momentum of a $20.7$~keV photon.
+\end{abstract}
+
+\maketitle
+
+% ========================================
+% Section 1: Introduction
+% ========================================
+\section{Introduction}
+\label{sec:intro}
+
+The wave nature of matter remained hidden for a long time because the de~Broglie wavelength is short compared with the lengths used in macroscopic observation. Yukawa states this point in his introduction to quantum mechanics~\cite{Yukawa1954} and compares it with optics: as long as the refractive index of a medium can be regarded as uniform over a distance of the order of one wavelength, the wave nature of light need not be considered, and geometrical optics applied to rays suffices. He then follows Hamilton~\cite{Hamilton1834}. The Hamilton--Jacobi equation of a particle has the same form as the eikonal equation of a ray; Maupertuis' principle of least action has the same form as Fermat's principle of least time; and Schr\"odinger~\cite{Schrodinger1926} obtained wave mechanics by passing from the ray description to a wave equation, as wave optics stands to geometrical optics.
+
+The 0-Sphere model has developed the first half of this analogy and not the second. Paper~\#24~\cite{H24} introduced thermal geodesics, the paths of internal energy transport between the two kernels of the electron. Paper~\#51~\cite{H51} showed that the thermal metric is the optical metric $\mathcal{G}_{\mu\nu} = n^2(T)g_{\mu\nu}$ of a medium with temperature-dependent index, and its version~3 identified the dynamical phase accumulated along the arc between the kernels, $\Sdyn = \omZB\int d\tau$, as a Hamilton principal function from which a world function and the spacetime metric are obtained. Paper~\#66~\cite{H66} assigned the internal region the index $n = 1/\bZB$, so that the internal transport speed $v_{\mathrm{ZB}} = \bZB c$ is the group velocity of a carrier in a medium. These are statements about rays. No wave has been superposed, and the Schr\"odinger equation has not appeared in the series.
+
+This paper takes the step from rays to waves. Section~\ref{sec:rays} restates the ray layer of the series in Hamilton's language. Section~\ref{sec:waves} writes the internal wave in the eikonal form and shows that it separates a phase, governed by a Hamilton--Jacobi equation, from an intensity transported at the group velocity, so that two refractive indices appear where the series had one. Section~\ref{sec:indices} evaluates the two indices and uses the closure of the internal cycle to decide between two readings of the internal carrier. Section~\ref{sec:envelope} factors out the rest-energy frequency and obtains the Schr\"odinger equation for the envelope. Section~\ref{sec:twotier} sets out the resulting two-tier structure and the reason why the internal tier cannot be described by Schr\"odinger dynamics. Section~\ref{sec:discrete} places the discrete group velocity of Paper~\#66 in the line of Bohr's correspondence principle and Heisenberg's multiplication rule. Section~\ref{sec:consequences} collects the consequences that can be checked against measurement.
+
+\paragraph{Scope.} The paper takes three inputs from the series: the canonical value $\bZB^2 = 0.00163798087$, the phase functional of Paper~\#51 in its version~3, and the internal index and discrete spectrum of Paper~\#66. It does not derive the index from the internal temperature profile, does not treat the coupling of the internal transfer to external photons beyond the constraints of Section~\ref{sec:consequences}, and does not address gravitation. The presentation of Hamilton's analogy, of the eikonal expansion and of the correspondence principle follows Ref.~\cite{Yukawa1954}, from which equation numbers are cited where a specific step is used.
+
+% ========================================
+% Section 2: The ray layer
+% ========================================
+\section{The Ray Layer of the Series}
+\label{sec:rays}
+
+\paragraph{Hamilton's analogy.} For a particle of energy $E$ in a potential $V$, the solution of the Hamilton--Jacobi equation can be written $W = -Et + S(\bm{x})$ with $|\nabla S| = \sqrt{2m(E - V)} = p$~\cite{Yukawa1954}. Surfaces of constant $W$ move along $\nabla S$ with the speed
+\begin{equation}
+u \;=\; \frac{E}{p},
+\label{eq:u_HJ}
+\end{equation}
+and the trajectories are the orthogonal trajectories of these surfaces. Fermat's principle with the speed $u$ of the surfaces, $\delta\int ds/u = 0$, becomes Maupertuis' principle $\delta\int p\,ds = 0$ on substitution of Eq.~\eqref{eq:u_HJ}. The ray index of the mechanical problem is therefore proportional to the momentum, $n \propto p$, and $u$ is the speed of a phase surface, not of the particle.
+
+\paragraph{The thermal geodesic.} Paper~\#51 records a hierarchy of geodesic principles~\cite{H51}. The thermal geodesic obeys $\delta\int\kappa\,ds = 0$ with $\kappa \propto n(T)$, the path of least thermal resistance along which internal energy is transported between the kernels. The phase functional obeys a separate principle: the phase accumulated along the arc is extremal. In the language of the series the two rows were stated with one index $n(T)$.
+
+\paragraph{The dynamical phase as a principal function.} Version~3 of Paper~\#51 decomposes the phase accumulated between kernel events into a dynamical part and a geometric (Berry) part~\cite{H51, Berry1984},
+\begin{equation}
+\mathcal{S} \;=\; \Sdyn + \mathcal{S}_{\mathrm{geo}},
+\qquad
+\Sdyn \;=\; \omZB\int_{\Gamma_{\mathrm{ext}}} d\tau,
+\label{eq:Sdecomp}
+\end{equation}
+with $\omZB = 2\pi\nu_{\mathrm{ZB}} = \bZB\,m_ec^2/\hbar$. The dynamical part is symmetric under exchange of the endpoints and accumulates over a round trip, as the action variable $\oint p\,dq$ does~\cite{Yukawa1954}; the geometric part is antisymmetric and carries spin and chirality. The dynamical part is a Hamilton principal function of the arc, a generating function of the first kind in the endpoints, and its square defines the world function $\sigma_{\mathcal{S}} = \Sdyn^2/(2\omZB^2)$ from which the metric is reconstructed~\cite{H51, Synge1960}. All of this belongs to the ray layer: it concerns the extremal arc and the phase accumulated along it, not a wave superposed from several arcs or several frequencies.
+
+% ========================================
+% Section 3: From rays to waves
+% ========================================
+\section{From Rays to Waves: Phase and Intensity}
+\label{sec:waves}
+
+The step from rays to waves is taken by writing a wave whose phase is the principal function. For a system with Hamiltonian $H(q,p)$, the substitution
+\begin{equation}
+\psi(q,t) \;=\; A(q,t)\,e^{iS(q,t)/\hbar},
+\label{eq:eikonal}
+\end{equation}
+with real $A$ and $S$, into the wave equation obtained by $p \to -i\hbar\,\partial/\partial q$, and the separation of real and imaginary parts at the two lowest orders in $\hbar$, give two equations~\cite{Yukawa1954}. At order $\hbar^0$,
+\begin{equation}
+\frac{\partial S}{\partial t} + H\!\left(q, \frac{\partial S}{\partial q}\right) \;=\; 0,
+\label{eq:HJ}
+\end{equation}
+the Hamilton--Jacobi equation, so that the phase of the wave is the classical action. At order $\hbar^1$,
+\begin{equation}
+\frac{\partial A^2}{\partial t} + \sum_r \frac{\partial}{\partial q_r}\!\left(A^2\,\frac{dq_r}{dt}\right) \;=\; 0,
+\qquad
+\frac{dq_r}{dt} \;=\; \frac{\partial H}{\partial p_r},
+\label{eq:continuity}
+\end{equation}
+a continuity equation in which $A^2$ is carried with the velocity $\partial H/\partial p$. Yukawa describes Eq.~\eqref{eq:continuity} as the continuity equation of a fluid~\cite{Yukawa1954}; Madelung~\cite{Madelung1927} had written the same pair as the equations of a fluid whose density is $A^2$, with a correction of order $\hbar^2$ that the ray limit drops.
+
+The velocity $\partial H/\partial p = d\omega/dk$ in Eq.~\eqref{eq:continuity} is the group velocity. The two orders therefore carry two different speeds. The phase $S$ advances with the phase velocity of Eq.~\eqref{eq:u_HJ}, and its rays obey Fermat's principle with the phase index. The intensity $A^2$, which carries the energy, advances with the group velocity, and its transport time is set by the group index. The two rows of the geodesic hierarchy of Paper~\#51 are the two orders of the eikonal expansion:
+\begin{align}
+\text{order } \hbar^0:&\quad \text{phase } S,\ \text{Hamilton--Jacobi},\ \text{phase index},
+\notag\\
+\text{order } \hbar^1:&\quad \text{intensity } A^2,\ \text{continuity},\ \text{group index}.
+\label{eq:twoorders}
+\end{align}
+The phase functional of Paper~\#51 belongs to the first line; the thermal geodesic, a path of energy transport, belongs to the second. Table~\ref{tab:yukawa} lists the correspondences used in this paper.
+
+The 0-Sphere model already distinguishes three levels of the internal state~\cite{H65, H66}: an amplitude $\cos(\iphase/2)$, the share of the energy held at a kernel $\cos^2(\iphase/2)$, and the energy held at a kernel $\cos^4(\iphase/2)$, the last being the square of the share. In the eikonal form, the amplitude is $A$, linear and subject to superposition; the share is $A^2$, the quantity transported by Eq.~\eqref{eq:continuity} and the counterpart of Born's probability density; and the energy is the quartic level on which the discrete spectrum of Paper~\#66 is built. Linear superposition is a property of the amplitude level only.
+
+% ----------------------------------------
+% Table 1
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Correspondences between the eikonal treatment of wave mechanics and the 0-Sphere model}}
+\label{tab:yukawa}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.2cm}p{5.6cm}p{5.7cm}}
+\toprule
+\textbf{Object} & \textbf{Wave mechanics~\cite{Yukawa1954}} & \textbf{0-Sphere Model} \\
+\midrule
+Rest-energy oscillation
+& $m_ec^2 = h\nu_0$, de~Broglie's internal periodic phenomenon (6.1)
+& Light-speed reference rate $\nu_C = m_ec^2/h$ of each Dirac branch~\cite{H51, H65} \\
+\addlinespace[0.3cm]
+Removal of the rest energy
+& $m_ec^2$ subtracted before the wave equation (6.26); $E = W - m_ec^2$ in the Pauli limit (27.6)
+& Factoring out the carrier $e^{-2\pi i\nu_C t}$ (Sec.~\ref{sec:envelope}) \\
+\addlinespace[0.3cm]
+Phase of the wave
+& $S$ obeys the Hamilton--Jacobi equation (11.5)
+& $\Sdyn$, a Hamilton principal function of the arc~\cite{H51} \\
+\addlinespace[0.3cm]
+Intensity of the wave
+& $A^2$ obeys a fluid continuity equation (11.9)
+& Share of the energy at a kernel, $\cos^2(\iphase/2)$; thermal transport \\
+\addlinespace[0.3cm]
+Free envelope equation
+& Heat equation with imaginary diffusivity $i\hbar/2m$ (11.11)
+& The ``thermal'' language of the series as the real-diffusivity counterpart \\
+\addlinespace[0.3cm]
+Spreading of a packet
+& Width $a\sqrt{1 + (\hbar t/ma^2)^2}$ (11.20)
+& Real for the external envelope; excluded for the internal transfer (Sec.~\ref{sec:twotier}) \\
+\addlinespace[0.3cm]
+Discrete group velocity
+& $d\omega/dm$ over the integer magnetic quantum number (11.39); $\nu = \Delta n\,dW/dJ$ (5.15)
+& $\Delta\omega/\Delta k$ over two lines~\cite{H66} (Sec.~\ref{sec:discrete}) \\
+\addlinespace[0.3cm]
+Product of Fourier series
+& Classical product violates Ritz; replaced by the matrix product (5.24)--(5.35)
+& Squaring of the share gives $2\omega$ only for equally spaced levels (Sec.~\ref{sec:discrete}) \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+Equation numbers in the middle column refer to Ref.~\cite{Yukawa1954} (2021 reissue). The right column lists the object of the 0-Sphere model that occupies the same place in the argument; the correspondence is structural and does not assert that the two objects are identical.
+\end{minipage}
+\end{table*}
+
+% ========================================
+% Section 4: Phase and group indices
+% ========================================
+\section{Phase and Group Indices}
+\label{sec:indices}
+
+\paragraph{Two indices of a matter wave.} De~Broglie obtained the matter wave by applying a Lorentz transformation to the rest-energy oscillation $m_ec^2 = h\nu_0$~\cite{deBroglie1925, Yukawa1954}. In a frame in which the electron moves at $v$, the wave has frequency $E/h$ and wavelength $h/p$, its phase surfaces move at $u = E/p = c^2/v$, and a group formed from neighbouring wavelengths moves at $d\nu/d(1/\lambda) = dE/dp = v$. With the rest energy kept, the phase and group indices are
+\begin{equation}
+\nph \;=\; \frac{c}{u} \;=\; \frac{v}{c},
+\qquad
+\ngr \;=\; \frac{c}{v},
+\qquad
+\nph\,\ngr \;=\; 1.
+\label{eq:indices_rel}
+\end{equation}
+When the rest energy is removed, as in the non-relativistic wave equation, $E = p^2/2m$ and the phase velocity becomes $u = p/2m = v/2$~\cite{Yukawa1954}, so that $\nph = 2c/v$. The group velocity $dE/dp = v$ is the same in both cases.
+
+\paragraph{The phase index depends on the origin of energy.} Shifting the energy by a constant multiplies every component of a wave by the same phase factor $e^{-i\,\mathrm{const}\,t/\hbar}$. It changes the phase velocity of every component and leaves the group velocity unchanged, because the group velocity is a derivative of the energy. For a particle moving at $v_{\mathrm{ZB}} = \bZB c$ the values are collected in Table~\ref{tab:indices}. The group index $1/\bZB = 24.71$ is the index assigned to the internal region in Paper~\#66~\cite{H66}; it is the quantity that does not depend on how the energy is counted, and it is the one that sets the round-trip time and the internal frequency. Any statement that uses the phase index, such as Snell's law and the critical angle of Paper~\#66, requires a statement of the origin from which the internal phase is counted.
+
+% ----------------------------------------
+% Table 2
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Phase and group indices of a wave moving at the internal speed $v_{\mathrm{ZB}} = \bZB c$}}
+\label{tab:indices}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.2cm}p{3.4cm}p{3.0cm}p{3.9cm}}
+\toprule
+\textbf{Wave} & \textbf{Phase velocity} & \textbf{Phase index} & \textbf{Group index} \\
+\midrule
+Matter wave, rest energy kept (de~Broglie)
+& $c^2/v_{\mathrm{ZB}}$
+& $\bZB = 0.0405$
+& $1/\bZB = 24.71$ \\
+\addlinespace[0.3cm]
+Matter wave, rest energy removed (Schr\"odinger)
+& $v_{\mathrm{ZB}}/2$
+& $2/\bZB = 49.42$
+& $1/\bZB = 24.71$ \\
+\addlinespace[0.3cm]
+Non-dispersive internal carrier
+& $v_{\mathrm{ZB}}$
+& $1/\bZB = 24.71$
+& $1/\bZB = 24.71$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The group index is the same in all three rows. The phase index depends on the origin of energy for a matter wave and equals the group index only for a non-dispersive carrier. The value $2/\bZB$ in the second row coincides numerically with the ratio $\nu_{\mathrm{D}}/\nu_{\mathrm{ZB}}$ of Paper~\#66; the factor two arises here from the non-relativistic phase velocity $v/2$, and no connection between the two is asserted.
+\end{minipage}
+\end{table*}
+
+\paragraph{Closure of the internal cycle selects the carrier.} The internal transfer of the 0-Sphere model is periodic: one cycle of the internal phase is one round trip of the photon sphere between the kernels, a path of length $\lambdaC$~\cite{H51, H66}. A periodic wave on a closed path must hold an integer number of wavelengths, the condition $2\pi a = n\lambda$ by which de~Broglie recovered Bohr's quantization $\oint p\,dq = nh$~\cite{deBroglie1925, Yukawa1954}. The two readings of the internal carrier give different results. A non-dispersive carrier at the internal frequency $\nu_{\mathrm{ZB}}$ with phase velocity $v_{\mathrm{ZB}}$ has wavelength
+\begin{equation}
+\lambda \;=\; \frac{v_{\mathrm{ZB}}}{\nu_{\mathrm{ZB}}} \;=\; \frac{\bZB c}{\bZB c/\lambdaC} \;=\; \lambdaC,
+\label{eq:lambda_carrier}
+\end{equation}
+and holds exactly one wavelength on the round trip, independently of the value of $\bZB$. The de~Broglie wave of a particle moving at $v_{\mathrm{ZB}}$ has wavelength $h/(\gamma m_ev_{\mathrm{ZB}}) = 59.90$~pm $\approx \lambdaC/\bZB$, and the round trip holds $\bZB = 0.0405$ of it. The second reading does not close. The internal carrier is therefore not the electron's own de~Broglie wave; it is a wave whose phase and group indices coincide, as Paper~\#66 assumed when it identified the two~\cite{H66}. On this reading the critical angle $\sin\theta_c = \bZB$ of Paper~\#66 stands, and the open question whether $n(2\omega) = n(\omega)$ remains as stated there. The de~Broglie wave, with $\nph = \bZB$ and $\ngr = 1/\bZB$, belongs to the motion of the electron as a whole, which is the subject of Section~\ref{sec:envelope}.
+
+\paragraph{The dynamical phase counts internal cycles.} The closure is not an additional assumption once the phase of the carrier is identified with the internal phase $\iphase$. By the definition used throughout the series, $\iphase$ advances by $2\pi$ in one cycle, and one cycle is one round trip; a carrier whose phase is $\iphase$ therefore holds exactly one wavelength on the round trip. The dynamical phase of Paper~\#51 confirms this. It advances at $\omZB = \bZB\,m_ec^2/\hbar$, and over one internal period $1/\nu_{\mathrm{ZB}}$ it accumulates
+\begin{equation}
+\Delta\Sdyn \;=\; \frac{\omZB}{\nu_{\mathrm{ZB}}} \;=\; 2\pi,
+\qquad
+J \;=\; \oint p\,dq \;=\; \hbar\,\Delta\Sdyn \;=\; h,
+\label{eq:Jh}
+\end{equation}
+the lowest Bohr--Sommerfeld value, with the canonical momentum $h/\lambdaC = m_ec$ of the carrier. The de~Broglie reading would accumulate $2\pi\bZB$ per round trip and $J = \bZB h$, which is inconsistent with the definition of the cycle. The same computation gives a reading of the factor $\bZB$ that Paper~\#51 left open~\cite{H51}: the dynamical phase counts internal cycles, which run at the group velocity, rather than oscillations of the rest-energy carrier, which run at the reference rate $\nu_C$, and the ratio of the two rates is the inverse group index, $\nu_{\mathrm{ZB}}/\nu_C = 1/\ngr = \bZB$.
+
+\paragraph{The wavelength equals the size of the region.} Equation~\eqref{eq:lambda_carrier} also places the internal region with respect to Yukawa's criterion for geometrical optics. The ray limit requires $|\partial S/\partial q|\,A \gg \hbar\,|\partial A/\partial q|$~\cite{Yukawa1954}, that is, a phase that varies much faster than the amplitude. Over a region of size $L = \lambdaC$ the ratio of the two sides is of order $2\pi L/\lambda = 2\pi$ for the internal carrier. The interior of the electron is therefore at the border between the ray regime and the wave regime: the index varies over a distance of one wavelength, which is the situation in which, by Yukawa's criterion, the wave nature cannot be neglected. Statements of Paper~\#66 that rest on geometrical optics, Snell's law in particular, are to be read with this qualification; the interior is better described as a resonator in its fundamental mode, with one wavelength on the round trip.
+
+% ========================================
+% Section 5: Carrier and envelope
+% ========================================
+\section{Carrier and Envelope: the Schr\"odinger Equation}
+\label{sec:envelope}
+
+\paragraph{The subtraction of the rest energy.} Before writing the wave equation of a particle in a potential, Yukawa removes the rest energy $m_ec^2$ and uses $E = T + V = h\nu$ with the non-relativistic energy~\cite{Yukawa1954}; in the Pauli limit of the Dirac equation the same step reappears as $E = W - m_ec^2$. The step is taken in one line in each place, and the oscillation $\nu_0 = m_ec^2/h$ that de~Broglie attached to the electron a few pages earlier does not reappear. In the 0-Sphere model this oscillation is the light-speed reference rate $\nu_C$ at which the phase of each Dirac branch advances~\cite{H51, H65}.
+
+\paragraph{The envelope equation.} The subtraction has a direct meaning in wave terms. The 0-Sphere model retains Lorentz covariance and the invariant speed $c$ without modification~\cite{H51, H66}, and assigns to the electron at rest the energy $m_ec^2$. For a system whose energy and momentum form a four-vector and whose energy at rest is $m_ec^2$, the only covariant relation between them is $E^2 = p^2c^2 + m_e^2c^4$. A wave of the electron as a whole, with $E = \hbar\omega$ and $\bm{p} = \hbar\bm{k}$, therefore satisfies the Klein--Gordon form $(\partial_t^2/c^2 - \nabla^2 + m_e^2c^2/\hbar^2)\Psi = 0$, which each component of the Dirac spinor also obeys. The form is not imported as a dynamical postulate; it is covariance applied to an object with rest energy $m_ec^2$. Writing
+\begin{equation}
+\Psi(\bm{x},t) \;=\; e^{-2\pi i\nu_C t}\,\varphi(\bm{x},t),
+\label{eq:carrier}
+\end{equation}
+and assuming that $\varphi$ varies slowly on the time scale $1/\nu_C$, so that $|\partial_t^2\varphi| \ll 2\pi\nu_C|\partial_t\varphi|$, gives
+\begin{equation}
+i\hbar\,\frac{\partial\varphi}{\partial t} \;=\; -\frac{\hbar^2}{2m_e}\nabla^2\varphi.
+\label{eq:schrodinger}
+\end{equation}
+The Schr\"odinger equation is the equation of the envelope of a carrier at the rest-energy frequency. In optics the same operation, factoring out a fast carrier and neglecting the second derivative of the envelope, is the slowly varying envelope approximation, and it turns the Helmholtz equation into the paraxial wave equation, which has the form of Eq.~\eqref{eq:schrodinger}~\cite{Siegman1986}.
+
+\paragraph{The imaginary heat equation.} Equation~\eqref{eq:schrodinger} has the form of a heat equation, $\partial_t\varphi = \kappa_{\mathrm{Q}}\nabla^2\varphi$, with the purely imaginary diffusivity $\kappa_{\mathrm{Q}} = i\hbar/2m_e$, as Yukawa notes~\cite{Yukawa1954}. Its magnitude is
+\begin{equation}
+\frac{\hbar}{2m_e} \;=\; \frac{\lambdaC}{2}\cdot\frac{c}{2\pi} \;=\; 5.79\times10^{-5}\ \text{m}^2/\text{s},
+\label{eq:diffusivity}
+\end{equation}
+the half-separation of the round trip times the invariant speed divided by $2\pi$. The 0-Sphere model has described the internal transport in thermal language since Paper~\#24, and Paper~\#51 noted that its thermal metric is in fact a phase metric~\cite{H51}. The relation between a heat equation and the Schr\"odinger equation is the substitution of an imaginary for a real diffusivity; the thermal language of the series and the phase language of wave mechanics are related by that substitution. The symbol $\kappa_{\mathrm{Q}}$ is used here to distinguish this diffusivity from the thermal resistance $\kappa$ of Paper~\#51.
+
+% ========================================
+% Section 6: Two tiers
+% ========================================
+\section{Two Tiers: External Envelope and Internal Transfer}
+\label{sec:twotier}
+
+Figure~\ref{fig:twotier} summarizes the structure that results. The carrier at $\nu_C$ is common to both tiers. The external tier is the envelope $\varphi$ of Eq.~\eqref{eq:schrodinger}: it describes the motion of the electron as a whole, it is built from a continuous spectrum of plane waves, a Gaussian window is an admissible initial condition, and its spreading is real and observed. The internal tier is the transfer between the kernels described by the energy identity of the series: its spectrum consists of the three lines $0$, $\omega$ and $2\omega$ with weights fixed by the identity~\cite{H66}, and its envelope is restored at every cycle.
+
+\paragraph{A Schr\"odinger packet of Compton size.} The internal tier cannot be described by Eq.~\eqref{eq:schrodinger}. A free packet of initial width $a$ grows as $a\sqrt{1 + (\hbar t/m_ea^2)^2}$ and doubles its width after $T = \sqrt{3}\,m_ea^2/\hbar$~\cite{Yukawa1954}. Yukawa's example, $a = 10^{-8}$~cm, gives $T \approx 10^{-16}$~s. For a packet confined to the internal scale, $a = \lambdaC$,
+\begin{align}
+T &\;=\; 2\pi\sqrt{3}\,\frac{\lambdaC}{c} \;=\; 8.81\times10^{-20}\ \text{s},
+\notag\\
+T\,\nu_{\mathrm{ZB}} &\;=\; 2\pi\sqrt{3}\,\bZB \;=\; 0.44.
+\label{eq:doubling}
+\end{align}
+A Schr\"odinger packet of the size of the internal structure doubles its width in less than half of one internal cycle. The recurrence of the same internal envelope at every cycle, stated in Paper~\#66, is therefore not a property that Schr\"odinger dynamics could supply; it is supplied by the energy identity, which holds at every phase. The statement of Paper~\#66 that this recurrence keeps the electron localized applies to the internal tier only; the external envelope spreads.
+
+\paragraph{The Gordon decomposition.} The standard theory contains a decomposition of the same shape. The probability current of the Dirac equation is $c\,\bar{\psi}\bm{\alpha}\psi$, in which the velocity operator $c\bm{\alpha}$ with eigenvalues $\pm c$ appears, while the current of the Schr\"odinger equation is the convective current of the group velocity $\bm{p}/m_e$. Gordon~\cite{Gordon1928} showed that the Dirac current is the sum of a convective current of Schr\"odinger form and a spin current of the form $\nabla\times(\bar{\psi}\bm{\sigma}\psi)$. The spin current has zero divergence and transports no net charge; it circulates within the region occupied by the electron. The two tiers of Fig.~\ref{fig:twotier} correspond to the two terms: the external envelope to the convective current, and the internal transfer to the divergence-free circulation, to which the trembling motion at $\pm c$ belongs.
+
+% ----------------------------------------
+% Figure 1
+% ----------------------------------------
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[>=Stealth, font=\scriptsize,
+  box/.style={draw, rounded corners, align=center, inner sep=4pt, text width=#1},
+  box/.default=4.0cm]
+\node[box=4.6cm, fill=gray!8] (carrier) at (0,2.6) {carrier at the rest-energy frequency\\$\nu_C = m_ec^2/h$ (de~Broglie's $\nu_0$)\\factored out: $\Psi = e^{-2\pi i\nu_C t}\varphi$};
+\node[box=5.0cm, fill=blue!6] (ext) at (-4.2,0.4) {\textbf{external tier}: envelope $\varphi$\\Schr\"odinger equation, $\kappa_{\mathrm{Q}} = i\hbar/2m_e$\\continuous spectrum, plane waves\\group velocity $v$; spreading is real\\Gordon: convective current};
+\node[box=5.0cm, fill=green!6] (int) at (4.2,0.4) {\textbf{internal tier}: transfer between kernels\\energy identity of the series\\lines $0,\ \omega,\ 2\omega$; weights $\tfrac38,\tfrac12,\tfrac18$\\group index $1/\bZB$; envelope restored\\Gordon: divergence-free spin current};
+\draw[->, thick] (carrier.south west) -- (ext.north);
+\draw[->, thick] (carrier.south east) -- (int.north);
+\node[box=5.0cm, fill=white] (ext2) at (-4.2,-1.75) {phase $S$: Hamilton--Jacobi (order $\hbar^0$)\\intensity $A^2$: continuity (order $\hbar^1$)};
+\node[box=5.0cm, fill=white] (int2) at (4.2,-1.75) {one carrier wavelength $\lambdaC$ per round trip\\$\nph = \ngr$; $J = \oint p\,dq = h$};
+\draw[->] (ext.south) -- (ext2.north);
+\draw[->] (int.south) -- (int2.north);
+\node[align=center, font=\scriptsize\itshape] at (0,-0.4) {a Compton-size\\Schr\"odinger packet\\doubles in $0.44$ cycle};
+\end{tikzpicture}
+\caption{\textbf{Carrier, external envelope and internal transfer}}
+\label{fig:twotier}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+The rest-energy oscillation $\nu_C$ is the carrier common to both tiers. Factoring it out leaves the external envelope $\varphi$, which obeys the Schr\"odinger equation, is built from a continuous spectrum and spreads in time; its phase and intensity obey the Hamilton--Jacobi and continuity equations at the two lowest orders in $\hbar$. The internal tier is the transfer between the kernels, whose discrete spectrum and envelope are fixed by the energy identity and restored at every cycle; its carrier holds one wavelength on the round trip, so that its phase and group indices coincide. The two tiers correspond to the convective and spin terms of the Gordon decomposition of the Dirac current. A Schr\"odinger packet of the internal size would double its width within $0.44$ of one internal cycle, so that the internal tier is not described by the envelope equation.
+\end{minipage}
+\end{figure*}
+
+% ========================================
+% Section 7: Discrete group velocity
+% ========================================
+\section{Discrete Group Velocity and the Correspondence Principle}
+\label{sec:discrete}
+
+\paragraph{From derivative to difference quotient.} Paper~\#66 obtained the group velocity of the internal carrier as a difference quotient between two discrete lines, $v_g = \Delta\omega/\Delta k$, and the group index $\ngr = 2n(2\omega) - n(\omega)$~\cite{H66}. The replacement of a derivative by a difference quotient over discrete values has a long precedent. In the classical theory of multiply periodic motion, the frequency of the motion is $\nu = \partial E/\partial J$ and its harmonics are $\tau\,\partial E/\partial J$ with integer $\tau$~\cite{Yukawa1954}. Bohr's correspondence principle replaces this derivative by the difference quotient $\nu = [E(n) - E(n - \tau)]/h$ over the quantum numbers, with $\Delta J = h$, and identifies the $\tau$-th classical harmonic with the transition $\Delta n = \tau$. In the treatment of the Zeeman effect the angular group velocity of the rotating wave is written $d\omega/dm$ over the integer magnetic quantum number~\cite{Yukawa1954}. The group velocity of Paper~\#66 is a further instance of the same replacement. Table~\ref{tab:discrete} places the three side by side.
+
+% ----------------------------------------
+% Table 3
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Derivatives and their difference quotients over discrete values}}
+\label{tab:discrete}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.6cm}p{4.6cm}p{6.3cm}}
+\toprule
+\textbf{Setting} & \textbf{Continuous form} & \textbf{Discrete form} \\
+\midrule
+Multiply periodic motion and correspondence principle~\cite{Yukawa1954}
+& $\nu = \partial E/\partial J$; harmonics $\tau\,\partial E/\partial J$
+& $\nu = [E(n) - E(n-\tau)]/h$, $\Delta J = h$; harmonic $\tau$ $\leftrightarrow$ transition $\Delta n = \tau$ \\
+\addlinespace[0.3cm]
+Rotating wave in a magnetic field~\cite{Yukawa1954}
+& $d\omega/dm$
+& $m$ an integer; the group velocity equals the Larmor frequency \\
+\addlinespace[0.3cm]
+Internal carrier of the 0-Sphere model~\cite{H66}
+& $v_g = d\omega/dk$
+& $v_g = \Delta\omega/\Delta k$ over the lines $\omega$, $2\omega$; $\ngr = 2n(2\omega) - n(\omega)$ \\
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+In each row the continuous form applies to a continuous variable and the discrete form to integer-spaced values. The internal carrier has only two oscillating lines, so that its group velocity is a single difference quotient.
+\end{minipage}
+\end{table*}
+
+\paragraph{Heisenberg's multiplication rule and the second line.} Paper~\#66 obtains the line at $2\omega$ by squaring the share $\cos^2(\iphase/2) = \tfrac12(1 + \cos\iphase)$, a classical product of Fourier series in which frequencies add. Heisenberg's starting point in 1925 was that this rule is incompatible with the Ritz combination principle: the frequencies of quantum transitions combine as $\nu(n, n-\alpha) + \nu(n-\alpha, n-\alpha-\beta) = \nu(n, n-\alpha-\beta)$, and the classical product of two Fourier series produces sums that do not respect it, so that the product had to be replaced by the product of matrices~\cite{Heisenberg1925, Yukawa1954}. Translated into this language, the second line of the internal spectrum corresponds to a two-step combination $\nu(n, n-1) + \nu(n-1, n-2)$, and it equals $2\nu(n, n-1)$ only when the three levels involved are equally spaced. The harmonic oscillator is the case in which classical and quantum frequencies agree for this reason~\cite{Yukawa1954}. The classical squaring of the series is therefore consistent with the matrix rule exactly when the internal levels are equally spaced, and the position of the second line is a test of that condition:
+\begin{equation}
+\nu_2 \;=\; 2\nu_{\mathrm{ZB}} \;=\; 1.0001\times10^{19}\ \text{Hz}
+\quad (41.36\ \text{keV}),
+\label{eq:second_line}
+\end{equation}
+with any departure from the exact ratio two measuring the anharmonicity of the internal levels. This test is independent of the group-index condition $n(2\omega) = n(\omega)$ of Paper~\#66: the latter concerns the propagation of the two lines, the former their frequencies.
+
+\paragraph{A level structure that makes the spacing exact.} The equal spacing need not be assumed. The amplitude $\cos(\iphase/2) = \tfrac12(e^{i\iphase/2} + e^{-i\iphase/2})$ has two components, at $\pm\omega/2$. The share, bilinear in the amplitude, contains the differences $0$ and $\pm\omega$. The energy is the square of the share; written as a bilinear quantity, it is the density of the product $a\otimes a$ of two copies of the amplitude, whose components lie at the sums of the frequencies of the factors,
+\begin{equation}
+\left\{\pm\tfrac{\omega}{2}\right\} + \left\{\pm\tfrac{\omega}{2}\right\} \;=\; \{+\omega,\ 0,\ 0,\ -\omega\}.
+\label{eq:triplet}
+\end{equation}
+These are three levels with exactly equal spacing, as for the product of two identical two-level systems, and the density of the product contains the differences $0$, $\pm\omega$ and $\pm2\omega$, the spectrum of Paper~\#66 with the second line at exactly $2\omega$. The classical squaring of the series is therefore consistent with the matrix rule because the quartic energy is a bilinear density of a product of identical factors. The equal spacing fails when the two factors are not identical. If the factors advance at $\omega_A/2$ and $\omega_B/2$, the product has components at $\pm(\omega_A + \omega_B)/2$ and $\pm(\omega_A - \omega_B)/2$, the line at $2\omega$ moves to $\omega_A + \omega_B$, and a line appears at the beat $|\omega_A - \omega_B|$, far below the internal frequency. Whether the two factors are to be identified with the two kernels, so that a detuning $\omega_A \neq \omega_B$ of the kernels would appear in this form, is not established here; for the electron, with identical kernels, the line lies at exactly $2\nu_{\mathrm{ZB}}$.
+
+\paragraph{The layer of the Dirac frequency.} The same language restates the factor of two between the Dirac and 0-Sphere frequencies that Paper~\#66 left open~\cite{H66}. In a linear theory an observable density is bilinear in the amplitude, and the frequencies it contains are differences of the frequencies of the amplitude. The Dirac Zitterbewegung frequency $2m_ec^2/h$ is of this kind: the difference between the branches at $\pm m_ec^2$ appears in the bilinear layer. In the 0-Sphere model the internal phase appears at the frequency $\nu_{\mathrm{ZB}}$ in the share, which is bilinear in the amplitude, and at $2\nu_{\mathrm{ZB}}$ in the energy, which is bilinear in the product~\eqref{eq:triplet}. Whether the Dirac frequency is to be compared with the line of the share or with that of the energy is a question about which layer is observed, and whether the ratio $\nu_{\mathrm{D}}/\nu_{\mathrm{ZB}} = 2/\bZB$ contains a factor of two beyond $1/\bZB$ depends on its answer. This restates the open item of Paper~\#66 without closing it.
+
+% ========================================
+% Section 8: Consequences
+% ========================================
+\section{Consequences and Constraints}
+\label{sec:consequences}
+
+\paragraph{The momentum of the internal line.} A photon of energy $\bZB m_ec^2$ carries the momentum $\bZB m_ec$, which is the momentum of an electron moving at $v_{\mathrm{ZB}}$. The vacuum wavelength of the internal line is $c/\nu_{\mathrm{ZB}} = 59.95$~pm, and the de~Broglie wavelength of an electron with kinetic energy $(\gamma - 1)m_ec^2 = 419.0$~eV, the energy of the $\beta^2$ layer of the series, is $59.90$~pm; the difference, $8\times10^{-4}$, is the Lorentz factor. The identity holds for any $\bZB$ and does not select its value. Its content is that one quantum of the internal line carries exactly the momentum of the internal carrier, so that a carrier that reverses its direction at a kernel by exchanging one such quantum closes its momentum balance. This is recorded as an entry point to the recoil closure of the internal dynamics and is not developed here.
+
+\paragraph{The internal transfer does not oscillate the charge dipole.} If the charge of the electron moved between the kernels at the internal frequency, it would radiate as an oscillating dipole. With the quantum expression for the total emitted power, $(4/3)(e^2\omega^4/c^3)|r|^2$~\cite{Yukawa1954}, an amplitude $|r| = \lambdaC/4$ at $\omega = 2\pi\nu_{\mathrm{ZB}}$ gives $4.1$~W, which would exhaust the rest energy in $2.0\times10^{-14}$~s; an amplitude $\lambdaC/2$ gives $1.6\times10$~W and $5.0\times10^{-15}$~s. The free electron is stable, so the internal transfer cannot carry an oscillating charge dipole. The transfer admitted by the model is one that leaves the centre of charge fixed, which is the form of the divergence-free spin current of the Gordon decomposition (Section~\ref{sec:twotier}). This sharpens the statement of Paper~\#66 that the internal transfer does not radiate~\cite{H66}.
+
+\paragraph{Scattering.} A naive reading of the internal index as a polarizable sphere would give Rayleigh scattering, with a cross section that vanishes as $\omega^4$ below a resonance. A free electron instead scatters low-frequency light with the frequency-independent Thomson cross section, which is verified routinely in laser scattering from plasmas. Had the whole electron responded as an oscillator with resonance at $20.7$~keV, scattering at $2.33$~eV would be suppressed by $(2.33\ \text{eV}/20.7\ \text{keV})^4 = 1.6\times10^{-16}$. The two-tier structure removes this conflict: the centre of mass, a free charge, gives the Thomson and Klein--Nishina cross sections, and the internal tier can contribute at most a resonant feature near $20.7$~keV in the electron rest frame. Compton scattering at $17$--$22$~keV and with synchrotron radiation across this band has been measured extensively and agrees with the Klein--Nishina formula; these data bound the strength and width of any such feature. Extracting that bound is left as a task; it is the same measurement as the X-ray search proposed in Paper~\#66.
+
+% ========================================
+% Section 9: Limitations
+% ========================================
+\section{Limitations}
+\label{sec:limits}
+
+\paragraph{The carrier phase is identified with the internal phase.} The selection of the non-dispersive carrier in Section~\ref{sec:indices} rests on identifying the phase of the internal carrier with the internal phase $\iphase$, which advances by $2\pi$ per round trip. With that identification the closure and $J = h$ follow, Eq.~\eqref{eq:Jh}. The identification is a reading of the model; a description of the internal transfer by the energy identity alone does not require a carrier wave.
+
+\paragraph{The rate of the dynamical phase.} Section~\ref{sec:indices} reads the factor $\bZB$ in the rate $\omZB = \bZB\,m_ec^2/\hbar$ as the ratio of the internal cycle rate to the rest-energy rate, $1/\ngr$. This is a reading consistent with the closure of the cycle; it does not derive $\bZB$, which remains an input from the anomalous magnetic moment.
+
+\paragraph{The envelope equation rests on covariance.} Section~\ref{sec:envelope} obtains the Klein--Gordon form from Lorentz covariance and the rest energy, both retained by the model, and the Schr\"odinger equation from it. What the model contributes is the identification of the factored-out carrier with an internal oscillation and the separation of the external envelope from the internal transfer. The internal tier itself is not shown to produce the dispersion relation; that would require a derivation of the rest energy $m_ec^2$ from the internal transfer.
+
+\paragraph{The product structure of the energy.} Section~\ref{sec:discrete} obtains exactly equal spacing by reading the quartic energy as a bilinear density of the product of two identical amplitudes. The identification of the two factors with physical constituents, the two kernels in particular, is not established; the prediction of an exact ratio two between the internal lines holds for the electron on either reading, and the shifted and beat lines of non-identical factors are stated as a consequence of the product reading only.
+
+\paragraph{The momentum identity.} The equality of the momentum of the internal line and of the internal carrier holds for any $\bZB$ and carries no information about its value.
+
+% ========================================
+% Section 10: Conclusion
+% ========================================
+\section{Conclusion}
+
+The 0-Sphere model had developed the ray half of Hamilton's analogy: thermal geodesics, an optical metric, and a phase accumulated along the arc between the kernels that serves as a principal function. Writing the internal wave in the eikonal form separates the phase, governed by the Hamilton--Jacobi equation and by the phase index, from the intensity, transported at the group velocity and governed by the group index. The two rows of the geodesic hierarchy of the series are the two lowest orders of this expansion. The group index $1/\bZB$ does not depend on the origin of energy; the phase index of a matter wave does, and the closure of the internal cycle on a round trip of length $\lambdaC$ selects a carrier whose two indices coincide, which is not the electron's own de~Broglie wave. Factoring out the rest-energy oscillation leaves an envelope that obeys the Schr\"odinger equation, and the resulting two tiers, an external envelope that spreads and an internal transfer whose envelope is restored by the energy identity, correspond to the convective and spin terms of the Gordon decomposition. The internal tier lies outside Schr\"odinger dynamics, since a packet of its size doubles in less than half a cycle. The dynamical phase accumulates exactly $2\pi$ per round trip, so that the internal action is $J = h$ and the factor $\bZB$ in its rate is the inverse group index. Read as a bilinear density of the product of two identical amplitudes, the quartic energy has three equally spaced levels, so that the classical squaring of the series agrees with the matrix multiplication rule and the second internal line lies at exactly $41.36$~keV; non-identical factors would shift it and add a beat line far below the internal frequency. The stability of the free electron requires that the internal transfer leave the centre of charge fixed.
+
+\appendix
+
+% ========================================
+% Appendix A: Numbers
+% ========================================
+\section{Numbers and Their Reproduction}
+\label{app:numbers}
+
+All numbers follow from $\bZB^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}:
+\begin{align}
+\bZB &= 0.040472,
+\notag\\
+1/\bZB &= 24.708, \quad 2/\bZB = 49.42,
+\notag\\
+\lambdaC &= 2.42631\times10^{-12}\ \text{m},
+\notag\\
+\nu_C &= 1.2356\times10^{20}\ \text{Hz},
+\notag\\
+\nu_{\mathrm{ZB}} &= 5.0007\times10^{18}\ \text{Hz},
+\notag\\
+\text{line energies} &= 20.68\ \text{keV},\ 41.36\ \text{keV},
+\notag\\
+\lambda_{\mathrm{dB}}(v_{\mathrm{ZB}}) &= 59.90\ \text{pm} \quad (419.0\ \text{eV}),
+\notag\\
+c/\nu_{\mathrm{ZB}} &= 59.95\ \text{pm},
+\notag\\
+\hbar/2m_e &= 5.788\times10^{-5}\ \text{m}^2/\text{s},
+\notag\\
+T(a = \lambdaC) &= 8.81\times10^{-20}\ \text{s},
+\notag\\
+T\nu_{\mathrm{ZB}} &= 0.440,
+\notag\\
+P(\lambdaC/4) &= 4.1\ \text{W},
+\notag\\
+m_ec^2/P &= 2.0\times10^{-14}\ \text{s},
+\notag\\
+(2.33\ \text{eV}/20.68\ \text{keV})^4 &= 1.6\times10^{-16}.
+\label{eq:allnumbers}
+\end{align}
+The following script reproduces every value.
+
+\lstinputlisting{verify67.py}
+
+% ========================================
+% Appendix B: Interface
+% ========================================
+\section{Inputs, Results and Open Items}
+\label{app:interface}
+
+\paragraph{Inputs.}
+\begin{itemize}[leftmargin=2.4em]
+\item[I1.] $\bZB^2 = 0.00163798087$ (Paper~\#10).
+\item[I2.] The phase functional $\mathcal{S} = \Sdyn + \mathcal{S}_{\mathrm{geo}}$ and the world function $\sigma_{\mathcal{S}}$ (Paper~\#51, version~3).
+\item[I3.] The internal index $n = 1/\bZB$, the round trip of length $\lambdaC$, and the discrete spectrum $0$, $\omega$, $2\omega$ (Paper~\#66).
+\end{itemize}
+
+\paragraph{Results.}
+\begin{itemize}[leftmargin=2.4em]
+\item[R1.] The eikonal expansion separates the phase (Hamilton--Jacobi, phase index) from the intensity (continuity at the group velocity, group index); the two rows of the geodesic hierarchy of Paper~\#51 are its two lowest orders.
+\item[R2.] The group index $1/\bZB$ is independent of the origin of energy; the phase index of a matter wave is $\bZB$ with the rest energy kept and $2/\bZB$ with it removed.
+\item[R3.] Identifying the carrier phase with the internal phase, the dynamical phase accumulates $2\pi$ per round trip and $J = h$; the carrier holds one wavelength $\lambdaC$ and is not the electron's de~Broglie wave. The factor $\bZB$ in the rate of the dynamical phase is the inverse group index.
+\item[R4.] Factoring out $\nu_C$ leaves an envelope obeying the Schr\"odinger equation, a heat equation with imaginary diffusivity $(\lambdaC/2)(c/2\pi)$.
+\item[R5.] Two tiers: external envelope (continuous, spreading, convective current) and internal transfer (discrete, restored, spin current); a Compton-size Schr\"odinger packet doubles in $0.44$ of an internal cycle.
+\item[R6.] The quartic energy is a bilinear density of the product of two identical amplitudes, whose levels $+\omega, 0, -\omega$ are equally spaced; the second internal line lies at exactly $2\nu_{\mathrm{ZB}}$. Non-identical factors would shift it to $\omega_A + \omega_B$ and add a beat line at $|\omega_A - \omega_B|$.
+\item[R7.] The internal transfer may not oscillate the charge dipole; a free electron would otherwise lose its rest energy in about $10^{-14}$~s.
+\end{itemize}
+
+\paragraph{Open items.}
+\begin{itemize}[leftmargin=2.4em]
+\item[O1.] The identification of the carrier phase with the internal phase $\iphase$, on which R3 rests.
+\item[O2.] A derivation of the rest energy $m_ec^2$, and with it of the dispersion relation of the whole electron, from the internal transfer.
+\item[O3.] The physical identity of the two factors of the product in R6, and whether a detuning of the kernels appears as the shifted and beat lines.
+\item[O4.] The layer (bilinear or quartic) with which the Dirac frequency is to be compared.
+\item[O5.] The bound on an internal resonance near $20.7$~keV from existing Compton-scattering data.
+\item[O6.] The recoil closure suggested by the momentum identity.
+\end{itemize}
+
+% ========================================
+% Acknowledgments
+% ========================================
+\begin{acknowledgments}
+The conception of this paper, the framing of its questions and every decision to adopt or reject a result are the author's. The author selected and read Ref.~\cite{Yukawa1954} against the series in working sessions with the language model Claude Opus 5.5 (Anthropic), which drafted the manuscript, proposed derivations and literature precedents, and carried out numerical checks. Every derivation adopted here was checked by the author and is reproduced by the verification script deposited with this paper.
+\end{acknowledgments}
+
+% ========================================
+% Bibliography
+% ========================================
+\begin{thebibliography}{99}
+
+\bibitem{Yukawa1954} H. Yukawa, \textit{Ry\=oshi Rikigaku Josetsu} [\textit{Introduction to Quantum Mechanics}], revised and enlarged edition (K\=obund\=o, Tokyo, 1954); reissued as \textit{Yukawa Hideki Ry\=oshi Rikigaku Josetsu} (Osaka University Press, Osaka, 2021), Secs.~5, 6, 10, 11, 25, 26, 27 and Appendix~I.
+
+\bibitem{Hamilton1834} W. R. Hamilton, On a general method in dynamics, Phil. Trans. R. Soc. London \textbf{124}, 247 (1834).
+
+\bibitem{Schrodinger1926} E. Schr\"odinger, Quantisierung als Eigenwertproblem (Zweite Mitteilung), Ann. Phys. \textbf{384}, 489 (1926).
+
+\bibitem{H24} S. Hanamura, Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure (Paper \#24), Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765349}{DOI: 10.5281/zenodo.17765349}.
+
+\bibitem{H51} S. Hanamura, Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model (Paper \#51, version 3), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.24521440}{DOI: 10.5281/zenodo.24521440}.
+
+\bibitem{H66} S. Hanamura, Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model (Paper \#66), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23750210}{DOI: 10.5281/zenodo.23750210}.
+
+\bibitem{H65} S. Hanamura, From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model (Paper \#65), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{DOI: 10.5281/zenodo.23257458}.
+
+\bibitem{Berry1984} M. V. Berry, Quantal phase factors accompanying adiabatic changes, Proc. R. Soc. Lond. A \textbf{392}, 45 (1984).
+
+\bibitem{Synge1960} J. L. Synge, \textit{Relativity: The General Theory} (North-Holland, Amsterdam, 1960), Ch.~2.
+
+\bibitem{Madelung1927} E. Madelung, Quantentheorie in hydrodynamischer Form, Z. Phys. \textbf{40}, 322 (1927).
+
+\bibitem{deBroglie1925} L. de Broglie, Recherches sur la th\'eorie des quanta, Ann. Phys. (Paris) \textbf{3}, 22 (1925).
+
+\bibitem{Siegman1986} A. E. Siegman, \textit{Lasers} (University Science Books, Mill Valley, 1986), Ch.~16.
+
+\bibitem{Gordon1928} W. Gordon, Der Strom der Diracschen Elektronentheorie, Z. Phys. \textbf{50}, 630 (1928).
+
+\bibitem{Heisenberg1925} W. Heisenberg, \"Uber quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen, Z. Phys. \textbf{33}, 879 (1925).
+
+\bibitem{CODATA2022} P. J. Mohr, D. B. Newell, B. N. Taylor, and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Rev. Mod. Phys. \textbf{97}, 025002 (2025).
+
+\end{thebibliography}
+
+\end{document}
