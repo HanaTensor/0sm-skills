@@ -2,7 +2,7 @@
 
 > Repository: `HanaTensor/0sm-skills` | Last updated: 2026-09-07（カタログ本体は v9.00 / 2026-07-10 のまま）
 > **寄託済み 64 本**: #1–#65（#16 永久欠番）、Nov 2018 – Oct 2026、全て Zenodo 公開済み。本カタログはこの 64 本のみを収録する。
-> **寄託状況**: **#66 は寄託済み（DOI 10.5281/zenodo.23750210）**。**#67（草稿・未寄託）と #68–#71 は未寄託・DOI 未取得**（#68–#71 は `tex-sources/` に原稿。2026-11-13・2026-11-25 に改番、対応表は [tex-sources/RENUMBER-2026-11-13.md](tex-sources/RENUMBER-2026-11-13.md)）。状態は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)。
+> **寄託状況**: **#66 は寄託済み（DOI 10.5281/zenodo.23750210）**。**#67（草稿・未寄託）と #68–#71 は未寄託・DOI 未取得**（#67–#71 は `tex-sources/` に原稿。2026-11-13・2026-11-25 に改番、対応表は [tex-sources/RENUMBER-2026-11-13.md](tex-sources/RENUMBER-2026-11-13.md)）。状態は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)。
 > 正典: DOI は baseline の `context/doi-canonical.md`、個票は `context/papers/NNN.md`（最新 tar は `workspace-baselines/`）。
 > 壁練の入口は [wall-practice-index.md](wall-practice-index.md)。**現在地・地雷は同ファイル §0/§2 を参照。** 幹（派生議論の起点セル）は [trunks/](trunks/README.md)。
 > ⚠️ **0.040374c・レプトン臨界半径・それに基づく崩壊の説明は撤回済み**（原因＝GM/c² 脱落・保有8本）。正準値は **#10 の 0.04047c**。詳細は #71（旧 #67・#70）訂正ログと wall-practice-index §2。
