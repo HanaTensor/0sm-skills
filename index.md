@@ -60,7 +60,7 @@
 | 48 | 2026-03 | Geometric Origin of g = 2 in the 0-Sphere Model: U(1) Fiber Bundle and Dual-Frame Phase Decomposition | [10.5281/zenodo.19227518](https://doi.org/10.5281/zenodo.19227518) |
 | 49 | 2026-04-04 | Photon-Sphere Fragmentation as a Gravitational Mediator: Radiation-Gradient Ejection in the π-Cycle of the 0-Sphere Model | [10.5281/zenodo.19393391](https://doi.org/10.5281/zenodo.19393391) |
 | 50 | 2026-04 | Rotation from Scalar Oscillation: Emergence of Photon-Sphere Angular Momentum from Phase-Staggered Kernel Dynamics in the 0-Sphere Model | [10.5281/zenodo.19482145](https://doi.org/10.5281/zenodo.19482145) |
-| 51 | 2026-04 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | [10.5281/zenodo.24521440](https://doi.org/10.5281/zenodo.24521440) (v3, 2026-11) |
+| 51 | 2026-04 | Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model | [10.5281/zenodo.24521440](https://doi.org/10.5281/zenodo.24521440) (v3, 2026-11-25) |
 | 52 | 2026-04 | Geometric Origin of the Weak Equivalence Principle in the 0-Sphere Model: Force Classification and the λC Cancellation Theorem in the Helical Geometry | [10.5281/zenodo.19583032](https://doi.org/10.5281/zenodo.19583032) |
 | 53 | 2026-04 | From Gravitational Mediation to Directional Force Classification: A Conceptual and Mathematical Supplement to Papers #49, #50, #51, and #52 of the 0-Sphere Model Series | [10.5281/zenodo.19616971](https://doi.org/10.5281/zenodo.19616971) |
 | 54 | 2026-04 | Maxwell Electrodynamics as a Derived Low-Energy Limit of the 0-Sphere Line-Integral Ontology | [10.5281/zenodo.19701297](https://doi.org/10.5281/zenodo.19701297) |
