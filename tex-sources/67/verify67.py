@@ -29,9 +29,21 @@ print(f"Yukawa check a=1e-10 m: {math.sqrt(3)*me*1e-20/hbar:.2e} s")
 print(f"ray-limit ratio 2pi L/lambda: carrier {2*math.pi:.3f}, de Broglie {2*math.pi*beta:.3f}")
 # dipole radiation at nu_ZB
 w = 2*math.pi*nuZB
-for r in (lamC/4, lamC/2):
-    P = 4/3*e2*w**4*r**2/c**3
-    print(f"dipole amplitude {r:.3e} m: P = {P:.2f} W, rest energy lost in {mc2/P:.2e} s")
+# |r| in (4/3)e^2 w^4 |r|^2/c^3 is a matrix element = half the classical amplitude x0
+for x0 in (lamC/4, lamC/2):
+    P = 4/3*e2*w**4*(x0/2)**2/c**3
+    print(f"classical amplitude x0 = {x0:.3e} m: P = {P:.2f} W, rest energy lost in {mc2/P:.2e} s")
+# closure: dispersive carrier of mass m_e/(gamma beta) at v_ZB has wavelength lambda_C
+M = me/(g*beta); print(f"carrier mass m_e/(gamma beta) = {M/me:.2f} m_e, wavelength/lambda_C = {h/(g*M*beta*c)/lamC:.6f}")
+print(f"de Broglie waves per round trip gamma*beta = {g*beta:.6f}; proper-time deficit 1-1/gamma = {1-1/g:.2e}")
+print(f"doubling: T nu_ZB = 0.44 (a/lamC)^2 -> 1/2 at a = {math.sqrt(0.5/(2*math.pi*math.sqrt(3)*beta)):.3f} lamC, 1 at a = {math.sqrt(1/(2*math.pi*math.sqrt(3)*beta)):.3f} lamC")
+# Fourier components of cos^4(theta/2) and of the detuned product
+import cmath
+N=4096; ts=[2*math.pi*k/N for k in range(N)]
+def comp(f,m): return abs(sum(f(t)*cmath.exp(-1j*m*t) for t in ts))/N*(1 if m==0 else 2)
+print("cos^4(th/2) components 0,1,2:", [round(comp(lambda t: math.cos(t/2)**4, m),4) for m in (0,1,2)])
+wA,wB=5,3  # integer rates on the grid
+print("detuned product at 0,|dA-B|,wB,wA,wA+wB:", [round(comp(lambda t: math.cos(wA*t/2)**2*math.cos(wB*t/2)**2, m),4) for m in (0,wA-wB,wB,wA,wA+wB)])
 # Rayleigh suppression at 2.33 eV
 print(f"Rayleigh factor at 2.33 eV: {(2.33/(beta*mc2/eV))**4:.2e}")
 # correspondence-principle intensity ratio of the two lines (formal)

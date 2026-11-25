@@ -1,0 +1,150 @@
+================================================================================
+zenodo_relations.txt — Paper #67
+"From Thermal Rays to Matter Waves: The Hamilton Analogy, Phase and Group
+ Indices, and the Schrodinger Envelope in the 0-Sphere Model"
+Author: Satoshi Hanamura
+Date: [DATE-67]
+DOI (this paper): [DOI-67]
+================================================================================
+NOTE: Mode = manual fallback (context/papers/067.md is not yet curated).
+      Rule applied: one relation type per counterpart (relation-types.md
+      Section 0). No paper appears in two sections below.
+
+NOTE: Citation policy of the series (2026-11-13): only papers deposited on
+  Zenodo with a DOI are cited. The bibliography of #67 contains no
+  "in preparation" entry and no forward reference.
+
+NOTE: #51 is cited in its version 3 (10.5281/zenodo.24521440), a separate
+  record from version 1 (10.5281/zenodo.20388056) that #66 cites. The
+  relation below points to version 3, whose dynamical phase S_dyn and world
+  function #67 uses.
+
+NOTE: verify67.py (the numerical-verification script read by Appendix A) is
+  uploaded as a file IN THIS SAME RECORD, so no relation entry is needed.
+
+[Summary]
+  [1] Continues:         2 entries
+  [2] References:        3 entries
+  [3] Cites:             8 entries (standard literature with a DOI; every
+                         Hanamura paper cited is listed under [1], [2], [4])
+  [4] Is part of:        1 entry  (#1)
+  Not entered:           3 standard references without a DOI (see [3])
+  [Reverse Relations]:   5 target papers listed for update
+================================================================================
+
+[1] Continues
+  — Papers whose central results this paper takes over and extends —
+
+  #51 Hanamura 2026 — Helical Trajectory, Fixed-Endpoint Line Integrals, and
+      the Emergence of the Spacetime Metric in the 0-Sphere Model (version 3)
+      DOI: 10.5281/zenodo.24521440
+      Reason: #51 v3 reads the dynamical phase S_dyn = omega_ZB * integral of
+              d tau as a Hamilton principal function and builds the world
+              function from it (Input I2): the ray layer of Hamilton's
+              analogy. #67 takes the step from that ray layer to the wave
+              layer (Secs. II-III, Result R1) and evaluates the dynamical
+              phase over one round trip (Sec. IV, R3). The reading of the
+              factor beta_ZB that #51 v3 leaves open is restated, not
+              derived (Sec. IX).
+
+  #66 Hanamura 2026 — Subluminal Zitterbewegung and the Invariant Speed: An
+      Internal Refractive Index for the 0-Sphere Model
+      DOI: 10.5281/zenodo.23750210
+      Reason: Immediate predecessor. #66 assigns the internal index
+              n = 1/beta_ZB, identifying phase and group indices, and resolves
+              the energy identity into the lines 0, omega, 2 omega (Input I3).
+              #67 separates the two indices (Sec. IV, R2), states what the
+              closure of the cycle requires of the carrier (R3), places the
+              discrete group velocity in the line of the correspondence
+              principle (Sec. VII, R6), and qualifies the use of Snell's law
+              and the critical angle (Sec. IV).
+
+================================================================================
+
+[2] References
+  — Papers whose specific results are used as inputs —
+
+  #65 Hanamura 2026 — From Zero and One to the Electron: Path-Connectedness,
+      the Double Cover, and the Geometric Origin of the Quartic Energy in the
+      0-Sphere Model
+      DOI: 10.5281/zenodo.23257458
+      Reason: The three levels of the internal state (amplitude, share,
+              quartic energy), the light-speed reference rate nu_C, and the
+              double cover of the amplitude cos(theta/2) (Secs. III, VII, IX;
+              open items O1 and O4).
+
+  #24 Hanamura 2025 — Thermal Geodesics in the 0-Sphere Model: Extending
+      General Relativity through Internal Thermodynamic Structure
+      DOI: 10.5281/zenodo.17765349
+      Reason: Thermal geodesics, the ray layer of internal energy transport
+              (Secs. I-II), and the thermal language that #67 relates to the
+              Schrodinger equation by an imaginary diffusivity (Sec. V).
+
+  #29 Hanamura 2025 — Geometric Structure of Spinorial Phase Accumulation
+      along Thermal Geodesics
+      DOI: 10.5281/zenodo.18067760
+      Reason: The spinorial phase that returns only after 4 pi, used for the
+              alternative count theta/2 of the internal phase, which gives
+              J = h/2 (Sec. IX, open item O1).
+
+================================================================================
+
+[3] Cites
+  — Standard literature cited in the bibliography (each DOI checked against
+    Crossref on 2026-11-25). Every Hanamura paper cited is listed under [1],
+    [2] or [4]. —
+
+  Hamilton 1834 — On a general method in dynamics,
+      Phil. Trans. R. Soc. London 124, 247
+      DOI: 10.1098/rstl.1834.0017           Resource type: Journal article
+  Schrodinger 1926 — Quantisierung als Eigenwertproblem (Zweite Mitteilung),
+      Ann. Phys. 384, 489
+      DOI: 10.1002/andp.19263840602         Resource type: Journal article
+  de Broglie 1925 — Recherches sur la theorie des quanta,
+      Ann. Phys. (Paris) 10e serie, 3, 22
+      DOI: 10.1051/anphys/192510030022      Resource type: Journal article
+  Madelung 1927 — Quantentheorie in hydrodynamischer Form,
+      Z. Phys. 40, 322
+      DOI: 10.1007/BF01400372               Resource type: Journal article
+  Gordon 1928 — Der Strom der Diracschen Elektronentheorie,
+      Z. Phys. 50, 630
+      DOI: 10.1007/BF01327881               Resource type: Journal article
+  Heisenberg 1925 — Uber quantentheoretische Umdeutung kinematischer und
+      mechanischer Beziehungen, Z. Phys. 33, 879
+      DOI: 10.1007/BF01328377               Resource type: Journal article
+  Berry 1984 — Quantal phase factors accompanying adiabatic changes,
+      Proc. R. Soc. Lond. A 392, 45
+      DOI: 10.1098/rspa.1984.0023           Resource type: Journal article
+  Mohr et al. (CODATA 2022), Rev. Mod. Phys. 97, 025002 (2025)
+      DOI: 10.1103/RevModPhys.97.025002     Resource type: Journal article
+
+  Not entered (no DOI for the work cited):
+      Yukawa, Ryoshi Rikigaku Josetsu (Kobundo 1954; Osaka University Press
+          2021) (book)
+      Synge, Relativity: The General Theory (North-Holland 1960), Ch. 2 (book)
+      Siegman, Lasers (University Science Books 1986), Ch. 16 (book)
+
+================================================================================
+
+[4] Is part of
+  — 0-Sphere Model series membership (#1 only; not repeated under Cites) —
+
+  #1  Hanamura 2018 — A Model of an Electron Including Two Perfect Black Bodies
+      DOI: 10.5281/zenodo.16759284
+      (Series membership; #1 is not in the bibliography of #67.)
+
+================================================================================
+
+[Reverse Relations — Recommended Updates to Target Papers]
+
+Add on each target record, pointing to the DOI of #67 ([DOI-67]).
+(Cites and Is part of have no reverse entry, per Section 0.)
+
+  #51 v3 (10.5281/zenodo.24521440) — Add: Is continued by → [DOI-67]
+  #66    (10.5281/zenodo.23750210) — Add: Is continued by → [DOI-67]
+
+  #65    (10.5281/zenodo.23257458) — Add: Is referenced by → [DOI-67]
+  #24    (10.5281/zenodo.17765349) — Add: Is referenced by → [DOI-67]
+  #29    (10.5281/zenodo.18067760) — Add: Is referenced by → [DOI-67]
+
+================================================================================
