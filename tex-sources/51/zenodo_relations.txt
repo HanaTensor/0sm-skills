@@ -1,0 +1,116 @@
+================================================================================
+Zenodo Related Works — Paper #51, version 3
+Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the
+Spacetime Metric in the 0-Sphere Model
+DOI: 10.5281/zenodo.24521440 (version 3; previous version 10.5281/zenodo.20388056)
+================================================================================
+
+[Policy]
+  One relation type per related paper (strongest type only), in the order
+  Is supplement to > Continues > References > Cites. Paper #1 is entered as
+  Is part of only.
+
+[Summary]
+  Is supplement to : 1  (#50)
+  Continues        : 1  (#29)
+  References       : 2  (#24, #33)
+  Cites            : 12 (#10, #22, #30, #31, #34, #36, #37, #40, #46, #62,
+                         #65, #66) + 1 non-series DOI set (see [4])
+  Is part of       : 1  (#1)
+  Hanamura DOIs in the bibliography: 17
+
+================================================================================
+[1] Is supplement to
+================================================================================
+
+DOI: 10.5281/zenodo.19482145
+  Paper: #50 — Rotation from Scalar Oscillation: Emergence of Photon-Sphere
+         Angular Momentum, Chirality, and Helicity from Phase-Staggered Kernel
+         Dynamics in the 0-Sphere Model
+  Reason: Companion paper. #51 lifts the planar rotation of #50 to a
+          three-dimensional helix; the chirality of #50 is carried by the
+          antisymmetric (Berry) part of the phase functional in version 3.
+
+================================================================================
+[2] Continues
+================================================================================
+
+DOI: 10.5281/zenodo.18067760
+  Paper: #29 — Geometric Structure of Spinorial Phase Accumulation along
+         Thermal Geodesics
+  Reason: The central object of #51, the phase accumulated along the open arc
+          between the kernels, is the open-arc programme of #29 extended to
+          the helical arc and to the emergence of the metric.
+
+================================================================================
+[3] References
+================================================================================
+
+DOI: 10.5281/zenodo.17765349
+  Paper: #24 — Thermal Geodesics in the 0-Sphere Model: Extending General
+         Relativity Through Internal Thermodynamic Structure
+  Reason: Thermal geodesic framework and the thermal metric G(T) = n^2(T) g,
+          used as the geometric setting; not re-derived.
+
+DOI: 10.5281/zenodo.18356895
+  Paper: #33 — Geometrical Confinement of Energy in the 0-Sphere Model: Rest
+         Mass, Zitterbewegung, and Topological Stability
+  Reason: Confinement domain D, promoted in #51 from an assumption to a
+          theorem via the Bonnet-Myers bound.
+
+================================================================================
+[4] Cites
+================================================================================
+
+DOI: 10.5281/zenodo.17764997   #10 — gamma = 1 + a_e and the internal speed
+DOI: 10.5281/zenodo.17765318   #22 — gravitational redshift of the internal clock
+DOI: 10.5281/zenodo.18819682   #30 — conservation laws as geometric consistency
+DOI: 10.5281/zenodo.18203433   #31 — universality of line integrals
+DOI: 10.5281/zenodo.18437010   #34 — arcwise connectivity supplied by the photon sphere
+DOI: 10.5281/zenodo.18603340   #36 — non-perturbative scope
+DOI: 10.5281/zenodo.18637487   #37 — internal connection vs. Christoffel symbols
+DOI: 10.5281/zenodo.18736670   #40 — derivative-order mismatch
+DOI: 10.5281/zenodo.19010945   #46 — energy floor E_0/2 (lower bound on separation)
+DOI: 10.5281/zenodo.20091680   #62 — root-mean-square factor (added in v3)
+DOI: 10.5281/zenodo.23257458   #65 — light-speed reference rate nu_C (added in v3)
+DOI: 10.5281/zenodo.23750210   #66 — corrected Dirac ZB frequency and ratio (added in v3)
+
+Non-series references with DOI (optional, Cites):
+  10.1098/rspa.1984.0023        Berry (1984)
+  10.1073/pnas.14.2.178         Van Vleck (1928)
+  10.1103/PhysRev.81.848        Morette (1951)
+  10.1088/1742-6596/2533/1/012012  Kothawala (2023)
+  10.1038/nature08688           Gerritsma et al. (2010)
+
+================================================================================
+[5] Is part of
+================================================================================
+
+DOI: 10.5281/zenodo.16759284
+  Paper: #1 — A Model of an Electron Including Two Perfect Black Bodies
+  Reason: Founding paper of the series; energy identity and two-kernel
+          architecture.
+
+================================================================================
+[Reverse Relations — Recommended Updates to Target Papers]
+================================================================================
+
+Only the reverse of Is supplement to, Continues and References is recorded.
+If the records below already carry a reverse relation to version 2
+(10.5281/zenodo.20388056), it may be kept; add the version-3 entry beside it.
+
+--- #50 (10.5281/zenodo.19482145) ---
+  Add: Is supplemented by -> 10.5281/zenodo.24521440
+
+--- #29 (10.5281/zenodo.18067760) ---
+  Add: Is continued by -> 10.5281/zenodo.24521440
+
+--- #24 (10.5281/zenodo.17765349) ---
+  Add: Is referenced by -> 10.5281/zenodo.24521440
+
+--- #33 (10.5281/zenodo.18356895) ---
+  Add: Is referenced by -> 10.5281/zenodo.24521440
+
+================================================================================
+END OF RELATIONS FILE
+================================================================================
