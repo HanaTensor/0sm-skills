@@ -10,6 +10,7 @@ Satoshi Hanamura の 0-Sphere Model 論文系列の参照リポジトリ。**寄
 | [wall-practice-index.md](wall-practice-index.md) | 壁練（構想議論）の入口: §0 現在地（二前線）・§2 地雷・発火チェーン・課題台帳 | skill `0sm-wall-practice` の fetch 先。**状態の正典** |
 | [trunks/](trunks/README.md) | 派生議論の起点となる自己完結セル（一幹＝一ファイル）。現在 T1 | 幹本体が正典。index に内容を複製しない |
 | `tex-sources/NN/` | 論文 #NN の一次資料（main.tex=Zenodo清書版 / main-overleaf.tex=Overleaf原本 / overleaf/rK/=完全スナップショット / PDF / 図版 / readme。規約は [tex-sources/OVERLEAF-MANIFEST.md](tex-sources/OVERLEAF-MANIFEST.md)） | 一次資料の正典 |
+| [translations-ja/](translations-ja/README.md) | 論文の日本語訳 PDF（希望した論文だけ。`NNN_vK_ja.pdf`） | 訳は便宜用。原文が正 |
 | `workspace-baselines/` | curate workspace の完全スナップショット（最新 tar 1本で全引き継ぎ完結） | 個票・派生索引の正典 |
 | `history/` | 大きな作業セッションの履歴文書（日付別） | 経緯の記録 |
 
