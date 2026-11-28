@@ -1,25 +1,25 @@
 ================================================================================
-zenodo_relations.txt — Paper #67
+zenodo_relations.txt — Paper #68
 "From Thermal Rays to Matter Waves: The Hamilton Analogy, Phase and Group
  Indices, and the Schrodinger Envelope in the 0-Sphere Model"
 Author: Satoshi Hanamura
 Date: [DATE-67]
-DOI (this paper): [DOI-67]
+DOI (this paper): [DOI-68]
 ================================================================================
 NOTE: Mode = manual fallback (context/papers/067.md is not yet curated).
       Rule applied: one relation type per counterpart (relation-types.md
       Section 0). No paper appears in two sections below.
 
 NOTE: Citation policy of the series (2026-11-13): only papers deposited on
-  Zenodo with a DOI are cited. The bibliography of #67 contains no
+  Zenodo with a DOI are cited. The bibliography of #68 contains no
   "in preparation" entry and no forward reference.
 
 NOTE: #51 is cited in its version 3 (10.5281/zenodo.24521440), a separate
   record from version 1 (10.5281/zenodo.20388056) that #66 cites. The
   relation below points to version 3, whose dynamical phase S_dyn and world
-  function #67 uses.
+  function #68 uses.
 
-NOTE: verify67.py (the numerical-verification script read by Appendix A) is
+NOTE: verify68.py (the numerical-verification script read by Appendix A) is
   uploaded as a file IN THIS SAME RECORD, so no relation entry is needed.
 
 [Summary]
@@ -41,7 +41,7 @@ NOTE: verify67.py (the numerical-verification script read by Appendix A) is
       Reason: #51 v3 reads the dynamical phase S_dyn = omega_ZB * integral of
               d tau as a Hamilton principal function and builds the world
               function from it (Input I2): the ray layer of Hamilton's
-              analogy. #67 takes the step from that ray layer to the wave
+              analogy. #68 takes the step from that ray layer to the wave
               layer (Secs. II-III, Result R1) and evaluates the dynamical
               phase over one round trip (Sec. IV, R3). The reading of the
               factor beta_ZB that #51 v3 leaves open is restated, not
@@ -53,7 +53,7 @@ NOTE: verify67.py (the numerical-verification script read by Appendix A) is
       Reason: Immediate predecessor. #66 assigns the internal index
               n = 1/beta_ZB, identifying phase and group indices, and resolves
               the energy identity into the lines 0, omega, 2 omega (Input I3).
-              #67 separates the two indices (Sec. IV, R2), states what the
+              #68 separates the two indices (Sec. IV, R2), states what the
               closure of the cycle requires of the carrier (R3), places the
               discrete group velocity in the line of the correspondence
               principle (Sec. VII, R6), and qualifies the use of Snell's law
@@ -77,7 +77,7 @@ NOTE: verify67.py (the numerical-verification script read by Appendix A) is
       General Relativity through Internal Thermodynamic Structure
       DOI: 10.5281/zenodo.17765349
       Reason: Thermal geodesics, the ray layer of internal energy transport
-              (Secs. I-II), and the thermal language that #67 relates to the
+              (Secs. I-II), and the thermal language that #68 relates to the
               Schrodinger equation by an imaginary diffusivity (Sec. V).
 
   #29 Hanamura 2025 — Geometric Structure of Spinorial Phase Accumulation
@@ -131,20 +131,20 @@ NOTE: verify67.py (the numerical-verification script read by Appendix A) is
 
   #1  Hanamura 2018 — A Model of an Electron Including Two Perfect Black Bodies
       DOI: 10.5281/zenodo.16759284
-      (Series membership; #1 is not in the bibliography of #67.)
+      (Series membership; #1 is not in the bibliography of #68.)
 
 ================================================================================
 
 [Reverse Relations — Recommended Updates to Target Papers]
 
-Add on each target record, pointing to the DOI of #67 ([DOI-67]).
+Add on each target record, pointing to the DOI of #68 ([DOI-68]).
 (Cites and Is part of have no reverse entry, per Section 0.)
 
-  #51 v3 (10.5281/zenodo.24521440) — Add: Is continued by → [DOI-67]
-  #66    (10.5281/zenodo.23750210) — Add: Is continued by → [DOI-67]
+  #51 v3 (10.5281/zenodo.24521440) — Add: Is continued by → [DOI-68]
+  #66    (10.5281/zenodo.23750210) — Add: Is continued by → [DOI-68]
 
-  #65    (10.5281/zenodo.23257458) — Add: Is referenced by → [DOI-67]
-  #24    (10.5281/zenodo.17765349) — Add: Is referenced by → [DOI-67]
-  #29    (10.5281/zenodo.18067760) — Add: Is referenced by → [DOI-67]
+  #65    (10.5281/zenodo.23257458) — Add: Is referenced by → [DOI-68]
+  #24    (10.5281/zenodo.17765349) — Add: Is referenced by → [DOI-68]
+  #29    (10.5281/zenodo.18067760) — Add: Is referenced by → [DOI-68]
 
 ================================================================================

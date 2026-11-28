@@ -7,14 +7,14 @@ in the 0-Sphere Model
 Author: Satoshi Hanamura
 Email: hana.tensor@gmail.com
 Date: [DATE-67]
-DOI: [DOI-67]
+DOI: [DOI-68]
 
 ================================================================================
 CONTENTS
 ================================================================================
 
 This archive contains the LaTeX source file and the numerical-verification
-script for a paper of the 0-Sphere Model series (paper #67):
+script for a paper of the 0-Sphere Model series (paper #68):
 
 1. main.tex
    - Main LaTeX source file (11 pages, 1 figure drawn in TikZ, 3 tables,
@@ -22,10 +22,10 @@ script for a paper of the 0-Sphere Model series (paper #67):
    - Document class: REVTeX 4-2 (APS/PRB reprint format)
    - Compiler: pdfLaTeX
    - TeX Live version: 2025
-   - Appendix A reads verify67.py with \lstinputlisting, so verify67.py
+   - Appendix A reads verify68.py with \lstinputlisting, so verify68.py
      must sit in the same folder as main.tex when compiling.
 
-2. verify67.py
+2. verify68.py
    - Python 3 script that reproduces every number of the paper:
      (1) beta_ZB, 1/beta_ZB, 2/beta_ZB, lambda_C, nu_C, nu_ZB and the line
      energies 20.68 keV and 41.36 keV;
@@ -45,7 +45,7 @@ script for a paper of the 0-Sphere Model series (paper #67):
      (8) the Fourier components of cos^4(theta/2) (3/8, 1/2, 1/8) and of the
      product of two shares with unequal rates (1/4, 1/8, 1/4, 1/4, 1/8).
    - Requires Python 3 only (standard library: math, cmath).
-   - Run:  python3 verify67.py
+   - Run:  python3 verify68.py
 
 3. [PDF-67]
    - Compiled paper (11 pages).
@@ -77,7 +77,7 @@ Note: The bibliography is embedded (thebibliography); no BibTeX run is
       hyperlinks are all resolved.
 
 Alternatively, use Overleaf with the following settings:
-  - Main document: main.tex (upload verify67.py to the same folder)
+  - Main document: main.tex (upload verify68.py to the same folder)
   - Compiler: pdfLaTeX
   - TeX Live version: 2025
   - Compile mode: Normal
@@ -239,7 +239,7 @@ Section IX:   Limitations
 Section X:    Conclusion
 
 Appendices:
-  A. Numbers and Their Reproduction (code listing of verify67.py)
+  A. Numbers and Their Reproduction (code listing of verify68.py)
   B. Inputs, Results and Open Items (I1-I3, R1-R7, O1-O6)
 
 Acknowledgments
@@ -258,7 +258,7 @@ Recommended citation format:
   "From Thermal Rays to Matter Waves: The Hamilton Analogy, Phase and Group
    Indices, and the Schrodinger Envelope in the 0-Sphere Model,"
   Zenodo (2026).
-  https://doi.org/[DOI-67]
+  https://doi.org/[DOI-68]
 
 ================================================================================
 CONTACT INFORMATION
@@ -284,7 +284,7 @@ Version 1.0 ([DATE-67])
     the quartic energy
   - Constraints: charge dipole, Thomson scattering, momentum identity
   - Inputs, results and open items listed for citation by later papers
-  - Numerical verification script verify67.py
+  - Numerical verification script verify68.py
 
 ================================================================================
 ACKNOWLEDGMENTS
@@ -326,7 +326,7 @@ Figures:
   - Drawn in TikZ inside main.tex (no external image files)
 
 Code listings:
-  - Appendix A includes verify67.py with \lstinputlisting (listings
+  - Appendix A includes verify68.py with \lstinputlisting (listings
     package)
 
 Cross-references:
@@ -341,7 +341,7 @@ OVERLEAF PROJECT SETTINGS (RECOMMENDED)
   - Main document: main.tex
   - Compiler: pdfLaTeX
   - TeX Live version: 2025
-  - Additional file required: verify67.py (read by Appendix A); figures are
+  - Additional file required: verify68.py (read by Appendix A); figures are
     TikZ and the bibliography is embedded
 
 ================================================================================

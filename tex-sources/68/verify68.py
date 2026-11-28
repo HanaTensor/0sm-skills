@@ -1,93 +1,50 @@
-#!/usr/bin/env python3
-"""Paper #68 (provisional): channels of the energy identity, recoil closure, quadrupole.
-Requires numpy only."""
 import math
-import numpy as np
-
-N = 4096
-t = np.linspace(0, 2*np.pi, N, endpoint=False)
-d = 1.0
-TA, TB, K = np.cos(t/2)**4, np.sin(t/2)**4, 0.5*np.sin(t)**2
-
-def check(label, ok):
-    print(("PASS " if ok else "FAIL ") + label)
-
-check("identity TA+TB+K = 1", np.allclose(TA+TB+K, 1))
-check("Fourier TA = 3/8 + cos/2 + cos2/8", np.allclose(TA, 3/8 + np.cos(t)/2 + np.cos(2*t)/8))
-check("Fourier TB = 3/8 - cos/2 + cos2/8", np.allclose(TB, 3/8 - np.cos(t)/2 + np.cos(2*t)/8))
-check("Fourier K  = 1/4 - cos2/4", np.allclose(K, 1/4 - np.cos(2*t)/4))
-
-X = (d/2)*np.cos(t)*(1 + 0.5*np.sin(t)**2)
-xg = X - (d/2)*np.cos(t)
-D = TA*(X - d/2) + TB*(X + d/2) + K*xg
-check("dipole vanishes under recoil closure (max |D| < 1e-14)", np.abs(D).max() < 1e-14)
-
-J = TA*(X - d/2)**2 + TB*(X + d/2)**2 + K*xg**2
-check("J = sin^4 (1+sin^2)/16", np.allclose(J, np.sin(t)**4*(1 + np.sin(t)**2)/16))
-check("J = (22 - 31cos2 + 10cos4 - cos6)/512",
-      np.allclose(J, (22 - 31*np.cos(2*t) + 10*np.cos(4*t) - np.cos(6*t))/512))
-
-c = np.fft.rfft(J)/N
-amp = np.array([abs(c[0])] + [2*abs(c[k]) for k in range(1, 9)])
-check("only even harmonics up to 6", np.allclose(amp[[1, 3, 5, 7, 8]], 0, atol=1e-14))
-k = np.arange(9); pw = (amp*k**3)**2; pw[0] = 0; share = pw/pw.sum()
-print("amplitudes 2w,4w,6w:", amp[2], amp[4], amp[6])
-print("power shares 2w,4w,6w: %.4f %.4f %.4f" % (share[2], share[4], share[6]))
-J3 = sum((amp[k]*k**3)**2/2 for k in (2, 4, 6))
-check("mean square of d3J/dtheta3 = 4045/4096", abs(J3 - 4045/4096) < 1e-12)
-
-
-# Momentum bookkeeping on the closure (units E0 = omega = d = 1)
-g = lambda f: np.gradient(f, t, edge_order=2)
-xA, xB = X - d/2, X + d/2
-bodies = (TA + TB)*g(X) + K*g(xg)
-transfer = g(TA)*xA + g(TB)*xB + g(K)*xg
-check("bodies = -(1/2) sin^3",  np.allclose(bodies, -0.5*np.sin(t)**3, atol=1e-5))
-check("transfer = +(1/2) sin^3", np.allclose(transfer, 0.5*np.sin(t)**3, atol=1e-5))
-check("total momentum = 0", np.allclose(bodies + transfer, 0, atol=1e-5))
-check("largest kernel speed = (3/4) omega d", abs(np.abs(g(X)).max() - 0.75) < 1e-4)
-check("largest photon-sphere speed = (1/4) omega d", abs(np.abs(g(xg)).max() - 0.25) < 1e-4)
-
-# The form of Paper #58: Q proportional to T_A - T_B with fixed kernels
-dE = TA - TB
-check("T_A - T_B = cos(theta)", np.allclose(dE, np.cos(t)))
-check("T_A - T_B is odd under exchange (theta -> theta + pi)",
-      np.allclose(np.roll(dE, N//2), -dE))
-
-# Largest kernel speed against the group velocity c/n = beta c of Paper #66 (d = lambda_C/2)
-# (3/4) omega d / (beta c) with omega = 2 pi beta c / lambda_C and d = lambda_C/2 gives 3 pi / 4
-ratio = 3*math.pi/4
-for b_test in (math.sqrt(0.00163798087), 0.01, 0.1):
-    lam_test = 1.0
-    v_max = 0.75*(2*math.pi*b_test/lam_test)*(lam_test/2)     # in units of c
-    check("v_kernel,max / (c/n) = 3 pi / 4 = %.4f for beta = %.5f" % (v_max/b_test, b_test),
-          abs(v_max/b_test - ratio) < 1e-12)
-above = np.abs(np.sin(t))**3 > 1/ratio
-frac_closed = 1 - 2*math.asin((1/ratio)**(1/3))/math.pi
-check("fraction of the cycle with v_kernel > c/n = %.3f (closed form %.4f)" % (above.mean(), frac_closed),
-      abs(above.mean() - frac_closed) < 1e-3)
-
-G, c0 = 6.67430e-11, 299792458.0
-me, lamC = 9.1093837139e-31, 2.42631023538e-12
-beta = math.sqrt(0.00163798087)
-nu = beta*c0/lamC; w = 2*math.pi*nu
-for dd, name in ((lamC/2, "lambda_C/2"), (lamC, "lambda_C")):
-    P = G/(5*c0**5)*(2/3)*(me*dd**2)**2*w**6*4045/4096
-    age = 13.787e9*3.15576e7
-    print("d = %-10s P = %.3e W, loss over age = %.2e eV, v_kernel/c = %.4f, energy in transit/E0 >= %.4f"
-          % (name, P, P*age/1.602176634e-19, 0.75*w*dd/c0, w*dd/(2*c0)))
-print("nu_ZB = %.4e Hz" % nu)
-hkeV = 4.135667696e-18
-for n in (2, 4, 6):
-    print("%dw: %.4e Hz, %.1f keV" % (n, n*nu, n*nu*hkeV))
-
-# Rigidity of the amplitudes, Eq. (2.3): constant total + transfer rate + complete transfer
-import sympy as sp
-th_, M_, c_, s_ = sp.symbols('theta M c s', real=True)
-D_ = (-s_*sp.cos(th_) + c_)/sp.sqrt(M_)                 # b^2 - a^2
-a2_ = (sp.sqrt(M_) - D_)/2; b2_ = (sp.sqrt(M_) + D_)/2
-sol_ = sp.solve([sp.Eq(a2_.subs(th_, sp.pi), 0), sp.Eq(b2_.subs(th_, 0), 0)], [c_, M_], dict=True)
-check("Eq. (2.3): minima of a^2, b^2 vanish together only for M = s, c = 0", sol_ == [{M_: s_, c_: 0}])
-check("Eq. (2.3): then a^2 = sqrt(M) cos^2(theta/2), b^2 = sqrt(M) sin^2(theta/2)",
-      sp.simplify(a2_.subs({c_: 0, s_: M_}) - sp.sqrt(M_)*sp.cos(th_/2)**2) == 0 and
-      sp.simplify(b2_.subs({c_: 0, s_: M_}) - sp.sqrt(M_)*sp.sin(th_/2)**2) == 0)
+# CODATA 2022
+c = 299792458.0; h = 6.62607015e-34; hbar = h/(2*math.pi)
+me = 9.1093837139e-31; eV = 1.602176634e-19
+e2 = 2.307077e-28            # e^2/(4 pi eps0) in J m
+beta2 = 0.00163798087        # Paper #10
+beta = math.sqrt(beta2); n = 1/beta
+lamC = h/(me*c); mc2 = me*c**2
+nuC = mc2/h; nuZB = beta*nuC; nuD = 2*nuC
+print(f"beta = {beta:.6f}, n = 1/beta = {n:.3f}, 2/beta = {2/beta:.2f}")
+print(f"lambda_C = {lamC:.5e} m, nu_C = {nuC:.4e} Hz, nu_ZB = {nuZB:.4e} Hz, nu_D = {nuD:.4e} Hz")
+print(f"line energies: {beta*mc2/eV/1e3:.2f} keV and {2*beta*mc2/eV/1e3:.2f} keV")
+# wavelengths and momenta
+g = 1/math.sqrt(1-beta2)
+lam_dB = h/(g*me*beta*c); KE = (g-1)*mc2/eV
+print(f"de Broglie wavelength at v_ZB = {lam_dB*1e12:.2f} pm, kinetic energy = {KE:.1f} eV")
+print(f"vacuum wavelength of nu_ZB line = {c/nuZB*1e12:.2f} pm")
+print(f"medium wavelength (c/n)/nu_ZB = {c/n/nuZB:.5e} m  (lambda_C = {lamC:.5e})")
+print(f"waves per round trip: carrier {lamC/(c/n/nuZB):.4f}, de Broglie {lamC/lam_dB:.4f}")
+# phase indices
+print(f"phase index (rest energy kept) = {beta:.4f}; (rest energy removed) = {2/beta:.2f}; group = {n:.2f}")
+# diffusivity
+print(f"hbar/2m = {hbar/(2*me):.4e} m^2/s ; (lambda_C/2)(c/2pi) = {lamC/2*c/(2*math.pi):.4e}")
+# packet doubling
+T = math.sqrt(3)*me*lamC**2/hbar
+print(f"doubling time at a = lambda_C: {T:.3e} s ; T*nu_ZB = {T*nuZB:.4f} ; 2pi sqrt3 beta = {2*math.pi*math.sqrt(3)*beta:.4f}")
+print(f"Yukawa check a=1e-10 m: {math.sqrt(3)*me*1e-20/hbar:.2e} s")
+# ray-limit ratio
+print(f"ray-limit ratio 2pi L/lambda: carrier {2*math.pi:.3f}, de Broglie {2*math.pi*beta:.3f}")
+# dipole radiation at nu_ZB
+w = 2*math.pi*nuZB
+# |r| in (4/3)e^2 w^4 |r|^2/c^3 is a matrix element = half the classical amplitude x0
+for x0 in (lamC/4, lamC/2):
+    P = 4/3*e2*w**4*(x0/2)**2/c**3
+    print(f"classical amplitude x0 = {x0:.3e} m: P = {P:.2f} W, rest energy lost in {mc2/P:.2e} s")
+# closure: dispersive carrier of mass m_e/(gamma beta) at v_ZB has wavelength lambda_C
+M = me/(g*beta); print(f"carrier mass m_e/(gamma beta) = {M/me:.2f} m_e, wavelength/lambda_C = {h/(g*M*beta*c)/lamC:.6f}")
+print(f"de Broglie waves per round trip gamma*beta = {g*beta:.6f}; proper-time deficit 1-1/gamma = {1-1/g:.2e}")
+print(f"doubling: T nu_ZB = 0.44 (a/lamC)^2 -> 1/2 at a = {math.sqrt(0.5/(2*math.pi*math.sqrt(3)*beta)):.3f} lamC, 1 at a = {math.sqrt(1/(2*math.pi*math.sqrt(3)*beta)):.3f} lamC")
+# Fourier components of cos^4(theta/2) and of the detuned product
+import cmath
+N=4096; ts=[2*math.pi*k/N for k in range(N)]
+def comp(f,m): return abs(sum(f(t)*cmath.exp(-1j*m*t) for t in ts))/N*(1 if m==0 else 2)
+print("cos^4(th/2) components 0,1,2:", [round(comp(lambda t: math.cos(t/2)**4, m),4) for m in (0,1,2)])
+wA,wB=5,3  # integer rates on the grid
+print("detuned product at 0,|dA-B|,wB,wA,wA+wB:", [round(comp(lambda t: math.cos(wA*t/2)**2*math.cos(wB*t/2)**2, m),4) for m in (0,wA-wB,wB,wA,wA+wB)])
+# Rayleigh suppression at 2.33 eV
+print(f"Rayleigh factor at 2.33 eV: {(2.33/(beta*mc2/eV))**4:.2e}")
+# correspondence-principle intensity ratio of the two lines (formal)
+print(f"formal intensity ratio |c2/c1|^2 * 2^4 = {((1/8)/(1/2))**2*16:.3f}")

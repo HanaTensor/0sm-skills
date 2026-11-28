@@ -1,7 +1,9 @@
 % ========================================
-% Paper #68 of the 0-Sphere Model series (renumbered from #67 on 2026-11-25)
-% Why the 0-Sphere Electron Begins at the Quadrupole: Monopole, Dipole and Quadrupole Channels of the Energy Identity
+% Paper #68 of the 0-Sphere Model series (renumbered from #67 on 2026-11-27; #67 is now the Spheroidal Hose paper, in preparation)
+% From Thermal Rays to Matter Waves: The Hamilton Analogy, Phase and Group Indices, and the Schrodinger Envelope in the 0-Sphere Model
 % Author: Satoshi Hanamura (ORCID 0009-0000-2687-0918)
+% Date  : [DATE-67]
+% DOI   : [DOI-68]
 % Verification script: verify68.py
 % ========================================
 % ========================================
@@ -51,41 +53,34 @@
 % Code listings with syntax highlighting
 \usepackage{listings}
 \usepackage{xcolor}
-% Colour definitions (light blue palette for listings)
 \definecolor{backcolour}{rgb}{0.96,0.97,0.98}
 \definecolor{deepblue}{rgb}{0,0,0.5}
 \definecolor{deepgreen}{rgb}{0,0.5,0.3}
 \definecolor{deepgray}{rgb}{0.4,0.4,0.4}
 \definecolor{stringcolor}{rgb}{0.2,0.4,0.6}
-% Python listing style
 \lstdefinestyle{pythonstyle}{
     backgroundcolor=\color{backcolour}, commentstyle=\color{deepgreen}\itshape, keywordstyle=\color{deepblue}\bfseries, numberstyle=\tiny\color{deepgray}, stringstyle=\color{stringcolor}, basicstyle=\ttfamily\footnotesize, breakatwhitespace=false, breaklines=true, captionpos=b, keepspaces=true, numbers=left, numbersep=5pt, showspaces=false, showstringspaces=false, showtabs=false, tabsize=2, language=Python, frame=single, rulecolor=\color{deepgray} }
 \lstset{style=pythonstyle}
 % Internal phase notation
-\newcommand{\iphase}{\theta}  % internal geometric phase = ωt/2
+\newcommand{\iphase}{\theta}  % internal phase theta = omega_ZB t (one round trip per 2 pi)
 \usepackage{tikz}
 \usetikzlibrary{arrows.meta, calc, 3d, shadings, positioning, decorations.pathmorphing}
 % --- Custom Macros ---
 \newcommand{\omZB}{\omega_{\text{ZB}}}
 \newcommand{\EphS}{E_{\text{ph}}}
 \newcommand{\Egrad}{\Delta E_{\text{AB}}}
-% Fundamental 1-form
-% Field strength 2-form
 \newcommand{\FF}{\mathbf{F}}
-% Open Wilson line
 \newcommand{\WL}{\mathcal{W}}
-% Hodge dual
 \newcommand{\hodge}{\star}
+\newcommand{\lambdaC}{\lambda_{\mathrm{C}}}
+\newcommand{\bZB}{\beta_{\mathrm{ZB}}}
+\newcommand{\Sdyn}{\mathcal{S}_{\mathrm{dyn}}}
+\newcommand{\nph}{n_{\mathrm{ph}}}
+\newcommand{\ngr}{n_{\mathrm{g}}}
 
-% ========================================
-% Document Begin
-% ========================================
 \begin{document}
 
-% ========================================
-% Title, Author, and Date
-% ========================================
-\title{Why the 0-Sphere Electron Begins at the Quadrupole:\\Monopole, Dipole and Quadrupole Channels of the Energy Identity}
+\title{From Thermal Rays to Matter Waves:\\The Hamilton Analogy, Phase and Group Indices, and the Schr\"odinger Envelope in the 0-Sphere Model}
 
 \author{Satoshi Hanamura}
 \homepage{https://orcid.org/0009-0000-2687-0918}
@@ -96,15 +91,15 @@
 % Abstract
 % ========================================
 \begin{abstract}
-In general relativity the multipoles of a source play sharply different roles: the monopole is conserved, the mass dipole cannot radiate because its rate of change is the total momentum, and gravitational radiation begins at the quadrupole, at twice the orbital frequency.
-This paper shows that the internal energy transfer of the 0-Sphere electron has the same hierarchy, and that each level follows from the energy identity $\cos^4(\theta/2) + \sin^4(\theta/2) + \tfrac12\sin^2\theta = 1$ of the model.
-Resolved into frequencies, the identity balances separately in three channels: a constant (the conserved total), a fundamental $\omega$ that is antisymmetric in the two kernels (the exchange from one kernel to the other), and a second harmonic $2\omega$ that is symmetric (the exchange between the kernels and the photon sphere).
-The fundamental moves the centre of energy; conservation of the mass dipole therefore forces the kernels to recoil, and the recoil closure $X(\theta) = \tfrac{d}{2}\cos\theta\,(1 + \tfrac12\sin^2\theta)$ cancels the dipole identically. The fundamental remains in the momentum of each element, and the cancellation holds for the total, which is the quantity to which gravitation couples; it requires the momentum carried by the transfer of energy between separated elements, and it requires the photon sphere to carry the momentum of a slow body, $Kv/c^2$, rather than the momentum $K/c$ of free light, in agreement with the group-velocity reading of the companion Letter.
-The second moment that remains is $J(\theta) = E_0d^2\sin^4\theta\,(1 + \sin^2\theta)/16$, which contains only the even harmonics $2\omega$, $4\omega$ and $6\omega$ and no others.
-Its amplitude is largest at $2\omega$; because quadrupole radiation weights each harmonic by the sixth power of its frequency, $79.11\%$ of the radiated power lies at $4\omega$ ($82.7$~keV).
-This even-harmonic form replaces the quadrupole proposed in Paper \#58 of the series, which held the kernels fixed and oscillated at the fundamental.
-For a core separation $\lambda_C/2$ the power is $6.3\times10^{-45}$~W, unobservable and harmless to stability; the result is structural rather than observational.
-The paper addresses the form of the gravitational source, not its coupling strength, and records which parts of the correspondence with general relativity remain open. The kinematic results were reproduced independently, without access to them, by two blind verifications whose findings are recorded in an appendix.
+Hamilton's analogy places classical mechanics beside geometrical optics and wave mechanics beside wave optics, and Schr\"odinger's equation was obtained by taking the step from the first pair to the second.
+The 0-Sphere model has so far stood on the first rung: internal energy transport follows thermal geodesics of an optical metric, and the accumulated internal phase is a Hamilton principal function of the arc between the two kernels.
+This paper takes the second step.
+Writing the internal wave as $A\,e^{i\mathcal{S}/\hbar}$ separates, order by order in $\hbar$, a Hamilton--Jacobi equation for the phase from a continuity equation for $A^2$ transported at the group velocity, and thereby separates two refractive indices that the series had identified: a phase index governing stationary phase and a group index governing energy transport.
+The group index $\ngr = 1/\bZB = 24.71$ does not depend on the origin of energy; the phase index of a matter wave does, taking the value $\bZB$ when the rest energy is kept and $2/\bZB$ when it is removed.
+The closure of the internal cycle on a round trip of length $\lambdaC$ fixes the ratio of the two indices of the internal carrier, not its dispersion. A body of mass $m_e$ making the round trip at $v_{\mathrm{ZB}}$ holds $0.0405$ of its de~Broglie wavelength and does not close, so that the internal carrier is not the de~Broglie wave of the electron's mass. If the carrier is taken non-dispersive in its lowest mode and its phase is counted with the internal phase $\theta$, the dynamical phase of the series accumulates $2\pi$ per round trip and the action is $J = h$; counted with the half angle $\theta/2$ of the amplitude, which carries the double cover of the spinor, the same round trip gives $J = h/2$.
+Factoring out the rest-energy frequency $\nu_C = m_ec^2/h$, which de~Broglie attached to the electron as an internal periodic phenomenon, leaves an envelope that obeys the Schr\"odinger equation, a heat equation with imaginary diffusivity $\hbar/2m_e = (\lambdaC/2)(c/2\pi)$.
+The result is a two-tier structure: an external envelope with a continuous spectrum, whose spreading is real, and an internal transfer with a discrete spectrum fixed by the energy identity, which a free Schr\"odinger packet of Compton size could not sustain, since such a packet doubles its width within $0.44$ of one internal cycle.
+Because the internal phase advances uniformly, the quartic energy contains only the harmonics $0$, $\nu_{\mathrm{ZB}}$ and $2\nu_{\mathrm{ZB}}$ ($41.36$~keV); written as the density of a product of two amplitudes, it shows that unequal rates of the two factors would split the first line and add sum and beat lines. The internal transfer may not oscillate the charge dipole, and an electron of kinetic energy $419$~eV carries the momentum of a $20.7$~keV photon.
 \end{abstract}
 
 \maketitle
@@ -115,358 +110,466 @@ The paper addresses the form of the gravitational source, not its coupling stren
 \section{Introduction}
 \label{sec:intro}
 
-A source of gravitational radiation in general relativity is characterized by its multipole moments, and the three lowest moments behave in three different ways~\cite{MTW,Maggiore}. The monopole, the total mass-energy, is conserved and does not radiate. The mass dipole $\bm{D} = \sum_i E_i\bm{x}_i/c^2$ does not radiate either, for a reason that has no counterpart in electrodynamics: its time derivative is the total momentum, $d\bm{D}/dt = \bm{P}$, which is conserved, so that $\ddot{\bm{D}} = 0$. Gravitational radiation therefore begins at the quadrupole. For a binary in a circular orbit, the quadrupole moment is a quadratic function of the positions, and it oscillates at twice the orbital frequency; the waves observed by the LIGO and Virgo detectors~\cite{LIGO2016} carry exactly this doubled frequency.
+The wave nature of matter remained hidden for a long time because the de~Broglie wavelength is short compared with the lengths used in macroscopic observation. Yukawa states this point in his introduction to quantum mechanics~\cite{Yukawa1954} and compares it with optics: as long as the refractive index of a medium can be regarded as uniform over a distance of the order of one wavelength, the wave nature of light need not be considered, and geometrical optics applied to rays suffices. He then follows Hamilton~\cite{Hamilton1834}. The Hamilton--Jacobi equation of a particle has the same form as the eikonal equation of a ray; Maupertuis' principle of least action has the same form as Fermat's principle of least time; and Schr\"odinger~\cite{Schrodinger1926} obtained wave mechanics by passing from the ray description to a wave equation, as wave optics stands to geometrical optics.
 
-The 0-Sphere model describes the electron as two kernels, $A$ and $B$, and an amount of energy, the photon sphere, carried between them~\cite{H65,H51}. The companion Letter, Paper \#66~\cite{H66}, showed that the transfer is continuous in its course but discrete in its composition: resolved into frequencies, the energy identity of the model contains only a constant, a fundamental and a second harmonic. The present paper asks whether this discrete structure reproduces the multipole hierarchy of general relativity, and finds that it does at every level that can be computed without further assumptions.
+The 0-Sphere model has developed the first half of this analogy and not the second. Paper~\#24~\cite{H24} introduced thermal geodesics, the paths of internal energy transport between the two kernels of the electron. Paper~\#51~\cite{H51} showed that the thermal metric is the optical metric $\mathcal{G}_{\mu\nu} = n^2(T)g_{\mu\nu}$ of a medium with temperature-dependent index, and its version~3 identified the dynamical phase accumulated along the arc between the kernels, $\Sdyn = \omZB\int d\tau$, as a Hamilton principal function from which a world function and the spacetime metric are obtained. Paper~\#66~\cite{H66} assigned the internal region the index $n = 1/\bZB$, so that the internal transport speed $v_{\mathrm{ZB}} = \bZB c$ is the group velocity of a carrier in a medium. These are statements about rays. No wave has been superposed, and the Schr\"odinger equation has not appeared in the series.
 
-The link between the internal motion of the 0-Sphere electron and quadrupole gravitational radiation is not new to the series. Paper \#58~\cite{H58} proposed that the energy distribution between the kernels carries a time-dependent quadrupole moment that radiates through the standard quadrupole formula, and Paper \#59~\cite{H59} asked how such a quadrupole could acquire a fixed direction for an electron bound to a proton. In Paper \#58 the moment was taken proportional to the energy difference of the kernels, $T_A - T_B = E_0\cos\theta$, with the kernels held fixed, so that it oscillated at the fundamental. The present paper derives the source side of that proposal from the energy identity and the conservation of the mass dipole alone. The result replaces the form of Paper \#58: holding the kernels fixed violates the conservation of the mass dipole (Sec.~\ref{sec:dipole}), the energy difference belongs to the antisymmetric channel, which is the dipole channel and is gravitationally silent, and the quadrupole that remains contains only even harmonics (Sec.~\ref{sec:quadrupole}). The single-frequency quadrupole of Paper \#58 is therefore superseded by Eq.~(\ref{eq:J}). The question of direction raised in Paper \#59 is not addressed here.
+This paper takes the step from rays to waves. Section~\ref{sec:rays} restates the ray layer of the series in Hamilton's language. Section~\ref{sec:waves} writes the internal wave in the eikonal form and shows that it separates a phase, governed by a Hamilton--Jacobi equation, from an intensity transported at the group velocity, so that two refractive indices appear where the series had one. Section~\ref{sec:indices} evaluates the two indices and states what the closure of the internal cycle requires of the internal carrier. Section~\ref{sec:envelope} factors out the rest-energy frequency and obtains the Schr\"odinger equation for the envelope. Section~\ref{sec:twotier} sets out the resulting two-tier structure and the reason why the internal tier cannot be described by Schr\"odinger dynamics. Section~\ref{sec:discrete} places the discrete group velocity of Paper~\#66 in the line of Bohr's correspondence principle and Heisenberg's multiplication rule. Section~\ref{sec:consequences} collects the consequences that can be checked against measurement.
 
-\paragraph{Synopsis.} The argument proceeds in five steps, each in its own section.
-\begin{itemize}[leftmargin=1.2em, itemsep=2pt]
-\item Section~\ref{sec:channels} resolves the energy identity into three channels, a constant, a fundamental $\omega$ and a second harmonic $2\omega$, and states the selection rule that removes odd harmonics from any quantity symmetric under the exchange of the kernels.
-\item Section~\ref{sec:dipole} shows that fixed kernels violate the conservation of the mass dipole, derives the recoil that restores it, and, in Sec.~\ref{sec:bookkeeping}, checks the bookkeeping of momentum element by element.
-\item Section~\ref{sec:quadrupole} computes the second moment that remains, its harmonics and the shares of the radiated power.
-\item Section~\ref{sec:gr} sets the three channels beside the multipoles of a gravitational source in general relativity.
-\item Section~\ref{sec:limits} states the limitations, and Sec.~\ref{sec:conclusion} concludes.
-\end{itemize}
-Appendix~\ref{app:numbers} reproduces the numbers, Appendix~\ref{app:blind} records the blind verification, and Appendix~\ref{app:interface} lists the inputs, results and open items.
-
-\paragraph{Scope.} The paper concerns the form of the gravitational source of the 0-Sphere electron: which multipoles oscillate, at which frequencies, and with which weights. It does not define the gravitational charge, which the weak equivalence principle requires to be proportional to the total energy, and it does not derive the curvature side of the Einstein equations. The internal oscillation is taken as given; its origin is not addressed, and the identity describes its persistence. The word radiation is used for gravitational radiation and, where stated, for the internal transfer between the kernels; electromagnetic emission is not discussed. In particular, the recoiling kernels do not form an oscillating electric dipole: in the 0-Sphere model the charge is not located at the kernels but is a winding number carried by the system as a whole~\cite{H65}, and an electric dipole of the size of the core separation, of order $e\lambda_C \approx 2.4\times10^{-10}\,e$~cm, is excluded by the electron electric-dipole-moment bound $4.1\times10^{-30}\,e$~cm~\cite{Roussy2023} by twenty orders of magnitude.
+\paragraph{Scope.} The paper takes three inputs from the series: the canonical value $\bZB^2 = 0.00163798087$, the phase functional of Paper~\#51 in its version~3, and the internal index and discrete spectrum of Paper~\#66. It does not derive the index from the internal temperature profile, does not treat the coupling of the internal transfer to external photons beyond the constraints of Section~\ref{sec:consequences}, and does not address gravitation. The presentation of Hamilton's analogy, of the eikonal expansion and of the correspondence principle follows Ref.~\cite{Yukawa1954}, from which equation numbers are cited where a specific step is used.
 
 % ========================================
-% Section 2: Three Channels of the Energy Identity
+% Section 2: The ray layer
 % ========================================
-\section{Three Channels of the Energy Identity}
-\label{sec:channels}
+\section{The Ray Layer of the Series}
+\label{sec:rays}
 
-\textbf{[standard]} With the internal phase $\theta$, the energies held at the kernels and in transit are
-\begin{align}
-T_A &= E_0\cos^4\frac{\theta}{2}, \qquad T_B = E_0\sin^4\frac{\theta}{2},
-\notag\\
-K &= \frac12E_0\sin^2\theta,
-\label{eq:energies}
-\end{align}
-and $T_A + T_B + K = E_0$ for every $\theta$. The half-angle and double-angle formulas give~\cite{H66}
-\begin{align}
-\frac{T_A}{E_0} &= \frac38 + \frac12\cos\theta + \frac18\cos2\theta,
-\notag\\
-\frac{T_B}{E_0} &= \frac38 - \frac12\cos\theta + \frac18\cos2\theta,
-\notag\\
-\frac{K}{E_0} &= \frac14 - \frac14\cos2\theta.
-\label{eq:fourier}
-\end{align}
-The phase advances at $\omega = 2\pi\nu_{\text{ZB}}$, with $\nu_{\text{ZB}} = \beta_{\text{ZB}}c/\lambda_C = 5.0007\times10^{18}$~Hz and $\beta_{\text{ZB}} = 0.040472$ fixed by the anomalous magnetic moment~\cite{H10,H62}.
-
-Equation~(\ref{eq:fourier}) balances separately at each frequency, and each frequency is a separate channel.
-
-\paragraph{The constant channel.} The constant parts sum to $\tfrac38 + \tfrac38 + \tfrac14 = 1$. This is the conserved total $E_0$, the monopole.
-
-\paragraph{The fundamental channel, $\omega$.} The parts at $\omega$ are $+\tfrac12$ at $A$, $-\tfrac12$ at $B$ and $0$ in transit. They are antisymmetric under the exchange of the two kernels and describe the transfer from one kernel to the other. This channel moves the centre of energy along the axis.
-
-\paragraph{The second-harmonic channel, $2\omega$.} The parts at $2\omega$ are $+\tfrac18$ at $A$, $+\tfrac18$ at $B$ and $-\tfrac14$ in transit. They are symmetric under the exchange of the kernels and describe the exchange between the kernels taken together and the photon sphere. This channel does not move the centre of energy; it changes how widely the energy is spread along the axis.
-
-\textbf{[0SM reading]} The exchange of the kernels corresponds to the shift $\theta \to \theta + \pi$, under which $\cos k\theta$ changes sign for odd $k$ and is unchanged for even $k$. Any quantity that is symmetric under the exchange, such as a second moment of the energy distribution, can therefore contain only even harmonics of $\omega$. This selection rule, rather than any detail of the distribution, is what removes the odd harmonics from the quadrupole in Sec.~\ref{sec:quadrupole}.
-
-\paragraph{The amplitudes are fixed.} The coefficients $\tfrac38$, $\tfrac12$ and $\tfrac18$ in Eq.~(\ref{eq:fourier}) cannot be chosen freely. Write the energies in terms of amplitudes as $T_A = a^4$, $T_B = b^4$ and $K = 2a^2b^2$, so that $T_A + T_B + K = (a^2 + b^2)^2$, and demand three properties at every phase: the total is constant, $(a^2 + b^2)^2 = M$; the transfer obeys $\mathrm{d}(T_B - T_A)/\mathrm{d}\theta = s\sin\theta$, the rate that Eq.~(\ref{eq:energies}) gives with $s = E_0$; and each kernel empties completely once per cycle. The first two give
-\begin{align}
-a^2 = \frac{M - c + s\cos\theta}{2\sqrt{M}}, \qquad b^2 = \frac{M + c - s\cos\theta}{2\sqrt{M}},
-\label{eq:rigid}
-\end{align}
-with a constant $c$. The minima of $a^2$ and $b^2$ vanish together only for $M = s$ and $c = 0$, which returns $a^2 = \sqrt{M}\cos^2(\theta/2)$ and $b^2 = \sqrt{M}\sin^2(\theta/2)$, that is, Eq.~(\ref{eq:energies}) with $E_0 = M$. Within these three properties only the overall scale is free: no further harmonic can be added to the kernels without breaking the constant total, the transfer rate or the complete transfer, and the channel structure of this section is a consequence of the identity rather than a choice of description.
-
-% ========================================
-% Section 3: The Dipole Channel Is Silent
-% ========================================
-\section{The Dipole Channel Is Silent}
-\label{sec:dipole}
-
-\paragraph{Fixed kernels are excluded.} \textbf{[standard]} For an isolated system at rest, the mass dipole is constant. Place the kernels at $\mp d/2$ on the axis and the photon sphere at $u(\theta)$. If the kernels were fixed, the condition $T_A(-d/2) + T_B(d/2) + K\,u = 0$ would require
+\paragraph{Hamilton's analogy.} For a particle of energy $E$ in a potential $V$, the solution of the Hamilton--Jacobi equation can be written $W = -Et + S(\bm{x})$ with $|\nabla S| = \sqrt{2m(E - V)} = p$~\cite{Yukawa1954}. Surfaces of constant $W$ move along $\nabla S$ with the speed
 \begin{equation}
-\frac{u(\theta)}{d} = \frac{\cos\theta}{\sin^2\theta},
-\label{eq:fixed}
+u \;=\; \frac{E}{p},
+\label{eq:u_HJ}
 \end{equation}
-which diverges at $\theta = 0$ and $\theta = \pi$, the moments at which all the energy is at one kernel. The carrier would have to leave any bounded region. Fixed kernels are therefore excluded by the conservation of the mass dipole.
+and the trajectories are the orthogonal trajectories of these surfaces. Fermat's principle with the speed $u$ of the surfaces, $\delta\int ds/u = 0$, becomes Maupertuis' principle $\delta\int p\,ds = 0$ on substitution of Eq.~\eqref{eq:u_HJ}. The ray index of the mechanical problem is therefore proportional to the momentum, $n \propto p$, and $u$ is the speed of a phase surface, not of the particle.
 
-\paragraph{The recoil closure.} \textbf{[0SM reading]} Let the pair of kernels move together by $X(\theta)$, so that the kernels sit at $X \mp d/2$, and let the photon sphere sit at $X - \tfrac{d}{2}\cos\theta$, close to the kernel that holds the energy. The dipole condition
+\paragraph{The thermal geodesic.} Paper~\#51 records a hierarchy of geodesic principles~\cite{H51}. The thermal geodesic obeys $\delta\int\kappa\,ds = 0$ with $\kappa \propto n(T)$, the path of least thermal resistance along which internal energy is transported between the kernels. The phase functional obeys a separate principle: the phase accumulated along the arc is extremal. In the language of the series the two rows were stated with one index $n(T)$.
+
+\paragraph{The dynamical phase as a principal function.} Version~3 of Paper~\#51 decomposes the phase accumulated between kernel events into a dynamical part and a geometric (Berry) part~\cite{H51, Berry1984},
 \begin{equation}
-T_A\Bigl(X - \frac d2\Bigr) + T_B\Bigl(X + \frac d2\Bigr) + K\Bigl(X - \frac d2\cos\theta\Bigr) = 0
-\label{eq:dipole}
+\mathcal{S} \;=\; \Sdyn + \mathcal{S}_{\mathrm{geo}},
+\qquad
+\Sdyn \;=\; \omZB\int_{\Gamma_{\mathrm{ext}}} d\tau,
+\label{eq:Sdecomp}
 \end{equation}
-then fixes the recoil uniquely:
-\begin{equation}
-\frac{X(\theta)}{d} = \frac12\cos\theta\left(1 + \frac12\sin^2\theta\right).
-\label{eq:recoil}
-\end{equation}
-With Eq.~(\ref{eq:recoil}) the dipole vanishes identically at every phase. The kernel that holds the energy sits at the centre of energy, and the pair swings through $\pm d/2$. The amplitude of this swing is the core separation itself, not a free parameter, and the swing is the internal counterpart of the Zitterbewegung~\cite{Schrodinger1930}.
+with $\omZB = 2\pi\nu_{\mathrm{ZB}} = \bZB\,m_ec^2/\hbar$. The dynamical part is symmetric under exchange of the endpoints and accumulates over a round trip, as the action variable $\oint p\,dq$ does~\cite{Yukawa1954}; the geometric part is antisymmetric and carries spin and chirality. The dynamical part is a Hamilton principal function of the arc, a generating function of the first kind in the endpoints, and its square defines the world function $\sigma_{\mathcal{S}} = \Sdyn^2/(2\omZB^2)$ from which the metric is reconstructed~\cite{H51, Synge1960}. All of this belongs to the ray layer: it concerns the extremal arc and the phase accumulated along it, not a wave superposed from several arcs or several frequencies.
 
-The fundamental channel of Sec.~\ref{sec:channels}, which moves the centre of energy, is thereby compensated by the recoil of the kernels. In the language of general relativity, the 0-Sphere electron carries no time-dependent mass dipole, and its fundamental channel does not radiate gravitationally. This is the same conclusion, for the same reason, as the absence of dipole gravitational radiation in general relativity.
-
-\paragraph{Speed of the recoil.} \textbf{[standard]} From Eq.~(\ref{eq:recoil}), $dX/dt = -\tfrac34\omega d\sin^3\theta$, so that the largest speed of the kernels is $\tfrac34\omega d$ at $\theta = \pi/2$. For the core separation $d = \lambda_C/2$ of the series this is $0.0954\,c$; for $d = \lambda_C$ it would be $0.191\,c$. The photon sphere moves at most at $\tfrac14\omega d$, $0.032\,c$ for $d = \lambda_C/2$. All speeds are below $c$.
+% ========================================
+% Section 3: From rays to waves
+% ========================================
+\section{From Rays to Waves: Phase and Intensity}
+\label{sec:waves}
 
 % ----------------------------------------
-% Subsection 3.1: Momentum Bookkeeping
-% ----------------------------------------
-\subsection{Momentum Bookkeeping}
-\label{sec:bookkeeping}
-
-The vanishing of the dipole is imposed in Eq.~(\ref{eq:dipole}), and in that sense it is true by construction. A test that is not automatic is obtained by assigning a momentum to each element and asking whether the assignments are consistent. Differentiating the dipole gives
-\begin{equation}
-c^2\frac{dD}{dt} = \sum_i E_i\,\dot x_i + \sum_i \dot E_i\,x_i ,
-\label{eq:bookkeeping}
-\end{equation}
-where the first sum is the momentum of the elements as moving bodies and the second is the momentum carried by the transfer of energy between separated places, the energy current divided by $c^2$. Evaluated on the closure~(\ref{eq:recoil}), the two parts are
-\begin{align}
-\sum_i E_i\,\dot x_i &= -\frac{E_0\omega d}{2}\sin^3\theta,
-\notag\\
-\sum_i \dot E_i\,x_i &= +\frac{E_0\omega d}{2}\sin^3\theta .
-\label{eq:twoparts}
-\end{align}
-Three conclusions follow.
-
-\paragraph{The silence is a silence of the total.} The momentum of the pair of kernels, the momentum of the photon sphere and the force on the pair each contain the fundamental $\omega$, together with $3\omega$ and $5\omega$. Only their sum, with the transfer term included, vanishes. Gravitation couples to the total energy and therefore sees only the total, so the conclusion of Sec.~\ref{sec:dipole} stands; the two stars of a binary likewise move at the orbital frequency while the binary emits no dipole radiation. The statement is nonetheless conditional on the bookkeeping: if one element is assigned a different momentum, a dipole at $\omega$ reappears.
-
-\paragraph{The transfer carries momentum.} Omitting the transfer term and requiring the momenta of the bodies alone to vanish gives a different recoil, under which the dipole oscillates and $dD/dt = P$ is violated. A placement of the photon sphere for which the transfer term vanishes, so that energy is handed over only where the photon sphere is, requires $x_\gamma - X = -(d/2)/\cos\theta$, which lies outside the kernels and diverges at $\theta = \pi/2$. The momentum of the transfer cannot be avoided in a model of point-like elements.
-
-\paragraph{The photon sphere moves as a slow body.} If the photon sphere is assigned the momentum of free light, $K/c$, the bookkeeping fails: that momentum exceeds $Kv_\gamma/c^2$ by an order of magnitude or more, and restoring zero total momentum would require the kernels to move faster than light. The bookkeeping closes only if the photon sphere carries the momentum $Kv_\gamma/c^2$ of a body of invariant mass $K/c^2$ moving well below $c$, closer to a confined standing wave than to free light. This is the reading of the companion Letter, Paper \#66~\cite{H66}, in which the internal carrier propagates at a group velocity $c/n$ with $n \approx 25$; the form $Kv/c^2$ is also the form of the Abraham momentum of light in a medium.
-
-% ========================================
-% Section 4: The Quadrupole Channel
-% ========================================
-\section{The Quadrupole Channel}
-\label{sec:quadrupole}
-
-With the dipole removed, the lowest moment that can oscillate is the second moment of the energy along the axis,
-\begin{equation}
-J(\theta) = T_A\Bigl(X - \frac d2\Bigr)^2 + T_B\Bigl(X + \frac d2\Bigr)^2 + K\Bigl(X - \frac d2\cos\theta\Bigr)^2.
-\label{eq:Jdef}
-\end{equation}
-Substituting Eqs.~(\ref{eq:energies}) and~(\ref{eq:recoil}) gives the closed form
-\begin{align}
-\frac{J(\theta)}{E_0d^2} &= \frac{\sin^4\theta\,(1 + \sin^2\theta)}{16}
-\notag\\
-&= \frac{22 - 31\cos2\theta + 10\cos4\theta - \cos6\theta}{512}.
-\label{eq:J}
-\end{align}
-Three features of Eq.~(\ref{eq:J}) carry the argument.
-
-\paragraph{Only even harmonics.} The second moment contains $2\omega$, $4\omega$ and $6\omega$ and no odd harmonic, as the selection rule of Sec.~\ref{sec:channels} requires.
-
-\paragraph{A finite spectrum.} The spectrum stops at $6\omega$. The energies~(\ref{eq:energies}) are polynomials of degree two in $\cos\theta$, and the positions are polynomials of degree three, so that their products in Eq.~(\ref{eq:Jdef}) cannot contain a frequency above $6\omega$. As in Paper \#66, the number of lines is fixed by the degrees of the polynomials, and their weights by the identity.
-
-\paragraph{Amplitude and power peak at different harmonics.} The amplitude is largest at $2\omega$ ($31/512$), smaller at $4\omega$ ($10/512$) and smallest at $6\omega$ ($1/512$). The power radiated by a quadrupole depends on the third time derivative of the moment, and therefore weights the $k$-th harmonic by $k^6$. The shares of the power are
-\begin{align}
-2\omega:&\quad 11.88\%,
-\notag\\
-4\omega:&\quad 79.11\%,
-\notag\\
-6\omega:&\quad 9.01\%,
-\label{eq:shares}
-\end{align}
-so that the dominant line of the radiated power is $4\omega$, at $4\nu_{\text{ZB}} = 2.00\times10^{19}$~Hz ($82.7$~keV). The mean square of the third derivative of Eq.~(\ref{eq:J}) with respect to $\theta$ is exactly $4045/4096$.
-
-% ----------------------------------------
-% Figure 1: The recoil that silences the dipole, and the quadrupole that remains
-% ----------------------------------------
-\begin{figure*}[t!]
-\centering
-\begin{tikzpicture}[>=Stealth, font=\small]
-\def\gW{6.4}\def\gH{2.6}
-% ---- panel (a): recoil and second moment ----
-\begin{scope}
-\node at (-1.0,\gH+0.6) {(a)};
-\draw[->] (0,0) -- (\gW+0.4,0) node[right] {$\theta$};
-\draw[->] (0,{-0.55*\gH}) -- (0,\gH+0.3);
-\foreach \t/\l in {0/0, 90/{\pi/2}, 180/{\pi}, 270/{3\pi/2}, 360/{2\pi}} {
-  \draw[gray!60] ({\t/360*\gW},{-0.5*\gH}) -- ({\t/360*\gW},\gH);
-  \node[below, font=\scriptsize] at ({\t/360*\gW},{-0.5*\gH}) {$\l$};
-}
-\draw[thick, black] plot[domain=0:360, samples=180] ({\x/360*\gW},{0.5*\gH*cos(\x)*(1+0.5*sin(\x)^2)});
-\draw[very thick, blue!70!black] plot[domain=0:360, samples=180] ({\x/360*\gW},{\gH*8*sin(\x)^4*(1+sin(\x)^2)/16});
-\draw[thick] (0.3,\gH+0.6) -- (0.9,\gH+0.6) node[right, font=\scriptsize] {recoil $X/d$};
-\draw[very thick, blue!70!black] (3.0,\gH+0.6) -- (3.6,\gH+0.6) node[right, font=\scriptsize, blue!70!black] {$J/(E_0d^2)$, scaled $\times 8$};
-\end{scope}
-% ---- panel (b): amplitude and power by harmonic ----
-\begin{scope}[xshift=9.2cm]
-\node at (-1.0,\gH+0.6) {(b)};
-\draw[->] (0,0) -- (5.6,0) node[right] {harmonic};
-\draw[->] (0,0) -- (0,\gH+0.3);
-\foreach \x/\l/\a/\p in {1.0/{2\omega}/0.0605/0.1188, 2.7/{4\omega}/0.0195/0.7911, 4.4/{6\omega}/0.00195/0.0901} {
-  \fill[gray!35] ({\x-0.42},0) rectangle ({\x-0.02},{\a/0.0605*0.95*\gH});
-  \draw ({\x-0.42},0) rectangle ({\x-0.02},{\a/0.0605*0.95*\gH});
-  \fill[blue!35] ({\x+0.02},0) rectangle ({\x+0.42},{\p/0.7911*0.95*\gH});
-  \draw ({\x+0.02},0) rectangle ({\x+0.42},{\p/0.7911*0.95*\gH});
-  \node[below, font=\scriptsize] at (\x,0) {$\l$};
-}
-\fill[gray!35] (0.3,\gH+0.5) rectangle (0.6,\gH+0.7); \node[right, font=\scriptsize] at (0.6,\gH+0.6) {amplitude};
-\fill[blue!35] (2.6,\gH+0.5) rectangle (2.9,\gH+0.7); \node[right, font=\scriptsize] at (2.9,\gH+0.6) {share of power};
-\end{scope}
-\end{tikzpicture}
-\caption{\textbf{The recoil that silences the dipole, and the quadrupole that remains}}
-\label{fig:quad}
-\vspace{0.4em}
-\begin{minipage}{0.95\textwidth}
-\justifying\small
-(a) Over one cycle of the internal phase, the pair of kernels recoils by $X(\theta) = \tfrac d2\cos\theta(1 + \tfrac12\sin^2\theta)$ (black), Eq.~(\ref{eq:recoil}), which keeps the mass dipole at zero at every phase. The second moment $J(\theta)$ (blue, Eq.~(\ref{eq:J})) repeats twice per cycle and is symmetric under $\theta \to \theta + \pi$, the exchange of the kernels. (b) Each harmonic of $J$, normalized to the largest: amplitude (grey) and share of radiated power (blue). The amplitude is largest at $2\omega$; the power, which weights the $k$-th harmonic by $k^6$, is dominated by $4\omega$ ($79.11\%$). No odd harmonic occurs, and none above $6\omega$.
-\end{minipage}
-\end{figure*}
-
-\paragraph{The size of the effect.} \textbf{[standard]} For a moment $I(t) = M d^2 J(\omega t)/(E_0d^2)$ along one axis, the traceless quadrupole has $\sum_{ij}Q_{ij}^2 = \tfrac23 I^2$, and the quadrupole formula gives
-\begin{equation}
-P = \frac{G}{5c^5}\,\frac23\,M^2d^4\omega^6\,\frac{4045}{4096}.
-\label{eq:P}
-\end{equation}
-With $M = m_e$ and the core separation $d = \lambda_C/2$ of the series, $P = 6.3\times10^{-45}$~W; with $d = \lambda_C$ the power would be sixteen times larger, $1.00\times10^{-43}$~W, because $P \propto d^4$. Over the age of the universe the smaller value removes $1.7\times10^{-8}$~eV from an electron of rest energy $511$~keV. The internal oscillation is stable against gravitational radiation by a wide margin, and the radiation itself is far beyond any conceivable detection. The value of the result lies in its structure.
-
-% ========================================
-% Section 5: The Correspondence with General Relativity
-% ========================================
-\section{The Correspondence with General Relativity}
-\label{sec:gr}
-
-Table~\ref{tab:corr} sets the three channels of the identity beside the multipoles of a gravitational source.
-
-% ----------------------------------------
-% Table 1: The channels of the energy identity and the multipoles of a gravitational source
+% Table 1
 % ----------------------------------------
 \begin{table*}[t!]
 \centering
-\caption{\textbf{The channels of the energy identity and the multipoles of a gravitational source}}
-\label{tab:corr}
+\caption{\textbf{Correspondences between the eikonal treatment of wave mechanics and the 0-Sphere model}}
+\label{tab:yukawa}
 \renewcommand{\arraystretch}{1.4}
-\begin{tabular}{p{3.2cm}p{4.6cm}p{4.0cm}p{3.7cm}}
+\begin{tabular}{p{4.2cm}p{5.6cm}p{5.7cm}}
 \toprule
-\raggedright \textbf{Channel} & \raggedright \textbf{In the 0-Sphere model} & \raggedright \textbf{In general relativity} & \raggedright \textbf{Status here} \tabularnewline
+\textbf{Object} & \textbf{Wave mechanics~\cite{Yukawa1954}} & \textbf{0-Sphere Model} \\
 \midrule
-\raggedright Constant
-& \raggedright total $E_0$ conserved by the identity
-& \raggedright monopole conserved; no radiation \mbox{($\ell = 0$)}
-& \raggedright exact \tabularnewline
+\raggedright Rest-energy oscillation
+& \raggedright $m_ec^2 = h\nu_0$, de~Broglie's internal periodic phenomenon (6.1)
+& \raggedright Light-speed reference rate $\nu_C = m_ec^2/h$ of each Dirac branch~\cite{H51, H65} \tabularnewline
 \addlinespace[0.3cm]
-\raggedright Fundamental, $\omega$
-& \raggedright antisymmetric exchange $A \leftrightarrow B$; dipole cancelled by the recoil closure
-& \raggedright mass dipole conserved, \mbox{$\dot{\bm D} = \bm P$}; no dipole radiation \mbox{($\ell = 1$)}
-& \raggedright exact in total for the closure~(\ref{eq:recoil}); each element retains $\omega$ \tabularnewline
+\raggedright Removal of the rest energy
+& \raggedright $m_ec^2$ subtracted before the wave equation (6.26); $E = W - m_ec^2$ in the Pauli limit (27.6)
+& \raggedright Factoring out the carrier $e^{-2\pi i\nu_C t}$ (Sec.~\ref{sec:envelope}) \tabularnewline
 \addlinespace[0.3cm]
-\raggedright Second harmonic and above
-& \raggedright symmetric exchange kernels $\leftrightarrow$ photon sphere; second moment at $2\omega$, $4\omega$, $6\omega$
-& \raggedright quadrupole radiation, at twice the orbital frequency for a binary \mbox{($\ell = 2$)}
-& \raggedright exact for the point-carrier model \tabularnewline
+\raggedright Phase of the wave
+& \raggedright $S$ obeys the Hamilton--Jacobi equation (11.5)
+& \raggedright $\Sdyn$, a Hamilton principal function of the arc~\cite{H51} \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Intensity of the wave
+& \raggedright $A^2$ obeys a fluid continuity equation (11.9)
+& \raggedright Share of the energy at a kernel, $\cos^2(\iphase/2)$; thermal transport \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Free envelope equation
+& \raggedright Heat equation with imaginary diffusivity $i\hbar/2m$ (11.11)
+& \raggedright The ``thermal'' language of the series as the real-diffusivity counterpart \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Spreading of a packet
+& \raggedright Width $a\sqrt{1 + (\hbar t/ma^2)^2}$ (11.20)
+& \raggedright Real for the external envelope; excluded for the internal transfer (Sec.~\ref{sec:twotier}) \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Discrete group velocity
+& \raggedright $d\omega/dm$ over the integer magnetic quantum number (11.39); $\nu = \Delta n\,dW/dJ$ (5.15)
+& \raggedright $\Delta\omega/\Delta k$ over two lines~\cite{H66} (Sec.~\ref{sec:discrete}) \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Product of Fourier series
+& \raggedright Classical product violates Ritz; replaced by the matrix product (5.24)--(5.35)
+& \raggedright Squaring the share of a uniformly advancing phase gives $0$, $\omega$, $2\omega$, as for equally spaced levels (Sec.~\ref{sec:discrete}) \tabularnewline
 \addlinespace[0.2cm]
 \bottomrule
 \end{tabular}
 \vspace{0.2cm}
 \begin{minipage}{0.95\textwidth}
 \justifying\footnotesize
-The correspondence concerns the source side only. The curvature side, in which $\ell = 0$ is associated with the Ricci part and $\ell = 2$ with the Weyl part of the curvature, is not derived here.
+Equation numbers in the middle column refer to Ref.~\cite{Yukawa1954} (2021 reissue). The right column lists the object of the 0-Sphere model that occupies the same place in the argument; the correspondence is structural and does not assert that the two objects are identical.
 \end{minipage}
 \end{table*}
 
-\paragraph{The origin of the doubled frequency.} In general relativity the quadrupole of a binary oscillates at twice the orbital frequency because the moment is quadratic in the positions. In the 0-Sphere model the second harmonic first appears in the energies themselves, because the energy at a kernel is the square of its share~\cite{H65,H66}, and the positions add further even harmonics through the second moment. Both doublings arise from a quadratic form. Whether they are one mechanism seen from two sides, or two mechanisms that happen to agree, is not settled here.
+The step from rays to waves is taken by writing a wave whose phase is the principal function. For a system with Hamiltonian $H(q,p)$, the substitution
+\begin{equation}
+\psi(q,t) \;=\; A(q,t)\,e^{iS(q,t)/\hbar},
+\label{eq:eikonal}
+\end{equation}
+with real $A$ and $S$, into the wave equation obtained by $p \to -i\hbar\,\partial/\partial q$, and the separation of real and imaginary parts at the two lowest orders in $\hbar$, give two equations~\cite{Yukawa1954}. At order $\hbar^0$,
+\begin{equation}
+\frac{\partial S}{\partial t} + H\!\left(q, \frac{\partial S}{\partial q}\right) \;=\; 0,
+\label{eq:HJ}
+\end{equation}
+the Hamilton--Jacobi equation, so that the phase of the wave is the classical action. At order $\hbar^1$,
+\begin{equation}
+\frac{\partial A^2}{\partial t} + \sum_r \frac{\partial}{\partial q_r}\!\left(A^2\,\frac{dq_r}{dt}\right) \;=\; 0,
+\qquad
+\frac{dq_r}{dt} \;=\; \frac{\partial H}{\partial p_r},
+\label{eq:continuity}
+\end{equation}
+a continuity equation in which $A^2$ is carried with the velocity $\partial H/\partial p$. Yukawa describes Eq.~\eqref{eq:continuity} as the continuity equation of a fluid~\cite{Yukawa1954}; Madelung~\cite{Madelung1927} had written the same pair as the equations of a fluid whose density is $A^2$, with a correction of order $\hbar^2$ that the ray limit drops.
 
-\paragraph{What the correspondence supplies.} The open question of the series on the gravitational sector has been how a rank-two source can arise from the internal structure of the electron~\cite{H58,H59}. The correspondence supplies the source side of that question with definite content: the source oscillates only at even harmonics of the internal frequency, its spectrum is finite and fixed in advance, its amplitudes are given by Eq.~(\ref{eq:J}), and the dipole that would otherwise dominate is removed by a conservation law rather than by an assumption.
+The velocity $\partial H/\partial p = d\omega/dk$ in Eq.~\eqref{eq:continuity} is the group velocity. The two orders therefore carry two different speeds. The phase $S$ advances with the phase velocity of Eq.~\eqref{eq:u_HJ}, and its rays obey Fermat's principle with the phase index. The intensity $A^2$, which carries the energy, advances with the group velocity, and its transport time is set by the group index. The two rows of the geodesic hierarchy of Paper~\#51 are the two orders of the eikonal expansion:
+\begin{align}
+\text{order } \hbar^0:&\quad \text{phase } S,\ \text{Hamilton--Jacobi},\ \text{phase index},
+\notag\\
+\text{order } \hbar^1:&\quad \text{intensity } A^2,\ \text{continuity},\ \text{group index}.
+\label{eq:twoorders}
+\end{align}
+The phase functional of Paper~\#51 belongs to the first line; the thermal geodesic, a path of energy transport, belongs to the second. Table~\ref{tab:yukawa} lists the correspondences used in this paper.
+
+The 0-Sphere model already distinguishes three levels of the internal state~\cite{H65, H66}: an amplitude $\cos(\iphase/2)$, the share of the energy held at a kernel $\cos^2(\iphase/2)$, and the energy held at a kernel $\cos^4(\iphase/2)$, the last being the square of the share. In the eikonal form, the amplitude is $A$, linear and subject to superposition; the share is $A^2$, the quantity transported by Eq.~\eqref{eq:continuity} and the counterpart of Born's probability density; and the energy is the quartic level on which the discrete spectrum of Paper~\#66 is built. Linear superposition is a property of the amplitude level only.
+
 
 % ========================================
-% Section 6: Limitations
+% Section 4: Phase and group indices
+% ========================================
+\section{Phase and Group Indices}
+\label{sec:indices}
+
+% ----------------------------------------
+% Table 2
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Phase and group indices of a wave moving at the internal speed $v_{\mathrm{ZB}} = \bZB c$}}
+\label{tab:indices}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{5.2cm}p{3.4cm}p{3.0cm}p{3.9cm}}
+\toprule
+\textbf{Wave} & \textbf{Phase velocity} & \textbf{Phase index} & \textbf{Group index} \\
+\midrule
+\raggedright Matter wave, rest energy kept (de~Broglie)
+& \raggedright $c^2/v_{\mathrm{ZB}}$
+& \raggedright $\bZB = 0.0405$
+& \raggedright $1/\bZB = 24.71$ \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Matter wave, rest energy removed (Schr\"odinger)
+& \raggedright $v_{\mathrm{ZB}}/2$
+& \raggedright $2/\bZB = 49.42$
+& \raggedright $1/\bZB = 24.71$ \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Non-dispersive internal carrier
+& \raggedright $v_{\mathrm{ZB}}$
+& \raggedright $1/\bZB = 24.71$
+& \raggedright $1/\bZB = 24.71$ \tabularnewline
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+The group index is the same in all three rows. The phase index depends on the origin of energy for a matter wave and equals the group index only for a non-dispersive carrier. The value $2/\bZB$ in the second row coincides numerically with the ratio $\nu_{\mathrm{D}}/\nu_{\mathrm{ZB}}$ of Paper~\#66; the factor two arises here from the non-relativistic phase velocity $v/2$, and no connection between the two is asserted.
+\end{minipage}
+\end{table*}
+
+\paragraph{Two indices of a matter wave.} De~Broglie obtained the matter wave by applying a Lorentz transformation to the rest-energy oscillation $m_ec^2 = h\nu_0$~\cite{deBroglie1925, Yukawa1954}. In a frame in which the electron moves at $v$, the wave has frequency $E/h$ and wavelength $h/p$, its phase surfaces move at $u = E/p = c^2/v$, and a group formed from neighbouring wavelengths moves at $d\nu/d(1/\lambda) = dE/dp = v$. With the rest energy kept, the phase and group indices are
+\begin{equation}
+\nph \;=\; \frac{c}{u} \;=\; \frac{v}{c},
+\qquad
+\ngr \;=\; \frac{c}{v},
+\qquad
+\nph\,\ngr \;=\; 1.
+\label{eq:indices_rel}
+\end{equation}
+When the rest energy is removed, as in the non-relativistic wave equation, $E = p^2/2m$ and the phase velocity becomes $u = p/2m = v/2$~\cite{Yukawa1954}, so that $\nph = 2c/v$. The group velocity $dE/dp = v$ is the same in both cases.
+
+\paragraph{The phase index depends on the origin of energy.} Shifting the energy by a constant multiplies every component of a wave by the same phase factor $e^{-i\,\mathrm{const}\,t/\hbar}$. It changes the phase velocity of every component and leaves the group velocity unchanged, because the group velocity is a derivative of the energy. For a particle moving at $v_{\mathrm{ZB}} = \bZB c$ the values are collected in Table~\ref{tab:indices}. Paper~\#66 assigned the internal region the index $1/\bZB = 24.71$, identifying its phase and group indices~\cite{H66}. Of the two, the group index is the quantity that does not depend on how the energy is counted, and it is the one that sets the round-trip time and the internal frequency. Any statement that uses the phase index, such as Snell's law and the critical angle of Paper~\#66, requires a statement of the origin from which the internal phase is counted.
+
+
+\paragraph{Closure of the internal cycle.} The internal transfer of the 0-Sphere model is periodic: one cycle of the internal phase $\iphase$ is one round trip of the photon sphere between the kernels, a path of length $\lambdaC$, and the internal frequency is defined by $\nu_{\mathrm{ZB}} = v_{\mathrm{ZB}}/\lambdaC$~\cite{H51, H66}. A periodic wave on a closed path must hold an integer number of wavelengths, the condition $2\pi a = n\lambda$ by which de~Broglie recovered Bohr's quantization $\oint p\,dq = nh$~\cite{deBroglie1925, Yukawa1954}. A wave of frequency $\nu_{\mathrm{ZB}}$ and group velocity $v_{\mathrm{ZB}}$ that holds $N$ wavelengths on the round trip has phase velocity $v_{\mathrm{ZB}}/N$, so that the closure fixes the ratio $\nph/\ngr = N$ of its two indices and leaves its dispersion free. The lowest mode, $N = 1$, is the non-dispersive carrier, with wavelength
+\begin{equation}
+\lambda \;=\; \frac{v_{\mathrm{ZB}}}{\nu_{\mathrm{ZB}}} \;=\; \lambdaC,
+\label{eq:lambda_carrier}
+\end{equation}
+which restates the definition of $\nu_{\mathrm{ZB}}$; the mode $N = 2$ has $\nph = 2/\bZB$, the value in the second row of Table~\ref{tab:indices}. A body of mass $m_e$ making the round trip at $v_{\mathrm{ZB}}$ has the de~Broglie wavelength $h/(\gamma m_ev_{\mathrm{ZB}}) = 59.90$~pm, and the round trip holds $\gamma\bZB = 0.0405$ of it; such a body does not satisfy the closure, and the internal carrier is not the de~Broglie wave of the electron's mass moving at the internal speed. The closure does not exclude a dispersive carrier of a different mass: a carrier of mass $m_e/(\gamma\bZB) = 24.7\,m_e$ moving at $v_{\mathrm{ZB}}$ has wavelength $\lambdaC$. The de~Broglie wave of the electron's mass, with $\nph = \bZB$ and $\ngr = 1/\bZB$, belongs to the motion of the electron as a whole, which is the subject of Section~\ref{sec:envelope}.
+
+\paragraph{The dynamical phase and the action.} Take the carrier to be the non-dispersive lowest mode and identify its phase with $\iphase$. The dynamical phase of Paper~\#51 advances at $\omZB = \bZB\,m_ec^2/\hbar$, and over one internal period $1/\nu_{\mathrm{ZB}}$ it accumulates
+\begin{align}
+\Delta\Sdyn &\;=\; \frac{\omZB}{\nu_{\mathrm{ZB}}} \;=\; 2\pi,
+\notag\\
+J &\;=\; \oint p\,dq \;=\; \hbar\,\Delta\Sdyn \;=\; h,
+\label{eq:Jh}
+\end{align}
+with the canonical momentum $h/\lambdaC = m_ec$ of the carrier. The two lines are consistent readings of the stated assumptions, not derivations. Identifying the carrier phase with $\iphase$ makes $\Delta\Sdyn = 2\pi$ by the definition of the cycle; and over one period the ratio of the time phase $E/(\hbar\nu)$ to the space phase $J/\hbar$ is $\ngr/\nph$, so that $J = \hbar\,\Delta\Sdyn$ is the non-dispersive condition $\nph = \ngr$. The value $2\pi$ is exact when $\tau$ in Eq.~\eqref{eq:Sdecomp} is the proper time of the rest frame of the electron; counted along a worldline moving at $v_{\mathrm{ZB}}$ it is $2\pi/\gamma$, smaller by $8.2\times10^{-4}$. In the same terms, the factor $\bZB$ in $\omZB$ is the ratio $\nu_{\mathrm{ZB}}/\nu_C$ of the frequency that the carrier has at the group velocity to the frequency it would have at the invariant speed, as stated in Paper~\#66~\cite{H66}; this restates that identification and does not derive $\bZB$, which Paper~\#51 leaves open~\cite{H51}. The closure is imposed here on the cycle of $\iphase$, whose frequency is $\nu_{\mathrm{ZB}}$. It is not imposed on the line at $2\nu_{\mathrm{ZB}}$, and the condition $n(2\omega) = n(\omega)$ of Paper~\#66 remains open as stated there.
+
+\paragraph{The wavelength equals the size of the region.} Equation~\eqref{eq:lambda_carrier} also places the internal region with respect to Yukawa's criterion for geometrical optics. The ray limit requires $|\partial S/\partial q|\,A \gg \hbar\,|\partial A/\partial q|$~\cite{Yukawa1954}, that is, a phase that varies much faster than the amplitude. Over a region of size $L = \lambdaC$ the ratio of the two sides is of order $2\pi L/\lambda = 2\pi$ for the internal carrier. The interior of the electron is therefore at the border between the ray regime and the wave regime: the index varies over a distance of one wavelength, which is the situation in which, by Yukawa's criterion, the wave nature cannot be neglected. Statements of Paper~\#66 that rest on geometrical optics, Snell's law and its critical angle in particular, are to be read with this qualification, and the critical angle depends in addition on the phase index, and so on the origin from which the internal phase is counted (Table~\ref{tab:indices}); the interior is better described as a resonator in its fundamental mode, with one wavelength on the round trip.
+
+% ========================================
+% Section 5: Carrier and envelope
+% ========================================
+\section{Carrier and Envelope: the Schr\"odinger Equation}
+\label{sec:envelope}
+
+\paragraph{The subtraction of the rest energy.} Before writing the wave equation of a particle in a potential, Yukawa removes the rest energy $m_ec^2$ and uses $E = T + V = h\nu$ with the non-relativistic energy~\cite{Yukawa1954}; in the Pauli limit of the Dirac equation the same step reappears as $E = W - m_ec^2$. The step is taken in one line in each place, and the oscillation $\nu_0 = m_ec^2/h$ that de~Broglie attached to the electron a few pages earlier does not reappear. In the 0-Sphere model this oscillation is the light-speed reference rate $\nu_C$ at which the phase of each Dirac branch advances~\cite{H51, H65}.
+
+\paragraph{The envelope equation.} The subtraction has a direct meaning in wave terms. The 0-Sphere model retains Lorentz covariance and the invariant speed $c$ without modification~\cite{H51, H66}, and assigns to the electron at rest the energy $m_ec^2$. For a system whose energy and momentum form a four-vector and whose energy at rest is $m_ec^2$, the only covariant relation between them is $E^2 = p^2c^2 + m_e^2c^4$. A wave of the electron as a whole, with $E = \hbar\omega$ and $\bm{p} = \hbar\bm{k}$, therefore satisfies the Klein--Gordon form $(\partial_t^2/c^2 - \nabla^2 + m_e^2c^2/\hbar^2)\Psi = 0$, which each component of the free Dirac spinor also obeys. The passage from the relation between $E$ and $p$ to this wave equation uses the Planck--de~Broglie relations and a linear field of a single component; these are the standard quantum inputs and are taken here as given. That the energy and momentum of an extended system with internal flow form a four-vector requires in addition that its internal stresses integrate to zero in the rest frame, the condition of von~Laue, which connects to the recoil closure of the internal dynamics (Section~\ref{sec:consequences}). Writing
+\begin{equation}
+\Psi(\bm{x},t) \;=\; e^{-2\pi i\nu_C t}\,\varphi(\bm{x},t),
+\label{eq:carrier}
+\end{equation}
+and assuming that $\varphi$ varies slowly on the time scale $1/\nu_C$, so that $|\partial_t^2\varphi| \ll 4\pi\nu_C|\partial_t\varphi|$, and keeping the positive-frequency branch, gives
+\begin{equation}
+i\hbar\,\frac{\partial\varphi}{\partial t} \;=\; -\frac{\hbar^2}{2m_e}\nabla^2\varphi.
+\label{eq:schrodinger}
+\end{equation}
+The Schr\"odinger equation is the equation of the envelope of a carrier at the rest-energy frequency. In optics the same operation, factoring out a fast carrier and neglecting the second derivative of the envelope, is the slowly varying envelope approximation, and it turns the Helmholtz equation into the paraxial wave equation, which has the form of Eq.~\eqref{eq:schrodinger}~\cite{Siegman1986}.
+
+\paragraph{The imaginary heat equation.} Equation~\eqref{eq:schrodinger} has the form of a heat equation, $\partial_t\varphi = \kappa_{\mathrm{Q}}\nabla^2\varphi$, with the purely imaginary diffusivity $\kappa_{\mathrm{Q}} = i\hbar/2m_e$, as Yukawa notes~\cite{Yukawa1954}. Its magnitude is
+\begin{equation}
+\frac{\hbar}{2m_e} \;=\; \frac{\lambdaC}{2}\cdot\frac{c}{2\pi} \;=\; 5.79\times10^{-5}\ \text{m}^2/\text{s},
+\label{eq:diffusivity}
+\end{equation}
+half the round trip, which is the separation of the kernels, times the invariant speed divided by $2\pi$. The 0-Sphere model has described the internal transport in thermal language since Paper~\#24, and Paper~\#51 noted that its thermal metric is in fact a phase metric~\cite{H51}. The relation between a heat equation and the Schr\"odinger equation is the substitution of an imaginary for a real diffusivity; the thermal language of the series and the phase language of wave mechanics are related by that substitution. The symbol $\kappa_{\mathrm{Q}}$ is used here to distinguish this diffusivity from the thermal resistance $\kappa$ of Paper~\#51.
+
+% ========================================
+% Section 6: Two tiers
+% ========================================
+\section{Two Tiers: External Envelope and Internal Transfer}
+\label{sec:twotier}
+
+Figure~\ref{fig:twotier} summarizes the structure that results. The carrier at $\nu_C$ is common to both tiers. The external tier is the envelope $\varphi$ of Eq.~\eqref{eq:schrodinger}: it describes the motion of the electron as a whole, it is built from a continuous spectrum of plane waves, a Gaussian window is an admissible initial condition, and its spreading is real and observed. The internal tier is the transfer between the kernels described by the energy identity of the series: its spectrum consists of the three lines $0$, $\omega$ and $2\omega$ with weights fixed by the identity~\cite{H66}, and its envelope is restored at every cycle.
+
+\paragraph{A Schr\"odinger packet of Compton size.} The internal tier cannot be described by Eq.~\eqref{eq:schrodinger}. A free packet $\varphi \propto e^{-x^2/2a^2}$ of initial width $a$ grows as $a\sqrt{1 + (\hbar t/m_ea^2)^2}$ and doubles its width after $T = \sqrt{3}\,m_ea^2/\hbar$~\cite{Yukawa1954}. Yukawa's example, $a = 10^{-8}$~cm, gives $T \approx 10^{-16}$~s. For a packet confined to the internal scale, $a = \lambdaC$,
+\begin{align}
+T &\;=\; 2\pi\sqrt{3}\,\frac{\lambdaC}{c} \;=\; 8.81\times10^{-20}\ \text{s},
+\notag\\
+T\,\nu_{\mathrm{ZB}} &\;=\; 2\pi\sqrt{3}\,\bZB \;=\; 0.44.
+\label{eq:doubling}
+\end{align}
+In general $T\nu_{\mathrm{ZB}} = 0.44\,(a/\lambdaC)^2$, which stays below one half for $a < 1.07\,\lambdaC$ and below one cycle for $a < 1.51\,\lambdaC$; the internal region, of size $\lambdaC/2$, lies well inside both bounds. A free Schr\"odinger packet of the size of the internal structure doubles its width in less than half of one internal cycle. The recurrence of the same internal envelope at every cycle, stated in Paper~\#66, is therefore not a property of the free envelope equation. A binding potential could supply recurrence, as for the coherent states of the harmonic oscillator, but the model provides no such potential for the internal transfer; the recurrence is supplied by the energy identity, which holds at every phase. The statement of Paper~\#66 that this recurrence keeps the electron localized applies to the internal tier only; the external envelope spreads.
+
+\paragraph{The Gordon decomposition.} The standard theory contains a decomposition of the same shape. The probability current of the Dirac equation is $c\,\bar{\psi}\bm{\alpha}\psi$, in which the velocity operator $c\bm{\alpha}$ with eigenvalues $\pm c$ appears, while the current of the Schr\"odinger equation is the convective current of the group velocity $\bm{p}/m_e$. Gordon~\cite{Gordon1928} showed that the Dirac current is the sum of a convective current of Schr\"odinger form and a spin current of the form $\nabla\times(\bar{\psi}\bm{\sigma}\psi)$, together with a polarization term that is a time derivative. The spin current has zero divergence and transports no net charge; it circulates within the region occupied by the electron. The two tiers of Fig.~\ref{fig:twotier} correspond to the two terms: the external envelope to the convective current, and the internal transfer to the divergence-free circulation, to which the trembling motion at $\pm c$ belongs.
+
+% ----------------------------------------
+% Figure 1
+% ----------------------------------------
+\begin{figure*}[t!]
+\centering
+\begin{tikzpicture}[>=Stealth, font=\scriptsize,
+  box/.style={draw, rounded corners, align=center, inner sep=4pt, text width=#1},
+  box/.default=4.0cm]
+\node[box=4.6cm, fill=gray!8] (carrier) at (0,2.6) {carrier at the rest-energy frequency\\$\nu_C = m_ec^2/h$ (de~Broglie's $\nu_0$)\\factored out: $\Psi = e^{-2\pi i\nu_C t}\varphi$};
+\node[box=5.0cm, fill=blue!6] (ext) at (-4.2,0.4) {\textbf{external tier}: envelope $\varphi$\\Schr\"odinger equation, $\kappa_{\mathrm{Q}} = i\hbar/2m_e$\\continuous spectrum, plane waves\\group velocity $v$; spreading is real\\Gordon: convective current};
+\node[box=5.0cm, fill=green!6] (int) at (4.2,0.4) {\textbf{internal tier}: transfer between kernels\\energy identity of the series\\lines $0,\ \omega,\ 2\omega$; weights $\tfrac38,\tfrac12,\tfrac18$\\group index $1/\bZB$; envelope restored\\Gordon: divergence-free spin current};
+\draw[->, thick] (carrier.south west) -- (ext.north);
+\draw[->, thick] (carrier.south east) -- (int.north);
+\node[box=5.0cm, fill=white] (ext2) at (-4.2,-1.75) {phase $S$: Hamilton--Jacobi (order $\hbar^0$)\\intensity $A^2$: continuity (order $\hbar^1$)};
+\node[box=5.0cm, fill=white] (int2) at (4.2,-1.75) {closure: $\nph/\ngr = N$ on the round trip $\lambdaC$\\lowest mode $N = 1$: $J = h$ (count $\iphase$) or $h/2$ (count $\iphase/2$)};
+\draw[->] (ext.south) -- (ext2.north);
+\draw[->] (int.south) -- (int2.north);
+\node[align=center, font=\scriptsize\itshape] at (0,-0.4) {a free Compton-size\\Schr\"odinger packet\\doubles in $0.44$ cycle};
+\end{tikzpicture}
+\caption{\textbf{Carrier, external envelope and internal transfer}}
+\label{fig:twotier}
+\vspace{0.4em}
+\begin{minipage}{0.95\textwidth}
+\justifying\small
+The rest-energy oscillation $\nu_C$ is the carrier common to both tiers. Factoring it out leaves the external envelope $\varphi$, which obeys the Schr\"odinger equation, is built from a continuous spectrum and spreads in time; its phase and intensity obey the Hamilton--Jacobi and continuity equations at the two lowest orders in $\hbar$. The internal tier is the transfer between the kernels, whose discrete spectrum and envelope are fixed by the energy identity and restored at every cycle; the closure of the round trip fixes the ratio of the phase and group indices of its carrier, and in the lowest mode the two coincide. The two tiers correspond to the convective and spin terms of the Gordon decomposition of the Dirac current. A free Schr\"odinger packet of the internal size would double its width within $0.44$ of one internal cycle, so that the internal tier is not described by the envelope equation.
+\end{minipage}
+\end{figure*}
+
+% ========================================
+% Section 7: Discrete group velocity
+% ========================================
+\section{Discrete Group Velocity and the Correspondence Principle}
+\label{sec:discrete}
+
+\paragraph{From derivative to difference quotient.} Paper~\#66 obtained the group velocity of the internal carrier as a difference quotient between two discrete lines, $v_g = \Delta\omega/\Delta k$, and the group index $\ngr = 2n(2\omega) - n(\omega)$~\cite{H66}. The replacement of a derivative by a difference quotient over discrete values has a long precedent. In the classical theory of multiply periodic motion, the frequency of the motion is $\nu = \partial E/\partial J$ and its harmonics are $\tau\,\partial E/\partial J$ with integer $\tau$~\cite{Yukawa1954}. Bohr's correspondence principle replaces this derivative by the difference quotient $\nu = [E(n) - E(n - \tau)]/h$ over the quantum numbers, with $\Delta J = h$, and identifies the $\tau$-th classical harmonic with the transition $\Delta n = \tau$. In the treatment of the Zeeman effect the angular group velocity of the rotating wave is written $d\omega/dm$ over the integer magnetic quantum number~\cite{Yukawa1954}. The group velocity of Paper~\#66 is a further instance of the same replacement. Table~\ref{tab:discrete} places the three side by side.
+
+% ----------------------------------------
+% Table 3
+% ----------------------------------------
+\begin{table*}[t!]
+\centering
+\caption{\textbf{Derivatives and their difference quotients over discrete values}}
+\label{tab:discrete}
+\renewcommand{\arraystretch}{1.4}
+\begin{tabular}{p{4.3cm}p{4.1cm}p{7.1cm}}
+\toprule
+\textbf{Setting} & \textbf{Continuous form} & \textbf{Discrete form} \\
+\midrule
+\raggedright Multiply periodic motion and correspondence principle~\cite{Yukawa1954}
+& \raggedright $\nu = \partial E/\partial J$;\newline harmonics $\tau\,\partial E/\partial J$
+& \raggedright $\nu = [E(n) - E(n-\tau)]/h$, $\Delta J = h$; harmonic $\tau$ $\leftrightarrow$ transition $\Delta n = \tau$ \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Rotating wave in a magnetic field~\cite{Yukawa1954}
+& \raggedright $d\omega/dm$
+& \raggedright $m$ an integer; the group velocity equals the Larmor frequency \tabularnewline
+\addlinespace[0.3cm]
+\raggedright Internal carrier of the 0-Sphere model~\cite{H66}
+& \raggedright $v_g = d\omega/dk$
+& \raggedright $v_g = \Delta\omega/\Delta k$ over the lines $\omega$, $2\omega$; $\ngr = 2n(2\omega) - n(\omega)$ \tabularnewline
+\addlinespace[0.2cm]
+\bottomrule
+\end{tabular}
+\vspace{0.2cm}
+\begin{minipage}{0.95\textwidth}
+\justifying\footnotesize
+In each row the continuous form applies to a continuous variable and the discrete form to integer-spaced values. The internal carrier has only two oscillating lines, so that its group velocity is a single difference quotient.
+\end{minipage}
+\end{table*}
+
+\paragraph{Heisenberg's multiplication rule and the second line.} Paper~\#66 obtains the line at $2\omega$ by squaring the share $\cos^2(\iphase/2) = \tfrac12(1 + \cos\iphase)$, a classical product of Fourier series in which frequencies add. Heisenberg's starting point in 1925 was that this rule is incompatible with the Ritz combination principle: the frequencies of quantum transitions combine as $\nu(n, n-\alpha) + \nu(n-\alpha, n-\alpha-\beta) = \nu(n, n-\alpha-\beta)$, and the classical product of two Fourier series produces sums that do not respect it, so that the product had to be replaced by the product of matrices~\cite{Heisenberg1925, Yukawa1954}. Translated into this language, the second line of the internal spectrum corresponds to a two-step combination $\nu(n, n-1) + \nu(n-1, n-2)$, and it equals $2\nu(n, n-1)$ only when the three levels involved are equally spaced. The harmonic oscillator is the case in which classical and quantum frequencies agree for this reason~\cite{Yukawa1954}. In the 0-Sphere model the internal phase advances uniformly, $\iphase = \omega t$, and every function of a uniformly advancing phase contains only integer harmonics. The squaring of the share gives the second line at exactly twice the first,
+\begin{align}
+\cos^4\!\frac{\iphase}{2} &\;=\; \frac38 + \frac12\cos\iphase + \frac18\cos2\iphase,
+\notag\\
+\nu_2 &\;=\; 2\nu_{\mathrm{ZB}} \;=\; 1.0001\times10^{19}\ \text{Hz}\ \ (41.36\ \text{keV}).
+\label{eq:second_line}
+\end{align}
+The agreement of the classical squaring with the matrix rule is therefore the agreement that holds for equally spaced levels, as for the harmonic oscillator, and it is not a separate result. The value $2\nu_{\mathrm{ZB}}$ is the frequency of the second Fourier component of the energy held at a kernel; that this component is emitted as radiation is not shown here.
+
+\paragraph{The energy as a product density.} The same spectrum can be written in the language of the matrix rule. The amplitude $\cos(\iphase/2) = \tfrac12(e^{i\iphase/2} + e^{-i\iphase/2})$ has two components, at $\pm\omega/2$. The share, bilinear in the amplitude, contains the differences $0$ and $\pm\omega$. The energy is the square of the share; written as a bilinear quantity, it is the density of the product $a\otimes a$ of two copies of the amplitude, whose components lie at the sums of the frequencies of the factors,
+\begin{equation}
+\left\{\pm\tfrac{\omega}{2}\right\} + \left\{\pm\tfrac{\omega}{2}\right\} \;=\; \{+\omega,\ 0,\ 0,\ -\omega\}.
+\label{eq:triplet}
+\end{equation}
+These levels are equally spaced, as the sums of any two-element set with itself are, and their differences $0$, $\pm\omega$ and $\pm2\omega$ reproduce Eq.~\eqref{eq:second_line}. For identical factors the product form is a rewriting of the double-angle identity and adds no constraint. Its use is that it states what changes when the factors are not identical. If the factors advance with phases $\iphase_A = \omega_At$ and $\iphase_B = \omega_Bt$,
+\begin{align}
+\cos^2\!\frac{\iphase_A}{2}\,\cos^2\!\frac{\iphase_B}{2}
+&\;=\; \frac14 + \frac14\cos\iphase_A + \frac14\cos\iphase_B
+\notag\\
+&\quad + \frac18\cos(\iphase_A + \iphase_B) + \frac18\cos(\iphase_A - \iphase_B):
+\label{eq:detuned}
+\end{align}
+the line at $\omega$ splits into lines at $\omega_A$ and $\omega_B$, the line at $2\omega$ moves to $\omega_A + \omega_B$, and a line appears at the beat $|\omega_A - \omega_B|$, far below the internal frequency for a small detuning. The identification of the two factors with the two kernels, by which a detuning $\omega_A \neq \omega_B$ of the kernels would appear in this form, is not established here; for the electron, with identical factors, the spectrum is that of Paper~\#66.
+
+\paragraph{The layer of the Dirac frequency.} The same language restates the factor of two between the Dirac and 0-Sphere frequencies that Paper~\#66 left open~\cite{H66}. In a linear theory an observable density is bilinear in the amplitude, and the frequencies it contains are differences of the frequencies of the amplitude. The Dirac Zitterbewegung frequency $2m_ec^2/h$ is of this kind: the difference between the branches at $\pm m_ec^2$ appears in the bilinear layer. In the 0-Sphere model the internal phase appears at the frequency $\nu_{\mathrm{ZB}}$ in the share, which is bilinear in the amplitude, and at $2\nu_{\mathrm{ZB}}$ in the energy, which is bilinear in the product~\eqref{eq:triplet}. Whether the Dirac frequency is to be compared with the line of the share or with that of the energy is a question about which layer is observed, and whether the ratio $\nu_{\mathrm{D}}/\nu_{\mathrm{ZB}} = 2/\bZB$ contains a factor of two beyond $1/\bZB$ depends on its answer. This restates the open item of Paper~\#66 without closing it.
+
+% ========================================
+% Section 8: Consequences
+% ========================================
+\section{Consequences and Constraints}
+\label{sec:consequences}
+
+\paragraph{The momentum of the internal line.} A photon of energy $\bZB m_ec^2$ carries the momentum $\bZB m_ec$, which is the momentum of an electron moving at $v_{\mathrm{ZB}}$. The vacuum wavelength of the internal line is $c/\nu_{\mathrm{ZB}} = 59.95$~pm, and the de~Broglie wavelength of an electron with kinetic energy $(\gamma - 1)m_ec^2 = 419.0$~eV, the energy of the $\beta^2$ layer of the series, is $59.90$~pm; the difference, $8\times10^{-4}$, is the Lorentz factor. The identity holds for any $\bZB$ and does not select its value. Its content is that one quantum of the internal line carries the vacuum momentum $\bZB m_ec$ of a body of mass $m_e$ moving at the internal speed. The canonical momentum of the non-dispersive carrier of Section~\ref{sec:indices} in the internal medium is $h/\lambdaC = m_ec$, larger by the index $1/\bZB$; the two are the vacuum and medium (Minkowski) momenta of the same quantum, and which of them enters the momentum balance of a carrier that reverses its direction at a kernel is the question of the recoil closure of the internal dynamics, which is not developed here.
+
+\paragraph{The internal transfer does not oscillate the charge dipole.} If the charge of the electron moved between the kernels at the internal frequency, it would radiate as an oscillating dipole. In the quantum expression for the total emitted power, $(4/3)(e^2\omega^4/c^3)|r|^2$~\cite{Yukawa1954}, $|r|$ is a matrix element, which corresponds to half the amplitude $x_0$ of a classical oscillation. At $\omega = 2\pi\nu_{\mathrm{ZB}}$ an amplitude $x_0 = \lambdaC/4$, half the separation of the kernels, gives $1.0$~W, which would exhaust the rest energy in $8.0\times10^{-14}$~s; an amplitude $x_0 = \lambdaC/2$ gives $4.1$~W and $2.0\times10^{-14}$~s. The free electron is stable, so the internal transfer cannot carry an oscillating charge dipole. The transfer admitted by the model is one that leaves the centre of charge fixed, which is the form of the divergence-free spin current of the Gordon decomposition (Section~\ref{sec:twotier}). This sharpens the statement of Paper~\#66 that the internal transfer does not radiate~\cite{H66}.
+
+\paragraph{Scattering.} A naive reading of the internal index as a polarizable sphere would give Rayleigh scattering, with a cross section that vanishes as $\omega^4$ below a resonance. A free electron instead scatters low-frequency light with the frequency-independent Thomson cross section, which is verified routinely in laser scattering from plasmas. Had the whole electron responded as an oscillator with resonance at $20.7$~keV, scattering at $2.33$~eV would be suppressed by $(2.33\ \text{eV}/20.7\ \text{keV})^4 = 1.6\times10^{-16}$. The two-tier structure removes this conflict: the centre of mass, a free charge, gives the Thomson and Klein--Nishina cross sections, and the internal tier can contribute at most a resonant feature near $20.7$~keV in the electron rest frame. Compton scattering at $17$--$22$~keV and with synchrotron radiation across this band has been measured extensively and agrees with the Klein--Nishina formula; these data bound the strength and width of any such feature. Extracting that bound is left as a task; it is the same measurement as the X-ray search proposed in Paper~\#66.
+
+% ========================================
+% Section 9: Limitations
 % ========================================
 \section{Limitations}
 \label{sec:limits}
 
-\paragraph{A point-carrier model.} The photon sphere is placed at a single point, $X - \tfrac d2\cos\theta$. The amplitudes of Eq.~(\ref{eq:J}) depend on this choice. If the photon sphere is spread uniformly between the kernels, the recoil contains $\omega$ alone and the second moment $J = \tfrac16E_0d^2\sin^2\theta$ contains $2\omega$ alone; if it travels between the kernels at constant speed, the recoil contains all odd harmonics and the second moment all even harmonics. The finite spectrum ending at $6\omega$ and the shares~(\ref{eq:shares}) are therefore properties of the placement used here, not of the model as a whole. What does not depend on the placement is the existence and uniqueness of the recoil, its amplitude $d/2$, and the absence of odd harmonics in the second moment, which follows whenever the placement respects the exchange of the kernels, $g(\theta + \pi) = -g(\theta)$ for $x_\gamma = X + \tfrac d2g(\theta)$.
+\paragraph{The count of the internal phase.} Section~\ref{sec:indices} takes the internal carrier to be non-dispersive in its lowest mode and counts its phase with $\iphase$. Under these assumptions $\Delta\Sdyn = 2\pi$ and $J = h$ are consistent, Eq.~\eqref{eq:Jh}; without them the closure fixes only the ratio $\nph/\ngr = N$. The count with $\iphase$ is itself a reading. The amplitude of the model is $\cos(\iphase/2)$, whose half angle expresses the double cover of the spinor and returns to its initial value only after $4\pi$~\cite{H65, H29}. Counted with $\iphase/2$, the same round trip accumulates $\pi$ and gives $J = h/2$, the form of the unit of action of spin $\tfrac12$. For a libration between two turning points the lowest Bohr--Sommerfeld value is set by the Maslov index, and both $h$ and $h/2$ occur. Nothing in the present paper decides between the two counts. A description of the internal transfer by the energy identity alone does not require a carrier wave.
 
-\paragraph{The energy budget in transit.} Energy moved between separated points at a speed $u \le c$ occupies the path while it travels. With the rate of transfer fixed by the identity, the energy in transit is at least $(\omega d/2c)E_0$ at $\theta = \pi/2$, which is $6.4\%$ of $E_0$ for $d = \lambda_C/2$, whatever the placement. The three terms of the identity do not contain this energy, and the energy budget of the point-element model therefore fails to close at order $\omega d/c$. The kinetic energy of the recoil, at most $0.25\%$ of $E_0$ for $d = \lambda_C/2$, also lies outside the budget. A model in which the photon sphere is a continuous distribution with an energy density $u$ and an energy current $S$ satisfying $\partial_tu + \partial_xS = 0$ locally is required to remove these discrepancies.
+\paragraph{The rate of the dynamical phase.} The reading of the factor $\bZB$ in $\omZB = \bZB\,m_ec^2/\hbar$ as the ratio $\nu_{\mathrm{ZB}}/\nu_C$ restates the identification of Paper~\#66. It does not derive $\bZB$ from the propagation of the internal carrier, which is the open item of Paper~\#51, and $\bZB$ remains an input from the anomalous magnetic moment.
 
-\paragraph{Kinematics without a force law.} The recoil~(\ref{eq:recoil}) is the motion that the conservation of the mass dipole requires; it is not obtained from an equation of motion. The paper shows that this motion is possible, bounded and subluminal, not that the kernels are driven to perform it. An equation of motion for the kernels would allow Eq.~(\ref{eq:recoil}) to be tested as a solution.
+\paragraph{The rate of a Dirac branch.} Section~\ref{sec:envelope} and Table~\ref{tab:yukawa} take the rest-energy rate $\nu_C$ as the carrier common to both tiers. In the two-kernel amplitude, the two Dirac branches appear as the components $\pm\omZB/2$ of $\cos(\iphase/2)$, and Paper~\#65 relates the internal rate to the branch phase $m_ec^2/\hbar$ by the factor $\bZB$~\cite{H65}. Which rate the phase of a branch carries in the envelope picture is the question of the layer of the Dirac frequency (Section~\ref{sec:discrete}).
 
-\paragraph{Validity of the quadrupole formula.} The quadrupole formula assumes a source small compared with the reduced wavelength of the radiation. The relevant parameter is $k\omega d/c$ for the $k$-th harmonic, which for $d = \lambda_C/2$ is $0.25$, $0.51$ and $0.76$ at $2\omega$, $4\omega$ and $6\omega$. The shares~(\ref{eq:shares}) and the power~(\ref{eq:P}) are therefore estimates whose corrections from higher multipoles and retardation may reach tens of percent at the dominant harmonic; for $d = \lambda_C$ the parameter reaches unity at $4\omega$.
+\paragraph{The envelope equation rests on covariance.} Section~\ref{sec:envelope} obtains the Klein--Gordon form from Lorentz covariance and the rest energy, both retained by the model, together with the Planck--de~Broglie relations and a linear single-component field, and the Schr\"odinger equation from it. What the model contributes is the identification of the factored-out carrier with an internal oscillation and the separation of the external envelope from the internal transfer. The internal tier itself is not shown to produce the dispersion relation; that would require a derivation of the rest energy $m_ec^2$ from the internal transfer.
 
-\paragraph{The recoil and the internal index.} The largest speed of the kernels, $\tfrac34\omega d$, exceeds the group velocity $c/n = \beta_{\text{ZB}}c$ of the internal carrier in Paper \#66~\cite{H66}. For $d = \lambda_C/2$ the ratio is $3\pi/4 = 2.36$, independent of $\beta_{\text{ZB}}$, and the kernels move faster than $c/n$ during $46\%$ of each cycle, wherever $|\sin\theta|^3 > 4/(3\pi)$. If the phase index of the internal region equals its group index, as the critical angle of Paper \#66 assumes, the kernels then move faster than the phase velocity of the carrier, which is the condition for Cherenkov-type emission into the internal region; its consequences for the transfer are not examined here. If instead the phase velocity stays close to $c$ and only the group velocity is reduced, as for a mode confined in a waveguide, the condition does not arise. Which case holds is the relation between the phase index and the group index, left open in Paper \#66.
+\paragraph{The product structure of the energy.} The exact ratio two between the internal lines follows from the uniform advance of $\iphase$; writing the energy as the density of a product adds no constraint for identical factors. The identification of the two factors with physical constituents, the two kernels in particular, is not established, and the split, sum and beat lines of non-identical factors are stated as a consequence of the product reading only. That the Fourier components of the energy at $\nu_{\mathrm{ZB}}$ and $2\nu_{\mathrm{ZB}}$ are emitted or absorbed as lines is not shown.
 
-\paragraph{The curvature side.} The paper derives which moments of the source oscillate. It does not derive the field equations, and the association of the channels with the Ricci and Weyl parts of the curvature in Table~\ref{tab:corr} is a correspondence, not a derivation.
-
-\paragraph{The coupling strength.} The form of the source and the strength of its coupling are separate questions. The gravitational charge must be the total energy alone, independent of the internal speed, and the present paper does not address how the model meets that requirement.
-
-\paragraph{The frequency scale.} The frequencies of the lines are fixed by $\nu_{\text{ZB}}$ of Paper \#66~\cite{H66}. An electron-channeling experiment along the $\langle110\rangle$ direction of a silicon crystal reported an 8\% dip in the transmission near 80.874~MeV, the energy at which the frequency of atomic collisions matches an internal clock at $m_ec^2/h$~\cite{Gouanere2005,Catillon2008}. In the same crystal the frequency $\nu_{\text{ZB}}$ would place the corresponding resonance near 3.3~MeV. The observation rests on a single experiment, and the relation between a clock at $m_ec^2/h$ and the carrier frequency $\nu_{\text{ZB}}$ is not addressed here. The harmonic structure and the shares~(\ref{eq:shares}) do not depend on it; the frequencies and the power~(\ref{eq:P}) do.
-
-\paragraph{The scale of the energy.} Equation~(\ref{eq:P}) takes $E_0 = m_ec^2$ and $d = \lambda_C/2$. Other identifications of the energy scale in the series rescale $P$ but leave the harmonic structure and the shares~(\ref{eq:shares}) unchanged. If the kernels carry a rest energy of their own in addition to $E_0$, the amplitude and the speed of the recoil are reduced in proportion, and the shares change.
+\paragraph{The momentum identity.} The equality of the momentum of the internal line and of a body of mass $m_e$ moving at $v_{\mathrm{ZB}}$ holds for any $\bZB$ and carries no information about its value. Whether the vacuum momentum $\bZB m_ec$ or the medium momentum $m_ec$ enters the recoil balance is not decided here.
 
 % ========================================
-% Section 7: Conclusion
+% Section 10: Conclusion
 % ========================================
 \section{Conclusion}
-\label{sec:conclusion}
 
-The energy identity of the 0-Sphere model, resolved into frequencies, separates into three channels with the roles of the three lowest multipoles of a gravitational source. The constant channel is the conserved total. The fundamental channel, the exchange from one kernel to the other, moves the centre of energy, and the conservation of the mass dipole forces the kernels to recoil in exactly the way that cancels it, so that the channel is gravitationally silent. What remains is a quadrupole that oscillates only at even harmonics of the internal frequency, with a finite spectrum ending at $6\omega$, its amplitude largest at $2\omega$ and its radiated power dominated by $4\omega$. The 0-Sphere electron, in other words, begins at the quadrupole for the same reason that gravitational radiation in general relativity does. The silence of the dipole is a silence of the total momentum, which requires the momentum of the transfer and a photon sphere that moves as a slow body; the remaining discrepancies in the energy budget are of order $\omega d/c$ and point to a continuous description of the photon sphere as the next step.
+The 0-Sphere model had developed the ray half of Hamilton's analogy: thermal geodesics, an optical metric, and a phase accumulated along the arc between the kernels that serves as a principal function. Writing the internal wave in the eikonal form separates the phase, governed by the Hamilton--Jacobi equation and by the phase index, from the intensity, transported at the group velocity and governed by the group index. The two rows of the geodesic hierarchy of the series are the two lowest orders of this expansion. The group index $1/\bZB$ does not depend on the origin of energy; the phase index of a matter wave does. The closure of the internal cycle on a round trip of length $\lambdaC$ fixes the ratio of the two indices of the internal carrier, and a body of the electron's mass moving at the internal speed does not satisfy it. Factoring out the rest-energy oscillation leaves an envelope that obeys the Schr\"odinger equation, and the resulting two tiers, an external envelope that spreads and an internal transfer whose envelope is restored by the energy identity, correspond to the convective and spin terms of the Gordon decomposition. The internal tier lies outside Schr\"odinger dynamics, since a packet of its size doubles in less than half a cycle. For a non-dispersive carrier whose phase is counted with the internal phase $\iphase$, the dynamical phase accumulates $2\pi$ per round trip and the internal action is $J = h$; counted with the half angle of the amplitude it is $h/2$, and the choice between the two counts is left open. The uniform advance of the internal phase places the second Fourier component of the energy at exactly $41.36$~keV; written as the density of a product of two amplitudes, the energy shows that non-identical factors would split the first line and add sum and beat lines. The stability of the free electron requires that the internal transfer leave the centre of charge fixed.
 
 \appendix
 
 % ========================================
-% Appendix A: Numbers and Their Reproduction
+% Appendix A: Numbers
 % ========================================
 \section{Numbers and Their Reproduction}
 \label{app:numbers}
 
-With $\beta_{\text{ZB}}^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}: $\nu_{\text{ZB}} = 5.0007\times10^{18}$~Hz, and the harmonics $2\omega$, $4\omega$, $6\omega$ lie at $1.0001\times10^{19}$, $2.0003\times10^{19}$ and $3.0004\times10^{19}$~Hz, or $41.4$, $82.7$ and $124.1$~keV. The script \texttt{verify68.py} deposited with this paper checks the identity~(\ref{eq:fourier}), the rigidity of the amplitudes~(\ref{eq:rigid}), the vanishing of the dipole~(\ref{eq:dipole}) under the closure~(\ref{eq:recoil}) to machine precision, the two parts~(\ref{eq:twoparts}) of the momentum and their sum, the largest speeds of the kernels and of the photon sphere, the closed form~(\ref{eq:J}), the coefficient $4045/4096$, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}) for $d = \lambda_C/2$ and $d = \lambda_C$, the antisymmetry of the energy difference $T_A - T_B$ under the exchange of the kernels, and the ratio $3\pi/4$ of the largest speed of the kernels to $c/n$ with the fraction of the cycle in which it is exceeded.
+All numbers follow from $\bZB^2 = 0.00163798087$ and CODATA 2022 constants~\cite{CODATA2022}:
+\begin{align}
+\bZB &= 0.040472,
+\notag\\
+1/\bZB &= 24.708, \quad 2/\bZB = 49.42,
+\notag\\
+\lambdaC &= 2.42631\times10^{-12}\ \text{m},
+\notag\\
+\nu_C &= 1.2356\times10^{20}\ \text{Hz},
+\notag\\
+\nu_{\mathrm{ZB}} &= 5.0007\times10^{18}\ \text{Hz},
+\notag\\
+\text{line energies} &= 20.68\ \text{keV},\ 41.36\ \text{keV},
+\notag\\
+\lambda_{\mathrm{dB}}(v_{\mathrm{ZB}}) &= 59.90\ \text{pm} \quad (419.0\ \text{eV}),
+\notag\\
+c/\nu_{\mathrm{ZB}} &= 59.95\ \text{pm},
+\notag\\
+\hbar/2m_e &= 5.788\times10^{-5}\ \text{m}^2/\text{s},
+\notag\\
+T(a = \lambdaC) &= 8.81\times10^{-20}\ \text{s},
+\notag\\
+T\nu_{\mathrm{ZB}} &= 0.440,
+\notag\\
+P(x_0 = \lambdaC/4) &= 1.0\ \text{W},
+\notag\\
+m_ec^2/P &= 8.0\times10^{-14}\ \text{s},
+\notag\\
+P(x_0 = \lambdaC/2) &= 4.1\ \text{W},
+\notag\\
+m_ec^2/P &= 2.0\times10^{-14}\ \text{s},
+\notag\\
+(2.33\ \text{eV}/20.68\ \text{keV})^4 &= 1.6\times10^{-16}.
+\label{eq:allnumbers}
+\end{align}
+The following script reproduces every value.
+
+\lstinputlisting{verify68.py}
 
 % ========================================
-% Appendix B: Blind Verification
-% ========================================
-\section{Blind Verification}
-\label{app:blind}
-
-The kinematic content of Secs.~\ref{sec:dipole}--\ref{sec:quadrupole} was checked by two independent verifications carried out before the results above were shown to them. Each verifier received the same brief, which stated the energies~(\ref{eq:energies}), the placement of the kernels and of the photon sphere, the conservation of the mass dipole, and six questions, and which contained none of the results. Each worked in a separate folder containing only the brief, with no access to the web, to earlier conversations or to stored memory, and wrote its report and scripts into that folder.
-
-\begin{itemize}[leftmargin=1.2em]
-\item Verifier A: Claude Opus 5.5 (Anthropic), reasoning effort medium, run in Claude Code on 13 November 2026, about ten minutes.
-\item Verifier B: Claude Fable 5.2 (Anthropic), reasoning effort medium, run in Claude Code on 13 November 2026, about sixteen minutes.
-\end{itemize}
-
-\paragraph{Agreement.} Both verifiers obtained, independently and by different routes, the oscillation of the dipole for fixed kernels, the recoil~(\ref{eq:recoil}) in the form $\tfrac d{16}(9\cos\theta - \cos3\theta)$, its uniqueness up to a constant, its amplitude $d/2$ and largest speed $\tfrac34\omega d$, the closed form~(\ref{eq:J}), the absence of odd harmonics, the shares~(\ref{eq:shares}) and the power~(\ref{eq:P}). Verifier A solved the problem symbolically and confirmed it numerically; verifier B combined symbolic and numerical work and changed from symbolic integration to a fast Fourier transform when the former proved too slow.
-
-\paragraph{Points raised.} The verifiers raised the points that are now stated in Sec.~\ref{sec:bookkeeping} and Sec.~\ref{sec:limits}: that the vanishing of the dipole is true by construction and that the non-trivial test is the bookkeeping of momentum (both); that the fundamental survives in the momentum of each element (both); that the momentum $K/c$ of free light is incompatible with the bookkeeping (both); that the energy in transit lies outside the budget at order $\omega d/c$ (A), and that the kinetic energy of the recoil does as well (B); that the quadrupole formula is at the edge of its validity for $d = \lambda_C$ (A); that the recoil is kinematic and lacks a force law (B); and that the result depends on the placement of the photon sphere (both). Verifier B also noted that an electric charge located at the kernels would produce an oscillating electric dipole; the Scope paragraph of Sec.~I records why the 0-Sphere model does not place the charge there. The comparison also exposed an inconsistency in an earlier draft of this paper, which used $d = \lambda_C$ for the power while taking the core separation to be $\lambda_C/2$; the present version uses $\lambda_C/2$ throughout. The reports and scripts of both verifiers are deposited with this paper.
-
-% ========================================
-% Appendix C: Inputs, Results and Open Items
+% Appendix B: Interface
 % ========================================
 \section{Inputs, Results and Open Items}
 \label{app:interface}
 
 \paragraph{Inputs.}
 \begin{itemize}[leftmargin=2.4em]
-\item[I1.] The energy identity and its frequency content (Papers \#65, \#66).
-\item[I2.] $\beta_{\text{ZB}}$ and $\nu_{\text{ZB}}$ (Papers \#10, \#62, \#66).
-\item[I3.] Conservation of the mass dipole of an isolated system (standard).
+\item[I1.] $\bZB^2 = 0.00163798087$ (Paper~\#10).
+\item[I2.] The phase functional $\mathcal{S} = \Sdyn + \mathcal{S}_{\mathrm{geo}}$ and the world function $\sigma_{\mathcal{S}}$ (Paper~\#51, version~3).
+\item[I3.] The internal index $n = 1/\bZB$, the round trip of length $\lambdaC$, and the discrete spectrum $0$, $\omega$, $2\omega$ (Paper~\#66).
 \end{itemize}
 
 \paragraph{Results.}
 \begin{itemize}[leftmargin=2.4em]
-\item[R1.] The identity balances in three channels: constant, antisymmetric fundamental, symmetric second harmonic (Sec.~\ref{sec:channels}).
-\item[R2.] Fixed kernels violate the conservation of the mass dipole, Eq.~(\ref{eq:fixed}).
-\item[R3.] The recoil closure~(\ref{eq:recoil}) cancels the dipole identically; the fundamental channel is gravitationally silent in total, while each element retains it. The kernels move at most at $0.0954\,c$ for $d = \lambda_C/2$.
-\item[R4.] The second moment~(\ref{eq:J}) contains only $2\omega$, $4\omega$, $6\omega$; amplitude peaks at $2\omega$, radiated power at $4\omega$ ($79.11\%$, $82.7$~keV).
-\item[R5.] $P = 6.3\times10^{-45}$~W for $M = m_e$, $d = \lambda_C/2$ ($1.00\times10^{-43}$~W for $d = \lambda_C$); stability is unaffected.
-\item[R6.] The hierarchy monopole, silent dipole, quadrupole coincides with that of a gravitational source in general relativity (Table~\ref{tab:corr}).
-\item[R7.] The momentum bookkeeping closes only with the momentum of the transfer, Eq.~(\ref{eq:twoparts}), and only if the photon sphere carries the momentum $Kv/c^2$ of a slow body, consistent with the group velocity $c/n$ of Paper \#66.
-\item[R8.] The kinematic results were reproduced by two blind verifications (Appendix~\ref{app:blind}).
-\item[R9.] The single-frequency quadrupole of Paper \#58, proportional to $T_A - T_B$ with fixed kernels, is superseded by Eq.~(\ref{eq:J}) (Sec.~\ref{sec:intro}).
+\item[R1.] The eikonal expansion separates the phase (Hamilton--Jacobi, phase index) from the intensity (continuity at the group velocity, group index); the two rows of the geodesic hierarchy of Paper~\#51 are its two lowest orders.
+\item[R2.] The group index $1/\bZB$ is independent of the origin of energy; the phase index of a matter wave is $\bZB$ with the rest energy kept and $2/\bZB$ with it removed.
+\item[R3.] The closure of the internal cycle fixes the ratio $\nph/\ngr = N$ of the indices of the internal carrier; a body of mass $m_e$ moving at $v_{\mathrm{ZB}}$ does not close. For the non-dispersive lowest mode with its phase counted by $\iphase$, the dynamical phase accumulates $2\pi$ per round trip and $J = h$; counted by $\iphase/2$, $J = h/2$.
+\item[R4.] Factoring out $\nu_C$ leaves an envelope obeying the Schr\"odinger equation, a heat equation with imaginary diffusivity $(\lambdaC/2)(c/2\pi)$.
+\item[R5.] Two tiers: external envelope (continuous, spreading, convective current) and internal transfer (discrete, restored, spin current); a free Schr\"odinger packet of width $\lambdaC$ doubles in $0.44$ of an internal cycle.
+\item[R6.] The uniform advance of $\iphase$ places the second Fourier component of the energy at exactly $2\nu_{\mathrm{ZB}}$. Written as the density of a product of two amplitudes, non-identical factors would give lines at $\omega_A$, $\omega_B$, $\omega_A + \omega_B$ and $|\omega_A - \omega_B|$.
+\item[R7.] The internal transfer may not oscillate the charge dipole; a free electron would otherwise lose its rest energy within $10^{-13}$~s.
 \end{itemize}
 
 \paragraph{Open items.}
 \begin{itemize}[leftmargin=2.4em]
-\item[O1.] The energy distribution of the photon sphere beyond the point-carrier model, and the resulting amplitudes.
-\item[O2.] The curvature side: derivation of the field equations, and of the Ricci and Weyl association.
-\item[O3.] Whether the doubling in the energies and the doubling of the binary quadrupole share one origin.
-\item[O4.] The gravitational charge and its independence of the internal speed.
-\item[O5.] A continuous model of the photon sphere with local conservation $\partial_tu + \partial_xS = 0$, which would include the energy in transit and remove the discrepancy of order $\omega d/c$.
-\item[O6.] An equation of motion for the kernels, against which the recoil~(\ref{eq:recoil}) can be tested as a solution.
-\item[O7.] Corrections beyond the quadrupole formula at the dominant harmonic.
-\item[O8.] Whether the kernels, whose speed exceeds $c/n$ by a factor of up to $3\pi/4$, satisfy a Cherenkov-type condition inside the internal region; this turns on the relation between the phase index and the group index of Paper \#66 (Sec.~\ref{sec:limits}).
+\item[O1.] The count of the internal phase ($\iphase$, giving $J = h$, or $\iphase/2$, giving $J = h/2$) and the non-dispersive lowest mode, on which R3 rests.
+\item[O2.] A derivation of the rest energy $m_ec^2$, and with it of the dispersion relation of the whole electron, from the internal transfer.
+\item[O3.] The physical identity of the two factors of the product in R6, and whether a detuning of the kernels appears as the shifted and beat lines.
+\item[O4.] The layer (bilinear or quartic) with which the Dirac frequency is to be compared, and the rate carried by the phase of a Dirac branch.
+\item[O5.] The bound on an internal resonance near $20.7$~keV from existing Compton-scattering data.
+\item[O6.] The recoil closure suggested by the momentum identity, including whether the vacuum or the medium momentum enters it.
 \end{itemize}
 
 % ========================================
 % Acknowledgments
 % ========================================
 \begin{acknowledgments}
-The conception of this paper, the framing of its questions and every decision to adopt or reject a result are the author's. The work builds on the author's earlier papers in this series and on a sequence of working sessions with the language model Claude Opus 5.5 (Anthropic), which drafted the manuscript, proposed derivations and carried out numerical checks. The kinematic results were in addition verified blind by two separately launched instances, Claude Opus 5.5 and Claude Fable 5.2 (Anthropic), each run with reasoning effort medium and given only a brief from which the results were withheld (Appendix~\ref{app:blind}); the points they raised are incorporated in Secs.~\ref{sec:bookkeeping} and~\ref{sec:limits}. Every derivation adopted here was checked by the author and is reproduced by the verification script deposited with this paper.
+The conception of this paper, the framing of its questions and every decision to adopt or reject a result are the author's. The author selected and read Ref.~\cite{Yukawa1954} against the series in working sessions with the language model Claude Opus 5.5 (Anthropic), which drafted the manuscript, proposed derivations and literature precedents, carried out numerical checks, and, as a separate instance given only the manuscript and its sources, reviewed the draft adversarially. Every derivation adopted here was checked by the author and is reproduced by the verification script deposited with this paper.
 \end{acknowledgments}
 
 % ========================================
@@ -474,39 +577,38 @@ The conception of this paper, the framing of its questions and every decision to
 % ========================================
 \begin{thebibliography}{99}
 
-\bibitem{MTW} C. W. Misner, K. S. Thorne, and J. A. Wheeler, \textit{Gravitation} (W. H. Freeman, San Francisco, 1973), Ch.~36.
+\bibitem{Yukawa1954} H. Yukawa, \textit{Ry\=oshi Rikigaku Josetsu} [\textit{Introduction to Quantum Mechanics}], revised and enlarged edition (K\=obund\=o, Tokyo, 1954); reissued as \textit{Yukawa Hideki Ry\=oshi Rikigaku Josetsu} (Osaka University Press, Osaka, 2021), Secs.~5, 6, 10, 11, 25, 26, 27 and Appendix~I.
 
-\bibitem{Maggiore} M. Maggiore, \textit{Gravitational Waves, Vol.~1: Theory and Experiments} (Oxford University Press, Oxford, 2008), Ch.~3.
+\bibitem{Hamilton1834} W. R. Hamilton, On a general method in dynamics, Phil. Trans. R. Soc. London \textbf{124}, 247 (1834).
 
-\bibitem{LIGO2016} B. P. Abbott \textit{et al.} (LIGO Scientific Collaboration and Virgo Collaboration), Observation of gravitational waves from a binary black hole merger, Phys. Rev. Lett. \textbf{116}, 061102 (2016).
+\bibitem{Schrodinger1926} E. Schr\"odinger, Quantisierung als Eigenwertproblem (Zweite Mitteilung), Ann. Phys. \textbf{384}, 489 (1926).
 
-\bibitem{H65} S. Hanamura, From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model (Paper \#65), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{DOI: 10.5281/zenodo.23257458}.
+\bibitem{H24} S. Hanamura, Thermal Geodesics in the 0-Sphere Model: Extending General Relativity through Internal Thermodynamic Structure (Paper \#24), Zenodo (2025), \href{https://doi.org/10.5281/zenodo.17765349}{DOI: 10.5281/zenodo.17765349}.
 
-\bibitem{H51} S. Hanamura, Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model (Paper \#51), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20388056}{DOI: 10.5281/zenodo.20388056}.
+\bibitem{H51} S. Hanamura, Helical Trajectory, Fixed-Endpoint Line Integrals, and the Emergence of the Spacetime Metric in the 0-Sphere Model (Paper \#51, version 3), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.24521440}{DOI: 10.5281/zenodo.24521440}.
 
 \bibitem{H66} S. Hanamura, Subluminal Zitterbewegung and the Invariant Speed: An Internal Refractive Index for the 0-Sphere Model (Paper \#66), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23750210}{DOI: 10.5281/zenodo.23750210}.
 
-\bibitem{H58} S. Hanamura, Spin-2 Structure of the Gravitational Mediator: Phase-Stable Pair Emission and Quadrupole Radiation in the 0-Sphere Model (Paper \#58), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19932861}{DOI: 10.5281/zenodo.19932861}.
+\bibitem{H65} S. Hanamura, From Zero and One to the Electron: Path-Connectedness, the Double Cover, and the Geometric Origin of the Quartic Energy in the 0-Sphere Model (Paper \#65), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.23257458}{DOI: 10.5281/zenodo.23257458}.
 
-\bibitem{H59} S. Hanamura, Proton-Trapped Electron as the Generator of Spin-2 Gravitational Radiation: Coulomb Confinement, ZB Axis Locking, and the Separation of Gravitational and Electromagnetic Sectors (Paper \#59), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.19932907}{DOI: 10.5281/zenodo.19932907}.
+\bibitem{H29} S. Hanamura, Geometric Structure of Spinorial Phase Accumulation along Thermal Geodesics (Paper \#29), Zenodo (2025), \href{https://doi.org/10.5281/zenodo.18067760}{DOI: 10.5281/zenodo.18067760}.
 
-\bibitem{H10} S. Hanamura, Redefining Electron Spin and Anomalous Magnetic Moment Through Harmonic Oscillation and Lorentz Contraction (Paper \#10), Zenodo (2024), \href{https://doi.org/10.5281/zenodo.17764997}{DOI: 10.5281/zenodo.17764997}.
+\bibitem{Berry1984} M. V. Berry, Quantal phase factors accompanying adiabatic changes, Proc. R. Soc. Lond. A \textbf{392}, 45 (1984).
 
-\bibitem{H62} S. Hanamura, The Bridge Equation $\gamma = 1 + a$ from First Principles: Representation Duality of the Anomalous Moment and the Geometric Origin of the Root-Mean-Square Factor in the 0-Sphere Model (Paper \#62), Zenodo (2026), \href{https://doi.org/10.5281/zenodo.20091680}{DOI: 10.5281/zenodo.20091680}.
+\bibitem{Synge1960} J. L. Synge, \textit{Relativity: The General Theory} (North-Holland, Amsterdam, 1960), Ch.~2.
 
-\bibitem{Schrodinger1930} E. Schr\"odinger, \"Uber die kr\"aftefreie Bewegung in der relativistischen Quantenmechanik, Sitzungsber. Preuss. Akad. Wiss. Phys.-Math. Kl. \textbf{24}, 418 (1930).
+\bibitem{Madelung1927} E. Madelung, Quantentheorie in hydrodynamischer Form, Z. Phys. \textbf{40}, 322 (1927).
 
-\bibitem{Roussy2023} T. S. Roussy \textit{et al.}, An improved bound on the electron's electric dipole moment, Science \textbf{381}, 46 (2023), \href{https://doi.org/10.1126/science.adg4084}{DOI: 10.1126/science.adg4084}.
+\bibitem{deBroglie1925} L. de Broglie, Recherches sur la th\'eorie des quanta, Ann. Phys. (Paris) \textbf{3}, 22 (1925).
 
-\bibitem{Gouanere2005} M. Gouan\`ere \textit{et al.}, Experimental observation compatible with the particle internal clock, Ann. Fond. Louis de Broglie \textbf{30}, 109 (2005).
+\bibitem{Siegman1986} A. E. Siegman, \textit{Lasers} (University Science Books, Mill Valley, 1986), Ch.~16.
 
-\bibitem{Catillon2008} P. Catillon, N. Cue, M. J. Gaillard, R. Genre, M. Gouan\`ere, R. G. Kirsch, J.-C. Poizat, J. Remillieux, L. Roussel, and M. Spighel, A search for the de Broglie particle internal clock by means of electron channeling, Found. Phys. \textbf{38}, 659 (2008).
+\bibitem{Gordon1928} W. Gordon, Der Strom der Diracschen Elektronentheorie, Z. Phys. \textbf{50}, 630 (1928).
+
+\bibitem{Heisenberg1925} W. Heisenberg, \"Uber quantentheoretische Umdeutung kinematischer und mechanischer Beziehungen, Z. Phys. \textbf{33}, 879 (1925).
 
 \bibitem{CODATA2022} P. J. Mohr, D. B. Newell, B. N. Taylor, and E. Tiesinga, CODATA recommended values of the fundamental physical constants: 2022, Rev. Mod. Phys. \textbf{97}, 025002 (2025).
 
 \end{thebibliography}
 
-% ========================================
-% End of Document
-% ========================================
 \end{document}

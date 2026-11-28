@@ -16,7 +16,7 @@ NOTE: Citation policy of the series (2026-11-13): only papers deposited on
 
 NOTE: Paper #65 (10.5281/zenodo.23257458) lists in its bibliography an entry
   "#66 = Three Tests of the Weak Equivalence Principle in the 0-Sphere Model
-  ... (in preparation)". That working title now belongs to #68 (renumbering of
+  ... (in preparation)". That working title now belongs to #70 (renumbering of
   2026-11-13). The entry of #65 is corrected in the next version of #65. No
   relation is entered here for it.
 
